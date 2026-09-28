@@ -1,0 +1,62 @@
+---
+title: Overzicht van privacy en voorwaarden
+description: Overzicht van de juridische documenten van EpoCanvas Mail — identiteit van het platform, rollen bij gegevensverwerking, documentstructuur, rangorde en contactpunten.
+---
+
+# Privacy en voorwaarden
+
+**Datum van inwerkingtreding: 29 september 2026 | Versie: 4.1**
+
+Deze pagina is de gids van alle juridische documenten van de dienst EpoCanvas Mail (hierna «de Dienst») en beschrijft de rollen van de partijen, de documentstructuur en de volgorde van toepassing. Voordat u zich registreert voor de Dienst of deze gebruikt, dient u deze pagina te lezen, samen met het [Privacybeleid](/nl/mail/privacy-policy/) en de [Servicevoorwaarden](/nl/mail/terms-of-service/).
+
+![Juridische documentarchitectuur van EpoCanvas Mail: de Servicevoorwaarden als contractlaag, het Privacybeleid en het Beleid voor acceptabel gebruik als beleidslaag, Gegevensverwerking en beveiliging, de Lijst van verwerkers en de Begrippenlijst als ondersteunende documenten; alles rustend op de basis van het recht van de Republiek China en de beveiligingsverplichting van artikel 20-1 van de Persoonsgegevenswet](/images/mail/legal-architecture.svg)
+
+*Figuur: de architectuur van de juridische documenten op deze site. De Servicevoorwaarden stellen de contractuele voorwaarden vast; het Privacybeleid bevat de informatieverplichtingen en grondslagen van artikel 8 en artikel 19 tot en met artikel 21 van de Persoonsgegevenswet; het Beleid voor acceptabel gebruik stelt de grenzen van gedrag vast; Gegevensverwerking en beveiliging, de Lijst van verwerkers en de Begrippenlijst zijn ondersteunende documenten. Alle documenten worden beheerst door het recht van de Republiek China.*
+
+## 1. Platformidentiteit
+
+EpoCanvas Mail is een open source-e-maildienst gebouwd op de edge-computingarchitectuur van Cloudflare (Workers, D1, KV, R2); de broncode wordt uitgegeven onder de MIT-licentie. De Dienst kan in de volgende twee vormen worden aangeboden:
+
+1. **Gehoste instance**: een openbare site (`mail.epocanvas.com`) die door het exploitatieteam wordt uitgebaat, met een bijbehorende mobiele app (epomail);
+2. **Zelfgehoste instance**: een privésite die door een ieder, zij het een persoon, team of organisatie, op basis van de open source-broncode wordt geïmplementeerd onder het eigen domein en binnen het eigen Cloudflare-account.
+
+## 2. Bepaling van de rollen bij gegevensverwerking
+
+De juridische documenten van de Dienst zijn in de eerste plaats gebaseerd op de Taiwaneese Persoonsgegevenswet (個人資料保護法, "PDPA"); het onderscheid tussen de rollen «verwerkingsverantwoordelijke» en «verwerker» komt overeen met de algemene indeling die in rechtstelsels zoals de Algemene verordening gegevensbescherming (AVG) van de Europese Unie bestaat.
+
+![Verantwoordelijkheidsgrenzen van EpoCanvas Mail: het upstream open source-project (MIT-licentie) levert de broncode; de instance die u gebruikt wordt onafhankelijk uitgebaat door de Exploitant, die de verantwoordelijkheid van verwerkingsverantwoordelijke draagt; uw account en uw e-mailgegevens worden bewaard in de Cloudflare-resources van die instance](/images/mail/self-host-responsibilities.svg)
+
+*Figuur: de verantwoordelijkheidsgrenzen tussen software, Exploitant en gebruikers. De upstream open source-auteurs exploiteren geen enkele e-maildienst en zijn niet aansprakelijk voor het handelen van enige instance.*
+
+| Situatie | Verwerkingsverantwoordelijke | Verwerker |
+| --- | --- | --- |
+| Gehoste instance | Het exploitatieteam (wat betreft accountgegevens en beveiligingsauditrecords); wat betreft de e-mailinhoud die gebruikers uitwisselen, verwerkt de Exploitant die binnen het bestek dat nodig is voor het verlenen van de communicatiedienst | Verwerkers zoals Cloudflare en Resend |
+| Zelfgehoste instance | De persoon of organisatie die de instance implementeert (de enige en exclusieve verwerkingsverantwoordelijke) | De infrastructuurdienstenaanbieders die die implementateur configureert |
+
+De open source-broncode zelf verzamelt, uploadt en retourneert geen enkele telemetrie; de upstream-auteurs komen niet in aanraking met de operationele gegevens van enige instance. Zelfhosters dienen zich te realiseren dat zij vanaf het moment van implementatie de verwerkingsverantwoordelijke van hun gebruikers worden: zij dienen hun gebruikers op grond van artikel 8 van de PDPA de vereiste informatie te verstrekken, op grond van artikel 20-1 beveiligingsonderhoud uit te voeren en op grond van artikel 22 controle door de Commissie voor de Bescherming van Persoonsgegevens (PDPC) te dulden.
+
+## 3. Documentstructuur
+
+De juridische documenten op deze site zijn per thema ingedeeld; de documenten verwijzen naar elkaar en vormen samen het volledige geheel van afspraken:
+
+| Document | Inhoud |
+| --- | --- |
+| [Privacybeleid](/nl/mail/privacy-policy/) | Het verzamelen, verwerken en gebruiken van persoonsgegevens; de wettelijke grondslagen (artikel 19 en artikel 20 van de PDPA); de rechten van de betrokkene; internationale doorgifte |
+| [Servicevoorwaarden](/nl/mail/terms-of-service/) | De contractuele voorwaarden voor het gebruik van de Dienst; rechten en verplichtingen; beperking van aansprakelijkheid; toepasselijk recht en bevoegde rechter |
+| [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/) | De juridische grenzen van gebruikersgedrag; de lijst van verboden handelingen met de bijbehorende wettelijke grondslag; handhavingsprocedures |
+| [Gegevensverwerking en beveiliging](/nl/mail/data-security/) | De gegevenslevenscyclus; de verwerkingsmatrix; de beveiligingsmaatregelen opgesteld overeenkomstig artikel 12 van de Uitvoeringsregeling; incidentrespons; medewerking aan controles |
+| [Lijst van verwerkers](/nl/mail/sub-processors/) | Verwerkers, ontvangers van gegevens, betrokken gegevens en waarborgmechanismen voor internationale doorgifte |
+| [Begrippenlijst](/nl/mail/key-terms/) | De definities van de technische en juridische termen die in de juridische documenten op deze site worden gebruikt |
+
+## 4. Rangorde
+
+1. Voor privacykwesties vormt het [Privacybeleid](/nl/mail/privacy-policy/) de bijzondere regeling; voor de voorwaarden voor het gebruik van de Dienst vormen de [Servicevoorwaarden](/nl/mail/terms-of-service/) de bijzondere regeling; overige kwesties worden uitgelegd naar de structuur die op deze pagina staat.
+2. Bij tegenstrijdigheden tussen de documenten gaat het document dat rechtstreeks betrekking heeft op het betreffende onderwerp voor.
+3. De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
+
+## 5. Contactpunten
+
+- **Privacykwesties en klachten over gegevensbescherming**: `privacy@epocanvas.com`
+- **Contact binnen het product**: intern bericht of `admin@epocanvas.com`
+- **Open source-project**: Issues in de GitHub-repository (`github.com/shijianus/epomail`)
+- **Zelfgehoste sites**: neem contact op met de Exploitant via de door die site gepubliceerde contactgegevens

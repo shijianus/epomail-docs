@@ -1,0 +1,10 @@
+# 依赖与构建产物不入库
+node_modules/
+dist/
+.astro/
+
+# 本机环境与核验产物
+.DS_Store
+*.log
+tmp_laws/
+screenshots/

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Personal data lifecycle: collect, process, use, transfer, retain, destroy — with PDPA anchors">
+  <style>
+    .bg { fill: #f8fafc; }
+    .stage { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .stage-1 { fill: #eff6ff; stroke: #2563eb; }
+    .stage-num { font: 700 11px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #2563eb; }
+    .stage-t { font: 600 14.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
+    .stage-b { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #64748b; }
+    .law { font: 600 10px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #2563eb; letter-spacing: 0.4px; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.6; fill: none; marker-end: url(#dh); }
+    .band { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .band-t { font: 600 12.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
+    .band-b { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #475569; }
+    .chip { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1; rx: 8; }
+    .chip-t { font: 600 10.5px ui-monospace, 'Cascadia Code', Consolas, monospace; fill: #475569; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .stage { fill: #111827; stroke: #1e293b; }
+      .stage-1 { fill: rgba(59,130,246,0.10); stroke: #3b82f6; }
+      .stage-num { fill: #60a5fa; }
+      .stage-t { fill: #f1f5f9; }
+      .stage-b { fill: #94a3b8; }
+      .law { fill: #60a5fa; }
+      .arrow { stroke: #475569; }
+      .band { fill: #111827; stroke: #1e293b; }
+      .band-t { fill: #f1f5f9; }
+      .band-b { fill: #94a3b8; }
+      .chip { fill: #1e293b; stroke: #334155; }
+      .chip-t { fill: #94a3b8; }
+    }
+  </style>
+  <defs>
+    <marker id="dh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1000" height="430" rx="16"/>
+
+  <!-- six lifecycle stages -->
+  <rect class="stage-1" x="40" y="60" width="140" height="120" rx="12"/>
+  <text class="stage-num" x="58" y="86">1</text>
+  <text class="stage-t" x="76" y="88">Collect</text>
+  <text class="stage-b" x="58" y="112">Registration, mail</text>
+  <text class="stage-b" x="58" y="128">in/out, security logs</text>
+  <text class="law" x="58" y="160">PDPA ART. 19</text>
+
+  <rect class="stage" x="200" y="60" width="140" height="120" rx="12"/>
+  <text class="stage-num" x="218" y="86">2</text>
+  <text class="stage-t" x="236" y="88">Process</text>
+  <text class="stage-b" x="218" y="112">Edge parsing,</text>
+  <text class="stage-b" x="218" y="128">encryption at rest</text>
+  <text class="law" x="218" y="160">PDPA ART. 19</text>
+
+  <rect class="stage" x="360" y="60" width="140" height="120" rx="12"/>
+  <text class="stage-num" x="378" y="86">3</text>
+  <text class="stage-t" x="396" y="88">Use</text>
+  <text class="stage-b" x="378" y="112">Service delivery,</text>
+  <text class="stage-b" x="378" y="128">abuse prevention</text>
+  <text class="law" x="378" y="160">PDPA ART. 20</text>
+
+  <rect class="stage" x="520" y="60" width="140" height="120" rx="12"/>
+  <text class="stage-num" x="538" y="86">4</text>
+  <text class="stage-t" x="556" y="88">Transfer</text>
+  <text class="stage-b" x="538" y="112">Entrusted processors,</text>
+  <text class="stage-b" x="538" y="128">user-triggered AI</text>
+  <text class="law" x="538" y="160">PDPA ART. 21</text>
+
+  <rect class="stage" x="680" y="60" width="140" height="120" rx="12"/>
+  <text class="stage-num" x="698" y="86">5</text>
+  <text class="stage-t" x="716" y="88">Retain</text>
+  <text class="stage-b" x="698" y="112">Storage matrix,</text>
+  <text class="stage-b" x="698" y="128">log evidence</text>
+  <text class="law" x="698" y="160">RULES ART. 12</text>
+
+  <rect class="stage" x="840" y="60" width="120" height="120" rx="12"/>
+  <text class="stage-num" x="858" y="86">6</text>
+  <text class="stage-t" x="876" y="88">Destroy</text>
+  <text class="stage-b" x="858" y="112">Routine purge,</text>
+  <text class="stage-b" x="858" y="128">physical delete</text>
+  <text class="law" x="858" y="160">IRREVERSIBLE</text>
+
+  <path class="arrow" d="M182,120 L196,120"/>
+  <path class="arrow" d="M342,120 L356,120"/>
+  <path class="arrow" d="M502,120 L516,120"/>
+  <path class="arrow" d="M662,120 L676,120"/>
+  <path class="arrow" d="M822,120 L836,120"/>
+
+  <!-- storage band -->
+  <rect class="band" x="40" y="222" width="560" height="150" rx="12"/>
+  <text class="band-t" x="64" y="250">Where data lives</text>
+  <rect class="chip" x="64" y="264" width="150" height="28" rx="8"/>
+  <text class="chip-t" x="78" y="283">Cloudflare D1</text>
+  <text class="band-b" x="228" y="283">Accounts, mail metadata, message bodies</text>
+  <rect class="chip" x="64" y="302" width="150" height="28" rx="8"/>
+  <text class="chip-t" x="78" y="321">Cloudflare KV</text>
+  <text class="band-b" x="228" y="321">Sessions, rate-limit counters, caches</text>
+  <rect class="chip" x="64" y="340" width="150" height="28" rx="8"/>
+  <text class="chip-t" x="78" y="359">Cloudflare R2</text>
+  <text class="band-b" x="228" y="359">Attachments and raw mail blobs</text>
+
+  <rect class="band" x="620" y="222" width="340" height="150" rx="12"/>
+  <text class="band-t" x="644" y="250">Retention highlights</text>
+  <text class="band-b" x="644" y="276">• Spam quarantine → trash after 7 days</text>
+  <text class="band-b" x="644" y="298">• Trash purged 7 days after receipt (with attachments)</text>
+  <text class="band-b" x="644" y="320">• Account deletion: sessions revoked instantly;</text>
+  <text class="band-b" x="644" y="342">   physical removal on operator action</text>
+</svg>

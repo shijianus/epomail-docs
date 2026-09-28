@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Legal architecture: the Terms of Service sit on top of the policy set, all governed by Republic of China law">
+  <style>
+    .bg { fill: #f8fafc; }
+    .layer { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .top { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.5; }
+    .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1.5; }
+    .t { font: 600 15px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
+    .b { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #64748b; }
+    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: 1.2px; fill: #2563eb; }
+    .law { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #475569; }
+    .vline { stroke: #cbd5e1; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .layer { fill: #111827; stroke: #1e293b; }
+      .top { fill: rgba(59,130,246,0.10); stroke: #3b82f6; }
+      .base { fill: #111827; stroke: #1e293b; }
+      .t { fill: #f1f5f9; }
+      .b { fill: #94a3b8; }
+      .tag { fill: #60a5fa; }
+      .law { fill: #94a3b8; }
+      .vline { stroke: #334155; }
+    }
+  </style>
+  <rect class="bg" width="1000" height="430" rx="16"/>
+
+  <!-- top layer -->
+  <rect class="top" x="250" y="46" width="500" height="86" rx="12"/>
+  <text class="tag" x="274" y="72">CONTRACT LAYER</text>
+  <text class="t" x="274" y="94">Terms of Service</text>
+  <text class="b" x="274" y="110">Electronically agreed — Electronic Signatures Act, Art. 4</text>
+  <text class="b" x="274" y="126">30-day review period — Consumer Protection Act, Art. 11-1</text>
+
+  <!-- connectors -->
+  <line class="vline" x1="360" y1="132" x2="360" y2="168"/>
+  <line class="vline" x1="500" y1="132" x2="500" y2="168"/>
+  <line class="vline" x1="640" y1="132" x2="640" y2="168"/>
+
+  <!-- policy chips -->
+  <rect class="layer" x="70" y="168" width="290" height="66" rx="12"/>
+  <text class="t" x="90" y="194" font-size="13">Privacy Policy</text>
+  <text class="b" x="90" y="214">What we collect and why · PDPA Art. 8, 19–21</text>
+
+  <rect class="layer" x="380" y="168" width="240" height="66" rx="12"/>
+  <text class="t" x="400" y="194" font-size="13">Acceptable Use Policy</text>
+  <text class="b" x="400" y="214">Conduct boundaries and enforcement</text>
+
+  <rect class="layer" x="640" y="168" width="290" height="66" rx="12"/>
+  <text class="t" x="660" y="194" font-size="13">Data Security · Sub-processors</text>
+  <text class="b" x="660" y="214">PDPA Art. 20-1 · Enforcement Rules Art. 12</text>
+
+  <!-- base layer -->
+  <rect class="base" x="70" y="266" width="860" height="100" rx="12"/>
+  <text class="tag" x="94" y="292">GOVERNING FRAME</text>
+  <text class="t" x="94" y="316">Republic of China law (Taiwan) — Taipei District Court, first instance</text>
+  <text class="b" x="94" y="336">Standard-contract limits: Civil Code Art. 247-1 (unfair terms void) · Consumer Protection Act Art. 17</text>
+  <text class="b" x="94" y="352">PDPA Art. 29 data-damage liability is unaffected by liability caps</text>
+
+  <!-- side note -->
+  <text class="law" x="94" y="400">ORDER OF PRECEDENCE: subject-specific document prevails · Traditional Chinese (Taiwan) version is authoritative</text>
+</svg>
