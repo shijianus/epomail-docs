@@ -1,0 +1,65 @@
+---
+import { getLangFromLocale, getTranslation } from '../../utils/i18n';
+
+export const PAGE_TITLE_ID = '_top';
+
+const { entry, lastUpdated, lang: pageLang } = Astro.locals.starlightRoute;
+const lang = getLangFromLocale(Astro.currentLocale);
+const title = entry.data.title;
+// 中文用全角冒号，其他语言用半角冒号加空格。
+const updatedColon = lang.startsWith('zh') ? '：' : ': ';
+---
+
+<div class="page-title-wrapper">
+	<h1 id={PAGE_TITLE_ID} class="page-title-heading">{title}</h1>
+	<div class="page-metadata">
+		{
+			lastUpdated && (
+				<span class="meta-item">
+					<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="10" />
+						<polyline points="12 6 12 12 16 14" />
+					</svg>
+					<span>{getTranslation('page.updated', lang)}{updatedColon}</span>
+					{lastUpdated.toLocaleDateString(pageLang || lang, { dateStyle: 'medium', timeZone: 'UTC' })}
+				</span>
+			)
+		}
+		{lastUpdated && <span class="meta-separator">/</span>}
+		<span class="meta-item">{getTranslation('page.specification', lang)}</span>
+	</div>
+</div>
+
+<style>
+	.page-title-wrapper {
+		margin-top: 0.5rem;
+		margin-bottom: 2.25rem;
+	}
+
+	.page-title-heading {
+		font-size: 2.35rem;
+		line-height: 1.25;
+		font-weight: 700;
+		color: var(--sl-color-white);
+		letter-spacing: -0.025em;
+		margin: 0 0 0.65rem 0;
+	}
+
+	.page-metadata {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.8125rem;
+		color: var(--sl-color-gray-3);
+	}
+
+	.meta-item {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+
+	.meta-separator {
+		color: var(--sl-color-hairline);
+	}
+</style>

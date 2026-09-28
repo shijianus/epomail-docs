@@ -1,0 +1,115 @@
+---
+export interface TocItem {
+	depth: number;
+	text: string;
+	slug: string;
+	children: TocItem[];
+}
+
+interface Props {
+	toc: TocItem[];
+	depth?: number;
+	isMobile?: boolean;
+}
+
+const { toc, isMobile = false, depth = 0 } = Astro.props;
+---
+
+<ul class:list={{ isMobile }}>
+	{
+		toc.map((heading) => (
+			<li>
+				<a href={'#' + heading.slug} class="toc-link" title={heading.text}>
+					<span class="toc-text">{heading.text}</span>
+				</a>
+				{heading.children.length > 0 && (
+					<Astro.self toc={heading.children} depth={depth + 1} isMobile={isMobile} />
+				)}
+			</li>
+		))
+	}
+</ul>
+
+<style define:vars={{ depth }}>
+	ul {
+		padding: 0;
+		list-style: none;
+		border-inline-start: 1px solid var(--sl-color-hairline, #e2e8f0);
+	}
+	li {
+		margin: 0;
+	}
+	a {
+		display: flex;
+		align-items: center;
+		padding-block: 0.32rem;
+		padding-inline-start: calc(0.7rem * var(--depth) + 0.85rem);
+		padding-inline-end: 1rem;
+		line-height: 1.4;
+		font-size: 0.8125rem;
+		color: var(--sl-color-gray-3, #64748b);
+		text-decoration: none;
+		transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+		border-inline-start: 2px solid transparent;
+		margin-inline-start: -1px;
+	}
+
+	.toc-text {
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	a:hover {
+		color: var(--sl-color-white, #0f172a);
+	}
+
+	:root[data-theme='dark'] a:hover {
+		color: #f8fafc;
+	}
+
+	a[aria-current='true'] {
+		color: var(--sl-color-accent, #2563eb);
+		font-weight: 600;
+		border-inline-start-color: var(--sl-color-accent, #2563eb);
+		background-color: transparent;
+	}
+
+	:root[data-theme='dark'] a[aria-current='true'] {
+		color: #60a5fa;
+		border-inline-start-color: #60a5fa;
+	}
+
+	.isMobile a {
+		--pad-inline: 1rem;
+		display: flex;
+		justify-content: space-between;
+		gap: var(--pad-inline);
+		border-top: 1px solid var(--sl-color-hairline, #e2e8f0);
+		border-radius: 0;
+		padding-block: 0.5rem;
+		color: var(--sl-color-text);
+		font-size: var(--sl-text-sm);
+		text-decoration: none;
+	}
+	.isMobile:first-child > li:first-child > a {
+		border-top: 0;
+	}
+	.isMobile a[aria-current='true'],
+	.isMobile a[aria-current='true']:hover,
+	.isMobile a[aria-current='true']:focus {
+		color: var(--sl-color-white);
+		background-color: unset;
+	}
+	.isMobile a[aria-current='true']::after {
+		content: '';
+		width: 1rem;
+		background-color: var(--sl-color-accent);
+		-webkit-mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNCAxNCc+PHBhdGggZD0nTTEwLjkxNCA0LjIwNmEuNTgzLjU4MyAwIDAgMC0uODI4IDBMNS43NCA4LjU1NyAzLjkxNCA2LjcyNmEuNTk2LjU5NiAwIDAgMC0uODI4Ljg1N2wyLjI0IDIuMjRhLjU4My41ODMgMCAwIDAgLjgyOCAwbDQuNzYtNC43NmEuNTgzLjU4MyAwIDAgMCAwLS44NTdaJy8+PC9zdmc+Cg==');
+		mask-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNCAxNCc+PHBhdGggZD0nTTEwLjkxNCA0LjIwNmEuNTgzLjU4MyAwIDAgMC0uODI4IDBMNS43NCA4LjU1NyAzLjkxNCA2LjcyNmEuNTk2LjU5NiAwIDAgMC0uODI4Ljg1N2wyLjI0IDIuMjRhLjU4My41ODMgMCAwIDAgLjgyOCAwbDQuNzYtNC43NmEuNTgzLjU4MyAwIDAgMCAwLS44NTdaJy8+PC9zdmc+Cg==');
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		flex-shrink: 0;
+	}
+</style>

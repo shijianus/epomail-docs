@@ -1,0 +1,65 @@
+---
+import TableOfContentsList from './TableOfContents/TableOfContentsList.astro';
+import { getLangFromLocale, getTranslation } from '../../utils/i18n';
+
+const { toc } = Astro.locals.starlightRoute;
+const items = toc?.items ? toc.items.filter((item) => item.slug !== '_top') : [];
+const lang = getLangFromLocale(Astro.currentLocale);
+---
+
+{
+	items.length > 0 && (
+		<starlight-toc data-min-h={toc?.minHeadingLevel} data-max-h={toc?.maxHeadingLevel}>
+			<nav aria-labelledby="starlight__on-this-page" class="toc-container">
+				<div class="toc-header-wrapper">
+					<svg class="toc-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="8" y1="6" x2="21" y2="6" />
+						<line x1="8" y1="12" x2="21" y2="12" />
+						<line x1="8" y1="18" x2="21" y2="18" />
+						<line x1="3" y1="6" x2="3.01" y2="6" />
+						<line x1="3" y1="12" x2="3.01" y2="12" />
+						<line x1="3" y1="18" x2="3.01" y2="18" />
+					</svg>
+					<h2 id="starlight__on-this-page" class="toc-header">
+						{getTranslation('toc.title', lang)}
+					</h2>
+				</div>
+				<TableOfContentsList toc={items} />
+			</nav>
+		</starlight-toc>
+	)
+}
+
+<script src="./TableOfContents/starlight-toc.ts"></script>
+
+<style>
+	.toc-container {
+		padding: 0;
+	}
+
+	.toc-header-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin-bottom: 0.65rem;
+		padding-inline-start: 0.5rem;
+	}
+
+	.toc-icon {
+		color: var(--sl-color-accent, #2563eb);
+		opacity: 0.85;
+	}
+
+	.toc-header {
+		font-size: 0.78rem;
+		font-weight: 600;
+		color: var(--sl-color-white, #0f172a);
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	:root[data-theme='dark'] .toc-header {
+		color: #e2e8f0;
+	}
+</style>

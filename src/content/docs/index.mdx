@@ -1,0 +1,108 @@
+---
+title: EpoMail Docs
+description: EpoMail 官方开源文档与法律合规中心 - 基于 Cloudflare Workers 边缘计算架构打造的现代全栈极简邮件服务系统。
+template: splash
+head:
+  - tag: title
+    content: EpoMail 官方文档与合规中心
+hero:
+  tagline: 专为 EpoMail 生态打造的官方文档与法律合规中心。基于 Cloudflare 全球边缘网络，涵盖完整的开源项目指南、云原生架构剖析、生产部署运维，以及对齐 Gmail 标准的法律地位、隐私权政策与数据主权声明。
+  image:
+    file: ../../assets/logo.svg
+    alt: EpoMail Logo
+  actions:
+    - text: 开源专案指南
+      link: /project/about/
+      icon: rocket
+      variant: primary
+    - text: 法律合规与隐私
+      link: /legal/overview/
+      icon: document
+      variant: secondary
+    - text: GitHub 仓库
+      link: https://github.com/shijianus/epomail
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## 🚀 板块一：开源专案与技术架构指南
+
+参照主流开源邮件系统规范（如 SkyMail），结合 EpoMail 特有的 Cloudflare Serverless 边缘云原生架构，为您提供从零到一的完整项目说明、架构剖析、快速上手、生产部署与开放 API 参考。
+
+<CardGrid stagger>
+	<Card title="这是什么与核心愿景" icon="laptop">
+		了解 EpoMail 的诞生背景、解决的邮件服务器痛点、架构愿景以及与传统邮件系统（Postfix/Dovecot）的根本差异。
+		<LinkCard title="阅读项目愿景" href="/project/about/" description="边缘无服务器架构、低维护成本与多域名号池。" />
+	</Card>
+	<Card title="核心功能全景矩阵" icon="star">
+		全方位了解 EpoMail 的收发邮件、Workers AI 邮件验证码提取、R2 附件存储、6 级 RBAC 权限与 TOTP 2FA 双因素安全保障。
+		<LinkCard title="查看功能矩阵" href="/project/features/" description="响应式界面、暗色模式、号池别名与安全特性。" />
+	</Card>
+	<Card title="全栈云原生架构剖析" icon="setting">
+		深入拆解 Workers + Hono + D1 关系型数据库 + R2 对象存储 + KV 缓存 + Resend / Cloudflare 发信网关的高性能拓扑。
+		<LinkCard title="了解系统架构" href="/project/architecture/" description="数据流向图、无状态计算与边缘数据存储边界。" />
+	</Card>
+	<Card title="快速上手 (本地开发栈)" icon="rocket">
+		3 分钟在本地电脑运行全栈开发环境，支持 Worker 后端与 Vue 3 前端联调热重载，快速掌握开发调试技巧。
+		<LinkCard title="本地快速上手" href="/project/quickstart/" description="环境准备、pnpm 依赖安装与 .dev.vars 本地凭证配置。" />
+	</Card>
+	<Card title="Cloudflare 生产部署" icon="cloudflare">
+		一键与手动部署到 Cloudflare 全球边缘网络，涵盖 D1、KV、R2 的创建与绑定，以及 Secrets 生产机密的安全注入。
+		<LinkCard title="查看部署指南" href="/project/deploy/" description="从零开始配置并上线个人/企业专属邮件服务。" />
+	</Card>
+	<Card title="冷启动与主站长初始化" icon="approve-check-circle">
+		专属于 EpoMail 的高安全门禁初始化机制，通过 `/api/init/<jwt_secret>` 自动化播种 6 大系统角色与站长账号。
+		<LinkCard title="了解冷启动流程" href="/project/init/" description="门禁机制、表结构播种与首登站长设立。" />
+	</Card>
+	<Card title="域名解析与邮件路由" icon="random">
+		Cloudflare Email Routing 入站规则绑定、MX 记录配置，以及 SPF、DKIM、DMARC 邮件防伪三重门实战指南。
+		<LinkCard title="配置邮件路由" href="/project/dns-routing/" description="入站规则、DNS 防伪解析与邮件投递可信度提升。" />
+	</Card>
+	<Card title="开放 API 接口参考" icon="open-book">
+		标准化 RESTful API 设计规范，涵盖身份鉴权、邮箱管理、邮件收发查询、Webhooks 外部系统联动。
+		<LinkCard title="查阅 API 文档" href="/project/api-overview/" description="Bearer Token 认证、接口端点与自动化集成示例。" />
+	</Card>
+</CardGrid>
+
+---
+
+## ⚖️ 板块二：法律定位、隐私与合规中心
+
+全面对照 **Gmail / Google Policies**（包括 `policies.google.com/privacy`、服务条款与安全白皮书）的严谨标准，结合 EpoMail 的开源自托管（Self-Hosted）与边缘云原生定位，提供清晰透明的法律条款、数据主权承诺与合规指引。专为 EpoMail 主站与移动端外链跳转打造。
+
+<CardGrid stagger>
+	<Card title="开源软件与法律地位说明" icon="information">
+		清晰厘清软件开源代码发布方（开发者）与独立自托管站长（运营者）的法律权责分界，明确零知识与技术中立原则。
+		<LinkCard title="阅读法律地位说明" href="/legal/overview/" description="开源 MIT 许可、权责分界与中立性声明。" />
+	</Card>
+	<Card title="用户数据主权与所有权承诺" icon="shield">
+		庄严承诺用户对所有邮件与个人数据享有 100% 绝对所有权。坚守零商业扫描原则，绝不用于广告推送或大模型训练。
+		<LinkCard title="了解数据主权" href="/legal/data-sovereignty/" description="所有权保障、无广告扫描承诺与完整数据导出权利。" />
+	</Card>
+	<Card title="隐私权政策 (Privacy Policy)" icon="document">
+		深度对照 Google 隐私政策：详尽阐明数据收集范围、处理目的、第三方子处理方边界以及 GDPR/CCPA 法定行权机制。
+		<LinkCard title="阅读隐私权政策" href="/legal/privacy/" description="信息收集、数据使用目的、子处理方与隐私控制。" />
+	</Card>
+	<Card title="服务使用条款 (Terms of Service)" icon="warning">
+		对照 Google 服务条款标准：规范服务契约成立、用户账号生命周期、权利与义务、服务水平说明与免责声明。
+		<LinkCard title="阅读服务条款" href="/legal/terms/" description="账户准入、密码安全责任与协议终止规范。" />
+	</Card>
+	<Card title="可接受使用政策与反滥用守则" icon="error">
+		严格的反垃圾邮件（Anti-SPAM）、反网络钓鱼（Anti-Phishing）与反恶意软件守则，设定发信频率与滥用阶梯处置机制。
+		<LinkCard title="阅读反滥用守则" href="/legal/anti-abuse/" description="禁止行为红线、发信速率熔断与封禁申诉通道。" />
+	</Card>
+	<Card title="邮件安全与加密技术白皮书" icon="seti:lock">
+		传输层强制 TLS 1.3/STARTTLS、MTA-STS 规范、静态存储 AES-256 加密、TOTP 密钥派生与最小特权 RBAC 审计。
+		<LinkCard title="查阅安全白皮书" href="/legal/security-whitepaper/" description="加密矩阵、身份防伪与全真栈安全防护体系。" />
+	</Card>
+	<Card title="数据保留与彻底删除准则" icon="trash">
+		规范各类数据的生命周期矩阵，阐明用户点击“彻底删除”后的物理擦除技术机制，保障真正的被遗忘权。
+		<LinkCard title="查看数据删除准则" href="/legal/data-retention/" description="保留周期、回收站流转与物理 Hard-Delete 机制。" />
+	</Card>
+	<Card title="司法调证与合规协助指引" icon="open-book">
+		面向执法机构与监管部门的合法调证流程说明，坚持合法性审查、最小必要披露原则与透明度报告机制。
+		<LinkCard title="查阅司法调证指引" href="/legal/law-enforcement/" description="适格法律文书要求、审查流程与透明度公开原则。" />
+	</Card>
+</CardGrid>
