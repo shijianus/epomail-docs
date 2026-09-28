@@ -78,5 +78,5 @@ node scripts/validate-anchors.cjs   # 校验 dist 全部页内锚点与图片引
 ## 一致性保障
 
 - 六语言版本结构 1:1（标题、表格、提示框、图片、图注逐一对应），修改任一语言时同步其余五种语言
-- 页内锚点经 `scripts/validate-anchors.cjs` 全量复核（当前 432 锚点 0 断链）
+- 页内锚点经 `scripts/validate-anchors.cjs` 全量复核（当前 396 锚点 0 断链）；法条条号经 `scripts/check-article-whitelist.py` 白名单核验（736 处引用全部合规）
 - 法条引用格式：简体「第 19 条第 1 项第 2 款」、繁体「第 19 條第 1 項第 2 款」、英文 "Article 19, Paragraph 1, Subparagraph 2"
