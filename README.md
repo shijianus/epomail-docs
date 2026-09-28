@@ -1,15 +1,16 @@
 # EpomailDocs · EpoCanvas Mail 官方法律文档站
 
-本目录是 **EpoCanvas Mail** 的官方法律文档站（独立 git 仓库），以**台湾《个人资料保护法》为主要法律依据**，按 Google 政策范式将法律内容拆分为 **7 篇专题文档 × 6 种语言（42 页）**，全部技术事实（数据存储位置、加密语义、第三方清单、保留期限）均经仓库源码逐项核实，全部法条引用均于 2026-09-28 自全国法规数据库（law.moj.gov.tw）逐条核验（见 [`doc/legal-reference.md`](doc/legal-reference.md)）。
+本目录是 **EpoCanvas Mail** 的官方文档站（独立 git 仓库）：法律内容以**台湾《个人资料保护法》为主要法律依据**，按 Google 政策范式拆分为 **7 篇专题文档**，另设 **1 篇专案介绍**，共 **8 篇 × 6 种语言（48 页）**，全部技术事实（数据存储位置、加密语义、第三方清单、保留期限）均经仓库源码逐项核实，全部法条引用均于 2026-09-28 自全国法规数据库（law.moj.gov.tw）逐条核验（见 [`doc/legal-reference.md`](doc/legal-reference.md)）。
 
 - 产品定位：基于 Cloudflare Workers / D1 / KV / R2 的开源（MIT）可自托管邮箱服务
 - 托管实例：[mail.epocanvas.com](https://mail.epocanvas.com)
-- 视觉：Dignified Minimal 主题（靛蓝 `#2563eb` 主色 + Slate 中性色），6 张主题自适应 SVG 示意图（浅色底 + `prefers-color-scheme` 暗色适配），每图承担真实信息职责并作为文档开头的视觉分区
+- 视觉：Dignified Minimal 主题（靛蓝 `#2563eb` 主色 + Slate 中性色），7 张主题自适应 SVG 示意图（浅色底 + `prefers-color-scheme` 暗色适配），每图承担真实信息职责并作为文档开头的视觉分区
 
-## 文档架构（Google 式分区，7 篇）
+## 文档架构（专案介绍 1 篇 + 法律 7 篇）
 
 | 文档 | slug | 内容 |
 | --- | --- | --- |
+| 专案介绍 | `project` | 产品定位、核心功能（源码逐项核实）、技术架构、安全设计、开发历程与完整提交链路（主仓 510 提交 + 本站 3 提交的里程碑锚点） |
 | 总览 | `overview` | 平台身份、资料控管者/受托处理者角色界定、文档地图、效力顺序 |
 | 隐私政策 | `privacy-policy` | 蒐集处理利用之法律依据（个资法 §19/§20）、AI 特别告知、国际传输（§21）、当事人权利（§3）、安全维护（§20-1） |
 | 服务条款 | `terms-of-service` | 电子同意（电子签章法 §4）、审阅期（消保法 §11-1）、责任限制及效力边界（民法 §247-1）、准据法与管辖、行政监督 |
@@ -33,10 +34,11 @@
 
 语言集合与 EpoCanvas Mail 产品内建 6 语言 i18n（`zh` / `zh-Hant` / `en` / `fr` / `es` / `nl`）一一对应。
 
-## 配图（6 张 SVG，浅色底 + 暗色自适应）
+## 配图（7 张 SVG，浅色底 + 暗色自适应）
 
 | 文件 | 内容 | 被引用于 |
 | --- | --- | --- |
+| `public/images/mail/project-architecture.svg` | 系统架构三层图：客户端层 → Cloudflare 边缘层（API／Email Routing／Workers AI／出站）→ 存储层（双 D1／KV／对象存储），底部安全基线 | 专案介绍 |
 | `public/images/mail/self-host-responsibilities.svg` | 三方责任边界：上游开源项目 → 实例运营者（资料控管者）→ 当事人 | 总览 |
 | `public/images/mail/privacy-pillars.svg` | 隐私政策五支柱与法条锚点（§8 告知屋顶、§19/§20/§21/§20-1/§3 五支柱、§22 监督基座） | 隐私政策 |
 | `public/images/mail/legal-architecture.svg` | 契约层—政策层—准据法基座三层架构 | 服务条款 |
@@ -51,7 +53,7 @@
 ```bash
 cd EpomailDocs
 pnpm install        # astro ^5 / @astrojs/starlight ^0.32
-pnpm build          # 42 内容页 + 404，Pagefind 全文搜索索引
+pnpm build          # 48 内容页 + 404，Pagefind 全文搜索索引
 pnpm preview        # http://localhost:4321/
 node scripts/validate-anchors.cjs   # 校验 dist 全部页内锚点与图片引用
 ```

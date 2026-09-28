@@ -1,0 +1,187 @@
+---
+title: EpoCanvas Mail 專案介紹
+description: EpoCanvas Mail 專案完整介紹——定位、核心功能、技術架構、安全設計、開發歷程與完整提交鏈路。
+---
+
+**首次提交：2026 年 7 月 21 日｜當前版本：v1.1.0｜授權條款：MIT**
+
+EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件服務。使用者僅需一個網域與一個 Cloudflare 帳號，即可搭建支援收發郵件、附件與多終端存取的專屬信箱。專案以託管實例 [mail.epocanvas.com](https://mail.epocanvas.com) 對外營運，同時開放全部原始碼供自行部署，並提供配套的 Android 行動應用（epomail）。本頁說明專案的定位、功能、技術架構、安全設計與開發歷程；服務與隱私的法律約定見[隱私權與條款總覽](/zh-tw/mail/overview/)。
+
+![EpoCanvas Mail 系統架構：用戶端層（Web 應用、Android 應用、OAuth 第三方應用）經 Cloudflare 邊緣接入；Workers 承載 API、郵件入站解析與 AI 能力，出站經 Resend 與 Telegram；資料落於雙 D1 資料庫、KV 與物件儲存](/images/mail/project-architecture.svg)
+
+*圖：系統架構。用戶端經邊緣接入，無單點伺服器；入站郵件由 Email Routing 接收並解析，出站經 Resend 通道；全部狀態落於部署者自己的 Cloudflare 資源之內。*
+
+## 1. 專案定位
+
+自建郵件系統需要長期維護的伺服器、固定 IP 與反垃圾郵件治理；商業信箱服務則將資料集中於服務商手中，使用者難以核實其處理方式。EpoCanvas Mail 採用第三種路徑：把整套服務壓縮進 Cloudflare 的按量額度之內（Workers 運算、D1 資料庫、KV 快取、R2 物件儲存），以無伺服器方式交付，固定伺服器成本為零，原始碼全部公開。
+
+- 免維運：部署完成後無需維護作業系統與憑證，擴容與全球加速由 Cloudflare 託管；
+- 資料自主：自行部署實例的全部資料落於部署者自己的 D1 與物件儲存，程式碼不內建任何遙測回傳；
+- 雙軌使用：直接註冊使用託管實例，或取得原始碼部署於自有網域。兩種形態下的資料控管者界定見[總覽](/zh-tw/mail/overview/)第 2 節。
+
+## 2. 核心功能
+
+以下功能均經儲存庫原始碼逐項核實，按主題分組。
+
+### 2.1 郵件收發與管理
+
+| 能力 | 說明 |
+| --- | --- |
+| 入站接收 | Cloudflare Email Routing 接收，postal-mime 解析本文與附件 |
+| 郵件寄送 | Resend API 寄送，支援群發、內嵌圖片與附件，寄送狀態可查 |
+| 三種郵件模式 | 全部、隱私、加密三種模式，加密語義與管理員可及範圍見[資料處理與安全維護](/zh-tw/mail/data-security/) |
+| 附件儲存 | R2 物件儲存，可改接 Backblaze B2 或任意 S3 相容服務（自備儲存），配額計量 |
+| 閱讀體驗 | 會話群組檢視、三欄分割畫面、內嵌回覆、表情回應、延後／垃圾郵件／垃圾桶、原始信頭檢視 |
+
+### 2.2 搜尋與分類
+
+- 進階搜尋語法：`from`／`to`／`subject` 等欄位過濾與自由關鍵字組合，全站檢索與頁內尋找兩級，命中高亮基於 CSS Highlights API；
+- 分類規則引擎：內建預設範本（社交、訂閱、推廣），支援可組合條件與例外、黑白名單與硬攔截、站內郵件繞行開關；
+- 驗證碼識別：Workers AI 自動擷取郵件中的驗證碼。
+
+### 2.3 AI 能力
+
+- AI Hub 多模型池：接入 OpenAI、Anthropic、DeepSeek 等協定，端點與模型自動識別，0-Token 測速，模型池按角色授權；
+- 全文翻譯：保留原郵件 HTML 排版的多語言翻譯，多片並發負載均衡，圖片經 OCR 產生字幕，目標語言可設定；
+- 用量分析：AI 呼叫趨勢與模型分布圖表，與系統分析頁同面板呈現。
+
+### 2.4 身分、權限與開放平台
+
+- 帳號安全：密碼經 PBKDF2-HMAC-SHA256 十萬次迭代加鹽雜湊；TOTP 與 Passkey 兩步驟驗證；12 小時防爆破鎖定；Turnstile 人機驗證；
+- 角色權限：6 大核心管理群組的 RBAC 體系，功能、模型與配額按角色收斂，參觀者以唯讀沙箱進入；
+- OAuth 2.0 / OIDC 認證中心：註冊第三方應用，支援授權碼與憑證流程；用戶端提供第三方應用授權的即時查看與撤銷；
+- 多網域：一個實例綁定多個郵件網域，支援多網域管理員登入與別名登入。
+
+### 2.5 介面與多語言
+
+- 六種介面語言：簡體中文、繁體中文、English、Français、Español、Nederlands；前端 2,039 鍵、後端 1,888 鍵字典六語言 100% 對稱，由靜態稽核三件套保障用戶可見文字零硬編碼洩漏；
+- 多語言郵件：歡迎郵件與全域公告郵件內建六語言範本，按收件人語言投遞；
+- 介面細節：300+ 離線向量圖示（零外部請求）、明暗雙主題、響應式版面、PWA 安裝、自訂網站標題與登入背景。
+
+## 3. 技術架構
+
+| 層 | 技術 |
+| --- | --- |
+| 用戶端 | Vue 3.5、Element Plus、Pinia、vue-i18n、ECharts、Dexie、Vite 7、vite-plugin-pwa |
+| 登入面 | React 18、Tailwind CSS 4、Vite 6（獨立建置，隨前端產物一併發布） |
+| 伺服端 | Hono 4.12、Drizzle ORM、postal-mime、i18next、Resend SDK |
+| 平台 | Cloudflare Workers、D1（雙庫）、KV、R2、Workers AI、Email Routing、Turnstile |
+| 外部服務 | Resend（寄送）、Telegram Bot（推送）、可選 B2／S3 相容儲存 |
+
+雙資料庫為物理隔離架構：`USER_DB` 承載帳號、角色與設定，`MAIL_DB` 承載郵件與日誌；單庫部署保持 100% 向後相容。儲存庫目錄分工如下：
+
+| 目錄 | 職責 |
+| --- | --- |
+| `mail-worker` | 後端：api（20 個介面模組）、service、dao、email（入站處理）、security、i18n、init（部署引導） |
+| `mail-vue` | 前端單頁應用（PWA） |
+| `temp_login_ui` | React 登入面，建置產物併入前端 `dist/login` |
+| `EpomailDocs` | 本法律文件站（Astro 5 + Starlight，獨立 git 儲存庫） |
+| `tests` | 102 個自動化測試、稽核與巡檢腳本（Playwright 全真棧、公網端對端、靜態掃描） |
+| `scripts` | i18n 對稱性／引用／硬編碼三件套等工具鏈 |
+
+## 4. 安全設計
+
+- 憑證與會話：密碼經 PBKDF2-HMAC-SHA256 十萬次迭代加鹽雜湊；會話為 30 天有效期的 JWT 權杖，落於 KV 並經深度遮蔽；
+- 防越權路由：郵件 URL 一律使用 HMAC-SHA256 簽章的 20 位隨機雜湊，綁定使用者與租戶，不暴露遞增 ID，杜絕枚舉與 BOLA／IDOR 越權；
+- XSS 三重防禦：DOMPurify 消毒、body style 注入過濾、附件輸出 MIME 白名單加嚴格 CSP 與 `nosniff`；
+- SSRF 阻斷：出站請求經公共位址校驗，回環、RFC 1918 與雲端中繼資料位址一律拒絕；
+- 權限閘道：137 條路由 100% 鑑權覆蓋；帳號刪除即時吊銷其 KV 會話。
+
+上述措施於 2026 年 9 月 22 日的全量安全強化中完成閉環（P0／P1／P2 缺陷治理，43 項自動化斷言全綠）。面向當事人的告知義務、保留期限、第三方清單與當事人權利，見[資料處理與安全維護](/zh-tw/mail/data-security/)與[第三方處理者清單](/zh-tw/mail/sub-processors/)。
+
+## 5. 開發歷程與提交鏈路
+
+專案自 2026 年 7 月 21 日首次提交（`2bbb582`）起持續開發。截至 2026 年 9 月 29 日，主儲存庫累計 510 個提交；本站（EpomailDocs，獨立 git 儲存庫）另有 3 個提交。下表按階段列出里程碑與錨點提交（短 Hash）：
+
+| 階段 | 時間 | 交付內容 | 錨點提交 |
+| --- | --- | --- | --- |
+| 1. 專案奠基 | 2026-07-21 → 07-23 | 儲存庫初始化；Vue 3 介面第一階段（全域色板、字體、明暗側欄）；Outlook 風格三欄分割畫面閱讀 | `2bbb582` `29f9896` `a531341` |
+| 2. 品牌與登入面 | 2026-08-05 → 08-09 | 透明 Logo 與 favicon 統一；預設暗色主題與品牌載入動畫；React 登入面與太空躍遷動畫 | `6572695` `e3e57c6` |
+| 3. 原型落地與規則引擎 | 2026-08-12 → 08-17 | 原型介面全量應用；標籤體系與後端同步；延後／垃圾郵件／垃圾桶；分類規則引擎（預設範本、啟發式、黑白名單硬攔截）；進階搜尋語法；分類分析儀表板；防爆破鎖定 | `8664f84` `803b0e0` `0b7e37d` `643edea` `79f200f` |
+| 4. 編輯器與歡迎郵件 | 2026-08-28 → 08-30 | 全員歡迎郵件大彈窗；TinyMCE Alloy 工具列 17 項 Markdown 工具重構 | `9f6ece8` `59bfe60` |
+| 5. 開放平台與儲存治理 | 2026-09-03 → 09-06 | OAuth 2.0／OIDC 認證中心；雙 D1 物理隔離；B2／S3 自備儲存與配額計量；儲存與核心資料庫管理中心；6 大核心管理群組權限與參觀者沙箱 | `9fd02b7` `2cc2801` `b1a6a0e` `6c5bda2` `f09c963` |
+| 6. AI 能力體系 | 2026-09-06 → 09-13 | Gmail 收件架構與 AI 全文翻譯；300+ 離線向量圖示；AI Hub 多模型池與 0-Token 測速；多片並發翻譯與圖片 OCR 字幕 | `deceaaa` `5676837` `d103cd4` `8a0dc3e` |
+| 7. 權限收斂與安全修復 | 2026-09-09 → 09-11 | GitHub Release v1.1.0；跨網域提權零日修復；多網域管理員登入；第三方應用與資料共享面板 | `7558fc8` `5855db1` `3234d69` |
+| 8. 六語言國際化 | 2026-09-14 → 09-17 | 全專案六語言與零洩漏字典；郵件範本按收件人語言投遞；全量推送 GitHub；生產 Cloudflare 正式上線 | `aa1955e` `42c33f1` `25985b1` |
+| 9. 兩步驟驗證與稽核強化 | 2026-09-18 → 09-22 | TOTP／Passkey 登入；全新部署引導鏈與密鑰隔離；UI 全面稽核修復批次；全量安全強化 | `b025153` `5cfdaf9` `7ee3a66` |
+| 10. Gmail 級體驗對齊 | 2026-09-25 → 09-27 | 郵件詳情排版分層；內嵌回覆與表情回應；會話群組優化；Gmail 式路由與深層連結；密碼學雜湊防越權路由 | `a8d841a` `4af2985` `4b371a8` |
+| 11. 法律文件站 | 2026-09-27 → 09-29 | 本站六語言七篇法律文件；Google 政策範式增補；Astro 5 + Starlight 站點化；獨立 git 儲存庫 | `2bed02b` `617cccf` |
+
+主儲存庫的完整里程碑錨點鏈（40 位全量 Hash，可於 GitHub 提交歷史逐條核驗）：
+
+```text
+2bbb582e19b8a1aca410767a5b5c52ae5d7f4423  2026-07-21  init: initial commit before UI/UX updates
+29f98962399ec85c894fbc02ff6ef69d7d496222  2026-07-23  feat(ui): implement 3-column split view layout for mail reading
+65726950939d72d82dbaccd974ff1a75ffe1b226  2026-08-06  feat: default dark theme & apply brand loading animation
+e3e57c69a6154bc13218be27a6537711e0a21527  2026-08-09  Enhance: Upgrade collision warning to a high-tech sci-fi HUD
+8664f84cce7d2fdb038322f8bf66c5189f93f33d  2026-08-12  Phase 1: Refactor UI/UX colors and layout to match prototype style
+803b0e05d2d55bbcbb3b0f4d4279524c31524c21  2026-08-13  feat: implement advanced search syntax and highlighting
+0b7e37d953e2a25ff74dcf313272632fb60ba9c8  2026-08-13  fix(labels): ensureDefaultRules injection + system rule lock UI + real heuristic engine
+643edea268fb8dc4f67b4bfe17db49025f6c7662  2026-08-15  feat(ui): phase 3 - classification management analytics dashboard
+79f200fcb1a401e08c4d89ff94b8c3a65b51aef0  2026-08-16  feat: enhance login UX with toast and 12h anti-brute force lockout
+9fd02b75dcaa31e1c12c2424b3b9c52b19eab203  2026-09-03  feat(oauth): 管理员专属 OAuth 开放平台与应用管理独立分区上线及个人资料解耦清退
+2cc2801ccec3d9ee07d5b1688f2af652d7dc25a2  2026-09-03  feat(db): introduce dual-db physical isolation architecture with 100% single-db backward compatibility
+b1a6a0ebe02a5bb196bf5da601a182f022ab1664  2026-09-03  feat(storage): implement Backblaze B2 and S3 object storage with pure WebCrypto SigV4 presigner
+6c5bda2b794fef6f9467a5d880ae2fede77824cd  2026-09-04  feat(db): 系统设置「存储与核心数据库」管理中心上线与第三方DB配置体系全量重构
+f09c963752e731d3e308893fa6ed09d1212713e8  2026-09-06  feat(role): 细化6大核心管理组权限控制规范、开源参观者沙箱交互、博客等级联动与UI架构透视全景上线
+deceaaa5b3e7589c63c2240df97b020bab5c2c14  2026-09-06  feat(content): 学习Gmail收件UI架构，升级to-me详情卡片、顶部操作栏与AI全文翻译及管理面板API密钥集成
+56768378f4d83b9eb70e65376930cfa16db16209  2026-09-07  feat(icons): 系统级全量300+离线矢量图标重构、零网络请求秒开与满Icon状态闭环
+d103cd4edd4fbedbeaec669fc068bed2c5648dfa  2026-09-08  feat(ai-hub): automated dropdown model detection, multi-model pool role hierarchy, and real prompt live test response
+aa1955eeb1b564f11a370892c48ea94f7c21015f  2026-09-14  feat: 全专案主流多语言支持(正体中文/法/西/荷)、多语言欢迎邮件、网站公告全域公告邮件
+25985b1d0ca1c71e59222a3ecb3a9c53532834ef  2026-09-17  fix(prod): 生产环境Cloudflare正式上线、Playwright真机视觉全链路核验、Vue-i18n转义与抽屉缺陷修复
+b0251537e0a56b7d3b80f794ce79ff839871f945  2026-09-18  feat(auth): 登录界面两步验证 (TOTP/Passkey) 流体动效与丝滑交互重构
+5cfdaf910bd628d183f0b6d102134d1042f2e7df  2026-09-19  fix(core): 三大核验缺陷全量修复、全新部署引导链重构与密钥安全体系隔离
+7ee3a66d5fb17c44983ff2b7f35534d82c815524  2026-09-22  fix(security): 全量安全加固与漏洞闭环——P0/P1/P2防护/SSRF阻断/XSS三重防御/会话脱敏/权限对齐
+a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮件详情排版分层与悬浮快捷回复体验
+4b371a834458cb2be6ab5766ec15e99a91bc2022  2026-09-27  feat(routing): 严格对齐 Gmail 多账户隔离与密码学 Hash 防越权路由架构
+617cccf855a0bd9a0a46d37deaceacc4a8b0ddde  2026-09-29  docs(repo): EpomailDocs 独立为专用 git 仓库，自父仓库解除追踪
+```
+
+本站（EpomailDocs 獨立儲存庫）的提交鏈路：
+
+```text
+5208abc054626e305a5caac3e7320219706e3785  2026-09-29  docs(legal): 法律文档站 v4.1——台湾法域全量定稿（6 语言 × 7 篇 × 42 页）
+5fb18df6a9c317bf064b477d143a53eb0d54bf07  2026-09-29  docs(visual)+chore: aup-ladder.svg 布局重构消除遮挡，视觉验收与归档流水
+270cfd12c365b406661b5f40219740547d2b7d99  2026-09-29  fix(site): 补全根路径跳转页，/ 404 → 六语言总览入口
+```
+
+上表與上方錨點鏈為里程碑粒度；階段之間的全部日常修復、測試與文件提交均保存於 git 歷史，可經 [GitHub 提交歷史](https://github.com/shijianus/epomail/commits)逐條追溯。主儲存庫另設 `CHECKLIST.log`（任務執行流水）與 `REPORTS.md`（專項稽核報告）兩份歸檔，與提交一一對應。
+
+## 6. 品質保障
+
+- `tests/` 目錄含 102 個自動化測試、稽核與巡檢腳本，覆蓋 Playwright 全真環境瀏覽器回歸、生產環境公網端對端斷言與全庫靜態掃描；
+- 代表性量化核驗：安全強化 43／43 斷言、公網路由端對端 32／32、六語言登入面 62／62、感官巡檢 33／33、生產完整性 369 項逐位元組比對；
+- 多語言靜態稽核三件套：`i18n-symmetry`（六語言鍵集絕對對稱）、`i18n-audit`（字面量引用零缺失）、`i18n-hardcoded`（用戶可見文字零未包裹硬編碼）；
+- 測試資料零殘留：所有用例具備 `finally` 物理清理機制，資料庫與 KV 無假資料；
+- 開發流程遵循五步 SOP（範圍確認、規範編碼、全真環境測試、規範提交、置頂匯報），產出分流至 `CHECKLIST.log` 與 `REPORTS.md`。
+
+## 7. 取得與部署
+
+| 途徑 | 說明 |
+| --- | --- |
+| 託管實例 | [mail.epocanvas.com](https://mail.epocanvas.com) 註冊即用 |
+| 自行部署 | 依下方三步部署於自有網域與 Cloudflare 帳號 |
+| 原始碼 | [github.com/shijianus/epomail](https://github.com/shijianus/epomail)（MIT 授權條款） |
+| 行動應用 | Android 應用 epomail |
+
+自行部署最小步驟：
+
+```bash
+git clone https://github.com/shijianus/epomail.git
+cd epomail/mail-vue && pnpm install && npm run build
+cd ../mail-worker && npx wrangler deploy
+```
+
+首次部署後存取 `/api/init/<jwt_secret>` 完成資料庫初始化與六個標準角色的播種；生產密鑰一律經 `npx wrangler secret put` 注入，本地開發使用 `.dev.vars`（不入庫）。
+
+## 8. 相關文件
+
+| 資源 | 連結 |
+| --- | --- |
+| 隱私權與條款總覽 | [總覽](/zh-tw/mail/overview/) |
+| 隱私權政策 | [隱私權政策](/zh-tw/mail/privacy-policy/) |
+| 服務條款 | [服務條款](/zh-tw/mail/terms-of-service/) |
+| 可接受使用政策 | [可接受使用政策](/zh-tw/mail/acceptable-use/) |
+| 資料處理與安全維護 | [資料處理與安全維護](/zh-tw/mail/data-security/) |
+| 第三方處理者清單 | [第三方處理者清單](/zh-tw/mail/sub-processors/) |
+| 用語定義 | [用語定義](/zh-tw/mail/key-terms/) |

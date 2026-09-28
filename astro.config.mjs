@@ -6,6 +6,10 @@ const SITE_ORIGIN = 'https://mail.epocanvas.com';
 
 // 侧边栏条目的多语言文案：label 为默认语言（简体中文），其余语言从 translations 取。
 const SIDEBAR_I18N = {
+	'专案介绍': {
+		'zh-tw': '專案介紹', en: 'Project Overview',
+		fr: 'Présentation du projet', es: 'Presentación del proyecto', nl: 'Projectoverzicht',
+	},
 	'总览': {
 		'zh-tw': '總覽', en: 'Overview',
 		fr: 'Aperçu', es: 'Descripción general', nl: 'Overzicht',
@@ -64,6 +68,7 @@ export default defineConfig({
 			lastUpdated: true,
 			customCss: ['./src/styles/custom.css'],
 			sidebar: [
+				t('专案介绍', 'mail/project'),
 				t('总览', 'mail/overview'),
 				t('隐私政策', 'mail/privacy-policy'),
 				t('服务条款', 'mail/terms-of-service'),
