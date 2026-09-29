@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="480" rx="16" fill="url(#archBg)" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Header -->
+  <text x="40" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">
+    EpoMail Cloud-Native Serverless Edge Architecture
+  </text>
+  <text x="40" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8">
+    Distributed Global Edge Computing • Zero Origin Servers • Microservice Decoupling
+  </text>
+
+  <!-- Layer 1: Client & External (Left Column) -->
+  <g transform="translate(40, 105)" filter="url(#shadow)">
+    <rect width="180" height="335" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="90" y="32" font-family="sans-serif" font-size="14" font-weight="700" fill="#38bdf8" text-anchor="middle">CLIENTS &amp; SENDER</text>
+    <line x1="20" y1="46" x2="160" y2="46" stroke="#334155"/>
+
+    <!-- Client Box 1 -->
+    <rect x="15" y="65" width="150" height="65" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="92" font-family="sans-serif" font-size="12" font-weight="600" fill="#f8fafc">Vue 3 Single Page</text>
+    <text x="25" y="112" font-family="sans-serif" font-size="11" fill="#94a3b8">Desktop &amp; Mobile Web</text>
+
+    <!-- Client Box 2 -->
+    <rect x="15" y="145" width="150" height="65" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="172" font-family="sans-serif" font-size="12" font-weight="600" fill="#f8fafc">Inbound SMTP Mail</text>
+    <text x="25" y="192" font-family="sans-serif" font-size="11" fill="#94a3b8">External Mail Senders</text>
+
+    <!-- Client Box 3 -->
+    <rect x="15" y="225" width="150" height="65" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="252" font-family="sans-serif" font-size="12" font-weight="600" fill="#f8fafc">RESTful API Clients</text>
+    <text x="25" y="272" font-family="sans-serif" font-size="11" fill="#94a3b8">Developer Integrations</text>
+  </g>
+
+  <!-- Connectors from Clients to Edge Gateway -->
+  <path d="M 220 200 L 260 200" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="5,3"/>
+  <polygon points="260,196 270,200 260,204" fill="#38bdf8"/>
+
+  <!-- Layer 2: Cloudflare Edge Gateway (Middle Left) -->
+  <g transform="translate(270, 105)" filter="url(#shadow)">
+    <rect width="210" height="335" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="105" y="32" font-family="sans-serif" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">EDGE GATEWAY</text>
+    <line x1="20" y1="46" x2="190" y2="46" stroke="#334155"/>
+
+    <!-- Gateway Items -->
+    <rect x="15" y="65" width="180" height="48" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="88" font-family="sans-serif" font-size="12" font-weight="600" fill="#fde68a">Cloudflare Turnstile</text>
+    <text x="25" y="104" font-family="sans-serif" font-size="10" fill="#94a3b8">Smart Bot &amp; Anti-Brute</text>
+
+    <rect x="15" y="125" width="180" height="48" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="148" font-family="sans-serif" font-size="12" font-weight="600" fill="#fde68a">Email Routing (MX)</text>
+    <text x="25" y="164" font-family="sans-serif" font-size="10" fill="#94a3b8">SPF/DKIM/DMARC Cleanse</text>
+
+    <rect x="15" y="185" width="180" height="48" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="208" font-family="sans-serif" font-size="12" font-weight="600" fill="#fde68a">Workers Edge Core</text>
+    <text x="25" y="224" font-family="sans-serif" font-size="10" fill="#94a3b8">Stateless Stream Processor</text>
+
+    <rect x="15" y="245" width="180" height="48" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="268" font-family="sans-serif" font-size="12" font-weight="600" fill="#fde68a">Workers AI (Edge GPU)</text>
+    <text x="25" y="284" font-family="sans-serif" font-size="10" fill="#94a3b8">In-Memory OTP Extraction</text>
+  </g>
+
+  <!-- Connectors to Data Tier -->
+  <path d="M 480 200 L 520 200" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="5,3"/>
+  <polygon points="520,196 530,200 520,204" fill="#f59e0b"/>
+
+  <!-- Layer 3: Cloudflare Edge Storage (Middle Right) -->
+  <g transform="translate(530, 105)" filter="url(#shadow)">
+    <rect width="210" height="335" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="105" y="32" font-family="sans-serif" font-size="14" font-weight="700" fill="#34d399" text-anchor="middle">EDGE PERSISTENCE</text>
+    <line x1="20" y1="46" x2="190" y2="46" stroke="#334155"/>
+
+    <!-- D1 -->
+    <rect x="15" y="65" width="180" height="68" rx="8" fill="#0f172a" stroke="#059669"/>
+    <text x="25" y="90" font-family="sans-serif" font-size="12" font-weight="700" fill="#a7f3d0">Cloudflare D1</text>
+    <text x="25" y="108" font-family="sans-serif" font-size="11" fill="#ecfdf5">Relational SQLite Engine</text>
+    <text x="25" y="124" font-family="sans-serif" font-size="10" fill="#94a3b8">Accounts, threads, metadata</text>
+
+    <!-- R2 -->
+    <rect x="15" y="145" width="180" height="68" rx="8" fill="#0f172a" stroke="#059669"/>
+    <text x="25" y="170" font-family="sans-serif" font-size="12" font-weight="700" fill="#a7f3d0">Cloudflare R2</text>
+    <text x="25" y="188" font-family="sans-serif" font-size="11" fill="#ecfdf5">S3-Compatible Storage</text>
+    <text x="25" y="204" font-family="sans-serif" font-size="10" fill="#94a3b8">Raw MIME blobs, attachments</text>
+
+    <!-- KV -->
+    <rect x="15" y="225" width="180" height="68" rx="8" fill="#0f172a" stroke="#059669"/>
+    <text x="25" y="250" font-family="sans-serif" font-size="12" font-weight="700" fill="#a7f3d0">Cloudflare KV</text>
+    <text x="25" y="268" font-family="sans-serif" font-size="11" fill="#ecfdf5">Global Hot Key-Value</text>
+    <text x="25" y="284" font-family="sans-serif" font-size="10" fill="#94a3b8">JWT sessions, rate limits, bans</text>
+  </g>
+
+  <!-- Connectors to External Services -->
+  <path d="M 740 200 L 780 200" stroke="#10b981" stroke-width="2.5" stroke-dasharray="5,3"/>
+  <polygon points="780,196 790,200 780,204" fill="#10b981"/>
+
+  <!-- Layer 4: External Egress & Notifications (Right Column) -->
+  <g transform="translate(790, 105)" filter="url(#shadow)">
+    <rect width="170" height="335" rx="12" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="85" y="32" font-family="sans-serif" font-size="14" font-weight="700" fill="#c084fc" text-anchor="middle">EGRESS &amp; PUSH</text>
+    <line x1="20" y1="46" x2="150" y2="46" stroke="#334155"/>
+
+    <!-- Outbound Relay -->
+    <rect x="15" y="65" width="140" height="65" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="92" font-family="sans-serif" font-size="12" font-weight="600" fill="#f8fafc">Resend / SES</text>
+    <text x="25" y="112" font-family="sans-serif" font-size="11" fill="#94a3b8">Encrypted Outbound</text>
+
+    <!-- Telegram Push -->
+    <rect x="15" y="145" width="140" height="65" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="172" font-family="sans-serif" font-size="12" font-weight="600" fill="#f8fafc">Telegram Bot</text>
+    <text x="25" y="192" font-family="sans-serif" font-size="11" fill="#94a3b8">Instant Push Alert</text>
+
+    <!-- Webhooks -->
+    <rect x="15" y="225" width="140" height="65" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="25" y="252" font-family="sans-serif" font-size="12" font-weight="600" fill="#f8fafc">Webhooks</text>
+    <text x="25" y="272" font-family="sans-serif" font-size="11" fill="#94a3b8">Automated Triggers</text>
+  </g>
+</svg>

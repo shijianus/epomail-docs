@@ -9,33 +9,22 @@ description: 深入解析 EpoMail 独创的高安全门禁初始化机制 /api/i
 
 EpoMail 创新设计了**“零抢注、无状态、强机密对齐”的冷启动门禁机制**：
 
-```
-客户端请求 POST /api/init/<SECRET_TOKEN>
-                   │
-                   ▼
-       [提取路径中的 SECRET_TOKEN]
-                   │
-                   ▼
-     SECRET_TOKEN === env.jwt_secret ?
-        ├── [否 (不匹配)] ────▶ 立即拒绝：401 Unauthorized (防止未授权扫描)
-        └── [是 (完全一致)]
-                   │
-                   ▼
-         检查数据库是否已完成初始化？
-        ├── [已初始化] ──────▶ 锁死通道：403 Forbidden (防御重入篡改)
-        └── [首次运行]
-                   │
-                   ▼
-       ┌────────────────────────────────────────┐
-       │   事务级执行 D1 数据库初始化流水        │
-       │   1. 创建全量表结构 (CREATE TABLE)      │
-       │   2. 播种 6 大核心 RBAC 系统角色        │
-       │   3. 创建首登主站长 (ROLE_SUPER_ADMIN)  │
-       │   4. 绑定默认邮件系统系统级参数         │
-       └───────────────────┬────────────────────┘
-                           │
-                           ▼
-                  返回 200 OK 初始化成功凭据
+```mermaid
+flowchart TD
+    Req["客户端请求 POST /api/init/{SECRET_TOKEN}"] --> CheckSecret{"SECRET_TOKEN == env.jwt_secret ?"}
+    CheckSecret -- "否 (密钥不匹配)" --> Err401["401 Unauthorized<br/>(拦截非法扫描)"]
+    CheckSecret -- "是 (匹配)" --> CheckInit{"数据库是否已完成播种？"}
+    CheckInit -- "是 (已初始化)" --> Err403["403 Forbidden<br/>(防重放与重入篡改)"]
+    CheckInit -- "否 (首次冷启动)" --> Tx["D1 事务级初始化流水"]
+
+    subgraph D1_Pipeline ["D1 事务流水"]
+        Tx --> Step1["1. 幂等建表 (CREATE TABLE IF NOT EXISTS)"]
+        Step1 --> Step2["2. 播种 6 大 RBAC 角色与其系统级权限"]
+        Step2 --> Step3["3. 创建主站长账号 (ROLE_SUPER_ADMIN)"]
+        Step3 --> Step4["4. 绑定系统底层初始运行参数"]
+    end
+
+    D1_Pipeline --> Resp200["200 OK: 交付站长凭据与初始化报告"]
 ```
 
 ---

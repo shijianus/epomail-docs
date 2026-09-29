@@ -12,6 +12,11 @@ description: 官方 EPOCANVAS MAIL PRIVACY POLICY (2026 最新合规标准) - �
   </div>
 </div>
 
+:::note[自主托管与私有化部署法律定位免责声明 (Self-Hosted Instance Disclaimer)]
+**若您正在访问由第三方组织或个人独立部署的私有/开源 EpoMail 实例**：  
+部署并运营该独立域名的组织或个人是您专属且唯一的**数据控制者 (Data Controller)**。本《隐私权政策》仅作为 EpoCanvas 官方托管服务 (`mail.epocanvas.com`) 的运营合规指引与底层开源代码的功能技术基线说明。EpoCanvas Inc. 及其代码维护者**不拥有、不运营该独立实例，不上报任何遥测数据，且在物理与技术上完全无法访问该实例中的任何邮件或用户通信**。
+:::
+
 > 💡 **技术规范交叉索引 (Technical Baseline Reference)**  
 > 本隐私政策与专案底层技术架构严格对齐。关于云原生分布式边缘网络架构、密码学多租户隔离、毫秒级级联销毁算法以及 2% 强制预留容量保护机制，请同步参阅 [《合规技术基线与功能规范 (Technical Baseline Specification v1.0.0)》](/legal/technical-baseline/)。
 
@@ -40,6 +45,10 @@ This Privacy Notice for **EpoCanvas Inc.** ("**we**," "**us**," or "**our**"), d
 * **How do we keep your information safe?** We have adequate organizational and technical processes and procedures in place to protect your personal information, including end-to-end TLS 1.3 transit encryption, AES-GCM credential encryption at rest, and fail-closed RBAC access control. However, no electronic transmission over the internet or storage technology can be guaranteed to be 100% secure. Learn more about [how we keep your information safe](#infosafe).
 * **What are your rights?** Depending on where you are located geographically, applicable privacy laws (such as EU/UK GDPR, CCPA/CPRA, etc.) mean you have specific rights regarding your personal information. Learn more about [your privacy rights](#privacyrights).
 * **How do you exercise your rights?** The easiest way to exercise your rights is by visiting your account settings dashboard or by emailing [privacy@epocanvas.com](mailto:privacy@epocanvas.com). We will consider and act upon any request in accordance with applicable data protection laws.
+
+<div style="margin: 2rem 0; text-align: center;">
+  <img src="/images/illustrations/privacy-lifecycle.svg" alt="Data Privacy & Governance Lifecycle" style="width: 100%; border-radius: 8px; border: 1px solid var(--sl-color-gray-5);" />
+</div>
 
 ---
 
@@ -212,11 +221,12 @@ Our Services offer you the ability to authenticate using select third-party iden
 
 ### 8. HOW LONG DO WE KEEP YOUR INFORMATION?
 
-**In Short:** *We keep your information only as long as necessary to provide the Services, and no longer than six (6) months past account termination.*
+**In Short:** *We retain data only as long as necessary for service delivery, user-directed deletion triggers cascading physical destruction, and no records are kept longer than statutory maximums.*
 
-* **Active Accounts:** User emails, attachments, and configuration settings are retained for as long as your account remains active and in good standing.
-* **Account Termination:** Following an account closure or deletion request, all active operational records are permanently wiped out. No personal data is retained for longer than **six (6) months** post-termination, strictly for fraud mitigation, audit trails, and statutory compliance obligations.
-* **Automated Cascade Purge:** Upon triggering account deletion, our automated edge purge physically deletes all structured records (D1) and attachment objects (R2).
+* **Active Mailbox Accounts:** User emails, MIME headers, contact lists, and attachments are retained exclusively during the active lifecycle of your account.
+* **Cascading Physical Wipeout on Termination:** Following an account closure or deletion request, an automated multi-tier physical wipeout is executed across Cloudflare D1 (database records) and Cloudflare R2 (attachment blobs) with zero soft-delete holding. Users may configure an optional **7-day anti-accidental deletion cooling-off buffer** or execute an immediate force-purge.
+* **Security & Diagnostic Telemetry:** Non-content security audit logs (such as login failure counts, IP rate-limit blocks, and Turnstile challenges) rotate automatically on a rolling **90-day** window to safeguard against systemic cyberattacks.
+* **Statutory Compliance Ceiling:** In the event of ongoing legal dispute, fraud investigation, or tax accounting compliance, non-communication administrative transaction logs may be retained up to a statutory maximum ceiling of **six (6) months** post-termination, after which they are irreversibly destroyed. (See our detailed [数据保留与彻底删除准则](/legal/data-retention/)).
 
 ---
 
@@ -336,6 +346,10 @@ California Civil Code Section 1798.83 permits California residents to request in
 **本条款为 EpoCanvas Mail 针对现代人工智能合规的核心承诺，直接与系统架构代码绑定。**
 :::
 
+<div style="margin: 1.5rem 0; text-align: center;">
+  <img src="/images/illustrations/edge-ai-isolation.svg" alt="Edge-Confined AI Inference & Air-Gapped Model Training Exclusion" style="width: 100%; border-radius: 8px; border: 1px solid var(--sl-color-gray-5);" />
+</div>
+
 1. **Edge-Confined In-Memory Execution (边缘内存即时推理):**  
    All artificial intelligence and natural language processing capabilities provided within the Platform—including but not limited to the automatic extraction of One-Time Passcodes (OTP), verification numbers, and subject semantic tagging—are executed **strictly on Cloudflare Workers AI edge inference nodes**. Tokenization and inference occur in ephemeral memory buffers and are immediately discarded upon HTTP response completion.
 2. **Zero Third-Party Public LLM Transmission (零公有 LLM 外传):**  
@@ -352,6 +366,28 @@ California Civil Code Section 1798.83 permits California residents to request in
 :::caution[合规技术专章 B：端到端级联物理销毁与被遗忘权保障]
 **不同于传统邮箱服务的“软删除 (Soft Delete)”掩饰机制，EpoCanvas Mail 实施彻底的物理级联销毁。**
 :::
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as User / Admin
+    participant Edge as Cloudflare Worker (Edge)
+    participant D1 as Cloudflare D1 (Relational)
+    participant R2 as Cloudflare R2 (Object Store)
+    participant KV as Cloudflare KV (Edge Cache)
+
+    User->>Edge: Trigger Deletion (Immediate Wipe / Cooldown Expire)
+    activate Edge
+    Edge->>D1: Query Attachment & Raw EML Keys
+    Edge->>R2: DeleteObjectCommand (Attachment Blobs & Raw MIME)
+    R2-->>Edge: 204 No Content (Physically Shredded)
+    Edge->>D1: Atomic SQL DELETE FROM emails, users, mailboxes
+    D1-->>Edge: SQL Transaction Committed
+    Edge->>KV: Invalidate Session Tokens, TOTP Seeds & Cache
+    KV-->>Edge: KV Keys Purged (Global Edge Propagation)
+    Edge-->>User: 200 OK (Zero Ghost Records, Irreversible)
+    deactivate Edge
+```
 
 1. **Three-Tier Atomic Deletion Architecture (三层分布式物理擦除):**  
    When an authorized user or mailbox administrator initiates a "Delete Message", "Clear Mailbox", or "Terminate Account" command, the edge orchestrator triggers an immediate, multi-tier physical wipeout across all edge persistence systems:
@@ -370,6 +406,10 @@ California Civil Code Section 1798.83 permits California residents to request in
 :::important[合规技术专章 C：存储容量确定性阶梯治理与 2% 强制预留安全防线]
 **为防范静默丢信、数据截断以及磁盘爆满导致的数据库损坏，平台实施硬性容量治理规程。**
 :::
+
+<div style="margin: 1.5rem 0; text-align: center;">
+  <img src="/images/illustrations/storage-safeguard.svg" alt="Deterministic Storage Governance & 2% Reserved Safeguard" style="width: 100%; border-radius: 8px; border: 1px solid var(--sl-color-gray-5);" />
+</div>
 
 1. **Six-Stage Deterministic Storage Governance (六级容量监控模型):**  
    User mailbox storage consumption is tracked in real-time against quota allocations across six explicit color-coded thresholds:

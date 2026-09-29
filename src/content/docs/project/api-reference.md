@@ -41,7 +41,34 @@ EpoMail RESTful API 端点全集
 - `folder` (string)：文件夹类型，可选 `inbox` (收件箱), `sent` (已发送), `trash` (回收站), `starred` (星标)
 - `search` (string)：可选检索关键词（支持匹配发件人、主题及正文片段）
 
-### 响应示例
+### 调用示例 (Request Snippets)
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+  <TabItem label="cURL">
+```bash
+curl -X GET "https://epomail.mybrand.com/api/v1/mail/list?page=1&limit=20&folder=inbox" \
+  -H "Authorization: Bearer <YOUR_JWT_TOKEN>" \
+  -H "Content-Type: application/json"
+```
+  </TabItem>
+  <TabItem label="JavaScript (Fetch)">
+```javascript
+const response = await fetch("https://epomail.mybrand.com/api/v1/mail/list?page=1&limit=20&folder=inbox", {
+  method: "GET",
+  headers: {
+    "Authorization": "Bearer <YOUR_JWT_TOKEN>",
+    "Content-Type": "application/json"
+  }
+});
+const data = await response.json();
+console.log("Emails count:", data.data.total);
+```
+  </TabItem>
+</Tabs>
+
+### 响应示例 (JSON Response)
 ```json
 {
   "code": 200,
@@ -71,6 +98,45 @@ EpoMail RESTful API 端点全集
 ---
 
 ## ✉️ 2. 发送邮件接口 (`POST /api/v1/mail/send`)
+
+### 调用示例 (Request Snippets)
+
+<Tabs>
+  <TabItem label="cURL">
+```bash
+curl -X POST "https://epomail.mybrand.com/api/v1/mail/send" \
+  -H "Authorization: Bearer <YOUR_JWT_TOKEN>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "from": "support@mybrand.com",
+    "to": ["client@example.com"],
+    "subject": "Project Proposal & Delivery Schedule",
+    "html_body": "<h2>Hello Team,</h2><p>Please find the attached proposal.</p>"
+  }'
+```
+  </TabItem>
+  <TabItem label="JavaScript (Fetch)">
+```javascript
+const payload = {
+  from: "support@mybrand.com",
+  to: ["client@example.com"],
+  subject: "Project Proposal & Delivery Schedule",
+  html_body: "<h2>Hello Team,</h2><p>Please find the attached proposal.</p>"
+};
+
+const response = await fetch("https://epomail.mybrand.com/api/v1/mail/send", {
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer <YOUR_JWT_TOKEN>",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(payload)
+});
+const result = await response.json();
+console.log("Send status:", result.data.delivery_status);
+```
+  </TabItem>
+</Tabs>
 
 ### 请求体 (Request Body)
 ```json

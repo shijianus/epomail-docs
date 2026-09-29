@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="storageBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="360" rx="16" fill="url(#storageBg)" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Title & Subtitle -->
+  <text x="40" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#f8fafc">
+    Deterministic Storage Governance &amp; 2% Reserved Safeguard
+  </text>
+  <text x="40" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#94a3b8">
+    6-Stage Real-Time Threshold Visualizer &amp; Fail-Closed Inbound RFC 5321 552 Protection
+  </text>
+
+  <!-- Progress Bar Container -->
+  <g transform="translate(40, 110)">
+    <!-- Stage 1: Blue 0-10% -->
+    <rect x="0" y="0" width="92" height="46" rx="6" fill="#2563eb" stroke="#1d4ed8"/>
+    <text x="46" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">0 - 10%</text>
+
+    <!-- Stage 2: Green 11-25% -->
+    <rect x="96" y="0" width="138" height="46" rx="6" fill="#059669" stroke="#047857"/>
+    <text x="165" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">11 - 25%</text>
+
+    <!-- Stage 3: Orange 26-60% -->
+    <rect x="238" y="0" width="322" height="46" rx="6" fill="#ea580c" stroke="#c2410c"/>
+    <text x="399" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">26 - 60%</text>
+
+    <!-- Stage 4: Amber 61-80% -->
+    <rect x="564" y="0" width="184" height="46" rx="6" fill="#d97706" stroke="#b45309"/>
+    <text x="656" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">61 - 80%</text>
+
+    <!-- Stage 5: Red 81-98% -->
+    <rect x="752" y="0" width="138" height="46" rx="6" fill="#dc2626" stroke="#b91c1c"/>
+    <text x="821" y="28" font-family="sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">81 - 98%</text>
+
+    <!-- Stage 6: 2% Reserved Quarantine 98-100% -->
+    <rect x="894" y="0" width="26" height="46" rx="6" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="907" y="28" font-family="sans-serif" font-size="11" font-weight="bold" fill="#fecaca" text-anchor="middle">2%</text>
+  </g>
+
+  <!-- Labels under stages -->
+  <g transform="translate(40, 175)">
+    <!-- Stage 1 -->
+    <text x="46" y="0" font-family="sans-serif" font-size="11" font-weight="600" fill="#93c5fd" text-anchor="middle">Tier 1: Normal</text>
+    <text x="46" y="16" font-family="sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Base Operations</text>
+
+    <!-- Stage 2 -->
+    <text x="165" y="0" font-family="sans-serif" font-size="11" font-weight="600" fill="#6ee7b7" text-anchor="middle">Tier 2: Healthy</text>
+    <text x="165" y="16" font-family="sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Standard Flow</text>
+
+    <!-- Stage 3 -->
+    <text x="399" y="0" font-family="sans-serif" font-size="11" font-weight="600" fill="#fdba74" text-anchor="middle">Tier 3: Moderate</text>
+    <text x="399" y="16" font-family="sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Normal Capacity</text>
+
+    <!-- Stage 4 -->
+    <text x="656" y="0" font-family="sans-serif" font-size="11" font-weight="600" fill="#fde68a" text-anchor="middle">Tier 4: Elevated</text>
+    <text x="656" y="16" font-family="sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Suggest Cleanup</text>
+
+    <!-- Stage 5 -->
+    <text x="821" y="0" font-family="sans-serif" font-size="11" font-weight="600" fill="#fca5a5" text-anchor="middle">Tier 5: Warning</text>
+    <text x="821" y="16" font-family="sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Urgent Alert</text>
+
+    <!-- Stage 6 -->
+    <text x="907" y="0" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ef4444" text-anchor="middle">2% Reserved</text>
+    <text x="907" y="16" font-family="sans-serif" font-size="10" fill="#f87171" text-anchor="middle">Quarantine</text>
+  </g>
+
+  <!-- Explanation Cards at the bottom -->
+  <g transform="translate(40, 230)">
+    <!-- Box 1: 2% Reserved Quarantine -->
+    <rect x="0" y="0" width="445" height="95" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+    <text x="20" y="28" font-family="sans-serif" font-size="13" font-weight="700" fill="#38bdf8">
+      🛡️ 2% Absolute Reserved Quarantine (98% - 100%)
+    </text>
+    <text x="20" y="52" font-family="sans-serif" font-size="11" fill="#cbd5e1">
+      Strictly cordoned off for administrative recovery, password resets,
+    </text>
+    <text x="20" y="70" font-family="sans-serif" font-size="11" fill="#cbd5e1">
+      TOTP 2FA emergency alerts, and user self-service EML export operations.
+    </text>
+
+    <!-- Box 2: Fail-Closed Protection -->
+    <rect x="475" y="0" width="445" height="95" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+    <text x="495" y="28" font-family="sans-serif" font-size="13" font-weight="700" fill="#f87171">
+      ⚡ Fail-Closed Inbound Ingestion (RFC 5321 '552')
+    </text>
+    <text x="495" y="52" font-family="sans-serif" font-size="11" fill="#cbd5e1">
+      When mailbox hits 98%, edge gateway halts inbound payload acceptance
+    </text>
+    <text x="495" y="70" font-family="sans-serif" font-size="11" fill="#cbd5e1">
+      and returns '552 5.2.2 Mailbox full'. Prevents silent drop or database overflow.
+    </text>
+  </g>
+</svg>

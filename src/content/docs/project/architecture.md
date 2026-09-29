@@ -7,42 +7,41 @@ description: 深入拆解 EpoMail 的边缘云原生计算模型、D1 关系型�
 
 EpoMail 采用纯正的 **Serverless 边缘微服务与微数据库架构**。整个系统没有传统物理服务器的概念，所有的计算逻辑、路由中间件、数据持久化与静态资源托管均无缝运行在 **Cloudflare 全球分布式网络**之上。
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                   用户与外部世界 (Clients & Public)                           │
-│     [浏览器 PC/移动端]              [发件客户端/外部 MTA]              [Telegram Bot API]       │
-└───────────────┬───────────────────────────────┬───────────────────────────────▲─────────────┘
-                │ HTTPS (TLS 1.3)               │ SMTP (STARTTLS)               │ Webhook Push
-                ▼                               ▼                               │
-┌───────────────────────────────────────────────────────────────────────────────┴─────────────┐
-│                              Cloudflare 边缘防护层 (Edge Network)                           │
-│    • DDoS 高防清洗与速率限制 (Rate Limiting)       • Turnstile 人机验证挑战                 │
-│    • DNSSEC 域名解析与权威解析                      • Email Routing 入站清洗                 │
-└───────────────┬───────────────────────────────┬─────────────────────────────────────────────┘
-                │                               │
-                ▼                               ▼
-┌─────────────────────────────────────────────────────────────────────────────────────────────┐
-│                               计算执行层 (Cloudflare Workers)                               │
-│                                                                                             │
-│   ┌─────────────────────────────────────────────────────────────────────────────────────┐   │
-│   │                        Hono 现代化高性能 Web 框架与微服务                            │   │
-│   │   ├── 全局安全中间件 (CORS / JWT Auth / Rate-Limit / IP Lockout)                     │   │
-│   │   ├── RESTful API 路由层 (/api/v1/auth, /api/v1/mail, /api/v1/users)               │   │
-│   │   ├── 邮件入站处理器 (MIME Stream Parser / Email Message Pipeline)                   │   │
-│   │   └── 定时任务触发器 (Cron Triggers 每日数据聚合分析)                                │   │
-│   └─────────────────────────────────────────┬───────────────────────────────────────────┘   │
-└─────────────────────────────────────────────┼───────────────────────────────────────────────┘
-                                              │
-         ┌────────────────────────────────────┼──────────────────────────────────┐
-         ▼                                    ▼                                  ▼
-┌───────────────────────────┐    ┌───────────────────────────┐    ┌───────────────────────────┐
-│     Cloudflare D1         │    │      Cloudflare R2        │    │      Cloudflare KV        │
-│    (分布式 SQLite)         │    │      (S3 兼容对象存储)     │    │       (高并发键值库)      │
-│ ───────────────────────── │    │ ───────────────────────── │    │ ───────────────────────── │
-│ • USER_DB: 用户/角色/2FA  │    │ • 原始邮件 EML 归档文件   │    │ • 用户实时 JWT 会话态     │
-│ • MAIL_DB: 邮件/标签/规则 │    │ • 邮件所有附件二进制文件  │    │ • 每日分析数据聚合缓存    │
-│ • 系统配置与审计流水表     │    │ • 预签名 URL 动态鉴权下载 │    │ • 登录失败计数与 IP 封锁  │
-└───────────────────────────┘    └───────────────────────────┘    └───────────────────────────┘
+<div style="margin: 2rem 0; text-align: center;">
+  <img src="/images/illustrations/architecture-edge.svg" alt="EpoMail Cloud-Native Serverless Edge Architecture" style="width: 100%; border-radius: 8px; border: 1px solid var(--sl-color-gray-5);" />
+</div>
+
+### 端到端邮件入站处理时序图
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Sender as 外部邮件发送方 (SMTP)
+    participant CF_MX as Cloudflare Email Routing (MX)
+    participant Worker as Cloudflare Worker (Stream Pipeline)
+    participant D1 as Cloudflare D1 (Metadata)
+    participant R2 as Cloudflare R2 (Blobs)
+    participant Push as Webhook / Telegram Bot
+    actor Recipient as EpoMail 用户 (Web UI)
+
+    Sender->>CF_MX: 发送邮件 (SPF/DKIM/DMARC 验证)
+    CF_MX->>Worker: 触发 email() 事件 (流式传递 Raw MIME)
+    activate Worker
+    Worker->>Worker: 解析邮件头、提取主题、发件人与时间戳
+    alt 包含附件或正文超阈值
+        Worker->>R2: PutObjectCommand (存储附件与 raw.eml)
+        R2-->>Worker: 返回 R2 Object Key
+    end
+    Worker->>D1: 写入 emails 表 (插入元数据与纯文本摘要)
+    D1-->>Worker: 返回邮件 ID
+    opt 配置了智能推送规则
+        Worker->>Push: 触发 Telegram Bot / Webhook 发送提醒
+    end
+    Worker-->>CF_MX: 200 OK (邮件投递完成)
+    deactivate Worker
+    Recipient->>Worker: 前端加载收件箱列表 (GET /api/v1/emails)
+    Worker->>D1: 查询最新邮件元数据
+    D1-->>Recipient: 极速返回包含验证码标记的邮件列表
 ```
 
 ---
@@ -60,20 +59,73 @@ EpoMail 采用纯正的 **Serverless 边缘微服务与微数据库架构**。�
 
 ---
 
-## 🗄️ 2. 存储层：D1 关系型数据库与微库拆分
+## 🗄️ 2. 存储层：D1 关系型数据库与实体关系 (ER)
 
-系统使用基于 SQLite 的全球分布式关系型数据库 **Cloudflare D1**。为了实现高内聚、低耦合与未来横向伸缩能力，EpoMail 采用了**领域微数据库隔离设计**：
+系统使用基于 SQLite 的全球分布式关系型数据库 **Cloudflare D1**。为了实现高内聚、低耦合与未来横向伸缩能力，EpoMail 采用领域微数据库隔离设计，主要实体关系拓扑如下：
 
-### A. 用户与身份域数据库 (`USER_DB`)
+```mermaid
+erDiagram
+    users ||--o{ user_roles : "has"
+    roles ||--o{ user_roles : "grants"
+    users ||--o{ mailboxes : "owns"
+    users ||--o| totp_credentials : "secures"
+    users ||--o{ rules : "configures"
+    mailboxes ||--o{ emails : "receives"
+    emails ||--|| email_bodies : "contains"
+    emails ||--o{ email_attachments : "attaches"
+
+    users {
+        string id PK "UUID"
+        string username "Unique account name"
+        string password_hash "PBKDF2 salted hash"
+        string status "ACTIVE | SUSPENDED"
+        datetime created_at
+    }
+
+    mailboxes {
+        string id PK "UUID"
+        string user_id FK "Owner"
+        string address "alias@domain.com"
+        integer storage_used "Bytes"
+        integer storage_quota "Bytes"
+    }
+
+    emails {
+        string id PK "UUID"
+        string mailbox_id FK
+        string message_id "RFC 822 Message-ID"
+        string sender "From Address"
+        string subject "Email Subject"
+        boolean has_attachments
+        datetime received_at
+    }
+
+    email_bodies {
+        string email_id PK, FK
+        string text_content "Plain Text for search"
+        string html_content "Sanitized HTML"
+    }
+
+    email_attachments {
+        string id PK "UUID"
+        string email_id FK
+        string filename
+        integer filesize
+        string content_type
+        string r2_key "Object Key in R2"
+    }
+```
+
+### A. 用户与身份域模型 (`USER_DB`)
 专门承载身份与访问控制核心模型：
 - `users`：用户主表，包含唯一 UUID、用户名、加密密码哈希、账户状态与安全联系信息；
 - `roles` 与 `user_roles`：定义 6 级标准 RBAC 角色与其对应的原子权限清单；
-- `totp_credentials`：两步验证动态口令机密，密钥经过系统主密钥 AES-256 动态加密后密文入库；
+- `totp_credentials`：两步验证动态口令机密，密钥经过系统主密钥 AES-GCM 动态加密后密文入库；
 - `audit_logs`：全系统关键操作审计流水。
 
-### B. 邮件业务域数据库 (`MAIL_DB`)
+### B. 邮件业务域模型 (`MAIL_DB`)
 专注于高性能邮件收发与快速索引：
-- `mailboxes`：域名号池与分配关系表；
+- `mailboxes`：域名号池与分配关系表，具备配额限制字段；
 - `emails`：邮件核心元数据表（Message-ID、发件人、收件人列表、主题、发送时间、状态标志）；
 - `email_bodies`：邮件文本与 HTML 内容，支持针对纯文本内容的高性能全词检索；
 - `email_attachments`：附件元数据索引表（文件名、文件大小、MIME 类型、R2 Key）；
