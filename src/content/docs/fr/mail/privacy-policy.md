@@ -5,7 +5,7 @@ description: Politique de confidentialité d'EpoCanvas Mail — les standards et
 
 # Politique de confidentialité
 
-**Date d'entrée en vigueur : 29 septembre 2026 | Version : 5.0**
+**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.1**
 
 La présente politique explique comment le service EpoCanvas Mail (le « Service ») collecte, traite, utilise et transmet vos données personnelles, ainsi que les standards et engagements que l'Opérateur suit en matière de protection des données. Vous devez lire la présente politique avant de vous inscrire ou d'utiliser le Service ; si vous n'en acceptez pas l'une quelconque des dispositions, n'utilisez pas le Service.
 
@@ -107,7 +107,7 @@ L'Opérateur n'entraîne aucun modèle sur le contenu des courriels et ne transm
 Le Service partage des données personnelles avec des tiers selon le principe de nécessité minimale, dans les seuls cas suivants (liste complète et mécanismes de garantie : [Liste des sous-traitants](/fr/mail/sub-processors/)) :
 
 1. **Sous-traitance** : Cloudflare (calcul, stockage, routage du courrier, vérification humaine, IA en périphérie), Resend ou Mailjet (acheminement sortant ; seuls les courriels envoyés hors du site impliquent le courriel complet) ;
-2. **Sur votre autorisation** : notifications Telegram (seuls les champs que vous configurez sont poussés), applications tierces OAuth (périmètre limité à openid / profile / email, révocable à tout moment), connexion Linux DO ;
+2. **Sur votre autorisation** : notifications Telegram (seuls les champs que vous configurez sont poussés), applications tierces OAuth (périmètre limité à openid / profile / email, révocable à tout moment), connexion Linux DO, liaison de niveau de blog (blog.epocanvas.com ; votre adresse électronique est transmise lors de la requête) ;
 3. **À votre initiative** : services d'IA de traduction et de reconnaissance de texte dans les images (voir la section 6) ;
 4. **Exigence légale** : communication uniquement sur demande d'une autorité habilitée présentée selon les procédures légales, avec information de votre part dans la mesure permise par la loi.
 

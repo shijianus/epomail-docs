@@ -5,7 +5,7 @@ description: Liste complète des sous-traitants d'EpoCanvas Mail, des destinatai
 
 # Liste des sous-traitants
 
-**Date d'entrée en vigueur : 29 septembre 2026 | Version : 5.0**
+**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.1**
 
 À la suite de la section 7 de la [Politique de confidentialité](/fr/mail/privacy-policy/), la présente liste expose intégralement les tiers impliqués dans les données personnelles du Service, les conditions de partage et les mécanismes de garantie. Le principe de partage du Service est la nécessité minimale : les données qui peuvent rester dans l'instance n'en sortent pas ; celles qui doivent en sortir voient clairement indiqués leur destinataire et les données qu'elles emportent. Le Service n'entretient avec aucune des parties ci-après de relation de vente de données ni de partage de revenus publicitaires.
 
@@ -29,6 +29,8 @@ Les transferts internationaux respectent les exigences du droit applicable et le
 | Telegram | notification en temps réel | selon la configuration : objet du courriel, expéditeur (masquable), corps (masquable), codes de vérification, lien de lecture valable 7 jours | uniquement après liaison d'un robot Telegram et activation de la notification |
 | Applications tierces OAuth | connexion tierce ou accès autorisé | périmètre limité à openid / profile / email (identifiant, adresse électronique, nom, avatar) ; jetons d'accès valables 2 heures | uniquement sur autorisation expresse de la personne concernée ; révocable à tout moment depuis la page « Applications tierces », la révocation prenant effet immédiatement |
 | Linux DO | source d'identité pour la connexion tierce | identifiant d'utilisateur, pseudonyme, avatar et niveau de confiance obtenus via OAuth | uniquement lors d'une connexion avec un compte Linux DO |
+| Blog de l'équipe d'exploitation (blog.epocanvas.com) | liaison de niveau d'activité du blog et relèvement de quota | votre adresse électronique (transmise dans la requête) | requête en temps réel uniquement lorsque vous consultez la liaison de niveau de blog |
+| Blog de l'équipe d'exploitation (blog.epocanvas.com) | liaison de niveau d'activité du blog et relèvement de quota | votre adresse électronique (transmise dans la requête) | requête en temps réel uniquement lorsque vous consultez la liaison de niveau de blog |
 | Service de téléversement d'images | stockage des avatars et des images | le fichier image lui-même | uniquement lors du téléversement d'un avatar ou d'une image |
 
 ## 3. Chaîne de traitement par IA (en principe déclenchée par la personne concernée)

@@ -76,7 +76,7 @@ De twee databases zijn fysiek gescheiden: `USER_DB` bevat accounts, rollen en in
 | `mail-vue` | Frontend single-page applicatie (PWA) |
 | `temp_login_ui` | React-aanmeldschil, ingebouwd in `dist/login` van de frontend |
 | `EpomailDocs` | Deze site met juridische documenten (Astro 5 + Starlight, een aparte git-repository) |
-| `tests` | 102 geautomatiseerde test-, audit- en inspectiescripts (Playwright volledige stack, publiek end-to-end, statische scans) |
+| `tests` | 105 geautomatiseerde test-, audit- en inspectiescripts (Playwright volledige stack, publiek end-to-end, statische scans) |
 | `scripts` | Toolchain met daaronder het i18n-audittrio symmetrie／verwijzingen／hardcoding |
 
 ## 4. Beveiligingsontwerp
@@ -91,7 +91,7 @@ Deze maatregelen zijn afgerond in de volledige beveiligingsverharding van 22 sep
 
 ## 5. Ontwikkelgeschiedenis en de commit-keten
 
-Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 (`2bbb582`). Per 29 september 2026 telt de hoofdrepository 510 commits; deze site (EpomailDocs, een aparte git-repository) telt daar 3 bovenop. De tabel hieronder somt de mijlpalen per fase op met hun ankercommits (korte hashes):
+Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 (`2bbb582`). Per 30 september 2026 telt de hoofdrepository 535 commits; deze site (EpomailDocs, een aparte git-repository) telt daar 10 bovenop. De tabel hieronder somt de mijlpalen per fase op met hun ankercommits (korte hashes):
 
 | Fase | Periode | Opgeleverd | Ankercommits |
 | --- | --- | --- | --- |
@@ -106,6 +106,7 @@ Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 
 | 9. Tweestapsverificatie en audits | 2026-09-18 → 09-22 | TOTP／Passkey-aanmelding; herbouwde uitrol-bootstrapketen en scheiding van secrets; UI-audit-fixbatches; volledige beveiligingsverharding | `b025153` `5cfdaf9` `7ee3a66` |
 | 10. Gmail-achtige beleving | 2026-09-25 → 09-27 | Gelaagde berichtdetailopmaak; inline beantwoorden en emoji-reacties; verbeterde gespreksthreads; Gmail-stijl routering en diepe links; cryptografische hash-routering tegen manipulatie | `a8d841a` `4af2985` `4b371a8` |
 | 11. Site met juridische documenten | 2026-09-27 → 09-29 | Juridisch geheel van deze site in zes talen en zeven documenten; uitbreiding volgens het Google-beleidsparadigma; bouw van de site met Astro 5 + Starlight; aparte git-repository | `2bed02b` `617cccf` |
+| 12. Finalesering en audit vóór de lancering | 2026-09-29 → 09-30 | Integratie van de projectpagina en het officiële privacybeleid; volledige v5.0-herziening zonder artikelnummerverwijzingen; kalibratie van technische feiten en aanvulling van de verwerkerslijst vóór de lancering | `7ad5ebc` `05c222c` `5197f50` |
 
 De complete keten van mijlpaalankercommits van de hoofdrepository (volledige 40-tekens hashes, één voor één verifieerbaar in de GitHub-commitgeschiedenis):
 
@@ -140,16 +141,23 @@ a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮
 De commit-keten van deze site (de aparte EpomailDocs-repository):
 
 ```text
+fd57a71ab71d99ff61b83a9a7c4f4b191dd96b99  2026-09-28  feat: initial commit for epomail-docs with open-source and legal compliance documentation
 5208abc054626e305a5caac3e7320219706e3785  2026-09-29  docs(legal): 法律文档站 v4.1——台湾法域全量定稿（6 语言 × 7 篇 × 42 页）
 5fb18df6a9c317bf064b477d143a53eb0d54bf07  2026-09-29  docs(visual)+chore: aup-ladder.svg 布局重构消除遮挡，视觉验收与归档流水
 270cfd12c365b406661b5f40219740547d2b7d99  2026-09-29  fix(site): 补全根路径跳转页，/ 404 → 六语言总览入口
+7ad5ebc1bc3b2846d0932c872ef7666b0d07d6bb  2026-09-29  docs(project): 新增六语言专案介绍页——定位、功能、架构、安全与完整提交链路
+5cc2b2f12d00f195d0e84cea34911f1b3390ce6b  2026-09-28  feat(legal): integrate official privacy policy and technical baseline spec
+d7beca35a2db489e75ff865435f95f20e68fd27f  2026-09-28  docs(audit): enrich architecture & legal compliance per subagent audits
+d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端旧结构文档线为历史祖先，树以本地六语言法律文档站为准
+05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
+5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
 ```
 
 De tabel en ankerketen hierboven zijn op mijlpaalniveau; elke reguliere fix, test en documentatiecommit tussen de fasen is bewaard in de git-geschiedenis en is één voor één te volgen via de [GitHub-commitgeschiedenis](https://github.com/shijianus/epomail/commits). De hoofdrepository bewaart daarnaast twee archiefbestanden, `CHECKLIST.log` (taakuitvoeringslog) en `REPORTS.md` (diepgaande auditrapporten), één-op-één gekoppeld aan de commits.
 
 ## 6. Kwaliteitsborging
 
-- De map `tests/` bevat 102 geautomatiseerde test-, audit- en inspectiescripts, met dekking van Playwright full-stack browserregressie, publieke end-to-end asserties tegen productie en statische scans van de hele repository;
+- De map `tests/` bevat 105 geautomatiseerde test-, audit- en inspectiescripts, met dekking van Playwright full-stack browserregressie, publieke end-to-end asserties tegen productie en statische scans van de hele repository;
 - Representatieve gekwantificeerde controles: beveiligingsverharding 43／43 asserties, publieke routering end-to-end 32／32, aanmeldscherm in zes talen 62／62, sensorische inspectie 33／33 en 369 productie-integriteitsvergelijkingen byte voor byte;
 - De driedelige statische i18n-audit: `i18n-symmetry` (absoluut symmetrische sleutelsets over zes talen), `i18n-audit` (nul ontbrekende letterlijke verwijzingen) en `i18n-hardcoded` (nul ongeünpackte hardgecodeerde gebruikerszichtbare tekst);
 - Nul testgegevensresten: elke testcase ruimt fysiek op in een `finally`-blok; de database en KV bevatten geen fictieve gegevens;

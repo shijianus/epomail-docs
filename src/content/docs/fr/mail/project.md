@@ -76,7 +76,7 @@ Les deux bases de données sont physiquement isolées : `USER_DB` conserve les c
 | `mail-vue` | Application mono-page frontend (PWA) |
 | `temp_login_ui` | Coque de connexion React, compilée dans `dist/login` du frontend |
 | `EpomailDocs` | Le présent site de documents juridiques (Astro 5 + Starlight, dépôt git séparé) |
-| `tests` | 102 scripts de test, d'audit et d'inspection automatisés (pile complète Playwright, bout-en-bout public, analyses statiques) |
+| `tests` | 105 scripts de test, d'audit et d'inspection automatisés (pile complète Playwright, bout-en-bout public, analyses statiques) |
 | `scripts` | Chaîne d'outils incluant le trio d'audit i18n symétrie／références／codage en dur |
 
 ## 4. Conception de la sécurité
@@ -91,7 +91,7 @@ Ces mesures ont été bouclées lors du durcissement de sécurité complet du 22
 
 ## 5. Historique de développement et chaîne des commits
 
-Le projet est développé en continu depuis le premier commit du 21 juillet 2026 (`2bbb582`). Au 29 septembre 2026, le dépôt principal compte 510 commits ; le présent site (EpomailDocs, dépôt git séparé) en compte 3 de plus. Le tableau ci-dessous présente les jalons par phase avec leurs commits d'ancrage (hachages courts) :
+Le projet est développé en continu depuis le premier commit du 21 juillet 2026 (`2bbb582`). Au 30 septembre 2026, le dépôt principal compte 535 commits ; le présent site (EpomailDocs, dépôt git séparé) en compte 10 de plus. Le tableau ci-dessous présente les jalons par phase avec leurs commits d'ancrage (hachages courts) :
 
 | Phase | Période | Livraisons | Commits d'ancrage |
 | --- | --- | --- | --- |
@@ -106,6 +106,7 @@ Le projet est développé en continu depuis le premier commit du 21 juillet 2026
 | 9. Vérification en deux étapes et audits | 2026-09-18 → 09-22 | Connexion TOTP／Passkey ; chaîne d'amorçage de déploiement reconstruite et isolation des secrets ; lots de correctifs d'audit UI ; durcissement de sécurité complet | `b025153` `5cfdaf9` `7ee3a66` |
 | 10. Expérience façon Gmail | 2026-09-25 → 09-27 | Mise en page en couches du détail des messages ; réponse en ligne et réactions par émoji ; amélioration des fils de conversation ; routage et liens profonds façon Gmail ; routage anti-falsification par hachage cryptographique | `a8d841a` `4af2985` `4b371a8` |
 | 11. Site de documents juridiques | 2026-09-27 → 09-29 | Ensemble juridique du présent site en six langues et sept documents ; extension selon le paradigme des pages de Google ; construction du site Astro 5 + Starlight ; dépôt git séparé | `2bed02b` `617cccf` |
+| 12. Finalisation et audit avant mise en ligne | 2026-09-29 → 09-30 | Intégration de la page de présentation et de la politique de confidentialité officielle ; réécriture complète v5.0 sans citation de numéros d'articles ; calibrage des faits techniques et complément de la liste des sous-traitants avant mise en ligne | `7ad5ebc` `05c222c` `5197f50` |
 
 Chaîne complète des commits d'ancrage du dépôt principal (hachages complets de 40 caractères, vérifiables un à un dans l'historique GitHub) :
 
@@ -140,16 +141,23 @@ a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮
 Chaîne des commits du présent site (dépôt EpomailDocs séparé) :
 
 ```text
+fd57a71ab71d99ff61b83a9a7c4f4b191dd96b99  2026-09-28  feat: initial commit for epomail-docs with open-source and legal compliance documentation
 5208abc054626e305a5caac3e7320219706e3785  2026-09-29  docs(legal): 法律文档站 v4.1——台湾法域全量定稿（6 语言 × 7 篇 × 42 页）
 5fb18df6a9c317bf064b477d143a53eb0d54bf07  2026-09-29  docs(visual)+chore: aup-ladder.svg 布局重构消除遮挡，视觉验收与归档流水
 270cfd12c365b406661b5f40219740547d2b7d99  2026-09-29  fix(site): 补全根路径跳转页，/ 404 → 六语言总览入口
+7ad5ebc1bc3b2846d0932c872ef7666b0d07d6bb  2026-09-29  docs(project): 新增六语言专案介绍页——定位、功能、架构、安全与完整提交链路
+5cc2b2f12d00f195d0e84cea34911f1b3390ce6b  2026-09-28  feat(legal): integrate official privacy policy and technical baseline spec
+d7beca35a2db489e75ff865435f95f20e68fd27f  2026-09-28  docs(audit): enrich architecture & legal compliance per subagent audits
+d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端旧结构文档线为历史祖先，树以本地六语言法律文档站为准
+05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
+5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
 ```
 
 Le tableau et la chaîne d'ancrage ci-dessus sont à l'échelle des jalons ; chaque correctif, test et commit de documentation entre les phases est conservé dans l'historique git et peut être suivi un à un via l'[historique des commits GitHub](https://github.com/shijianus/epomail/commits). Le dépôt principal conserve en outre deux fichiers d'archive, `CHECKLIST.log` (journal d'exécution des tâches) et `REPORTS.md` (rapports d'audit approfondis), en correspondance un à un avec les commits.
 
 ## 6. Assurance qualité
 
-- Le répertoire `tests/` contient 102 scripts de test, d'audit et d'inspection automatisés, couvrant la régression navigateur sur pile complète Playwright, les assertions bout-en-bout publiques contre la production et les analyses statiques de tout le dépôt ;
+- Le répertoire `tests/` contient 105 scripts de test, d'audit et d'inspection automatisés, couvrant la régression navigateur sur pile complète Playwright, les assertions bout-en-bout publiques contre la production et les analyses statiques de tout le dépôt ;
 - Vérifications quantifiées représentatives : durcissement de sécurité 43／43 assertions, routage public bout-en-bout 32／32, surface de connexion en six langues 62／62, inspection sensorielle 33／33, et 369 comparaisons d'intégrité de production octet par octet ;
 - Triple audit statique i18n : `i18n-symmetry` (jeux de clés strictement symétriques entre les six langues), `i18n-audit` (zéro référence littérale manquante) et `i18n-hardcoded` (zéro texte visible codé en dur non enveloppé) ;
 - Zéro résidu de données de test : chaque cas de test nettoie physiquement dans un bloc `finally` ; la base de données et le KV ne contiennent aucune donnée fictive ;

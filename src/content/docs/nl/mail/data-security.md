@@ -5,7 +5,7 @@ description: Gegevenslevenscyclus van EpoCanvas Mail, verwerkingsmatrix, beveili
 
 # Gegevensverwerking en beveiliging
 
-**Datum van inwerkingtreding: 29 september 2026 | Versie: 5.0**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.1**
 
 Dit document sluit aan bij paragraaf 10 van het [Privacybeleid](/nl/mail/privacy-policy/) en beschrijft de levenscyclus van de persoonsgegevens in de Dienst, de verwerkingsmatrix per gegevenscategorie en de beveiligingsmaatregelen die de Exploitant heeft opgesteld om te voorkomen dat persoonsgegevens worden gestolen, gewijzigd, beschadigd, verloren of gelekt. Dit document dient tevens als basisdocument voor inzage door betrokkenen en voor de controle die de autoriteit overeenkomstig de wet uitvoert.
 

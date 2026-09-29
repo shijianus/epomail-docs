@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Structural symmetry check: every language's 7 legal docs must mirror the formal
-Traditional Chinese (zh-tw) version 1:1 — headings, table row/column counts, figures,
-note-block markers, and figure paths. Exit 1 on any mismatch.
+"""Structural symmetry check: every language's 8 docs (project intro + 7 legal docs)
+must mirror the formal Traditional Chinese (zh-tw) version 1:1 — headings, table
+row/column counts, figures, note-block markers, and figure paths. Exit 1 on any mismatch.
 
 Usage: python scripts/check-structure.py
 """
@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent / "src" / "content" / "docs"
 LANGS = ["mail", "zh-tw", "en", "es", "fr", "nl"]
-DOCS = ["overview", "privacy-policy", "terms-of-service", "acceptable-use",
+DOCS = ["project", "overview", "privacy-policy", "terms-of-service", "acceptable-use",
         "data-security", "sub-processors", "key-terms"]
 
 H = re.compile(r"^(#{2,3})\s+(.*)$", re.M)
@@ -68,7 +68,7 @@ def main():
     if bad:
         print(f"FAILED: {bad} structural mismatches")
         sys.exit(1)
-    print("OK: 6 languages x 7 docs structurally symmetric (headings/tables/figures/notes)")
+    print("OK: 6 languages x 8 docs structurally symmetric (headings/tables/figures/notes)")
 
 
 if __name__ == "__main__":

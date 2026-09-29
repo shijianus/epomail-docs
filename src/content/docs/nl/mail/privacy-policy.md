@@ -5,7 +5,7 @@ description: Privacybeleid van EpoCanvas Mail — de normen en toezeggingen voor
 
 # Privacybeleid
 
-**Datum van inwerkingtreding: 29 september 2026 | Versie: 5.0**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.1**
 
 Dit beleid beschrijft hoe de dienst EpoCanvas Mail (hierna «de Dienst») uw persoonsgegevens verzamelt, verwerkt en doorgeeft, evenals de normen en toezeggingen waarop de Exploitant zich bij de bescherming van gegevens baseert. U dient dit beleid te lezen voordat u zich registreert voor de Dienst of deze gebruikt; indien u met enig onderdeel van dit beleid niet instemt, gebruik de Dienst dan niet.
 
@@ -107,7 +107,7 @@ De Exploitant traint geen enkel model met e-mailinhoud en zendt naar AI-diensten
 De Dienst deelt persoonsgegevens volgens het beginsel van minimale noodzakelijkheid met derden, uitsluitend in de volgende gevallen (de volledige lijst en de waarborgmechanismen staan in de [Lijst van verwerkers](/nl/mail/sub-processors/)):
 
 1. **Verwerking door verwerkers**: Cloudflare (rekenkracht, opslag, e-mailroutering, mensverificatie, edge-AI) en Resend of Mailjet (uitgaande aflevering; alleen e-mail die naar buiten de site wordt verzonden betreft de volledige e-mail);
-2. **Op uw autorisatie**: Telegram-meldingen (uitsluitend de door u geconfigureerde velden worden gepusht), OAuth-apps van derden (beperkt tot openid / profile / email, op elk moment in te trekken) en aanmelding via Linux DO;
+2. **Op uw autorisatie**: Telegram-meldingen (uitsluitend de door u geconfigureerde velden worden gepusht), OAuth-apps van derden (beperkt tot openid / profile / email, op elk moment in te trekken), aanmelding via Linux DO en de blogniveausynchronisatie (blog.epocanvas.com; uw e-mailadres wordt bij de query verzonden);
 3. **Door u geactiveerd**: AI-vertaling en tekstherkenning in afbeeldingen (zie paragraaf 6);
 4. **Wettelijke vereisten**: verstrekt uitsluitend wanneer een bevoegd orgaan dat op grond van wettelijke procedures verlangt, met kennisgeving aan u voor zover de wet dat toelaat.
 

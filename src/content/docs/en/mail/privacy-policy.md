@@ -5,7 +5,7 @@ description: EpoCanvas Mail Privacy Policy—the standards and commitments on th
 
 # Privacy Policy
 
-**Effective date: September 29, 2026 | Version: 5.0**
+**Effective date: September 30, 2026 | Version: 5.1**
 
 This Policy explains how the EpoCanvas Mail service (the "Service") collects, processes, and transmits your personal data, and the standards and commitments the Operator follows for data protection. You should read this Policy before registering for or using the Service; if you do not agree to any part of this Policy, do not use the Service.
 
@@ -107,7 +107,7 @@ The Operator does not train any model on email content, nor does it send identit
 The Service shares personal data with third parties on the principle of minimal necessity, in the following circumstances only (see the [Third-Party Processor List](/en/mail/sub-processors/) for the complete list and safeguards):
 
 1. **Entrusted processing**: Cloudflare (computing, storage, email routing, bot verification, edge AI) and Resend or Mailjet (outbound delivery; only email sent off-site involves the full email);
-2. **With your authorization**: Telegram notifications (only the fields you configure are pushed), OAuth third-party apps (scope limited to openid / profile / email, revocable at any time), and Linux DO login;
+2. **With your authorization**: Telegram notifications (only the fields you configure are pushed), OAuth third-party apps (scope limited to openid / profile / email, revocable at any time), Linux DO login, and blog level linkage (blog.epocanvas.com; your email address is transmitted for the query);
 3. **Triggered by you**: AI translation and image text recognition services (see Section 6);
 4. **Legal requirements**: provided only when a competent authority so requires through statutory procedures, with notice to you to the extent permitted by law.
 

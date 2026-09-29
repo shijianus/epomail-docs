@@ -5,7 +5,7 @@ description: Définitions des termes techniques et juridiques employés dans les
 
 # Définitions
 
-**Date d'entrée en vigueur : 29 septembre 2026 | Version : 5.0**
+**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.1**
 
 La présente page définit les termes employés dans les documents juridiques du présent site. Les termes juridiques suivent les définitions générales du droit de la protection des données ; les termes techniques s'interprètent d'après la mise en œuvre réelle du code open source du Service.
 

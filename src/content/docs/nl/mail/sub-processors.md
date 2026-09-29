@@ -5,7 +5,7 @@ description: Volledige lijst van de verwerkers, ontvangers van gegevens, betrokk
 
 # Lijst van verwerkers
 
-**Datum van inwerkingtreding: 29 september 2026 | Versie: 5.0**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.1**
 
 Deze lijst sluit aan bij paragraaf 7 van het [Privacybeleid](/nl/mail/privacy-policy/) en vermeldt volledig de derden die bij de persoonsgegevens van de Dienst betrokken zijn, de voorwaarden voor delen en de waarborgmechanismen. Het delen door de Dienst volgt het beginsel van minimale noodzakelijkheid: gegevens die de instance niet hoeven te verlaten, verlaten die niet; gegevens die moeten worden verlaten, worden uitdrukkelijk vermeld met de ontvanger en de meegegeven gegevens. Met geen van de hierna genoemde partijen bestaat enige relatie van verkoop van gegevens of van het delen van advertentie-inkomsten.
 
@@ -29,6 +29,8 @@ Internationale doorgifte volgt de eisen van het toepasselijke recht en de beperk
 | Telegram | realtime pushmeldingen | afhankelijk van de configuratie: het onderwerp van de e-mail, de afzender (kan worden verborgen), de berichttekst (kan worden verborgen), verificatiecodes en een leeslink met 7 dagen geldigheid | alleen na koppeling van een Telegram-bot en het inschakelen van pushmeldingen |
 | OAuth-apps van derden | aanmelding of geautoriseerde toegang via derden | beperkt tot openid / profile / email (identificator, e-mailadres, naam, avatar); toegangstokens zijn 2 uur geldig | alleen na actieve autorisatie door de betrokkene; op elk moment in te trekken op de pagina «Apps van derden», met onmiddellijke werking |
 | Linux DO | identiteitsbron voor aanmelding via derden | de via OAuth verkregen gebruikersidentificator, nickname, avatar en vertrouwensniveau | alleen bij aanmelding met een Linux DO-account |
+| Blog van het exploitatieteam (blog.epocanvas.com) | koppeling van blogactiviteitsniveau en quotumverhoging | uw e-mailadres (verzonden in de queryaanvraag) | alleen in realtime geraadpleegd wanneer u de blogniveausynchronisatie bekijkt |
+| Blog van het exploitatieteam (blog.epocanvas.com) | koppeling van blogactiviteitsniveau en quotumverhoging | uw e-mailadres (verzonden in de queryaanvraag) | alleen in realtime geraadpleegd wanneer u de blogniveausynchronisatie bekijkt |
 | Afbeeldingsuploaddienst | opslag van avatars en afbeeldingen | het afbeeldingsbestand zelf | alleen bij het uploaden van avatars en dergelijke afbeeldingen |
 
 ## 3. De AI-verwerkingsketen (met activering door de betrokkene als uitgangspunt)

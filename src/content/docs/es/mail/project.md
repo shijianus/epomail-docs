@@ -76,7 +76,7 @@ Las dos bases de datos están aisladas físicamente: `USER_DB` guarda cuentas, r
 | `mail-vue` | Aplicación de página única del frontend (PWA) |
 | `temp_login_ui` | Capa de inicio de sesión en React, compilada dentro de `dist/login` del frontend |
 | `EpomailDocs` | Este sitio de documentos legales (Astro 5 + Starlight, repositorio git separado) |
-| `tests` | 102 scripts de pruebas, auditoría e inspección automatizadas (pila completa Playwright, extremo a extremo público, análisis estáticos) |
+| `tests` | 105 scripts de pruebas, auditoría e inspección automatizadas (pila completa Playwright, extremo a extremo público, análisis estáticos) |
 | `scripts` | Cadena de herramientas que incluye el trío de auditoría i18n simetría／referencias／texto codificado |
 
 ## 4. Diseño de seguridad
@@ -91,7 +91,7 @@ Estas medidas se cerraron en el endurecimiento de seguridad completo del 22 de s
 
 ## 5. Historial de desarrollo y cadena de commits
 
-El proyecto se desarrolla de forma continua desde el primer commit del 21 de julio de 2026 (`2bbb582`). A fecha de 29 de septiembre de 2026, el repositorio principal acumula 510 commits; este sitio (EpomailDocs, repositorio git separado) suma 3 más. La tabla siguiente recoge los hitos por fases con sus commits de anclaje (hash cortos):
+El proyecto se desarrolla de forma continua desde el primer commit del 21 de julio de 2026 (`2bbb582`). A fecha de 30 de septiembre de 2026, el repositorio principal acumula 535 commits; este sitio (EpomailDocs, repositorio git separado) suma 10 más. La tabla siguiente recoge los hitos por fases con sus commits de anclaje (hash cortos):
 
 | Fase | Periodo | Entregas | Commits de anclaje |
 | --- | --- | --- | --- |
@@ -106,6 +106,7 @@ El proyecto se desarrolla de forma continua desde el primer commit del 21 de jul
 | 9. Verificación en dos pasos y auditorías | 2026-09-18 → 09-22 | Inicio de sesión TOTP／Passkey; cadena de arranque de despliegue reconstruida y aislamiento de secretos; lotes de correcciones de la auditoría de IU; endurecimiento de seguridad completo | `b025153` `5cfdaf9` `7ee3a66` |
 | 10. Experiencia estilo Gmail | 2026-09-25 → 09-27 | Diseño por capas del detalle del mensaje; respuesta en línea y reacciones con emojis; mejora de las conversaciones; enrutado y enlaces profundos estilo Gmail; enrutado antimanipulación con hash criptográfico | `a8d841a` `4af2985` `4b371a8` |
 | 11. Sitio de documentos legales | 2026-09-27 → 09-29 | Conjunto legal de este sitio en seis idiomas y siete documentos; ampliación según el paradigma de las páginas de Google; construcción del sitio con Astro 5 + Starlight; repositorio git separado | `2bed02b` `617cccf` |
+| 12. Finalización y auditoría previa al lanzamiento | 2026-09-29 → 09-30 | Integración de la página del proyecto y de la política de privacidad oficial; reescritura completa v5.0 sin citas de números de artículos; calibración de hechos técnicos y ampliación de la lista de encargados del tratamiento antes del lanzamiento | `7ad5ebc` `05c222c` `5197f50` |
 
 Cadena completa de commits de anclaje del repositorio principal (hashes completos de 40 caracteres, verificables uno a uno en el historial de GitHub):
 
@@ -140,16 +141,23 @@ a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮
 Cadena de commits de este sitio (repositorio EpomailDocs separado):
 
 ```text
+fd57a71ab71d99ff61b83a9a7c4f4b191dd96b99  2026-09-28  feat: initial commit for epomail-docs with open-source and legal compliance documentation
 5208abc054626e305a5caac3e7320219706e3785  2026-09-29  docs(legal): 法律文档站 v4.1——台湾法域全量定稿（6 语言 × 7 篇 × 42 页）
 5fb18df6a9c317bf064b477d143a53eb0d54bf07  2026-09-29  docs(visual)+chore: aup-ladder.svg 布局重构消除遮挡，视觉验收与归档流水
 270cfd12c365b406661b5f40219740547d2b7d99  2026-09-29  fix(site): 补全根路径跳转页，/ 404 → 六语言总览入口
+7ad5ebc1bc3b2846d0932c872ef7666b0d07d6bb  2026-09-29  docs(project): 新增六语言专案介绍页——定位、功能、架构、安全与完整提交链路
+5cc2b2f12d00f195d0e84cea34911f1b3390ce6b  2026-09-28  feat(legal): integrate official privacy policy and technical baseline spec
+d7beca35a2db489e75ff865435f95f20e68fd27f  2026-09-28  docs(audit): enrich architecture & legal compliance per subagent audits
+d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端旧结构文档线为历史祖先，树以本地六语言法律文档站为准
+05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
+5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
 ```
 
 La tabla y la cadena de anclaje anteriores están a escala de hitos; cada corrección, prueba y commit de documentación entre fases se conserva en el historial de git y puede rastrearse uno a uno en el [historial de commits de GitHub](https://github.com/shijianus/epomail/commits). El repositorio principal guarda además dos archivos de archivo, `CHECKLIST.log` (registro de ejecución de tareas) y `REPORTS.md` (informes de auditoría en profundidad), en correspondencia uno a uno con los commits.
 
 ## 6. Garantía de calidad
 
-- El directorio `tests/` contiene 102 scripts de pruebas, auditoría e inspección automatizadas, que cubren la regresión de navegador con pila completa Playwright, aserciones extremo a extremo públicas contra producción y análisis estáticos de todo el repositorio;
+- El directorio `tests/` contiene 105 scripts de pruebas, auditoría e inspección automatizadas, que cubren la regresión de navegador con pila completa Playwright, aserciones extremo a extremo públicas contra producción y análisis estáticos de todo el repositorio;
 - Comprobaciones cuantificadas representativas: endurecimiento de seguridad 43／43 aserciones, enrutado público extremo a extremo 32／32, pantalla de inicio de sesión en seis idiomas 62／62, inspección sensorial 33／33 y 369 comparaciones de integridad de producción byte a byte;
 - Triple auditoría estática de i18n: `i18n-symmetry` (conjuntos de claves absolutamente simétricos entre los seis idiomas), `i18n-audit` (cero referencias literales ausentes) e `i18n-hardcoded` (cero texto visible codificado sin envolver);
 - Cero residuos de datos de prueba: cada caso de prueba limpia físicamente en un bloque `finally`; la base de datos y el KV no contienen datos falsos;

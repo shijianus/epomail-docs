@@ -5,7 +5,7 @@ description: Cycle de vie des données d'EpoCanvas Mail, matrice de traitement, 
 
 # Traitement des données et maintien de la sécurité
 
-**Date d'entrée en vigueur : 29 septembre 2026 | Version : 5.0**
+**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.1**
 
 À la suite de la section 10 de la [Politique de confidentialité](/fr/mail/privacy-policy/), le présent document décrit le cycle de vie des données personnelles du Service, la matrice de traitement de chaque catégorie de données, ainsi que les mesures de maintien de la sécurité établies par l'Opérateur pour prévenir le vol, l'altération, l'endommagement, la perte ou la fuite de données personnelles. Il sert en outre de document de base pour la consultation par les personnes concernées et pour les inspections que l'autorité compétente effectue conformément à la loi.
 

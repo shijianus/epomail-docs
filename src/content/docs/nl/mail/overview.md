@@ -5,7 +5,7 @@ description: Overzicht van de juridische documenten van EpoCanvas Mail — ident
 
 # Privacy en voorwaarden
 
-**Datum van inwerkingtreding: 29 september 2026 | Versie: 5.0**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.1**
 
 Deze pagina is de gids van alle juridische documenten van de dienst EpoCanvas Mail (hierna «de Dienst») en beschrijft de rollen van de partijen, de documentstructuur en de volgorde van toepassing. Voordat u zich registreert voor de Dienst of deze gebruikt, dient u deze pagina te lezen, samen met het [Privacybeleid](/nl/mail/privacy-policy/) en de [Servicevoorwaarden](/nl/mail/terms-of-service/).
 

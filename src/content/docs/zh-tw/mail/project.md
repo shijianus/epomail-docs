@@ -76,7 +76,7 @@ EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件�
 | `mail-vue` | 前端單頁應用（PWA） |
 | `temp_login_ui` | React 登入面，建置產物併入前端 `dist/login` |
 | `EpomailDocs` | 本法律文件站（Astro 5 + Starlight，獨立 git 儲存庫） |
-| `tests` | 102 個自動化測試、稽核與巡檢腳本（Playwright 全真棧、公網端對端、靜態掃描） |
+| `tests` | 105 個自動化測試、稽核與巡檢腳本（Playwright 全真棧、公網端對端、靜態掃描） |
 | `scripts` | i18n 對稱性／引用／硬編碼三件套等工具鏈 |
 
 ## 4. 安全設計
@@ -91,7 +91,7 @@ EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件�
 
 ## 5. 開發歷程與提交鏈路
 
-專案自 2026 年 7 月 21 日首次提交（`2bbb582`）起持續開發。截至 2026 年 9 月 29 日，主儲存庫累計 510 個提交；本站（EpomailDocs，獨立 git 儲存庫）另有 3 個提交。下表按階段列出里程碑與錨點提交（短 Hash）：
+專案自 2026 年 7 月 21 日首次提交（`2bbb582`）起持續開發。截至 2026 年 9 月 30 日，主儲存庫累計 535 個提交；本站（EpomailDocs，獨立 git 儲存庫）另有 10 個提交。下表按階段列出里程碑與錨點提交（短 Hash）：
 
 | 階段 | 時間 | 交付內容 | 錨點提交 |
 | --- | --- | --- | --- |
@@ -106,6 +106,7 @@ EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件�
 | 9. 兩步驟驗證與稽核強化 | 2026-09-18 → 09-22 | TOTP／Passkey 登入；全新部署引導鏈與密鑰隔離；UI 全面稽核修復批次；全量安全強化 | `b025153` `5cfdaf9` `7ee3a66` |
 | 10. Gmail 級體驗對齊 | 2026-09-25 → 09-27 | 郵件詳情排版分層；內嵌回覆與表情回應；會話群組優化；Gmail 式路由與深層連結；密碼學雜湊防越權路由 | `a8d841a` `4af2985` `4b371a8` |
 | 11. 法律文件站 | 2026-09-27 → 09-29 | 本站六語言七篇法律文件；Google 政策範式增補；Astro 5 + Starlight 站點化；獨立 git 儲存庫 | `2bed02b` `617cccf` |
+| 12. 定稿與上線稽核 | 2026-09-29 → 09-30 | 專案介紹頁與官方隱私政策整合；v5.0 去條號立場全量改寫；上線前技術事實校準與第三方清單增補 | `7ad5ebc` `05c222c` `5197f50` |
 
 主儲存庫的完整里程碑錨點鏈（40 位全量 Hash，可於 GitHub 提交歷史逐條核驗）：
 
@@ -140,16 +141,23 @@ a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮
 本站（EpomailDocs 獨立儲存庫）的提交鏈路：
 
 ```text
+fd57a71ab71d99ff61b83a9a7c4f4b191dd96b99  2026-09-28  feat: initial commit for epomail-docs with open-source and legal compliance documentation
 5208abc054626e305a5caac3e7320219706e3785  2026-09-29  docs(legal): 法律文档站 v4.1——台湾法域全量定稿（6 语言 × 7 篇 × 42 页）
 5fb18df6a9c317bf064b477d143a53eb0d54bf07  2026-09-29  docs(visual)+chore: aup-ladder.svg 布局重构消除遮挡，视觉验收与归档流水
 270cfd12c365b406661b5f40219740547d2b7d99  2026-09-29  fix(site): 补全根路径跳转页，/ 404 → 六语言总览入口
+7ad5ebc1bc3b2846d0932c872ef7666b0d07d6bb  2026-09-29  docs(project): 新增六语言专案介绍页——定位、功能、架构、安全与完整提交链路
+5cc2b2f12d00f195d0e84cea34911f1b3390ce6b  2026-09-28  feat(legal): integrate official privacy policy and technical baseline spec
+d7beca35a2db489e75ff865435f95f20e68fd27f  2026-09-28  docs(audit): enrich architecture & legal compliance per subagent audits
+d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端旧结构文档线为历史祖先，树以本地六语言法律文档站为准
+05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
+5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
 ```
 
 上表與上方錨點鏈為里程碑粒度；階段之間的全部日常修復、測試與文件提交均保存於 git 歷史，可經 [GitHub 提交歷史](https://github.com/shijianus/epomail/commits)逐條追溯。主儲存庫另設 `CHECKLIST.log`（任務執行流水）與 `REPORTS.md`（專項稽核報告）兩份歸檔，與提交一一對應。
 
 ## 6. 品質保障
 
-- `tests/` 目錄含 102 個自動化測試、稽核與巡檢腳本，覆蓋 Playwright 全真環境瀏覽器回歸、生產環境公網端對端斷言與全庫靜態掃描；
+- `tests/` 目錄含 105 個自動化測試、稽核與巡檢腳本，覆蓋 Playwright 全真環境瀏覽器回歸、生產環境公網端對端斷言與全庫靜態掃描；
 - 代表性量化核驗：安全強化 43／43 斷言、公網路由端對端 32／32、六語言登入面 62／62、感官巡檢 33／33、生產完整性 369 項逐位元組比對；
 - 多語言靜態稽核三件套：`i18n-symmetry`（六語言鍵集絕對對稱）、`i18n-audit`（字面量引用零缺失）、`i18n-hardcoded`（用戶可見文字零未包裹硬編碼）；
 - 測試資料零殘留：所有用例具備 `finally` 物理清理機制，資料庫與 KV 無假資料；

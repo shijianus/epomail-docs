@@ -5,7 +5,7 @@ description: Política de Privacidad de EpoCanvas Mail—los estándares y compr
 
 # Política de Privacidad
 
-**Fecha de entrada en vigor: 29 de septiembre de 2026 | Versión: 5.0**
+**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.1**
 
 Esta Política explica cómo el servicio EpoCanvas Mail (el «Servicio») recopila, trata, utiliza y transmite sus datos personales, así como los estándares y compromisos que el Operador sigue en materia de protección de datos. Debe leer esta Política antes de registrarse en el Servicio o utilizarlo; si no está de acuerdo con alguna parte de esta Política, no utilice el Servicio.
 
@@ -107,7 +107,7 @@ El Operador no entrena ningún modelo con contenido de correo ni envía a los se
 El Servicio comparte datos personales con terceros conforme al principio de mínima necesidad, únicamente en las circunstancias siguientes (véase [Subencargados del Tratamiento](/es/mail/sub-processors/) para la lista completa y las garantías):
 
 1. **Encargo del tratamiento**: Cloudflare (computación, almacenamiento, enrutamiento de correo, verificación de bots, IA perimetral) y Resend o Mailjet (entrega saliente; solo el correo enviado fuera de la plataforma implica el correo completo);
-2. **Con su autorización**: notificaciones de Telegram (solo se envían los campos que usted configure), aplicaciones OAuth de terceros (alcance limitado a openid / profile / email, revocable en cualquier momento) e inicio de sesión con Linux DO;
+2. **Con su autorización**: notificaciones de Telegram (solo se envían los campos que usted configure), aplicaciones OAuth de terceros (alcance limitado a openid / profile / email, revocable en cualquier momento), inicio de sesión con Linux DO y vinculación de nivel del blog (blog.epocanvas.com; su dirección de correo electrónico se transmite en la consulta);
 3. **Activados por usted**: servicios de traducción mediante IA y de reconocimiento de texto en imágenes (véase la Sección 6);
 4. **Requisitos legales**: se proporcionan únicamente cuando una autoridad competente así lo requiera mediante procedimientos legales, con notificación a usted en la medida permitida por la ley.
 

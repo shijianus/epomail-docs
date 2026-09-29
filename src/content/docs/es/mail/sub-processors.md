@@ -5,7 +5,7 @@ description: Lista completa de los encargados del tratamiento de EpoCanvas Mail 
 
 # Lista de Subencargados del Tratamiento
 
-**Fecha de entrada en vigor: 29 de septiembre de 2026 | Versión: 5.0**
+**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.1**
 
 En seguimiento de la sección 7 de la [Política de Privacidad](/es/mail/privacy-policy/), esta lista expone en su integridad los terceros implicados en los datos personales del Servicio, las condiciones de la comunicación de datos y las garantías. El principio de comunicación de datos del Servicio es la mínima necesidad: los datos que no necesitan salir de la instancia no salen; los que deben salir están claramente señalados con el destinatario y los datos transportados. El Servicio no mantiene con ninguna de las partes siguientes relación de venta de datos ni de reparto de ingresos publicitarios.
 
@@ -29,6 +29,8 @@ Las transferencias internacionales se rigen por los requisitos de la ley aplicab
 | Telegram | Envío de notificaciones en tiempo real | Según la configuración: asunto del correo, remitente (puede ocultarse), cuerpo (puede ocultarse), códigos de verificación y un enlace de lectura válido durante 7 días | Únicamente cuando un bot de Telegram está vinculado y el envío está activado |
 | Aplicaciones de terceros OAuth | Inicio de sesión de terceros o acceso autorizado | Alcance limitado a openid / profile / email (identificador, dirección de correo electrónico, nombre, avatar); tokens de acceso válidos durante 2 horas | Únicamente tras autorización activa del interesado; revocable en cualquier momento en la página «Aplicaciones de terceros», y la revocación surte efecto de inmediato |
 | Linux DO | Fuente de identidad para el inicio de sesión de terceros | El identificador de usuario, el apodo, el avatar y el nivel de confianza obtenidos mediante OAuth | Únicamente al iniciar sesión con una cuenta de Linux DO |
+| Blog del equipo de operación (blog.epocanvas.com) | Vinculación del nivel de actividad del blog y mejora de cuota | Su dirección de correo electrónico (transmitida en la consulta) | Se consulta en tiempo real únicamente cuando usted consulta la vinculación de nivel del blog |
+| Blog del equipo de operación (blog.epocanvas.com) | Vinculación del nivel de actividad del blog y mejora de cuota | Su dirección de correo electrónico (transmitida en la consulta) | Se consulta en tiempo real únicamente cuando usted consulta la vinculación de nivel del blog |
 | Servicio de carga de imágenes | Almacenamiento de avatares e imágenes | Los propios archivos de imagen | Únicamente al cargar avatares e imágenes similares |
 
 ## 3. La cadena de tratamiento mediante IA (por iniciativa del interesado como principio)
