@@ -330,6 +330,15 @@ export default defineConfig({
 							},
 							link: '/legal/data-sovereignty/',
 						},
+						{
+							label: '合规技术基线与功能规范',
+							translations: {
+								'zh-TW': '合規技術基線與功能規範',
+								en: 'Technical Baseline & Architecture Spec',
+								ja: 'コンプライアンス技術ベースラインと機能仕様',
+							},
+							link: '/legal/technical-baseline/',
+						},
 					],
 				},
 				{
