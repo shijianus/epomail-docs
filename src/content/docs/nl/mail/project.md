@@ -55,7 +55,7 @@ Elke functie hieronder is punt voor punt geverifieerd tegen de broncode van de r
 ### 2.5 Interface en talen
 
 - Zes interfacetalen: Vereenvoudigd Chinees, Traditioneel Chinees, English, Français, Español en Nederlands; de woordenboeken bevatten 2.039 sleutels in de frontend en 1.888 in de backend, 100% symmetrisch over de zes talen, met een driedelige statische audit die nul lekkage van hardgecodeerde, voor de gebruiker zichtbare tekst garandeert;
-- Meertalige e-mail: welkomstmails en systeembrede aankondigingsmails worden geleverd met sjablonen in zes talen, verzonden in de taal van de ontvanger;
+- Meertalige e-mail: welkomstmails en systeembrede aankondigingsmails beschikken over officiële sjablonen in zes talen; systeemberichten worden afgeleverd in de versie zoals door de beheerder verzonden (een onveranderlijke momentopname); bij het lezen worden ongewijzigde officiële berichten lokaal in uw taal weergegeven vanuit de vooraf ingestelde sjablonen, gewijzigde vallen terug op AI-vertaling;
 - Interfacedetails: meer dan 300 offline vectorpictogrammen (nul externe verzoeken), lichte en donkere thema's, responsieve lay-out, PWA-installatie en aanpasbare sitetitel en aanmeldachtergrond.
 
 ## 3. Technische architectuur

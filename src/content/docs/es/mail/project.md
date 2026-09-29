@@ -55,7 +55,7 @@ Cada función siguiente se ha verificado punto por punto contra el código fuent
 ### 2.5 Interfaz e idiomas
 
 - Seis idiomas de interfaz: chino simplificado, chino tradicional, English, Français, Español y Nederlands; los diccionarios llevan 2 039 claves en el frontend y 1 888 en el backend, simétricos al 100 % entre los seis idiomas, con una triple auditoría estática que garantiza cero fugas de texto codificado visible para el usuario;
-- Correo multilingüe: los correos de bienvenida y los anuncios globales incorporan plantillas en seis idiomas, enviadas en el idioma del destinatario;
+- Correo multilingüe: los correos de bienvenida y los anuncios globales incorporan plantillas oficiales en seis idiomas; los correos del sistema se envían en la versión redactada por el administrador (instantánea inmutable); al leerlos, los correos oficiales sin modificar se renderizan localmente en su idioma mediante las plantillas predefinidas, y los modificados recurren a la traducción por IA;
 - Detalles de interfaz: más de 300 iconos vectoriales sin conexión (cero peticiones externas), temas claro y oscuro, diseño receptivo, instalación PWA, y título del sitio y fondo de inicio de sesión personalizables.
 
 ## 3. Arquitectura técnica

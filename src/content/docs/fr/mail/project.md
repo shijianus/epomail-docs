@@ -55,7 +55,7 @@ Chaque fonction ci-dessous a été vérifiée point par point dans le code sourc
 ### 2.5 Interface et langues
 
 - Six langues d'interface : chinois simplifié, chinois traditionnel, English, Français, Español, Nederlands ; les dictionnaires comptent 2 039 clés côté frontend et 1 888 clés côté backend, symétriques à 100 % entre les six langues, avec un triple audit statique garantissant zéro fuite de texte codé en dur visible par l'utilisateur ;
-- Courrier multilingue : les e-mails de bienvenue et les annonces à l'échelle du système embarquent des modèles en six langues, délivrés dans la langue du destinataire ;
+- Courrier multilingue : les e-mails de bienvenue et les annonces à l'échelle du système embarquent des modèles officiels en six langues ; les courriels système sont délivrés dans la version rédigée par l'administrateur (instantané immuable) ; à la lecture, les courriels officiels non modifiés sont rendus localement dans votre langue à partir des modèles prédéfinis, les versions modifiées revenant à la traduction par IA ;
 - Détails d'interface : plus de 300 icônes vectorielles hors ligne (zéro requête externe), thèmes clair et sombre, mise en page réactive, installation PWA, titre du site et arrière-plan de connexion personnalisables.
 
 ## 3. Architecture technique

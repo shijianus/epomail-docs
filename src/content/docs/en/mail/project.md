@@ -55,7 +55,7 @@ Every feature below has been verified item by item against the repository source
 ### 2.5 Interface and Languages
 
 - Six interface languages: Simplified Chinese, Traditional Chinese, English, Français, Español, and Nederlands; the dictionaries carry 2,039 keys on the frontend and 1,888 keys on the backend, 100% symmetric across the six languages, with a three-part static audit guaranteeing zero hardcoded leakage of user-visible text;
-- Multilingual email: welcome emails and system-wide announcement emails ship with six-language templates, delivered in the recipient's language;
+- Multilingual email: welcome emails and system-wide announcement emails ship with six-language official templates; system emails are delivered in the version the administrator sent (an immutable snapshot); when reading, unmodified official emails render in your language locally from the preset templates, while modified ones fall back to AI translation;
 - Interface details: 300+ offline vector icons (zero external requests), light and dark themes, responsive layout, PWA installation, and customizable site title and login background.
 
 ## 3. Technical Architecture
