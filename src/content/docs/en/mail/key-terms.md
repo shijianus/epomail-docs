@@ -1,34 +1,33 @@
 ---
 title: Key Terms
-description: Definitions of the technical and legal terms used in the EpoCanvas Mail legal documents—interpreted in accordance with the PDPA and the architecture of the Service.
+description: Definitions of the technical and legal terms used in the EpoCanvas Mail legal documents—using the general definitions of data-protection law, interpreted according to the architecture of the Service.
 ---
 
 # Key Terms
 
-**Effective date: September 29, 2026 | Version: 4.1**
+**Effective date: September 29, 2026 | Version: 5.0**
 
-This page defines the terms used in the legal documents on this site. Legal terms follow the definitions in the current provisions of the Taiwan Personal Data Protection Act (個人資料保護法, "PDPA") and related statutes; technical terms are interpreted according to the actual implementation in the Service's open source code.
+This page defines the terms used in the legal documents on this site. Legal terms use the general definitions of data-protection law; technical terms are interpreted according to the actual implementation in the Service's open source code.
 
 ## 1. Legal Terms
 
 | Term | Definition |
 | --- | --- |
-| Personal data | Under Article 2 of the PDPA, a natural person's name, date of birth, contact details, social activities, and other data by which that person can be identified directly or indirectly. For the Service, this consists mainly of email addresses, account credentials, and network activity records |
-| Sensitive personal data | The personal data concerning medical history, medical treatment, genetic information, sexual life, health examinations, and criminal records listed in Article 6 of the same Act, which may not be collected, processed, or used except in the circumstances prescribed by law |
-| Collection / processing / use | Article 2 of the same Act: "collection" means acquiring personal data by any means; "processing" means the recording, input, storage, editing, correction, replication, retrieval, deletion, output, linking, or internal transmission of data in order to establish or use personal data files; "use" means employing collected personal data for purposes other than processing |
+| Personal data | A natural person's name, date of birth, contact details, social activities, and other data by which that person can be identified directly or indirectly. For the Service, this consists mainly of email addresses, account credentials, and network activity records |
+| Highly sensitive personal data | Personal data concerning medical history, medical treatment, genetic information, sexual life, health examinations, and criminal records, which falls into highly sensitive categories whose processing is strictly restricted in most jurisdictions |
+| Collection / processing / use | "Collection" means acquiring personal data by any means; "processing" means the recording, input, storage, editing, correction, replication, retrieval, deletion, output, linking, or internal transmission of data in order to establish or use personal data files; "use" means employing collected personal data for purposes other than processing |
 | Data controller | The entity that decides the purposes and methods of the collection, processing, and use of personal data; this includes the Operator of a hosted instance and the deployer of a self-hosted instance |
 | Entrusted processor | An entity that processes personal data for the controller on the controller's instructions (such as Cloudflare and Resend) |
 | Data subject | The natural person identified by the personal data; the "you" referred to in the documents on this site |
-| International transfer | Under Article 2 of the same Act, the processing or use of personal data across national borders; governed by Article 21 of the PDPA and by restriction orders of the competent authority |
-| Notification duty | Under Article 8 of the same Act, when collecting personal data from a data subject the collector must clearly notify six items: the collector's identity, the purposes of collection, the categories of data, the period, region, recipients, and means of use, the rights the data subject may exercise, and the consequences of not providing the data; where personal data is not obtained from the data subject, Article 9 requires notice of the source before processing or use |
-| Specific purpose | Under Article 19 of the same Act, the specific purpose a non-governmental agency must have for collecting or processing personal data; use must remain within the extent necessary for that purpose (Article 20) |
-| Right to refuse marketing | Under Paragraph 2 of Article 20 of the same Act, when a data subject indicates refusal to accept marketing, use of the personal data for marketing must cease immediately; at the first marketing, the means of refusal must be provided and the necessary costs borne by the Operator (Paragraph 3) |
-| Competent authority | Under Article 1-1 of the PDPA, the competent authority for the Act is the Personal Data Protection Commission |
-| Non-consensual intimate image | An intimate image of another person that was recorded, reproduced, or distributed without consent, and a fabricated intimate image made by computer synthesis or other technological means; recording and distributing such images constitute offenses under Article 319-1 to Article 319-4 of the Criminal Code, and the removal obligation of platforms follows Article 13 of the Sexual Assault Crime Prevention Act |
-| Child and youth sexual exploitation | The conduct defined in Article 2 of the Child and Youth Sexual Exploitation Prevention Act, including photographing, manufacturing, reproducing, possessing, distributing, broadcasting, delivering, publicly displaying, selling, or paying for the viewing of sexual images of children or youths |
-| Governing law | The law agreed to apply to a contract; the [Terms of Service](/en/mail/terms-of-service/) designate the law of the Republic of China |
-| Standard-form contract | A contract concluded through general clauses for large numbers of unspecified persons; regulated by Article 247-1 of the Civil Code (invalidity of obviously unfair parts) and by Article 11-1 (review period) and Article 17 (mandatory and prohibited provisions) of the Consumer Protection Act |
-| Complaint-based prosecution | Under Article 363 of the Criminal Code, offenses in the chapter on offenses against computer use (Articles 358 to 360) are prosecuted only upon a complaint by the injured party; this does not affect the Operator's remedies through civil or administrative channels or under this site's policies |
+| International transfer | The processing or use of personal data across national borders; follows the requirements of applicable law and safeguard mechanisms such as standard contractual clauses |
+| Notification duty | The duty, when collecting personal data from a data subject, to notify the data subject of the collector's identity, the purposes of collection, the categories of data, the period, region, recipients, and means of use, the rights the data subject may exercise, and the consequences of not providing the data; where personal data is not obtained from the data subject, the source is notified before processing or use |
+| Specific purpose | The specific purpose that must exist for the collection or processing of personal data; use must remain within the extent necessary for that purpose |
+| Right to refuse marketing | When a data subject indicates refusal to accept marketing, use of the personal data for marketing ceases immediately; at the first marketing, the means of indicating refusal is provided |
+| Competent authority | The authority responsible for personal-data protection matters under applicable law; for the hosted instance, located in Taiwan, the competent authority is the Personal Data Protection Commission |
+| Non-consensual intimate image | An intimate image of another person that was recorded, reproduced, or distributed without consent, and a fabricated intimate image made by computer synthesis or other technological means; recording, reproducing, or distributing such images without consent constitutes crimes in most jurisdictions, and a platform notified of them restricts access to or removes them first |
+| Child and youth sexual exploitation | The sexual exploitation of children or youths, including photographing, manufacturing, reproducing, possessing, distributing, broadcasting, delivering, publicly displaying, selling, or being paid to allow the viewing of sexual images of children or youths |
+| Governing law | The law applicable to a contract, determined by the Operator's location; Section 11 of the [Terms of Service](/en/mail/terms-of-service/) states the governing law for each instance |
+| Standard-form contract | A contract concluded through general clauses with large numbers of unspecified persons; parts that are manifestly unfair do not bind, under applicable law |
 
 ## 2. Technical Terms
 

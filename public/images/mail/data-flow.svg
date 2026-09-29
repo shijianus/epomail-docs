@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Personal data lifecycle: collect, process, use, transfer, retain, destroy — with PDPA anchors">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Personal data lifecycle: collect, process, use, transfer, retain, destroy — with processing standards per stage">
   <style>
     .bg { fill: #f8fafc; }
     .stage { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -42,35 +42,35 @@
   <text class="stage-t" x="76" y="88">Collect</text>
   <text class="stage-b" x="58" y="112">Registration, mail</text>
   <text class="stage-b" x="58" y="128">in/out, security logs</text>
-  <text class="law" x="58" y="160">PDPA ART. 19</text>
+  <text class="law" x="58" y="160">CONTRACT · CONSENT</text>
 
   <rect class="stage" x="200" y="60" width="140" height="120" rx="12"/>
   <text class="stage-num" x="218" y="86">2</text>
   <text class="stage-t" x="236" y="88">Process</text>
   <text class="stage-b" x="218" y="112">Edge parsing,</text>
   <text class="stage-b" x="218" y="128">encryption at rest</text>
-  <text class="law" x="218" y="160">PDPA ART. 19</text>
+  <text class="law" x="218" y="160">SECURITY MEASURES</text>
 
   <rect class="stage" x="360" y="60" width="140" height="120" rx="12"/>
   <text class="stage-num" x="378" y="86">3</text>
   <text class="stage-t" x="396" y="88">Use</text>
   <text class="stage-b" x="378" y="112">Service delivery,</text>
   <text class="stage-b" x="378" y="128">abuse prevention</text>
-  <text class="law" x="378" y="160">PDPA ART. 20</text>
+  <text class="law" x="378" y="160">PURPOSE LIMIT</text>
 
   <rect class="stage" x="520" y="60" width="140" height="120" rx="12"/>
   <text class="stage-num" x="538" y="86">4</text>
   <text class="stage-t" x="556" y="88">Transfer</text>
   <text class="stage-b" x="538" y="112">Entrusted processors,</text>
   <text class="stage-b" x="538" y="128">user-triggered AI</text>
-  <text class="law" x="538" y="160">PDPA ART. 21</text>
+  <text class="law" x="538" y="160">SAFEGUARDS</text>
 
   <rect class="stage" x="680" y="60" width="140" height="120" rx="12"/>
   <text class="stage-num" x="698" y="86">5</text>
   <text class="stage-t" x="716" y="88">Retain</text>
   <text class="stage-b" x="698" y="112">Storage matrix,</text>
   <text class="stage-b" x="698" y="128">log evidence</text>
-  <text class="law" x="698" y="160">RULES ART. 12</text>
+  <text class="law" x="698" y="160">EVIDENCE RETENTION</text>
 
   <rect class="stage" x="840" y="60" width="120" height="120" rx="12"/>
   <text class="stage-num" x="858" y="86">6</text>

@@ -5,11 +5,11 @@ description: Liste complète des sous-traitants d'EpoCanvas Mail, des destinatai
 
 # Liste des sous-traitants
 
-**Date d'entrée en vigueur : 29 septembre 2026 | Version : 4.1**
+**Date d'entrée en vigueur : 29 septembre 2026 | Version : 5.0**
 
 À la suite de la section 7 de la [Politique de confidentialité](/fr/mail/privacy-policy/), la présente liste expose intégralement les tiers impliqués dans les données personnelles du Service, les conditions de partage et les mécanismes de garantie. Le principe de partage du Service est la nécessité minimale : les données qui peuvent rester dans l'instance n'en sortent pas ; celles qui doivent en sortir voient clairement indiqués leur destinataire et les données qu'elles emportent. Le Service n'entretient avec aucune des parties ci-après de relation de vente de données ni de partage de revenus publicitaires.
 
-Aux termes de l'article 21 de la Loi sur la protection des données personnelles (個人資料保護法, « PDPA »), lorsqu'un transfert international de données personnelles par un organisme non gouvernemental touche à des intérêts nationaux majeurs, lorsqu'un traité ou un accord international en dispose autrement, lorsque la réglementation du pays destinataire ne protège pas les données personnelles de manière suffisante au point de menacer les droits de la personne concernée, ou lorsqu'il contourne la loi par une transmission détournée vers un pays tiers, l'autorité de contrôle peut le restreindre ; le Service se conforme aux ordonnances de restriction prises par la Commission de protection des données personnelles (PDPC) sur ce fondement. Les sous-traitants traitent toutes les données sur instruction du responsable du traitement et dans les limites de la finalité confiée.
+Les transferts internationaux respectent les exigences du droit applicable et les restrictions légales des autorités compétentes, avec les clauses contractuelles types et des mécanismes analogues en garantie. Les sous-traitants traitent toutes les données sur instruction du responsable du traitement et dans les limites de la finalité confiée.
 
 ![Carte du partage avec des tiers d'EpoCanvas Mail : centrée sur l'instance, répartie en quatre catégories — sous-traitants, autorisés par la personne concernée, traitements par IA déclenchés par la personne concernée et exigences légales — avec la mention du principe de nécessité minimale et des engagements de non-vente, de non-publicité et de non-suivi](/images/mail/subprocessor-map.svg)
 
@@ -48,7 +48,7 @@ L'Opérateur n'entraîne aucun modèle sur le contenu des courriels et ne transm
 | Stockage compatible S3 (AWS S3, Backblaze B2, MinIO, etc.) | stockage externe des pièces jointes et des blobs de courriels d'origine (BYOS) | contenu binaire des pièces jointes et identifiants d'accès associés |
 | Bases de données externes telles que Turso / LibSQL | redondance externe des données | copies des données selon la configuration |
 
-Les services externes précités sont choisis par la partie qui les configure ; celle-ci doit elle-même s'assurer que son choix satisfait aux exigences de l'article 21 de la PDPA relatives aux transferts internationaux.
+Les services externes précités sont choisis par la partie qui les configure ; celle-ci doit elle-même s'assurer que son choix satisfait, en matière de transferts internationaux, aux exigences du droit applicable en son lieu.
 
 ## 5. Requêtes de tiers au niveau de l'interface
 

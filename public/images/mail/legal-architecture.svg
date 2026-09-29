@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Legal architecture: the Terms of Service sit on top of the policy set, all governed by Republic of China law">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Legal architecture: the Terms of Service sit on top of the policy set, all governed by the applicable law of each instance's operator">
   <style>
     .bg { fill: #f8fafc; }
     .layer { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -27,8 +27,8 @@
   <rect class="top" x="250" y="46" width="500" height="86" rx="12"/>
   <text class="tag" x="274" y="72">CONTRACT LAYER</text>
   <text class="t" x="274" y="94">Terms of Service</text>
-  <text class="b" x="274" y="110">Electronically agreed — Electronic Signatures Act, Art. 4</text>
-  <text class="b" x="274" y="126">30-day review period — Consumer Protection Act, Art. 11-1</text>
+  <text class="b" x="274" y="110">Electronically agreed — same effect as a written signature</text>
+  <text class="b" x="274" y="126">Full text published for review · revisions archived in the open-source repo</text>
 
   <!-- connectors -->
   <line class="vline" x1="360" y1="132" x2="360" y2="168"/>
@@ -38,7 +38,7 @@
   <!-- policy chips -->
   <rect class="layer" x="70" y="168" width="290" height="66" rx="12"/>
   <text class="t" x="90" y="194" font-size="13">Privacy Policy</text>
-  <text class="b" x="90" y="214">What we collect and why · PDPA Art. 8, 19–21</text>
+  <text class="b" x="90" y="214">What we collect and why · processing standards</text>
 
   <rect class="layer" x="380" y="168" width="240" height="66" rx="12"/>
   <text class="t" x="400" y="194" font-size="13">Acceptable Use Policy</text>
@@ -46,14 +46,14 @@
 
   <rect class="layer" x="640" y="168" width="290" height="66" rx="12"/>
   <text class="t" x="660" y="194" font-size="13">Data Security · Sub-processors</text>
-  <text class="b" x="660" y="214">PDPA Art. 20-1 · Enforcement Rules Art. 12</text>
+  <text class="b" x="660" y="214">Security measures · processor list</text>
 
   <!-- base layer -->
   <rect class="base" x="70" y="266" width="860" height="100" rx="12"/>
   <text class="tag" x="94" y="292">GOVERNING FRAME</text>
-  <text class="t" x="94" y="316">Republic of China law (Taiwan) — Taipei District Court, first instance</text>
-  <text class="b" x="94" y="336">Standard-contract limits: Civil Code Art. 247-1 (unfair terms void) · Consumer Protection Act Art. 17</text>
-  <text class="b" x="94" y="352">PDPA Art. 29 data-damage liability is unaffected by liability caps</text>
+  <text class="t" x="94" y="316">Law of the operator's jurisdiction — hosted instance: Taiwan law, Taipei District Court</text>
+  <text class="b" x="94" y="336">Unfair standard terms do not bind under applicable law</text>
+  <text class="b" x="94" y="352">Liability that applicable law does not allow excluding is unaffected by liability caps</text>
 
   <!-- side note -->
   <text class="law" x="94" y="400">ORDER OF PRECEDENCE: subject-specific document prevails · Traditional Chinese (Taiwan) version is authoritative</text>

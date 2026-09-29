@@ -42,7 +42,7 @@
   <text class="title" x="414" y="106">Instance operator</text>
   <text class="body" x="414" y="130">Deploys on its own Cloudflare account</text>
   <text class="body" x="414" y="150">(Workers · D1 · KV · R2) and bears the</text>
-  <text class="body" x="414" y="170">PDPA duties: notice, security, inspection.</text>
+  <text class="body" x="414" y="170">data-protection duties: notice, security, oversight.</text>
 
   <rect class="card" x="720" y="52" width="220" height="130" rx="12"/>
   <text class="tag" x="744" y="80">DATA SUBJECT</text>

@@ -1,19 +1,19 @@
 ---
 title: Procesamiento de Datos y Seguridad
-description: Ciclo de vida de los datos de EpoCanvas Mail, matriz de tratamiento, medidas de mantenimiento de la seguridad establecidas conforme al artículo 20-1 de la PDPA y al artículo 12 del Reglamento de Aplicación, respuesta ante incidentes y cooperación con las inspecciones.
+description: Ciclo de vida de los datos de EpoCanvas Mail, matriz de tratamiento, medidas de mantenimiento de la seguridad, respuesta ante incidentes y cooperación con las inspecciones.
 ---
 
 # Procesamiento de Datos y Seguridad
 
-**Fecha de entrada en vigor: 29 de septiembre de 2026 | Versión: 4.1**
+**Fecha de entrada en vigor: 29 de septiembre de 2026 | Versión: 5.0**
 
-En seguimiento de la sección 10 de la [Política de Privacidad](/es/mail/privacy-policy/), este documento describe el ciclo de vida de los datos personales en el Servicio, la matriz de tratamiento de cada categoría de datos y las medidas de mantenimiento de la seguridad establecidas por el Operador conforme al artículo 20-1 de la Ley de Protección de Datos Personales de Taiwán (個人資料保護法, «PDPA») (todo organismo no gubernamental que conserve archivos de datos personales debe implementar medidas de mantenimiento de la seguridad para impedir que los datos personales sean sustraídos, alterados, dañados, perdidos o divulgados) y al artículo 12 del Reglamento de Aplicación de la Ley de Protección de Datos Personales (個人資料保護法施行細則). Este documento sirve asimismo como documento base para la inspección por la autoridad competente conforme al artículo 22 de la PDPA y para el acceso de los interesados.
+En seguimiento de la sección 10 de la [Política de Privacidad](/es/mail/privacy-policy/), este documento describe el ciclo de vida de los datos personales en el Servicio, la matriz de tratamiento de cada categoría de datos y las medidas de mantenimiento de la seguridad establecidas por el Operador para impedir que los datos personales sean sustraídos, alterados, dañados, perdidos o divulgados. Este documento sirve asimismo como documento base para el acceso de los interesados y para la inspección que la autoridad competente realiza conforme a la ley.
 
 ## 1. Ciclo de vida de los datos
 
-![Ciclo de vida de los datos de EpoCanvas Mail: recogida (registro y envío y recepción de correo), tratamiento (análisis sintáctico y cifrado en nodos perimetrales), utilización (prestación del servicio y protección de la seguridad), transferencia (encargados del tratamiento y funciones activadas por el interesado), conservación (D1/KV/R2) y destrucción (limpieza rutinaria a 7 días y eliminación física), con cada etapa anclada en los artículos 19, 20 y 21 de la PDPA](/images/mail/data-flow.svg)
+![Ciclo de vida de los datos de EpoCanvas Mail: recogida (registro y envío y recepción de correo), tratamiento (análisis sintáctico y cifrado en nodos perimetrales), utilización (prestación del servicio y protección de la seguridad), transferencia (encargados del tratamiento y funciones activadas por el interesado), conservación (D1/KV/R2) y destrucción (limpieza rutinaria a 7 días y eliminación física), con cada etapa correspondiente a los elementos de notificación y a los estándares de tratamiento](/images/mail/data-flow.svg)
 
-*Figura: El ciclo de vida de los datos personales en el Servicio. La base jurídica de cada etapa se expone en la sección 5 de la [Política de Privacidad](/es/mail/privacy-policy/).*
+*Figura: El ciclo de vida de los datos personales en el Servicio. La naturaleza del tratamiento de cada etapa se expone en la sección 5 de la [Política de Privacidad](/es/mail/privacy-policy/).*
 
 ## 2. Matriz de tratamiento de datos
 
@@ -27,23 +27,23 @@ En seguimiento de la sección 10 de la [Política de Privacidad](/es/mail/privac
 | Registros de seguridad y de limitación de frecuencia | Recuento de fallos de inicio de sesión, estado de la verificación humana, recuentos de solicitudes en ventana deslizante | Protección contra la fuerza bruta, prevención de abusos | Cloudflare KV; contadores en ventana deslizante | Caducan automáticamente y se reinician en un plazo de 12 horas tras activarse un umbral |
 | Preferencias de interfaz | Idioma (6 idiomas), modos claro y oscuro, indicadores de notificación | Coherencia de la interfaz | localStorage del navegador, sincronizado selectivamente con D1 | Se conservan hasta que se borra la caché o se restablecen manualmente |
 
-## 3. Medidas de mantenimiento de la seguridad (correspondientes al artículo 12 del Reglamento de Aplicación)
+## 3. Medidas de mantenimiento de la seguridad
 
-El artículo 12 del Reglamento de Aplicación de la Ley de Protección de Datos Personales enumera los conceptos que pueden incluir las «medidas de mantenimiento de la seguridad apropiadas». El Operador establece las siguientes medidas conforme a dicho artículo; los once conceptos quedan cubiertos:
+El Operador establece las siguientes medidas de mantenimiento de la seguridad y las mejora continuamente, abarcando los ámbitos del personal, los procesos, la tecnología y la auditoría:
 
-| Concepto del artículo 12 del Reglamento de Aplicación | Implementación en el Servicio |
+| Materia de seguridad | Implementación en el Servicio |
 | --- | --- |
-| 1. Asignación de personal dedicado y recursos comparables | El Operador de la instancia designa administradores y divide los permisos mediante roles RBAC multinivel |
-| 2. Delimitación del alcance de los datos personales | La matriz de tratamiento de la sección 2 de este documento define con claridad cada categoría de datos |
-| 3. Mecanismos de evaluación y gestión de riesgos de los datos personales | Opciones de cifrado en los tres modos de correo, bloqueo por intentos fallidos y mecanismos de limitación de frecuencia y de cuota; el código abierto está públicamente sujeto a la revisión de la comunidad |
-| 4. Mecanismos de prevención, notificación y respuesta ante incidentes | Véase la sección 4 de este documento |
-| 5. Procedimientos internos de gestión de la recogida, el tratamiento y la utilización | La tabla de correspondencia de actividades de tratamiento de la sección 5 de la [Política de Privacidad](/es/mail/privacy-policy/) |
-| 6. Gestión de la seguridad de los datos y gestión del personal | Enrutamiento por hashes criptográficos (impide el acceso no autorizado), comprobaciones de permisos de fallo seguro (fail-closed) y supresión en la puerta de enlace de los parámetros no incluidos en la lista de permitidos |
-| 7. Fomento de la concienciación y formación y capacitación | Los operadores de instancias autoalojadas deben realizarlos por sí mismos; los documentos de este sitio pueden servir como material de formación |
-| 8. Gestión de la seguridad de los equipos | La infraestructura perimetral de Cloudflare asume la seguridad física y virtual de los equipos (SOC 2 Type II, ISO/IEC 27001); las claves se inyectan como variables de entorno y nunca entran en la base de código |
-| 9. Mecanismos de auditoría de la seguridad de los datos | Los registros de seguridad (IP de inicio de sesión, dispositivo, registros de fallos) se conservan con acceso restringido a la auditoría; las sesiones pueden revocarse de inmediato |
-| 10. Conservación de los registros de uso, los datos de rastro y las pruebas | Los registros de inicio de sesión y de seguridad se conservan hasta la eliminación física de la cuenta; las pruebas de los incidentes de abuso se conservan conforme a la [Política de Uso Aceptable](/es/mail/acceptable-use/) |
-| 11. Mejora continua global del mantenimiento de la seguridad | El proyecto de código abierto evoluciona de forma continua; las correcciones de seguridad materiales se publican con las versiones y se anuncian |
+| Asignación de personal dedicado y recursos comparables | El Operador de la instancia designa administradores y divide los permisos mediante roles RBAC multinivel |
+| Delimitación del alcance de los datos personales | La matriz de tratamiento de la sección 2 de este documento define con claridad cada categoría de datos |
+| Mecanismos de evaluación y gestión de riesgos de los datos personales | Opciones de cifrado en los tres modos de correo, bloqueo por intentos fallidos y mecanismos de limitación de frecuencia y de cuota; el código abierto está públicamente sujeto a la revisión de la comunidad |
+| Mecanismos de prevención, notificación y respuesta ante incidentes | Véase la sección 4 de este documento |
+| Procedimientos internos de gestión de la recogida, el tratamiento y la utilización | La tabla de correspondencia de actividades de tratamiento de la sección 5 de la [Política de Privacidad](/es/mail/privacy-policy/) |
+| Gestión de la seguridad de los datos y gestión del personal | Enrutamiento por hashes criptográficos (impide el acceso no autorizado), comprobaciones de permisos de fallo seguro (fail-closed) y supresión en la puerta de enlace de los parámetros no incluidos en la lista de permitidos |
+| Fomento de la concienciación y formación y capacitación | Los operadores de instancias autoalojadas deben realizarlos por sí mismos; los documentos de este sitio pueden servir como material de formación |
+| Gestión de la seguridad de los equipos | La infraestructura perimetral de Cloudflare asume la seguridad física y virtual de los equipos (SOC 2 Type II, ISO/IEC 27001); las claves se inyectan como variables de entorno y nunca entran en la base de código |
+| Mecanismos de auditoría de la seguridad de los datos | Los registros de seguridad (IP de inicio de sesión, dispositivo, registros de fallos) se conservan con acceso restringido a la auditoría; las sesiones pueden revocarse de inmediato |
+| Conservación de los registros de uso, los datos de rastro y las pruebas | Los registros de inicio de sesión y de seguridad se conservan hasta la eliminación física de la cuenta; las pruebas de los incidentes de abuso se conservan conforme a la [Política de Uso Aceptable](/es/mail/acceptable-use/) |
+| Mejora continua global del mantenimiento de la seguridad | El proyecto de código abierto evoluciona de forma continua; las correcciones de seguridad materiales se publican con las versiones y se anuncian |
 
 Medidas técnicas clave: HTTPS/TLS en todo el sitio; el correo HTML se sanea con DOMPurify en un Shadow DOM aislado antes de su representación (bloqueando scripts, controladores de eventos en línea e importaciones externas); las descargas de adjuntos aplican `Content-Disposition: attachment` y `X-Content-Type-Options: nosniff`; se aplica protección SSRF a los webhooks y a los puntos de conexión de almacenamiento externo (bloqueando los rangos de red privados y las direcciones de metadatos de la nube); los identificadores de correo se enrutan mediante ofuscación HMAC para impedir la enumeración no autorizada.
 
@@ -56,14 +56,12 @@ El cifrado de los tres modos de correo del Servicio —«todo», «privado» y �
 Cuando el Operador tiene conocimiento de que datos personales han sido sustraídos, alterados, dañados, perdidos o divulgados, adopta las medidas siguientes:
 
 1. bloquear de inmediato el origen de la intrusión (revocar sesiones, bloquear el origen, rotar claves);
-2. evaluar el alcance del impacto y conservar los registros (conservación de datos de rastro y de pruebas conforme al artículo 12, inciso 10, del Reglamento de Aplicación);
-3. notificar a los interesados afectados e informar a la autoridad competente conforme al régimen de mantenimiento de la seguridad dictado en virtud del artículo 20-1, párrafo 2, de la PDPA y a las reglas de la autoridad competente; la notificación incluye los hechos del incidente, los posibles daños, las medidas de respuesta ya adoptadas y las medidas de autoprotección que pueden adoptar los interesados;
-4. revisar la causa del incidente y reforzar las medidas de seguridad correspondientes (mejora continua conforme al artículo 12, inciso 11, del Reglamento de Aplicación).
+2. evaluar el alcance del impacto y conservar los registros (conservación de los datos de rastro y de las pruebas);
+3. notificar a los interesados afectados e informar a la autoridad competente conforme a la ley aplicable y a las reglas de la autoridad competente; la notificación incluye los hechos del incidente, los posibles daños, las medidas de respuesta ya adoptadas y las medidas de autoprotección que pueden adoptar los interesados;
+4. revisar la causa del incidente y reforzar las medidas de seguridad correspondientes (mejora continua global).
 
 ## 5. Cooperación con las inspecciones
 
-Conforme al artículo 1-1 de la PDPA, la autoridad competente de la Ley es la Comisión de Protección de Datos Personales (PDPC). Conforme al artículo 22 de la misma Ley, cuando la autoridad competente considere que un organismo no gubernamental pudo haber infringido la Ley, o que resulta necesario para revisar la aplicación de la Ley por dicho organismo, puede requerirle para que exponga su posición, exigirle la presentación de los documentos, datos u objetos necesarios, o —por sí misma o junto con la autoridad competente central del sector de que se trate, un gobierno municipal especial o un gobierno de condado (ciudad)— enviar personal portador de la acreditación de sus funciones para realizar una inspección in situ. El Operador del Servicio acepta la inspección y la auditoría de la autoridad competente y no puede sustraerse, obstaculizar ni negarse sin causa legítima; mantiene medidas de mantenimiento de la seguridad conforme al artículo 20-1 de la PDPA y al artículo 12 del Reglamento de Aplicación de la Ley de Protección de Datos Personales. Este documento y la [Política de Privacidad](/es/mail/privacy-policy/) sirven como documentos base de la inspección.
+El proyecto de código abierto no opera ninguna instancia por sí mismo; la inspección y la supervisión de cada instancia las acepta su operador conforme a la ley aplicable en su lugar de ubicación. La instancia alojada `mail.epocanvas.com` opera desde Taiwán; el Operador acepta la inspección y la auditoría que la autoridad competente de Taiwán realiza conforme a la ley, este documento y la [Política de Privacidad](/es/mail/privacy-policy/) sirven como documentos base de la inspección, y el Operador actuará conforme a las disposiciones que la autoridad competente dicte conforme a la ley.
 
-Conforme al artículo 25 de la PDPA, en caso de infracción la autoridad competente puede, además de imponer multas, ordenar el cese de la recogida, del tratamiento o de la utilización, ordenar la supresión de los archivos de datos personales, decomisar u ordenar la destrucción de los datos personales recogidos ilícitamente, o publicitar la infracción; el Operador cumplirá el contenido de cualquiera de dichas resoluciones.
-
-Los operadores de instancias autoalojadas deben cumplir por sí mismos, para su instancia, todas las obligaciones enumeradas en esta sección y hacer frente a la auditoría de la autoridad competente del lugar donde se encuentren; este documento puede servir como plantilla para establecer su plan de mantenimiento de la seguridad.
+Los operadores de instancias autoalojadas deben cumplir por sí mismos, para su instancia, las obligaciones descritas anteriormente y hacer frente a la auditoría de la autoridad competente de su lugar de ubicación; este documento puede servir como plantilla para establecer su plan de mantenimiento de la seguridad.

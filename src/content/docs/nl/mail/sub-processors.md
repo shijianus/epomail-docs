@@ -5,11 +5,11 @@ description: Volledige lijst van de verwerkers, ontvangers van gegevens, betrokk
 
 # Lijst van verwerkers
 
-**Datum van inwerkingtreding: 29 september 2026 | Versie: 4.1**
+**Datum van inwerkingtreding: 29 september 2026 | Versie: 5.0**
 
 Deze lijst sluit aan bij paragraaf 7 van het [Privacybeleid](/nl/mail/privacy-policy/) en vermeldt volledig de derden die bij de persoonsgegevens van de Dienst betrokken zijn, de voorwaarden voor delen en de waarborgmechanismen. Het delen door de Dienst volgt het beginsel van minimale noodzakelijkheid: gegevens die de instance niet hoeven te verlaten, verlaten die niet; gegevens die moeten worden verlaten, worden uitdrukkelijk vermeld met de ontvanger en de meegegeven gegevens. Met geen van de hierna genoemde partijen bestaat enige relatie van verkoop van gegevens of van het delen van advertentie-inkomsten.
 
-Overeenkomstig artikel 21 van de Taiwaneese Persoonsgegevenswet (個人資料保護法, "PDPA") kan het bevoegd gezag de internationale doorgifte van persoonsgegevens door een niet-overheidsorgaan beperken wanneer die de wezenlijke belangen van de staat raakt, wanneer een verdrag of overeenkomst bijzondere bepalingen bevat, wanneer het rechtstelsel ter bescherming van persoonsgegevens in het ontvangende land ontoereikend is zodat de rechten van de betrokkene mogelijk worden geschaad, of wanneer door middel van omwegen naar een derde land wordt doorgegeven om de wet te omzeilen; de Dienst volgt de beperkende bevelen op die het bevoegd gezag op grond van dat artikel uitvaardigt. Verwerkers verwerken de gegevens allemaal op instructie van de verwerkingsverantwoordelijke en binnen het bestek van het beoogde doel.
+Internationale doorgifte volgt de eisen van het toepasselijke recht en de beperkingen die bevoegde autoriteiten overeenkomstig de wet oplegen, met standaardcontractbepalingen en vergelijkbare mechanismen als waarborg voor de veiligheid van de doorgifte. Verwerkers verwerken de gegevens allemaal op instructie van de verwerkingsverantwoordelijke en binnen het bestek van het beoogde doel.
 
 ![Kaart van het delen met derden door EpoCanvas Mail: gecentreerd op de instance, vier categorieën, namelijk verwerkers op basis van bewaarneming, op autorisatie van de betrokkene, door de betrokkene geactiveerde AI-verwerking en wettelijke vereisten; met het beginsel van minimale noodzakelijkheid en de toezeggingen van niet verkopen, geen advertenties en niet volgen](/images/mail/subprocessor-map.svg)
 
@@ -48,7 +48,7 @@ De Exploitant traint geen enkel model met e-mailinhoud en zendt naar AI-diensten
 | S3-compatibele opslag (AWS S3, Backblaze B2, MinIO en dergelijke) | externe opslag van bijlagen en originele e-mailblobs (BYOS) | de binaire inhoud van bijlagen en de bijbehorende toegangsreferenties |
 | Externe databases zoals Turso / LibSQL | externe redundantie van gegevens | gegevenskopieën afhankelijk van de configuratie |
 
-De voornoemde zelf aangebrachte diensten worden gekozen door de partij die ze configureert; die partij draagt er zelf zorg voor dat haar keuze voldoet aan de eisen die artikel 21 van de PDPA stelt aan internationale doorgifte.
+De voornoemde zelf aangebrachte diensten worden gekozen door de partij die ze configureert; die partij draagt er zelf zorg voor dat haar keuze voldoet aan de eisen die het recht op haar vestigingsplaats stelt aan internationale doorgifte.
 
 ## 5. Verzoeken aan derden op interfaceniveau
 

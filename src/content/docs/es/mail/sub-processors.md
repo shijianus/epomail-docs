@@ -5,11 +5,11 @@ description: Lista completa de los encargados del tratamiento de EpoCanvas Mail 
 
 # Lista de Subencargados del Tratamiento
 
-**Fecha de entrada en vigor: 29 de septiembre de 2026 | Versión: 4.1**
+**Fecha de entrada en vigor: 29 de septiembre de 2026 | Versión: 5.0**
 
 En seguimiento de la sección 7 de la [Política de Privacidad](/es/mail/privacy-policy/), esta lista expone en su integridad los terceros implicados en los datos personales del Servicio, las condiciones de la comunicación de datos y las garantías. El principio de comunicación de datos del Servicio es la mínima necesidad: los datos que no necesitan salir de la instancia no salen; los que deben salir están claramente señalados con el destinatario y los datos transportados. El Servicio no mantiene con ninguna de las partes siguientes relación de venta de datos ni de reparto de ingresos publicitarios.
 
-Conforme al artículo 21 de la Ley de Protección de Datos Personales de Taiwán (個人資料保護法, «PDPA»), la autoridad competente puede restringir la transferencia internacional de datos personales de un organismo no gubernamental cuando comprometa intereses nacionales de gran magnitud, cuando un tratado o acuerdo disponga otra cosa, cuando el régimen jurídico de protección de datos personales del país destinatario sea inadecuado de modo que puedan verse perjudicados los derechos del interesado, o cuando la transferencia eluda la Ley mediante una transmisión indirecta a un tercer país; el Servicio cumple las órdenes de restricción dictadas por la autoridad competente conforme a dicho artículo. Los encargados del tratamiento tratan todos los datos por instrucciones del responsable y dentro del alcance de la finalidad del encargo.
+Las transferencias internacionales se rigen por los requisitos de la ley aplicable y las restricciones legítimas de las autoridades competentes, con las cláusulas contractuales tipo y mecanismos análogos como garantía. Los encargados del tratamiento tratan todos los datos por instrucciones del responsable y dentro del alcance de la finalidad del encargo.
 
 ![Mapa de comunicación de datos a terceros de EpoCanvas Mail: centrado en la instancia, cuatro categorías —encargados del tratamiento, autorizado por el interesado, tratamiento mediante IA activado por el interesado y requerimientos legales— con el principio de mínima necesidad y los compromisos de no venta, no publicidad y no rastreo señalados](/images/mail/subprocessor-map.svg)
 
@@ -48,7 +48,7 @@ El Operador no entrena ningún modelo con el contenido del correo, ni envía a l
 | Almacenamiento compatible con S3 (AWS S3, Backblaze B2, MinIO, etc.) | Almacenamiento externo de adjuntos y blobs de correo sin procesar (BYOS) | Contenido binario de los adjuntos y sus credenciales de acceso |
 | Bases de datos externas como Turso / LibSQL | Redundancia externa de los datos | Réplicas de los datos según la configuración |
 
-Los servicios propios aportados anteriores son elegidos por quien los configura; dicha parte debe garantizar por sí misma que su elección cumple los requisitos para las transferencias internacionales del artículo 21 de la PDPA.
+Los servicios propios aportados anteriores son elegidos por quien los configura; dicha parte debe garantizar por sí misma que su elección cumple los requisitos legales de su lugar de ubicación en materia de transferencias internacionales.
 
 ## 5. Solicitudes de terceros en la capa de interfaz
 

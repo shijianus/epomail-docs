@@ -5,11 +5,11 @@ description: A complete list of EpoCanvas Mail's entrusted processors, sharing r
 
 # Third-Party Processor List
 
-**Effective date: September 29, 2026 | Version: 4.1**
+**Effective date: September 29, 2026 | Version: 5.0**
 
 Following Section 7 of the [Privacy Policy](/en/mail/privacy-policy/), this list sets out in full the third parties involved in the Service's personal data, the conditions of sharing, and the safeguards. The sharing principle of the Service is minimal necessity: data that need not leave the instance do not leave; data that must leave are clearly marked with the recipient and the data carried. The Service has no data sale or advertising revenue-sharing relationship with any of the following parties.
 
-Under Article 21 of the Taiwan Personal Data Protection Act (個人資料保護法, "PDPA"), the competent authority may restrict a non-governmental agency's international transfer of personal data where it involves major national interests, where a treaty or agreement provides otherwise, where the legal regime protecting personal data in the recipient country is inadequate such that the rights of the data subject may be harmed, or where the transfer circumvents the Act by circuitous transmission to a third country; the Service complies with restriction orders issued by the competent authority under that Article. Entrusted processors all process data on the instructions of the controller and within the scope of the entrusted purpose.
+Cross-border transfers follow the requirements of applicable law and lawful restrictions imposed by the competent authorities, with standard contractual clauses and similar mechanisms safeguarding the transfers. Entrusted processors all process data on the instructions of the controller and within the scope of the entrusted purpose.
 
 ![EpoCanvas Mail third-party sharing map: centered on the instance, four categories—entrusted processors, data subject-authorized, data subject-triggered AI processing, and legal requirements—with the minimal necessity principle and the commitments of no selling, no advertising, and no tracking marked out](/images/mail/subprocessor-map.svg)
 
@@ -48,7 +48,7 @@ The Operator does not train any model on email content, nor does it send user id
 | S3-compatible storage (AWS S3, Backblaze B2, MinIO, etc.) | External storage of attachments and raw email blobs (BYOS) | Attachment binary content and its access credentials |
 | External databases such as Turso / LibSQL | External redundancy of data | Data replicas as configured |
 
-The foregoing self-provided services are selected by whoever configures them; that party shall itself ensure that its choice complies with the requirements for international transfers in Article 21 of the PDPA.
+The foregoing self-provided services are selected by whoever configures them; the configurer shall itself ensure that its choice complies with the requirements for international transfers under the law of its location.
 
 ## 5. Third-Party Requests at the Interface Layer
 

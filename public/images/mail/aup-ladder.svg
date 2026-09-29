@@ -43,7 +43,7 @@
 
   <!-- zero tolerance band (top, clear of the ladder) -->
   <rect class="band" x="60" y="36" width="880" height="56" rx="10"/>
-  <text class="bt" x="84" y="60">Zero tolerance — Child and Youth Sexual Exploitation Prevention Act, Arts. 2 / 36 / 38 / 39:</text>
+  <text class="bt" x="84" y="60">Zero tolerance — child sexual exploitation content:</text>
   <text class="b0" x="84" y="80">immediate deletion and account termination, evidence preserved, reported to the competent authority or law enforcement — no appeal buffer</text>
 
   <!-- ascending steps -->

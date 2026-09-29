@@ -1,15 +1,15 @@
 ---
 title: Terms of Service
-description: EpoCanvas Mail Terms of Service—acceptance and review of the terms, account rules, user content, limitations of liability, and governing law and jurisdiction, made under the law of the Republic of China.
+description: EpoCanvas Mail Terms of Service—acceptance and review of the terms, account rules, user content, limitations of liability, and governing law and jurisdiction.
 ---
 
 # Terms of Service
 
-**Effective date: September 29, 2026 | Version: 4.1**
+**Effective date: September 29, 2026 | Version: 5.0**
 
 These Terms are the agreement between you and the Operator of the instance you use concerning the use of the EpoCanvas Mail service (the "Service"). By completing registration, logging in, or otherwise using the Service, you represent that you have read and agree to the entirety of these Terms; if you do not agree, do not register for or use the Service.
 
-These Terms are standard-form contract terms. Under Article 11-1 of the Consumer Protection Act, before a business operator concludes a standard-form contract with a consumer, the consumer must be given a reasonable period of not more than 30 days to review the entirety of the terms; the full text of these Terms is publicly available on the registration page, and historical versions are archived with the open source repository. The interpretation of these Terms is also subject to Article 247-1 of the Civil Code: where an agreement under standard terms prepared by one party for use in contracts of the same kind is, in the circumstances, obviously unfair, that part of the agreement is invalid. Under Article 4 of the Electronic Signatures Act, your consent given electronically is functionally equivalent to a physical document and signature, and its legal effect may not be denied merely because it is in electronic form.
+These Terms are standard terms, with their full text published on the registration page for your review and historical versions archived with the open source repository. Your consent given electronically has the same effect as a physical document and signature. Rights that applicable law does not permit standard terms to exclude or restrict are not affected by these Terms.
 
 The Traditional Chinese (Taiwan) versions of the legal documents on this site are the authoritative versions; translations in other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version shall prevail.
 
@@ -18,7 +18,7 @@ The Traditional Chinese (Taiwan) versions of the legal documents on this site ar
 1. **The Service**: all functionality running on an EpoCanvas Mail instance, including the web client, the mobile app (epomail), the open API, and related components.
 2. **Operator**: the individual or team that deploys and runs the instance you use. For the hosted instance `mail.epocanvas.com`, this means the EpoCanvas operations team; for a self-hosted instance, it means its deployer.
 3. **You (the party)**: the natural person or organization that registers, logs in, or otherwise uses the Service.
-4. **Formation of the contract**: the contract is formed with the Operator of the instance at which you register. These Terms are a common template: the hosted instance applies them directly; a self-hosting Operator may adapt them as its site terms, and shall fulfill the notification obligation toward its users under Article 8 of the Personal Data Protection Act (PDPA).
+4. **Formation of the contract**: the contract is formed with the Operator of the instance at which you register. These Terms are a common template: the hosted instance applies them directly; a self-hosting Operator may adapt them as its site terms, and shall fulfill the notification duty toward its users under the applicable law at its location.
 
 ## 2. Description of the Service
 
@@ -70,25 +70,25 @@ Your use of the Service is subject to all of the provisions of the [Acceptable U
 
 Before suspending or terminating your use under "Acceptable Use" or the preceding section, the Operator shall notify you and give you an opportunity to explain or remedy the matter, except in urgent circumstances (such as an ongoing attack or the transmission of unlawful content). If you believe the action was mistaken, you may appeal under the procedure in the "Appeals and Reports" section of the [Acceptable Use Policy](/en/mail/acceptable-use/), and the Operator shall review and respond within a reasonable period.
 
-Notices under these Terms given as electronic documents are governed, as to the time of sending and receipt, by Article 9 of the Electronic Signatures Act: where the recipient has designated an information system to receive electronic documents, the time of receipt is the time the document enters that system; where no system has been designated, it is the time the document enters the recipient's information system. The email address you provide at registration is the place of service for electronic notices, and you should keep it able to receive mail.
+Where a notice under these Terms is given as an electronic document, the time of service is the time the document enters the recipient's or its designated information system. The email address you provide at registration is the place of service for electronic notices, and you should keep it able to receive mail.
 
 ## 10. Disclaimers and Limitation of Liability
 
 1. **Provided as is**: the Service (including its software) is provided "as is" and "as available", without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement; this is consistent with the disclaimer scope of the MIT License under which the software is released.
-2. **Limits of validity**: the foregoing and any other terms exempting or reducing the Operator's liability, increasing your liability, or restricting your rights are subject to the regulation of standard-form contracts under Article 247-1 of the Civil Code and Article 17 of the Consumer Protection Act; where a term is, in the circumstances, obviously unfair, or contravenes the mandatory or prohibited provisions announced by the competent authority, that part is invalid.
+2. **Limits of validity**: where the foregoing and any other terms exempting or reducing the Operator's liability, increasing your liability, or restricting your rights are, in the circumstances, manifestly unfair, or not permitted by applicable law, that part of the terms does not bind.
 3. **Limitation of liability**: to the maximum extent permitted by law, the Operator's aggregate liability to you is limited to the greater of the fees you actually paid to the Operator in the past 12 months (usually zero for a free instance) and USD 100. The Operator is not liable for indirect damages, loss of data, loss of business, or damage to goodwill. You should back up important email independently.
-4. **Personal data damages are not capped**: damages for infringement of your rights caused by the Operator's violation of the Personal Data Protection Act are governed by Article 29 of that Act—a non-governmental agency bears no liability only if it can prove the absence of intent or negligence; this statutory liability is not waived or limited by the liability cap in the preceding item.
+4. **Statutory liability is not limited**: liability that applicable law does not allow to be excluded or limited by agreement (including liability arising from the Operator's breach of its personal-data protection duties) is not exempted or limited by the liability cap in the preceding item.
 5. **Force majeure**: for service interruptions and data loss caused by natural disasters, war, acts of government, backbone network failures, large-scale cyberattacks, or the cessation of service by third-party providers, the Operator is not liable, provided it has made reasonable efforts.
 
 ## 11. Governing Law, Jurisdiction, and Administrative Supervision
 
-1. These Terms are interpreted, and their validity and performance determined, under the law of the Republic of China.
-2. Disputes arising from these Terms shall first be resolved through negotiation; if negotiation fails, the parties agree that the Taiwan Taipei District Court shall be the court of first-instance jurisdiction. Where the law provides otherwise for compulsory jurisdiction, that provision governs.
-3. Under Article 1-1 and Article 22 of the PDPA, the Operator accepts inspection and audit by the competent authority (the Personal Data Protection Commission) and may not evade, obstruct, or refuse without legitimate reason; and under Article 20-1 of the same Act and Article 12 of the Enforcement Rules of the Personal Data Protection Act, it establishes and continuously improves its security maintenance plan for personal data files.
+1. These Terms are interpreted, and their validity and performance determined, under the law of the Operator's location: for the hosted instance `mail.epocanvas.com`, the law of Taiwan; for a self-hosted instance, the law of its deployer's location.
+2. Disputes arising from these Terms shall first be resolved through negotiation; if negotiation fails, disputes concerning the hosted instance are subject to the Taiwan Taipei District Court as the court of first-instance jurisdiction, and self-hosted instances follow the jurisdiction arrangements published by their Operator. Where the law provides otherwise for compulsory jurisdiction, that provision governs.
+3. The hosted instance's personal-data processing is subject to the law of Taiwan; the Operator accepts inspection and supervision lawfully conducted by its competent authority, and establishes and continuously improves security maintenance measures for personal data files (see [Data Processing and Security Maintenance](/en/mail/data-security/)).
 
 ## 12. Changes to These Terms
 
-These Terms may be revised as the Service evolves. Material changes will be announced by in-site notice or system email, and the effective date and version number at the top of this page will be updated. If you continue to use the Service after a change takes effect, you are deemed to have accepted the revised Terms; if you do not agree, you should stop using the Service and export or delete your data. Historical versions of material revisions are archived with the version history of the open source repository. Under Article 11-1 of the Consumer Protection Act, revised terms are made publicly available for review in the manner described above before taking effect.
+These Terms may be revised as the Service evolves. Material changes will be announced by in-site notice or system email, and the effective date and version number at the top of this page will be updated. If you continue to use the Service after a change takes effect, you are deemed to have accepted the revised Terms; if you do not agree, you should stop using the Service and export or delete your data. Historical versions of material revisions are archived with the version history of the open source repository; revised terms are made publicly available for review in the manner described above before taking effect.
 
 ## 13. Contact
 

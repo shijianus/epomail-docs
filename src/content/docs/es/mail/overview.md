@@ -5,15 +5,13 @@ description: Visión general de los documentos legales de EpoCanvas Mail—ident
 
 # Privacidad y Términos
 
-**Fecha de entrada en vigor: 29 de septiembre de 2026 | Versión: 4.1**
+**Fecha de entrada en vigor: 29 de septiembre de 2026 | Versión: 5.0**
 
 Esta página constituye una guía de todos los documentos legales del servicio EpoCanvas Mail (el «Servicio») y explica los roles de las partes, la arquitectura documental y el orden de aplicación. Antes de registrarse en el Servicio o utilizarlo, debe leer esta página, junto con la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos del Servicio](/es/mail/terms-of-service/).
 
-Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas, incluida esta versión en español, se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
+![Arquitectura de los documentos legales de EpoCanvas Mail: los Términos del Servicio como capa contractual; la Política de Privacidad y la Política de Uso Aceptable como capa de políticas; el Procesamiento de Datos y Mantenimiento de la Seguridad, la Lista de Subencargados del Tratamiento y el Glosario como documentos de apoyo; todo ello sobre los cimientos de la ley aplicable y las obligaciones de mantenimiento de la seguridad](/images/mail/legal-architecture.svg)
 
-![Arquitectura de los documentos legales de EpoCanvas Mail: los Términos del Servicio como capa contractual; la Política de Privacidad y la Política de Uso Aceptable como capa de políticas; el Procesamiento de Datos y Mantenimiento de la Seguridad, la Lista de Subencargados del Tratamiento y el Glosario como documentos de apoyo; todo ello sobre los cimientos de la ley de la República de China y la obligación de mantenimiento de la seguridad del artículo 20-1 de la Ley de Protección de Datos Personales](/images/mail/legal-architecture.svg)
-
-*Figura: La arquitectura de los documentos legales de este sitio. Los Términos del Servicio establecen las condiciones contractuales; la Política de Privacidad contiene las notificaciones y las bases legales conforme a los artículos 8 y 19 a 21 de la Ley de Protección de Datos Personales; la Política de Uso Aceptable fija los límites de conducta; el Procesamiento de Datos y Mantenimiento de la Seguridad, la Lista de Subencargados del Tratamiento y el Glosario son documentos de apoyo. Todos los documentos se rigen por la ley de la República de China.*
+*Figura: La arquitectura de los documentos legales de este sitio. Los Términos del Servicio establecen las condiciones contractuales; la Política de Privacidad contiene la notificación y los estándares de tratamiento de los datos personales; la Política de Uso Aceptable fija los límites de conducta; el Procesamiento de Datos y Mantenimiento de la Seguridad, la Lista de Subencargados del Tratamiento y el Glosario son documentos de apoyo. La ley aplicable a cada instancia se determina por la ubicación de su operador.*
 
 ## 1. Identidad de la plataforma
 
@@ -24,7 +22,7 @@ EpoCanvas Mail es un servicio de correo electrónico de código abierto construi
 
 ## 2. Definición de los roles de tratamiento de datos
 
-Los documentos legales del Servicio se basan principalmente en la Ley de Protección de Datos Personales de Taiwán (個人資料保護法, 'PDPA'); su distinción entre «responsable del tratamiento» y «encargado del tratamiento» se corresponde con la clasificación general empleada en el Reglamento General de Protección de Datos (RGPD) de la Unión Europea y en ordenamientos jurídicos similares.
+Los documentos legales del Servicio adoptan la distinción de roles entre «responsable del tratamiento» y «encargado del tratamiento», equivalente a la clasificación general empleada en el Reglamento General de Protección de Datos (RGPD) de la Unión Europea y en ordenamientos jurídicos similares; la ley aplicable a cada instancia se determina por la ubicación de su operador.
 
 ![Asignación de responsabilidades de EpoCanvas Mail: el proyecto de código abierto ascendente (Licencia MIT) proporciona el código fuente; la instancia que usted utiliza es operada de forma independiente por su Operador, que asume la responsabilidad de responsable del tratamiento; su cuenta y sus datos de correo electrónico se almacenan en los recursos de Cloudflare de dicha instancia](/images/mail/self-host-responsibilities.svg)
 
@@ -35,7 +33,7 @@ Los documentos legales del Servicio se basan principalmente en la Ley de Protecc
 | Instancia alojada | El equipo de operaciones (con respecto a los datos de cuenta y los registros de auditoría de seguridad); en cuanto al contenido del correo electrónico intercambiado por los usuarios, el Operador lo trata en la medida necesaria para la prestación del servicio de comunicaciones | Encargados del tratamiento delegados tales como Cloudflare y Resend |
 | Instancia autoalojada | La persona u organización que desplegó la instancia (responsable del tratamiento único y exclusivo) | Los proveedores de infraestructura configurados por dicha entidad desplegadora |
 
-El código fuente abierto en sí no recopila, carga ni devuelve ningún dato de telemetría; los autores ascendentes no tienen acceso a los datos operativos de ninguna instancia. Quienes autoalojen el servicio deben tener presente que, desde el momento del despliegue, se convierten en responsables del tratamiento respecto de sus usuarios, y deben cumplir la obligación de notificación hacia sus usuarios conforme al artículo 8 de la PDPA, implementar las medidas de mantenimiento de la seguridad conforme al artículo 20-1 y aceptar la inspección de la autoridad competente conforme al artículo 22.
+El código fuente abierto en sí no recopila, carga ni devuelve ningún dato de telemetría; los autores ascendentes no tienen acceso a los datos operativos de ninguna instancia. El proyecto de código abierto no presta ningún servicio ni asume las obligaciones de cumplimiento de ninguna instancia: desde el momento del despliegue, la entidad desplegadora se convierte en responsable del tratamiento respecto de sus usuarios y debe cumplir, conforme a la ley aplicable en su lugar de ubicación, las obligaciones de notificación, de mantenimiento de la seguridad y de sometimiento a supervisión, pudiendo tomar los documentos de este sitio como plantilla base de su notificación y de sus condiciones.
 
 ## 3. Arquitectura documental
 
@@ -43,10 +41,10 @@ Los documentos legales de este sitio se organizan por temas; los documentos se r
 
 | Documento | Contenido |
 | --- | --- |
-| [Política de Privacidad](/es/mail/privacy-policy/) | La recopilación, el tratamiento y la utilización de datos personales; las bases legales (artículos 19 y 20 de la PDPA); los derechos de los interesados; y las transferencias internacionales |
+| [Política de Privacidad](/es/mail/privacy-policy/) | La recopilación, el tratamiento y la utilización de datos personales; los estándares de tratamiento; los derechos de los interesados; y las transferencias internacionales |
 | [Términos del Servicio](/es/mail/terms-of-service/) | Las condiciones contractuales de uso del Servicio; los derechos y obligaciones; las limitaciones de responsabilidad; la ley aplicable; y la jurisdicción |
-| [Política de Uso Aceptable](/es/mail/acceptable-use/) | Los límites legales de la conducta de los usuarios; la lista de conductas prohibidas y sus correspondientes fuentes estatutarias; y los procedimientos de aplicación |
-| [Procesamiento de Datos y Seguridad](/es/mail/data-security/) | El ciclo de vida de los datos; la matriz de tratamiento; las medidas de mantenimiento de la seguridad establecidas conforme al artículo 12 del Reglamento de Aplicación; la respuesta a incidentes; y la cooperación con las inspecciones |
+| [Política de Uso Aceptable](/es/mail/acceptable-use/) | Los límites de la conducta de los usuarios; la lista de conductas prohibidas y las medidas del Operador; y los procedimientos de aplicación |
+| [Procesamiento de Datos y Seguridad](/es/mail/data-security/) | El ciclo de vida de los datos; la matriz de tratamiento; las medidas de mantenimiento de la seguridad; la respuesta a incidentes; y la cooperación con las inspecciones |
 | [Subencargados del Tratamiento](/es/mail/sub-processors/) | Encargados del tratamiento delegados, destinatarios de comunicaciones de datos, datos involucrados y garantías para las transferencias internacionales |
 | [Glosario](/es/mail/key-terms/) | Definiciones de los términos técnicos y jurídicos empleados en los documentos legales de este sitio |
 
@@ -54,7 +52,7 @@ Los documentos legales de este sitio se organizan por temas; los documentos se r
 
 1. En materia de privacidad, la [Política de Privacidad](/es/mail/privacy-policy/) constituye la disposición específica; en cuanto a las condiciones de uso del Servicio, los [Términos del Servicio](/es/mail/terms-of-service/) constituyen la disposición específica; todos los demás asuntos se interpretan conforme a la arquitectura establecida en esta página.
 2. En caso de incongruencia entre documentos, prevalecerá el documento directamente relacionado con la materia de que se trate.
-3. Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
+3. Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. La ley aplicable a cada instancia se determina por la ubicación de su operador (véase la Sección 2).
 
 ## 5. Canales de contacto
 
