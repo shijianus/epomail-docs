@@ -7,6 +7,8 @@ description: Een complete introductie van het EpoCanvas Mail-project—positione
 
 EpoCanvas Mail is een open source e-mailservice die draait op het Cloudflare-edge-netwerk. Met één domein en één Cloudflare-account richt u een eigen mailboxdienst op met verzending en ontvangst van e-mail, bijlagen en toegang vanaf meerdere apparaten. Het project wordt geëxploiteerd als gehoste instantie op [mail.epocanvas.com](https://mail.epocanvas.com), publiceert zijn volledige broncode voor zelf-hosting en levert een bijbehorende Android-app (epomail). Deze pagina beschrijft de positionering, de functies, de technische architectuur, het beveiligingsontwerp en de ontwikkelgeschiedenis van het project; de juridische voorwaarden van de dienst en de privacypraktijken staan in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/).
 
+De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
+
 ![Systeemarchitectuur van EpoCanvas Mail: de clientlaag (webapp, Android-app, OAuth-apps van derden) verbindt via de Cloudflare-edge; Workers dragen de API, de verwerking van inkomende e-mail en de AI-mogelijkheden, met uitgaande verzending via Resend en Telegram; gegevens worden opgeslagen in dubbele D1-databases, KV en objectopslag](/images/mail/project-architecture.svg)
 
 *Figuur: Systeemarchitectuur. Clients verbinden via de edge, zonder enkele oorspronkelijke server; inkomende e-mail wordt ontvangen en geparseerd door Email Routing, en uitgaande verzending gaat via het Resend-kanaal; alle toestand blijft in de eigen Cloudflare-bronnen van de uitroller.*
@@ -79,7 +81,22 @@ De twee databases zijn fysiek gescheiden: `USER_DB` bevat accounts, rollen en in
 | `tests` | 105 geautomatiseerde test-, audit- en inspectiescripts (Playwright volledige stack, publiek end-to-end, statische scans) |
 | `scripts` | Toolchain met daaronder het i18n-audittrio symmetrie／verwijzingen／hardcoding |
 
-## 4. Beveiligingsontwerp
+## 4. Voor wie dit project geschikt is en voor wie niet
+
+Het project is geschikt voor de volgende situaties:
+
+- particulieren of kleine teams die al een domein en een Cloudflare-account hebben en een mailbox willen zonder vaste serverkosten;
+- zelfhostende gebruikers die controleerbare broncode willen en alle gegevens binnen hun eigen account willen houden;
+- individuele gebruikers die geïsoleerde mailboxen, automatische classificatie en directe extractie van verificatiecodes voor registratiemail nodig hebben.
+
+Overweeg een alternatief in de volgende situaties:
+
+- bedrijfsscenario's die beschikbaarheidsgaranties, formele ondersteuning of langetermijnarchivering vereisen: de dienst biedt geen SLA en e-mail in de prullenbak wordt 7 dagen na ontvangst fysiek verwijderd (zie [Servicevoorwaarden](/nl/mail/terms-of-service/), Sectie 8);
+- toepassingen gericht op massale uitgaande marketing: het beleid voor acceptabel gebruik verbiedt ongevraagde commerciële massamail (zie [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/), Sectie 3);
+- communicatie die end-to-end-versleuteling vereist: de versleuteling van de dienst is statisch aan serverzijde en omvat geen bijlagen (zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/), Sectie 3);
+- gebruikers die Cloudflare-resources, het domein en de sleutelconfiguratie niet willen beheren: selfhosting vereist nog steeds het injecteren van de sleutels en initialisatie (zie Sectie 8).
+
+## 5. Beveiligingsontwerp
 
 - Referenties en sessies: wachtwoorden gezouten en gehasht met PBKDF2-HMAC-SHA256 bij 100.000 iteraties; sessies als JWT's die 30 dagen geldig zijn, bewaard in KV en sterk geanonimiseerd;
 - Manipulatiebestendige routering: mail-URL's gebruiken altijd een willekeurige hash van 20 tekens, ondertekend met HMAC-SHA256 en gebonden aan gebruiker en tenant; sequentiële ID's worden nooit blootgesteld, wat enumeratie en BOLA／IDOR-manipulatie uitsluit;
@@ -89,9 +106,9 @@ De twee databases zijn fysiek gescheiden: `USER_DB` bevat accounts, rollen en in
 
 Deze maatregelen zijn afgerond in de volledige beveiligingsverharding van 22 september 2026 (afhandeling van bevindingen P0／P1／P2, 43 geautomatiseerde asserties allemaal groen). De informatieverplichtingen richting personen, bewaartermijnen, de lijst van derden en de rechten van betrokkenen staan beschreven in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) en de [Verwerkerslijst](/nl/mail/sub-processors/).
 
-## 5. Ontwikkelgeschiedenis en de commit-keten
+## 6. Ontwikkelgeschiedenis en de commit-keten
 
-Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 (`2bbb582`). Per 30 september 2026 telt de hoofdrepository 535 commits; deze site (EpomailDocs, een aparte git-repository) telt daar 10 bovenop. De tabel hieronder somt de mijlpalen per fase op met hun ankercommits (korte hashes):
+Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 (`2bbb582`). Per 30 september 2026 telt de hoofdrepository 539 commits; deze site (EpomailDocs, een aparte git-repository) telt daar 11 bovenop (zoals hieronder vermeld; latere commits staan op GitHub). De tabel hieronder somt de mijlpalen per fase op met hun ankercommits (korte hashes):
 
 | Fase | Periode | Opgeleverd | Ankercommits |
 | --- | --- | --- | --- |
@@ -150,12 +167,13 @@ fd57a71ab71d99ff61b83a9a7c4f4b191dd96b99  2026-09-28  feat: initial commit for e
 d7beca35a2db489e75ff865435f95f20e68fd27f  2026-09-28  docs(audit): enrich architecture & legal compliance per subagent audits
 d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端旧结构文档线为历史祖先，树以本地六语言法律文档站为准
 05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
+52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 独立审计修订——第三方清单增补博客等级联动披露、时效数据校正与工具补盲
 5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
 ```
 
 De tabel en ankerketen hierboven zijn op mijlpaalniveau; elke reguliere fix, test en documentatiecommit tussen de fasen is bewaard in de git-geschiedenis en is één voor één te volgen via de [GitHub-commitgeschiedenis](https://github.com/shijianus/epomail/commits). De hoofdrepository bewaart daarnaast twee archiefbestanden, `CHECKLIST.log` (taakuitvoeringslog) en `REPORTS.md` (diepgaande auditrapporten), één-op-één gekoppeld aan de commits.
 
-## 6. Kwaliteitsborging
+## 7. Kwaliteitsborging
 
 - De map `tests/` bevat 105 geautomatiseerde test-, audit- en inspectiescripts, met dekking van Playwright full-stack browserregressie, publieke end-to-end asserties tegen productie en statische scans van de hele repository;
 - Representatieve gekwantificeerde controles: beveiligingsverharding 43／43 asserties, publieke routering end-to-end 32／32, aanmeldscherm in zes talen 62／62, sensorische inspectie 33／33 en 369 productie-integriteitsvergelijkingen byte voor byte;
@@ -163,7 +181,7 @@ De tabel en ankerketen hierboven zijn op mijlpaalniveau; elke reguliere fix, tes
 - Nul testgegevensresten: elke testcase ruimt fysiek op in een `finally`-blok; de database en KV bevatten geen fictieve gegevens;
 - De ontwikkeling volgt een vijfstaps-SOP (bereikbevestiging, gedisciplineerd coderen, full-stack testen, gedisciplineerde commits, rapportage bovenaan het antwoord), met uitvoer gesplitst naar `CHECKLIST.log` en `REPORTS.md`.
 
-## 7. Het project ophalen en uitrollen
+## 8. Het project ophalen en uitrollen
 
 | Kanaal | Beschrijving |
 | --- | --- |
@@ -182,7 +200,21 @@ cd ../mail-worker && npx wrangler deploy
 
 Bezoek na de eerste uitrol `/api/init/<jwt_secret>` om de database-initialisatie en het zaaien van de zes standaardrollen af te ronden; productiegeheimen worden altijd geïnjecteerd met `npx wrangler secret put`, en lokaal gebruik is `.dev.vars` (nooit ingecheckt).
 
-## 8. Gerelateerde documenten
+## 9. Veelgestelde vragen
+
+**Kost het gebruik van deze dienst geld?**
+De software is gratis onder de MIT-licentie; de kosten van selfhosting zijn uw eigen Cloudflare-verbruik. De gehoste instantie heeft momenteel geen betaalfuncties; het aantal mailboxen, het verzendvolume en de opslagquota worden per accountrol vastgesteld.
+
+**Kan de beheerder mijn e-mail lezen?**
+Dat hangt af van de e-mailmodus van de instantie: in de modus «Alles» kan de beheerder alle e-mail lezen; in de modus «Privé» uitsluitend spam, verwijderde en onbeheerde e-mail; in de modus «Versleuteld» geeft de beheerinterface geen gebruikers-e-mail terug. Zie de reikwijdte van de versleuteling in het [Privacybeleid](/nl/mail/privacy-policy/), Sectie 10.
+
+**Kan verwijderde e-mail worden hersteld?**
+E-mail in de prullenbak wordt 7 dagen na ontvangst fysiek door het systeem verwijderd en kan niet worden hersteld; bewaar eerst een kopie via «Instellingen → Gegevensexport» (zie het [Privacybeleid](/nl/mail/privacy-policy/), Sectie 8).
+
+**Wat is er nodig voor selfhosting?**
+Een domein en een Cloudflare-account; de uitrolstappen en het injecteren van de sleutels staan in Sectie 8. Alle gegevens blijven binnen de Cloudflare-resources van de beheerder en de code bevat geen telemetrie.
+
+## 10. Gerelateerde documenten
 
 | Bron | Link |
 | --- | --- |

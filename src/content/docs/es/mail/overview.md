@@ -5,7 +5,7 @@ description: Visión general de los documentos legales de EpoCanvas Mail—ident
 
 # Privacidad y Términos
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.1**
+**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.2**
 
 Esta página constituye una guía de todos los documentos legales del servicio EpoCanvas Mail (el «Servicio») y explica los roles de las partes, la arquitectura documental y el orden de aplicación. Antes de registrarse en el Servicio o utilizarlo, debe leer esta página, junto con la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos del Servicio](/es/mail/terms-of-service/).
 

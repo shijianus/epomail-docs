@@ -5,9 +5,11 @@ description: Definiciones de los términos técnicos y jurídicos empleados en l
 
 # Glosario
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.1**
+**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.2**
 
 Esta página define los términos empleados en los documentos legales de este sitio. Los términos jurídicos siguen las definiciones generales del derecho de protección de datos; los términos técnicos se interpretan conforme a la implementación real del código abierto del Servicio.
+
+Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
 
 ## 1. Términos jurídicos
 

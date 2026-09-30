@@ -5,9 +5,11 @@ description: Definities van de juridische en technische begrippen die in de juri
 
 # Begrippenlijst
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.1**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.2**
 
 Deze pagina definieert de begrippen die in de juridische documenten op deze site worden gebruikt. De juridische begrippen volgen de algemene definities uit het gegevensbeschermingsrecht; de technische begrippen worden uitgelegd naar de daadwerkelijke implementatie in de open source-broncode van de Dienst.
+
+De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
 
 ## 1. Juridische begrippen
 

@@ -5,7 +5,7 @@ description: Política de Privacidad de EpoCanvas Mail—los estándares y compr
 
 # Política de Privacidad
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.1**
+**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.2**
 
 Esta Política explica cómo el servicio EpoCanvas Mail (el «Servicio») recopila, trata, utiliza y transmite sus datos personales, así como los estándares y compromisos que el Operador sigue en materia de protección de datos. Debe leer esta Política antes de registrarse en el Servicio o utilizarlo; si no está de acuerdo con alguna parte de esta Política, no utilice el Servicio.
 

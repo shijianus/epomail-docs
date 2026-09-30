@@ -5,11 +5,13 @@ description: Lista completa de los encargados del tratamiento de EpoCanvas Mail 
 
 # Lista de Subencargados del Tratamiento
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.1**
+**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.2**
 
 En seguimiento de la sección 7 de la [Política de Privacidad](/es/mail/privacy-policy/), esta lista expone en su integridad los terceros implicados en los datos personales del Servicio, las condiciones de la comunicación de datos y las garantías. El principio de comunicación de datos del Servicio es la mínima necesidad: los datos que no necesitan salir de la instancia no salen; los que deben salir están claramente señalados con el destinatario y los datos transportados. El Servicio no mantiene con ninguna de las partes siguientes relación de venta de datos ni de reparto de ingresos publicitarios.
 
 Las transferencias internacionales se rigen por los requisitos de la ley aplicable y las restricciones legítimas de las autoridades competentes, con las cláusulas contractuales tipo y mecanismos análogos como garantía. Los encargados del tratamiento tratan todos los datos por instrucciones del responsable y dentro del alcance de la finalidad del encargo.
+
+Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
 
 ![Mapa de comunicación de datos a terceros de EpoCanvas Mail: centrado en la instancia, cuatro categorías —encargados del tratamiento, autorizado por el interesado, tratamiento mediante IA activado por el interesado y requerimientos legales— con el principio de mínima necesidad y los compromisos de no venta, no publicidad y no rastreo señalados](/images/mail/subprocessor-map.svg)
 

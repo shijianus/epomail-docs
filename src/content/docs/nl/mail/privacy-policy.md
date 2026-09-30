@@ -5,7 +5,7 @@ description: Privacybeleid van EpoCanvas Mail — de normen en toezeggingen voor
 
 # Privacybeleid
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.1**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.2**
 
 Dit beleid beschrijft hoe de dienst EpoCanvas Mail (hierna «de Dienst») uw persoonsgegevens verzamelt, verwerkt en doorgeeft, evenals de normen en toezeggingen waarop de Exploitant zich bij de bescherming van gegevens baseert. U dient dit beleid te lezen voordat u zich registreert voor de Dienst of deze gebruikt; indien u met enig onderdeel van dit beleid niet instemt, gebruik de Dienst dan niet.
 

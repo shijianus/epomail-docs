@@ -5,11 +5,13 @@ description: Volledige lijst van de verwerkers, ontvangers van gegevens, betrokk
 
 # Lijst van verwerkers
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.1**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.2**
 
 Deze lijst sluit aan bij paragraaf 7 van het [Privacybeleid](/nl/mail/privacy-policy/) en vermeldt volledig de derden die bij de persoonsgegevens van de Dienst betrokken zijn, de voorwaarden voor delen en de waarborgmechanismen. Het delen door de Dienst volgt het beginsel van minimale noodzakelijkheid: gegevens die de instance niet hoeven te verlaten, verlaten die niet; gegevens die moeten worden verlaten, worden uitdrukkelijk vermeld met de ontvanger en de meegegeven gegevens. Met geen van de hierna genoemde partijen bestaat enige relatie van verkoop van gegevens of van het delen van advertentie-inkomsten.
 
 Internationale doorgifte volgt de eisen van het toepasselijke recht en de beperkingen die bevoegde autoriteiten overeenkomstig de wet oplegen, met standaardcontractbepalingen en vergelijkbare mechanismen als waarborg voor de veiligheid van de doorgifte. Verwerkers verwerken de gegevens allemaal op instructie van de verwerkingsverantwoordelijke en binnen het bestek van het beoogde doel.
+
+De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
 
 ![Kaart van het delen met derden door EpoCanvas Mail: gecentreerd op de instance, vier categorieën, namelijk verwerkers op basis van bewaarneming, op autorisatie van de betrokkene, door de betrokkene geactiveerde AI-verwerking en wettelijke vereisten; met het beginsel van minimale noodzakelijkheid en de toezeggingen van niet verkopen, geen advertenties en niet volgen](/images/mail/subprocessor-map.svg)
 

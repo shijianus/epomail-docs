@@ -7,6 +7,8 @@ description: Presentación completa del proyecto EpoCanvas Mail—posicionamient
 
 EpoCanvas Mail es un servicio de correo electrónico de código abierto que funciona en la red edge de Cloudflare. Con un solo dominio y una cuenta de Cloudflare, puedes montar un servicio de buzones propio con envío y recepción de correo, adjuntos y acceso multiplataforma. El proyecto se explota como instancia alojada en [mail.epocanvas.com](https://mail.epocanvas.com), publica su código fuente completo para autoalojamiento y ofrece una aplicación Android acompañante (epomail). Esta página describe el posicionamiento del proyecto, sus funciones, su arquitectura técnica, su diseño de seguridad y su historial de desarrollo; los términos legales del servicio y las prácticas de privacidad figuran en la [Descripción general de privacidad y condiciones](/es/mail/overview/).
 
+Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
+
 ![Arquitectura del sistema de EpoCanvas Mail: la capa de clientes (aplicación web, aplicación Android, aplicaciones de terceros OAuth) se conecta a través del edge de Cloudflare; los Workers sostienen la API, el análisis del correo entrante y las funciones de IA, con envío saliente vía Resend y Telegram; los datos se guardan en dos bases D1, KV y almacenamiento de objetos](/images/mail/project-architecture.svg)
 
 *Figura: Arquitectura del sistema. Los clientes se conectan por el edge, sin servidor de origen único; el correo entrante lo recibe y analiza Email Routing, y el envío saliente pasa por el canal de Resend; todo el estado queda en los recursos de Cloudflare del propio desplegador.*
@@ -79,7 +81,22 @@ Las dos bases de datos están aisladas físicamente: `USER_DB` guarda cuentas, r
 | `tests` | 105 scripts de pruebas, auditoría e inspección automatizadas (pila completa Playwright, extremo a extremo público, análisis estáticos) |
 | `scripts` | Cadena de herramientas que incluye el trío de auditoría i18n simetría／referencias／texto codificado |
 
-## 4. Diseño de seguridad
+## 4. A quién conviene y a quién no
+
+El proyecto conviene en las siguientes situaciones:
+
+- personas o equipos pequeños que ya disponen de un dominio y una cuenta de Cloudflare y desean un buzón sin coste fijo de servidor;
+- usuarios que se autoalojan y desean un código fuente auditable con todos los datos dentro de su propia cuenta;
+- usuarios individuales que necesitan buzones aislados, clasificación automática y extracción instantánea de códigos de verificación para correos de registro.
+
+Valore una alternativa en las siguientes situaciones:
+
+- escenarios empresariales que exijan compromisos de disponibilidad, soporte formal o conservación de archivos a largo plazo: el servicio no ofrece SLA y el correo de la papelera se suprime físicamente 7 días después de la recepción (véanse los [Términos del servicio](/es/mail/terms-of-service/), Sección 8);
+- usos centrados en el envío masivo de marketing: la Política de uso aceptable prohíbe el correo comercial masivo no solicitado (véase la [Política de uso aceptable](/es/mail/acceptable-use/), Sección 3);
+- comunicaciones que requieran cifrado de extremo a extremo: el cifrado del servicio es estático en el lado del servidor y no cubre los adjuntos (véase [Tratamiento de datos y seguridad](/es/mail/data-security/), Sección 3);
+- usuarios que no deseen mantener los recursos de Cloudflare, el dominio y la configuración de claves: la autoimplementación sigue requiriendo la inyección de secretos y la inicialización (véase la Sección 8).
+
+## 5. Diseño de seguridad
 
 - Credenciales y sesiones: contraseñas con sal y hash PBKDF2-HMAC-SHA256 a 100 000 iteraciones; sesiones como JWT válidos 30 días, guardados en KV y fuertemente depurados;
 - Enrutado antimanipulación: las URL de los correos usan siempre un hash aleatorio de 20 caracteres firmado con HMAC-SHA256, vinculado al usuario y al inquilino; los ID secuenciales nunca se exponen, lo que descarta la enumeración y la manipulación BOLA／IDOR;
@@ -89,9 +106,9 @@ Las dos bases de datos están aisladas físicamente: `USER_DB` guarda cuentas, r
 
 Estas medidas se cerraron en el endurecimiento de seguridad completo del 22 de septiembre de 2026 (tratamiento de los hallazgos P0／P1／P2, 43 aserciones automatizadas en verde). Los deberes de información hacia las personas interesadas, los plazos de conservación, la lista de terceros y los derechos de los interesados se describen en [Tratamiento de datos y seguridad](/es/mail/data-security/) y la [Lista de encargados del tratamiento](/es/mail/sub-processors/).
 
-## 5. Historial de desarrollo y cadena de commits
+## 6. Historial de desarrollo y cadena de commits
 
-El proyecto se desarrolla de forma continua desde el primer commit del 21 de julio de 2026 (`2bbb582`). A fecha de 30 de septiembre de 2026, el repositorio principal acumula 535 commits; este sitio (EpomailDocs, repositorio git separado) suma 10 más. La tabla siguiente recoge los hitos por fases con sus commits de anclaje (hash cortos):
+El proyecto se desarrolla de forma continua desde el primer commit del 21 de julio de 2026 (`2bbb582`). A fecha de 30 de septiembre de 2026, el repositorio principal acumula 539 commits; este sitio (EpomailDocs, repositorio git separado) suma 11 más (según se indica abajo; los commits posteriores están en GitHub). La tabla siguiente recoge los hitos por fases con sus commits de anclaje (hash cortos):
 
 | Fase | Periodo | Entregas | Commits de anclaje |
 | --- | --- | --- | --- |
@@ -150,12 +167,13 @@ fd57a71ab71d99ff61b83a9a7c4f4b191dd96b99  2026-09-28  feat: initial commit for e
 d7beca35a2db489e75ff865435f95f20e68fd27f  2026-09-28  docs(audit): enrich architecture & legal compliance per subagent audits
 d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端旧结构文档线为历史祖先，树以本地六语言法律文档站为准
 05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
+52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 独立审计修订——第三方清单增补博客等级联动披露、时效数据校正与工具补盲
 5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
 ```
 
 La tabla y la cadena de anclaje anteriores están a escala de hitos; cada corrección, prueba y commit de documentación entre fases se conserva en el historial de git y puede rastrearse uno a uno en el [historial de commits de GitHub](https://github.com/shijianus/epomail/commits). El repositorio principal guarda además dos archivos de archivo, `CHECKLIST.log` (registro de ejecución de tareas) y `REPORTS.md` (informes de auditoría en profundidad), en correspondencia uno a uno con los commits.
 
-## 6. Garantía de calidad
+## 7. Garantía de calidad
 
 - El directorio `tests/` contiene 105 scripts de pruebas, auditoría e inspección automatizadas, que cubren la regresión de navegador con pila completa Playwright, aserciones extremo a extremo públicas contra producción y análisis estáticos de todo el repositorio;
 - Comprobaciones cuantificadas representativas: endurecimiento de seguridad 43／43 aserciones, enrutado público extremo a extremo 32／32, pantalla de inicio de sesión en seis idiomas 62／62, inspección sensorial 33／33 y 369 comparaciones de integridad de producción byte a byte;
@@ -163,7 +181,7 @@ La tabla y la cadena de anclaje anteriores están a escala de hitos; cada correc
 - Cero residuos de datos de prueba: cada caso de prueba limpia físicamente en un bloque `finally`; la base de datos y el KV no contienen datos falsos;
 - El desarrollo sigue un SOP de cinco pasos (confirmación del alcance, codificación disciplinada, pruebas con pila completa, commits disciplinados e informe al inicio de la respuesta), con resultados repartidos entre `CHECKLIST.log` y `REPORTS.md`.
 
-## 7. Obtener el proyecto y desplegarlo
+## 8. Obtener el proyecto y desplegarlo
 
 | Vía | Descripción |
 | --- | --- |
@@ -182,7 +200,21 @@ cd ../mail-worker && npx wrangler deploy
 
 Tras el primer despliegue, visita `/api/init/<jwt_secret>` para completar la inicialización de la base de datos y la siembra de los seis roles estándar; los secretos de producción se inyectan siempre con `npx wrangler secret put`, y el desarrollo local usa `.dev.vars` (nunca versionado).
 
-## 8. Documentos relacionados
+## 9. Preguntas frecuentes
+
+**¿Usar este servicio cuesta algo?**
+El software es gratuito bajo la licencia MIT; el coste de la autoimplementación es su propio consumo de Cloudflare. La instancia alojada actualmente no tiene funciones de pago; el número de buzones, el volumen de envío y las cuotas de almacenamiento se establecen según el rol de la cuenta.
+
+**¿Puede el administrador leer mi correo?**
+Depende del modo de correo de la instancia: en el modo «Todo» el administrador puede leer todo el correo; en el modo «Privado» solo el spam, el correo eliminado y el sin propietario; en el modo «Cifrado» la interfaz de administración no devuelve correo de usuario. Véase el alcance del cifrado en la [Política de privacidad](/es/mail/privacy-policy/), Sección 10.
+
+**¿Se puede recuperar el correo eliminado?**
+El correo de la papelera se suprime físicamente 7 días después de la recepción y no se puede recuperar; conserve antes una copia mediante «Configuración → Exportar datos» (véase la [Política de privacidad](/es/mail/privacy-policy/), Sección 8).
+
+**¿Qué se necesita para la autoimplementación?**
+Un dominio y una cuenta de Cloudflare; los pasos de despliegue y la inyección de secretos están en la Sección 8. Todos los datos permanecen en los recursos de Cloudflare del implementador y el código no contiene telemetría.
+
+## 10. Documentos relacionados
 
 | Recurso | Enlace |
 | --- | --- |

@@ -5,11 +5,13 @@ description: Beleid voor acceptabel gebruik van EpoCanvas Mail — de lijst van 
 
 # Beleid voor acceptabel gebruik
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.1**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.2**
 
 Dit beleid concretiseert paragraaf 7 («Aanvaardbaar gebruik») van de [Servicevoorwaarden](/nl/mail/terms-of-service/) en stelt de grenzen aan uw gedrag bij gebruik van de dienst EpoCanvas Mail (hierna «de Dienst»). Bij overtreding van dit beleid kan de Exploitant optreden volgens de paragraaf «Handhavingsmaatregelen»; bestaat er een vermoeden van een strafbaar feit, dan wordt dat tevens volgens de wet afgehandeld.
 
 De in dit beleid genoemde gedragingen kunnen, naast inbreuk op dit beleid, tevens onrechtmatig zijn onder het recht van uw vestigingsplaats of dat van de Exploitant; de concrete kwalificatie daarvan is voorbehouden aan het bevoegd gezag, en dit document vormt geen juridisch advies.
+
+De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
 
 ## 1. Onrechtmatige en schadelijke inhoud
 

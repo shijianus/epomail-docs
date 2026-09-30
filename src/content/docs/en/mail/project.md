@@ -7,6 +7,8 @@ description: A complete introduction to the EpoCanvas Mail project—positioning
 
 EpoCanvas Mail is an open source email service running on the Cloudflare edge network. With one domain and one Cloudflare account, you can set up a personal mailbox service that supports sending and receiving email, attachments, and multi-device access. The project is operated as a hosted instance at [mail.epocanvas.com](https://mail.epocanvas.com), publishes its full source code for self-hosting, and ships a companion Android app (epomail). This page describes the project's positioning, features, technical architecture, security design, and development history; the legal terms of the service and privacy practices are set out in the [Privacy and Terms Overview](/en/mail/overview/).
 
+The Traditional Chinese (Taiwan) versions of the legal documents on this site are the authoritative versions; translations in other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version shall prevail.
+
 ![EpoCanvas Mail system architecture: the client layer (web app, Android app, OAuth third-party apps) connects through the Cloudflare edge; Workers carry the API, inbound email parsing, and AI capabilities, with outbound delivery via Resend and Telegram; data is stored in dual D1 databases, KV, and object storage](/images/mail/project-architecture.svg)
 
 *Figure: System architecture. Clients connect through the edge with no single origin server; inbound email is received and parsed by Email Routing, and outbound delivery goes through the Resend channel; all state is stored in the deployer's own Cloudflare resources.*
@@ -79,7 +81,22 @@ The dual databases are physically isolated: `USER_DB` holds accounts, roles, and
 | `tests` | 105 automated test, audit, and inspection scripts (Playwright full-stack, public end-to-end, static scans) |
 | `scripts` | Toolchain including the i18n symmetry／reference／hardcoded audit trio |
 
-## 4. Security Design
+## 4. Who This Suits and Who It Does Not
+
+The project suits the following situations:
+
+- Individuals or small teams that already hold a domain and a Cloudflare account and want a mailbox with zero fixed server cost;
+- Self-hosting users who want auditable source code with all data staying inside their own account;
+- Individual users who need multiple isolated mailboxes, automatic classification, and instant verification-code extraction for sign-up mail.
+
+Evaluate alternatives in the following situations:
+
+- Business scenarios requiring availability commitments, formal support, or long-term archival retention: the service offers no SLA, and trash email is physically deleted 7 days after receipt (see [Terms of Service](/en/mail/terms-of-service/), Section 8);
+- Use cases centered on bulk outbound marketing: the Acceptable Use Policy prohibits unsolicited bulk commercial email (see [Acceptable Use Policy](/en/mail/acceptable-use/), Section 3);
+- Communication requiring end-to-end encryption: encryption here is server-side encryption at rest and does not cover attachments (see [Data Processing and Security](/en/mail/data-security/), Section 3);
+- Users unwilling to maintain Cloudflare resources, domains, and key configuration: self-hosting still requires secret injection and initialization (see Section 8).
+
+## 5. Security Design
 
 - Credentials and sessions: passwords are salted and hashed with PBKDF2-HMAC-SHA256 at 100,000 iterations; sessions are JWTs valid for 30 days, kept in KV and deeply redacted;
 - Anti-tamper routing: mail URLs always use a 20-character random hash signed with HMAC-SHA256, bound to the user and tenant; sequential IDs are never exposed, ruling out enumeration and BOLA／IDOR tampering;
@@ -89,9 +106,9 @@ The dual databases are physically isolated: `USER_DB` holds accounts, roles, and
 
 These measures were closed out in the full security hardening of September 22, 2026 (remediation of P0／P1／P2 findings, 43 automated assertions all green). The notification duties toward individuals, retention periods, the third-party list, and data subject rights are described in [Data Processing and Security](/en/mail/data-security/) and the [Third-Party Processor List](/en/mail/sub-processors/).
 
-## 5. Development History and the Commit Chain
+## 6. Development History and the Commit Chain
 
-The project has been under continuous development since the first commit on July 21, 2026 (`2bbb582`). As of September 30, 2026, the main repository holds 535 commits; this site (EpomailDocs, a separate git repository) holds 10 more. The table below lists the milestones by phase with their anchor commits (short hashes):
+The project has been under continuous development since the first commit on July 21, 2026 (`2bbb582`). As of September 30, 2026, the main repository holds 539 commits; this site (EpomailDocs, a separate git repository) holds 11 more (as listed below; later commits are on GitHub). The table below lists the milestones by phase with their anchor commits (short hashes):
 
 | Phase | Period | Delivered | Anchor commits |
 | --- | --- | --- | --- |
@@ -150,12 +167,13 @@ fd57a71ab71d99ff61b83a9a7c4f4b191dd96b99  2026-09-28  feat: initial commit for e
 d7beca35a2db489e75ff865435f95f20e68fd27f  2026-09-28  docs(audit): enrich architecture & legal compliance per subagent audits
 d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端旧结构文档线为历史祖先，树以本地六语言法律文档站为准
 05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
+52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 独立审计修订——第三方清单增补博客等级联动披露、时效数据校正与工具补盲
 5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
 ```
 
 The table and anchor chain above are at milestone granularity; every routine fix, test, and documentation commit between the phases is preserved in git history and can be traced one by one through the [GitHub commit history](https://github.com/shijianus/epomail/commits). The main repository also keeps two archival files, `CHECKLIST.log` (task execution log) and `REPORTS.md` (in-depth audit reports), matched one-to-one with the commits.
 
-## 6. Quality Assurance
+## 7. Quality Assurance
 
 - The `tests/` directory holds 105 automated test, audit, and inspection scripts, covering Playwright full-stack browser regression, public end-to-end assertions against production, and repository-wide static scans;
 - Representative quantified checks: security hardening 43／43 assertions, public routing end-to-end 32／32, six-language login surface 62／62, sensory inspection 33／33, and 369 item-by-item production integrity comparisons;
@@ -163,7 +181,7 @@ The table and anchor chain above are at milestone granularity; every routine fix
 - Zero test data residue: every test case cleans up physically in a `finally` block; the database and KV hold no fake data;
 - Development follows a five-step SOP (scope confirmation, disciplined coding, full-stack testing, disciplined commits, and top-of-reply reporting), with output routed to `CHECKLIST.log` and `REPORTS.md`.
 
-## 7. Get the Project and Deploy
+## 8. Get the Project and Deploy
 
 | Channel | Description |
 | --- | --- |
@@ -182,7 +200,21 @@ cd ../mail-worker && npx wrangler deploy
 
 After the first deployment, visit `/api/init/<jwt_secret>` to complete database initialization and the seeding of the six standard roles; production secrets are always injected with `npx wrangler secret put`, and local development uses `.dev.vars` (never committed).
 
-## 8. Related Documents
+## 9. Frequently Asked Questions
+
+**Does using this service cost anything?**
+The software is free under the MIT license; the cost of self-hosting is your own Cloudflare usage. The hosted instance currently has no paid features; mailbox count, sending volume, and storage quotas are set by account role.
+
+**Can the administrator read my email?**
+It depends on the mail mode of the instance: in full-mail mode the administrator can read all email; in privacy mode only spam, deleted, and unowned email; in encrypted mode the admin interface does not return user email. See the encryption scope in the [Privacy Policy](/en/mail/privacy-policy/), Section 10.
+
+**Can deleted email be recovered?**
+Trash email is physically deleted by the system 7 days after receipt and cannot be recovered; keep a copy first via "Settings → Data Export" (see the [Privacy Policy](/en/mail/privacy-policy/), Section 8).
+
+**What does self-hosting require?**
+A domain and a Cloudflare account; the deployment steps and secret injection are in Section 8. All data stays within the deployer's own Cloudflare resources, and the code contains no telemetry.
+
+## 10. Related Documents
 
 | Resource | Link |
 | --- | --- |

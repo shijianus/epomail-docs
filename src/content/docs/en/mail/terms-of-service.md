@@ -5,7 +5,7 @@ description: EpoCanvas Mail Terms of Service—acceptance and review of the term
 
 # Terms of Service
 
-**Effective date: September 30, 2026 | Version: 5.1**
+**Effective date: September 30, 2026 | Version: 5.2**
 
 These Terms are the agreement between you and the Operator of the instance you use concerning the use of the EpoCanvas Mail service (the "Service"). By completing registration, logging in, or otherwise using the Service, you represent that you have read and agree to the entirety of these Terms; if you do not agree, do not register for or use the Service.
 

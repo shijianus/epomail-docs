@@ -5,7 +5,7 @@ description: EpoCanvas Mail Privacy Policy—the standards and commitments on th
 
 # Privacy Policy
 
-**Effective date: September 30, 2026 | Version: 5.1**
+**Effective date: September 30, 2026 | Version: 5.2**
 
 This Policy explains how the EpoCanvas Mail service (the "Service") collects, processes, and transmits your personal data, and the standards and commitments the Operator follows for data protection. You should read this Policy before registering for or using the Service; if you do not agree to any part of this Policy, do not use the Service.
 
