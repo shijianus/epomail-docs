@@ -201,13 +201,19 @@ DS_CELL = {
     'nl':    'de eigen objectopslag van de instance (in volgorde: eigen of door de Exploitant geconfigureerde S3-compatibele opslag, een Cloudflare R2-binding, standaard Cloudflare KV); downloads met defensieve headers',
 }
 DS_ROW_ANCHOR = {'zh': '| 附件 |', 'zh-tw': '| 附件 |', 'en': '| Attachments |', 'fr': '| Pièces jointes |', 'es': '| Adjuntos |', 'nl': '| Bijlagen |'}
+MARKER = {'zh': '依序解析', 'zh-tw': '依序解析', 'en': 'resolved in order', 'fr': "résolu dans l'ordre", 'es': 'resuelto en orden', 'nl': 'in volgorde'}
 for loc in LOCALES:
     text = load('data-security', loc)
+    if text.count(MARKER[M[loc]]) == 1 and DS_CELL[M[loc]] in text:
+        continue  # 幂等：单元格已为规范文本
     lines = text.split('\n')
-    hits = [i for i, l in enumerate(lines) if l.startswith(DS_ROW_ANCHOR[M[loc]]) and 'Cloudflare R2' in l]
+    hits = [i for i, l in enumerate(lines) if l.startswith(DS_ROW_ANCHOR[M[loc]]) and MARKER[M[loc]] in l]
     assert len(hits) == 1, f'[附件行] {loc} 命中 {len(hits)} 行'
-    new_line = re.sub(r'Cloudflare R2[^|]*', DS_CELL[M[loc]].replace('\\', '\\\\'), lines[hits[0]], count=1)
-    lines[hits[0]] = new_line
+    cells = lines[hits[0]].split('|')
+    idxs = [k for k, c in enumerate(cells) if MARKER[M[loc]] in c]
+    assert len(idxs) == 1, f'[附件行] {loc} marker 命中 {len(idxs)} 格'
+    cells[idxs[0]] = ' ' + DS_CELL[M[loc]] + ' '
+    lines[hits[0]] = '|'.join(cells)
     save('data-security', loc, '\n'.join(lines))
 print('data-security: 附件行 完成')
 
