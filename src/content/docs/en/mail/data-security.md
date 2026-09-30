@@ -5,7 +5,7 @@ description: EpoCanvas Mail data life cycle, processing matrix, security mainten
 
 # Data Processing and Security Maintenance
 
-**Effective date: September 30, 2026 | Version: 5.3**
+**Effective date: October 1, 2026 | Version: 5.4**
 
 Following Section 10 of the [Privacy Policy](/en/mail/privacy-policy/), this document describes the life cycle of personal data in the Service, the processing matrix for each category of data, and the security maintenance measures established by the Operator to prevent personal data from being stolen, altered, damaged, lost, or leaked. This document also serves as the base document for access by data subjects and for lawful inspection by the competent authority.
 

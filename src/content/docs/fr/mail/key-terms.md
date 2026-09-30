@@ -5,12 +5,15 @@ description: Définitions des termes techniques et juridiques employés dans les
 
 # Définitions
 
-**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.3**
+**Date d'entrée en vigueur : 1 octobre 2026 | Version : 5.4**
 
 La présente page définit les termes employés dans les documents juridiques du présent site. Les termes juridiques suivent les définitions générales du droit de la protection des données ; les termes techniques s'interprètent d'après la mise en œuvre réelle du code open source du Service.
 
 Les documents juridiques du présent site font foi dans leur version en chinois traditionnel (Taïwan) ; les versions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut.
 
+![Carte du glossaire : termes juridiques (responsable du traitement, sous-traitant, personne concernée, finalité déterminée, etc.) et termes techniques (instance, D1/KV/R2, chiffrement au repos, zéro télémétrie, etc.) — deux familles de définitions utilisées de manière cohérente dans tous les documents, interprétées selon l’usage général de la protection des données et l’implémentation open source réelle](/images/mail/key-terms-glossary.svg)
+
+*Figure : la relation entre les deux familles de définitions de cette page. Les termes juridiques suivent l’usage général de la protection des données ; les termes techniques sont interprétés selon l’implémentation open source réelle ; les termes non listés se lisent dans le contexte de la Politique de confidentialité et des Conditions d’utilisation.*
 ## 1. Termes juridiques
 
 | Terme | Définition |
@@ -49,6 +52,10 @@ Les documents juridiques du présent site font foi dans leur version en chinois 
 | D1 / KV / R2 | Base SQLite en périphérie, stockage clé-valeur répliqué mondialement et stockage d'objets compatible S3 de Cloudflare, portant respectivement les données structurées, le cache de sessions et les blobs de pièces jointes |
 | Télémétrie | Le fait pour un logiciel de renvoyer automatiquement des données d'usage à son développeur. Le code source du Service est à télémétrie zéro et ne renvoie aucune donnée d'instance vers l'amont |
 | Suppression logique / suppression physique | La suppression logique désigne le marquage comme supprimé, réversible par l'administrateur ; la suppression physique désigne le retrait du support de stockage avec les pièces jointes et les index, sans possibilité de restauration |
+| BYOS (stockage à apporter) | mécanisme consistant à placer les pièces jointes dans un stockage objet compatible S3 appartenant à l'Opérateur ou à la personne concernée (Backblaze B2, Wasabi, etc.) ; les identifiants de stockage sont conservés par le configurateur |
+| Workers AI | service d'inférence en périphérie de Cloudflare ; utilisé pour l'extraction des codes de vérification et les autres traitements d'IA — déclencheurs et périmètre de données à la section 6 de la [Politique de confidentialité](/fr/mail/privacy-policy/) |
+| Turnstile | mécanisme de vérification humaine de Cloudflare ; évalue la fiabilité du navigateur à l’inscription et à la création de boîtes, sans cookie publicitaire ni suivi intersites |
+| Protection SSRF | blocage du Server-Side Request Forgery ; les requêtes vers des points de terminaison externes sont systématiquement validées contre des adresses publiques, et les adresses de bouclage, de réseaux privés et de métadonnées cloud sont rejetées |
 
 ## 3. Autres
 

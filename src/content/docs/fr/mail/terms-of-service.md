@@ -5,7 +5,7 @@ description: Conditions d'utilisation d'EpoCanvas Mail — acceptation et examen
 
 # Conditions d'utilisation
 
-**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.3**
+**Date d'entrée en vigueur : 1 octobre 2026 | Version : 5.4**
 
 Les présentes conditions constituent l'accord conclu entre vous et l'Opérateur de l'instance que vous utilisez, au sujet de l'utilisation du service EpoCanvas Mail (le « Service »). En achevant votre inscription, en vous connectant ou en utilisant le Service par tout autre moyen, vous déclarez avoir lu et accepter l'intégralité des présentes conditions ; si vous n'y consentez pas, n'effectuez pas d'inscription et n'utilisez pas le Service.
 
@@ -13,6 +13,9 @@ Les présentes conditions constituent des clauses types : le texte intégral est
 
 Les documents juridiques du présent site font foi dans leur version en chinois traditionnel (Taïwan) ; les versions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut.
 
+![Cycle de vie contractuel des Conditions d’utilisation d’EpoCanvas Mail : consentement électronique (l’inscription vaut acceptation, même force que l’écrit) → exécution (sécurité du compte, votre contenu, limites de responsabilité) → révision (annonce des changements majeurs avant entrée en vigueur) → fin (résiliation, export et suppression des données), sur fond de droit applicable et de juridiction (lieu de l’Opérateur ; instance hébergée : Taïwan)](/images/mail/tos-contract.svg)
+
+*Figure : le cycle de vie du contrat, de sa formation à sa fin. Le consentement électronique a la même force que l’écrit ; compte, contenu et responsabilité aux sections 3, 5 et 10 ; révision à la section 12 ; résiliation et suppression des données à la section 8 ; droit applicable et juridiction à la section 11.*
 ## 1. Définitions
 
 1. **Le Service** : l'ensemble des fonctionnalités fonctionnant sur une instance EpoCanvas Mail, y compris l'interface web, l'application mobile (epomail), l'API ouverte et les composants associés.
@@ -53,7 +56,7 @@ Le Service repose sur un projet open source sous licence MIT et s'inscrit dans l
 
 1. **Acheminement sortant** : les courriels envoyés hors du site sont acheminés par le canal configuré par l'Opérateur (Cloudflare Email Workers, Resend ou Mailjet). L'acheminement par des tiers peut subir des retards, des rebonds ou un blocage par le fournisseur du destinataire ; l'Opérateur ne garantit pas le résultat de l'acheminement.
 2. **Conditions des tiers** : lorsque vous utilisez les notifications Telegram, la traduction par IA, la connexion Linux DO, un stockage S3 externe ou des fonctions similaires, vous êtes également lié par les conditions de ces services tiers.
-3. **Plateforme ouverte OAuth** : lorsque vous autorisez des applications tierces via OAuth, le périmètre d'autorisation (openid / profile / email) et le mode de révocation figurent à la section 9 de la [Politique de confidentialité](/fr/mail/privacy-policy/) ; l'usage que ces applications font des données relève de leurs propres conditions.
+3. **Plateforme ouverte OAuth** : lorsque vous autorisez des applications tierces via OAuth, le périmètre d'autorisation (openid / profile / email) et le mode de révocation figurent à la section 7 de la [Politique de confidentialité](/fr/mail/privacy-policy/) ; l'usage que ces applications font des données relève de leurs propres conditions.
 
 ## 7. Utilisation acceptable
 

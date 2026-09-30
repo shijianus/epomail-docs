@@ -5,7 +5,7 @@ description: Privacybeleid van EpoCanvas Mail — de normen en toezeggingen voor
 
 # Privacybeleid
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.3**
+**Datum van inwerkingtreding: 1 oktober 2026 | Versie: 5.4**
 
 Dit beleid beschrijft hoe de dienst EpoCanvas Mail (hierna «de Dienst») uw persoonsgegevens verzamelt, verwerkt en doorgeeft, evenals de normen en toezeggingen waarop de Exploitant zich bij de bescherming van gegevens baseert. U dient dit beleid te lezen voordat u zich registreert voor de Dienst of deze gebruikt; indien u met enig onderdeel van dit beleid niet instemt, gebruik de Dienst dan niet.
 
@@ -124,6 +124,7 @@ De Dienst draait op het wereldwijde edge-netwerk van Cloudflare; uw persoonsgege
 | Mailboxgebruik boven 90 % | het systeem verwijdert fysiek de e-mail die al als verwijderd is gemarkeerd, om ruimte vrij te maken |
 | Opzegging van het account | sessies vervallen onmiddellijk; de e-mail komt in een zacht-verwijderde staat totdat een beheerder de fysieke verwijdering uitvoert |
 | Fysieke verwijdering | accountgegevens, mailboxen, e-mail, bijlagen, OAuth-autorisaties en sessies worden gezamenlijk verwijderd en kunnen niet worden hersteld |
+| Handhaving bij overtredingen | nadat een account wegens overtredingen is geblokkeerd, kan de Exploitant de e-mails en bijlagen forcerend wissen om ruimte vrij te maken (zie de handhavingsladder in het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/)) |
 | Beëindiging van de instance | de Exploitant dient dit vooraf aan te kondigen en een periode voor gegevensexport aan te bieden; na beëindiging worden de gegevens vernietigd samen met de Cloudflare-resources |
 
 Na fysieke verwijdering kunnen gegevens niet worden hersteld. Vóór verwijdering kunt u via «Instellingen → Gegevensexport» een volledige kopie in JSON-formaat verkrijgen (inclusief uw persoonsgegevens en de volledige tekst van nog niet verwijderde e-mail). De volledige beschrijving van de technische maatregelen staat in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).

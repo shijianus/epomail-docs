@@ -5,12 +5,15 @@ description: Definiciones de los términos técnicos y jurídicos empleados en l
 
 # Glosario
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.3**
+**Fecha de entrada en vigor: 1 de octubre de 2026 | Versión: 5.4**
 
 Esta página define los términos empleados en los documentos legales de este sitio. Los términos jurídicos siguen las definiciones generales del derecho de protección de datos; los términos técnicos se interpretan conforme a la implementación real del código abierto del Servicio.
 
 Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
 
+![Mapa del glosario: términos jurídicos (responsable del tratamiento, encargado, persona interesada, finalidad determinada, etc.) y términos técnicos (instancia, D1/KV/R2, cifrado en reposo, cero telemetría, etc.): dos familias de definiciones usadas de forma coherente en todos los documentos, interpretadas según el uso general de protección de datos y la implementación real del código abierto](/images/mail/key-terms-glossary.svg)
+
+*Figura: la relación entre las dos familias de definiciones de esta página. Los términos jurídicos siguen el uso general de protección de datos; los técnicos se interpretan según la implementación real del código abierto; los no enumerados se leen en el contexto de la Política de Privacidad y los Términos del Servicio.*
 ## 1. Términos jurídicos
 
 | Término | Definición |
@@ -49,6 +52,10 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 | D1 / KV / R2 | La base de datos SQLite perimetral de Cloudflare, el almacenamiento de clave-valor replicado globalmente y el almacenamiento de objetos compatible con S3, que soportan respectivamente los datos estructurados, la caché de sesiones y los blobs de adjuntos |
 | Telemetría | El envío automático de datos de uso a los desarrolladores por parte del software. El código fuente del Servicio contiene cero telemetría y no reenvía datos de la instancia al proyecto ascendente |
 | Eliminación lógica / eliminación física | La eliminación lógica significa que el elemento se marca como eliminado y puede ser restaurado por un administrador; la eliminación física significa la supresión del almacenamiento junto con los adjuntos y los índices, sin posibilidad de recuperación |
+| BYOS (almacenamiento propio) | mecanismo que coloca los adjuntos en un almacenamiento de objetos compatible con S3 propiedad del Operador o de la persona interesada (Backblaze B2, Wasabi, etc.); las credenciales las guarda quien lo configura |
+| Workers AI | servicio de inferencia en el borde de Cloudflare; se usa para la extracción de códigos de verificación y otros procesos de IA: condiciones de activación y alcance de datos en la Sección 6 de la [Política de Privacidad](/es/mail/privacy-policy/) |
+| Turnstile | mecanismo de verificación humana de Cloudflare; evalúa la fiabilidad del navegador en el registro y al crear buzones, sin cookies publicitarias ni seguimiento entre sitios |
+| Protección SSRF | bloqueo de la falsificación de solicitudes del lado del servidor; las solicitudes a puntos de conexión externos se validan siempre contra direcciones públicas, y las direcciones de bucle, redes privadas y metadatos de la nube se rechazan |
 
 ## 3. Otros
 

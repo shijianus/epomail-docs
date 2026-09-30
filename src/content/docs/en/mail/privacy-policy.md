@@ -5,7 +5,7 @@ description: EpoCanvas Mail Privacy Policy—the standards and commitments on th
 
 # Privacy Policy
 
-**Effective date: September 30, 2026 | Version: 5.3**
+**Effective date: October 1, 2026 | Version: 5.4**
 
 This Policy explains how the EpoCanvas Mail service (the "Service") collects, processes, and transmits your personal data, and the standards and commitments the Operator follows for data protection. You should read this Policy before registering for or using the Service; if you do not agree to any part of this Policy, do not use the Service.
 
@@ -124,6 +124,7 @@ The Service is built on the Cloudflare global edge network, and your personal da
 | Mailbox usage above 90% | The system physically deletes email already marked as deleted to free space |
 | Account cancellation | Sessions become invalid immediately; email enters a soft-deleted state until an administrator performs physical deletion |
 | Physical deletion | Account data, mailboxes, email, attachments, OAuth authorizations, and sessions are removed together and cannot be recovered |
+| Violation enforcement | After an account is banned for violations, the Operator may force-purge its emails and attachments to free space (see the enforcement ladder in the [Acceptable Use Policy](/en/mail/acceptable-use/)) |
 | Instance shutdown | The Operator shall give advance notice and provide a data export window; after shutdown, data is destroyed together with the Cloudflare resources |
 
 Data cannot be recovered after physical deletion. Before deletion, you may obtain a complete copy in JSON format (including profile data and the full text of email not yet deleted) through "Settings → Data Export". For a complete description of the technical measures, see [Data Processing and Security Maintenance](/en/mail/data-security/).

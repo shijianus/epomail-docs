@@ -5,7 +5,7 @@ description: Términos del Servicio de EpoCanvas Mail—aceptación y revisión 
 
 # Términos del Servicio
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.3**
+**Fecha de entrada en vigor: 1 de octubre de 2026 | Versión: 5.4**
 
 Estos Términos constituyen el acuerdo entre usted y el Operador de la instancia que utiliza con respecto al uso del servicio EpoCanvas Mail (el «Servicio»). Al completar el registro, iniciar sesión o utilizar de otro modo el Servicio, usted declara que ha leído y acepta la totalidad de estos Términos; si no está de acuerdo, no se registre ni utilice el Servicio.
 
@@ -13,6 +13,9 @@ Estos Términos constituyen condiciones tipo: el texto íntegro está disponible
 
 Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
 
+![Ciclo de vida contractual de los Términos del Servicio de EpoCanvas Mail: consentimiento electrónico (registrarse implica aceptar, con la misma fuerza que por escrito) → cumplimiento (seguridad de la cuenta, su contenido, límites de responsabilidad) → revisión (los cambios importantes se anuncian antes de su entrada en vigor) → fin (cancelación, exportación y supresión de datos), sobre la base de la ley aplicable y la jurisdicción (ubicación del Operador; instancia alojada: Taiwán)](/images/mail/tos-contract.svg)
+
+*Figura: el ciclo de vida del contrato, desde su formación hasta su fin. El consentimiento electrónico tiene la misma fuerza que el escrito; cuenta, contenido y responsabilidad en las secciones 3, 5 y 10; revisión en la sección 12; cancelación y supresión de datos en la sección 8; ley aplicable y jurisdicción en la sección 11.*
 ## 1. Definiciones
 
 1. **El Servicio**: toda la funcionalidad que se ejecuta en una instancia de EpoCanvas Mail, incluidos el cliente web, la aplicación móvil (epomail), la API abierta y los componentes relacionados.
@@ -53,7 +56,7 @@ El Servicio está construido sobre un proyecto de código abierto bajo la Licenc
 
 1. **Entrega saliente**: el correo enviado fuera del sitio se entrega a través de los canales configurados por el Operador (Cloudflare Email Workers, Resend o Mailjet). La entrega mediante terceros puede retrasarse, devolverse o ser interceptada por el proveedor del destinatario, y el Operador no garantiza el resultado de la entrega.
 2. **Términos de terceros**: cuando utilice las notificaciones push de Telegram, la traducción mediante IA, el inicio de sesión con Linux DO, el almacenamiento S3 externo y funciones similares, también quedará vinculado por los términos de esos servicios de terceros.
-3. **Plataforma abierta OAuth**: cuando autorice aplicaciones de terceros a través de OAuth, el alcance de la autorización (openid / profile / email) y el método de revocación se describen en la Sección 9 de la [Política de Privacidad](/es/mail/privacy-policy/); la utilización de los datos por las aplicaciones de terceros se rige por sus propios términos.
+3. **Plataforma abierta OAuth**: cuando autorice aplicaciones de terceros a través de OAuth, el alcance de la autorización (openid / profile / email) y el método de revocación se describen en la Sección 7 de la [Política de Privacidad](/es/mail/privacy-policy/); la utilización de los datos por las aplicaciones de terceros se rige por sus propios términos.
 
 ## 7. Uso aceptable
 

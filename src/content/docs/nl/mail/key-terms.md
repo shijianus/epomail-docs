@@ -5,12 +5,15 @@ description: Definities van de juridische en technische begrippen die in de juri
 
 # Begrippenlijst
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.3**
+**Datum van inwerkingtreding: 1 oktober 2026 | Versie: 5.4**
 
 Deze pagina definieert de begrippen die in de juridische documenten op deze site worden gebruikt. De juridische begrippen volgen de algemene definities uit het gegevensbeschermingsrecht; de technische begrippen worden uitgelegd naar de daadwerkelijke implementatie in de open source-broncode van de Dienst.
 
 De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
 
+![Woordenlijstkaart: juridische termen (verwerkingsverantwoordelijke, verwerker, betrokkene, bepaald doel, enz.) en technische termen (instance, D1/KV/R2, versleuteling in rust, nul telemetrie, enz.): twee familien definities die consistent in alle documenten worden gebruikt, uitgelegd naar algemeen gegevensbeschermingsgebruik en de werkelijke open-source-implementatie](/images/mail/key-terms-glossary.svg)
+
+*Figuur: hoe de twee familien definities op deze pagina zich verhouden. Juridische termen volgen het algemene gegevensbeschermingsgebruik; technische termen worden uitgelegd naar de werkelijke open-source-implementatie; niet-genoemde termen worden gelezen in de context van het Privacybeleid en de Servicevoorwaarden.*
 ## 1. Juridische begrippen
 
 | Begrip | Definitie |
@@ -49,6 +52,10 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 | D1 / KV / R2 | de edge-SQLite-database, de wereldwijd gerepliceerde key-value-opslag en de S3-compatibele objectopslag van Cloudflare, respectievelijk voor gestructureerde gegevens, sessiecache en bijlage-blobs |
 | Telemetrie | het automatisch terugmelden van gebruiksgegevens aan de ontwikkelaar door software. De broncode van de Dienst bevat geen enkele telemetrie en meldt geen instancegegevens terug naar het upstream-project |
 | Zacht verwijderen / fysiek verwijderen | zacht verwijderen is het markeren als verwijderd, herstelbaar door de beheerder; fysiek verwijderen is het samen met de bijlagen en indexen uit de opslag verwijderen, onherstelbaar |
+| BYOS (eigen opslag meebrengen) | mechanisme om bijlagen op te slaan in een S3-compatibele objectopslag van de Exploitant of de betrokken persoon (Backblaze B2, Wasabi, enz.); opslagreferenties worden bewaard door wie de configuratie uitvoert |
+| Workers AI | Cloudflare’s inferentiedienst aan de rand; gebruikt voor het extraheren van verificatiecodes en andere AI-verwerking — triggers en gegevensbereik in paragraaf 6 van het [Privacybeleid](/nl/mail/privacy-policy/) |
+| Turnstile | Cloudflare’s mensverificatiemechanisme; beoordeelt de betrouwbaarheid van de browser bij registratie en het aanmaken van bussen, zonder advertentiecookies of cross-site tracking |
+| SSRF-bescherming | blokkade van server-side request forgery; verzoeken aan externe eindpunten worden altijd gevalideerd tegen openbare adressen, en loopback-, privénetwerk- en cloudmetadata-adressen worden geweigerd |
 
 ## 3. Overige
 

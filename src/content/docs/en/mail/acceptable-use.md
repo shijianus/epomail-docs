@@ -5,7 +5,7 @@ description: EpoCanvas Mail Acceptable Use Policy—the list of prohibited condu
 
 # Acceptable Use Policy
 
-**Effective date: September 30, 2026 | Version: 5.3**
+**Effective date: October 1, 2026 | Version: 5.4**
 
 This Policy gives specific effect to Section 7 ("Acceptable Use") of the [Terms of Service](/en/mail/terms-of-service/) and sets the boundaries of conduct when you use the EpoCanvas Mail service (the "Service"). Where this Policy is violated, the Operator may take measures under the "Enforcement Measures" section; conduct suspected of being criminal will also be handled according to law.
 

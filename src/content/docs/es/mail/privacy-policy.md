@@ -5,7 +5,7 @@ description: Política de Privacidad de EpoCanvas Mail—los estándares y compr
 
 # Política de Privacidad
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.3**
+**Fecha de entrada en vigor: 1 de octubre de 2026 | Versión: 5.4**
 
 Esta Política explica cómo el servicio EpoCanvas Mail (el «Servicio») recopila, trata, utiliza y transmite sus datos personales, así como los estándares y compromisos que el Operador sigue en materia de protección de datos. Debe leer esta Política antes de registrarse en el Servicio o utilizarlo; si no está de acuerdo con alguna parte de esta Política, no utilice el Servicio.
 
@@ -124,6 +124,7 @@ El Servicio está construido sobre la red perimetral global de Cloudflare y sus 
 | Uso del buzón superior al 90 % | El sistema suprime físicamente el correo ya marcado como eliminado para liberar espacio |
 | Cancelación de la cuenta | Las sesiones quedan invalidadas de inmediato; el correo pasa a un estado de eliminación lógica hasta que un administrador realice la supresión física |
 | Supresión física | Los datos de cuenta, los buzones, el correo, los adjuntos, las autorizaciones OAuth y las sesiones se eliminan conjuntamente y no pueden recuperarse |
+| Aplicación por infracciones | después de que una cuenta sea suspendida por infracciones, el Operador puede purgar de forma forzada sus correos y adjuntos para liberar espacio (véase la escalera de aplicación de la [Política de Uso Aceptable](/es/mail/acceptable-use/)) |
 | Cese de la instancia | El Operador deberá notificarlo con antelación y ofrecer una ventana de exportación de datos; tras el cese, los datos se destruyen junto con los recursos de Cloudflare |
 
 Los datos no pueden recuperarse tras la supresión física. Antes de la eliminación, puede obtener una copia completa en formato JSON (incluidos los datos de perfil y el texto íntegro del correo aún no eliminado) mediante «Configuración → Exportar datos». Para una descripción completa de las medidas técnicas, véase [Procesamiento de Datos y Seguridad](/es/mail/data-security/).

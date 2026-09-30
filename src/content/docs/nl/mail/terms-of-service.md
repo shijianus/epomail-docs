@@ -5,7 +5,7 @@ description: Servicevoorwaarden van EpoCanvas Mail — aanvaarding en lezing van
 
 # Servicevoorwaarden
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.3**
+**Datum van inwerkingtreding: 1 oktober 2026 | Versie: 5.4**
 
 Deze voorwaarden vormen de overeenkomst tussen u en de Exploitant van de instance die u gebruikt, met betrekking tot het gebruik van de dienst EpoCanvas Mail (hierna «de Dienst»). Door de registratie te voltooien, u aan te melden of de Dienst anderszins te gebruiken, verklaart u dat u de volledige inhoud van deze voorwaarden heeft gelezen en aanvaard; indien u niet instemt, registreer de Dienst dan niet of gebruik deze niet.
 
@@ -13,6 +13,9 @@ Deze voorwaarden zijn standaardvoorwaarden; de volledige tekst staat openbaar op
 
 De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
 
+![Contractlevenscyclus van de Servicevoorwaarden van EpoCanvas Mail: elektronische toestemming (registreren = akkoord, dezelfde kracht als schriftelijk) → nakoming (accountbeveiliging, uw inhoud, aansprakelijkheidsbeperkingen) → herziening (belangrijke wijzigingen worden aangekondigd vóór inwerkingtreding) → einde (opzegging, gegevensexport en verwijdering), rustend op het toepasselijke recht en de jurisdictie (vestigingsplaats van de Exploitant; gehoste instance: Taiwan)](/images/mail/tos-contract.svg)
+
+*Figuur: de levenscyclus van het contract, van totstandkoming tot einde. Elektronische toestemming heeft dezelfde kracht als schriftelijk; account, inhoud en aansprakelijkheid in paragrafen 3, 5 en 10; herziening in paragraaf 12; beëindiging en gegevensverwijdering in paragraaf 8; toepasselijk recht en jurisdictie in paragraaf 11.*
 ## 1. Definities
 
 1. **De Dienst**: alle functionaliteit die op een EpoCanvas Mail-instance draait, waaronder de webclient, de mobiele app (epomail), de open API en de bijbehorende onderdelen.
@@ -53,7 +56,7 @@ De Dienst is gebouwd op een open source-project onder de MIT-licentie en blijft 
 
 1. **Uitgaande aflevering**: e-mail die naar buiten de site wordt verzonden, wordt afgeleverd via de door de Exploitant geconfigureerde kanalen (Cloudflare Email Workers, Resend of Mailjet). Aflevering via derden kan vertraging, terugsturing of onderschepping door de provider van de ontvanger ondervinden; de Exploitant geeft geen garantie over het afleverresultaat.
 2. **Voorwaarden van derden**: bij het gebruik van Telegram-pushmeldingen, AI-vertaling, aanmelding via Linux DO, externe S3-opslag en vergelijkbare functionaliteit bent u tevens gebonden aan de voorwaarden van die diensten van derden.
-3. **Open OAuth-platform**: waar u apps van derden via OAuth autoriseert, staat de reikwijdte van de autorisatie (openid / profile / email) en de wijze van intrekking beschreven in paragraaf 9 van het [Privacybeleid](/nl/mail/privacy-policy/); het gebruik van gegevens door die apps wordt beheerst door hun eigen voorwaarden.
+3. **Open OAuth-platform**: waar u apps van derden via OAuth autoriseert, staat de reikwijdte van de autorisatie (openid / profile / email) en de wijze van intrekking beschreven in paragraaf 7 van het [Privacybeleid](/nl/mail/privacy-policy/); het gebruik van gegevens door die apps wordt beheerst door hun eigen voorwaarden.
 
 ## 7. Aanvaardbaar gebruik
 

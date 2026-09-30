@@ -5,7 +5,7 @@ description: Politique de confidentialité d'EpoCanvas Mail — les standards et
 
 # Politique de confidentialité
 
-**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.3**
+**Date d'entrée en vigueur : 1 octobre 2026 | Version : 5.4**
 
 La présente politique explique comment le service EpoCanvas Mail (le « Service ») collecte, traite, utilise et transmet vos données personnelles, ainsi que les standards et engagements que l'Opérateur suit en matière de protection des données. Vous devez lire la présente politique avant de vous inscrire ou d'utiliser le Service ; si vous n'en acceptez pas l'une quelconque des dispositions, n'utilisez pas le Service.
 
@@ -124,6 +124,7 @@ Le Service est construit sur le réseau mondial de périphérie de Cloudflare ; 
 | Boîte remplie à plus de 90 % | Le système supprime physiquement les courriels déjà marqués comme supprimés afin de libérer l'espace |
 | Clôture du compte | Les sessions deviennent immédiatement invalides ; les courriels passent en état de suppression logique jusqu'à la suppression physique par un administrateur |
 | Suppression physique | Données de compte, boîtes, courriels, pièces jointes, autorisations OAuth et sessions supprimées ensemble, sans possibilité de restauration |
+| Traitement des violations | après le bannissement d'un compte pour violation, l'Opérateur peut purger de force ses courriels et pièces jointes pour libérer de l'espace (voir l'échelle d'application de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/)) |
 | Arrêt de l'instance | L'Opérateur doit en aviser à l'avance et offrir une période d'export des données ; après l'arrêt, les données disparaissent avec les ressources Cloudflare |
 
 Les données ne peuvent être récupérées après suppression physique. Avant toute suppression, vous pouvez obtenir une copie complète au format JSON via « Paramètres → Export des données » (données personnelles et texte intégral des courriels non supprimés). La description complète des mesures techniques figure dans [Traitement des données et maintien de la sécurité](/fr/mail/data-security/).

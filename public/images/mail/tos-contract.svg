@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Contract lifecycle of the Terms of Service: electronic consent, performance, revision, termination — governed by the Operator's jurisdiction">
+  <style>
+    .bg { fill: #f8fafc; }
+    .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .s1 { fill: #eff6ff; stroke: #2563eb; }
+    .s2 { fill: #eef2ff; stroke: #4f46e5; }
+    .s3 { fill: #f0f9ff; stroke: #0284c7; }
+    .s4 { fill: #f8fafc; stroke: #64748b; }
+    .band { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.5; }
+    .t { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
+    .b { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #475569; }
+    .bt { font: 600 13px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
+    .bb { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #1d4ed8; }
+    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: 1.2px; fill: #64748b; }
+    .arrow { stroke: #2563eb; stroke-width: 1.6; fill: none; marker-end: url(#th); }
+    .chip { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .step { fill: #111827; stroke: #1e293b; }
+      .s1 { fill: rgba(59,130,246,0.12); stroke: #3b82f6; }
+      .s2 { fill: rgba(79,70,229,0.14); stroke: #818cf8; }
+      .s3 { fill: rgba(2,132,199,0.14); stroke: #38bdf8; }
+      .s4 { fill: rgba(100,116,139,0.12); stroke: #94a3b8; }
+      .band { fill: rgba(59,130,246,0.12); stroke: #3b82f6; }
+      .t { fill: #f1f5f9; }
+      .b { fill: #94a3b8; }
+      .bt { fill: #f1f5f9; }
+      .bb { fill: #93c5fd; }
+      .tag { fill: #64748b; }
+      .arrow { stroke: #60a5fa; }
+      .chip { fill: #111827; stroke: #1e293b; }
+      .mh { fill: #60a5fa; }
+    }
+  </style>
+  <defs>
+    <marker id="th" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="mh" d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1000" height="400" rx="16"/>
+
+  <text class="tag" x="60" y="46">CONTRACT LIFECYCLE — TERMS OF SERVICE</text>
+  <rect class="chip" x="672" y="24" width="268" height="40" rx="10"/>
+  <text class="bb" x="688" y="42">Electronic consent</text>
+  <text class="b" x="688" y="57">equal force as a written signature</text>
+
+  <rect class="s1" x="60" y="86" width="200" height="96" rx="10"/>
+  <text class="t" x="78" y="112">1 · Consent</text>
+  <text class="b" x="78" y="132">sign-up, login or use</text>
+  <text class="b" x="78" y="148">binds you to these terms</text>
+  <text class="b" x="78" y="164">full text published for review</text>
+
+  <rect class="s2" x="300" y="86" width="200" height="96" rx="10"/>
+  <text class="t" x="318" y="112">2 · Performance</text>
+  <text class="b" x="318" y="132">account &amp; security duties</text>
+  <text class="b" x="318" y="148">your content stays yours</text>
+  <text class="b" x="318" y="164">liability limits (§3 / §5 / §10)</text>
+
+  <rect class="s3" x="540" y="86" width="200" height="96" rx="10"/>
+  <text class="t" x="558" y="112">3 · Revision</text>
+  <text class="b" x="558" y="132">material changes announced</text>
+  <text class="b" x="558" y="148">before they take effect (§12)</text>
+  <text class="b" x="558" y="164">history kept in the open repo</text>
+
+  <rect class="s4" x="780" y="86" width="160" height="96" rx="10"/>
+  <text class="t" x="798" y="112">4 · End</text>
+  <text class="b" x="798" y="132">self-service cancellation</text>
+  <text class="b" x="798" y="148">data export, then deletion</text>
+  <text class="b" x="798" y="164">(§8)</text>
+
+  <path class="arrow" d="M260,134 L296,134"/>
+  <path class="arrow" d="M500,134 L536,134"/>
+  <path class="arrow" d="M740,134 L776,134"/>
+
+  <rect class="band" x="60" y="216" width="880" height="64" rx="10"/>
+  <text class="bt" x="84" y="242">Governing law — the Operator's jurisdiction (§11):</text>
+  <text class="bb" x="84" y="262">hosted instance mail.epocanvas.com: Taiwan law, Taipei District Court · self-hosted instances: their deployer's jurisdiction</text>
+
+  <text class="tag" x="60" y="322">ALSO PART OF THE AGREEMENT</text>
+  <rect class="step" x="60" y="334" width="272" height="44" rx="10"/>
+  <text class="t" x="78" y="352">Privacy Policy</text>
+  <text class="b" x="78" y="368">personal data notices &amp; rights</text>
+  <rect class="step" x="352" y="334" width="272" height="44" rx="10"/>
+  <text class="t" x="370" y="352">Acceptable Use Policy</text>
+  <text class="b" x="370" y="368">conduct boundaries &amp; enforcement</text>
+  <rect class="step" x="644" y="334" width="296" height="44" rx="10"/>
+  <text class="t" x="662" y="352">Order of precedence</text>
+  <text class="b" x="662" y="368">subject-specific document prevails · overview</text>
+</svg>

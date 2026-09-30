@@ -5,7 +5,7 @@ description: A complete list of EpoCanvas Mail's entrusted processors, sharing r
 
 # Third-Party Processor List
 
-**Effective date: September 30, 2026 | Version: 5.3**
+**Effective date: October 1, 2026 | Version: 5.4**
 
 Following Section 7 of the [Privacy Policy](/en/mail/privacy-policy/), this list sets out in full the third parties involved in the Service's personal data, the conditions of sharing, and the safeguards. The sharing principle of the Service is minimal necessity: data that need not leave the instance do not leave; data that must leave are clearly marked with the recipient and the data carried. The Service has no data sale or advertising revenue-sharing relationship with any of the following parties.
 

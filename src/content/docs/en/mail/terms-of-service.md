@@ -5,7 +5,7 @@ description: EpoCanvas Mail Terms of Service—acceptance and review of the term
 
 # Terms of Service
 
-**Effective date: September 30, 2026 | Version: 5.3**
+**Effective date: October 1, 2026 | Version: 5.4**
 
 These Terms are the agreement between you and the Operator of the instance you use concerning the use of the EpoCanvas Mail service (the "Service"). By completing registration, logging in, or otherwise using the Service, you represent that you have read and agree to the entirety of these Terms; if you do not agree, do not register for or use the Service.
 
@@ -13,6 +13,9 @@ These Terms are standard terms, with their full text published on the registrati
 
 The Traditional Chinese (Taiwan) versions of the legal documents on this site are the authoritative versions; translations in other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version shall prevail.
 
+![Contract lifecycle of the EpoCanvas Mail Terms of Service: electronic consent (signing up = agreement, equal force as writing) → performance (account security, your content, liability limits) → revision (material changes announced before effect) → termination (cancellation, data export and deletion), resting on governing law and jurisdiction (the Operator’s location; hosted instance: Taiwan)](/images/mail/tos-contract.svg)
+
+*Figure: the lifecycle of the contract from formation to termination. Electronic consent carries the same force as writing; account, content and liability terms in Sections 3, 5 and 10; revision in Section 12; termination and data deletion in Section 8; governing law and jurisdiction in Section 11.*
 ## 1. Definitions
 
 1. **The Service**: all functionality running on an EpoCanvas Mail instance, including the web client, the mobile app (epomail), the open API, and related components.
@@ -53,7 +56,7 @@ The Service is built on an open source project under the MIT License and remains
 
 1. **Outbound delivery**: email sent off-site is delivered through the channels configured by the Operator (Cloudflare Email Workers, Resend, or Mailjet). Third-party delivery may be delayed, bounced, or intercepted by the recipient's provider, and the Operator gives no assurance of delivery results.
 2. **Third-party terms**: when you use Telegram push, AI translation, Linux DO login, external S3 storage, and similar functions, you are also bound by the terms of those third-party services.
-3. **OAuth open platform**: where you authorize third-party apps through OAuth, the scope of authorization (openid / profile / email) and the method of revocation are described in Section 9 of the [Privacy Policy](/en/mail/privacy-policy/); the third-party apps' use of data is governed by their own terms.
+3. **OAuth open platform**: where you authorize third-party apps through OAuth, the scope of authorization (openid / profile / email) and the method of revocation are described in Section 7 of the [Privacy Policy](/en/mail/privacy-policy/); the third-party apps' use of data is governed by their own terms.
 
 ## 7. Acceptable Use
 

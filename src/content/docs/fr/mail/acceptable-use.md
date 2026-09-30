@@ -5,7 +5,7 @@ description: Politique d'utilisation acceptable d'EpoCanvas Mail — liste des c
 
 # Politique d'utilisation acceptable
 
-**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.3**
+**Date d'entrée en vigueur : 1 octobre 2026 | Version : 5.4**
 
 La présente politique concrétise la section 7 (« Utilisation acceptable ») des [Conditions d'utilisation](/fr/mail/terms-of-service/) et fixe les limites de conduite lors de l'utilisation du service EpoCanvas Mail (le « Service »). En cas de violation de la présente politique, l'Opérateur prend les mesures prévues à la section « Mesures d'exécution » ; les faits susceptibles de constituer une infraction sont en outre traités conformément à la loi.
 

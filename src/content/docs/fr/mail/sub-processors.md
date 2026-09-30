@@ -5,7 +5,7 @@ description: Liste complète des sous-traitants d'EpoCanvas Mail, des destinatai
 
 # Liste des sous-traitants
 
-**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.3**
+**Date d'entrée en vigueur : 1 octobre 2026 | Version : 5.4**
 
 À la suite de la section 7 de la [Politique de confidentialité](/fr/mail/privacy-policy/), la présente liste expose intégralement les tiers impliqués dans les données personnelles du Service, les conditions de partage et les mécanismes de garantie. Le principe de partage du Service est la nécessité minimale : les données qui peuvent rester dans l'instance n'en sortent pas ; celles qui doivent en sortir voient clairement indiqués leur destinataire et les données qu'elles emportent. Le Service n'entretient avec aucune des parties ci-après de relation de vente de données ni de partage de revenus publicitaires.
 

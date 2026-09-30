@@ -5,12 +5,15 @@ description: Definitions of the technical and legal terms used in the EpoCanvas 
 
 # Key Terms
 
-**Effective date: September 30, 2026 | Version: 5.3**
+**Effective date: October 1, 2026 | Version: 5.4**
 
 This page defines the terms used in the legal documents on this site. Legal terms use the general definitions of data-protection law; technical terms are interpreted according to the actual implementation in the Service's open source code.
 
 The Traditional Chinese (Taiwan) versions of the legal documents on this site are the authoritative versions; translations in other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version shall prevail.
 
+![Glossary map: legal terms (data controller, processor, data subject, specific purpose, etc.) and technical terms (instance, D1/KV/R2, encryption at rest, zero telemetry, etc.) — two families of definitions used consistently across all documents, interpreted against general data-protection usage and the actual open-source implementation](/images/mail/key-terms-glossary.svg)
+
+*Figure: how the two families of definitions on this page relate. Legal terms follow general data-protection usage; technical terms are interpreted by the actual open-source implementation; unlisted terms are read in the context of the Privacy Policy and the Terms of Service.*
 ## 1. Legal Terms
 
 | Term | Definition |
@@ -49,6 +52,10 @@ The Traditional Chinese (Taiwan) versions of the legal documents on this site ar
 | D1 / KV / R2 | Cloudflare's edge SQLite database, globally replicated key-value storage, and S3-compatible object storage, carrying structured data, session caching, and attachment blobs respectively |
 | Telemetry | The automatic sending of usage data back to developers by software. The Service's source code contains zero telemetry and sends no instance data upstream |
 | Soft deletion / physical deletion | Soft deletion means the item is marked as deleted and may be restored by an administrator; physical deletion means removal from storage together with attachments and indexes, which cannot be recovered |
+| BYOS (bring your own storage) | Attaching storage to an S3-compatible object store owned by the Operator or the data subject (e.g., Backblaze B2, Wasabi); storage credentials are kept by whoever configures it |
+| Workers AI | Cloudflare’s edge inference service; used for verification-code extraction and other AI processing — triggers and data scope in Section 6 of the [Privacy Policy](/en/mail/privacy-policy/) |
+| Turnstile | Cloudflare’s human-verification mechanism; evaluates browser trustworthiness at registration and mailbox creation, without advertising cookies or cross-site tracking |
+| SSRF protection | Blocking of server-side request forgery; requests to external endpoints are always validated against public addresses, and loopback, private-subnet and cloud-metadata addresses are rejected |
 
 ## 3. Other
 
