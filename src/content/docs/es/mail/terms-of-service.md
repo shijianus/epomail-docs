@@ -5,7 +5,7 @@ description: Términos del Servicio de EpoCanvas Mail—aceptación y revisión 
 
 # Términos del Servicio
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.2**
+**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.3**
 
 Estos Términos constituyen el acuerdo entre usted y el Operador de la instancia que utiliza con respecto al uso del servicio EpoCanvas Mail (el «Servicio»). Al completar el registro, iniciar sesión o utilizar de otro modo el Servicio, usted declara que ha leído y acepta la totalidad de estos Términos; si no está de acuerdo, no se registre ni utilice el Servicio.
 

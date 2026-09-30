@@ -1,6 +1,7 @@
 # EpoCanvas Mail 法律文档站——允许所有搜索引擎收录
-# Sitemap 域名须与 astro.config.mjs 的 SITE_ORIGIN 保持一致（更换部署域名时同步修改）
+# 发布地址：https://docs.epocanvas.com/epomail/（v5.3 定案；与 astro.config.mjs 的 SITE_ORIGIN + base 保持一致）
+# 注：以 /epomail 子路径发布时，域名级 robots.txt 由 docs.epocanvas.com 主站管辖；本文件随站点分发以备独立域名部署
 User-agent: *
 Allow: /
 
-Sitemap: https://mail.epocanvas.com/sitemap-index.xml
+Sitemap: https://docs.epocanvas.com/epomail/sitemap-index.xml

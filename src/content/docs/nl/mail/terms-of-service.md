@@ -5,7 +5,7 @@ description: Servicevoorwaarden van EpoCanvas Mail — aanvaarding en lezing van
 
 # Servicevoorwaarden
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.2**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.3**
 
 Deze voorwaarden vormen de overeenkomst tussen u en de Exploitant van de instance die u gebruikt, met betrekking tot het gebruik van de dienst EpoCanvas Mail (hierna «de Dienst»). Door de registratie te voltooien, u aan te melden of de Dienst anderszins te gebruiken, verklaart u dat u de volledige inhoud van deze voorwaarden heeft gelezen en aanvaard; indien u niet instemt, registreer de Dienst dan niet of gebruik deze niet.
 

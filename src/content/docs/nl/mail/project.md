@@ -4,6 +4,7 @@ description: Een complete introductie van het EpoCanvas Mail-project—positione
 ---
 
 **Eerste commit: 21 juli 2026 | Huidige versie: v1.1.0 | Licentie: MIT**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.3**
 
 EpoCanvas Mail is een open source e-mailservice die draait op het Cloudflare-edge-netwerk. Met één domein en één Cloudflare-account richt u een eigen mailboxdienst op met verzending en ontvangst van e-mail, bijlagen en toegang vanaf meerdere apparaten. Het project wordt geëxploiteerd als gehoste instantie op [mail.epocanvas.com](https://mail.epocanvas.com), publiceert zijn volledige broncode voor zelf-hosting en levert een bijbehorende Android-app (epomail). Deze pagina beschrijft de positionering, de functies, de technische architectuur, het beveiligingsontwerp en de ontwikkelgeschiedenis van het project; de juridische voorwaarden van de dienst en de privacypraktijken staan in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/).
 
@@ -32,7 +33,7 @@ Elke functie hieronder is punt voor punt geverifieerd tegen de broncode van de r
 | Inkomende e-mail | Ontvangen via Cloudflare Email Routing, geparseerd door postal-mime (body en bijlagen) |
 | Uitgaande e-mail | Verzonden via de Resend-API, met bulkverzending, ingesloten afbeeldingen en bijlagen, en inzicht in de verzendstatus |
 | Drie e-mailmodi | De modi Alles, Privé en Versleuteld; de versleutelingssemantiek en zichtbaarheid voor de beheerder staan beschreven in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) |
-| Bijlageopslag | R2-objectopslag, vervangbaar door Backblaze B2 of elke S3-compatibele dienst (eigen opslag meebrengen), met quotummeting |
+| Bijlageopslag | De eigen objectopslag van de instance (in volgorde: eigen of geconfigureerde S3-compatibele opslag, een Cloudflare R2-binding, standaard Cloudflare KV), met quotummeting |
 | Leeservaring | Gespreksthreads, driedelig gesplitst aanzicht, inline beantwoorden, emoji-reacties, uitstellen／spam／prullenbak en een viewer voor originele headers |
 
 ### 2.2 Zoeken en classificatie
@@ -56,7 +57,7 @@ Elke functie hieronder is punt voor punt geverifieerd tegen de broncode van de r
 
 ### 2.5 Interface en talen
 
-- Zes interfacetalen: Vereenvoudigd Chinees, Traditioneel Chinees, English, Français, Español en Nederlands; de woordenboeken bevatten 2.039 sleutels in de frontend en 1.888 in de backend, 100% symmetrisch over de zes talen, met een driedelige statische audit die nul lekkage van hardgecodeerde, voor de gebruiker zichtbare tekst garandeert;
+- Zes interfacestalen: Vereenvoudigd Chinees, Traditioneel Chinees, English, Français, Español, Nederlands; de frontend- en backend-woordenboeken zijn 100% symmetrisch over de zes talen (sleutelaantallen volgens de statische audituitvoer van `scripts/i18n-*.mjs`), wat nul hardgecodeerde zichtbare teksten garandeert;
 - Meertalige e-mail: welkomstmails en systeembrede aankondigingsmails beschikken over officiële sjablonen in zes talen; systeemberichten worden afgeleverd in de versie zoals door de beheerder verzonden (een onveranderlijke momentopname); bij het lezen worden ongewijzigde officiële berichten lokaal in uw taal weergegeven vanuit de vooraf ingestelde sjablonen, gewijzigde vallen terug op AI-vertaling;
 - Interfacedetails: meer dan 300 offline vectorpictogrammen (nul externe verzoeken), lichte en donkere thema's, responsieve lay-out, PWA-installatie en aanpasbare sitetitel en aanmeldachtergrond.
 
@@ -78,7 +79,7 @@ De twee databases zijn fysiek gescheiden: `USER_DB` bevat accounts, rollen en in
 | `mail-vue` | Frontend single-page applicatie (PWA) |
 | `temp_login_ui` | React-aanmeldschil, ingebouwd in `dist/login` van de frontend |
 | `EpomailDocs` | Deze site met juridische documenten (Astro 5 + Starlight, een aparte git-repository) |
-| `tests` | 105 geautomatiseerde test-, audit- en inspectiescripts (Playwright volledige stack, publiek end-to-end, statische scans) |
+| `tests` | Ruim honderd geautomatiseerde test-, audit- en inspectiescripts (Playwright full-stack, publiek end-to-end, statische scans) |
 | `scripts` | Toolchain met daaronder het i18n-audittrio symmetrie／verwijzingen／hardcoding |
 
 ## 4. Voor wie dit project geschikt is en voor wie niet
@@ -108,7 +109,7 @@ Deze maatregelen zijn afgerond in de volledige beveiligingsverharding van 22 sep
 
 ## 6. Ontwikkelgeschiedenis en de commit-keten
 
-Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 (`2bbb582`). Per 30 september 2026 telt de hoofdrepository 539 commits; deze site (EpomailDocs, een aparte git-repository) telt daar 11 bovenop (zoals hieronder vermeld; latere commits staan op GitHub). De tabel hieronder somt de mijlpalen per fase op met hun ankercommits (korte hashes):
+Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 (`2bbb582`). Per 30 september 2026 telt de hoofdrepository meer dan 540 commits; deze site (EpomailDocs, een aparte git-repository) telt daar 12 bovenop (zoals hieronder vermeld; latere commits staan op GitHub). De tabel hieronder somt de mijlpalen per fase op met hun ankercommits (korte hashes):
 
 | Fase | Periode | Opgeleverd | Ankercommits |
 | --- | --- | --- | --- |
@@ -169,13 +170,14 @@ d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端�
 05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
 52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 独立审计修订——第三方清单增补博客等级联动披露、时效数据校正与工具补盲
 5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
+79094ac9d2686c1014c25824b25318c6206c9270  2026-09-30  docs(legal): v5.2 内容完善——正式版本条款全站覆盖、专案介绍增补适用边界与常见疑问
 ```
 
 De tabel en ankerketen hierboven zijn op mijlpaalniveau; elke reguliere fix, test en documentatiecommit tussen de fasen is bewaard in de git-geschiedenis en is één voor één te volgen via de [GitHub-commitgeschiedenis](https://github.com/shijianus/epomail/commits). De hoofdrepository bewaart daarnaast twee archiefbestanden, `CHECKLIST.log` (taakuitvoeringslog) en `REPORTS.md` (diepgaande auditrapporten), één-op-één gekoppeld aan de commits.
 
 ## 7. Kwaliteitsborging
 
-- De map `tests/` bevat 105 geautomatiseerde test-, audit- en inspectiescripts, met dekking van Playwright full-stack browserregressie, publieke end-to-end asserties tegen productie en statische scans van de hele repository;
+- De map `tests/` bevat ruim honderd geautomatiseerde test-, audit- en inspectiescripts, met dekking van Playwright full-stack browserregressie, publieke end-to-end asserties tegen productie en statische scans van de hele repository;
 - Representatieve gekwantificeerde controles: beveiligingsverharding 43／43 asserties, publieke routering end-to-end 32／32, aanmeldscherm in zes talen 62／62, sensorische inspectie 33／33 en 369 productie-integriteitsvergelijkingen byte voor byte;
 - De driedelige statische i18n-audit: `i18n-symmetry` (absoluut symmetrische sleutelsets over zes talen), `i18n-audit` (nul ontbrekende letterlijke verwijzingen) en `i18n-hardcoded` (nul ongeünpackte hardgecodeerde gebruikerszichtbare tekst);
 - Nul testgegevensresten: elke testcase ruimt fysiek op in een `finally`-blok; de database en KV bevatten geen fictieve gegevens;

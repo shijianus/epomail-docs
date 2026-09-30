@@ -5,7 +5,7 @@ description: Politique de confidentialité d'EpoCanvas Mail — les standards et
 
 # Politique de confidentialité
 
-**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.2**
+**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.3**
 
 La présente politique explique comment le service EpoCanvas Mail (le « Service ») collecte, traite, utilise et transmet vos données personnelles, ainsi que les standards et engagements que l'Opérateur suit en matière de protection des données. Vous devez lire la présente politique avant de vous inscrire ou d'utiliser le Service ; si vous n'en acceptez pas l'une quelconque des dispositions, n'utilisez pas le Service.
 
@@ -32,7 +32,7 @@ L'Opérateur qui auto-héberge EpoCanvas Mail devient, à compter du moment du d
 | Instance que vous utilisez | Responsable du traitement | Précisions |
 | --- | --- | --- |
 | Instance hébergée `mail.epocanvas.com` | L'équipe d'exploitation EpoCanvas | S'agissant des données de compte, des enregistrements d'authentification et des journaux d'audit de sécurité, l'équipe d'exploitation est le responsable du traitement ; s'agissant du contenu des courriels que vous envoyez et recevez, elle les traite dans la mesure nécessaire à la fourniture du service de communication |
-| Instance auto-hébergée | Le déployeur de l'instance | Le déployeur devient responsable du traitement à compter du moment du déploiement et assume seul l'intégralité des obligations prévues par le droit applicable en son lieu ; le code open source ne comporte aucun mécanisme de télémétrie et ne renvoie aucune donnée d'instance aux auteurs du projet amont ni à un tiers |
+| Instance auto-hébergée | Le déployeur de l'instance |le code open source ne contient aucun mécanisme de télémétrie ; hors les services externes configurés par l'Opérateur lui-même, il ne renvoie aucune donnée de l'instance vers les auteurs amont ou un tiers |
 
 Les sous-traitants traitent les données sur instruction du responsable du traitement ; la liste complète figure dans la [Liste des sous-traitants](/fr/mail/sub-processors/).
 
@@ -57,11 +57,11 @@ Lorsque vous vous connectez avec un compte Linux DO, le Service obtient de cette
 
 - **Adresse électronique et mot de passe** : données nécessaires à l'inscription. Le mot de passe n'est conservé que sous forme de hachage PBKDF2-HMAC-SHA256 (100 000 itérations, sel aléatoire indépendant propre à chaque utilisateur) ; le mot de passe d'origine ne peut être reconstitué à partir du hachage.
 - **Identifiants de la vérification en deux étapes (facultatif)** : la clé TOTP est stockée chiffrée en AES-256-GCM ; les codes de récupération ne sont conservés que sous forme de hachage SHA-256 ; les clés d'accès (Passkey) ne sont conservées que comme clés publiques, la clé privée demeurant sur votre appareil.
-- **Données de profil (facultatif)** : pseudonyme, avatar, présentation personnelle ; les avatars sont téléversés vers le service de stockage d'images configuré par l'Opérateur.
+- **Données de profil (facultatif)** : pseudonyme, avatar, présentation personnelle ; les images d'avatar sont stockées par défaut dans le stockage d'objets propre à l'instance (KV), et l'Opérateur peut configurer un hébergeur d'images externe via une variable d'environnement (voir [Sous-traitants](/fr/mail/sub-processors/)).
 
 ### 4.2 Vos communications
 
-Les courriels que vous envoyez et recevez (avec leurs métadonnées : expéditeur et destinataire, objet, corps, horodatage, etc.) et leurs pièces jointes, ainsi que les étiquettes, étoiles, états de lecture et rappels différés que vous appliquez, sont conservés dans la base de données de l'instance (Cloudflare D1) et son stockage d'objets (Cloudflare R2 ou stockage compatible S3 configuré par l'Opérateur). La propriété et la responsabilité du contenu des courriels vous appartiennent ; l'Opérateur ne vend pas le contenu des courriels, ne l'utilise pas à des fins publicitaires et n'intègre aucun outil de statistiques tiers.
+Les courriels que vous envoyez et recevez (avec leurs métadonnées : expéditeur et destinataire, objet, corps, horodatage, etc.) et leurs pièces jointes, ainsi que les étiquettes, étoiles, états de lecture et rappels différés que vous appliquez, sont conservés dans la base de données de l'instance (Cloudflare D1) et son stockage d'objets (résolu dans l'ordre selon la configuration de l'instance : votre propre stockage compatible S3, un stockage compatible S3 configuré par l'Opérateur, une liaison Cloudflare R2 ; à défaut, Cloudflare KV). La propriété et la responsabilité du contenu des courriels vous appartiennent ; l'Opérateur ne vend pas le contenu des courriels, ne l'utilise pas à des fins publicitaires et n'intègre aucun outil de statistiques tiers.
 
 ### 4.3 Données techniques enregistrées automatiquement
 
@@ -120,6 +120,7 @@ Le Service est construit sur le réseau mondial de périphérie de Cloudflare ; 
 | Courriels de la boîte de réception | Conservés jusqu'à suppression par vous ou jusqu'au déclenchement du nettoyage par quota |
 | Pourriels | Quarantaine de 7 jours, puis déplacement vers la corbeille |
 | Courriels de la corbeille | Supprimés physiquement par la tâche de routine du système 7 jours après réception (pièces jointes et index compris) |
+| Courriels officiels du système (courriels de bienvenue, annonces globales) | expiration et suppression automatiques 7 jours après l'envoi par défaut ; l'Opérateur peut configurer le délai |
 | Boîte remplie à plus de 90 % | Le système supprime physiquement les courriels déjà marqués comme supprimés afin de libérer l'espace |
 | Clôture du compte | Les sessions deviennent immédiatement invalides ; les courriels passent en état de suppression logique jusqu'à la suppression physique par un administrateur |
 | Suppression physique | Données de compte, boîtes, courriels, pièces jointes, autorisations OAuth et sessions supprimées ensemble, sans possibilité de restauration |

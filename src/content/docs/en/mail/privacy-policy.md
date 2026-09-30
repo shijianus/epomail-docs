@@ -5,7 +5,7 @@ description: EpoCanvas Mail Privacy Policy—the standards and commitments on th
 
 # Privacy Policy
 
-**Effective date: September 30, 2026 | Version: 5.2**
+**Effective date: September 30, 2026 | Version: 5.3**
 
 This Policy explains how the EpoCanvas Mail service (the "Service") collects, processes, and transmits your personal data, and the standards and commitments the Operator follows for data protection. You should read this Policy before registering for or using the Service; if you do not agree to any part of this Policy, do not use the Service.
 
@@ -32,7 +32,7 @@ An operator that self-hosts EpoCanvas Mail becomes the data controller for its u
 | The instance you use | Data controller | Description |
 | --- | --- | --- |
 | Hosted instance `mail.epocanvas.com` | The EpoCanvas operations team | With respect to account data, authentication records, and security audit logs, the operations team is the data controller; with respect to the content of the email you send and receive, the operations team processes it to the extent necessary for providing the communication service |
-| Self-hosted instance | The deployer of that instance | The deployer becomes the data controller from the moment of deployment and independently bears all obligations under the applicable law at its location; the open source code contains no telemetry and does not send instance data back to the upstream authors or any third party |
+| Self-hosted instance | The deployer of that instance |the open source code contains no telemetry mechanism; apart from external services configured by the Operator itself, it does not send instance data back to the upstream authors or any third party |
 
 Entrusted processors process data on the instructions of the controller; see the [Third-Party Processor List](/en/mail/sub-processors/) for the complete list.
 
@@ -57,11 +57,11 @@ When you sign in with a Linux DO account, the Service obtains identifiers such a
 
 - **Email address and password**: required for registration. The password is stored only as a PBKDF2-HMAC-SHA256 hash (100,000 iterations, with a per-user independent random salt); the original password cannot be recovered from the hash.
 - **Two-step verification credentials (optional)**: the TOTP secret is stored encrypted with AES-256-GCM; backup recovery codes are stored only as SHA-256 hashes; passkeys store only the public key, while the private key remains on your device.
-- **Profile data (optional)**: nickname, avatar, and bio; avatars are uploaded to the image storage service configured by the Operator.
+- **Profile data (optional)**: nickname, avatar, and bio; avatar images are stored in the instance's own object storage (KV) by default, and the Operator may alternatively configure an external image host via an environment variable (see [Sub-processors](/en/mail/sub-processors/)).
 
 ### 4.2 Your communications
 
-The email you send and receive (including metadata such as sender and recipient, subject, body, and timestamps) and its attachments, together with the labels, stars, read status, and snooze reminders you apply, are stored in the instance's database (Cloudflare D1) and object storage (Cloudflare R2 or an S3-compatible store configured by the Operator). Ownership of and responsibility for email content rest with you; the Operator does not sell email content, does not use it for advertising purposes, and does not integrate any third-party analytics tracking.
+The email you send and receive (including metadata such as sender and recipient, subject, body, and timestamps) and its attachments, together with the labels, stars, read status, and snooze reminders you apply, are stored in the instance's database (Cloudflare D1) and object storage (resolved in order according to instance configuration: your own S3-compatible storage, an Operator-configured S3-compatible store, a Cloudflare R2 binding; falling back to Cloudflare KV when none is configured). Ownership of and responsibility for email content rest with you; the Operator does not sell email content, does not use it for advertising purposes, and does not integrate any third-party analytics tracking.
 
 ### 4.3 Automatically recorded technical data
 
@@ -120,6 +120,7 @@ The Service is built on the Cloudflare global edge network, and your personal da
 | Inbox email | Retained until you delete it, or until quota cleanup is triggered |
 | Spam | Quarantined for 7 days and then moved to the trash |
 | Trash email | Physically deleted by a system routine job 7 days after receipt (including attachments and indexes) |
+| Official system emails (welcome emails, global announcements) | Auto-expire and are deleted 7 days after delivery by default; the Operator may configure the expiry period |
 | Mailbox usage above 90% | The system physically deletes email already marked as deleted to free space |
 | Account cancellation | Sessions become invalid immediately; email enters a soft-deleted state until an administrator performs physical deletion |
 | Physical deletion | Account data, mailboxes, email, attachments, OAuth authorizations, and sessions are removed together and cannot be recovered |

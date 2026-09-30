@@ -5,7 +5,7 @@ description: Definitions of the technical and legal terms used in the EpoCanvas 
 
 # Key Terms
 
-**Effective date: September 30, 2026 | Version: 5.2**
+**Effective date: September 30, 2026 | Version: 5.3**
 
 This page defines the terms used in the legal documents on this site. Legal terms use the general definitions of data-protection law; technical terms are interpreted according to the actual implementation in the Service's open source code.
 

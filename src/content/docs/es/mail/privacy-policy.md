@@ -5,7 +5,7 @@ description: Política de Privacidad de EpoCanvas Mail—los estándares y compr
 
 # Política de Privacidad
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.2**
+**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.3**
 
 Esta Política explica cómo el servicio EpoCanvas Mail (el «Servicio») recopila, trata, utiliza y transmite sus datos personales, así como los estándares y compromisos que el Operador sigue en materia de protección de datos. Debe leer esta Política antes de registrarse en el Servicio o utilizarlo; si no está de acuerdo con alguna parte de esta Política, no utilice el Servicio.
 
@@ -32,7 +32,7 @@ Un operador que autoaloje EpoCanvas Mail se convierte en responsable del tratami
 | La instancia que usted utiliza | Responsable del tratamiento | Descripción |
 | --- | --- | --- |
 | Instancia alojada `mail.epocanvas.com` | El equipo de operaciones de EpoCanvas | Con respecto a los datos de cuenta, los registros de autenticación y los registros de auditoría de seguridad, el equipo de operaciones es el responsable del tratamiento; en cuanto al contenido del correo que usted envía y recibe, el equipo de operaciones lo trata en la medida necesaria para la prestación del servicio de comunicaciones |
-| Instancia autoalojada | La entidad que desplegó dicha instancia | La entidad desplegadora se convierte en responsable del tratamiento desde el momento del despliegue y asume por sí sola todas las obligaciones conforme a la ley aplicable en su ubicación; el código abierto no contiene telemetría y no envía los datos de la instancia a los autores ascendentes ni a ningún tercero |
+| Instancia autoalojada | La entidad que desplegó dicha instancia |el código abierto no contiene ningún mecanismo de telemetría; salvo los servicios externos configurados por el propio Operador, no devuelve datos de la instancia a los autores ascendentes ni a terceros |
 
 Los encargados del tratamiento tratan los datos siguiendo las instrucciones del responsable; véase [Subencargados del Tratamiento](/es/mail/sub-processors/) para la lista completa.
 
@@ -57,11 +57,11 @@ Cuando usted inicia sesión con una cuenta de Linux DO, el Servicio obtiene de e
 
 - **Dirección de correo electrónico y contraseña**: necesarias para el registro. La contraseña se almacena únicamente como un hash PBKDF2-HMAC-SHA256 (100.000 iteraciones, con una sal aleatoria independiente por usuario); a partir del hash no es posible recuperar la contraseña original.
 - **Credenciales de verificación en dos pasos (opcional)**: el secreto TOTP se almacena cifrado con AES-256-GCM; los códigos de recuperación de respaldo se almacenan únicamente como hashes SHA-256; las passkeys almacenan solo la clave pública, mientras que la clave privada permanece en su dispositivo.
-- **Datos de perfil (opcionales)**: apodo, avatar y biografía; los avatares se cargan en el servicio de almacenamiento de imágenes configurado por el Operador.
+- **Datos de perfil (opcionales)**: apodo, avatar y biografía; las imágenes de avatar se almacenan por defecto en el almacenamiento de objetos propio de la instancia (KV), y el Operador puede configurar un servicio externo de alojamiento de imágenes mediante una variable de entorno (véase [Encargados del tratamiento](/es/mail/sub-processors/)).
 
 ### 4.2 Sus comunicaciones
 
-El correo electrónico que envía y recibe (incluidos metadatos como remitente y destinatario, asunto, cuerpo y marcas de tiempo) y sus adjuntos, junto con las etiquetas, estrellas, estados de lectura y recordatorios de posposición que aplique, se almacenan en la base de datos de la instancia (Cloudflare D1) y en el almacenamiento de objetos (Cloudflare R2 o un almacén compatible con S3 configurado por el Operador). La titularidad y la responsabilidad sobre el contenido del correo le corresponden a usted; el Operador no vende el contenido del correo, no lo utiliza con fines publicitarios y no integra ningún sistema de análisis de terceros.
+El correo electrónico que envía y recibe (incluidos metadatos como remitente y destinatario, asunto, cuerpo y marcas de tiempo) y sus adjuntos, junto con las etiquetas, estrellas, estados de lectura y recordatorios de posposición que aplique, se almacenan en la base de datos de la instancia (Cloudflare D1) y en el almacenamiento de objetos (resuelto en orden según la configuración de la instancia: su propio almacenamiento compatible con S3, un almacén compatible con S3 configurado por el Operador, un enlace de Cloudflare R2; en su defecto, Cloudflare KV). La titularidad y la responsabilidad sobre el contenido del correo le corresponden a usted; el Operador no vende el contenido del correo, no lo utiliza con fines publicitarios y no integra ningún sistema de análisis de terceros.
 
 ### 4.3 Datos técnicos registrados automáticamente
 
@@ -120,6 +120,7 @@ El Servicio está construido sobre la red perimetral global de Cloudflare y sus 
 | Correo de la bandeja de entrada | Se conserva hasta que usted lo elimine o hasta que se active la depuración por cuota |
 | Correo no deseado | Permanece en cuarentena durante 7 días y luego se traslada a la papelera |
 | Correo de la papelera | Supresión física mediante una tarea programada del sistema 7 días después de la recepción (incluidos adjuntos e índices) |
+| Correos oficiales del sistema (correos de bienvenida, anuncios globales) | Caducan y se suprimen automáticamente 7 días después de la entrega por defecto; el Operador puede configurar el plazo |
 | Uso del buzón superior al 90 % | El sistema suprime físicamente el correo ya marcado como eliminado para liberar espacio |
 | Cancelación de la cuenta | Las sesiones quedan invalidadas de inmediato; el correo pasa a un estado de eliminación lógica hasta que un administrador realice la supresión física |
 | Supresión física | Los datos de cuenta, los buzones, el correo, los adjuntos, las autorizaciones OAuth y las sesiones se eliminan conjuntamente y no pueden recuperarse |

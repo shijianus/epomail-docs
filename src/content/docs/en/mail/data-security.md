@@ -5,7 +5,7 @@ description: EpoCanvas Mail data life cycle, processing matrix, security mainten
 
 # Data Processing and Security Maintenance
 
-**Effective date: September 30, 2026 | Version: 5.2**
+**Effective date: September 30, 2026 | Version: 5.3**
 
 Following Section 10 of the [Privacy Policy](/en/mail/privacy-policy/), this document describes the life cycle of personal data in the Service, the processing matrix for each category of data, and the security maintenance measures established by the Operator to prevent personal data from being stolen, altered, damaged, lost, or leaked. This document also serves as the base document for access by data subjects and for lawful inspection by the competent authority.
 
@@ -25,7 +25,7 @@ The Traditional Chinese (Taiwan) versions of the legal documents on this site ar
 | Network and device data | Registration IP, most recent login IP, operating system, browser User-Agent, device type | Security auditing, anomalous login identification, rate limiting | Cloudflare D1; access restricted to administrator audit | Retained until physical deletion of the account |
 | Session state | JWT tokens, RBAC role identifiers, selected mailbox | Edge gateway authorization, request routing | Cloudflare KV; maximum validity 30 days | Revoked upon logout; expires naturally after 30 days of inactivity |
 | Communication data | Sender and recipient, CC/BCC, subject, timestamps, read status, labels, stars, body | Email delivery, conversation organization, search | Cloudflare D1 (metadata); encrypted at rest with AES-256-GCM depending on the mode | Controlled by the data subject; trash physically deleted after 7 days; when usage exceeds 90%, email already marked deleted is physically deleted outright |
-| Attachments | Original file name, MIME type, file size, binary content | Attachment transfer, inline display, secure download | Cloudflare R2 or S3-compatible storage; downloads use defensive headers | Follow the life cycle of the associated email; purged together upon physical deletion |
+| Attachments | Original file name, MIME type, file size, binary content | Attachment transfer, inline display, secure download | the instance's own object storage (resolved in order: BYO or Operator-configured S3-compatible storage, a the instance's own object storage (resolved in order: BYO or Operator-configured S3-compatible storage, a the instance's own object storage (resolved in order: BYO or Operator-configured S3-compatible storage, a Cloudflare R2 binding, defaulting to Cloudflare KV); downloads use defensive headers| Follow the life cycle of the associated email; purged together upon physical deletion |
 | Security and rate-limiting records | Login failure counts, human verification status, sliding-window request counts | Brute-force protection, abuse prevention | Cloudflare KV; sliding-window counters | Automatically expire and reset within 12 hours after a threshold is triggered |
 | Interface preferences | Language (6 languages), light and dark modes, notification flags | Interface consistency | Browser localStorage, selectively synced to D1 | Retained until the cache is cleared or manually reset |
 

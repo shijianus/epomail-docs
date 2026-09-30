@@ -5,7 +5,7 @@ description: Liste complète des sous-traitants d'EpoCanvas Mail, des destinatai
 
 # Liste des sous-traitants
 
-**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.2**
+**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.3**
 
 À la suite de la section 7 de la [Politique de confidentialité](/fr/mail/privacy-policy/), la présente liste expose intégralement les tiers impliqués dans les données personnelles du Service, les conditions de partage et les mécanismes de garantie. Le principe de partage du Service est la nécessité minimale : les données qui peuvent rester dans l'instance n'en sortent pas ; celles qui doivent en sortir voient clairement indiqués leur destinataire et les données qu'elles emportent. Le Service n'entretient avec aucune des parties ci-après de relation de vente de données ni de partage de revenus publicitaires.
 
@@ -32,8 +32,7 @@ Les documents juridiques du présent site font foi dans leur version en chinois 
 | Applications tierces OAuth | connexion tierce ou accès autorisé | périmètre limité à openid / profile / email (identifiant, adresse électronique, nom, avatar) ; jetons d'accès valables 2 heures | uniquement sur autorisation expresse de la personne concernée ; révocable à tout moment depuis la page « Applications tierces », la révocation prenant effet immédiatement |
 | Linux DO | source d'identité pour la connexion tierce | identifiant d'utilisateur, pseudonyme, avatar et niveau de confiance obtenus via OAuth | uniquement lors d'une connexion avec un compte Linux DO |
 | Blog de l'équipe d'exploitation (blog.epocanvas.com) | liaison de niveau d'activité du blog et relèvement de quota | votre adresse électronique (transmise dans la requête) | requête en temps réel uniquement lorsque vous consultez la liaison de niveau de blog |
-| Blog de l'équipe d'exploitation (blog.epocanvas.com) | liaison de niveau d'activité du blog et relèvement de quota | votre adresse électronique (transmise dans la requête) | requête en temps réel uniquement lorsque vous consultez la liaison de niveau de blog |
-| Service de téléversement d'images | stockage des avatars et des images | le fichier image lui-même | uniquement lors du téléversement d'un avatar ou d'une image |
+| Hébergeur d'images d'avatar (par défaut : le stockage d'objets propre à l'instance ; l'Opérateur peut configurer un hébergeur externe via une variable d'environnement) | stockage des avatars et des images | le fichier image lui-même | uniquement lors du téléversement d'un avatar ou d'une image ; si un hébergeur externe est configuré, les fichiers image sont transmis à cet hébergeur |
 
 ## 3. Chaîne de traitement par IA (en principe déclenchée par la personne concernée)
 

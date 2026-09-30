@@ -4,6 +4,7 @@ description: A complete introduction to the EpoCanvas Mail project—positioning
 ---
 
 **First commit: July 21, 2026 | Current version: v1.1.0 | License: MIT**
+**Effective date: September 30, 2026 | Version: 5.3**
 
 EpoCanvas Mail is an open source email service running on the Cloudflare edge network. With one domain and one Cloudflare account, you can set up a personal mailbox service that supports sending and receiving email, attachments, and multi-device access. The project is operated as a hosted instance at [mail.epocanvas.com](https://mail.epocanvas.com), publishes its full source code for self-hosting, and ships a companion Android app (epomail). This page describes the project's positioning, features, technical architecture, security design, and development history; the legal terms of the service and privacy practices are set out in the [Privacy and Terms Overview](/en/mail/overview/).
 
@@ -32,7 +33,7 @@ Every feature below has been verified item by item against the repository source
 | Inbound mail | Received through Cloudflare Email Routing, parsed by postal-mime for body and attachments |
 | Outbound mail | Sent through the Resend API, supporting bulk sending, inline images, and attachments, with delivery status |
 | Three mail modes | All, Private, and Encrypted modes; the encryption semantics and administrator visibility are described in [Data Processing and Security](/en/mail/data-security/) |
-| Attachment storage | R2 object storage, switchable to Backblaze B2 or any S3-compatible service (bring your own storage), with quota metering |
+| Attachment storage | The instance's own object storage (resolved in order: BYO or configured S3-compatible storage, a Cloudflare R2 binding, defaulting to Cloudflare KV), with quota metering |
 | Reading experience | Conversation threading, three-pane split view, inline reply, emoji reactions, snooze／spam／trash, and a raw header viewer |
 
 ### 2.2 Search and Classification
@@ -56,7 +57,7 @@ Every feature below has been verified item by item against the repository source
 
 ### 2.5 Interface and Languages
 
-- Six interface languages: Simplified Chinese, Traditional Chinese, English, Français, Español, and Nederlands; the dictionaries carry 2,039 keys on the frontend and 1,888 keys on the backend, 100% symmetric across the six languages, with a three-part static audit guaranteeing zero hardcoded leakage of user-visible text;
+- Six interface languages: Simplified Chinese, Traditional Chinese, English, Français, Español, Nederlands; the frontend and backend dictionaries are 100% symmetric across all six languages (key counts per the `scripts/i18n-*.mjs` static audit output), guaranteeing zero hardcoded user-visible strings;
 - Multilingual email: welcome emails and system-wide announcement emails ship with six-language official templates; system emails are delivered in the version the administrator sent (an immutable snapshot); when reading, unmodified official emails render in your language locally from the preset templates, while modified ones fall back to AI translation;
 - Interface details: 300+ offline vector icons (zero external requests), light and dark themes, responsive layout, PWA installation, and customizable site title and login background.
 
@@ -78,7 +79,7 @@ The dual databases are physically isolated: `USER_DB` holds accounts, roles, and
 | `mail-vue` | Frontend single-page application (PWA) |
 | `temp_login_ui` | React login shell, built into the frontend `dist/login` |
 | `EpomailDocs` | This legal documents site (Astro 5 + Starlight, a separate git repository) |
-| `tests` | 105 automated test, audit, and inspection scripts (Playwright full-stack, public end-to-end, static scans) |
+| `tests` | Over one hundred automated test, audit, and inspection scripts (Playwright full-stack, public end-to-end, static scans) |
 | `scripts` | Toolchain including the i18n symmetry／reference／hardcoded audit trio |
 
 ## 4. Who This Suits and Who It Does Not
@@ -108,7 +109,7 @@ These measures were closed out in the full security hardening of September 22, 2
 
 ## 6. Development History and the Commit Chain
 
-The project has been under continuous development since the first commit on July 21, 2026 (`2bbb582`). As of September 30, 2026, the main repository holds 539 commits; this site (EpomailDocs, a separate git repository) holds 11 more (as listed below; later commits are on GitHub). The table below lists the milestones by phase with their anchor commits (short hashes):
+The project has been under continuous development since the first commit on July 21, 2026 (`2bbb582`). As of September 30, 2026, the main repository holds more than 540 commits; this site (EpomailDocs, a separate git repository) holds 12 more (as listed below; later commits are on GitHub). The table below lists the milestones by phase with their anchor commits (short hashes):
 
 | Phase | Period | Delivered | Anchor commits |
 | --- | --- | --- | --- |
@@ -169,13 +170,14 @@ d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端�
 05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
 52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 独立审计修订——第三方清单增补博客等级联动披露、时效数据校正与工具补盲
 5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
+79094ac9d2686c1014c25824b25318c6206c9270  2026-09-30  docs(legal): v5.2 内容完善——正式版本条款全站覆盖、专案介绍增补适用边界与常见疑问
 ```
 
 The table and anchor chain above are at milestone granularity; every routine fix, test, and documentation commit between the phases is preserved in git history and can be traced one by one through the [GitHub commit history](https://github.com/shijianus/epomail/commits). The main repository also keeps two archival files, `CHECKLIST.log` (task execution log) and `REPORTS.md` (in-depth audit reports), matched one-to-one with the commits.
 
 ## 7. Quality Assurance
 
-- The `tests/` directory holds 105 automated test, audit, and inspection scripts, covering Playwright full-stack browser regression, public end-to-end assertions against production, and repository-wide static scans;
+- The `tests/` directory holds over one hundred automated test, audit, and inspection scripts, covering Playwright full-stack browser regression, public end-to-end assertions against production, and repository-wide static scans;
 - Representative quantified checks: security hardening 43／43 assertions, public routing end-to-end 32／32, six-language login surface 62／62, sensory inspection 33／33, and 369 item-by-item production integrity comparisons;
 - The three-part static i18n audit: `i18n-symmetry` (absolutely symmetric key sets across six languages), `i18n-audit` (zero missing literal references), and `i18n-hardcoded` (zero unwrapped hardcoded user-visible text);
 - Zero test data residue: every test case cleans up physically in a `finally` block; the database and KV hold no fake data;

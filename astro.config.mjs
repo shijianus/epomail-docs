@@ -2,7 +2,33 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 // 站点来源：hreflang/canonical 需要绝对地址，部署到正式域名后只需改这一行。
-const SITE_ORIGIN = 'https://mail.epocanvas.com';
+// v5.3 定案：以 docs.epocanvas.com 的 /epomail 子路径发布（与 mail-worker 应用内 DOCS_URL 默认值一致）。
+const SITE_ORIGIN = 'https://docs.epocanvas.com';
+const SITE_BASE = '/epomail';
+
+// Markdown 内的站点绝对链（/mail/... 、/images/... 等）Astro 不会自动附加 base，
+// 此插件在构建期为 href/src 统一加前缀；已是 base 前缀、协议链与纯锚点不处理。
+function rehypePrefixBase() {
+	const prefix = (url) => {
+		if (!url.startsWith('/') || url.startsWith('//') || url.startsWith(SITE_BASE + '/')) return url;
+		return SITE_BASE + url;
+	};
+	const walk = (node) => {
+		if (!node || !Array.isArray(node.children)) return;
+		for (const child of node.children) {
+			if (child.type === 'element') {
+				if (child.tagName === 'a' && typeof child.properties?.href === 'string') {
+					child.properties.href = prefix(child.properties.href);
+				}
+				if (child.tagName === 'img' && typeof child.properties?.src === 'string') {
+					child.properties.src = prefix(child.properties.src);
+				}
+				walk(child);
+			}
+		}
+	};
+	return (tree) => walk(tree);
+}
 
 // 侧边栏条目的多语言文案：label 为默认语言（简体中文），其余语言从 translations 取。
 const SIDEBAR_I18N = {
@@ -43,6 +69,8 @@ const t = (label, slug) => ({ label, slug, translations: SIDEBAR_I18N[label] ?? 
 
 export default defineConfig({
 	site: SITE_ORIGIN,
+	base: SITE_BASE,
+	markdown: { rehypePlugins: [rehypePrefixBase] },
 	// 纯文档站点用不到 Astro 开发工具栏
 	devToolbar: { enabled: false },
 	// 全站没有 <Image> 调用；passthrough 服务规避 sharp 原生依赖在隔离布局下解析不到的问题

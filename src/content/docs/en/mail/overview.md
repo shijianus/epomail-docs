@@ -5,7 +5,7 @@ description: Overview of the EpoCanvas Mail legal documents—platform identity,
 
 # Privacy and Terms
 
-**Effective date: September 30, 2026 | Version: 5.2**
+**Effective date: September 30, 2026 | Version: 5.3**
 
 This page is a guide to all of the legal documents of the EpoCanvas Mail service (the "Service"), explaining the roles of the parties, the document architecture, and the order of application. Before registering for or using the Service, you should read this page, together with the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/).
 
@@ -33,7 +33,7 @@ The legal documents of the Service adopt the distinction between a "data control
 | Hosted instance | The operations team (with respect to account data and security audit records); with respect to the content of email exchanged by users, the Operator processes it to the extent necessary for providing the communication service | Entrusted processors such as Cloudflare and Resend |
 | Self-hosted instance | The individual or organization that deployed the instance (the sole and exclusive data controller) | The infrastructure providers configured by that deployer |
 
-The open source code itself does not collect, upload, or send back any telemetry; the upstream authors have no access to the operational data of any instance. The open source project provides no service itself and bears no instance's compliance obligations: from the moment of deployment, the deployer becomes the data controller for its users and must fulfill the duties of notification, security maintenance, and subjection to oversight under the applicable law at its own location, and may use the documents on this site as base templates for its notifications and terms.
+The open source code itself does not collect, upload, or send back any telemetry; apart from external services configured by the instance Operator itself, the upstream authors have no access to the operational data of any instance. The open source project provides no service itself and bears no instance's compliance obligations: from the moment of deployment, the deployer becomes the data controller for its users and must fulfill the duties of notification, security maintenance, and subjection to oversight under the applicable law at its own location, and may use the documents on this site as base templates for its notifications and terms.
 
 ## 3. Document Architecture
 

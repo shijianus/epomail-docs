@@ -5,7 +5,7 @@ description: Overzicht van de juridische documenten van EpoCanvas Mail — ident
 
 # Privacy en voorwaarden
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.2**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.3**
 
 Deze pagina is de gids van alle juridische documenten van de dienst EpoCanvas Mail (hierna «de Dienst») en beschrijft de rollen van de partijen, de documentstructuur en de volgorde van toepassing. Voordat u zich registreert voor de Dienst of deze gebruikt, dient u deze pagina te lezen, samen met het [Privacybeleid](/nl/mail/privacy-policy/) en de [Servicevoorwaarden](/nl/mail/terms-of-service/).
 
@@ -33,7 +33,7 @@ De juridische documenten van de Dienst hanteren de rolverdeling tussen «verwerk
 | Gehoste instance | Het exploitatieteam (wat betreft accountgegevens en beveiligingsauditrecords); wat betreft de e-mailinhoud die gebruikers uitwisselen, verwerkt de Exploitant die binnen het bestek dat nodig is voor het verlenen van de communicatiedienst | Verwerkers zoals Cloudflare en Resend |
 | Zelfgehoste instance | De persoon of organisatie die de instance implementeert (de enige en exclusieve verwerkingsverantwoordelijke) | De infrastructuurdienstenaanbieders die die implementateur configureert |
 
-De open source-broncode zelf verzamelt, uploadt en retourneert geen enkele telemetrie; de upstream-auteurs komen niet in aanraking met de operationele gegevens van enige instance. Het open source-project verleent zelf geen dienst en draagt evenmin enige nalevingsverplichting van instances: vanaf het moment van implementatie wordt de implementateur de verwerkingsverantwoordelijke van zijn gebruikers en dient hij de verplichtingen inzake informatieplicht, beveiligingsonderhoud en toezicht na te komen krachtens het toepasselijke recht op zijn vestigingsplaats; de documenten op deze site kunnen daarbij als basismodel voor zijn informatieverstrekking en voorwaarden dienen.
+De open source-broncode zelf verzamelt, uploadt en retourneert geen enkele telemetrie; afgezien van externe diensten die door de Exploitant van de instance zelf worden geconfigureerd, komen de upstream-auteurs niet in aanraking met de operationele gegevens van enige instance. Het open source-project verleent zelf geen dienst en draagt evenmin enige nalevingsverplichting van instances: vanaf het moment van implementatie wordt de implementateur de verwerkingsverantwoordelijke van zijn gebruikers en dient hij de verplichtingen inzake informatieplicht, beveiligingsonderhoud en toezicht na te komen krachtens het toepasselijke recht op zijn vestigingsplaats; de documenten op deze site kunnen daarbij als basismodel voor zijn informatieverstrekking en voorwaarden dienen.
 
 ## 3. Documentstructuur
 

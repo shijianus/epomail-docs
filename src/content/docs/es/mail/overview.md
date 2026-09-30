@@ -5,7 +5,7 @@ description: Visión general de los documentos legales de EpoCanvas Mail—ident
 
 # Privacidad y Términos
 
-**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.2**
+**Fecha de entrada en vigor: 30 de septiembre de 2026 | Versión: 5.3**
 
 Esta página constituye una guía de todos los documentos legales del servicio EpoCanvas Mail (el «Servicio») y explica los roles de las partes, la arquitectura documental y el orden de aplicación. Antes de registrarse en el Servicio o utilizarlo, debe leer esta página, junto con la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos del Servicio](/es/mail/terms-of-service/).
 
@@ -33,7 +33,7 @@ Los documentos legales del Servicio adoptan la distinción de roles entre «resp
 | Instancia alojada | El equipo de operaciones (con respecto a los datos de cuenta y los registros de auditoría de seguridad); en cuanto al contenido del correo electrónico intercambiado por los usuarios, el Operador lo trata en la medida necesaria para la prestación del servicio de comunicaciones | Encargados del tratamiento delegados tales como Cloudflare y Resend |
 | Instancia autoalojada | La persona u organización que desplegó la instancia (responsable del tratamiento único y exclusivo) | Los proveedores de infraestructura configurados por dicha entidad desplegadora |
 
-El código fuente abierto en sí no recopila, carga ni devuelve ningún dato de telemetría; los autores ascendentes no tienen acceso a los datos operativos de ninguna instancia. El proyecto de código abierto no presta ningún servicio ni asume las obligaciones de cumplimiento de ninguna instancia: desde el momento del despliegue, la entidad desplegadora se convierte en responsable del tratamiento respecto de sus usuarios y debe cumplir, conforme a la ley aplicable en su lugar de ubicación, las obligaciones de notificación, de mantenimiento de la seguridad y de sometimiento a supervisión, pudiendo tomar los documentos de este sitio como plantilla base de su notificación y de sus condiciones.
+El código fuente abierto en sí no recopila, carga ni devuelve ningún dato de telemetría; salvo los servicios externos configurados por el propio Operador de la instancia, los autores ascendentes no tienen acceso a los datos operativos de ninguna instancia. El proyecto de código abierto no presta ningún servicio ni asume las obligaciones de cumplimiento de ninguna instancia: desde el momento del despliegue, la entidad desplegadora se convierte en responsable del tratamiento respecto de sus usuarios y debe cumplir, conforme a la ley aplicable en su lugar de ubicación, las obligaciones de notificación, de mantenimiento de la seguridad y de sometimiento a supervisión, pudiendo tomar los documentos de este sitio como plantilla base de su notificación y de sus condiciones.
 
 ## 3. Arquitectura documental
 

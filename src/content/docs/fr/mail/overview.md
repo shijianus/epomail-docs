@@ -5,7 +5,7 @@ description: Vue d'ensemble des documents juridiques d'EpoCanvas Mail — identi
 
 # Confidentialité et conditions
 
-**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.2**
+**Date d'entrée en vigueur : 30 septembre 2026 | Version : 5.3**
 
 La présente page constitue le guide de l'ensemble des documents juridiques du service EpoCanvas Mail (le « Service ») ; elle explique le rôle des parties, l'architecture documentaire et l'ordre d'application. Avant de vous inscrire ou d'utiliser le Service, vous devez lire la présente page, ainsi que la [Politique de confidentialité](/fr/mail/privacy-policy/) et les [Conditions d'utilisation](/fr/mail/terms-of-service/).
 
@@ -33,7 +33,7 @@ Les documents juridiques du Service adoptent la distinction de rôles entre le �
 | Instance hébergée | L'équipe d'exploitation (s'agissant des données de compte et des enregistrements d'audit de sécurité) ; s'agissant du contenu des courriels échangés par les utilisateurs, l'Opérateur les traite dans la mesure nécessaire à la fourniture du service de communication | Les sous-traitants tels que Cloudflare et Resend |
 | Instance auto-hébergée | La personne ou l'organisation qui a déployé l'instance (seule et exclusive responsable du traitement) | Les fournisseurs d'infrastructure configurés par ce déployeur |
 
-Le code open source lui-même ne collecte, ne téléverse et ne renvoie aucune donnée de télémétrie ; les auteurs du projet amont n'ont accès aux données d'exploitation d'aucune instance. Le projet open source ne fournit aucun service et n'assume aucune obligation de conformité d'instance : à compter du moment du déploiement, le déployeur devient le responsable du traitement de ses utilisateurs et doit remplir envers eux, selon le droit applicable en son lieu, les obligations d'information, de maintien de la sécurité et de soumission à la supervision ; il peut prendre les documents du présent site comme modèle de base de son information et de ses conditions.
+Le code open source lui-même ne collecte, ne téléverse et ne renvoie aucune donnée de télémétrie ; hors les services externes configurés par l'Opérateur de l'instance elle-même, les auteurs du projet amont n'ont accès aux données d'exploitation d'aucune instance. Le projet open source ne fournit aucun service et n'assume aucune obligation de conformité d'instance : à compter du moment du déploiement, le déployeur devient le responsable du traitement de ses utilisateurs et doit remplir envers eux, selon le droit applicable en son lieu, les obligations d'information, de maintien de la sécurité et de soumission à la supervision ; il peut prendre les documents du présent site comme modèle de base de son information et de ses conditions.
 
 ## 3. Architecture documentaire
 

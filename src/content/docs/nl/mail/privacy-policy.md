@@ -5,7 +5,7 @@ description: Privacybeleid van EpoCanvas Mail — de normen en toezeggingen voor
 
 # Privacybeleid
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.2**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.3**
 
 Dit beleid beschrijft hoe de dienst EpoCanvas Mail (hierna «de Dienst») uw persoonsgegevens verzamelt, verwerkt en doorgeeft, evenals de normen en toezeggingen waarop de Exploitant zich bij de bescherming van gegevens baseert. U dient dit beleid te lezen voordat u zich registreert voor de Dienst of deze gebruikt; indien u met enig onderdeel van dit beleid niet instemt, gebruik de Dienst dan niet.
 
@@ -32,7 +32,7 @@ De exploitant die EpoCanvas Mail zelf host, wordt vanaf het moment van implement
 | De instance die u gebruikt | Verwerkingsverantwoordelijke | Toelichting |
 | --- | --- | --- |
 | Gehoste instance `mail.epocanvas.com` | Het EpoCanvas-exploitatieteam | Wat betreft accountgegevens, authenticatierecords en beveiligingsauditlogs is het exploitatieteam de verwerkingsverantwoordelijke; wat betreft de inhoud van de e-mail die u verzendt en ontvangt, verwerkt het exploitatieteam die binnen het bestek dat nodig is voor het verlenen van de communicatiedienst |
-| Zelfgehoste instance | De implementateur van die instance | De implementateur is vanaf het moment van implementatie verwerkingsverantwoordelijke en draagt zelfstandig alle verplichtingen krachtens het toepasselijke recht ter plaatse; de open source-broncode bevat geen telemetriemechanisme en zendt geen instancegegevens terug naar de upstream-auteurs of enige derde |
+| Zelfgehoste instance | De implementateur van die instance |de open source-broncode bevat geen telemetriemechanisme; afgezien van externe diensten die door de Exploitant zelf worden geconfigureerd, worden geen instance-gegevens naar de upstream-auteurs of derden teruggestuurd |
 
 Verwerkers verwerken de gegevens op instructie van de verwerkingsverantwoordelijke; de volledige lijst staat in de [Lijst van verwerkers](/nl/mail/sub-processors/).
 
@@ -57,11 +57,11 @@ Wanneer u zich met een Linux DO-account aanmeldt, verkrijgt de Dienst van die id
 
 - **E-mailadres en wachtwoord**: noodzakelijk voor de registratie. Het wachtwoord wordt uitsluitend bewaard als PBKDF2-HMAC-SHA256-hash (100.000 iteraties, per gebruiker een onafhankelijk willekeurig salt); uit de hash kan het oorspronkelijke wachtwoord niet worden gereconstrueerd.
 - **Referenties voor tweestapsverificatie (optioneel)**: de TOTP-sleutel wordt versleuteld bewaard met AES-256-GCM; back-upherstelcodes worden uitsluitend bewaard als SHA-256-hash; passkeys bewaren uitsluitend de publieke sleutel, de privésleutel blijft op uw apparaat.
-- **Profielgegevens (optioneel)**: nickname, avatar en persoonlijke omschrijving; avatars worden geüpload naar de door de Exploitant geconfigureerde afbeeldingsopslagdienst.
+- **Profielgegevens (optioneel)**: nickname, avatar en persoonlijke omschrijving; afbeeldingen van avatars worden standaard opgeslagen in de eigen objectopslag van de instance (KV), en de Exploitant kan via een omgevingsvariabele een externe afbeeldingshostingdienst configureren (zie [Verwerkers](/nl/mail/sub-processors/)).
 
 ### 4.2 De inhoud van uw communicatie
 
-De e-mail die u verzendt en ontvangt (inclusief metadata zoals afzender en ontvanger, onderwerp, berichttekst en tijdstempels) en de bijlagen, evenals de labels, sterren, leesstatussen en uitgestelde herinneringen die u toepast, worden bewaard in de database van de instance (Cloudflare D1) en de objectopslag (Cloudflare R2 of S3-compatibele opslag geconfigureerd door de Exploitant). Het eigendom van en de verantwoordelijkheid voor de e-mailinhoud rust bij u; de Exploitant verkoopt de e-mailinhoud niet, gebruikt die niet voor advertentiedoeleinden en koppelt geen statistiek of tracking van derden.
+De e-mail die u verzendt en ontvangt (inclusief metadata zoals afzender en ontvanger, onderwerp, berichttekst en tijdstempels) en de bijlagen, evenals de labels, sterren, leesstatussen en uitgestelde herinneringen die u toepast, worden bewaard in de database van de instance (Cloudflare D1) en de objectopslag (in volgorde van instantieconfiguratie: uw eigen S3-compatibele opslag, door de Exploitant geconfigureerde S3-compatibele opslag, een Cloudflare R2-binding; bij ontbreken daarvan Cloudflare KV). Het eigendom van en de verantwoordelijkheid voor de e-mailinhoud rust bij u; de Exploitant verkoopt de e-mailinhoud niet, gebruikt die niet voor advertentiedoeleinden en koppelt geen statistiek of tracking van derden.
 
 ### 4.3 Automatisch geregistreerde technische gegevens
 
@@ -120,6 +120,7 @@ De Dienst draait op het wereldwijde edge-netwerk van Cloudflare; uw persoonsgege
 | E-mail in de inbox | bewaard tot u die verwijdert, of tot opschoning wegens quotum wordt geactiveerd |
 | Spam | zeven dagen in quarantaine, daarna verplaatst naar de prullenbak |
 | E-mail in de prullenbak | zeven dagen na ontvangst fysiek verwijderd door een routinetaak van het systeem (inclusief bijlagen en indexen) |
+| Officiële systeem-e-mails (welkomst-e-mails, globale aankondigingen) | vervallen en worden standaard 7 dagen na bezorging automatisch gewist; de Exploitant kan de termijn configureren |
 | Mailboxgebruik boven 90 % | het systeem verwijdert fysiek de e-mail die al als verwijderd is gemarkeerd, om ruimte vrij te maken |
 | Opzegging van het account | sessies vervallen onmiddellijk; de e-mail komt in een zacht-verwijderde staat totdat een beheerder de fysieke verwijdering uitvoert |
 | Fysieke verwijdering | accountgegevens, mailboxen, e-mail, bijlagen, OAuth-autorisaties en sessies worden gezamenlijk verwijderd en kunnen niet worden hersteld |

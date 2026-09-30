@@ -5,7 +5,7 @@ description: A complete list of EpoCanvas Mail's entrusted processors, sharing r
 
 # Third-Party Processor List
 
-**Effective date: September 30, 2026 | Version: 5.2**
+**Effective date: September 30, 2026 | Version: 5.3**
 
 Following Section 7 of the [Privacy Policy](/en/mail/privacy-policy/), this list sets out in full the third parties involved in the Service's personal data, the conditions of sharing, and the safeguards. The sharing principle of the Service is minimal necessity: data that need not leave the instance do not leave; data that must leave are clearly marked with the recipient and the data carried. The Service has no data sale or advertising revenue-sharing relationship with any of the following parties.
 
@@ -32,8 +32,7 @@ The Traditional Chinese (Taiwan) versions of the legal documents on this site ar
 | OAuth third-party apps | Third-party login or authorized access | Scope limited to openid / profile / email (identifier, email address, name, avatar); access tokens valid for 2 hours | Only upon active authorization by the data subject; revocable at any time on the "Third-Party Apps" page, and revocation takes effect immediately |
 | Linux DO | Third-party login identity source | The user identifier, nickname, avatar, and trust level obtained through OAuth | Only when logging in with a Linux DO account |
 | Operator blog (blog.epocanvas.com) | Blog activity level linkage and quota upgrades | Your email address (transmitted in the query request) | Queried in real time only when you view the blog level linkage |
-| Operator blog (blog.epocanvas.com) | Blog activity level linkage and quota upgrades | Your email address (transmitted in the query request) | Queried in real time only when you view the blog level linkage |
-| Image upload service | Avatar and image storage | The image files themselves | Only when uploading avatars and similar images |
+| Avatar image host (default: the instance's own object storage; the Operator may configure an external host via an environment variable) | Avatar and image storage | The image files themselves | Only when uploading avatars and similar images; if an external host is configured, the image files are transmitted to that host |
 
 ## 3. The AI Processing Chain (Data Subject Initiation as the Principle)
 

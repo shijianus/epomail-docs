@@ -5,7 +5,7 @@ description: Gegevenslevenscyclus van EpoCanvas Mail, verwerkingsmatrix, beveili
 
 # Gegevensverwerking en beveiliging
 
-**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.2**
+**Datum van inwerkingtreding: 30 september 2026 | Versie: 5.3**
 
 Dit document sluit aan bij paragraaf 10 van het [Privacybeleid](/nl/mail/privacy-policy/) en beschrijft de levenscyclus van de persoonsgegevens in de Dienst, de verwerkingsmatrix per gegevenscategorie en de beveiligingsmaatregelen die de Exploitant heeft opgesteld om te voorkomen dat persoonsgegevens worden gestolen, gewijzigd, beschadigd, verloren of gelekt. Dit document dient tevens als basisdocument voor inzage door betrokkenen en voor de controle die de autoriteit overeenkomstig de wet uitvoert.
 
@@ -25,7 +25,7 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 | Netwerk- en apparaatgegevens | registratie-IP, meest recente inlog-IP, besturingssysteem, browser-User-Agent, apparaattype | beveiligingsaudit, identificatie van afwijkende aanmeldingen, frequentiebeperking | Cloudflare D1; toegang beperkt tot beheerdersaudit | bewaard tot fysieke verwijdering van het account |
 | Sessiestatus | JWT-tokens, RBAC-rolidentificatoren, geselecteerde mailbox | autorisatie aan de edge-gateway, routering van verzoeken | Cloudflare KV; maximale geldigheid 30 dagen | ingetrokken bij uitloggen; vervalt vanzelf na 30 dagen zonder activiteit |
 | Communicatiegegevens | afzender en ontvanger, CC/BCC, onderwerp, tijdstempels, leesstatus, labels, sterren, berichttekst | aflevering van e-mail, ordening van gesprekken, zoeken | Cloudflare D1 (metadata); afhankelijk van de modus versleuteld opgeslagen met AES-256-GCM | onder controle van de betrokkene; prullenbak na 7 dagen fysiek gewist; bij gebruik boven 90 % wordt reeds als verwijderd gemarkeerde e-mail rechtstreeks fysiek verwijderd |
-| Bijlagen | oorspronkelijke bestandsnaam, MIME-type, bestandsgrootte, binaire inhoud | overdracht van bijlagen, inline weergave, veilig downloaden | Cloudflare R2 of S3-compatibele opslag; downloads met defensieve headers | volgen de levenscyclus van de bijbehorende e-mail; bij fysieke verwijdering gezamenlijk gewist |
+| Bijlagen | oorspronkelijke bestandsnaam, MIME-type, bestandsgrootte, binaire inhoud | overdracht van bijlagen, inline weergave, veilig downloaden | de eigen objectopslag van de instance (in volgorde: eigen of door de Exploitant geconfigureerde S3-compatibele opslag, een de eigen objectopslag van de instance (in volgorde: eigen of door de Exploitant geconfigureerde S3-compatibele opslag, een de eigen objectopslag van de instance (in volgorde: eigen of door de Exploitant geconfigureerde S3-compatibele opslag, een Cloudflare R2-binding, standaard Cloudflare KV); downloads met defensieve headers| volgen de levenscyclus van de bijbehorende e-mail; bij fysieke verwijdering gezamenlijk gewist |
 | Beveiligings- en frequentiebeperkingsrecords | aantallen mislukte aanmeldingen, status van mensverificatie, verzoektellers per schuivend venster | bescherming tegen brute force, preventie van misbruik | Cloudflare KV; tellers per schuivend venster | vervallen automatisch en worden binnen 12 uur na drempeloverschrijding gereset |
 | Interfacevoorkeuren | taal (6 talen), lichte en donkere modus, meldingsvlaggen | consistentie van de interface | localStorage van de browser, selectief gesynchroniseerd naar D1 | bewaard tot de cache wordt gewist of handmatig wordt gereset |
 
