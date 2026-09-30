@@ -34,7 +34,9 @@ def rep(text, old, new, tag):
     return text.replace(old, new)
 
 def rep_line(text, anchor, new_line, tag):
-    """整行替换：按唯一锚点定位行。"""
+    """整行替换：按唯一锚点定位行；目标行已存在则跳过。"""
+    if new_line in text:
+        return text
     lines = text.split('\n')
     hits = [i for i, l in enumerate(lines) if anchor in l]
     assert len(hits) == 1, f'[{tag}] 锚点命中 {len(hits)} 行：{anchor}'
@@ -42,13 +44,17 @@ def rep_line(text, anchor, new_line, tag):
     return '\n'.join(lines)
 
 def rep_cell(text, keyword, new_cell, tag):
-    """表格行内单元格替换：从含 keyword 的片段到行尾 '|'。"""
+    """表格行内单元格替换：已应用则跳过。"""
+    if new_cell in text:
+        return text
     pat = re.compile(r'[^|\n]*' + re.escape(keyword) + r'[^|\n]*\|')
     matches = pat.findall(text)
     assert len(matches) == 1, f'[{tag}] 单元格模式命中 {len(matches)} 次：{keyword}'
     return text.replace(matches[0], new_cell)
 
 def insert_before_line(text, anchor, new_line, tag):
+    if new_line in text:
+        return text
     lines = text.split('\n')
     hits = [i for i, l in enumerate(lines) if anchor in l]
     assert len(hits) == 1, f'[{tag}] 插入锚点命中 {len(hits)} 行：{anchor}'
@@ -56,6 +62,8 @@ def insert_before_line(text, anchor, new_line, tag):
     return '\n'.join(lines)
 
 def insert_after_line(text, anchor, new_line, tag):
+    if new_line in text:
+        return text
     lines = text.split('\n')
     hits = [i for i, l in enumerate(lines) if anchor in l]
     assert len(hits) == 1, f'[{tag}] 插入锚点命中 {len(hits)} 行：{anchor}'
@@ -248,7 +256,7 @@ PROJ_I18N_ROW = {
     'es':    '- Seis idiomas de interfaz: chino simplificado, chino tradicional, English, Français, Español, Nederlands; los diccionarios de frontend y backend son 100 % simétricos en los seis idiomas (número de claves según la salida de la auditoría estática `scripts/i18n-*.mjs`), garantizando cero cadenas visibles codificadas de forma rígida;',
     'nl':    '- Zes interfacestalen: Vereenvoudigd Chinees, Traditioneel Chinees, English, Français, Español, Nederlands; de frontend- en backend-woordenboeken zijn 100% symmetrisch over de zes talen (sleutelaantallen volgens de statische audituitvoer van `scripts/i18n-*.mjs`), wat nul hardgecodeerde zichtbare teksten garandeert;',
 }
-PROJ_I18N_ANCHOR = {'zh': '2,039', 'zh-tw': '2,039', 'en': '2,039', 'fr': '2 039', 'es': '2.039', 'nl': '2.039'}
+PROJ_I18N_ANCHOR = {'zh': '2,039', 'zh-tw': '2,039', 'en': '2,039', 'fr': '2 039', 'es': '2 039', 'nl': '2.039'}
 PROJ_TESTS_ROW = {
     'zh':    '| `tests` | 自动化测试、审计与巡检脚本逾百个（Playwright 全真栈、公网端到端、静态扫描） |',
     'zh-tw': '| `tests` | 自動化測試、稽核與巡檢腳本逾百個（Playwright 全真環境、公網端對端、靜態掃描） |',
@@ -279,8 +287,6 @@ CHAIN_LINE = '79094ac9d2686c1014c25824b25318c6206c9270  2026-09-30  docs(legal):
 
 for loc in LOCALES:
     text = load('project', loc)
-    if PROJ_STORAGE_ROW[M[loc]][:30] in text:
-        continue  # 幂等
     text = rep_line(text, PROJ_STORAGE_ANCHOR[M[loc]], PROJ_STORAGE_ROW[M[loc]], f'存储行 {loc}')
     text = rep_line(text, PROJ_I18N_ANCHOR[M[loc]], PROJ_I18N_ROW[M[loc]], f'i18n行 {loc}')
     text = rep_line(text, '`tests` | 105', PROJ_TESTS_ROW[M[loc]], f'tests行 {loc}')

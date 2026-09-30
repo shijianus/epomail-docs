@@ -33,7 +33,7 @@ Cada función siguiente se ha verificado punto por punto contra el código fuent
 | Correo entrante | Recibido mediante Cloudflare Email Routing y analizado por postal-mime (cuerpo y adjuntos) |
 | Correo saliente | Enviado mediante la API de Resend, con envío masivo, imágenes incrustadas y adjuntos, y consulta del estado de envío |
 | Tres modos de correo | Modos Todo, Privado y Cifrado; la semántica de cifrado y la visibilidad del administrador se describen en [Tratamiento de datos y seguridad](/es/mail/data-security/) |
-| Almacenamiento de adjuntos | Almacenamiento de objetos R2, sustituible por Backblaze B2 o cualquier servicio compatible con S3 (almacenamiento propio), con medición de cuotas |
+| Almacenamiento de adjuntos | El almacenamiento de objetos propio de la instancia (resuelto en orden: almacenamiento compatible con S3 propio o configurado, enlace de Cloudflare R2, por defecto Cloudflare KV), con medición de cuota |
 | Experiencia de lectura | Conversaciones agrupadas, vista dividida de tres columnas, respuesta en línea, reacciones con emojis, aplazar／spam／papelera y visor de cabeceras originales |
 
 ### 2.2 Búsqueda y clasificación
@@ -57,7 +57,7 @@ Cada función siguiente se ha verificado punto por punto contra el código fuent
 
 ### 2.5 Interfaz e idiomas
 
-- Seis idiomas de interfaz: chino simplificado, chino tradicional, English, Français, Español y Nederlands; los diccionarios llevan 2 039 claves en el frontend y 1 888 en el backend, simétricos al 100 % entre los seis idiomas, con una triple auditoría estática que garantiza cero fugas de texto codificado visible para el usuario;
+- Seis idiomas de interfaz: chino simplificado, chino tradicional, English, Français, Español, Nederlands; los diccionarios de frontend y backend son 100 % simétricos en los seis idiomas (número de claves según la salida de la auditoría estática `scripts/i18n-*.mjs`), garantizando cero cadenas visibles codificadas de forma rígida;
 - Correo multilingüe: los correos de bienvenida y los anuncios globales incorporan plantillas oficiales en seis idiomas; los correos del sistema se envían en la versión redactada por el administrador (instantánea inmutable); al leerlos, los correos oficiales sin modificar se renderizan localmente en su idioma mediante las plantillas predefinidas, y los modificados recurren a la traducción por IA;
 - Detalles de interfaz: más de 300 iconos vectoriales sin conexión (cero peticiones externas), temas claro y oscuro, diseño receptivo, instalación PWA, y título del sitio y fondo de inicio de sesión personalizables.
 
@@ -79,7 +79,7 @@ Las dos bases de datos están aisladas físicamente: `USER_DB` guarda cuentas, r
 | `mail-vue` | Aplicación de página única del frontend (PWA) |
 | `temp_login_ui` | Capa de inicio de sesión en React, compilada dentro de `dist/login` del frontend |
 | `EpomailDocs` | Este sitio de documentos legales (Astro 5 + Starlight, repositorio git separado) |
-| `tests` | 105 scripts de pruebas, auditoría e inspección automatizadas (pila completa Playwright, extremo a extremo público, análisis estáticos) |
+| `tests` | Más de un centenar de scripts de pruebas, auditoría e inspección automatizadas (Playwright de pila completa, extremo a extremo público, análisis estáticos) |
 | `scripts` | Cadena de herramientas que incluye el trío de auditoría i18n simetría／referencias／texto codificado |
 
 ## 4. A quién conviene y a quién no
@@ -109,7 +109,7 @@ Estas medidas se cerraron en el endurecimiento de seguridad completo del 22 de s
 
 ## 6. Historial de desarrollo y cadena de commits
 
-El proyecto se desarrolla de forma continua desde el primer commit del 21 de julio de 2026 (`2bbb582`). A fecha de 30 de septiembre de 2026, el repositorio principal acumula 539 commits; este sitio (EpomailDocs, repositorio git separado) suma 11 más (según se indica abajo; los commits posteriores están en GitHub). La tabla siguiente recoge los hitos por fases con sus commits de anclaje (hash cortos):
+El proyecto se desarrolla de forma continua desde el primer commit del 21 de julio de 2026 (`2bbb582`). A fecha de 30 de septiembre de 2026, el repositorio principal acumula más de 540 commits; este sitio (EpomailDocs, repositorio git separado) suma 12 más (según se indica abajo; los commits posteriores están en GitHub). La tabla siguiente recoge los hitos por fases con sus commits de anclaje (hash cortos):
 
 | Fase | Periodo | Entregas | Commits de anclaje |
 | --- | --- | --- | --- |
@@ -170,13 +170,14 @@ d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端�
 05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
 52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 独立审计修订——第三方清单增补博客等级联动披露、时效数据校正与工具补盲
 5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
+79094ac9d2686c1014c25824b25318c6206c9270  2026-09-30  docs(legal): v5.2 内容完善——正式版本条款全站覆盖、专案介绍增补适用边界与常见疑问
 ```
 
 La tabla y la cadena de anclaje anteriores están a escala de hitos; cada corrección, prueba y commit de documentación entre fases se conserva en el historial de git y puede rastrearse uno a uno en el [historial de commits de GitHub](https://github.com/shijianus/epomail/commits). El repositorio principal guarda además dos archivos de archivo, `CHECKLIST.log` (registro de ejecución de tareas) y `REPORTS.md` (informes de auditoría en profundidad), en correspondencia uno a uno con los commits.
 
 ## 7. Garantía de calidad
 
-- El directorio `tests/` contiene 105 scripts de pruebas, auditoría e inspección automatizadas, que cubren la regresión de navegador con pila completa Playwright, aserciones extremo a extremo públicas contra producción y análisis estáticos de todo el repositorio;
+- El directorio `tests/` contiene más de un centenar de scripts de pruebas, auditoría e inspección automatizadas, que cubren la regresión de navegador con pila completa Playwright, aserciones extremo a extremo públicas contra producción y análisis estáticos de todo el repositorio;
 - Comprobaciones cuantificadas representativas: endurecimiento de seguridad 43／43 aserciones, enrutado público extremo a extremo 32／32, pantalla de inicio de sesión en seis idiomas 62／62, inspección sensorial 33／33 y 369 comparaciones de integridad de producción byte a byte;
 - Triple auditoría estática de i18n: `i18n-symmetry` (conjuntos de claves absolutamente simétricos entre los seis idiomas), `i18n-audit` (cero referencias literales ausentes) e `i18n-hardcoded` (cero texto visible codificado sin envolver);
 - Cero residuos de datos de prueba: cada caso de prueba limpia físicamente en un bloque `finally`; la base de datos y el KV no contienen datos falsos;
