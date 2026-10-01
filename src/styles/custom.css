@@ -83,9 +83,50 @@
 /* ==========================================================================
    Official Tamper-Proof & Integrity Verification Panel
    ========================================================================== */
+.tamper-top-badge {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  background-color: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  font-size: 0.82rem;
+  margin: 0.75rem 0 1.5rem 0;
+}
+
+.tamper-top-badge .badge-icon {
+  font-size: 1rem;
+}
+
+.tamper-top-badge .badge-status {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+:root[data-theme='dark'] .tamper-top-badge .badge-status {
+  color: #60a5fa;
+}
+
+.tamper-top-badge .badge-hash {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.76rem;
+  color: var(--sl-color-gray-2);
+}
+
+.tamper-top-badge .badge-jump-link {
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--sl-color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
 .tamper-proof-panel {
-  margin-top: 3.5rem;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
   padding: 1.5rem;
   border-radius: 12px;
   background-color: var(--sl-color-gray-6);

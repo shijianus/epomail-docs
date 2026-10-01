@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/generate-tamper-proof.mjs && astro build",
-    "deploy": "pnpm run build && wrangler pages deploy dist --project-name epomail-docs --branch main",
+    "build": "node scripts/generate-tamper-proof.mjs && astro build && node scripts/post-build.mjs",
+    "deploy": "pnpm run build && npx wrangler pages deploy dist --project-name epomail-docs --branch main",
     "preview": "astro preview",
     "astro": "astro",
     "check": "python3 scripts/check-structure.py",

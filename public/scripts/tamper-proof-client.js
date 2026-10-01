@@ -42,6 +42,8 @@
     'zh-CN': {
       title: '🛡️ 官方防篡改与完整性校验',
       desc: '本文档受 EpoCanvas Mail 官方密码学哈希存证保护，内容不可伪造与篡改。',
+      badgeVerified: '官方密码学存证保护 (SHA-256)',
+      badgeJump: '查看存证详情与实时验真 ⬇',
       docHashLabel: '官方发布哈希 (SHA-256)',
       gitLabel: '固化版本 (Git Commit)',
       authorityLabel: '认证发布通道',
@@ -55,6 +57,8 @@
     'zh-TW': {
       title: '🛡️ 官方防竄改與完整性校驗',
       desc: '本文檔受 EpoCanvas Mail 官方密碼學雜湊存證保護，內容不可偽造與竄改。',
+      badgeVerified: '官方密碼學存證保護 (SHA-256)',
+      badgeJump: '查看存證詳情與即時驗真 ⬇',
       docHashLabel: '官方發布雜湊 (SHA-256)',
       gitLabel: '固化版本 (Git Commit)',
       authorityLabel: '認證發布通道',
@@ -68,6 +72,8 @@
     en: {
       title: '🛡️ Official Tamper-Proof & Integrity Verification',
       desc: 'This document is cryptographically anchored by EpoCanvas Mail official SHA-256 manifest.',
+      badgeVerified: 'Official Cryptographic Seal (SHA-256)',
+      badgeJump: 'View Integrity Details & Verify Live ⬇',
       docHashLabel: 'Official Release SHA-256',
       gitLabel: 'Git Release Anchor',
       authorityLabel: 'Verified Release Channel',
@@ -81,6 +87,8 @@
     fr: {
       title: '🛡️ Vérification officielle anti-falsification et intégrité',
       desc: 'Ce document est ancré cryptographiquement par le manifeste officiel EpoCanvas Mail.',
+      badgeVerified: 'Sceau cryptographique officiel (SHA-256)',
+      badgeJump: 'Voir détails et vérifier en direct ⬇',
       docHashLabel: 'Empreinte officielle SHA-256',
       gitLabel: 'Version figée (Git Commit)',
       authorityLabel: 'Canal de publication certifié',
@@ -94,6 +102,8 @@
     es: {
       title: '🛡️ Verificación oficial contra manipulaciones e integridad',
       desc: 'Este documento está protegido mediante la huella criptográfica oficial SHA-256.',
+      badgeVerified: 'Sello criptográfico oficial (SHA-256)',
+      badgeJump: 'Ver detalles y verificar en vivo ⬇',
       docHashLabel: 'Huella digital SHA-256 oficial',
       gitLabel: 'Versión consolidada (Git Commit)',
       authorityLabel: 'Canal oficial de publicación',
@@ -107,6 +117,8 @@
     nl: {
       title: '🛡️ Officiële verificatie van integriteit en anti-manipulatie',
       desc: 'Dit document is cryptografisch verankerd via het officiële SHA-256-manifest van EpoCanvas Mail.',
+      badgeVerified: 'Officieel cryptografisch zegel (SHA-256)',
+      badgeJump: 'Bekijk integriteitsdetails & controleer live ⬇',
       docHashLabel: 'Officiële SHA-256-hash',
       gitLabel: 'Vastgelegde versie (Git Commit)',
       authorityLabel: 'Geverifieerd publicatiekanaal',
@@ -144,7 +156,30 @@
     const t = getLangStrings();
 
     const container = document.querySelector('.sl-markdown-content');
-    if (!container || document.getElementById('tamper-proof-widget')) return;
+    if (!container) return;
+
+    // 1. 顶部紧凑显式存证徽章 (Top Badge)
+    if (!document.getElementById('tamper-proof-top-badge')) {
+      const topBadge = document.createElement('div');
+      topBadge.id = 'tamper-proof-top-badge';
+      topBadge.className = 'tamper-top-badge';
+      topBadge.innerHTML = `
+        <span class="badge-icon">🛡️</span>
+        <span class="badge-status">${t.badgeVerified}</span>
+        <span class="badge-hash mono">${docHash.substring(0, 16)}...</span>
+        <a href="#tamper-proof-widget" class="badge-jump-link">${t.badgeJump}</a>
+      `;
+      // 插入在第一个段落（通常为生效日期）之后，确保首屏即见
+      const firstP = container.querySelector('p');
+      if (firstP && firstP.nextSibling) {
+        container.insertBefore(topBadge, firstP.nextSibling);
+      } else {
+        container.insertBefore(topBadge, container.firstChild);
+      }
+    }
+
+    // 2. 主验真面板 (Main Verification Panel)
+    if (document.getElementById('tamper-proof-widget')) return;
 
     const widget = document.createElement('div');
     widget.id = 'tamper-proof-widget';
@@ -202,7 +237,13 @@ openssl dgst -sha256 src/content/docs/${slug}.md</code></pre>
       </details>
     `;
 
-    container.appendChild(widget);
+    // 优先插入在第一个 h2 标题之前（紧跟概述段落与架构图之后），保证极其显眼
+    const firstH2 = container.querySelector('h2');
+    if (firstH2) {
+      container.insertBefore(widget, firstH2);
+    } else {
+      container.appendChild(widget);
+    }
 
     // 绑定复制
     const copyBtn = document.getElementById('tamper-copy-btn');
@@ -229,7 +270,7 @@ openssl dgst -sha256 src/content/docs/${slug}.md</code></pre>
           const fresh = await fetch(`${getManifestUrl()}?t=${Date.now()}`).then(r => r.json());
           const target = fresh.documents[slug];
 
-          await new Promise(r => setTimeout(r, 400)); // 动画平滑过渡
+          await new Promise(r => setTimeout(r, 350)); // 动画平滑过渡
 
           if (target && target.sha256 === docHash) {
             statusEl.innerHTML = `<span class="tamper-success">${t.verifiedSuccess}</span>`;
