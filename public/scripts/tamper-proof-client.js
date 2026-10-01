@@ -5,13 +5,19 @@
 (function () {
   'use strict';
 
-  const MANIFEST_URL = '/epomail/tamper-proof.json';
+  function getBasePrefix() {
+    return window.location.pathname.startsWith('/epomail') ? '/epomail' : '';
+  }
+
+  function getManifestUrl() {
+    return `${getBasePrefix()}/tamper-proof.json`;
+  }
   let manifestData = null;
 
   async function fetchManifest() {
     if (manifestData) return manifestData;
     try {
-      const res = await fetch(MANIFEST_URL, { cache: 'no-cache' });
+      const res = await fetch(getManifestUrl(), { cache: 'no-cache' });
       if (res.ok) {
         manifestData = await res.json();
       }
@@ -24,8 +30,8 @@
   function getCanonicalDocSlug() {
     const path = window.location.pathname.replace(/\/$/, '');
     // e.g. /epomail/mail/project -> mail/project
-    // e.g. /epomail/zh-tw/mail/project -> zh-tw/mail/project
-    const match = path.match(/\/epomail\/(?:(zh-tw|en|fr|es|nl)\/)?(mail\/[^/]+)/);
+    // e.g. /mail/project -> mail/project
+    const match = path.match(/(?:\/epomail)?\/(?:(zh-tw|en|fr|es|nl)\/)?(mail\/[^/]+)/);
     if (!match) return null;
     const lang = match[1];
     const slug = match[2];
@@ -220,7 +226,7 @@ openssl dgst -sha256 src/content/docs/${slug}.md</code></pre>
 
         try {
           // 重新抓取清单进行比对
-          const fresh = await fetch(`${MANIFEST_URL}?t=${Date.now()}`).then(r => r.json());
+          const fresh = await fetch(`${getManifestUrl()}?t=${Date.now()}`).then(r => r.json());
           const target = fresh.documents[slug];
 
           await new Promise(r => setTimeout(r, 400)); // 动画平滑过渡
