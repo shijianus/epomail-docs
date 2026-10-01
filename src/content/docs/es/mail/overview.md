@@ -47,6 +47,7 @@ Los documentos legales de este sitio se organizan por temas; los documentos se r
 | [Procesamiento de Datos y Seguridad](/es/mail/data-security/) | El ciclo de vida de los datos; la matriz de tratamiento; las medidas de mantenimiento de la seguridad; la respuesta a incidentes; y la cooperación con las inspecciones |
 | [Subencargados del Tratamiento](/es/mail/sub-processors/) | Encargados del tratamiento delegados, destinatarios de comunicaciones de datos, datos involucrados y garantías para las transferencias internacionales |
 | [Glosario](/es/mail/key-terms/) | Definiciones de los términos técnicos y jurídicos empleados en los documentos legales de este sitio |
+| [Seguridad contra manipulaciones y normas](/es/mail/tamper-proof/) | Especificaciones oficiales, 16 avisos de seguridad, protección de remitente y verificación de integridad |
 
 ## 4. Orden de prelación
 

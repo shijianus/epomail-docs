@@ -47,6 +47,7 @@ The legal documents on this site are organized by topic; the documents cross-ref
 | [Data Processing and Security Maintenance](/en/mail/data-security/) | The data life cycle; the processing matrix; security maintenance measures; incident response; and cooperation with inspections |
 | [Third-Party Processor List](/en/mail/sub-processors/) | Entrusted processors, sharing recipients, the data involved, and safeguards for international transfers |
 | [Key Terms](/en/mail/key-terms/) | Definitions of the technical and legal terms used in the legal documents on this site |
+| [Anti-Tampering & Official Specs](/en/mail/tamper-proof/) | Official mail specifications, 16 tiered security notices, sender anti-spoofing, and tamper-proof verification |
 
 ## 4. Order of Precedence
 

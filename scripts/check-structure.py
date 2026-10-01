@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent / "src" / "content" / "docs"
 LANGS = ["mail", "zh-tw", "en", "es", "fr", "nl"]
 DOCS = ["project", "overview", "privacy-policy", "terms-of-service", "acceptable-use",
-        "data-security", "sub-processors", "key-terms"]
+        "data-security", "sub-processors", "key-terms", "tamper-proof"]
 
 H = re.compile(r"^(#{2,3})\s+(.*)$", re.M)
 ROW = re.compile(r"^\|.*\|\s*$", re.M)
@@ -68,7 +68,7 @@ def main():
     if bad:
         print(f"FAILED: {bad} structural mismatches")
         sys.exit(1)
-    print("OK: 6 languages x 8 docs structurally symmetric (headings/tables/figures/notes)")
+    print(f"OK: 6 languages x {len(DOCS)} docs structurally symmetric (headings/tables/figures/notes)")
 
 
 if __name__ == "__main__":

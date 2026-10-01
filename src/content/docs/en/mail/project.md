@@ -35,6 +35,7 @@ Every feature below has been verified item by item against the repository source
 | Three mail modes | All, Private, and Encrypted modes; the encryption semantics and administrator visibility are described in [Data Processing and Security](/en/mail/data-security/) |
 | Attachment storage | The instance's own object storage (resolved in order: BYO or configured S3-compatible storage, a Cloudflare R2 binding, defaulting to Cloudflare KV), with quota metering |
 | Reading experience | Conversation threading, three-pane split view, inline reply, emoji reactions, snooze／spam／trash, and a raw header viewer |
+| Official Mail & Security Notices | announcement@epocanvas.com certified blue badge (isOfficial), 16 tiered security notifications, immutable delivery, and anti-tampering verification (see [Anti-Tampering & Official Specs](/en/mail/tamper-proof/)) |
 
 ### 2.2 Search and Classification
 

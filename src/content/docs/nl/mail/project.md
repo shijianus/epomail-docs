@@ -35,6 +35,7 @@ Elke functie hieronder is punt voor punt geverifieerd tegen de broncode van de r
 | Drie e-mailmodi | De modi Alles, Privé en Versleuteld; de versleutelingssemantiek en zichtbaarheid voor de beheerder staan beschreven in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) |
 | Bijlageopslag | De eigen objectopslag van de instance (in volgorde: eigen of geconfigureerde S3-compatibele opslag, een Cloudflare R2-binding, standaard Cloudflare KV), met quotummeting |
 | Leeservaring | Gespreksthreads, driedelig gesplitst aanzicht, inline beantwoorden, emoji-reacties, uitstellen／spam／prullenbak en een viewer voor originele headers |
+| Officiële e-mail en beveiligingsberichten | Geverifieerd blauw vinkje announcement@epocanvas.com (isOfficial), 16 beveiligingsmeldingen, onveranderlijke aflevering en integriteitsverificatie (zie [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/)) |
 
 ### 2.2 Zoeken en classificatie
 

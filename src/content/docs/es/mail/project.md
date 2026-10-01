@@ -35,6 +35,7 @@ Cada función siguiente se ha verificado punto por punto contra el código fuent
 | Tres modos de correo | Modos Todo, Privado y Cifrado; la semántica de cifrado y la visibilidad del administrador se describen en [Tratamiento de datos y seguridad](/es/mail/data-security/) |
 | Almacenamiento de adjuntos | El almacenamiento de objetos propio de la instancia (resuelto en orden: almacenamiento compatible con S3 propio o configurado, enlace de Cloudflare R2, por defecto Cloudflare KV), con medición de cuota |
 | Experiencia de lectura | Conversaciones agrupadas, vista dividida de tres columnas, respuesta en línea, reacciones con emojis, aplazar／spam／papelera y visor de cabeceras originales |
+| Correo oficial y avisos de seguridad | Distintivo azul verificado announcement@epocanvas.com (isOfficial), 16 avisos de seguridad escalonados, entrega inmutable y verificación contra manipulaciones (véase [Seguridad contra manipulaciones y normas](/es/mail/tamper-proof/)) |
 
 ### 2.2 Búsqueda y clasificación
 

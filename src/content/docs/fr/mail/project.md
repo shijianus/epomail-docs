@@ -35,6 +35,7 @@ Chaque fonction ci-dessous a été vérifiée point par point dans le code sourc
 | Trois modes de messagerie | Modes Tout, Privé et Chiffré ; la sémantique du chiffrement et la visibilité administrateur sont décrites dans [Traitement des données et sécurité](/fr/mail/data-security/) |
 | Stockage des pièces jointes | le stockage d'objets propre à l'instance (résolu dans l'ordre : stockage compatible S3 personnel ou configuré, liaison Cloudflare R2, par défaut Cloudflare KV), avec comptage de quota |
 | Expérience de lecture | Fil de conversation, vue fractionnée à trois colonnes, réponse en ligne, réactions par émoji, report／indésirables／corbeille, et consulteur d'en-têtes bruts |
+| E-mails officiels et avis de sécurité | Badge bleu certifié announcement@epocanvas.com (isOfficial), 16 avis de sécurité hiérarchisés, livraison immuable et vérification d'intégrité (voir [Anti-falsification et normes officielles](/fr/mail/tamper-proof/)) |
 
 ### 2.2 Recherche et classement
 

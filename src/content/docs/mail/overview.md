@@ -47,6 +47,7 @@ EpoCanvas Mail 系建置于 Cloudflare 边缘运算架构（Workers、D1、KV、
 | [数据处理与安全维护](/mail/data-security/) | 数据生命周期、处理矩阵、安全维护措施、事件应变与受检配合 |
 | [第三方处理者清单](/mail/sub-processors/) | 受托处理者、共享对象、涉及资料与国际传输保障机制 |
 | [用语定义](/mail/key-terms/) | 本站法律文档所用技术与法律名词之定义 |
+| [防篡改与官方规范](/mail/tamper-proof/) | 官方邮件规格、16 类分级安全通知、发件人防伪与密码学防篡改校验 |
 
 ## 4. 效力顺序
 

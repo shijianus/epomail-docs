@@ -47,6 +47,7 @@ De juridische documenten op deze site zijn per thema ingedeeld; de documenten ve
 | [Gegevensverwerking en beveiliging](/nl/mail/data-security/) | De gegevenslevenscyclus; de verwerkingsmatrix; de beveiligingsmaatregelen; incidentrespons; medewerking aan controles |
 | [Lijst van verwerkers](/nl/mail/sub-processors/) | Verwerkers, ontvangers van gegevens, betrokken gegevens en waarborgmechanismen voor internationale doorgifte |
 | [Begrippenlijst](/nl/mail/key-terms/) | De definities van de technische en juridische termen die in de juridische documenten op deze site worden gebruikt |
+| [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/) | Officiële e-mailnormen, 16 beveiligingsmeldingen, afzenderbescherming en integriteitsverificatie |
 
 ## 4. Rangorde
 

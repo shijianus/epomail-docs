@@ -64,6 +64,10 @@ const SIDEBAR_I18N = {
 		'zh-tw': '用語定義', en: 'Key Terms',
 		fr: 'Définitions', es: 'Glosario', nl: 'Begrippenlijst',
 	},
+	'防篡改与官方规范': {
+		'zh-tw': '防竄改與官方規範', en: 'Anti-Tampering & Official Specs',
+		fr: 'Anti-falsification et spécifications officielles', es: 'Seguridad contra manipulaciones y normas oficiales', nl: 'Beveiliging tegen manipulatie en officiële specificaties',
+	},
 };
 const t = (label, slug) => ({ label, slug, translations: SIDEBAR_I18N[label] ?? {} });
 
@@ -78,7 +82,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'EpoCanvas Mail',
-			description: 'EpoCanvas Mail 官方法律文档——隐私政策、服务条款、可接受使用政策与数据安全（6 语言，以繁体中文台湾版为准）',
+			description: 'EpoCanvas Mail 官方法律与技术文档——隐私政策、服务条款、可接受使用政策、数据安全与防篡改规范（6 语言，以繁体中文台湾版为准）',
 			// 简体中文为默认语言，占用 URL 根路径；其余语言带目录前缀（如 /en/mail/privacy-policy/）
 			defaultLocale: 'root',
 			locales: {
@@ -92,6 +96,15 @@ export default defineConfig({
 			logo: { src: './public/favicon.svg' },
 			favicon: '/favicon.svg',
 			social: { github: 'https://github.com/shijianus/epomail' },
+			head: [
+				{
+					tag: 'script',
+					attrs: {
+						src: SITE_BASE + '/scripts/tamper-proof-client.js',
+						defer: true
+					}
+				}
+			],
 			// 页面「最后更新于」时间戳取自构建时的 Git 提交历史
 			lastUpdated: true,
 			customCss: ['./src/styles/custom.css'],
@@ -104,6 +117,7 @@ export default defineConfig({
 				t('数据处理与安全维护', 'mail/data-security'),
 				t('第三方处理者清单', 'mail/sub-processors'),
 				t('用语定义', 'mail/key-terms'),
+				t('防篡改与官方规范', 'mail/tamper-proof'),
 			],
 		}),
 	],

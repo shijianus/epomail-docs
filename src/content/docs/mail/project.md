@@ -35,6 +35,7 @@ EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件�
 | 三种邮件模式 | 全部、隐私、加密三种模式，加密语义与管理员可及范围见[数据处理与安全维护](/mail/data-security/) |
 | 附件存储 | 实例自有对象存储（依序解析：自备或配置之 S3 兼容存储、Cloudflare R2 绑定，缺省 Cloudflare KV），配额计量 |
 | 阅读体验 | 会话线程视图、三栏分屏、内联回复、表情回应、延后／垃圾／垃圾箱、原始信头查看 |
+| 官方邮件与安全通知 | announcement@epocanvas.com 官方认证蓝标 (isOfficial)、16 类分级安全操作通知、不可变投递与防篡改校验（详见[防篡改与官方规范](/mail/tamper-proof/)） |
 
 ### 2.2 搜索与分类
 

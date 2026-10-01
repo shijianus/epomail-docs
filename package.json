@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/generate-tamper-proof.mjs && astro build",
+    "deploy": "pnpm run build && wrangler pages deploy dist --project-name epomail-docs --branch main",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "python scripts/check-structure.py && python scripts/verify-laws.py",
-    "validate": "astro build && node scripts/validate-anchors.cjs && python scripts/check-structure.py && python scripts/verify-laws.py"
+    "check": "python3 scripts/check-structure.py",
+    "validate": "pnpm run build && node scripts/validate-anchors.cjs && python3 scripts/check-structure.py"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.32.0",

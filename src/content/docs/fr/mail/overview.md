@@ -47,6 +47,7 @@ Les documents juridiques du présent site sont organisés par thème ; ils se re
 | [Traitement des données et maintien de la sécurité](/fr/mail/data-security/) | Le cycle de vie des données ; la matrice de traitement ; les mesures de maintien de la sécurité ; la réponse aux incidents ; la coopération aux inspections |
 | [Liste des sous-traitants](/fr/mail/sub-processors/) | Les sous-traitants, les destinataires du partage, les données concernées et les mécanismes de garantie des transferts internationaux |
 | [Définitions](/fr/mail/key-terms/) | Les définitions des termes techniques et juridiques employés dans les documents juridiques du présent site |
+| [Anti-falsification et normes officielles](/fr/mail/tamper-proof/) | Spécifications des e-mails officiels, 16 avis de sécurité, anti-usurpation et vérification d'intégrité |
 
 ## 4. Ordre de priorité
 
