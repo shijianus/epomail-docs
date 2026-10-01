@@ -39,7 +39,7 @@ Every feature below has been verified item by item against the repository source
 ### 2.2 Search and Classification
 
 - Advanced search syntax: field filters such as `from`, `to`, and `subject` combined with free keywords, at two levels (site-wide search and in-page find), with hit highlighting based on the CSS Highlights API;
-- Classification rule engine: built-in default templates (Social, Subscriptions, Promotions), composable conditions and exceptions, blocklists and allowlists with hard interception, and a bypass switch for internal mail;
+- Classification rule engine: built-in default templates (Community, Subscriptions, Promotions, Work), composable conditions and exceptions, blocklists and allowlists with hard interception, and a bypass switch for internal mail;
 - Captcha extraction: Workers AI automatically extracts verification codes from email.
 
 ### 2.3 AI Capabilities

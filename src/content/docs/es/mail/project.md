@@ -39,7 +39,7 @@ Cada función siguiente se ha verificado punto por punto contra el código fuent
 ### 2.2 Búsqueda y clasificación
 
 - Sintaxis de búsqueda avanzada: filtros por campos como `from`, `to` y `subject` combinados con palabras clave libres, en dos niveles (búsqueda en todo el sitio y búsqueda en la página), con resaltado de coincidencias basado en la CSS Highlights API;
-- Motor de reglas de clasificación: plantillas predeterminadas integradas (Social, Suscripciones, Promociones), condiciones combinables y excepciones, listas negras y blancas con interceptación estricta, e interruptor de bypass para el correo interno;
+- Motor de reglas de clasificación: plantillas predeterminadas integradas (Comunidad, Suscripciones, Promociones, Trabajo), condiciones combinables y excepciones, listas negras y blancas con interceptación estricta, e interruptor de bypass para el correo interno;
 - Extracción de códigos de verificación: Workers AI extrae automáticamente los códigos de verificación del correo.
 
 ### 2.3 Funciones de IA

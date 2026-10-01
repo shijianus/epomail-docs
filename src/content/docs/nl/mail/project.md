@@ -39,7 +39,7 @@ Elke functie hieronder is punt voor punt geverifieerd tegen de broncode van de r
 ### 2.2 Zoeken en classificatie
 
 - Geavanceerde zoeksyntaxis: veldfilters zoals `from`, `to` en `subject` gecombineerd met vrije trefwoorden, op twee niveaus (zoeken op de hele site en zoeken op de pagina), met markering van treffers op basis van de CSS Highlights API;
-- Regelengine voor classificatie: ingebouwde standaardsjablonen (Sociaal, Abonnementen, Promoties), combineerbare voorwaarden en uitzonderingen, zwarte en witte lijsten met harde onderschepping, en een bypass-schakelaar voor interne mail;
+- Regelengine voor classificatie: ingebouwde standaardsjablonen (Gemeenschap, Abonnementen, Promoties, Werk), combineerbare voorwaarden en uitzonderingen, zwarte en witte lijsten met harde onderschepping, en een bypass-schakelaar voor interne mail;
 - Extractie van verificatiecodes: Workers AI haalt automatisch verificatiecodes uit e-mail.
 
 ### 2.3 AI-mogelijkheden

@@ -39,7 +39,7 @@ Chaque fonction ci-dessous a été vérifiée point par point dans le code sourc
 ### 2.2 Recherche et classement
 
 - Syntaxe de recherche avancée : filtres par champs tels que `from`, `to` et `subject` combinés à des mots-clés libres, à deux niveaux (recherche sur tout le site et recherche dans la page), avec surlignage des correspondances fondé sur la CSS Highlights API ;
-- Moteur de règles de classement : modèles par défaut intégrés (Social, Abonnements, Promotions), conditions composables et exceptions, listes noires et blanches avec interception stricte, et commutateur de contournement du courrier interne ;
+- Moteur de règles de classement : modèles par défaut intégrés (Communauté, Abonnements, Promotions, Travail), conditions composables et exceptions, listes noires et blanches avec interception stricte, et commutateur de contournement du courrier interne ;
 - Extraction des codes de vérification : Workers AI extrait automatiquement les codes de vérification des e-mails.
 
 ### 2.3 Fonctions d'IA
