@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="EpoCanvas Mail Dual-Nature Governance &amp; Global Compliance Framework: Hosted Cloud Service vs Autonomous Open-Source Project across GDPR, CCPA, and APAC Regulations">
+  <defs>
+    <linearGradient id="cloudGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="gitGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="boxShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <style>
+    .bg { fill: #f8fafc; }
+    .card-hosted { fill: url(#cloudGrad); stroke: #2563eb; stroke-width: 1.8; filter: url(#boxShadow); }
+    .card-oss { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; filter: url(#boxShadow); }
+    .card-bottom { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; filter: url(#boxShadow); }
+    .title-main { font: 700 18px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #0f172a; }
+    .box-title { font: 700 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #0f172a; }
+    .box-sub { font: 400 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #475569; line-height: 1.55; }
+    .badge { fill: #dbeafe; stroke: #bfdbfe; stroke-width: 1; }
+    .badge-alt { fill: #e2e8f0; stroke: #cbd5e1; stroke-width: 1; }
+    .badge-txt { font: 700 10.5px -apple-system, BlinkMacSystemFont, sans-serif; fill: #1d4ed8; letter-spacing: 0.6px; }
+    .badge-alt-txt { font: 700 10.5px -apple-system, BlinkMacSystemFont, sans-serif; fill: #334155; letter-spacing: 0.6px; }
+    .reg-card { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; }
+    .reg-title { font: 700 12px -apple-system, BlinkMacSystemFont, sans-serif; fill: #0f172a; }
+    .reg-txt { font: 400 11px -apple-system, BlinkMacSystemFont, sans-serif; fill: #64748b; line-height: 1.45; }
+
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .card-hosted { fill: rgba(37,99,235,0.14); stroke: #3b82f6; }
+      .card-oss { fill: #111827; stroke: #1e293b; }
+      .card-bottom { fill: #111827; stroke: #1e293b; }
+      .title-main { fill: #f8fafc; }
+      .box-title { fill: #f1f5f9; }
+      .box-sub { fill: #94a3b8; }
+      .badge { fill: rgba(30,64,175,0.3); stroke: #1e3a8a; }
+      .badge-alt { fill: #1e293b; stroke: #334155; }
+      .badge-txt { fill: #93c5fd; }
+      .badge-alt-txt { fill: #cbd5e1; }
+      .reg-card { fill: #1e293b; stroke: #334155; }
+      .reg-title { fill: #f1f5f9; }
+      .reg-txt { fill: #94a3b8; }
+    }
+  </style>
+
+  <!-- Background Canvas -->
+  <rect class="bg" width="1000" height="480" rx="16"/>
+
+  <!-- Top Title -->
+  <text class="title-main" x="40" y="44">EpoCanvas Mail · 双重属性治理边界与全球多法域合规矩阵</text>
+  <rect class="badge" x="720" y="27" width="240" height="24" rx="12"/>
+  <text class="badge-txt" x="734" y="43">DUAL-NATURE FUSION GOVERNANCE</text>
+
+  <!-- Upper Half: Left = Hosted Service; Right = Open Source Project -->
+  <!-- Left Box: Hosted Cloud Service -->
+  <g transform="translate(40, 75)">
+    <rect class="card-hosted" width="445" height="210" rx="12"/>
+    <rect class="badge" x="20" y="16" width="165" height="22" rx="6"/>
+    <text class="badge-txt" x="28" y="31">HOSTED CLOUD SERVICE</text>
+    <text class="box-title" x="20" y="65">官方托管服务 (mail.epocanvas.com)</text>
+    <text class="box-sub" x="20" y="90">• 核心团队作为独立运营者，面向公众提供免商业费用之安全纯净邮箱</text>
+    <text class="box-sub" x="20" y="110">• 恪守绝对零遥测 (Zero Telemetry)，不内嵌任何广告与商业分析追踪</text>
+    <text class="box-sub" x="20" y="130">• 承诺全链路 TLS 1.3 传输加密与 AES-256-GCM 静态存储隔离</text>
+    <text class="box-sub" x="20" y="150">• 声明非商业社区属性，无商业 SLA 保障，用户负有通讯资产备份责任</text>
+    <text class="box-sub" x="20" y="170">• 接受所在地（台湾）主管机关依法实施之数据保护合规检查与监督</text>
+  </g>
+
+  <!-- Right Box: Open-Source Project -->
+  <g transform="translate(515, 75)">
+    <rect class="card-oss" width="445" height="210" rx="12"/>
+    <rect class="badge-alt" x="20" y="16" width="180" height="22" rx="6"/>
+    <text class="badge-alt-txt" x="28" y="31">OPEN-SOURCE CODEBASE</text>
+    <text class="box-title" x="20" y="65">开源专案生态 (shijianus/epomail)</text>
+    <text class="box-sub" x="20" y="90">• 依托 MIT 许可证全球公开发布，保障代码透明度与自建主权自由</text>
+    <text class="box-sub" x="20" y="110">• 自建运营者为唯一排他之「数据控制者」(Sole Data Controller)</text>
+    <text class="box-sub" x="20" y="130">• 上游代码库与官方团队对第三方自建节点零控制权、零连带责任</text>
+    <text class="box-sub" x="20" y="150">• 商标铁律：严禁第三方自建或二次开发站点冒充 EpoCanvas Mail 官方</text>
+    <text class="box-sub" x="20" y="170">• 分发准则：必须完整保留 MIT 许可证原文并独立公示自身法律声明</text>
+  </g>
+
+  <!-- Lower Half: Global Multi-Jurisdiction Compliance Matrix -->
+  <g transform="translate(40, 305)">
+    <rect class="card-bottom" width="920" height="145" rx="12"/>
+    <text class="box-title" x="24" y="28">全球多法域合规框架与跨境流转标准 (Global Jurisdiction Standards)</text>
+    
+    <!-- Sub-card 1: EU GDPR -->
+    <g transform="translate(24, 42)">
+      <rect class="reg-card" width="275" height="88" rx="8"/>
+      <text class="reg-title" x="14" y="22">🇪🇺 欧洲经济区 (EU / EEA GDPR)</text>
+      <text class="reg-txt" x="14" y="40">• 落实 Articles 15–22 当事人全权</text>
+      <text class="reg-txt" x="14" y="56">• 基于 Art. 6 履约必需与知情同意</text>
+      <text class="reg-txt" x="14" y="72">• Standard Contractual Clauses (SCCs)</text>
+    </g>
+
+    <!-- Sub-card 2: US CCPA/CPRA -->
+    <g transform="translate(322, 42)">
+      <rect class="reg-card" width="275" height="88" rx="8"/>
+      <text class="reg-title" x="14" y="22">🇺🇸 美国法域 (CCPA / CPRA)</text>
+      <text class="reg-txt" x="14" y="40">• 严正承诺不销售亦不共享个人信息</text>
+      <text class="reg-txt" x="14" y="56">• 落实知情权、更正权与彻底删除权</text>
+      <text class="reg-txt" x="14" y="72">• 行使隐私权利绝无商业歧视待遇</text>
+    </g>
+
+    <!-- Sub-card 3: APAC / Regional -->
+    <g transform="translate(620, 42)">
+      <rect class="reg-card" width="275" height="88" rx="8"/>
+      <text class="reg-title" x="14" y="22">🌏 亚太地区与跨国中继 (APAC PDPA)</text>
+      <text class="reg-txt" x="14" y="40">• 台湾运营主体严格恪守本地个人资料保护法</text>
+      <text class="reg-txt" x="14" y="56">• 明确披露国际 SMTP 路由跨网中继特性</text>
+      <text class="reg-txt" x="14" y="72">• 用户自负端点防护，严禁黑客滥用行为</text>
+    </g>
+  </g>
+
+</svg>

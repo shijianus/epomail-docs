@@ -1,13 +1,13 @@
 ---
-title: Tratamiento de datos y operaciones de seguridad
-description: Ciclo de vida de los datos, matriz de almacenamiento, defensas criptográficas, gobernanza de doble naturaleza y cumplimiento normativo global en EpoCanvas Mail.
+title: Procesamiento de Datos y Mantenimiento de la Seguridad
+description: Ciclo de vida de los datos, matriz de tratamiento, arquitectura de defensa en profundidad, gobernanza dual y cumplimiento normativo global de EpoCanvas Mail.
 ---
 
-**Fecha de entrada en vigor: 1 de octubre de 2026 | Versión: 5.6**
+**Fecha de vigencia: 1 de octubre de 2026 | Versión: 5.6**
 
 <div class="google-hero-card">
   <div class="google-hero-lead">
-    EpoCanvas Mail opera bajo una premisa fundamental: «La privacidad es un derecho humano inalienable» y «El código es el contrato». Nuestra plataforma se fundamenta en una estructura de Fusión de Doble Naturaleza que une un servicio en la nube gestionado, sin telemetría y sin publicidad, con un proyecto de software de código abierto autónomo. Este documento expone el ciclo de vida de los datos, la matriz de almacenamiento cifrado, el modelo de defensa en profundidad de cuatro niveles y los límites de responsabilidad jurídica en diversas jurisdicciones globales.
+    EpoCanvas Mail defiende la filosofía de ingeniería de que «la privacidad es un derecho humano fundamental» y «el código es el contrato». Construimos una arquitectura de gobernanza de «fusión de doble naturaleza» que integra un servicio gestionado en la nube y un proyecto de código abierto autónomo. Este documento detalla el ciclo de vida de los datos, la matriz de almacenamiento criptográfico, la ingeniería de defensa en profundidad en cuatro capas y las fronteras de cumplimiento en múltiples jurisdicciones.
   </div>
   <div class="google-hero-meta">
     <span class="google-pill">🛡️ Cero telemetría (Zero Telemetry)</span>
@@ -17,166 +17,315 @@ description: Ciclo de vida de los datos, matriz de almacenamiento, defensas crip
   </div>
 </div>
 
-El presente documento se rige por nuestra [Política de privacidad](/es/mail/privacy-policy/) y los [Términos del servicio](/es/mail/terms-of-service/). Constituye una guía fidedigna para usuarios que verifican nuestras garantías técnicas, una referencia operativa para administradores de nodos independientes y una especificación de auditoría para autoridades regulatorias.
+El presente documento se rige por la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos de Servicio](/es/mail/terms-of-service/). Sirve como guía de referencia para que los usuarios verifiquen las garantías técnicas de privacidad, como estándar operativo para administradores de nodos independientes y como especificación de auditoría legal.
 
-## 1. Ciclo de vida de los datos y modelo de procesamiento perimetral
+## 1. Ciclo de vida completo de los datos y modelo de procesamiento perimetral
 
-El ciclo de vida de las comunicaciones en EpoCanvas Mail se estructura en seis fases operativas: Recopilación, Procesamiento, Uso, Transferencia, Conservación y Eliminación irreversible. Cada fase se ejecuta de forma sin estado en la red perimetral Anycast de Cloudflare, evitando la persistencia indebida y la fuga de información entre instancias.
+Los datos personales y los flujos de comunicación se dividen estrictamente en seis etapas del ciclo de vida: Recopilación, Tratamiento, Utilización, Transferencia, Conservación y Destrucción criptográfica. Todas las fases se ejecutan sin estado en la red perimetral Anycast de Cloudflare, eliminando residuos en disco y accesos laterales indebidos.
 
-![EpoCanvas Mail Ciclo de vida de los datos: Recopilar -> Procesar -> Usar -> Transferir -> Conservar -> Destruir](/images/mail/data-flow.svg)
+![Procesamiento de datos y ciclo de vida integral de EpoCanvas Mail: Recopilación sin estado, ejecución perimetral en aislados V8, cifrado en sobre AES-256-GCM, almacenamiento escalonado y trituración criptográfica](/images/mail/data-security-pipeline.svg)
 
-*Figura 1: Flujo completo del ciclo de vida de los datos personales. Cada etapa aplica estrictamente el principio de minimización y aislamiento criptográfico; véase la sección 5 de la [Política de privacidad](/es/mail/privacy-policy/) para las bases jurídicas del tratamiento.*
+*Figura 1: Flujo completo del ciclo de vida de los datos personales. Se aplican principios de minimización y aislamiento criptográfico riguroso; definiciones legales en la [Política de Privacidad](/es/mail/privacy-policy/) Sección 5.*
 
 ### 1.1 Recopilación mínima y compromiso de cero telemetría
 
-La fase de recopilación aplica una rigurosa minimización de datos. El sistema únicamente recopila los identificadores indispensables para la autenticación de la cuenta (nombre de usuario y alias de correo). Nunca se recopilan agendas de contactos, lecturas de giroscopio, portapapeles ni rastreadores entre sitios. Mantenemos un compromiso inquebrantable: **EpoCanvas Mail aplica una política estricta de Cero Telemetría tanto en la instancia oficial como en el código fuente abierto**. No se incluyen SDKs comerciales de análisis, rastreadores publicitarios ni balizas remotas; las interacciones permanecen circunscritas al entorno local del cliente.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🛡️ Recopilación mínima y cero telemetría comercial</div>
+    <span class="google-pill">Minimización de datos · Cero rastreo</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Minimización estricta</strong>: Más allá de los identificadores estrictamente necesarios para el registro y enrutamiento (nombre de usuario, alias de correo) y las credenciales de acceso, el sistema jamás recopila contactos, portapapeles, giroscopio o rastros entre sitios.</p>
+    <p><strong>Cero telemetría sin excepciones</strong>: EpoCanvas Mail aplica una estricta política de «cero telemetría de comportamiento» tanto en la instancia alojada como en el código fuente abierto. No se incluyen SDK analíticos comerciales ni scripts de seguimiento de terceros; las operaciones ocurren en el espacio aislado local.</p>
+  </div>
+</div>
 
-### 1.2 Ejecución efímera y aislamiento en memoria V8
+### 1.2 Ejecución perimetral instantánea y aislamiento de memoria
 
-Al llegar nuevos correos o iniciarse solicitudes de usuario, la lógica de negocio se ejecuta de forma instantánea en entornos aislados V8 (Cloudflare Workers) en el nodo perimetral más próximo. Estos aislados se inicializan en nanosegundos y se destruyen inmediatamente tras completar la petición. Los datos descifrados existen únicamente en memoria volátil y jamás se escriben en discos físicos del servidor anfitrión. Esta arquitectura sin estado erradica la persistencia de datos en memoria, fugas entre procesos y ataques de canal lateral en entornos compartidos.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">⚡ Cómputo perimetral efímero y aislamiento en nanosegundos</div>
+    <span class="google-pill">Cloudflare V8 · Cero escritura en disco</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Aislados V8 sin estado</strong>: Al recibir correos o solicitudes de usuario, la lógica de negocio se procesa de inmediato en el nodo perimetral de Cloudflare Workers más cercano (aislado V8), destruyéndose el entorno en nanosegundos tras finalizar.</p>
+    <p><strong>Sin residuos en disco físico</strong>: Los textos descifrados y los datos de enrutamiento residen únicamente en la memoria RAM volátil, sin escribirse jamás en discos físicos del servidor anfitrión, neutralizando riesgos de procesos zombies o ataques de canal lateral entre inquilinos.</p>
+  </div>
+</div>
 
-### 1.3 Supresión criptográfica y derecho al olvido
+### 1.3 Destrucción criptográfica y mecanismo de olvido irrevocable
 
-Para garantizar el derecho de supresión («derecho al olvido»), el sistema aplica un protocolo automático e irreversible de depuración. Los correos trasladados a la Papelera se conservan durante un periodo de salvaguarda de 7 días, tras el cual un temporizador perimetral (Cron Trigger) los elimina físicamente de la base de datos. Si el buzón supera el 90 % de su cuota, los mensajes eliminados se purgan proactivamente para preservar la integridad del servicio. Al solicitarse la baja de una cuenta, el sistema borra los registros en D1 y KV, y destruye las claves criptográficas derivadas, haciendo imposible su recuperación.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🗑️ Trituración criptográfica y derecho al olvido</div>
+    <span class="google-pill">Margen de 7 días · Sobrescritura de claves</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Margen de seguridad de 7 días</strong>: Los correos en la papelera se conservan durante un período de seguridad de 7 días antes de ser sobrescritos físicamente por tareas programadas Cron; si el almacenamiento supera el 90%, se ejecuta la eliminación física automática.</p>
+    <p><strong>Trituración de claves maestras</strong>: Al cancelar una cuenta, se purgan los registros de las bases de datos D1 y memorias KV, y se sobrescriben irreversiblemente las claves de cifrado en almacenamiento físico, asegurando la extinción matemática absoluta de la información.</p>
+  </div>
+</div>
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 2. Matriz de tratamiento de datos y especificaciones de almacenamiento
+## 2. Matriz de procesamiento de datos y especificaciones de medios de almacenamiento
 
-La siguiente matriz clasifica las categorías de datos tratados, sus finalidades específicas, los soportes de almacenamiento utilizados y sus periodos de retención:
+La siguiente tabla clasifica todas las categorías de datos, campos recopilados, propósitos de tratamiento, medios de almacenamiento subyacentes y períodos de retención bajo controles criptográficos por niveles:
 
-| Categoría de datos | Elementos de datos concretos | Finalidad del tratamiento | Soporte y estándar de seguridad | Periodo de conservación y supresión |
+| Categoría de datos | Elementos específicos | Finalidad del tratamiento | Soporte de almacenamiento y estándar | Conservación y supresión |
 | --- | --- | --- | --- | --- |
-| Credenciales de cuenta | Dirección de correo, usuario, hash de contraseña con sal, clave TOTP (cifrada AES-GCM), códigos de respaldo, clave pública Passkey | Registro, autenticación, segundo factor de autenticación, recuperación de credenciales | Cloudflare D1; PBKDF2 (100.000 iteraciones con sal), cifrado estático de TOTP | Conservado hasta la baja de la cuenta; supresión física inmediata al cancelar |
-| Datos de red y dispositivo | IP de registro, IP de último inicio de sesión, sistema operativo, User-Agent, tipo de dispositivo | Auditoría de seguridad, detección de anomalías, control de velocidad de peticiones | Cloudflare D1; acceso restringido a auditoría de administradores | Conservado hasta la supresión definitiva de la cuenta |
-| Estado de sesión | Tokens JWT, roles RBAC asignados, buzón seleccionado | Autorización en pasarela perimetral, enrutamiento de peticiones | Cloudflare KV; validez máxima de 30 días deslizantes | Revocado al cerrar sesión; caducidad automática tras 30 días de inactividad |
-| Datos de comunicación | Remitente, destinatarios, CC/BCC, asunto, marcas temporales, estado de lectura, etiquetas, estrellas, cuerpo del mensaje | Entrega de correos, organización de hilos, búsqueda | Cloudflare D1 (metadatos); cuerpos cifrados en reposo mediante AES-256-GCM | Controlado por el usuario; purga en 7 días desde Papelera; vaciado al superar 90% |
-| Archivos adjuntos | Nombre original, tipo MIME, tamaño en bytes, contenido binario | Transporte de adjuntos, visualización integrada, descarga segura | Almacenamiento de objetos (S3 BYO > Cloudflare R2 > Cloudflare KV) | Vinculado a la vida del mensaje; eliminado junto con el correo |
-| Registros de seguridad y límites | Contador de fallos de acceso, frecuencia de registro, estadísticas de uso de IA | Prevención de ataques de fuerza bruta, control de abusos | Cloudflare KV; contadores de ventana fija | Bloqueos por fallo expiran en 12 horas; registros diarios depurados; IA 60 días |
-| Huellas de entorno seguro | Dispositivos conocidos, geolocalización (Geo), ASN de red, marca temporal de 1 hora | Detección de accesos extraños, prevención de fatiga de alertas | Cloudflare KV (prefijo `USER_KNOWN_ENV_`); conserva 15 huellas recientes | Eliminado tras 90 días de inactividad o al darse de baja la cuenta |
-| Preferencias de interfaz | Idioma (6 idiomas), modo claro/oscuro, indicadores de notificación | Consistencia de la interfaz de usuario | Navegador localStorage, sincronización opcional con D1 | Conservado hasta borrar la caché o reiniciar ajustes manualmente |
+| Credenciales de cuenta | Dirección de correo, usuario, hash y sal de contraseña, clave TOTP (AES-GCM), hash de respaldo, clave pública Passkey | Registro, verificación, autenticación de dos factores, recuperación | Cloudflare D1; PBKDF2 (100.000 iteraciones con sal), cifrado estático TOTP | Hasta el cierre de la cuenta; eliminación física inmediata |
+| Datos de red y dispositivo | IP de registro, IP de último acceso, sistema operativo, User-Agent, tipo de dispositivo | Auditoría de seguridad, detección de anomalías, control de tasa | Cloudflare D1; acceso exclusivo para auditoría administrativa | Hasta la eliminación física de la cuenta |
+| Estado de sesión | Token JWT, reclamos de roles RBAC, identificador de buzón seleccionado | Autorización en puerta de enlace perimetral, enrutamiento | Cloudflare KV; validez máxima de 30 días | Revocado al cerrar sesión; caduca tras 30 días de inactividad |
+| Datos de comunicaciones | Remitente y destinatario, CC/BCC, asunto, marcas de tiempo, estados de lectura, etiquetas, estrellas, cuerpo | Entrega de correos, organización de hilos, búsqueda | Cloudflare D1 (metadatos); cuerpo cifrado con AES-256-GCM | Controlado por el titular; papelera purgada a los 7 días; purga automática al 90% |
+| Adjuntos | Nombre de archivo original, tipo MIME, tamaño en bytes, contenido binario | Transmisión de adjuntos, previsualización, descarga segura | Almacenamiento de objetos propio (orden: S3 propio, Cloudflare R2, por defecto KV); cabeceras defensivas | Vinculado al ciclo de vida del correo; eliminado físicamente al unísono |
+| Registros de seguridad | Conteo de inicios de sesión fallidos, control de registros, estadísticas de IA | Protección contra fuerza bruta, prevención de abusos | Cloudflare KV; contadores de ventana fija | Bloqueos caducan en 12h; registros purgados a diario; métricas de IA guardadas 60 días |
+| Huellas de anomalías | Dispositivos conocidos, ubicación geográfica (Geo), ASN de red, marcas de 1 hora | Detección de entornos anómalos, deduplicación de alertas | Cloudflare KV (prefijo `USER_KNOWN_ENV_`); 15 huellas recientes | Eliminado tras 90 días de inactividad o borrado de cuenta |
+| Preferencias de interfaz | Idioma (6 idiomas), modo claro/oscuro, marcas de notificación | Consistencia visual | localStorage del navegador, sincronización opcional con D1 | Conservado hasta borrar caché o restablecimiento manual |
 
-### 2.1 Sanitización de credenciales y estándares PBKDF2 y WebAuthn
+### 2.1 Desanonimización de credenciales y estándares de almacenamiento PBKDF2 / WebAuthn
 
-Las credenciales de acceso se protegen mediante técnicas criptográficas unidireccionales de alta robustez. La autenticación por contraseña nunca almacena texto plano ni algoritmos vulnerables, empleando PBKDF2 con sal aleatoria de alta entropía durante 100.000 iteraciones para neutralizar ataques basados en tablas arcoíris. En la autenticación en dos pasos (TOTP RFC 6238), las semillas se cifran mediante AES-256-GCM antes de guardarse en D1. Por su parte, las llaves de paso (Passkeys FIDO2 / WebAuthn) se basan en criptografía asimétrica: el servidor solo custodia la clave pública, mientras que la clave privada nunca sale del enclave seguro del hardware del usuario.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🔐 Protección criptográfica unidireccional y seguridad por hardware</div>
+    <span class="google-pill">PBKDF2 100k · WebAuthn FIDO2</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>100.000 iteraciones con PBKDF2</strong>: Las contraseñas nunca se guardan en texto claro. Se aplica salado aleatorio con 100.000 iteraciones de PBKDF2, ofreciendo una defensa matemática contundente frente a tablas arcoíris y ataques de fuerza bruta con GPU aceleradas.</p>
+    <p><strong>Protección física con TOTP y Passkeys</strong>: Las semillas TOTP se cifran con AES-256-GCM antes de guardarse; las Passkeys se basan en criptografía asimétrica donde la clave privada jamás abandona el chip seguro (Secure Enclave) del usuario, imposibilitando el phishing.</p>
+  </div>
+</div>
 
-### 2.2 Almacenamiento por niveles y almacenamiento externo propio (BYO Storage)
+### 2.2 Desacoplamiento de almacenamiento y arquitectura BYO-Storage
 
-Para la gestión de adjuntos y grandes cargas binarias, el sistema incorpora una capa de almacenamiento desacoplada. Los canales se resuelven jerárquicamente: se prioriza el almacenamiento compatible con S3 aportado por el usuario (Bring-Your-Own Storage), seguido del almacenamiento perimetral nativo Cloudflare R2, recurriendo a Cloudflare KV en configuraciones ligeras. El almacenamiento propio del usuario opera con credenciales independientes, confiriéndole soberanía total sobre sus archivos. Todos los adjuntos se sirven obligatoriamente con encabezados `Content-Disposition: attachment` y `X-Content-Type-Options: nosniff`.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">📦 Almacenamiento modular y cabeceras de respuesta defensivas</div>
+    <span class="google-pill">BYO-S3 · R2 nativo · KV de reserva</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Enrutamiento en tres niveles de almacenamiento</strong>: Los adjuntos se dirigen de forma inteligente: primero a cubos compatibles con S3 propios (BYO-Storage), segundo a Cloudflare R2 perimetral y como reserva ligera a KV. El modelo BYO otorga soberanía total al usuario sobre sus activos digitales.</p>
+    <p><strong>Cabeceras defensivas para navegadores</strong>: Toda descarga de archivos incluye obligatoriamente <code>Content-Disposition: attachment</code> y <code>X-Content-Type-Options: nosniff</code>, impidiendo la ejecución de scripts maliciosos y ataques de descarga inadvertida.</p>
+  </div>
+</div>
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 3. Modelo de defensa en profundidad de cuatro niveles
+## 3. Sistema de defensa en profundidad de cuatro capas e implementación criptográfica
 
-Para contrarrestar amenazas procedentes de la red pública, EpoCanvas Mail incorpora una arquitectura de seguridad por capas que abarca la red perimetral, los accesos, el almacenamiento persistente y el entorno cliente:
+Para blindar las comunicaciones contra las complejas amenazas de Internet, EpoCanvas Mail implementa un modelo de defensa en profundidad en cuatro capas:
 
-![EpoCanvas Mail Modelo de defensa en profundidad de cuatro niveles](/images/mail/partition-security.svg)
+![Modelo de defensa en profundidad en cuatro capas de EpoCanvas Mail: Capa 1 Puerta de enlace perimetral y anti-SSRF, Capa 2 Autenticación FIDO2 Passkeys, Capa 3 Cifrado en reposo AES-256-GCM, Capa 4 Aislamiento en Shadow DOM y auditoría de integridad](/images/mail/defense-layers-architecture.svg)
 
-*Figura 2: Arquitectura de defensa en profundidad. Cada capa actúa de manera independiente y redundante para proteger el conjunto de los activos de datos ante contingencias extremas.*
+*Figura 2: Modelo técnico de defensa en profundidad de cuatro capas. Cada nivel funciona de forma independiente para resguardar la información ante presiones extremas.*
 
-A continuación se resumen 11 directrices clave de seguridad técnica, operativa y organizativa:
+La siguiente tabla describe la implementación de 11 controles clave de seguridad en los ámbitos técnico, organizativo y de auditoría:
 
-| Directriz de seguridad | Implementación técnica y gobernanza en el servicio |
+| Control de seguridad | Aplicación en el servicio |
 | --- | --- |
-| Gestión de accesos y personal | Administradores designados con roles escalonados según modelo RBAC |
-| Delimitación de datos personales | Inventario detallado recogido en la sección 2 del presente documento |
-| Gestión y evaluación de riesgos | Cifrado configurable, bloqueo por intentos fallidos, auditoría abierta de código |
-| Prevención y respuesta a incidentes | Protocolo normalizado en 4 etapas detallado en la sección 6 |
-| Procedimientos internos de gestión | Mapeo de actividades de tratamiento según la sección 5 de la Política de privacidad |
-| Control de accesos y autorización | Enrutamiento con HMAC, comprobación estricta de permisos y filtrado en pasarela |
-| Capacitación y buenas prácticas | Directrices operativas para administradores independientes y guías técnicas |
-| Seguridad física de instalaciones | Infraestructura de Cloudflare con certificación SOC 2 Tipo II e ISO/IEC 27001 |
-| Auditoría técnica y verificación | Registro de eventos de seguridad (IP, equipo, errores); revocación de sesiones |
-| Conservación de pistas y evidencias | Trazas de autenticación custodiadas; tratamiento según Política de uso aceptable |
-| Mejora continua y parches | Publicación periódica de versiones y mitigación coordinada de vulnerabilidades |
+| Asignación de personal y recursos | Administradores designados con control de acceso basado en roles (RBAC) estricto |
+| Delimitación de datos personales | Alcance rigurosamente establecido en la matriz de la Sección 2 |
+| Evaluación y gestión de riesgos | Tres modalidades de cifrado, bloqueos automáticos, limitación de tasa y código abierto auditable |
+| Prevención y respuesta a incidentes | Protocolo formalizado en la Sección 4 |
+| Procedimientos internos de gestión | Asignación de actividades descrita en la [Política de Privacidad](/es/mail/privacy-policy/) Sección 5 |
+| Gestión de seguridad y personal | Rutas con hash criptográfico, comprobación restrictiva por defecto y filtrado de parámetros |
+| Sensibilización y capacitación | Responsabilidad de cada operador independiente; la documentación oficial sirve como material |
+| Seguridad física de instalaciones | Infraestructura de Cloudflare con certificaciones SOC 2 Type II e ISO/IEC 27001 |
+| Mecanismos de auditoría de seguridad | Registros de acceso con privilegios restringidos y capacidad de revocación inmediata de sesiones |
+| Conservación de pistas probatorias | Registros guardados hasta la supresión de la cuenta o según la [Política de Uso Aceptable](/es/mail/acceptable-use/) |
+| Mejora continua de la seguridad | Evolución continua de la comunidad y avisos de seguridad coordinados |
 
-### 3.1 Nivel 1: Pasarela perimetral y mitigación de abusos
+### 3.1 Infraestructura perimetral y puerta de enlace anti-SSRF
 
-Como primera línea de defensa, la red perimetral Anycast de Cloudflare absorbe y neutraliza ataques de denegación de servicio distribuido (DDoS), exigiendo conexiones seguras mediante TLS 1.3 y precarga de HSTS para evitar la interceptación y degradación del tráfico. Las pasarelas perimetrales aplican filtros contra ataques SSRF: cualquier petición externa o webhook que intente acceder a redes privadas locales (RFC 1918) o interfaces de metadatos de proveedores en la nube (como 169.254.169.254) es rechazada de inmediato.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🌐 Depuración perimetral y filtrado inteligente anti-SSRF</div>
+    <span class="google-pill">Capa 1 · TLS 1.3 / HSTS</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Mitigación DDoS perimetral Anycast</strong>: La red de Cloudflare absorbe y neutraliza ataques volumétricos distribuidos, obligando al uso de TLS 1.3 con HSTS precargado para erradicar ataques de intermediario y degradación de protocolos.</p>
+    <p><strong>Filtro estricto anti-SSRF</strong>: Las peticiones salientes de webhooks, proxys de imágenes o rastreo se someten a estricta verificación de direcciones IP. Cualquier intento de sondear redes privadas (RFC 1918) o metadatos de nube interna (ej. 169.254.169.254) es bloqueado en la frontera perimetral.</p>
+  </div>
+</div>
 
-### 3.2 Nivel 2: Credenciales resistentes al phishing y WebAuthn
+### 3.2 Autenticación robusta y llaves de paso Passkeys sin contraseña
 
-La autenticación descarta contraseñas débiles mediante la integración nativa de FIDO2 / WebAuthn. Las llaves de paso quedan vinculadas criptográficamente al dominio específico, anulando ataques de phishing mediante servidores proxy inversos. En las sesiones con contraseña, el sistema impone bloqueo de 12 horas tras reiterados intentos fallidos y compara los accesos con una base de 15 huellas de entorno habituales (dispositivos y ASN), notificando anomalías de manera preventiva.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🔑 Llaves de paso vinculadas al dominio y control de tasa</div>
+    <span class="google-pill">Capa 2 · Huellas anómalas</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Integración FIDO2 WebAuthn</strong>: Las llaves de paso modernas se enlazan criptográficamente con el origen del dominio, bloqueando el phishing; se admiten llaves de seguridad por hardware (YubiKey) y sensores biométricos nativos.</p>
+    <p><strong>Retroceso exponencial y huellas del entorno</strong>: Múltiples fallos consecutivos de contraseña activan un retardo exponencial y un bloqueo de 12 horas; el acceso se coteja con las 15 huellas de red y dispositivos habituales para notificar accesos sospechosos.</p>
+  </div>
+</div>
 
-### 3.3 Nivel 3: Cifrado en reposo AES-256-GCM y segregación de claves
+### 3.3 Cifrado de datos en reposo y segregación de claves
 
-El almacenamiento persistente implementa cifrado en reposo mediante el algoritmo AES-256-GCM. Antes de almacenarse en D1, el cuerpo de los mensajes se cifra con claves contextuales y una etiqueta de autenticación, protegiendo los datos frente a fugas de copias de seguridad o accesos indebidos a discos físicos. Las claves de cifrado se inyectan a través de variables de entorno seguras, manteniéndose separadas de las tablas de datos para que los registros resulten indescifrables si se accede de forma no autorizada a la base de datos.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🔒 Cifrado de nivel industrial AES-256-GCM</div>
+    <span class="google-pill">Capa 3 · Segregación física</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Etiquetas de autenticación individuales (Tag)</strong>: Antes de insertarse en Cloudflare D1, el texto del correo se cifra con claves derivadas generando textos cifrados con etiqueta de autenticación (AES-256-GCM), protegiendo contra filtraciones fuera de línea o secuestros de bases de datos.</p>
+    <p><strong>Inyección segura en tiempo de ejecución</strong>: Las claves maestras se transmiten exclusivamente como variables de entorno cifradas de Cloudflare Workers, sin guardarse en discos ni en el código, garantizando aislamiento estricto entre el medio de almacenamiento y la lógica de descifrado.</p>
+  </div>
+</div>
 
-### 3.4 Nivel 4: Aislamiento en Shadow DOM e integridad de la documentación
+### 3.4 Espacio aislado del cliente y auditoría inmutable
 
-La interfaz de usuario implementa un entorno de aislamiento estricto. Los correos electrónicos en formato HTML son saneados mediante DOMPurify para suprimir etiquetas `<script>`, `<style>`, `<iframe>`, `<form>` y eventos en línea, y se renderizan dentro de un contenedor Shadow DOM cerrado que impide la alteración visual del cliente o el robo de cookies de sesión. Asimismo, la documentación técnica oficial está anclada a valores SHA-256 y confirmaciones de Git, certificando su inmutabilidad.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🛡️ Aislamiento en Shadow DOM y verificación inmutable</div>
+    <span class="google-pill">Capa 4 · Lista blanca DOMPurify</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Aislamiento de contenido HTML en dos fases</strong>: Los correos HTML entrantes se depuran con listas blancas mediante DOMPurify, eliminando etiquetas peligrosas como <code>&lt;script&gt;</code>, <code>&lt;iframe&gt;</code> o controladores en línea, y se aíslan dentro de un Shadow DOM para evitar filtraciones de estilos o secuestros de sesión.</p>
+    <p><strong>Manifiesto público de verificación</strong>: Las especificaciones de documentación se auditan con commits de Git y hashes SHA-256 públicos, asegurando total inmutabilidad y transparencia verificable en todo el despliegue.</p>
+  </div>
+</div>
 
 :::caution[Alcance y limitaciones técnicas del cifrado]
-Las opciones de cifrado que ofrece el servicio corresponden a cifrado estático en el servidor (Server-side Encryption at Rest). Las claves se derivan de las variables de entorno de la instancia y del contexto del usuario. Este mecanismo mitiga la sustracción de copias de seguridad o accesos indebidos al almacenamiento; no constituye cifrado de extremo a extremo (E2EE). Los operadores con acceso administrativo a la infraestructura tienen la capacidad técnica teórica de descifrar la información. Si las comunicaciones requieren confidencialidad absoluta frente al propio operador, los usuarios deben cifrar los mensajes previamente en local utilizando herramientas como GPG/PGP.
+Los modos «Todos / Privacidad / Cifrado» hacen referencia al cifrado estático en el servidor (Server-side Encryption at Rest). Las claves se derivan de las variables de entorno de la instancia y del contexto autenticado del usuario. Esta arquitectura mitiga riesgos derivados de filtraciones de copias de seguridad o accesos indebidos a discos físicos, pero no constituye un cifrado de extremo a extremo (E2EE); el operador de la instancia tiene la capacidad técnica de inspeccionar los paquetes descifrados en memoria. Para escenarios de confidencialidad crítica o entornos no confiables, los usuarios deben emplear herramientas de cifrado asimétrico local como GPG / PGP antes del envío.
 :::
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 4. Gobernanza de doble naturaleza y límites de responsabilidad
+## 4. Fusión de doble naturaleza y fronteras de gobernanza de código abierto
 
-EpoCanvas Mail posee una «Doble Naturaleza»: funciona simultáneamente como un servicio de correo gestionado gratuito y como un proyecto de software de código abierto distribuido bajo licencia MIT. Definir con precisión las responsabilidades de cada ámbito es indispensable para la seguridad jurídica de la comunidad:
+EpoCanvas Mail posee una «doble naturaleza»: opera como un servicio público gratuito alojado en la nube y, al mismo tiempo, como un proyecto de software de código abierto con licencia MIT. Delimitar con nitidez ambas facetas es indispensable para la comunidad:
 
-![EpoCanvas Mail Límites de responsabilidad: Proyecto de código abierto -> Operador de la instancia -> Usuario final](/images/mail/self-host-responsibilities.svg)
+![Matriz de gobernanza de doble naturaleza y cumplimiento global de EpoCanvas Mail: Límites entre servicio alojado y proyecto de código abierto, con adecuación al RGPD, CCPA y normativas APAC](/images/mail/dual-nature-compliance-matrix.svg)
 
-*Figura 3: Modelo de gobernanza de doble naturaleza. El proyecto de código abierto suministra exclusivamente el software; los operadores de instancias actúan como responsables del tratamiento independientes; los usuarios pueden optar libremente por el servicio gestionado o la autoinstalación.*
+*Figura 3: Fronteras de gobernanza y matriz de cumplimiento internacional. El proyecto de código abierto provee el código fuente; cada operador independiente actúa como responsable del tratamiento con responsabilidad legal exclusiva.*
 
-### 4.1 Compromisos y limitaciones de responsabilidad del servicio gestionado
+### 4.1 Compromisos y limitaciones de responsabilidad del servicio alojado
 
-La instancia oficial en `mail.epocanvas.com` está gestionada por el equipo central del proyecto como operador independiente. Nos comprometemos a mantener la disponibilidad, respetar la ausencia de telemetría y aplicar la verificación criptográfica correspondiente. No obstante, al tratarse de un servicio comunitario sin ánimo de lucro, no se ofrecen acuerdos de nivel de servicio (SLA) comerciales ni se asume responsabilidad por daños indirectos derivados de fuerza mayor, interrupciones de proveedores externos o custodia indebida de credenciales por parte del usuario. Los usuarios deben respaldar periódicamente sus correos críticos.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">☁️ Compromisos operativos del nodo oficial en la nube</div>
+    <span class="google-pill">mail.epocanvas.com · SLA no comercial</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Disponibilidad del servicio público</strong>: La plataforma oficial <code>mail.epocanvas.com</code> está gestionada por el equipo central como operador independiente. Nos comprometemos a garantizar una alta disponibilidad de los nodos, cumplimiento estricto de cero telemetría y auditoría de integridad.</p>
+    <p><strong>Exención de responsabilidad y copias de seguridad</strong>: Como servicio público comunitario sin fines comerciales, no ofrece garantías empresariales de SLA ni se responsabiliza de cortes en la infraestructura de red de Cloudflare o extravío de credenciales por descuido del usuario. El usuario es el custodio final de sus datos y debe realizar copias periódicas.</p>
+  </div>
+</div>
 
-### 4.2 Licencia de código abierto, bifurcaciones y distribución
+### 4.2 Licencia de código abierto, bifurcaciones y normas de distribución
 
-El código fuente de EpoCanvas Mail se ofrece internacionalmente bajo la licencia MIT. Cualquier persona tiene el derecho legal de auditar, bifurcar (fork) o desplegar nodos privados independientes. Al redistribuir obras derivadas o prestar servicios públicos, deben observarse las siguientes directrices:
-1. **Protección de marca e identidad**: Ninguna instalación independiente puede utilizar «EpoCanvas Mail Oficial» o expresiones equivalentes que induzcan a confusión sobre su pertenencia al equipo original;
-2. **Conservación de avisos de autoría**: Toda copia o modificación sustancial del código debe conservar el aviso de copyright original y el texto de la licencia MIT;
-3. **Avisos legales independientes**: Los administradores que ofrezcan cuentas a terceros deben publicar sus propios términos de servicio y políticas de privacidad, sin remitir a los dominios del proyecto original.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">📜 Licencia MIT y líneas rojas para el desarrollo secundario</div>
+    <span class="google-pill">Licencia MIT · Aislamiento de marca · Declaración propia</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Libertad de código y auditoría comunitaria</strong>: El código fuente se distribuye bajo la licencia permisiva MIT. Cualquier persona tiene derecho legal a revisar, auditar, crear bifurcaciones secundarias o desplegar nodos comerciales privados.</p>
+    <p><strong>Líneas rojas irrenunciables de distribución</strong>:</p>
+    <ul>
+      <li><strong>Aislamiento de marca comercial</strong>: Queda prohibido usar «EpoCanvas Mail Oficial», «Nodo Oficial» o términos similares que confundan al público en dominios, cabeceras o publicidad sin autorización escrita;</li>
+      <li><strong>Preservación de derechos de autor y licencia</strong>: Toda redistribución de código o versiones derivadas debe conservar íntegros los avisos de autoría originales y el texto de la licencia MIT;</li>
+      <li><strong>Declaración de servicio independiente</strong>: Quienes ofrezcan servicios al público deben publicar sus propios términos de privacidad e identidad legal, sin remitir a la web oficial como aval legal.</li>
+    </ul>
+  </div>
+</div>
 
-### 4.3 Obligaciones de los administradores de nodos independientes
+### 4.3 Obligaciones fiduciarias del operador de nodos autogestionados
 
-Cuando un tercero despliega EpoCanvas Mail en su propia cuenta de Cloudflare o infraestructura, **dicho administrador asume la condición exclusiva de «Responsable del Tratamiento» (Data Controller)** de su instancia. Los colaboradores del proyecto matriz no ostentan acceso a los datos ni asumen responsabilidad solidaria alguna sobre instalaciones ajenas. Los administradores independientes deben cumplir la legislación de protección de datos aplicable en su territorio, custodiar sus claves secretas y atender las solicitudes de los usuarios de su nodo.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">⚖️ Condición de responsable del tratamiento exclusivo en nodos autogestionados</div>
+    <span class="google-pill">Responsable único del tratamiento · Sin responsabilidad solidaria</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Responsabilidad única sobre los datos</strong>: Cuando un tercero despliega un nodo en su propia infraestructura o cuenta de Cloudflare, <strong>dicho operador asume la condición de Responsable del Tratamiento (Data Controller) exclusivo e indivisible</strong>. Los desarrolladores upstream no tienen acceso a los datos ni responsabilidad solidaria.</p>
+    <p><strong>Cumplimiento normativo territorial</strong>: Los operadores autogestionados deben configurar claves seguras, redactar sus propias políticas de privacidad conformes a su marco legal, tramitar solicitudes de borrado o exportación y atender requerimientos judiciales locales.</p>
+  </div>
+</div>
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 5. Cumplimiento normativo global y transferencias internacionales
+## 5. Cumplimiento normativo global y flujos transfronterizos de datos
 
-EpoCanvas Mail presta servicio en el ámbito global de Internet. Con el propósito de que los usuarios conozcan con nitidez sus derechos y los condicionantes normativos aplicables en diferentes territorios, alineamos nuestros procesos con los principales marcos regulatorios:
+EpoCanvas Mail presta servicio a escala global. Para que los usuarios conozcan con certeza sus derechos y los riesgos de soberanía de datos según su región geográfica, aplicamos un marco de cumplimiento estandarizado:
 
-### 5.1 Espacio Económico Europeo (RGPD) y garantías transfronterizas
+### 5.1 Derechos en el Espacio Económico Europeo (RGPD) y salvaguardas transfronterizas
 
-Para usuarios residentes en la Unión Europea y el Espacio Económico Europeo, el servicio cumple las directrices del Reglamento General de Protección de Datos (RGPD):
-- **Derechos de los interesados (arts. 15 a 22)**: Los usuarios pueden ejercer sus derechos de acceso, rectificación, supresión («derecho al olvido»), limitación del tratamiento y portabilidad de sus datos;
-- **Base jurídica del tratamiento (art. 6)**: El tratamiento se fundamenta en la ejecución del contrato de servicio (art. 6.1.b) o en el consentimiento explícito del usuario (art. 6.1.a);
-- **Transferencias internacionales de datos (Capítulo V)**: Dado que la red Anycast de Cloudflare puede enrutar peticiones a través de nodos internacionales, las transferencias se amparan en las Cláusulas Contractuales Tipo (SCC) de la UE suscritas por el proveedor perimetral.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🇪🇺 Derechos estatutarios bajo el RGPD y cláusulas contractuales tipo</div>
+    <span class="google-pill">RGPD Art. 15-22 · Art. 6 · CCT (SCCs)</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Derechos del interesado (Artículos 15–22)</strong>: Los usuarios de la Unión Europea y del EEE disponen de derechos de acceso, rectificación, exportación, limitación del tratamiento y supresión total e irrevocable de su cuenta.</p>
+    <p><strong>Base legal y transferencias internacionales</strong>: El tratamiento se fundamenta en la ejecución del contrato (Art. 6(1)(b)) o en el consentimiento explícito (Art. 6(1)(a)); el tránsito internacional a través de la infraestructura Anycast de Cloudflare está protegido por las Cláusulas Contractuales Tipo (CCT/SCCs) y los anexos de tratamiento de datos conformes al RGPD.</p>
+  </div>
+</div>
 
-### 5.2 Jurisdicciones de Estados Unidos (CCPA / CPRA)
+### 5.2 Normativa de Estados Unidos (CCPA / CPRA) y compromiso de no venta
 
-En cumplimiento de las normativas estatales de protección de la privacidad de los consumidores en EE. UU. (en particular en California):
-- **Ausencia de venta o cesión de datos**: Declaramos formalmente que no hemos vendido ni compartido datos personales con fines comerciales en los últimos 12 meses, ni lo haremos en el futuro;
-- **Derecho a la información y no discriminación**: Los usuarios tienen derecho a conocer qué datos se tratan y a solicitar su eliminación sin experimentar menoscabo en la calidad o velocidad del servicio por ejercer sus facultades legales.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🇺🇸 Declaración de privacidad para California (CCPA / CPRA)</div>
+    <span class="google-pill">No venta ni cesión · Trato no discriminatorio</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Compromiso formal de no venta de datos</strong>: Declaramos rotundamente que no hemos vendido, alquilado ni compartido, ni venderemos jamás, información personal ni contenidos de correos electrónicos a intermediarios de datos, redes publicitarias o entidades comerciales (Do Not Sell or Share My Personal Information).</p>
+    <p><strong>Derecho de información y trato equitativo</strong>: Los residentes de California tienen derecho a conocer las categorías de datos recogidas y solicitar su supresión; en ningún caso aplicaremos discriminaciones en rendimiento, almacenamiento o ancho de banda por ejercer estos derechos.</p>
+  </div>
+</div>
 
-### 5.3 Normativa en Asia-Pacífico y asunción consciente de riesgos
+### 5.3 Marco jurídico de Asia-Pacífico y corresponsabilidad del usuario
 
-Para usuarios en la región de Asia-Pacífico (incluidas las normativas PDPA de Taiwán y Singapur, y la APPI japonesa), la instancia `mail.epocanvas.com` está gestionada por un equipo con sede en Taiwán con sujeción a la normativa local. En el entorno de la red global, los usuarios reconocen y aceptan que:
-1. **Tránsito multinacional de paquetes**: El tráfico de correo internacional a través de servidores SMTP intermedios transita por infraestructuras de telecomunicaciones de diversos países;
-2. **Seguridad del entorno cliente**: Corresponde al usuario proteger sus dispositivos terminales (actualizaciones, antivirus y autenticación con Passkey o TOTP) para salvaguardar sus buzones;
-3. **Medidas contra usos ilícitos**: Toda conducta orientada a ciberataques, envío de spam, phishing o vulneración de derechos ajenos motivará la cancelación del servicio conforme a la [Política de uso aceptable](/es/mail/acceptable-use/).
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🌏 Adecuación jurídica en Asia-Pacífico y seguridad en el terminal</div>
+    <span class="google-pill">PDPA de Taiwán · Tránsito SMTP · Seguridad local</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Jurisdicción y tránsito internacional</strong>: La plataforma oficial está operada por un equipo ubicado en Taiwán, cumpliendo rigurosamente la Ley de Protección de Datos Personales (PDPA). Los usuarios deben entender que los correos que transitan por protocolos SMTP abiertos pueden cruzar puntos de intercambio sujetos a leyes internacionales de telecomunicaciones.</p>
+    <p><strong>Protección del terminal y política antiabuso</strong>: El usuario debe velar por la seguridad de sus dispositivos locales (mantener parches al día, evitar software malicioso y habilitar Passkeys/TOTP); el uso del servicio para ciberataques, phishing o spam masivo conllevará la cancelación fulminante bajo la [Política de Uso Aceptable](/es/mail/acceptable-use/).</p>
+  </div>
+</div>
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 6. Respuesta ante incidentes de seguridad y cooperación institucional
+## 6. Respuesta a incidentes de seguridad y cooperación con autoridades reguladoras
 
-Con el fin de gestionar eficazmente posibles contingencias de seguridad y actuar con plena transparencia, EpoCanvas Mail aplica un protocolo reglado de respuesta ante incidentes:
+Para reaccionar con la máxima celeridad ante cualquier brecha de seguridad y actuar con plena transparencia, EpoCanvas Mail establece un procedimiento normalizado de actuación ante incidentes:
 
-### 6.1 Procedimiento de contención y notificación en 72 horas
+### 6.1 Protocolo de contención y notificación de brechas en 72 horas
 
-Ante la detección de cualquier suceso que comprometa la confidencialidad, integridad o disponibilidad de los datos personales, el equipo operativo activa un protocolo en cuatro fases:
-1. **Aislamiento urgente de la amenaza**: En cuestión de minutos, se bloquean las IPs atacantes en la pasarela perimetral, se revocan tokens JWT afectados y se rotan las claves de cifrado;
-2. **Evaluación de impacto y forense digital**: Se analizan los registros de acceso perimetral para acotar las cuentas y campos implicados y evaluar la gravedad del incidente;
-3. **Notificación reglamentaria en 72 horas**: Si el incidente reviste gravedad con arreglo a la normativa, se informará a las personas afectadas en un plazo máximo de 72 horas y se remitirá la correspondiente notificación a la autoridad de control;
-4. **Subsanación de causas y comunicación comunitaria**: Corregida la vulnerabilidad, se integra la solución en el repositorio de código abierto y se difunde el aviso de seguridad correspondiente para administradores independientes.
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">🚨 Procedimiento operativo normalizado de respuesta ante emergencias</div>
+    <span class="google-pill">Aviso en 72h · Contención rápida · Parche comunitario</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Protocolo de emergencia en cuatro etapas</strong>:</p>
+    <ul>
+      <li><strong>Aislamiento y mitigación inmediata</strong>: Bloqueo de direcciones IP maliciosas en el perímetro, anulación inmediata de sesiones JWT afectadas y rotación de claves maestras en cuestión de minutos;</li>
+      <li><strong>Auditoría digital y evaluación de impacto</strong>: Análisis forense de registros perimetrales para determinar las cuentas comprometidas y el nivel de gravedad;</li>
+      <li><strong>Notificación reglamentaria en 72 horas</strong>: En caso de incidente cualificado, se notificará a los afectados y a las autoridades competentes en un plazo máximo de 72 horas;</li>
+      <li><strong>Subsanación en el código base y aviso de seguridad</strong>: Corrección inmediata de la vulnerabilidad en el repositorio de código abierto y publicación de un aviso de seguridad coordinado.</li>
+    </ul>
+  </div>
+</div>
 
-### 6.2 Canales oficiales de reporte y supervisión regulatoria
+### 6.2 Canales oficiales de comunicación y cooperación legal
 
-La instancia gestionada `mail.epocanvas.com` atiende los requerimientos legítimos de las autoridades de supervisión competentes. El presente documento y las políticas asociadas configuran la base de cumplimiento aplicable. Los operadores de nodos independientes gestionan directamente los requerimientos regulatorios en su jurisdicción. Para reportar posibles vulnerabilidades, avisos falsos o incidencias de integridad, rogamos contactar con los canales oficiales habilitados:
-- **Centro de Respuesta a Incidentes de Seguridad**: `announcement@epocanvas.com`
-- **Oficina de Protección de Datos y Privacidad**: `privacy@epocanvas.com`
+<div class="google-card">
+  <div class="google-card-header">
+    <div class="google-card-title">📮 Canales dedicados para reporte de vulnerabilidades e inspección</div>
+    <span class="google-pill">Canal oficial · Reporte de fallos</span>
+  </div>
+  <div class="google-card-desc">
+    <p><strong>Atención a inspecciones y deslinde de instancias</strong>: El servicio oficial <code>mail.epocanvas.com</code> colabora con inspecciones legítimas de autoridades competentes. Los operadores de nodos independientes responderán ante sus propios reguladores. Los investigadores que detecten vulnerabilidades deben comunicarse a través de los canales oficiales:</p>
+    <ul>
+      <li><strong>Centro de Respuesta ante Incidentes de Seguridad</strong>: <code>announcement@epocanvas.com</code></li>
+      <li><strong>Oficina de Privacidad y Cumplimiento Normativo</strong>: <code>privacy@epocanvas.com</code></li>
+    </ul>
+  </div>
+</div>
