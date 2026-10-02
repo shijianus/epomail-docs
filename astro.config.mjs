@@ -111,6 +111,8 @@ export default defineConfig({
 			logo: { src: './public/favicon.svg' },
 			favicon: '/favicon.svg',
 			social: { github: 'https://github.com/shijianus/epomail' },
+			// 覆写 Starlight 翻页推荐卡：每篇文档配专属几何图标（见 src/components/OverriddenPagination.astro）
+			components: { Pagination: './src/components/OverriddenPagination.astro' },
 			head: [
 				{
 					tag: 'script',

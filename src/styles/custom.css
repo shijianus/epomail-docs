@@ -107,7 +107,8 @@
 /* 隐私/条款中的数据表格：行距与留白微调，圆角与细边框 */
 .sl-markdown-content table {
   width: 100%;
-  margin: 1.75rem 0;
+  /* 表格受 Starlight 之 fit-content 上限而窄于正文栏时水平居中，避免贴左 */
+  margin: 1.75rem auto;
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 10px;

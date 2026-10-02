@@ -47,14 +47,15 @@ copyFolderRecursiveSync(DIST_DIR, EPOMAIL_DIR);
 console.log('✓ 成功创建 dist/epomail 全量静态资源镜像（支持 /epomail/* 挂载路径）');
 
 // 2. 写入 dist/_redirects 与 public/_redirects
-// 确保 Cloudflare Pages 无论访问根路径、直接文档路径还是 /epomail 路径均 100% 顺畅
+// 根路径与 /mail/* 的语言协商改由 functions/（Pages Functions）处理，
+// 静态 _redirects 不再声明 "/" 规则，以免优先于 Functions 拦截协商。
 const redirectsContent = `# Cloudflare Pages 路由与重定向规则
-/ /epomail/mail/overview/ 302
+# 根路径与 /epomail/、/mail/* 之语言协商由 functions/ 目录之 Pages Functions 处理（见 functions/_lib.js）。
 `;
 
 fs.writeFileSync(path.join(DIST_DIR, '_redirects'), redirectsContent, 'utf-8');
 const publicRedirectsPath = path.join(ROOT_DIR, 'public', '_redirects');
 fs.writeFileSync(publicRedirectsPath, redirectsContent, 'utf-8');
-console.log('✓ 成功写入 _redirects 路由重定向规则');
+console.log('✓ 成功写入 _redirects 路由重定向规则（语言协商由 Pages Functions 接管）');
 
 console.log('--- post-build 双轨发布与路由镜像完成 ---');
