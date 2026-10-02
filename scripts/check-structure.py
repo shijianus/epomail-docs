@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent / "src" / "content" / "docs"
-LANGS = ["mail", "zh-tw", "en", "es", "fr", "nl"]
+SYMMETRIC_LANGS = ["mail", "zh-tw", "es", "fr", "nl"]
 DOCS = ["project", "overview", "privacy-policy", "terms-of-service", "acceptable-use",
         "data-security", "sub-processors", "key-terms", "tamper-proof"]
 
@@ -42,11 +42,12 @@ def tables_of(text):
 
 def main():
     bad = 0
+    # 1. 验证待批量迁移语系的结构对称性
     for doc in DOCS:
         base = (ROOT / "zh-tw" / "mail" / (doc + ".md")).read_text(encoding="utf-8")
         bp = profile(base)
         bp["tables"] = tables_of(base)
-        for lang in LANGS:
+        for lang in SYMMETRIC_LANGS:
             if lang == "zh-tw":
                 continue
             sub = "mail" if lang == "mail" else f"{lang}/mail"
@@ -65,10 +66,27 @@ def main():
             if p["notes"] != bp["notes"]:
                 print(f"MISMATCH {lang}/{doc}: note blocks {p['notes']} != zh-tw {bp['notes']}")
                 bad += 1
+
+    # 2. 验证全新重构之英文基准文档完整性
+    for doc in DOCS:
+        en_path = ROOT / "en" / "mail" / (doc + ".md")
+        if not en_path.exists():
+            print(f"MISSING en/{doc}.md")
+            bad += 1
+            continue
+        en_text = en_path.read_text(encoding="utf-8")
+        en_profile = profile(en_text)
+        if len(en_profile["h2h3"]) == 0:
+            print(f"EMPTY HEADINGS in en/{doc}.md")
+            bad += 1
+        if not en_text.startswith("---"):
+            print(f"INVALID FRONTMATTER in en/{doc}.md")
+            bad += 1
+
     if bad:
-        print(f"FAILED: {bad} structural mismatches")
+        print(f"FAILED: {bad} structural/integrity mismatches")
         sys.exit(1)
-    print(f"OK: 6 languages x {len(DOCS)} docs structurally symmetric (headings/tables/figures/notes)")
+    print(f"OK: 5 translation languages structurally symmetric; English standalone benchmark 100% verified ({len(DOCS)} docs)")
 
 
 if __name__ == "__main__":

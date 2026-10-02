@@ -4,11 +4,9 @@ description: A complete introduction to the EpoCanvas Mail project—positioning
 ---
 
 **First commit: July 21, 2026 | Current version: v1.1.0 | License: MIT**
-**Effective date: October 1, 2026 | Version: 5.4**
+**Effective Date: October 1, 2026 | Version: 5.5**
 
-EpoCanvas Mail is an open source email service running on the Cloudflare edge network. With one domain and one Cloudflare account, you can set up a personal mailbox service that supports sending and receiving email, attachments, and multi-device access. The project is operated as a hosted instance at [mail.epocanvas.com](https://mail.epocanvas.com), publishes its full source code for self-hosting, and ships a companion Android app (epomail). This page describes the project's positioning, features, technical architecture, security design, and development history; the legal terms of the service and privacy practices are set out in the [Privacy and Terms Overview](/en/mail/overview/).
-
-The Traditional Chinese (Taiwan) versions of the legal documents on this site are the authoritative versions; translations in other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version shall prevail.
+EpoCanvas Mail is a strictly non-commercial, community-driven open-source email communication service running on the Cloudflare edge network. Released under the MIT License, the software provides a self-sovereign personal and community mailbox solution with no commercial monetization, no tracking, and zero telemetry. With one domain and one Cloudflare account, anyone can set up a private mailbox supporting encrypted mail, multi-factor authentication, passkeys, and multi-device access. This page describes the project's non-commercial positioning, features, technical architecture, security design, and development history.
 
 ![EpoCanvas Mail system architecture: the client layer (web app, Android app, OAuth third-party apps) connects through the Cloudflare edge; Workers carry the API, inbound email parsing, and AI capabilities, with outbound delivery via Resend and Telegram; data is stored in dual D1 databases, KV, and object storage](/images/mail/project-architecture.svg)
 

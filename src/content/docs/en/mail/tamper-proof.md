@@ -7,9 +7,7 @@ description: EpoCanvas Mail official system email specifications, 16 tiered secu
 
 **Effective Date: October 1, 2026 | Version: 5.5**
 
-Pursuant to the [Privacy & Terms Overview](/mail/overview/) and [Data Processing & Security](/mail/data-security/), this document specifies the official email issuance framework, security notification notice standards, edge sender anti-spoofing, immutable snapshot delivery, client-side sandbox isolation, and cryptographic document tamper-proof verification mechanisms for EpoCanvas Mail. This specification establishes what constitutes authentic official documentation and provides verifiable technical baseline standards for users and regulatory authorities.
-
-The formal benchmark version of all legal and technical documents on this site is the Traditional Chinese (Taiwan) version; other language versions are provided for reference only. In case of discrepancy, the Traditional Chinese version shall prevail.
+Pursuant to the [Privacy & Terms Overview](/mail/overview/) and [Data Processing & Security](/mail/data-security/), this document specifies the official email issuance framework, security notification notice standards, edge sender anti-spoofing, immutable snapshot delivery, client-side sandbox isolation, and cryptographic document tamper-proof verification mechanisms for EpoCanvas Mail. This specification establishes what constitutes authentic official documentation and provides verifiable technical baseline standards for users and self-hosted instance operators.
 
 ![EpoCanvas Mail Anti-Tampering and Official Authentication Architecture: Edge sender anti-spoofing, immutable delivery pipeline, client-side Shadow DOM sandbox physical isolation, and SHA-256 cryptographic manifest](/images/mail/anti-tamper-architecture.svg)
 

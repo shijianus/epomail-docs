@@ -9,7 +9,7 @@ description: Définitions des termes techniques et juridiques employés dans les
 
 La présente page définit les termes employés dans les documents juridiques du présent site. Les termes juridiques suivent les définitions générales du droit de la protection des données ; les termes techniques s'interprètent d'après la mise en œuvre réelle du code open source du Service.
 
-Les documents juridiques du présent site font foi dans leur version en chinois traditionnel (Taïwan) ; les versions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut.
+Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
 
 ![Carte du glossaire : termes juridiques (responsable du traitement, sous-traitant, personne concernée, finalité déterminée, etc.) et termes techniques (instance, D1/KV/R2, chiffrement au repos, zéro télémétrie, etc.) — deux familles de définitions utilisées de manière cohérente dans tous les documents, interprétées selon l’usage général de la protection des données et l’implémentation open source réelle](/images/mail/key-terms-glossary.svg)
 

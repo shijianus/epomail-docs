@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" width="100%" role="img" aria-label="EpoCanvas Mail Architecture and Non-Commercial Governance Partition">
+  <style>
+    .bg { fill: #f8fafc; }
+    .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .card-accent { fill: #eff6ff; stroke: #3b82f6; stroke-width: 1.5; }
+    .title { font: 600 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #0f172a; }
+    .desc { font: 400 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #64748b; line-height: 1.5; }
+    .tag { font: 700 10px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; letter-spacing: 1.2px; fill: #2563eb; }
+    .badge { fill: #dbeafe; stroke: #bfdbfe; }
+    .badge-text { font: 600 10.5px -apple-system, sans-serif; fill: #1e40af; }
+    .conn { stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 4 4; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .card { fill: #111827; stroke: #1e293b; }
+      .card-accent { fill: rgba(59,130,246,0.12); stroke: #3b82f6; }
+      .title { fill: #f1f5f9; }
+      .desc { fill: #94a3b8; }
+      .tag { fill: #60a5fa; }
+      .badge { fill: rgba(30, 64, 175, 0.3); stroke: #1e3a8a; }
+      .badge-text { fill: #93c5fd; }
+      .conn { stroke: #334155; }
+    }
+  </style>
+  <rect class="bg" width="1000" height="260" rx="16"/>
+
+  <!-- Card 1: Upstream Project -->
+  <rect class="card" x="40" y="35" width="280" height="190" rx="12"/>
+  <rect class="badge" x="60" y="55" width="130" height="22" rx="4"/>
+  <text class="badge-text" x="70" y="70">UPSTREAM PROJECT</text>
+  <text class="title" x="60" y="105">Open Source Software</text>
+  <text class="desc" x="60" y="130">Released under the MIT License.</text>
+  <text class="desc" x="60" y="150">Strictly non-commercial code base.</text>
+  <text class="desc" x="60" y="170">Zero telemetry · zero central tracking.</text>
+  <text class="desc" x="60" y="195" font-weight="600" fill="#3b82f6">No service operator liability</text>
+
+  <!-- Connector 1 -->
+  <line class="conn" x1="320" y1="130" x2="360" y2="130"/>
+
+  <!-- Card 2: Instance Operator -->
+  <rect class="card-accent" x="360" y="35" width="280" height="190" rx="12"/>
+  <rect class="badge" x="380" y="55" width="135" height="22" rx="4"/>
+  <text class="badge-text" x="390" y="70">DATA CONTROLLER</text>
+  <text class="title" x="380" y="105">Instance Operator</text>
+  <text class="desc" x="380" y="130">Runs self-hosted infrastructure.</text>
+  <text class="desc" x="380" y="150">Maintains Cloudflare keys &amp; DB.</text>
+  <text class="desc" x="380" y="170">Determines local terms &amp; policies.</text>
+  <text class="desc" x="380" y="195" font-weight="600" fill="#2563eb">Exclusive controller obligations</text>
+
+  <!-- Connector 2 -->
+  <line class="conn" x1="640" y1="130" x2="680" y2="130"/>
+
+  <!-- Card 3: End User -->
+  <rect class="card" x="680" y="35" width="280" height="190" rx="12"/>
+  <rect class="badge" x="700" y="55" width="105" height="22" rx="4"/>
+  <text class="badge-text" x="710" y="70">COMMUNITY</text>
+  <text class="title" x="700" y="105">Individual User</text>
+  <text class="desc" x="700" y="130">Personal &amp; non-commercial use.</text>
+  <text class="desc" x="700" y="150">Owns credentials &amp; Passkeys.</text>
+  <text class="desc" x="700" y="170">Abides by Fair Use Guidelines.</text>
+  <text class="desc" x="700" y="195" font-weight="600" fill="#3b82f6">Self-sovereign account rights</text>
+</svg>

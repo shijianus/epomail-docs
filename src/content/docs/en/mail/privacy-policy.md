@@ -11,7 +11,7 @@ This Privacy Policy explains how EpoCanvas Mail (the "Service") collects, utiliz
 
 By registering for or using the Service, you acknowledge and consent to the practices described in this Policy. This English version is an authoritative, standalone document governing your privacy rights.
 
-![EpoCanvas Mail Privacy Policy pillars: collection, use, transfer, security, and data subject rights](/images/mail/privacy-pillars.svg)
+![EpoCanvas Mail Privacy and Data Protection Lifecycle](/images/mail/partition-privacy.svg)
 
 ## 1. Scope and Controller Identity
 

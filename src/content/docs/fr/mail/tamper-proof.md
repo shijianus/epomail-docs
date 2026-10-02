@@ -9,7 +9,7 @@ description: Spécifications des e-mails système officiels d'EpoCanvas Mail, 16
 
 Conformément à l'[Aperçu de la confidentialité et des conditions](/mail/overview/) et au [Traitement des données et sécurité](/mail/data-security/), ce document détaille le cadre d'émission des e-mails officiels, les spécifications des avis de sécurité, la protection de l'expéditeur en périphérie, la livraison immuable par instantané, l'isolation en bac à sable côté client, ainsi que les mécanismes de vérification cryptographique anti-falsification pour EpoCanvas Mail.
 
-La version de référence officielle de tous les documents légaux et techniques de ce site est la version en chinois traditionnel (Taïwan) ; les autres versions linguistiques ne sont fournies qu'à titre informatif. En cas de divergence, la version en chinois traditionnel prévaudra.
+Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
 
 ![Architecture anti-falsification et d'authentification officielle d'EpoCanvas Mail : protection de l'expéditeur en périphérie, pipeline de livraison immuable, isolation Shadow DOM côté client et manifeste SHA-256](/images/mail/anti-tamper-architecture.svg)
 

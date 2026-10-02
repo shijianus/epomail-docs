@@ -53,7 +53,7 @@ Les documents juridiques du présent site sont organisés par thème ; ils se re
 
 1. En matière de confidentialité, la [Politique de confidentialité](/fr/mail/privacy-policy/) constitue la disposition spécifique ; pour les conditions d'utilisation du Service, les [Conditions d'utilisation](/fr/mail/terms-of-service/) constituent la disposition spécifique ; toutes les autres questions s'interprètent selon l'architecture exposée sur la présente page.
 2. En cas d'incompatibilité entre documents, le document directement lié à l'objet en cause prévaut.
-3. Les documents juridiques du présent site font foi dans leur version en chinois traditionnel (Taïwan) ; les versions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Le droit applicable de chaque instance est déterminé par le lieu où réside son Opérateur (voir la section 2).
+3. Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses. Le droit applicable de chaque instance est déterminé par le lieu où réside son Opérateur (voir la section 2).
 
 ## 5. Points de contact
 

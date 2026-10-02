@@ -9,7 +9,7 @@ description: Especificaciones de correo del sistema de EpoCanvas Mail, 16 avisos
 
 De conformidad con la [Descripción general de privacidad y términos](/mail/overview/) y el [Tratamiento de datos y seguridad](/mail/data-security/), este documento especifica el marco de emisión de correo del sistema oficial, los estándares de avisos de seguridad, la protección perimetral del remitente, la entrega inmutable de instantáneas, el aislamiento en entorno protegido del cliente y los mecanismos criptográficos de verificación contra manipulaciones de EpoCanvas Mail.
 
-La versión de referencia formal de todos los documentos legales y técnicos de este sitio es la versión en chino tradicional (Taiwán); las demás versiones lingüísticas se proporcionan únicamente como referencia. En caso de discrepancia, prevalecerá la versión en chino tradicional.
+Los documentos legales y técnicos de este sitio tienen como objetivo establecer estándares de comunicación comunitarios no comerciales, transparentes y rigurosos.
 
 ![Arquitectura contra manipulaciones y autenticación oficial de EpoCanvas Mail: protección perimetral del remitente, canalización de entrega inmutable, aislamiento en Shadow DOM del cliente y manifiesto SHA-256](/images/mail/anti-tamper-architecture.svg)
 

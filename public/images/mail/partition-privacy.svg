@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 240" width="100%" role="img" aria-label="EpoCanvas Mail Privacy and Data Protection Lifecycle">
+  <style>
+    .bg { fill: #f8fafc; }
+    .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .num { font: 700 12px -apple-system, sans-serif; fill: #2563eb; }
+    .num-bg { fill: #eff6ff; stroke: #bfdbfe; }
+    .h { font: 600 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #0f172a; }
+    .p { font: 400 11.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #64748b; line-height: 1.45; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; stroke-linecap: round; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .step { fill: #111827; stroke: #1e293b; }
+      .num { fill: #60a5fa; }
+      .num-bg { fill: rgba(30, 64, 175, 0.25); stroke: #1e3a8a; }
+      .h { fill: #f1f5f9; }
+      .p { fill: #94a3b8; }
+      .arrow { stroke: #334155; }
+    }
+  </style>
+  <rect class="bg" width="1000" height="240" rx="16"/>
+
+  <!-- Step 1 -->
+  <rect class="step" x="40" y="30" width="205" height="180" rx="12"/>
+  <rect class="num-bg" x="55" y="45" width="28" height="28" rx="14"/>
+  <text class="num" x="65" y="64">01</text>
+  <text class="h" x="55" y="100">Minimal Collection</text>
+  <text class="p" x="55" y="125">Account identifiers,</text>
+  <text class="p" x="55" y="145">authentication salts,</text>
+  <text class="p" x="55" y="165">and essential inbound</text>
+  <text class="p" x="55" y="185">routing headers only.</text>
+
+  <!-- Arrow 1 -->
+  <path class="arrow" d="M 252 120 L 273 120 M 267 114 L 273 120 L 267 126"/>
+
+  <!-- Step 2 -->
+  <rect class="step" x="280" y="30" width="205" height="180" rx="12"/>
+  <rect class="num-bg" x="295" y="45" width="28" height="28" rx="14"/>
+  <text class="num" x="305" y="64">02</text>
+  <text class="h" x="295" y="100">Edge Cryptography</text>
+  <text class="p" x="295" y="125">AES-256-GCM static</text>
+  <text class="p" x="295" y="145">database storage,</text>
+  <text class="p" x="295" y="165">TLS 1.3 transit, and</text>
+  <text class="p" x="295" y="185">FIDO2 passkey hashes.</text>
+
+  <!-- Arrow 2 -->
+  <path class="arrow" d="M 492 120 L 513 120 M 507 114 L 513 120 L 507 126"/>
+
+  <!-- Step 3 -->
+  <rect class="step" x="520" y="30" width="205" height="180" rx="12"/>
+  <rect class="num-bg" x="535" y="45" width="28" height="28" rx="14"/>
+  <text class="num" x="545" y="64">03</text>
+  <text class="h" x="535" y="100">Zero Monetization</text>
+  <text class="p" x="535" y="125">No tracking pixels,</text>
+  <text class="p" x="535" y="145">no advertising profile,</text>
+  <text class="p" x="535" y="165">no behavioral sale, and</text>
+  <text class="p" x="535" y="185">no telemetry scraping.</text>
+
+  <!-- Arrow 3 -->
+  <path class="arrow" d="M 732 120 L 753 120 M 747 114 L 753 120 L 747 126"/>
+
+  <!-- Step 4 -->
+  <rect class="step" x="760" y="30" width="200" height="180" rx="12"/>
+  <rect class="num-bg" x="775" y="45" width="28" height="28" rx="14"/>
+  <text class="num" x="785" y="64">04</text>
+  <text class="h" x="775" y="100">User Sovereignty</text>
+  <text class="p" x="775" y="125">Full data export,</text>
+  <text class="p" x="775" y="145">immediate physical</text>
+  <text class="p" x="775" y="165">account deletion, and</text>
+  <text class="p" x="775" y="185">SHA-256 verifiable logs.</text>
+</svg>

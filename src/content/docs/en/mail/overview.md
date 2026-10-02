@@ -26,7 +26,7 @@ The Service is provided strictly for personal self-hosting, technical research, 
 
 Because EpoCanvas Mail is fundamentally a self-hostable open-source project, data processing responsibilities are strictly divided into three distinct roles. 
 
-![EpoCanvas Mail allocation of responsibilities](/images/mail/self-host-responsibilities.svg)
+![EpoCanvas Mail Architecture and Non-Commercial Governance Partition](/images/mail/partition-overview.svg)
 
 ### A. Upstream Open-Source Project
 The EpoCanvas Mail upstream project and its core maintainers act solely as the **Code Provider**. 

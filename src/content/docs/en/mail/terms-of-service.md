@@ -11,7 +11,7 @@ Welcome to EpoCanvas Mail (the "Service"). These Terms of Service ("Terms") cons
 
 By registering an account, logging in, or interacting with the Service, you explicitly acknowledge that you have read, understood, and agreed to these Terms. If you do not agree to these Terms, you must immediately cease using the Service. This English version is an authoritative, standalone document governing your contractual relationship with the Service.
 
-![Contract lifecycle of the EpoCanvas Mail Terms of Service](/images/mail/tos-contract.svg)
+![EpoCanvas Mail Terms of Service and Non-Commercial Governance](/images/mail/partition-terms.svg)
 
 ## 1. Nature of the Service
 

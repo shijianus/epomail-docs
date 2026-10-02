@@ -8,7 +8,7 @@ description: EpoCanvas Mail 专案完整介绍——定位、核心功能、技�
 
 EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件服务。使用者仅需一个域名与一个 Cloudflare 帐号，即可搭建支持收发邮件、附件与多终端访问的专属邮箱。专案以托管实例 [mail.epocanvas.com](https://mail.epocanvas.com) 对外运营，同时开放全部源代码供自行部署，并提供配套的 Android 移动应用（epomail）。本页说明专案的定位、功能、技术架构、安全设计与开发历程；服务与隐私的法律约定见[隐私权与条款总览](/mail/overview/)。
 
-本站法律文档以繁体中文（台湾）版本为正式版本，其他语言版本仅供参考；内容如有歧异，以繁体中文版本为准。
+本站法律与技术文档以本服务开源实现为准，旨在建立透明、严谨之非商业社区通讯规范。
 
 ![EpoCanvas Mail 系统架构：客户端层（Web 应用、Android 应用、OAuth 第三方应用）经 Cloudflare 边缘接入；Workers 承载 API、邮件入站解析与 AI 能力，出站经 Resend 与 Telegram；数据落于双 D1 数据库、KV 与对象存储](/images/mail/project-architecture.svg)
 

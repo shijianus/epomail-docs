@@ -1,62 +1,71 @@
 ---
-title: Key Terms
-description: Definitions of the technical and legal terms used in the EpoCanvas Mail legal documents—using the general definitions of data-protection law, interpreted according to the architecture of the Service.
+title: Key Legal & Technical Terms
+description: A glossary of terminology used throughout the EpoCanvas Mail documentation and policies.
 ---
 
-# Key Terms
+**Effective Date: October 1, 2026 | Version: 5.5**
 
-**Effective date: October 1, 2026 | Version: 5.4**
+This glossary defines critical legal, technical, and operational terms utilized within the EpoCanvas Mail documentation, policies, and configuration guides. These definitions establish a clear, standardized vocabulary to ensure precise understanding of the project's architecture and compliance standards.
 
-This page defines the terms used in the legal documents on this site. Legal terms use the general definitions of data-protection law; technical terms are interpreted according to the actual implementation in the Service's open source code.
+## A
 
-The Traditional Chinese (Taiwan) versions of the legal documents on this site are the authoritative versions; translations in other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version shall prevail.
+**AES-256-GCM**
+Advanced Encryption Standard with a 256-bit key in Galois/Counter Mode. The primary symmetric cryptographic algorithm utilized by EpoCanvas Mail to ensure both the confidentiality and integrity (authenticated encryption) of data at rest.
 
-![Glossary map: legal terms (data controller, processor, data subject, specific purpose, etc.) and technical terms (instance, D1/KV/R2, encryption at rest, zero telemetry, etc.) — two families of definitions used consistently across all documents, interpreted against general data-protection usage and the actual open-source implementation](/images/mail/key-terms-glossary.svg)
+**AUP (Acceptable Use Policy)**
+The policy document outlining the permitted and prohibited activities when operating or utilizing an EpoCanvas Mail instance, including rules against spam, phishing, and infrastructure abuse.
 
-*Figure: how the two families of definitions on this page relate. Legal terms follow general data-protection usage; technical terms are interpreted by the actual open-source implementation; unlisted terms are read in the context of the Privacy Policy and the Terms of Service.*
-## 1. Legal Terms
+## D
 
-| Term | Definition |
-| --- | --- |
-| Personal data | A natural person's name, date of birth, contact details, social activities, and other data by which that person can be identified directly or indirectly. For the Service, this consists mainly of email addresses, account credentials, and network activity records |
-| Highly sensitive personal data | Personal data concerning medical history, medical treatment, genetic information, sexual life, health examinations, and criminal records, which falls into highly sensitive categories whose processing is strictly restricted in most jurisdictions |
-| Collection / processing / use | "Collection" means acquiring personal data by any means; "processing" means the recording, input, storage, editing, correction, replication, retrieval, deletion, output, linking, or internal transmission of data in order to establish or use personal data files; "use" means employing collected personal data for purposes other than processing |
-| Data controller | The entity that decides the purposes and methods of the collection, processing, and use of personal data; this includes the Operator of a hosted instance and the deployer of a self-hosted instance |
-| Entrusted processor | An entity that processes personal data for the controller on the controller's instructions (such as Cloudflare and Resend) |
-| Data subject | The natural person identified by the personal data; the "you" referred to in the documents on this site |
-| International transfer | The processing or use of personal data across national borders; follows the requirements of applicable law and safeguard mechanisms such as standard contractual clauses |
-| Notification duty | The duty, when collecting personal data from a data subject, to notify the data subject of the collector's identity, the purposes of collection, the categories of data, the period, region, recipients, and means of use, the rights the data subject may exercise, and the consequences of not providing the data; where personal data is not obtained from the data subject, the source is notified before processing or use |
-| Specific purpose | The specific purpose that must exist for the collection or processing of personal data; use must remain within the extent necessary for that purpose |
-| Right to refuse marketing | When a data subject indicates refusal to accept marketing, use of the personal data for marketing ceases immediately; at the first marketing, the means of indicating refusal is provided |
-| Competent authority | The authority responsible for personal-data protection matters under applicable law; for the hosted instance, located in Taiwan, the competent authority is the Personal Data Protection Commission |
-| Non-consensual intimate image | An intimate image of another person that was recorded, reproduced, or distributed without consent, and a fabricated intimate image made by computer synthesis or other technological means; recording, reproducing, or distributing such images without consent constitutes crimes in most jurisdictions, and a platform notified of them restricts access to or removes them first |
-| Child and youth sexual exploitation | The sexual exploitation of children or youths, including photographing, manufacturing, reproducing, possessing, distributing, broadcasting, delivering, publicly displaying, selling, or being paid to allow the viewing of sexual images of children or youths |
-| Governing law | The law applicable to a contract, determined by the Operator's location; Section 11 of the [Terms of Service](/en/mail/terms-of-service/) states the governing law for each instance |
-| Standard-form contract | A contract concluded through general clauses with large numbers of unspecified persons; parts that are manifestly unfair do not bind, under applicable law |
+**Data Controller**
+The entity or individual (typically the self-hosting Administrator) who determines the purposes and means of processing personal data within their specific EpoCanvas Mail deployment.
 
-## 2. Technical Terms
+**D1**
+Cloudflare's serverless SQL database, utilized by EpoCanvas Mail as the primary relational data store for user profiles, configuration states, and communication metadata.
 
-| Term | Definition |
-| --- | --- |
-| Instance (site) | One EpoCanvas Mail deployment running within a particular individual's or organization's Cloudflare account, such as `mail.epocanvas.com` |
-| Operator | The individual or team that deploys and manages the instance; the "we" referred to in the documents |
-| PBKDF2 | A password hashing algorithm. The Service performs 100,000 iterations with HMAC-SHA256 and appends a per-user independent random salt, so that the original password cannot be derived from the hash |
-| TOTP | Time-based one-time passwords under RFC 6238; the secret is stored encrypted with AES-256-GCM in the database |
-| Passkey | A public key credential under the FIDO2/WebAuthn standards; the Service stores only the public key, while the private key remains on the data subject's device |
-| JWT (session token) | A digitally signed credential issued after login, valid for 30 days; at most 10 concurrent sessions per account; revoked server-side upon logout |
-| localStorage | A web storage mechanism provided by browsers; data remains on the data subject's device and persists across sessions. The Service's session tokens are stored here; no cookies are used |
-| Encryption at rest | Encryption applied when data is written to storage media. The Service's keys are derived from instance server environment variables, making it server-side encryption rather than end-to-end encryption |
-| End-to-end encryption (E2EE) | A form of encryption in which only the sender and the recipient can decrypt. The Service does not provide it; those who need it should encrypt in advance themselves with tools such as GPG |
-| HMAC obfuscated routing | A mechanism that binds email identifiers to user identity using a hash-based message authentication code, preventing unauthorized access (IDOR) and resource enumeration |
-| RBAC | Role-based access control. The Service uses a fail-closed multi-level permission model, with non-allowlisted parameters stripped at the gateway |
-| D1 / KV / R2 | Cloudflare's edge SQLite database, globally replicated key-value storage, and S3-compatible object storage, carrying structured data, session caching, and attachment blobs respectively |
-| Telemetry | The automatic sending of usage data back to developers by software. The Service's source code contains zero telemetry and sends no instance data upstream |
-| Soft deletion / physical deletion | Soft deletion means the item is marked as deleted and may be restored by an administrator; physical deletion means removal from storage together with attachments and indexes, which cannot be recovered |
-| BYOS (bring your own storage) | Attaching storage to an S3-compatible object store owned by the Operator or the data subject (e.g., Backblaze B2, Wasabi); storage credentials are kept by whoever configures it |
-| Workers AI | Cloudflare’s edge inference service; used for verification-code extraction and other AI processing — triggers and data scope in Section 6 of the [Privacy Policy](/en/mail/privacy-policy/) |
-| Turnstile | Cloudflare’s human-verification mechanism; evaluates browser trustworthiness at registration and mailbox creation, without advertising cookies or cross-site tracking |
-| SSRF protection | Blocking of server-side request forgery; requests to external endpoints are always validated against public addresses, and loopback, private-subnet and cloud-metadata addresses are rejected |
+## E
 
-## 3. Other
+**Edge Deployment**
+An architectural pattern where application logic (via Cloudflare Workers) is executed close to the end-user geographically, minimizing latency and reducing reliance on centralized, origin servers.
 
-Terms not defined on this page are interpreted according to the context of the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/) and general legal and technical usage. If any definition is unclear, inquire through the channels listed in Section 14 of the [Privacy Policy](/en/mail/privacy-policy/).
+## K
+
+**KV (Key-Value Store)**
+Cloudflare's distributed data storage solution used for high-read, low-latency access, primarily leveraged for session validation, caching layers, and enforcing rate limiting rules.
+
+## P
+
+**Phishing**
+The fraudulent practice of sending communications purporting to be from reputable sources in order to induce individuals to reveal personal information, such as passwords or cryptographic keys. Strictly prohibited under the AUP.
+
+## R
+
+**R2**
+Cloudflare's S3-compatible object storage service, utilized by EpoCanvas Mail for retaining large binary files, such as email attachments and raw message payloads.
+
+**Rate Limiting**
+An automated defensive mechanism that restricts the number of requests a user or IP address can make to an API endpoint within a specific timeframe, designed to mitigate brute-force attacks and resource exhaustion.
+
+## S
+
+**Self-Hosting**
+The practice of deploying, maintaining, and managing the EpoCanvas Mail software on infrastructure controlled directly by the user or administrator, rather than relying on a centralized SaaS (Software as a Service) provider.
+
+**SLA (Service Level Agreement)**
+A formal commitment regarding uptime, performance, and support. EpoCanvas Mail, as an open-source non-commercial project, is provided "as is" without any commercial SLA.
+
+**Spam**
+Unsolicited, bulk, or commercial email communications. The distribution of spam is explicitly forbidden across all EpoCanvas Mail instances.
+
+## T
+
+**TLS 1.3 (Transport Layer Security)**
+The latest version of the cryptographic protocol designed to provide secure communication over a computer network. EpoCanvas Mail enforces TLS 1.3 for all in-transit data protection.
+
+## W
+
+**WebAuthn / Passkey**
+A web standard published by the W3C that allows servers to register and authenticate users utilizing public key cryptography instead of a password, providing robust defense against phishing and credential stuffing.
+
+**Zero Telemetry**
+A strict design philosophy ensuring the software does not inherently collect, transmit, or phone home any usage analytics, performance metrics, or diagnostic data to the core developers or third parties.

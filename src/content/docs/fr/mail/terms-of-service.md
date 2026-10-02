@@ -11,7 +11,7 @@ Les présentes conditions constituent l'accord conclu entre vous et l'Opérateur
 
 Les présentes conditions constituent des clauses types : le texte intégral est publié en libre accès sur la page d'inscription pour votre examen, et les versions historiques sont archivées avec le dépôt open source. Le consentement que vous donnez par voie électronique a la même valeur qu'un document et qu'une signature matériels. Les droits que le droit applicable ne permet pas d'exclure ou de limiter par des clauses types ne sont pas affectés par les présentes conditions.
 
-Les documents juridiques du présent site font foi dans leur version en chinois traditionnel (Taïwan) ; les versions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut.
+Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
 
 ![Cycle de vie contractuel des Conditions d’utilisation d’EpoCanvas Mail : consentement électronique (l’inscription vaut acceptation, même force que l’écrit) → exécution (sécurité du compte, votre contenu, limites de responsabilité) → révision (annonce des changements majeurs avant entrée en vigueur) → fin (résiliation, export et suppression des données), sur fond de droit applicable et de juridiction (lieu de l’Opérateur ; instance hébergée : Taïwan)](/images/mail/tos-contract.svg)
 

@@ -69,7 +69,22 @@ const SIDEBAR_I18N = {
 		fr: 'Anti-falsification et spécifications officielles', es: 'Seguridad contra manipulaciones y normas oficiales', nl: 'Beveiliging tegen manipulatie en officiële specificaties',
 	},
 };
+const SIDEBAR_GROUPS_I18N = {
+	'专案与架构': {
+		'zh-tw': '專案與架構', en: 'Project & Architecture',
+		fr: 'Projet et architecture', es: 'Proyecto y arquitectura', nl: 'Project en architectuur',
+	},
+	'隐私与数据保护': {
+		'zh-tw': '隱私與資料保護', en: 'Privacy & Data Governance',
+		fr: 'Confidentialité et données', es: 'Privacidad y protección de datos', nl: 'Privacy en gegevensbescherming',
+	},
+	'服务条款与合规': {
+		'zh-tw': '服務條款與合規', en: 'Terms & Community Governance',
+		fr: 'Conditions et gouvernance', es: 'Términos y gobernanza comunitaria', nl: 'Voorwaarden en community-beleid',
+	},
+};
 const t = (label, slug) => ({ label, slug, translations: SIDEBAR_I18N[label] ?? {} });
+const g = (label, items) => ({ label, translations: SIDEBAR_GROUPS_I18N[label] ?? {}, items });
 
 export default defineConfig({
 	site: SITE_ORIGIN,
@@ -82,7 +97,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'EpoCanvas Mail',
-			description: 'EpoCanvas Mail 官方法律与技术文档——隐私政策、服务条款、可接受使用政策、数据安全与防篡改规范（6 语言，以繁体中文台湾版为准）',
+			description: 'EpoCanvas Mail 官方法律与技术文档——隐私政策、服务条款、可接受使用政策、数据安全与防篡改规范',
 			// 简体中文为默认语言，占用 URL 根路径；其余语言带目录前缀（如 /en/mail/privacy-policy/）
 			defaultLocale: 'root',
 			locales: {
@@ -109,15 +124,21 @@ export default defineConfig({
 			lastUpdated: true,
 			customCss: ['./src/styles/custom.css'],
 			sidebar: [
-				t('专案介绍', 'mail/project'),
-				t('总览', 'mail/overview'),
-				t('隐私政策', 'mail/privacy-policy'),
-				t('服务条款', 'mail/terms-of-service'),
-				t('可接受使用政策', 'mail/acceptable-use'),
-				t('数据处理与安全维护', 'mail/data-security'),
-				t('第三方处理者清单', 'mail/sub-processors'),
-				t('用语定义', 'mail/key-terms'),
-				t('防篡改与官方规范', 'mail/tamper-proof'),
+				g('专案与架构', [
+					t('专案介绍', 'mail/project'),
+					t('防篡改与官方规范', 'mail/tamper-proof'),
+				]),
+				g('隐私与数据保护', [
+					t('总览', 'mail/overview'),
+					t('隐私政策', 'mail/privacy-policy'),
+					t('数据处理与安全维护', 'mail/data-security'),
+					t('第三方处理者清单', 'mail/sub-processors'),
+				]),
+				g('服务条款与合规', [
+					t('服务条款', 'mail/terms-of-service'),
+					t('可接受使用政策', 'mail/acceptable-use'),
+					t('用语定义', 'mail/key-terms'),
+				]),
 			],
 		}),
 	],
