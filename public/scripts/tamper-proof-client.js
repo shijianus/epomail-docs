@@ -158,27 +158,14 @@
     const container = document.querySelector('.sl-markdown-content');
     if (!container) return;
 
-    // 1. 顶部紧凑显式存证徽章 (Top Badge)
-    if (!document.getElementById('tamper-proof-top-badge')) {
-      const topBadge = document.createElement('div');
-      topBadge.id = 'tamper-proof-top-badge';
-      topBadge.className = 'tamper-top-badge';
-      topBadge.innerHTML = `
-        <span class="badge-icon">🛡️</span>
-        <span class="badge-status">${t.badgeVerified}</span>
-        <span class="badge-hash mono">${docHash.substring(0, 16)}...</span>
-        <a href="#tamper-proof-widget" class="badge-jump-link">${t.badgeJump}</a>
-      `;
-      // 插入在第一个段落（通常为生效日期）之后，确保首屏即见
-      const firstP = container.querySelector('p');
-      if (firstP && firstP.nextSibling) {
-        container.insertBefore(topBadge, firstP.nextSibling);
-      } else {
-        container.insertBefore(topBadge, container.firstChild);
-      }
+    const isTamperProofDoc = slug.includes('tamper-proof');
+    if (!isTamperProofDoc) {
+      // Do not inject the tamper-proof widget on general legal, privacy, or overview documents
+      // This strictly honors the rule: appear only on its dedicated specification page, avoiding visual fatigue.
+      return;
     }
 
-    // 2. 主验真面板 (Main Verification Panel)
+    // 2. 主验真面板 (Main Verification Panel) - 仅在官方防篡改规范专页呈现，且全篇仅出现一次
     if (document.getElementById('tamper-proof-widget')) return;
 
     const widget = document.createElement('div');
