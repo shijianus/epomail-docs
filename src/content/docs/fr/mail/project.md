@@ -10,7 +10,7 @@ EpoCanvas Mail est un service de messagerie open source qui fonctionne sur le r�
 
 Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
 
-![Architecture système d'EpoCanvas Mail : la couche client (application web, application Android, applications tierces OAuth) se connecte via le edge Cloudflare ; les Workers portent l'API, l'analyse des e-mails entrants et les fonctions d'IA, l'envoi sortant passant par Resend et Telegram ; les données sont stockées dans deux bases D1, KV et un stockage d'objets](/images/mail/project-architecture.svg)
+![Architecture système d'EpoCanvas Mail : la couche client (application web, application Android, applications tierces OAuth) se connecte via le edge Cloudflare ; les Workers portent l'API, l'analyse des e-mails entrants et les fonctions d'IA, l'envoi sortant passant par Resend et Telegram ; les données sont stockées dans deux bases D1, KV et un stockage d'objets](/images/mail/fr/project-architecture.svg)
 
 *Figure : Architecture du système. Les clients se connectent par le edge, sans serveur d'origine unique ; les e-mails entrants sont reçus et analysés par Email Routing, l'envoi sortant passe par le canal Resend ; l'ensemble de l'état est conservé dans les ressources Cloudflare du déployeur.*
 

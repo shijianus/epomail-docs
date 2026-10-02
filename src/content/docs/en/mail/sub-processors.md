@@ -13,7 +13,7 @@ International transfers follow applicable law's requirements and the restriction
 
 The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
 
-![EpoCanvas Mail sharing map: centred on the instance, four routes — entrusted processors, user-authorised, user-triggered AI processing, and legal request — marked with the minimal-necessity principle and the no-sale, no-ads, no-tracking commitments](/images/mail/subprocessor-map.svg)
+![EpoCanvas Mail sharing map: centred on the instance, four routes — entrusted processors, user-authorised, user-triggered AI processing, and legal request — marked with the minimal-necessity principle and the no-sale, no-ads, no-tracking commitments](/images/mail/en/subprocessor-map.svg)
 
 *Figure: the four third-party sharing routes of the Service. Each route's trigger, data involved, and safeguards are in the tables below.*
 

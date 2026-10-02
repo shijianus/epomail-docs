@@ -1,0 +1,52 @@
+<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Defensa en profundidad: cuatro capas de protección, del transporte TLS al almacenamiento de credenciales, sobre el control del usuario">
+  <style>
+    .bg { fill: #f8fafc; }
+    .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; }
+    .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1; }
+    .tab1 { fill: #2563eb; } .tab2 { fill: #0ea5e9; } .tab3 { fill: #6366f1; } .tab4 { fill: #8b5cf6; }
+    .t { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b { font: 400 8px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .tag { font: 600 8px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1px; fill: #2563eb; }
+    .num { font: 600 7px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #ffffff; }
+    .bt { font: 600 9px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #334155; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .card { fill: #111827; stroke: #1e293b; }
+      .base { fill: #111827; stroke: #1e293b; }
+      .t { fill: #f1f5f9; }
+      .b { fill: #94a3b8; }
+      .tag { fill: #60a5fa; }
+      .bt { fill: #cbd5e1; }
+    }
+  </style>
+  <rect class="bg" width="416" height="276" rx="16"/>
+  <text class="tag" x="26" y="26">DEFENSA EN PROFUNDIDAD</text>
+  <text class="b" x="390" y="26" text-anchor="end">cada capa verificable en el código abierto</text>
+  <rect class="card" x="26" y="38" width="364" height="40" rx="10"/>
+  <rect class="tab1" x="26" y="38" width="4" height="40" rx="2"/>
+  <circle cx="46" cy="58" r="8" class="tab1"/>
+  <text class="num" x="46" y="60.5" text-anchor="middle">1</text>
+  <text class="t" x="62" y="54">En tránsito</text>
+  <text class="b" x="62" y="68">TLS de extremo a extremo · relés cifrados</text>
+  <rect class="card" x="26" y="84" width="364" height="40" rx="10"/>
+  <rect class="tab2" x="26" y="84" width="4" height="40" rx="2"/>
+  <circle cx="46" cy="104" r="8" class="tab2"/>
+  <text class="num" x="46" y="106.5" text-anchor="middle">2</text>
+  <text class="t" x="62" y="100">En el borde</text>
+  <text class="b" x="62" y="114">Workers sin estado · texto claro solo en memoria volátil</text>
+  <rect class="card" x="26" y="130" width="364" height="40" rx="10"/>
+  <rect class="tab3" x="26" y="130" width="4" height="40" rx="2"/>
+  <circle cx="46" cy="150" r="8" class="tab3"/>
+  <text class="num" x="46" y="152.5" text-anchor="middle">3</text>
+  <text class="t" x="62" y="146">En reposo</text>
+  <text class="b" x="62" y="160">cifrado autenticado AES-256-GCM · D1 / KV / objetos</text>
+  <rect class="card" x="26" y="176" width="364" height="40" rx="10"/>
+  <rect class="tab4" x="26" y="176" width="4" height="40" rx="2"/>
+  <circle cx="46" cy="196" r="8" class="tab4"/>
+  <text class="num" x="46" y="198.5" text-anchor="middle">4</text>
+  <text class="t" x="62" y="192">Credenciales</text>
+  <text class="b" x="62" y="206">PBKDF2 ×100.000 con sal · TOTP cifrado · solo clave pública</text>
+  <rect class="base" x="26" y="224" width="364" height="34" rx="10"/>
+  <text class="bt" x="44" y="245">Su control:</text>
+  <text class="b" x="44" y="245" text-anchor="end" dx="346">exportación · eliminación · 2FA · sin anuncios, sin rastreo, sin telemetría</text>
+</svg>

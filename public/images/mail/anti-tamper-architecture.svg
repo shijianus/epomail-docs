@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="Official mail pipeline: sender lock and official flag at issuance, immutable snapshot and preset-translation fallback at delivery, client sandbox isolation and document integrity manifest for verification">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="官方邮件三层处理：签发层锁定官方发信地址并注入认证标记，投递层不可变快照与预置翻译回退，客户端沙箱隔离与文档完整性存证">
   <style>
     .bg { fill: #f8fafc; }
     .band { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -6,11 +6,11 @@
     .box-blue { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.5; }
     .box-green { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.5; }
     .box-amber { fill: #fffbeb; stroke: #d97706; stroke-width: 1.5; }
-    .lbl-blue { font: 700 11px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #2563eb; letter-spacing: 1.4px; }
-    .lbl-green { font: 700 11px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #16a34a; letter-spacing: 1.4px; }
-    .lbl-amber { font: 700 11px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #d97706; letter-spacing: 1.4px; }
-    .t { font: 600 14px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #0f172a; }
-    .b { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #64748b; }
+    .lbl-blue { font: 700 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #2563eb; letter-spacing: 1.4px; }
+    .lbl-green { font: 700 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #16a34a; letter-spacing: 1.4px; }
+    .lbl-amber { font: 700 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #d97706; letter-spacing: 1.4px; }
+    .t { font: 600 14px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
     .mono { font: 500 11px ui-monospace, 'Cascadia Code', Consolas, monospace; fill: #64748b; }
     .arrow { stroke: #94a3b8; stroke-width: 1.8; fill: none; marker-end: url(#pa); }
     @media (prefers-color-scheme: dark) {
@@ -35,60 +35,43 @@
     </marker>
   </defs>
   <rect class="bg" width="1000" height="480" rx="16"/>
-
-  <!-- Tier 1: issuance -->
   <rect class="band" x="40" y="35" width="920" height="110" rx="14"/>
-  <text class="lbl-blue" x="60" y="58">TIER 1 · OFFICIAL SENDER IDENTITY (ISSUANCE)</text>
-
+  <text class="lbl-blue" x="60" y="58">第一层 · 官方发信身份（签发）</text>
   <rect class="box-blue" x="60" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="78" y="93">Official sender lock</text>
+  <text class="t" x="78" y="93" font-size="13">官方发信地址锁定</text>
   <text class="mono" x="78" y="112">announcement@epocanvas.com</text>
-
   <rect class="box" x="355" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="373" y="93">Official flag (isOfficial)</text>
-  <text class="b" x="373" y="112">official addresses &amp; the official label</text>
-
+  <text class="t" x="373" y="93" font-size="13">官方认证标记（isOfficial）</text>
+  <text class="b" x="373" y="112">官方地址与「官方」标签</text>
   <rect class="box-green" x="650" y="70" width="290" height="60" rx="10"/>
-  <text class="t" x="668" y="93">Reader badge &amp; banner</text>
-  <text class="b" x="668" y="112">official mail visually marked in the client</text>
-
+  <text class="t" x="668" y="93" font-size="13">阅读标识与横幅</text>
+  <text class="b" x="668" y="112">官方邮件于客户端醒目标示</text>
   <path class="arrow" d="M195,145 L195,185"/>
   <path class="arrow" d="M490,145 L490,185"/>
   <path class="arrow" d="M795,145 L795,185"/>
-
-  <!-- Tier 2: delivery -->
   <rect class="band" x="40" y="190" width="920" height="115" rx="14"/>
-  <text class="lbl-amber" x="60" y="213">TIER 2 · IMMUTABLE DELIVERY (STORAGE)</text>
-
+  <text class="lbl-amber" x="60" y="213">第二层 · 不可变投递（存储）</text>
   <rect class="box" x="60" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="78" y="249">Immutable snapshot</text>
-  <text class="b" x="78" y="268">rendered once at send, language-independent</text>
-
+  <text class="t" x="78" y="249" font-size="13">不可变快照</text>
+  <text class="b" x="78" y="268">发送时一次渲染，与语言解耦</text>
   <rect class="box-amber" x="355" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="373" y="249">Preset translation fallback</text>
-  <text class="b" x="373" y="268">unmodified mail renders locally; edits go to AI</text>
-
+  <text class="t" x="373" y="249" font-size="13">预置翻译回退</text>
+  <text class="b" x="373" y="268">未修改本地渲染；已修改经 AI</text>
   <rect class="box" x="650" y="225" width="290" height="64" rx="10"/>
-  <text class="t" x="668" y="249">Lifecycle &amp; encryption</text>
-  <text class="b" x="668" y="268">expires after configured days (default 7)</text>
-
+  <text class="t" x="668" y="249" font-size="13">生命周期与加密</text>
+  <text class="b" x="668" y="268">按配置天数过期（缺省 7 日）</text>
   <path class="arrow" d="M195,305 L195,345"/>
   <path class="arrow" d="M490,305 L490,345"/>
   <path class="arrow" d="M795,305 L795,345"/>
-
-  <!-- Tier 3: client + verification -->
   <rect class="band" x="40" y="350" width="920" height="105" rx="14"/>
-  <text class="lbl-green" x="60" y="373">TIER 3 · CLIENT SANDBOX &amp; DOCUMENT INTEGRITY (VERIFICATION)</text>
-
+  <text class="lbl-green" x="60" y="373">第三层 · 客户端沙箱与文档完整性（核验）</text>
   <rect class="box-green" x="60" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="78" y="405">Shadow DOM isolation</text>
-  <text class="b" x="78" y="423">page styles and scripts cannot cross in or out</text>
-
+  <text class="t" x="78" y="405" font-size="13">Shadow DOM 隔离</text>
+  <text class="b" x="78" y="423">页面样式与脚本不进出</text>
   <rect class="box" x="355" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="373" y="405">DOMPurify whitelist</text>
-  <text class="b" x="373" y="423">script · iframe · embed · form · style removed</text>
-
+  <text class="t" x="373" y="405" font-size="13">DOMPurify 白名单</text>
+  <text class="b" x="373" y="423">移除 script · iframe · embed · form · style</text>
   <rect class="box-blue" x="650" y="383" width="290" height="58" rx="10"/>
-  <text class="t" x="668" y="405">Integrity manifest</text>
-  <text class="b" x="668" y="423">tamper-proof.json · SHA-256 · git commit anchor</text>
+  <text class="t" x="668" y="405" font-size="13">完整性清单</text>
+  <text class="b" x="668" y="423">tamper-proof.json · SHA-256 · git 提交锚点</text>
 </svg>

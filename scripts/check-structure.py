@@ -17,6 +17,8 @@ DOCS = ["project", "overview", "privacy-policy", "terms-of-service", "acceptable
 H = re.compile(r"^(#{2,3})\s+(.*)$", re.M)
 ROW = re.compile(r"^\|.*\|\s*$", re.M)
 FIG = re.compile(r"!\[[^\]]*\]\((/images/[^)]+)\)")
+# figures are localized per language (/images/mail/<lang>/x.svg); compare identity, not prefix
+FIG_NORM = re.compile(r"^/images/mail/(?:zh-tw|en|fr|es|nl)/")
 NOTE = re.compile(r"^:::\w*", re.M)
 
 
@@ -24,7 +26,7 @@ def profile(text):
     return {
         "h2h3": [(len(m.group(1)), m.group(2).strip()) for m in H.finditer(text)],
         "tables": [],  # filled below: list of (rows, cols) per table block
-        "figs": FIG.findall(text),
+        "figs": [FIG_NORM.sub("/images/mail/", f) for f in FIG.findall(text)],
         "notes": len(NOTE.findall(text)),
     }
 

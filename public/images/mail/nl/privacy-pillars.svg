@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Vijf pijlers van het Privacybeleid op de basis van toezicht: verzamelen, gebruik, overdracht, beveiliging, uw rechten — onder het toepasselijke gegevensbeschermingsrecht">
+  <style>
+    .bg { fill: #f8fafc; }
+    .roof { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.6; }
+    .pillar { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .pt { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .pb { font: 400 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .law { font: 600 10px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #2563eb; }
+    .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1.5; }
+    .bt { font: 600 12.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .roof-t { font: 600 14.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .roof { fill: rgba(59,130,246,0.12); stroke: #3b82f6; }
+      .pillar { fill: #111827; stroke: #1e293b; }
+      .pt { fill: #f1f5f9; }
+      .pb { fill: #94a3b8; }
+      .law { fill: #60a5fa; }
+      .base { fill: #111827; stroke: #1e293b; }
+      .bt { fill: #f1f5f9; }
+      .roof-t { fill: #f1f5f9; }
+    }
+  </style>
+  <rect class="bg" width="1000" height="400" rx="16"/>
+  <rect class="roof" x="60" y="40" width="880" height="64" rx="12"/>
+  <text class="roof-t" x="84" y="68" font-size="13">Toepasselijk recht — informatieverplichting: wat, waarom, hoe lang en wat u kunt doen</text>
+  <text class="law" x="84" y="90">GELDT VOOR ELKE VERWERKINGSACTIVITEIT DIE IN DIT BELEID STAAT BESCHREVEN</text>
+  <rect class="pillar" x="60" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="78" y="168">Verzamelen</text>
+  <text class="pb" x="78" y="190">contractuele noodzaak ;</text>
+  <text class="pb" x="78" y="206">toestemming voor</text>
+  <text class="pb" x="78" y="222">optionele AI-functies</text>
+  <text class="law" x="78" y="262">CONTRACT · TOESTEMMING</text>
+  <rect class="pillar" x="230" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="248" y="168">Gebruik</text>
+  <text class="pb" x="248" y="190">binnen het doel ;</text>
+  <text class="pb" x="248" y="206">verzet tegen marketing</text>
+  <text class="pb" x="248" y="222">op elk moment</text>
+  <text class="law" x="248" y="262">DOELBEPERKING</text>
+  <rect class="pillar" x="400" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="418" y="168">Overdracht</text>
+  <text class="pb" x="418" y="190">grensoverschrijdend</text>
+  <text class="pb" x="418" y="206">via Cloudflare ; volgt</text>
+  <text class="pb" x="418" y="222">wettelijke beperkingen</text>
+  <text class="law" x="418" y="262">OVERDRACHTGARANTIES</text>
+  <rect class="pillar" x="570" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="588" y="168">Beveiliging</text>
+  <text class="pb" x="588" y="190">versleuteling, blokkade,</text>
+  <text class="pb" x="588" y="206">audits — maatregelen</text>
+  <text class="pb" x="588" y="222">continu verbeterd</text>
+  <text class="law" x="588" y="262">BEVEILIGINGSMAATREGELEN</text>
+  <rect class="pillar" x="740" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="758" y="168">Uw rechten</text>
+  <text class="pb" x="758" y="190">inzien, kopiëren,</text>
+  <text class="pb" x="758" y="206">verbeteren, stoppen,</text>
+  <text class="pb" x="758" y="222">wissen — § 9</text>
+  <text class="law" x="758" y="262">RECHTEN & REMEDIES</text>
+  <rect class="base" x="60" y="312" width="880" height="56" rx="12"/>
+  <text class="bt" x="84" y="336" font-size="12">Basis: toezicht door de bevoegde autoriteit op de vestigingsplaats van de exploitant</text>
+  <text class="law" x="84" y="356">TOEPASSELIJK RECHT VAN DE JURISDICTIE VAN ELKE EXPLOITANT</text>
+</svg>

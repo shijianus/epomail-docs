@@ -6,228 +6,228 @@
   "repository": "https://github.com/shijianus/epomail-docs",
   "verifiedChannel": "announcement@epocanvas.com",
   "algorithm": "SHA-256",
-  "gitCommit": "e6eb758709b6702b3b51fddb1057bee94380a3e7",
-  "gitShortCommit": "e6eb758",
-  "committedAt": "2026-10-03T00:13:36+08:00",
-  "generatedAt": "2026-10-02T16:13:51.243Z",
+  "gitCommit": "1d0a61c515aa626b94b5b327167788b57ed736b9",
+  "gitShortCommit": "1d0a61c",
+  "committedAt": "2026-10-03T00:13:59+08:00",
+  "generatedAt": "2026-10-02T16:29:58.443Z",
   "totalDocuments": 54,
-  "totalBytes": 694901,
+  "totalBytes": 695117,
   "documents": {
     "en/mail/acceptable-use": {
       "slug": "en/mail/acceptable-use",
       "title": "Acceptable Use Policy",
       "path": "src/content/docs/en/mail/acceptable-use.md",
-      "sha256": "e6032943015f6c30aaaea134775a1fb63e72f0a7e063b07b16d2244c711b9369",
-      "bytes": 8721,
-      "characters": 8717
+      "sha256": "8dd429e3fb9dab2173f38b4f55104f0d97f40708ccc5436fb100e11589937f0f",
+      "bytes": 8724,
+      "characters": 8720
     },
     "en/mail/data-security": {
       "slug": "en/mail/data-security",
       "title": "Data Processing & Security Maintenance",
       "path": "src/content/docs/en/mail/data-security.md",
-      "sha256": "002f4cc656d60ea926261cf9b495dd4f8a422980a1d0e5e68e92f4ec8a71ca19",
-      "bytes": 13960,
-      "characters": 13944
+      "sha256": "f399e5044a6255f1914d235e65ac53177cbc976a37a99681d0be1c58bd9191d1",
+      "bytes": 13969,
+      "characters": 13953
     },
     "en/mail/key-terms": {
       "slug": "en/mail/key-terms",
       "title": "Key Terms",
       "path": "src/content/docs/en/mail/key-terms.md",
-      "sha256": "c838821eb05157130082ee4fe2c214136b6e93558a19979a28b44dbff8990dcf",
-      "bytes": 8623,
-      "characters": 8613
+      "sha256": "bc7e05134aa6898153a8f7ca07e229a21383b7fd950664df1bdcd5019056899f",
+      "bytes": 8626,
+      "characters": 8616
     },
     "en/mail/overview": {
       "slug": "en/mail/overview",
       "title": "Privacy and Terms Overview",
       "path": "src/content/docs/en/mail/overview.md",
-      "sha256": "56e44c6f01199878439b4195a2f7abc142b4827d53ce2533cc115996903ef473",
-      "bytes": 6411,
-      "characters": 6407
+      "sha256": "595ed61ca305f4335e22bbc0f18ac365f958b99e928349ea669bf771b593fec2",
+      "bytes": 6417,
+      "characters": 6413
     },
     "en/mail/privacy-policy": {
       "slug": "en/mail/privacy-policy",
       "title": "Privacy Policy",
       "path": "src/content/docs/en/mail/privacy-policy.md",
-      "sha256": "7a8cc70a3edf4bafb96776768af75c684202f277f2e5ceac27dc8ce3458f656f",
-      "bytes": 19693,
-      "characters": 19675
+      "sha256": "02a34e963cfff11c07c3ce63ae3191252908df405ac54cd6912ab6bd54966cb4",
+      "bytes": 19696,
+      "characters": 19678
     },
     "en/mail/project": {
       "slug": "en/mail/project",
       "title": "EpoCanvas Mail Project Overview",
       "path": "src/content/docs/en/mail/project.md",
-      "sha256": "69ee78fd14255350d97bf7b53f96f2707ba671c047db90ba8e5cc055608de163",
-      "bytes": 23821,
-      "characters": 22591
+      "sha256": "a98fbe1b8e174846b5af83d873b006db85a4b35eb474373dedbbdaecab0190bb",
+      "bytes": 23824,
+      "characters": 22594
     },
     "en/mail/sub-processors": {
       "slug": "en/mail/sub-processors",
       "title": "Sub-processor List",
       "path": "src/content/docs/en/mail/sub-processors.md",
-      "sha256": "aa2045e34aedbaa4504d187c6330cfbcac68a7e5cbb478d04f514241922f603a",
-      "bytes": 6930,
-      "characters": 6926
+      "sha256": "a46d0430f7e4665cd5a81a778d48c66146fc297ac58608c1911d5ebdd5d627e9",
+      "bytes": 6933,
+      "characters": 6929
     },
     "en/mail/tamper-proof": {
       "slug": "en/mail/tamper-proof",
       "title": "Official Mail Specification & Tamper-Proof Verification",
       "path": "src/content/docs/en/mail/tamper-proof.md",
-      "sha256": "0e02d045cd2df0c84b0c44d8cac80b977458e78bf5082b3b31c55afae56e3b58",
-      "bytes": 7365,
-      "characters": 7363
+      "sha256": "e74d060be6267109f9a124a235cd530e2505690a4cde123d5ff0d0ef59554da9",
+      "bytes": 7368,
+      "characters": 7366
     },
     "en/mail/terms-of-service": {
       "slug": "en/mail/terms-of-service",
       "title": "Terms of Service",
       "path": "src/content/docs/en/mail/terms-of-service.md",
-      "sha256": "9afb02453944083ad55d44e8535864dbfa1f2d7b99f6dba4d46518380ac02010",
-      "bytes": 13576,
-      "characters": 13562
+      "sha256": "dac1c0bbca7f230b1f3d2e3444cea3335ca486f67e4d8c39e5a9b03c37ef8a06",
+      "bytes": 13579,
+      "characters": 13565
     },
     "es/mail/acceptable-use": {
       "slug": "es/mail/acceptable-use",
       "title": "Política de Uso Aceptable",
       "path": "src/content/docs/es/mail/acceptable-use.md",
-      "sha256": "762e4cd15d669795eaf3d102b90af708aa2a24e1011f29eed1a22f53457ab4fc",
-      "bytes": 11156,
-      "characters": 10956
+      "sha256": "01028144b371799e3504463387f99d01710a921f6264e080b7b8611216af7b97",
+      "bytes": 11159,
+      "characters": 10959
     },
     "es/mail/data-security": {
       "slug": "es/mail/data-security",
       "title": "Tratamiento de Datos y Mantenimiento de la Seguridad",
       "path": "src/content/docs/es/mail/data-security.md",
-      "sha256": "94e32c85cd0fec521e8e4e10a2ab7de0265b4781cde2df8f3b906c5537e93422",
-      "bytes": 16072,
-      "characters": 15828
+      "sha256": "4e31a2786a2bbec705dcc3fe9cfe4eb74fdf595823142fbd9199a414ad7f2c5d",
+      "bytes": 16081,
+      "characters": 15837
     },
     "es/mail/key-terms": {
       "slug": "es/mail/key-terms",
       "title": "Glosario",
       "path": "src/content/docs/es/mail/key-terms.md",
-      "sha256": "5cb641394a6022dcf2261dc2ccec78c8c6c713ef2a408afefee6111b297cfc17",
-      "bytes": 11024,
-      "characters": 10824
+      "sha256": "0ff93b1e587134350df6537ed8ae4e5ffaf7e7ae129211290b8578c61475c564",
+      "bytes": 11027,
+      "characters": 10827
     },
     "es/mail/overview": {
       "slug": "es/mail/overview",
       "title": "Privacidad y Términos — Visión General",
       "path": "src/content/docs/es/mail/overview.md",
-      "sha256": "fcc618a0f7607a5a5f2ec6273a252225dd1e2b303389017104e7bfb17a52a22a",
-      "bytes": 8043,
-      "characters": 7931
+      "sha256": "23345d8389ac2741d0d210a26d740bca2b1316260fb4d0db5704152cff7777bc",
+      "bytes": 8049,
+      "characters": 7937
     },
     "es/mail/privacy-policy": {
       "slug": "es/mail/privacy-policy",
       "title": "Política de Privacidad",
       "path": "src/content/docs/es/mail/privacy-policy.md",
-      "sha256": "bac47aa94d604bde1555863fbd2e07e4424546c9049348993c4fe41ad63c4472",
-      "bytes": 26262,
-      "characters": 25811
+      "sha256": "46349fec319c8aac6aec199f1b4162a59cfc72a9c64f5240af73e0a4700d985e",
+      "bytes": 26265,
+      "characters": 25814
     },
     "es/mail/project": {
       "slug": "es/mail/project",
       "title": "Presentación del proyecto EpoCanvas Mail",
       "path": "src/content/docs/es/mail/project.md",
-      "sha256": "a890098061f4705bf07a44b557067c6044c0321c50394d1af75519014ba101d2",
-      "bytes": 27443,
-      "characters": 25853
+      "sha256": "866c9571963a971f7bff656ce38d1eec09d5908e747a834d06ce0214f183db01",
+      "bytes": 27446,
+      "characters": 25856
     },
     "es/mail/sub-processors": {
       "slug": "es/mail/sub-processors",
       "title": "Subencargados del Tratamiento",
       "path": "src/content/docs/es/mail/sub-processors.md",
-      "sha256": "2f93020116bf285df24c5c6eaa1b03ce8c0d937235f1c8ccc4d0af907dc92e2e",
-      "bytes": 9071,
-      "characters": 8913
+      "sha256": "df7d288b5c302b25099fe07d4ecaa280f6edb3b08677b03c2fc3af43f568f613",
+      "bytes": 9074,
+      "characters": 8916
     },
     "es/mail/tamper-proof": {
       "slug": "es/mail/tamper-proof",
       "title": "Especificación del correo oficial y verificación contra manipulaciones",
       "path": "src/content/docs/es/mail/tamper-proof.md",
-      "sha256": "e192b93288a885242e1949c2084de6619490c61df9ce202b0b0a64e54d0c5414",
-      "bytes": 8485,
-      "characters": 8343
+      "sha256": "fd6d230e2c1986f59cd7f0146cc948226b28530382fa9bd294d482e5a789c308",
+      "bytes": 8488,
+      "characters": 8346
     },
     "es/mail/terms-of-service": {
       "slug": "es/mail/terms-of-service",
       "title": "Términos del Servicio",
       "path": "src/content/docs/es/mail/terms-of-service.md",
-      "sha256": "bfd6713e86122681d65862450f4a74d8ab09324328ca731b41de17eddf17ef25",
-      "bytes": 17394,
-      "characters": 17087
+      "sha256": "1bef20b1924aaec58ef6eb8c8055383cee15c317d69246c30f03114a39e8c43b",
+      "bytes": 17397,
+      "characters": 17090
     },
     "fr/mail/acceptable-use": {
       "slug": "fr/mail/acceptable-use",
       "title": "Politique dutilisation acceptable",
       "path": "src/content/docs/fr/mail/acceptable-use.md",
-      "sha256": "b67c33cc7f4d284d84f90f45a9a6197f4464b52a3634e108f9279f2cde8e4a9a",
-      "bytes": 11509,
-      "characters": 11213
+      "sha256": "6fb9b6b7da7bdc5ec3031d25478c0c842aae636432fbe9db3f85acbd8f10a716",
+      "bytes": 11512,
+      "characters": 11216
     },
     "fr/mail/data-security": {
       "slug": "fr/mail/data-security",
       "title": "Traitement des Données et Maintien de la Sécurité",
       "path": "src/content/docs/fr/mail/data-security.md",
-      "sha256": "55cac09dd77de4a6324e3d427287c3582128acc6f0644fde2d13f3210c1d8a26",
-      "bytes": 17011,
-      "characters": 16528
+      "sha256": "d9e93295d2a22170be5a15fca2ed3bb40e8797207bb04f2f7cbc4ea7f38eb3d7",
+      "bytes": 17020,
+      "characters": 16537
     },
     "fr/mail/key-terms": {
       "slug": "fr/mail/key-terms",
       "title": "Définitions",
       "path": "src/content/docs/fr/mail/key-terms.md",
-      "sha256": "3fa0a83618a385a70a33b9e824771f3dfe37c5be6d811593b1d138d9de89b21a",
-      "bytes": 11210,
-      "characters": 10859
+      "sha256": "6487f447740d44a08ef6a49bc6b807764569521b5ab097807585c6f9e8065b14",
+      "bytes": 11213,
+      "characters": 10862
     },
     "fr/mail/overview": {
       "slug": "fr/mail/overview",
       "title": "Confidentialité et conditions — Vue densemble",
       "path": "src/content/docs/fr/mail/overview.md",
-      "sha256": "2633b32973b0337f0689aa08a9aaf209ef6cee5c26f232a4692016a99c08e0af",
-      "bytes": 8102,
-      "characters": 7900
+      "sha256": "d1be3667a8ba9dab2268afdd05b6b8ada30aff72bafa95091b347de118fe0929",
+      "bytes": 8108,
+      "characters": 7906
     },
     "fr/mail/privacy-policy": {
       "slug": "fr/mail/privacy-policy",
       "title": "Politique de confidentialité",
       "path": "src/content/docs/fr/mail/privacy-policy.md",
-      "sha256": "a7330bf9b6caa0c1b801fd97464c92c070a3abf06493b0c6aa6e44986e0b43d2",
-      "bytes": 26458,
-      "characters": 25666
+      "sha256": "35a21cd1008824a50960dd21c5a7d0a22e0c75fd5dc6dc706e9333eee7d0996d",
+      "bytes": 26461,
+      "characters": 25669
     },
     "fr/mail/project": {
       "slug": "fr/mail/project",
       "title": "Présentation du projet EpoCanvas Mail",
       "path": "src/content/docs/fr/mail/project.md",
-      "sha256": "cd2b6b81c2edd0e320340a436bcc0dc360a7db77218a82e443249acf4de6f00b",
-      "bytes": 27906,
-      "characters": 26090
+      "sha256": "a8134a95df649deea6081e67ec09503455f6ba6cd09a375732f0cb62d117a4cb",
+      "bytes": 27909,
+      "characters": 26093
     },
     "fr/mail/sub-processors": {
       "slug": "fr/mail/sub-processors",
       "title": "Liste des sous-traitants",
       "path": "src/content/docs/fr/mail/sub-processors.md",
-      "sha256": "5d4111104befc07852c0f1139c6f12bb78813287d03c482041a715e2ab2508b5",
-      "bytes": 8833,
-      "characters": 8598
+      "sha256": "b0b9fdf912c8416d9c4697d14344cf9709fa07f8357a1f8b95bc934df5aecff0",
+      "bytes": 8836,
+      "characters": 8601
     },
     "fr/mail/tamper-proof": {
       "slug": "fr/mail/tamper-proof",
       "title": "Spécifications des courriels officiels et vérification anti-falsification",
       "path": "src/content/docs/fr/mail/tamper-proof.md",
-      "sha256": "dc26adf266a982e7df1c48fab3b059dd6c231e0516bc88b442c42d4c60a41be8",
-      "bytes": 8885,
-      "characters": 8615
+      "sha256": "af4946450e7313bfbb5a4c22fa85f4b7fbf0ce169e2186ddd42527c1ed17d4f7",
+      "bytes": 8888,
+      "characters": 8618
     },
     "fr/mail/terms-of-service": {
       "slug": "fr/mail/terms-of-service",
       "title": "Conditions dutilisation",
       "path": "src/content/docs/fr/mail/terms-of-service.md",
-      "sha256": "568b9372f140c8c2ca16e50c2281414f5db30e7a289e4be2b05bf143feaa5f58",
-      "bytes": 18216,
-      "characters": 17665
+      "sha256": "3b9230a96885a34f77eabef2420365563da3536bfb51b1b28d6e51f25cd2f501",
+      "bytes": 18219,
+      "characters": 17668
     },
     "mail/acceptable-use": {
       "slug": "mail/acceptable-use",
@@ -305,145 +305,145 @@
       "slug": "nl/mail/acceptable-use",
       "title": "Beleid voor acceptabel gebruik",
       "path": "src/content/docs/nl/mail/acceptable-use.md",
-      "sha256": "a056cc745ac5f031416248fea9a9c0d1a9dbbd09c599a19b492a7e964e508549",
-      "bytes": 10931,
-      "characters": 10915
+      "sha256": "49651824f141289b01fe5c7c078a713ae08f4e8ee069eec9d8e1c8578e3c01f2",
+      "bytes": 10934,
+      "characters": 10918
     },
     "nl/mail/data-security": {
       "slug": "nl/mail/data-security",
       "title": "Gegevensverwerking en Beveiligingsonderhoud",
       "path": "src/content/docs/nl/mail/data-security.md",
-      "sha256": "1054d7952539a7ed7f544da8bb0ffefa30050e7db18a6497c7af3f52f516aec3",
-      "bytes": 15139,
-      "characters": 15088
+      "sha256": "0b7d6d43d523ea67b04b3e03356b1dbf311a11a9ce73d36c8eac60f424eb6ef0",
+      "bytes": 15148,
+      "characters": 15097
     },
     "nl/mail/key-terms": {
       "slug": "nl/mail/key-terms",
       "title": "Begrippenlijst",
       "path": "src/content/docs/nl/mail/key-terms.md",
-      "sha256": "d76b2f9f4d7a61d83f69e1a7d79fa0714d388d14e606017a9c1d4453565d99b7",
-      "bytes": 10536,
-      "characters": 10513
+      "sha256": "02bd6dd06f198b0b71609f77784a8b22297f66440b5fb2f8d67a1a372abd0d26",
+      "bytes": 10539,
+      "characters": 10516
     },
     "nl/mail/overview": {
       "slug": "nl/mail/overview",
       "title": "Overzicht van privacy en voorwaarden",
       "path": "src/content/docs/nl/mail/overview.md",
-      "sha256": "212137f05c6035e7eb38df955640e823695617b03ccead54d48cb1d54a6e2de1",
-      "bytes": 7416,
-      "characters": 7404
+      "sha256": "ccfd1649206b12bb1c1014bf562597410213cb5acc6a04c9dac2a36b6de8f6ac",
+      "bytes": 7422,
+      "characters": 7410
     },
     "nl/mail/privacy-policy": {
       "slug": "nl/mail/privacy-policy",
       "title": "Privacybeleid",
       "path": "src/content/docs/nl/mail/privacy-policy.md",
-      "sha256": "fdeb03ba6bb062edb25654dde4dbcdc950e99a6bf9cac825e35a59eba9694446",
-      "bytes": 24605,
-      "characters": 24564
+      "sha256": "4acf1b2ccc7d2ff927d5ecd7153eb7a5403730fa776cee14ca81c0bb145d0a15",
+      "bytes": 24608,
+      "characters": 24567
     },
     "nl/mail/project": {
       "slug": "nl/mail/project",
       "title": "Projectoverzicht EpoCanvas Mail",
       "path": "src/content/docs/nl/mail/project.md",
-      "sha256": "1e8d2f5e7cf2c94b2c7986e3252ae397c653b076de82c7b6c51cd3b3d3095d5a",
-      "bytes": 25677,
-      "characters": 24365
+      "sha256": "70501e27c3d6aa304944cda6bd6d01fd2f31aea8e6871c3bdcb9e1c81ce57cc5",
+      "bytes": 25680,
+      "characters": 24368
     },
     "nl/mail/sub-processors": {
       "slug": "nl/mail/sub-processors",
       "title": "Lijst van verwerkers",
       "path": "src/content/docs/nl/mail/sub-processors.md",
-      "sha256": "d62d6408f2037e97b2d06e0e91d29ce5cc78304d79161090e454312d3ae15f39",
-      "bytes": 8448,
-      "characters": 8437
+      "sha256": "760631aab9d5b03cb3c6092e6a3f0b717e0a477a394b1d99670d1df0873ac210",
+      "bytes": 8451,
+      "characters": 8440
     },
     "nl/mail/tamper-proof": {
       "slug": "nl/mail/tamper-proof",
       "title": "Officiële e-mailspecificaties en verificatie tegen manipulatie",
       "path": "src/content/docs/nl/mail/tamper-proof.md",
-      "sha256": "04bd5b650acbd85ee76af7f18ea0ffb7ff2e67c113e456986b10dfec1bc0bb91",
-      "bytes": 7994,
-      "characters": 7937
+      "sha256": "9df3afbdaa151d9848813e4cf158448df6306e172f0b4943c15c1d0be97ffc7a",
+      "bytes": 7997,
+      "characters": 7940
     },
     "nl/mail/terms-of-service": {
       "slug": "nl/mail/terms-of-service",
       "title": "Servicevoorwaarden",
       "path": "src/content/docs/nl/mail/terms-of-service.md",
-      "sha256": "b2bbf2547c957d30d18bb442901605ec875fa69a23a01ce83afd1c75206979db",
-      "bytes": 17040,
-      "characters": 16991
+      "sha256": "ad651b71d2c40cce1ab9740e81b3bdf4ff73fabad2537e2c82aff097f2bfffb5",
+      "bytes": 17043,
+      "characters": 16994
     },
     "zh-tw/mail/acceptable-use": {
       "slug": "zh-tw/mail/acceptable-use",
       "title": "可接受使用政策",
       "path": "src/content/docs/zh-tw/mail/acceptable-use.md",
-      "sha256": "9bd0adefe74afd86f376b02ab3755e55bb578e3215fe5ae84624f4e0bb1449d7",
-      "bytes": 7082,
-      "characters": 2862
+      "sha256": "62f3760eba3cbf7cb2424676c841aed5eecba18c0732269a3845e3e1e1627ce6",
+      "bytes": 7088,
+      "characters": 2868
     },
     "zh-tw/mail/data-security": {
       "slug": "zh-tw/mail/data-security",
       "title": "資料處理與安全維護",
       "path": "src/content/docs/zh-tw/mail/data-security.md",
-      "sha256": "9a3ea9eac54298f93f84a214c00661ccee31f83dfb6c649d2801593bba2d9cf9",
-      "bytes": 11846,
-      "characters": 5696
+      "sha256": "5a022f5ef4e0b78aac127ccc3c877f5c3f3dff91c94aedf3df739341f92f8081",
+      "bytes": 11864,
+      "characters": 5714
     },
     "zh-tw/mail/key-terms": {
       "slug": "zh-tw/mail/key-terms",
       "title": "用語定義",
       "path": "src/content/docs/zh-tw/mail/key-terms.md",
-      "sha256": "ff98e784b7c9550992bc0941023dff0756be77cf271d62a1c2551adc868f824a",
-      "bytes": 7132,
-      "characters": 3066
+      "sha256": "ab680c45d164757c4ee549ea5953290984a01d58f1e88f0d2e95faddb8dcb1ce",
+      "bytes": 7138,
+      "characters": 3072
     },
     "zh-tw/mail/overview": {
       "slug": "zh-tw/mail/overview",
       "title": "隱私權與條款總覽",
       "path": "src/content/docs/zh-tw/mail/overview.md",
-      "sha256": "58756959bdd4c6be7f19446b4e6cb5f2e78172e9117c5c619c5099ef4b4731d0",
-      "bytes": 5266,
-      "characters": 2430
+      "sha256": "4ec55ee39878c55cf5bb02bd539a0a8577d2623768c175278f7c75c12d706e29",
+      "bytes": 5278,
+      "characters": 2442
     },
     "zh-tw/mail/privacy-policy": {
       "slug": "zh-tw/mail/privacy-policy",
       "title": "隱私權政策",
       "path": "src/content/docs/zh-tw/mail/privacy-policy.md",
-      "sha256": "8631a1b6e961bd79d1ad10e4509902b85bf7427da189e6eb9c3371def609eef4",
-      "bytes": 16845,
-      "characters": 6919
+      "sha256": "dba5a90b809912732bbb68d20ace14baa7e5b0e67cc52024694b2fdab85799d4",
+      "bytes": 16851,
+      "characters": 6925
     },
     "zh-tw/mail/project": {
       "slug": "zh-tw/mail/project",
       "title": "EpoCanvas Mail 專案介紹",
       "path": "src/content/docs/zh-tw/mail/project.md",
-      "sha256": "4e73cc3ed2a1f9f5a502ea9f3eb1d209df6f1ab9ae702605b546cf55a6042656",
-      "bytes": 21595,
-      "characters": 12585
+      "sha256": "5becf4285e50ce8019c2c8432a121ac141da3a8720926c3247dceabf3965a7d4",
+      "bytes": 21601,
+      "characters": 12591
     },
     "zh-tw/mail/sub-processors": {
       "slug": "zh-tw/mail/sub-processors",
       "title": "第三方處理者清單",
       "path": "src/content/docs/zh-tw/mail/sub-processors.md",
-      "sha256": "87057434d7ae0117a9e217a80d3132fde462d233dd4094fd2f12051179fa564d",
-      "bytes": 5882,
-      "characters": 2650
+      "sha256": "df47f1ff87686d46d8c39af913e65674185c3b432b71e419fa553007f5a01715",
+      "bytes": 5888,
+      "characters": 2656
     },
     "zh-tw/mail/tamper-proof": {
       "slug": "zh-tw/mail/tamper-proof",
       "title": "官方郵件規範與防竄改驗證",
       "path": "src/content/docs/zh-tw/mail/tamper-proof.md",
-      "sha256": "3d56193f0c8d5ddc4f3bc7147d04e96e36d537d8932bc783de3bc35f630e2144",
-      "bytes": 5867,
-      "characters": 2659
+      "sha256": "93fb8853d8895cbbacd5c827957dbd4e97bb240f804f95a5039be2e0f5e613ac",
+      "bytes": 5873,
+      "characters": 2665
     },
     "zh-tw/mail/terms-of-service": {
       "slug": "zh-tw/mail/terms-of-service",
       "title": "服務條款",
       "path": "src/content/docs/zh-tw/mail/terms-of-service.md",
-      "sha256": "827ef5564addaa3053d26851ad7df787b9c40cd9a722bf0959c18fd489a4ceef",
-      "bytes": 11466,
-      "characters": 4672
+      "sha256": "1bca5a8523f93cf8e57e808a0ae71112fcafa9d7595068aff420b239a515f01a",
+      "bytes": 11472,
+      "characters": 4678
     }
   }
 }

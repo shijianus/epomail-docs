@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Arquitectura de los documentos jurídicos: los Términos del Servicio como capa contractual, la Política de Privacidad y el Uso Aceptable como capa de políticas, el tratamiento de datos y los encargados como documentos de apoyo, sobre el derecho aplicable y las obligaciones de seguridad">
+  <style>
+    .bg { fill: #f8fafc; }
+    .layer { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .top { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.5; }
+    .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1.5; }
+    .t { font: 600 15px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1.2px; fill: #2563eb; }
+    .law { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #475569; }
+    .vline { stroke: #cbd5e1; stroke-width: 1.5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .layer { fill: #111827; stroke: #1e293b; }
+      .top { fill: rgba(59,130,246,0.10); stroke: #3b82f6; }
+      .base { fill: #111827; stroke: #1e293b; }
+      .t { fill: #f1f5f9; }
+      .b { fill: #94a3b8; }
+      .tag { fill: #60a5fa; }
+      .law { fill: #94a3b8; }
+      .vline { stroke: #334155; }
+    }
+  </style>
+  <rect class="bg" width="1000" height="430" rx="16"/>
+  <rect class="top" x="250" y="46" width="500" height="86" rx="12"/>
+  <text class="tag" x="274" y="72">CAPA CONTRACTUAL</text>
+  <text class="t" x="274" y="94">Términos del Servicio</text>
+  <text class="b" x="274" y="110">Consentimiento electrónico: misma fuerza que una firma escrita</text>
+  <text class="b" x="274" y="126">Texto íntegro publicado para revisión · revisiones archivadas en el repositorio abierto</text>
+  <line class="vline" x1="360" y1="132" x2="360" y2="168"/>
+  <line class="vline" x1="500" y1="132" x2="500" y2="168"/>
+  <line class="vline" x1="640" y1="132" x2="640" y2="168"/>
+  <rect class="layer" x="70" y="168" width="290" height="66" rx="12"/>
+  <text class="t" x="90" y="194" font-size="13">Política de Privacidad</text>
+  <text class="b" x="90" y="214">Qué recopilamos y por qué · estándares de tratamiento</text>
+  <rect class="layer" x="380" y="168" width="240" height="66" rx="12"/>
+  <text class="t" x="400" y="194" font-size="13">Política de Uso Aceptable</text>
+  <text class="b" x="400" y="214">Límites de conducta y ejecución</text>
+  <rect class="layer" x="640" y="168" width="290" height="66" rx="12"/>
+  <text class="t" x="660" y="194" font-size="13">Datos y seguridad · Encargados</text>
+  <text class="b" x="660" y="214">Medidas de seguridad · lista de encargados</text>
+  <rect class="base" x="70" y="266" width="860" height="100" rx="12"/>
+  <text class="tag" x="94" y="292">MARCO LEGAL</text>
+  <text class="t" x="94" y="316" font-size="13.5">Derecho del lugar del operador — instancia alojada: derecho taiwanés, tribunal de distrito de Taipéi</text>
+  <text class="b" x="94" y="336">Las cláusulas abusivas no obligan conforme al derecho aplicable</text>
+  <text class="b" x="94" y="352">La responsabilidad que el derecho no permite excluir no queda limitada</text>
+  <text class="law" x="94" y="400">ORDEN DE PRELACIÓN: prevalece el documento propio de la materia · la versión en chino tradicional (Taiwán) es la autoritativa</text>
+</svg>

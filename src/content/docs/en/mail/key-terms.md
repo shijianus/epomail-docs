@@ -11,7 +11,7 @@ This page defines the terms used across this site's legal documents. Legal terms
 
 The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
 
-![Map of terms: legal terms (data controller, processor, data subject, specific purpose, and others) and technical terms (instance, D1/KV/R2, encryption at rest, zero telemetry, and others) used consistently across all documents; the interpretation bases are general data-protection usage and the actual open-source implementation](/images/mail/key-terms-glossary.svg)
+![Map of terms: legal terms (data controller, processor, data subject, specific purpose, and others) and technical terms (instance, D1/KV/R2, encryption at rest, zero telemetry, and others) used consistently across all documents; the interpretation bases are general data-protection usage and the actual open-source implementation](/images/mail/en/key-terms-glossary.svg)
 
 *Figure: the relation between the two groups of definitions. Legal terms follow general data-protection usage; technical terms are interpreted by the open-source implementation; terms not listed are read in the context of the Privacy Policy and the Terms of Service.*
 

@@ -1,14 +1,14 @@
-<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data sovereignty: self-service export, deletion with a recycle buffer, and enforceable rights">
+<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="数据自主控制示意：自助导出、删除缓冲与权利行使，资料保存于运营者的 Cloudflare 资源内">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; }
     .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1; }
     .ico { fill: #eff6ff; stroke: #2563eb; stroke-width: 1; }
     .icod { fill: none; stroke: #2563eb; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-    .t { font: 600 10px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
-    .b { font: 400 8px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #64748b; }
-    .tag { font: 600 8px -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: 1px; fill: #2563eb; }
-    .bt { font: 600 9px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #334155; }
+    .t { font: 600 10px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b { font: 400 8px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .tag { font: 600 8px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1px; fill: #2563eb; }
+    .bt { font: 600 9px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #334155; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #0b0f19; }
       .card { fill: #111827; stroke: #1e293b; }
@@ -22,41 +22,32 @@
     }
   </style>
   <rect class="bg" width="416" height="276" rx="16"/>
-
-  <text class="tag" x="26" y="26">YOUR DATA, YOUR CONTROL</text>
-  <text class="b" x="390" y="26" text-anchor="end">storage stays inside the instance</text>
-
-  <!-- export -->
+  <text class="tag" x="26" y="26">您的数据 您做主</text>
+  <text class="b" x="390" y="26" text-anchor="end">资料不离开实例存储</text>
   <rect class="card" x="26" y="40" width="112" height="128" rx="10"/>
   <rect class="ico" x="42" y="54" width="26" height="26" rx="8"/>
   <path class="icod" d="M55 60 V72 M51 68.5 L55 72.5 L59 68.5"/>
   <path class="icod" d="M49 76 H61"/>
-  <text class="t" x="42" y="96">Export</text>
-  <text class="b" x="42" y="110">self-service copy</text>
-  <text class="b" x="42" y="122">in JSON format,</text>
-  <text class="b" x="42" y="134">any time, in the app</text>
-
-  <!-- delete -->
+  <text class="t" x="42" y="96">导出</text>
+  <text class="b" x="42" y="110">自助副本，</text>
+  <text class="b" x="42" y="122">JSON 格式，</text>
+  <text class="b" x="42" y="134">随时于应用内</text>
   <rect class="card" x="152" y="40" width="112" height="128" rx="10"/>
   <rect class="ico" x="168" y="54" width="26" height="26" rx="8"/>
   <path class="icod" d="M176 61 H186 M179 61 V59 H183 V61 M178 61 L179 74 H183 L184 61"/>
-  <text class="t" x="168" y="96">Delete</text>
-  <text class="b" x="168" y="110">recycle bin buffer,</text>
-  <text class="b" x="168" y="122">then hard delete;</text>
-  <text class="b" x="168" y="134">account deletion is final</text>
-
-  <!-- rights -->
+  <text class="t" x="168" y="96">删除</text>
+  <text class="b" x="168" y="110">回收站缓冲，</text>
+  <text class="b" x="168" y="122">而后实体删除；</text>
+  <text class="b" x="168" y="134">注销不可复原</text>
   <rect class="card" x="278" y="40" width="112" height="128" rx="10"/>
   <rect class="ico" x="294" y="54" width="26" height="26" rx="8"/>
   <path class="icod" d="M301 60 H315 L312 64 L315 68 H301 Z M303 68 V74"/>
-  <text class="t" x="294" y="96">Rights</text>
-  <text class="b" x="294" y="110">access, copy, correct,</text>
-  <text class="b" x="294" y="122">stop processing, erase;</text>
-  <text class="b" x="294" y="134">answer within 30 days</text>
-
-  <!-- base -->
+  <text class="t" x="294" y="96">权利</text>
+  <text class="b" x="294" y="110">查询、复制、</text>
+  <text class="b" x="294" y="122">更正、停止、</text>
+  <text class="b" x="294" y="134">删除；30 日内答复</text>
   <rect class="base" x="26" y="184" width="364" height="42" rx="10"/>
-  <text class="bt" x="44" y="202">Where your data lives:</text>
-  <text class="b" x="44" y="216">the operator's Cloudflare resources (D1 / KV / objects) · applicable law follows the operator's jurisdiction</text>
-  <text class="b" x="26" y="248">Self-hosting? You become the data controller — publish your own notice and channels.</text>
+  <text class="bt" x="44" y="202">资料存于何处：</text>
+  <text class="b" x="44" y="216">运营者的 Cloudflare 资源（D1 / KV / 对象存储）· 适用法律随运营者辖区</text>
+  <text class="b" x="26" y="248">自建部署？您即数据控制者，请公布您自己的告知与联系渠道。</text>
 </svg>

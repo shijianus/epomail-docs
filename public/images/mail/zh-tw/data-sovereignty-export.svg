@@ -1,0 +1,53 @@
+<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="資料自主控制示意：自助匯出、刪除緩衝與權利行使，資料保存於營運者的 Cloudflare 資源內">
+  <style>
+    .bg { fill: #f8fafc; }
+    .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; }
+    .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1; }
+    .ico { fill: #eff6ff; stroke: #2563eb; stroke-width: 1; }
+    .icod { fill: none; stroke: #2563eb; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .t { font: 600 10px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b { font: 400 8px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .tag { font: 600 8px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1px; fill: #2563eb; }
+    .bt { font: 600 9px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #334155; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .card { fill: #111827; stroke: #1e293b; }
+      .base { fill: #111827; stroke: #1e293b; }
+      .ico { fill: rgba(59,130,246,0.10); stroke: #3b82f6; }
+      .icod { stroke: #60a5fa; }
+      .t { fill: #f1f5f9; }
+      .b { fill: #94a3b8; }
+      .tag { fill: #60a5fa; }
+      .bt { fill: #cbd5e1; }
+    }
+  </style>
+  <rect class="bg" width="416" height="276" rx="16"/>
+  <text class="tag" x="26" y="26">您的資料 您作主</text>
+  <text class="b" x="390" y="26" text-anchor="end">資料不離開實例儲存</text>
+  <rect class="card" x="26" y="40" width="112" height="128" rx="10"/>
+  <rect class="ico" x="42" y="54" width="26" height="26" rx="8"/>
+  <path class="icod" d="M55 60 V72 M51 68.5 L55 72.5 L59 68.5"/>
+  <path class="icod" d="M49 76 H61"/>
+  <text class="t" x="42" y="96">匯出</text>
+  <text class="b" x="42" y="110">自助副本，</text>
+  <text class="b" x="42" y="122">JSON 格式，</text>
+  <text class="b" x="42" y="134">隨時於應用程式內</text>
+  <rect class="card" x="152" y="40" width="112" height="128" rx="10"/>
+  <rect class="ico" x="168" y="54" width="26" height="26" rx="8"/>
+  <path class="icod" d="M176 61 H186 M179 61 V59 H183 V61 M178 61 L179 74 H183 L184 61"/>
+  <text class="t" x="168" y="96">刪除</text>
+  <text class="b" x="168" y="110">垃圾桶緩衝，</text>
+  <text class="b" x="168" y="122">而後實體刪除；</text>
+  <text class="b" x="168" y="134">註銷不可復原</text>
+  <rect class="card" x="278" y="40" width="112" height="128" rx="10"/>
+  <rect class="ico" x="294" y="54" width="26" height="26" rx="8"/>
+  <path class="icod" d="M301 60 H315 L312 64 L315 68 H301 Z M303 68 V74"/>
+  <text class="t" x="294" y="96">權利</text>
+  <text class="b" x="294" y="110">查詢、複製、</text>
+  <text class="b" x="294" y="122">更正、停止、</text>
+  <text class="b" x="294" y="134">刪除；30 日內答覆</text>
+  <rect class="base" x="26" y="184" width="364" height="42" rx="10"/>
+  <text class="bt" x="44" y="202">資料存於何處：</text>
+  <text class="b" x="44" y="216">營運者的 Cloudflare 資源（D1 / KV / 物件儲存）· 適用法律隨營運者轄區</text>
+  <text class="b" x="26" y="248">自建部署？您即資料控制者，請公布您自己的告知與聯絡管道。</text>
+</svg>

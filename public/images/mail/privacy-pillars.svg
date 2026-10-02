@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Five pillars of the privacy policy standing on the oversight base: collect, use, transfer, security, your rights — under the applicable data-protection law">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="隐私政策五大支柱立于主管监督之基座：收集、利用、传输、安全与您的权利，之上为适用数据保护法">
   <style>
     .bg { fill: #f8fafc; }
     .roof { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.6; }
     .pillar { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
-    .pt { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
-    .pb { font: 400 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #64748b; }
-    .law { font: 600 10px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #2563eb; }
+    .pt { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .pb { font: 400 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .law { font: 600 10px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #2563eb; }
     .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1.5; }
-    .bt { font: 600 12.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
-    .roof-t { font: 600 14.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
+    .bt { font: 600 12.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .roof-t { font: 600 14.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #0b0f19; }
       .roof { fill: rgba(59,130,246,0.12); stroke: #3b82f6; }
@@ -22,50 +22,40 @@
     }
   </style>
   <rect class="bg" width="1000" height="400" rx="16"/>
-
-  <!-- roof -->
   <rect class="roof" x="60" y="40" width="880" height="64" rx="12"/>
-  <text class="roof-t" x="84" y="68">Applicable data-protection law — notice duty: what we collect, why, for how long, and what you can do</text>
-  <text class="law" x="84" y="90">APPLIES TO EVERY PROCESSING ACTIVITY DESCRIBED IN THIS POLICY</text>
-
-  <!-- five pillars -->
+  <text class="roof-t" x="84" y="68" font-size="13">适用数据保护法之告知义务：收集什么、为何收集、保存多久、您能做什么</text>
+  <text class="law" x="84" y="90">适用于本政策所述之全部处理活动</text>
   <rect class="pillar" x="60" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="78" y="168">Collect</text>
-  <text class="pb" x="78" y="190">Contract necessity;</text>
-  <text class="pb" x="78" y="206">consent for optional</text>
-  <text class="pb" x="78" y="222">AI features</text>
-  <text class="law" x="78" y="262">CONTRACT · CONSENT</text>
-
+  <text class="pt" x="78" y="168">收集</text>
+  <text class="pb" x="78" y="190">契约之必要处理；</text>
+  <text class="pb" x="78" y="206">选配 AI 功能</text>
+  <text class="pb" x="78" y="222">经您同意</text>
+  <text class="law" x="78" y="262">契约 · 同意</text>
   <rect class="pillar" x="230" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="248" y="168">Use</text>
-  <text class="pb" x="248" y="190">Within the specific</text>
-  <text class="pb" x="248" y="206">purpose; opt-out of</text>
-  <text class="pb" x="248" y="222">marketing at any time</text>
-  <text class="law" x="248" y="262">PURPOSE LIMIT</text>
-
+  <text class="pt" x="248" y="168">利用</text>
+  <text class="pb" x="248" y="190">于特定目的</text>
+  <text class="pb" x="248" y="206">必要范围内；</text>
+  <text class="pb" x="248" y="222">营销得随时拒绝</text>
+  <text class="law" x="248" y="262">目的限制</text>
   <rect class="pillar" x="400" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="418" y="168">Transfer</text>
-  <text class="pb" x="418" y="190">Cross-border via</text>
-  <text class="pb" x="418" y="206">Cloudflare; obeys</text>
-  <text class="pb" x="418" y="222">lawful restrictions</text>
-  <text class="law" x="418" y="262">TRANSFER SAFEGUARDS</text>
-
+  <text class="pt" x="418" y="168">传输</text>
+  <text class="pb" x="418" y="190">经 Cloudflare</text>
+  <text class="pb" x="418" y="206">跨境处理；</text>
+  <text class="pb" x="418" y="222">遵循合法限制</text>
+  <text class="law" x="418" y="262">传输保障</text>
   <rect class="pillar" x="570" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="588" y="168">Security</text>
-  <text class="pb" x="588" y="190">Encryption, locking,</text>
-  <text class="pb" x="588" y="206">audits — measures</text>
-  <text class="pb" x="588" y="222">continuously improved</text>
-  <text class="law" x="588" y="262">SECURITY MEASURES</text>
-
+  <text class="pt" x="588" y="168">安全</text>
+  <text class="pb" x="588" y="190">加密与锁定；</text>
+  <text class="pb" x="588" y="206">审计；措施</text>
+  <text class="pb" x="588" y="222">持续改善</text>
+  <text class="law" x="588" y="262">安全维护</text>
   <rect class="pillar" x="740" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="758" y="168">Your rights</text>
-  <text class="pb" x="758" y="190">Query, copy, correct,</text>
-  <text class="pb" x="758" y="206">stop, delete — exercise</text>
-  <text class="pb" x="758" y="222">per Section 9</text>
-  <text class="law" x="758" y="262">RIGHTS &amp; REMEDIES</text>
-
-  <!-- base -->
+  <text class="pt" x="758" y="168">您的权利</text>
+  <text class="pb" x="758" y="190">查询、复制、</text>
+  <text class="pb" x="758" y="206">更正、停止、</text>
+  <text class="pb" x="758" y="222">删除（第 9 节）</text>
+  <text class="law" x="758" y="262">权利与救济</text>
   <rect class="base" x="60" y="312" width="880" height="56" rx="12"/>
-  <text class="bt" x="84" y="336">Base: supervisory oversight — inspection by the competent authority of the operator's jurisdiction</text>
-  <text class="law" x="84" y="356">APPLICABLE LAW OF EACH INSTANCE'S OPERATOR JURISDICTION</text>
+  <text class="bt" x="84" y="336" font-size="12">底座：主管监督，由运营者辖区之主管机关检查</text>
+  <text class="law" x="84" y="356">各实例运营者辖区之适用法律</text>
 </svg>

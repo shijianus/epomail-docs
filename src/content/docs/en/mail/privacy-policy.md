@@ -11,7 +11,7 @@ This policy explains how the EpoCanvas Mail service (the "Service") collects, pr
 
 The technical facts in this document follow the actual implementation of the Service's open-source code. The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow that implementation and aim to establish transparent, rigorous, non-commercial community communication norms. The law applicable to the instance you use is determined by its operator's location (see Section 12).
 
-![EpoCanvas Mail five pillars of the privacy policy: collection, use, transfer, security, and data-subject rights — grounded in contract and consent, purpose limitation, transfer safeguards, security maintenance, and remedies, all resting on supervisory oversight](/images/mail/privacy-pillars.svg)
+![EpoCanvas Mail five pillars of the privacy policy: collection, use, transfer, security, and data-subject rights — grounded in contract and consent, purpose limitation, transfer safeguards, security maintenance, and remedies, all resting on supervisory oversight](/images/mail/en/privacy-pillars.svg)
 
 *Figure: the five axes of this policy. Collection and use are limited to what specific purposes require; international transfers follow applicable law and standard safeguard mechanisms; security maintenance is continuously improved; data-subject rights are exercised under Section 9; all of it rests on supervisory oversight.*
 

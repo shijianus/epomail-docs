@@ -9,7 +9,7 @@ description: Visión general de los documentos legales de EpoCanvas Mail—ident
 
 Esta página constituye una guía de todos los documentos legales del servicio EpoCanvas Mail (el «Servicio») y explica los roles de las partes, la arquitectura documental y el orden de aplicación. Antes de registrarse en el Servicio o utilizarlo, debe leer esta página, junto con la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos del Servicio](/es/mail/terms-of-service/).
 
-![Arquitectura de los documentos legales de EpoCanvas Mail: los Términos del Servicio como capa contractual; la Política de Privacidad y la Política de Uso Aceptable como capa de políticas; el Procesamiento de Datos y Mantenimiento de la Seguridad, la Lista de Subencargados del Tratamiento y el Glosario como documentos de apoyo; todo ello sobre los cimientos de la ley aplicable y las obligaciones de mantenimiento de la seguridad](/images/mail/legal-architecture.svg)
+![Arquitectura de los documentos legales de EpoCanvas Mail: los Términos del Servicio como capa contractual; la Política de Privacidad y la Política de Uso Aceptable como capa de políticas; el Procesamiento de Datos y Mantenimiento de la Seguridad, la Lista de Subencargados del Tratamiento y el Glosario como documentos de apoyo; todo ello sobre los cimientos de la ley aplicable y las obligaciones de mantenimiento de la seguridad](/images/mail/es/legal-architecture.svg)
 
 *Figura: La arquitectura de los documentos legales de este sitio. Los Términos del Servicio establecen las condiciones contractuales; la Política de Privacidad contiene la notificación y los estándares de tratamiento de los datos personales; la Política de Uso Aceptable fija los límites de conducta; el Procesamiento de Datos y Mantenimiento de la Seguridad, la Lista de Subencargados del Tratamiento y el Glosario son documentos de apoyo. La ley aplicable a cada instancia se determina por la ubicación de su operador.*
 
@@ -24,7 +24,7 @@ EpoCanvas Mail es un servicio de correo electrónico de código abierto construi
 
 Los documentos legales del Servicio adoptan la distinción de roles entre «responsable del tratamiento» y «encargado del tratamiento», equivalente a la clasificación general empleada en el Reglamento General de Protección de Datos (RGPD) de la Unión Europea y en ordenamientos jurídicos similares; la ley aplicable a cada instancia se determina por la ubicación de su operador.
 
-![Asignación de responsabilidades de EpoCanvas Mail: el proyecto de código abierto ascendente (Licencia MIT) proporciona el código fuente; la instancia que usted utiliza es operada de forma independiente por su Operador, que asume la responsabilidad de responsable del tratamiento; su cuenta y sus datos de correo electrónico se almacenan en los recursos de Cloudflare de dicha instancia](/images/mail/self-host-responsibilities.svg)
+![Asignación de responsabilidades de EpoCanvas Mail: el proyecto de código abierto ascendente (Licencia MIT) proporciona el código fuente; la instancia que usted utiliza es operada de forma independiente por su Operador, que asume la responsabilidad de responsable del tratamiento; su cuenta y sus datos de correo electrónico se almacenan en los recursos de Cloudflare de dicha instancia](/images/mail/es/self-host-responsibilities.svg)
 
 *Figura: Los límites de responsabilidad entre el software, el Operador y los usuarios. Los autores ascendentes del proyecto de código abierto no operan ningún servicio de correo electrónico y no responden por la conducta de ninguna instancia.*
 

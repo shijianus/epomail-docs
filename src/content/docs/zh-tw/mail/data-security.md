@@ -32,7 +32,7 @@ description: EpoCanvas Mail 資料安全與個人資料保護——安全維護�
 官方託管實例對資料之保護分為傳輸、邊緣處理、靜態儲存與憑證四層。各層措施均實作於開源程式碼，可自行審計核對。
 
 <div class="google-illustration-container">
-  <img src="/images/mail/security-trust-shield.svg" alt="EpoCanvas Mail 四層縱深防禦示意：傳輸加密、邊緣無狀態處理、靜態儲存加密與憑證保護，底層為使用者對資料之自主控制" width="416" height="276" />
+  <img src="/images/mail/zh-tw/security-trust-shield.svg" alt="EpoCanvas Mail 四層縱深防禦示意：傳輸加密、邊緣無狀態處理、靜態儲存加密與憑證保護，底層為使用者對資料之自主控制" width="416" height="276" />
 </div>
 
 *圖：傳輸、邊緣、靜態儲存與憑證四層防護；底層為使用者之自主控制（自助匯出、刪除與兩步驟驗證）。*
@@ -78,7 +78,7 @@ description: EpoCanvas Mail 資料安全與個人資料保護——安全維護�
 EpoCanvas Mail 兼具官方託管服務與開源專案雙重屬性。資料控制者之界定與三方責任劃分詳見[隱私權與條款總覽](/zh-tw/mail/overview/)第 2 節，本節就託管實例定位與開源分發規則作補充。
 
 <div class="google-illustration-container">
-  <img src="/images/mail/dual-nature-scale.svg" alt="EpoCanvas Mail 雙軌治理示意：同一開源程式碼庫，託管實例與自建實例各自之資料控制者與責任邊界" width="416" height="276" />
+  <img src="/images/mail/zh-tw/dual-nature-scale.svg" alt="EpoCanvas Mail 雙軌治理示意：同一開源程式碼庫，託管實例與自建實例各自之資料控制者與責任邊界" width="416" height="276" />
 </div>
 
 *圖：同一開源程式碼庫之兩條營運軌道。託管實例由營運團隊擔任資料控制者；自建實例之部署者為唯一資料控制者；上游作者不營運服務、不掌握資料。*
@@ -110,7 +110,7 @@ EpoCanvas Mail 兼具官方託管服務與開源專案雙重屬性。資料控�
 您對自身資料享有查詢、複製、更正、停止處理與刪除之權利。本章說明各項權利經何種功能落實；權利內容之完整定義見[隱私權政策](/zh-tw/mail/privacy-policy/)第 9 節。
 
 <div class="google-illustration-container">
-  <img src="/images/mail/data-sovereignty-export.svg" alt="EpoCanvas Mail 資料自主控制示意：自助匯出、刪除緩衝與權利行使，資料保存於營運者之 Cloudflare 資源內" width="416" height="276" />
+  <img src="/images/mail/zh-tw/data-sovereignty-export.svg" alt="EpoCanvas Mail 資料自主控制示意：自助匯出、刪除緩衝與權利行使，資料保存於營運者之 Cloudflare 資源內" width="416" height="276" />
 </div>
 
 *圖：資料控制之三種途徑：自助匯出（JSON）、刪除（垃圾桶緩衝後實體刪除）與權利行使（30 日內答覆）。*

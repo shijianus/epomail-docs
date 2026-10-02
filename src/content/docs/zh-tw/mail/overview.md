@@ -9,7 +9,7 @@ description: EpoCanvas Mail 法律文件總覽——平台身分、資料處理�
 
 本頁是 EpoCanvas Mail 服務（下稱「本服務」）全部法律文件之導覽，說明各方角色、文件架構與適用順序。您於註冊或使用本服務前，應先閱讀本頁，以及[隱私權政策](/zh-tw/mail/privacy-policy/)與[服務條款](/zh-tw/mail/terms-of-service/)。
 
-![EpoCanvas Mail 法律文件架構：服務條款為契約層，隱私權政策、可接受使用政策為政策層，資料處理與安全維護、第三方處理者清單、用語定義為支撐文件，全部立於適用法律與安全維護義務之基座](/images/mail/legal-architecture.svg)
+![EpoCanvas Mail 法律文件架構：服務條款為契約層，隱私權政策、可接受使用政策為政策層，資料處理與安全維護、第三方處理者清單、用語定義為支撐文件，全部立於適用法律與安全維護義務之基座](/images/mail/zh-tw/legal-architecture.svg)
 
 *圖：本站法律文件之架構。服務條款定契約條件；隱私權政策載個人資料之告知與處理標準；可接受使用政策定行為邊界；資料處理與安全維護、第三方處理者清單及用語定義為支撐文件。各實例適用之法律以其營運者所在地為準。*
 
@@ -24,7 +24,7 @@ EpoCanvas Mail 係建置於 Cloudflare 邊緣運算架構（Workers、D1、KV、
 
 本服務之法律文件採「資料控管者／受託處理者」之角色劃分，與歐盟《一般資料保護規則》（GDPR）等法制之一般分類相當；各實例適用之法律以其營運者所在地為準。
 
-![EpoCanvas Mail 責任邊界：上游開源專案（MIT 授權條款）提供原始碼，您所使用的實例由其營運者獨立運作並承擔資料控管者責任，您的帳號與郵件資料保存於該實例的 Cloudflare 資源中](/images/mail/self-host-responsibilities.svg)
+![EpoCanvas Mail 責任邊界：上游開源專案（MIT 授權條款）提供原始碼，您所使用的實例由其營運者獨立運作並承擔資料控管者責任，您的帳號與郵件資料保存於該實例的 Cloudflare 資源中](/images/mail/zh-tw/self-host-responsibilities.svg)
 
 *圖：軟體、營運者與使用者三方之責任邊界。上游開放原始碼作者不營運任何電子郵件服務，亦不為任何實例之行為負責。*
 

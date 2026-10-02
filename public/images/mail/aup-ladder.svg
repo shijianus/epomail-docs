@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Enforcement ladder: warning, rate limit, quarantine, suspend, delete — with an appeal path and a zero-tolerance CSAM shortcut">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="执行阶梯：警告、限流、隔离、暂停、删除，附申诉路径与儿少性剥削零容忍捷径">
   <style>
     .bg { fill: #f8fafc; }
     .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -8,13 +8,13 @@
     .s4 { fill: #ffedd5; stroke: #ea580c; }
     .s5 { fill: #fee2e2; stroke: #dc2626; }
     .band { fill: #fee2e2; stroke: #dc2626; stroke-width: 1.5; }
-    .t { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
-    .b { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #475569; }
-    .bt { font: 600 13px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
-    .b0 { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #b91c1c; }
-    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: 1.2px; fill: #64748b; }
+    .t { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #475569; }
+    .bt { font: 600 13px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b0 { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #b91c1c; }
+    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1.2px; fill: #64748b; }
     .loop { stroke: #2563eb; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; marker-end: url(#lh); }
-    .loop-t { font: 600 11px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #2563eb; }
+    .loop-t { font: 600 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #2563eb; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #0b0f19; }
       .step { fill: #111827; stroke: #1e293b; }
@@ -40,37 +40,26 @@
     </marker>
   </defs>
   <rect class="bg" width="1000" height="400" rx="16"/>
-
-  <!-- zero tolerance band (top, clear of the ladder) -->
   <rect class="band" x="60" y="36" width="880" height="56" rx="10"/>
-  <text class="bt" x="84" y="60">Zero tolerance — child sexual exploitation content:</text>
-  <text class="b0" x="84" y="80">immediate deletion and account termination, evidence preserved, reported to the competent authority or law enforcement — no appeal buffer</text>
-
-  <!-- ascending steps -->
+  <text class="bt" x="84" y="60">零容忍：儿少性剥削内容</text>
+  <text class="b0" x="84" y="80">即行删除并终止帐号，保存证据，移交主管机关或司法警察，不适用申诉缓冲</text>
   <rect class="s1" x="60"  y="300" width="150" height="56" rx="10"/>
-  <text class="t" x="76" y="324">1 · Warning</text>
-  <text class="b" x="76" y="342">first, minor breach</text>
-
+  <text class="t" x="76" y="324">1 · 警告</text>
+  <text class="b" x="76" y="342">初次或轻微违规</text>
   <rect class="s2" x="234" y="252" width="150" height="56" rx="10"/>
-  <text class="t" x="250" y="276">2 · Rate limit</text>
-  <text class="b" x="250" y="294">throttle sending / API</text>
-
+  <text class="t" x="250" y="276">2 · 限流</text>
+  <text class="b" x="250" y="294">限制发信量与 API</text>
   <rect class="s3" x="408" y="204" width="150" height="56" rx="10"/>
-  <text class="t" x="424" y="228">3 · Quarantine</text>
-  <text class="b" x="424" y="246">divert to spam folder</text>
-
+  <text class="t" x="424" y="228">3 · 隔离</text>
+  <text class="b" x="424" y="246">改入垃圾邮件文件夹</text>
   <rect class="s4" x="582" y="156" width="150" height="56" rx="10"/>
-  <text class="t" x="598" y="180">4 · Suspend</text>
-  <text class="b" x="598" y="198">account access paused</text>
-
+  <text class="t" x="598" y="180">4 · 暂停</text>
+  <text class="b" x="598" y="198">停止帐号访问</text>
   <rect class="s5" x="756" y="108" width="150" height="56" rx="10"/>
-  <text class="t" x="772" y="132">5 · Delete</text>
-  <text class="b" x="772" y="150">physical, irreversible</text>
-
-  <!-- appeal loop: from level 5 down to level 1 -->
+  <text class="t" x="772" y="132">5 · 删除</text>
+  <text class="b" x="772" y="150">实体删除，不可复原</text>
   <path class="loop" d="M820,168 C866,240 736,318 540,330 C380,340 250,334 218,318"/>
-  <text class="loop-t" x="470" y="356">Appeal &amp; report — reviewed and answered within a reasonable period;</text>
-  <text class="loop-t" x="470" y="372">notice before major action except in urgent cases</text>
-
-  <text class="tag" x="60" y="378">ENFORCEMENT LADDER — PROPORTIONATE, BY SEVERITY</text>
+  <text class="loop-t" x="470" y="356">申诉与举报：合理期限内复核答复；</text>
+  <text class="loop-t" x="470" y="372">重大处置前给予说明机会（紧急情形除外）</text>
+  <text class="tag" x="60" y="378">执行阶梯 · 按情节轻重、比例为原则</text>
 </svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Enforcement ladder: warning, rate limit, quarantine, suspend, delete — with an appeal path and a zero-tolerance CSAM shortcut">
+  <style>
+    .bg { fill: #f8fafc; }
+    .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .s1 { fill: #eff6ff; stroke: #2563eb; }
+    .s2 { fill: #e0f2fe; stroke: #0284c7; }
+    .s3 { fill: #fef9c3; stroke: #ca8a04; }
+    .s4 { fill: #ffedd5; stroke: #ea580c; }
+    .s5 { fill: #fee2e2; stroke: #dc2626; }
+    .band { fill: #fee2e2; stroke: #dc2626; stroke-width: 1.5; }
+    .t { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #475569; }
+    .bt { font: 600 13px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b0 { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #b91c1c; }
+    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1.2px; fill: #64748b; }
+    .loop { stroke: #2563eb; stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; marker-end: url(#lh); }
+    .loop-t { font: 600 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .step { fill: #111827; stroke: #1e293b; }
+      .s1 { fill: rgba(59,130,246,0.12); stroke: #3b82f6; }
+      .s2 { fill: rgba(2,132,199,0.14); stroke: #38bdf8; }
+      .s3 { fill: rgba(202,138,4,0.14); stroke: #facc15; }
+      .s4 { fill: rgba(234,88,12,0.16); stroke: #fb923c; }
+      .s5 { fill: rgba(220,38,38,0.16); stroke: #f87171; }
+      .band { fill: rgba(220,38,38,0.16); stroke: #f87171; }
+      .t { fill: #f1f5f9; }
+      .b { fill: #94a3b8; }
+      .bt { fill: #f1f5f9; }
+      .b0 { fill: #fca5a5; }
+      .tag { fill: #64748b; }
+      .loop { stroke: #60a5fa; }
+      .loop-t { fill: #60a5fa; }
+      .mh { fill: #60a5fa; }
+    }
+  </style>
+  <defs>
+    <marker id="lh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="mh" d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1000" height="400" rx="16"/>
+  <rect class="band" x="60" y="36" width="880" height="56" rx="10"/>
+  <text class="bt" x="84" y="60">Zero tolerance — child sexual exploitation content:</text>
+  <text class="b0" x="84" y="80">immediate deletion and account termination, evidence preserved, reported to the competent authority or law enforcement — no appeal buffer</text>
+  <rect class="s1" x="60"  y="300" width="150" height="56" rx="10"/>
+  <text class="t" x="76" y="324">1 · Warning</text>
+  <text class="b" x="76" y="342">first, minor breach</text>
+  <rect class="s2" x="234" y="252" width="150" height="56" rx="10"/>
+  <text class="t" x="250" y="276">2 · Rate limit</text>
+  <text class="b" x="250" y="294">throttle sending / API</text>
+  <rect class="s3" x="408" y="204" width="150" height="56" rx="10"/>
+  <text class="t" x="424" y="228">3 · Quarantine</text>
+  <text class="b" x="424" y="246">divert to spam folder</text>
+  <rect class="s4" x="582" y="156" width="150" height="56" rx="10"/>
+  <text class="t" x="598" y="180">4 · Suspend</text>
+  <text class="b" x="598" y="198">account access paused</text>
+  <rect class="s5" x="756" y="108" width="150" height="56" rx="10"/>
+  <text class="t" x="772" y="132">5 · Delete</text>
+  <text class="b" x="772" y="150">physical, irreversible</text>
+  <path class="loop" d="M820,168 C866,240 736,318 540,330 C380,340 250,334 218,318"/>
+  <text class="loop-t" x="470" y="356">Appeal & report — reviewed and answered within a reasonable period;</text>
+  <text class="loop-t" x="470" y="372">notice before major action except in urgent cases</text>
+  <text class="tag" x="60" y="378">ENFORCEMENT LADDER — PROPORTIONATE, BY SEVERITY</text>
+</svg>

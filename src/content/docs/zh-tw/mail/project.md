@@ -10,7 +10,7 @@ EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件�
 
 本站法律文件以繁體中文（臺灣）版本為正式版本，其餘語言版本為對照譯本，文義有疑義時以正式版本為準。本站法律與技術文件以本服務開放原始碼實作為準，旨在建立透明、嚴謹之非商業社群通訊規範。
 
-![EpoCanvas Mail 系統架構：用戶端層（Web 應用、Android 應用、OAuth 第三方應用）經 Cloudflare 邊緣接入；Workers 承載 API、郵件入站解析與 AI 能力，出站經 Resend 與 Telegram；資料落於雙 D1 資料庫、KV 與物件儲存](/images/mail/project-architecture.svg)
+![EpoCanvas Mail 系統架構：用戶端層（Web 應用、Android 應用、OAuth 第三方應用）經 Cloudflare 邊緣接入；Workers 承載 API、郵件入站解析與 AI 能力，出站經 Resend 與 Telegram；資料落於雙 D1 資料庫、KV 與物件儲存](/images/mail/zh-tw/project-architecture.svg)
 
 *圖：系統架構。用戶端經邊緣接入，無單點伺服器；入站郵件由 Email Routing 接收並解析，出站經 Resend 通道；全部狀態落於部署者自己的 Cloudflare 資源之內。*
 

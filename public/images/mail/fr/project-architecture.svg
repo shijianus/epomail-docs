@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Architecture système d’EpoCanvas Mail : les clients (web, Android, apps OAuth) passent par le edge Cloudflare (API Workers, routage des e-mails, Workers AI, envoi sortant via Resend et Telegram), données réparties sur deux bases D1, KV et un stockage d’objets">
+  <style>
+    .bg { fill: #f8fafc; }
+    .band { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .box { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .box-1 { fill: #eff6ff; stroke: #2563eb; }
+    .lbl { font: 700 10px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #2563eb; letter-spacing: 1.4px; }
+    .t { font: 600 14px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .chip { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1; }
+    .chip-t { font: 600 10.5px ui-monospace, 'Cascadia Code', Consolas, monospace; fill: #475569; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.6; fill: none; marker-end: url(#pa); }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .band { fill: #111827; stroke: #1e293b; }
+      .box { fill: #111827; stroke: #1e293b; }
+      .box-1 { fill: rgba(59,130,246,0.10); stroke: #3b82f6; }
+      .lbl { fill: #60a5fa; }
+      .t { fill: #f1f5f9; }
+      .b { fill: #94a3b8; }
+      .chip { fill: #1e293b; stroke: #334155; }
+      .chip-t { fill: #94a3b8; }
+      .arrow { stroke: #475569; }
+    }
+  </style>
+  <defs>
+    <marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1000" height="470" rx="16"/>
+  <text class="lbl" x="40" y="42">CLIENTS</text>
+  <rect class="box-1" x="40" y="54" width="280" height="72" rx="12"/>
+  <text class="t" x="60" y="82">Application web</text>
+  <text class="b" x="60" y="102">Vue 3 · Element Plus · PWA</text>
+  <rect class="box" x="360" y="54" width="280" height="72" rx="12"/>
+  <text class="t" x="380" y="82">Application mobile</text>
+  <text class="b" x="380" y="102">Android (epomail)</text>
+  <rect class="box" x="680" y="54" width="280" height="72" rx="12"/>
+  <text class="t" x="700" y="82">Apps OAuth 2.0</text>
+  <text class="b" x="700" y="102">SSO · clients OIDC</text>
+  <path class="arrow" d="M180,126 L180,164"/>
+  <path class="arrow" d="M500,126 L500,164"/>
+  <path class="arrow" d="M820,126 L820,164"/>
+  <rect class="band" x="40" y="170" width="920" height="150" rx="14"/>
+  <text class="lbl" x="56" y="194">EDGE CLOUDFLARE</text>
+  <rect class="box-1" x="64" y="208" width="200" height="72" rx="12"/>
+  <text class="t" x="80" y="234">API Workers</text>
+  <text class="b" x="80" y="252">Hono · auth · métier</text>
+  <rect class="box" x="279" y="208" width="200" height="72" rx="12"/>
+  <text class="t" x="295" y="234">Routage e-mail</text>
+  <text class="b" x="295" y="252">Entrant · postal-mime</text>
+  <rect class="box" x="494" y="208" width="200" height="72" rx="12"/>
+  <text class="t" x="510" y="234">Workers AI</text>
+  <text class="b" x="510" y="252">OCR de codes · assistance</text>
+  <rect class="box" x="709" y="208" width="200" height="72" rx="12"/>
+  <text class="t" x="725" y="234">Envoi sortant</text>
+  <text class="b" x="725" y="252">Resend · Telegram Bot</text>
+  <path class="arrow" d="M142,320 L142,360"/>
+  <path class="arrow" d="M367,320 L367,360"/>
+  <path class="arrow" d="M592,320 L592,360"/>
+  <path class="arrow" d="M817,320 L817,360"/>
+  <text class="lbl" x="40" y="352">STOCKAGE</text>
+  <rect class="box" x="40" y="364" width="205" height="72" rx="12"/>
+  <text class="t" x="56" y="390">D1 · USER_DB</text>
+  <text class="b" x="56" y="408">comptes · rôles · réglages</text>
+  <rect class="box" x="265" y="364" width="205" height="72" rx="12"/>
+  <text class="t" x="281" y="390">D1 · MAIL_DB</text>
+  <text class="b" x="281" y="408">e-mails · dossiers · journaux</text>
+  <rect class="box" x="490" y="364" width="205" height="72" rx="12"/>
+  <text class="t" x="506" y="390">KV</text>
+  <text class="b" x="506" y="408">sessions · cache · compteurs</text>
+  <rect class="box" x="715" y="364" width="205" height="72" rx="12"/>
+  <text class="t" x="731" y="390">R2 / B2 / S3</text>
+  <text class="b" x="731" y="408">pièces jointes · stockage personnel</text>
+  <rect class="chip" x="185" y="446" width="630" height="20" rx="10"/>
+  <text class="chip-t" x="500" y="460" text-anchor="middle">PBKDF2 ×100k · JWT 30 d · HMAC mail-hash · RBAC · TOTP/Passkey · Turnstile</text>
+</svg>

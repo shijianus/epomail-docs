@@ -11,7 +11,7 @@ Este documento explica cómo se emite el correo oficial del sistema y cómo iden
 
 Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. Los documentos jurídicos y técnicos de este sitio siguen la implementación de código abierto del servicio y buscan establecer normas de comunicación comunitarias transparentes, rigurosas y no comerciales.
 
-![Arquitectura de tres capas del correo oficial de EpoCanvas Mail: la capa de emisión bloquea la dirección oficial de envío e inyecta la marca oficial; la capa de entrega fija una instantánea inmutable con reserva de traducción predefinida; la capa de cliente aísla el renderizado con Shadow DOM y saneamiento del contenido](/images/mail/anti-tamper-architecture.svg)
+![Arquitectura de tres capas del correo oficial de EpoCanvas Mail: la capa de emisión bloquea la dirección oficial de envío e inyecta la marca oficial; la capa de entrega fija una instantánea inmutable con reserva de traducción predefinida; la capa de cliente aísla el renderizado con Shadow DOM y saneamiento del contenido](/images/mail/es/anti-tamper-architecture.svg)
 
 *Figura: las tres capas del procesamiento del correo oficial. La capa de emisión bloquea la dirección oficial de envío e inyecta la marca oficial; la capa de entrega fija una instantánea inmutable con reserva de traducción predefinida; la capa de cliente aísla el renderizado y sostiene la verificación documental.*
 

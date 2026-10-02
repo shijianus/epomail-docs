@@ -11,7 +11,7 @@ This document explains how official system mail is issued and how to identify it
 
 The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
 
-![EpoCanvas Mail three-layer official mail pipeline: the issuance layer locks the official sender address and injects the official flag; the delivery layer fixes an immutable snapshot with preset-translation fallback; the client layer isolates rendering with Shadow DOM and content sanitizing](/images/mail/anti-tamper-architecture.svg)
+![EpoCanvas Mail three-layer official mail pipeline: the issuance layer locks the official sender address and injects the official flag; the delivery layer fixes an immutable snapshot with preset-translation fallback; the client layer isolates rendering with Shadow DOM and content sanitizing](/images/mail/en/anti-tamper-architecture.svg)
 
 *Figure: the three layers of official-mail processing. The issuance layer locks the official sender address and injects the official flag; the delivery layer fixes an immutable snapshot with preset-translation fallback; the client layer isolates rendering and supports document verification.*
 

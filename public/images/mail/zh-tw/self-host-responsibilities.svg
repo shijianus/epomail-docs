@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="責任邊界：上游開源專案、作為資料控制者的實例營運者，以及作為當事人的您">
+  <style>
+    .bg { fill: #f8fafc; }
+    .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .card-accent { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.5; }
+    .title { font: 600 17px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .body { font: 400 12.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #475569; }
+    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1.2px; fill: #64748b; }
+    .accent { fill: #2563eb; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.6; fill: none; marker-end: url(#ah); }
+    .foot { font: 400 12px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .divider { stroke: #e2e8f0; stroke-width: 1; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .card { fill: #111827; stroke: #1e293b; }
+      .card-accent { fill: rgba(59,130,246,0.10); stroke: #3b82f6; }
+      .title { fill: #f1f5f9; }
+      .body { fill: #94a3b8; }
+      .tag { fill: #64748b; }
+      .accent { fill: #60a5fa; }
+      .arrow { stroke: #475569; }
+      .foot { fill: #94a3b8; }
+      .divider { stroke: #1e293b; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="1000" height="470" rx="16"/>
+  <rect class="card" x="60" y="52" width="270" height="130" rx="12"/>
+  <text class="tag" x="84" y="80">上游 · MIT 授權</text>
+  <text class="title" x="84" y="106">開源專案</text>
+  <text class="body" x="84" y="130">僅發布原始碼。</text>
+  <text class="body" x="84" y="150">不營運郵件服務，</text>
+  <text class="body" x="84" y="170">不掌握使用者資料，零遙測。</text>
+  <rect class="card-accent" x="390" y="52" width="270" height="130" rx="12"/>
+  <text class="tag accent" x="414" y="80">實例 · 資料控制者</text>
+  <text class="title" x="414" y="106">實例營運者</text>
+  <text class="body" x="414" y="130">部署於其自有 Cloudflare 帳號</text>
+  <text class="body" x="414" y="150">（Workers · D1 · KV · R2），承擔</text>
+  <text class="body" x="414" y="170">資料保護義務：告知、安全維護、受監督。</text>
+  <rect class="card" x="720" y="52" width="220" height="130" rx="12"/>
+  <text class="tag" x="744" y="80">當事人</text>
+  <text class="title" x="744" y="106">您</text>
+  <text class="body" x="744" y="130">註冊帳號，並將信箱</text>
+  <text class="body" x="744" y="150">與郵件委託給</text>
+  <text class="body" x="744" y="170">該實例。</text>
+  <path class="arrow" d="M330,117 L382,117"/>
+  <path class="arrow" d="M660,117 L712,117"/>
+  <text class="foot" x="340" y="106">程式碼</text>
+  <text class="foot" x="672" y="106">委託</text>
+  <line class="divider" x1="60" y1="228" x2="940" y2="228"/>
+  <rect class="card" x="60" y="262" width="880" height="150" rx="12"/>
+  <text class="tag" x="84" y="290">意義</text>
+  <text class="title" x="84" y="318" font-size="15.5">您註冊所在實例的營運者即您的資料控制者，而非上游作者。</text>
+  <text class="body" x="84" y="344">• 託管實例 mail.epocanvas.com：EpoCanvas 營運團隊為帳號資料與安全日誌之控制者。</text>
+  <text class="body" x="84" y="366">• 自建實例：部署者自部署時點起即為唯一且排他之資料控制者。</text>
+  <text class="body" x="84" y="388">• 本站法律文件按實例適用；您與所註冊實例之營運者成立契約。</text>
+</svg>

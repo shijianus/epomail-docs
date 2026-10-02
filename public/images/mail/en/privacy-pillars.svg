@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Five pillars of the privacy policy standing on the oversight base: collect, use, transfer, security, your rights — under the applicable data-protection law">
+  <style>
+    .bg { fill: #f8fafc; }
+    .roof { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.6; }
+    .pillar { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .pt { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .pb { font: 400 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .law { font: 600 10px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #2563eb; }
+    .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1.5; }
+    .bt { font: 600 12.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .roof-t { font: 600 14.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .roof { fill: rgba(59,130,246,0.12); stroke: #3b82f6; }
+      .pillar { fill: #111827; stroke: #1e293b; }
+      .pt { fill: #f1f5f9; }
+      .pb { fill: #94a3b8; }
+      .law { fill: #60a5fa; }
+      .base { fill: #111827; stroke: #1e293b; }
+      .bt { fill: #f1f5f9; }
+      .roof-t { fill: #f1f5f9; }
+    }
+  </style>
+  <rect class="bg" width="1000" height="400" rx="16"/>
+  <rect class="roof" x="60" y="40" width="880" height="64" rx="12"/>
+  <text class="roof-t" x="84" y="68" font-size="13">Applicable data-protection law — notice duty: what we collect, why, for how long, and what you can do</text>
+  <text class="law" x="84" y="90">APPLIES TO EVERY PROCESSING ACTIVITY DESCRIBED IN THIS POLICY</text>
+  <rect class="pillar" x="60" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="78" y="168">Collect</text>
+  <text class="pb" x="78" y="190">Contract necessity;</text>
+  <text class="pb" x="78" y="206">consent for optional</text>
+  <text class="pb" x="78" y="222">AI features</text>
+  <text class="law" x="78" y="262">CONTRACT · CONSENT</text>
+  <rect class="pillar" x="230" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="248" y="168">Use</text>
+  <text class="pb" x="248" y="190">Within the specific</text>
+  <text class="pb" x="248" y="206">purpose; opt-out of</text>
+  <text class="pb" x="248" y="222">marketing at any time</text>
+  <text class="law" x="248" y="262">PURPOSE LIMIT</text>
+  <rect class="pillar" x="400" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="418" y="168">Transfer</text>
+  <text class="pb" x="418" y="190">Cross-border via</text>
+  <text class="pb" x="418" y="206">Cloudflare; obeys</text>
+  <text class="pb" x="418" y="222">lawful restrictions</text>
+  <text class="law" x="418" y="262">TRANSFER SAFEGUARDS</text>
+  <rect class="pillar" x="570" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="588" y="168">Security</text>
+  <text class="pb" x="588" y="190">Encryption, locking,</text>
+  <text class="pb" x="588" y="206">audits — measures</text>
+  <text class="pb" x="588" y="222">continuously improved</text>
+  <text class="law" x="588" y="262">SECURITY MEASURES</text>
+  <rect class="pillar" x="740" y="140" width="160" height="140" rx="10"/>
+  <text class="pt" x="758" y="168">Your rights</text>
+  <text class="pb" x="758" y="190">Query, copy, correct,</text>
+  <text class="pb" x="758" y="206">stop, delete — exercise</text>
+  <text class="pb" x="758" y="222">per Section 9</text>
+  <text class="law" x="758" y="262">RIGHTS & REMEDIES</text>
+  <rect class="base" x="60" y="312" width="880" height="56" rx="12"/>
+  <text class="bt" x="84" y="336" font-size="12">Base: supervisory oversight — inspection by the competent authority of the operator's jurisdiction</text>
+  <text class="law" x="84" y="356">APPLICABLE LAW OF EACH INSTANCE'S OPERATOR JURISDICTION</text>
+</svg>

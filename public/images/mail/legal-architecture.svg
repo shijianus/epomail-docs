@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Legal architecture: the Terms of Service sit on top of the policy set, all governed by the applicable law of each instance's operator">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="法律文档架构：服务条款为契约层，隐私政策与可接受使用政策为政策层，数据处理与第三方处理者为支撑文档，立于适用法律与安全维护义务之上">
   <style>
     .bg { fill: #f8fafc; }
     .layer { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
     .top { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.5; }
     .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1.5; }
-    .t { font: 600 15px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
-    .b { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #64748b; }
-    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: 1.2px; fill: #2563eb; }
-    .law { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #475569; }
+    .t { font: 600 15px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .b { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1.2px; fill: #2563eb; }
+    .law { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #475569; }
     .vline { stroke: #cbd5e1; stroke-width: 1.5; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #0b0f19; }
@@ -22,39 +22,27 @@
     }
   </style>
   <rect class="bg" width="1000" height="430" rx="16"/>
-
-  <!-- top layer -->
   <rect class="top" x="250" y="46" width="500" height="86" rx="12"/>
-  <text class="tag" x="274" y="72">CONTRACT LAYER</text>
-  <text class="t" x="274" y="94">Terms of Service</text>
-  <text class="b" x="274" y="110">Electronically agreed — same effect as a written signature</text>
-  <text class="b" x="274" y="126">Full text published for review · revisions archived in the open-source repo</text>
-
-  <!-- connectors -->
+  <text class="tag" x="274" y="72">契约层</text>
+  <text class="t" x="274" y="94">服务条款</text>
+  <text class="b" x="274" y="110">电子同意：与书面签署同等效力</text>
+  <text class="b" x="274" y="126">全文公开供审阅 · 修订随开源仓库存档</text>
   <line class="vline" x1="360" y1="132" x2="360" y2="168"/>
   <line class="vline" x1="500" y1="132" x2="500" y2="168"/>
   <line class="vline" x1="640" y1="132" x2="640" y2="168"/>
-
-  <!-- policy chips -->
   <rect class="layer" x="70" y="168" width="290" height="66" rx="12"/>
-  <text class="t" x="90" y="194" font-size="13">Privacy Policy</text>
-  <text class="b" x="90" y="214">What we collect and why · processing standards</text>
-
+  <text class="t" x="90" y="194" font-size="13">隐私政策</text>
+  <text class="b" x="90" y="214">收集内容与目的 · 处理标准</text>
   <rect class="layer" x="380" y="168" width="240" height="66" rx="12"/>
-  <text class="t" x="400" y="194" font-size="13">Acceptable Use Policy</text>
-  <text class="b" x="400" y="214">Conduct boundaries and enforcement</text>
-
+  <text class="t" x="400" y="194" font-size="13">可接受使用政策</text>
+  <text class="b" x="400" y="214">行为边界与执行</text>
   <rect class="layer" x="640" y="168" width="290" height="66" rx="12"/>
-  <text class="t" x="660" y="194" font-size="13">Data Security · Sub-processors</text>
-  <text class="b" x="660" y="214">Security measures · processor list</text>
-
-  <!-- base layer -->
+  <text class="t" x="660" y="194" font-size="13">数据处理与安全 · 第三方处理者</text>
+  <text class="b" x="660" y="214">安全维护措施 · 处理者清单</text>
   <rect class="base" x="70" y="266" width="860" height="100" rx="12"/>
-  <text class="tag" x="94" y="292">GOVERNING FRAME</text>
-  <text class="t" x="94" y="316">Law of the operator's jurisdiction — hosted instance: Taiwan law, Taipei District Court</text>
-  <text class="b" x="94" y="336">Unfair standard terms do not bind under applicable law</text>
-  <text class="b" x="94" y="352">Liability that applicable law does not allow excluding is unaffected by liability caps</text>
-
-  <!-- side note -->
-  <text class="law" x="94" y="400">ORDER OF PRECEDENCE: subject-specific document prevails · Traditional Chinese (Taiwan) version is authoritative</text>
+  <text class="tag" x="94" y="292">准据框架</text>
+  <text class="t" x="94" y="316" font-size="13.5">准据法为运营者所在地之法律：托管实例适用台湾法律、台北地方法院</text>
+  <text class="b" x="94" y="336">显失公平之标准条款依适用法律不受拘束</text>
+  <text class="b" x="94" y="352">适用法律不得排除之责任不因责任上限而受限</text>
+  <text class="law" x="94" y="400">效力顺序：主题文档优先 · 繁体中文（台湾）版为正式版本</text>
 </svg>

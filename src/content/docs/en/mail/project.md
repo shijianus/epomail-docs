@@ -10,7 +10,7 @@ EpoCanvas Mail is an open-source e-mail service running on Cloudflare's edge net
 
 The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
 
-![EpoCanvas Mail system architecture: the client layer (web app, Android app, OAuth third-party apps) connects through the Cloudflare edge; Workers host the API, inbound mail parsing, and AI features, with outbound delivery via Resend and Telegram; data lands in dual D1 databases, KV, and object storage](/images/mail/project-architecture.svg)
+![EpoCanvas Mail system architecture: the client layer (web app, Android app, OAuth third-party apps) connects through the Cloudflare edge; Workers host the API, inbound mail parsing, and AI features, with outbound delivery via Resend and Telegram; data lands in dual D1 databases, KV, and object storage](/images/mail/en/project-architecture.svg)
 
 *Figure: the system architecture. Clients connect through the edge with no single-point server; inbound mail is received by Email Routing and parsed, outbound goes through the Resend channel; all state stays inside the deployer's own Cloudflare resources.*
 

@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Sub-processor map: one instance, four sharing categories — entrusted processors, user-authorized services, user-triggered AI, and disclosure on legal request">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="第三方共享地图：以实例为中心的四类共享——受托处理者、经您授权、您触发的 AI 与法律要求">
   <style>
     .bg { fill: #f8fafc; }
     .hub { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.8; }
     .grp { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
-    .gt { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
-    .gb { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #475569; }
-    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: 1px; fill: #2563eb; }
-    .hub-t { font: 600 15px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
-    .hub-b { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #64748b; }
+    .gt { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .gb { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #475569; }
+    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1px; fill: #2563eb; }
+    .hub-t { font: 600 15px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .hub-b { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
     .line { stroke: #cbd5e1; stroke-width: 1.5; fill: none; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #0b0f19; }
@@ -22,47 +22,35 @@
     }
   </style>
   <rect class="bg" width="1000" height="470" rx="16"/>
-
-  <!-- hub -->
   <rect class="hub" x="390" y="185" width="220" height="100" rx="14"/>
   <text class="hub-t" x="414" y="222">EpoCanvas Mail</text>
-  <text class="hub-t" x="414" y="242">instance</text>
-  <text class="hub-b" x="414" y="264">minimal-necessary sharing · no sale,</text>
-  <text class="hub-b" x="414" y="280">no advertising, no trackers</text>
-
-  <!-- group 1: entrusted -->
+  <text class="hub-t" x="414" y="242">实例</text>
+  <text class="hub-b" x="414" y="264">最小必要共享 · 不出售、</text>
+  <text class="hub-b" x="414" y="280">无广告、无追踪</text>
   <rect class="grp" x="48" y="48" width="290" height="120" rx="12"/>
-  <text class="tag" x="70" y="74">ENTRUSTED PROCESSORS</text>
+  <text class="tag" x="70" y="74">受托处理者</text>
   <text class="gt" x="70" y="98">Cloudflare · Resend / Mailjet</text>
-  <text class="gb" x="70" y="120">Infrastructure and outbound delivery.</text>
-  <text class="gb" x="70" y="138">SOC 2 Type II · ISO/IEC 27001 · EU SCC.</text>
-  <text class="gb" x="70" y="156">Full mail content only for outbound delivery.</text>
-
-  <!-- group 2: user-authorized -->
+  <text class="gb" x="70" y="120">基础设施与站外投递。</text>
+  <text class="gb" x="70" y="138">SOC 2 Type II · ISO/IEC 27001 · 欧盟 SCC。</text>
+  <text class="gb" x="70" y="156">仅站外投递涉及完整邮件内容。</text>
   <rect class="grp" x="662" y="48" width="290" height="120" rx="12"/>
-  <text class="tag" x="684" y="74">USER-AUTHORIZED</text>
-  <text class="gt" x="684" y="98">Telegram · OAuth apps · Linux DO</text>
-  <text class="gb" x="684" y="120">Only after your consent; OAuth scope limited</text>
-  <text class="gb" x="684" y="138">to openid / profile / email; revocable at any</text>
-  <text class="gb" x="684" y="156">time and effective immediately.</text>
-
-  <!-- group 3: AI -->
+  <text class="tag" x="684" y="74">经您授权</text>
+  <text class="gt" x="684" y="98">Telegram · OAuth 应用 · Linux DO</text>
+  <text class="gb" x="684" y="120">仅经您同意；OAuth 范围限</text>
+  <text class="gb" x="684" y="138">openid / profile / email；</text>
+  <text class="gb" x="684" y="156">得随时撤销，即时生效。</text>
   <rect class="grp" x="48" y="302" width="290" height="120" rx="12"/>
-  <text class="tag" x="70" y="328">USER-TRIGGERED AI</text>
-  <text class="gt" x="70" y="352">Model endpoint · Workers AI · MyMemory</text>
-  <text class="gb" x="70" y="374">Translation and OCR run only when you act.</text>
-  <text class="gb" x="70" y="392">Code extraction is the sole automatic AI step</text>
-  <text class="gb" x="70" y="410">(operator-optional; first 6,000 characters).</text>
-
-  <!-- group 4: legal -->
+  <text class="tag" x="70" y="328">您触发的 AI</text>
+  <text class="gt" x="70" y="352" font-size="12.5">模型端点 · Workers AI · MyMemory</text>
+  <text class="gb" x="70" y="374">翻译与 OCR 仅于您触发时运行。</text>
+  <text class="gb" x="70" y="392">验证码提取为唯一自动 AI 处理</text>
+  <text class="gb" x="70" y="410">（运营者可选；前 6,000 字符）。</text>
   <rect class="grp" x="662" y="302" width="290" height="120" rx="12"/>
-  <text class="tag" x="684" y="328">ON LEGAL REQUEST</text>
-  <text class="gt" x="684" y="352">Competent authorities</text>
-  <text class="gb" x="684" y="374">Only statutory compulsory process; minimum</text>
-  <text class="gb" x="684" y="392">disclosure; legality verified; you are notified</text>
-  <text class="gb" x="684" y="410">where the law permits.</text>
-
-  <!-- connectors -->
+  <text class="tag" x="684" y="328">法律要求</text>
+  <text class="gt" x="684" y="352">有权机关</text>
+  <text class="gb" x="684" y="374">仅依法定强制程序；最小揭露；</text>
+  <text class="gb" x="684" y="392">核实合法性；法律允许时</text>
+  <text class="gb" x="684" y="410">通知您。</text>
   <path class="line" d="M390,210 C330,196 340,150 338,140"/>
   <path class="line" d="M610,210 C670,196 660,150 662,140"/>
   <path class="line" d="M390,260 C330,274 340,320 338,330"/>

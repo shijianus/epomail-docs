@@ -32,7 +32,7 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 La protection des données sur l'instance hébergée officielle s'organise en quatre couches : transport, traitement en périphérie, stockage au repos et identifiants. Chaque mesure est implémentée dans le code open source et peut être auditée indépendamment.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/security-trust-shield.svg" alt="Défense en profondeur d'EpoCanvas Mail : transport chiffré, traitement sans état en périphérie, chiffrement au repos et protection des identifiants, reposant sur le contrôle par l'utilisateur" width="416" height="276" />
+  <img src="/images/mail/fr/security-trust-shield.svg" alt="Défense en profondeur d'EpoCanvas Mail : transport chiffré, traitement sans état en périphérie, chiffrement au repos et protection des identifiants, reposant sur le contrôle par l'utilisateur" width="416" height="276" />
 </div>
 
 *Figure : quatre couches de protection — transport, périphérie, stockage au repos et identifiants ; la base est votre propre contrôle (exportation en libre-service, suppression et vérification en deux étapes).*
@@ -78,7 +78,7 @@ Les catégories de données, les champs collectés, les finalités, les supports
 EpoCanvas Mail est à la fois un service hébergé officiel et un projet open source. La définition du responsable du traitement et la répartition des responsabilités entre les trois parties figurent à la section 2 de la [Vue d'ensemble Confidentialité et conditions](/fr/mail/overview/) ; la présente section précise le positionnement de l'instance hébergée et les règles de diffusion du code open source.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/dual-nature-scale.svg" alt="Gouvernance à double voie d'EpoCanvas Mail : une base de code open source, avec le responsable du traitement et les frontières de responsabilité des instances hébergées et auto-hébergées" width="416" height="276" />
+  <img src="/images/mail/fr/dual-nature-scale.svg" alt="Gouvernance à double voie d'EpoCanvas Mail : une base de code open source, avec le responsable du traitement et les frontières de responsabilité des instances hébergées et auto-hébergées" width="416" height="276" />
 </div>
 
 *Figure : deux voies d'exploitation sur une même base de code open source. L'équipe d'exploitation est responsable du traitement de l'instance hébergée ; le déployeur est l'unique responsable du traitement d'une instance auto-hébergée ; les auteurs amont n'exploitent aucun service et ne détiennent aucune donnée.*
@@ -110,7 +110,7 @@ Un tiers qui déploie le code open source devient, dès le déploiement, l'uniqu
 Vous disposez de droits de consultation, de copie, de rectification, d'opposition au traitement et de suppression sur vos propres données. Ce chapitre explique par quelle fonctionnalité chaque droit se réalise ; les définitions complètes figurent à la section 9 de la [Politique de confidentialité](/fr/mail/privacy-policy/).
 
 <div class="google-illustration-container">
-  <img src="/images/mail/data-sovereignty-export.svg" alt="Contrôle des données EpoCanvas Mail : exportation en libre-service, suppression avec tampon de corbeille et droits opposables" width="416" height="276" />
+  <img src="/images/mail/fr/data-sovereignty-export.svg" alt="Contrôle des données EpoCanvas Mail : exportation en libre-service, suppression avec tampon de corbeille et droits opposables" width="416" height="276" />
 </div>
 
 *Figure : trois voies de contrôle — exportation en libre-service (JSON), suppression (tampon de corbeille, puis suppression définitive) et exercice des droits (réponse sous 30 jours).*

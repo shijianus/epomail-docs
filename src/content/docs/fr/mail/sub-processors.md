@@ -13,7 +13,7 @@ Les transferts internationaux respectent les exigences du droit applicable et le
 
 Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
 
-![Carte du partage avec des tiers d'EpoCanvas Mail : centrée sur l'instance, répartie en quatre catégories — sous-traitants, autorisés par la personne concernée, traitements par IA déclenchés par la personne concernée et exigences légales — avec la mention du principe de nécessité minimale et des engagements de non-vente, de non-publicité et de non-suivi](/images/mail/subprocessor-map.svg)
+![Carte du partage avec des tiers d'EpoCanvas Mail : centrée sur l'instance, répartie en quatre catégories — sous-traitants, autorisés par la personne concernée, traitements par IA déclenchés par la personne concernée et exigences légales — avec la mention du principe de nécessité minimale et des engagements de non-vente, de non-publicité et de non-suivi](/images/mail/fr/subprocessor-map.svg)
 
 *Figure : les quatre voies de partage avec des tiers du Service. Les conditions de déclenchement, les données concernées et les mécanismes de garantie de chaque catégorie figurent dans les tableaux ci-dessous.*
 

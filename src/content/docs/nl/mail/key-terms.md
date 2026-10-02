@@ -11,7 +11,7 @@ Deze pagina definieert de begrippen die in de juridische documenten op deze site
 
 De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend. De juridische en technische documenten op deze site volgen de open-sourceimplementatie van de dienst en beogen transparante, strenge, niet-commerciële normen voor gemeenschapscommunicatie.
 
-![Woordenlijstkaart: juridische termen (verwerkingsverantwoordelijke, verwerker, betrokkene, bepaald doel, enz.) en technische termen (instantie, D1/KV/R2, versleuteling in rust, nul telemetrie, enz.): twee families definities die consistent in alle documenten worden gebruikt, uitgelegd naar algemeen gegevensbeschermingsgebruik en de werkelijke open-source-implementatie](/images/mail/key-terms-glossary.svg)
+![Woordenlijstkaart: juridische termen (verwerkingsverantwoordelijke, verwerker, betrokkene, bepaald doel, enz.) en technische termen (instantie, D1/KV/R2, versleuteling in rust, nul telemetrie, enz.): twee families definities die consistent in alle documenten worden gebruikt, uitgelegd naar algemeen gegevensbeschermingsgebruik en de werkelijke open-source-implementatie](/images/mail/nl/key-terms-glossary.svg)
 
 *Figuur: hoe de twee families definities op deze pagina zich verhouden. Juridische termen volgen het algemene gegevensbeschermingsgebruik; technische termen worden uitgelegd naar de werkelijke open-source-implementatie; niet-genoemde termen worden gelezen in de context van het Privacybeleid en de Servicevoorwaarden.*
 ## 1. Juridische begrippen

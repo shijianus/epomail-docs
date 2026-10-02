@@ -32,7 +32,7 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 La protección de datos en la instancia alojada oficial se organiza en cuatro capas: transporte, procesamiento en el borde, almacenamiento en reposo y credenciales. Cada medida está implementada en el código abierto y puede auditarse de forma independiente.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/security-trust-shield.svg" alt="Defensa en profundidad de EpoCanvas Mail: transporte cifrado, procesamiento sin estado en el borde, cifrado en reposo y protección de credenciales, sobre el control del usuario" width="416" height="276" />
+  <img src="/images/mail/es/security-trust-shield.svg" alt="Defensa en profundidad de EpoCanvas Mail: transporte cifrado, procesamiento sin estado en el borde, cifrado en reposo y protección de credenciales, sobre el control del usuario" width="416" height="276" />
 </div>
 
 *Figura: cuatro capas de protección: transporte, borde, almacenamiento en reposo y credenciales; la base es su propio control (exportación de autoservicio, eliminación y verificación en dos pasos).*
@@ -78,7 +78,7 @@ Las categorías de datos, los campos recopilados, las finalidades, los soportes 
 EpoCanvas Mail es a la vez un servicio alojado oficial y un proyecto de código abierto. La definición del responsable del tratamiento y el reparto de responsabilidades entre las tres partes figuran en la sección 2 de la [Vista general de Privacidad y Términos](/es/mail/overview/); esta sección complementa el posicionamiento de la instancia alojada y las reglas de distribución del código abierto.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/dual-nature-scale.svg" alt="Gobernanza de doble vía de EpoCanvas Mail: una base de código abierto, con el responsable del tratamiento y los límites de responsabilidad de las instancias alojadas y autoalojadas" width="416" height="276" />
+  <img src="/images/mail/es/dual-nature-scale.svg" alt="Gobernanza de doble vía de EpoCanvas Mail: una base de código abierto, con el responsable del tratamiento y los límites de responsabilidad de las instancias alojadas y autoalojadas" width="416" height="276" />
 </div>
 
 *Figura: dos vías de operación sobre una misma base de código abierto. El equipo de operación es el responsable del tratamiento de la instancia alojada; quien despliega una instancia autoalojada es su único responsable del tratamiento; los autores originales no operan ningún servicio ni custodian datos.*
@@ -110,7 +110,7 @@ Un tercero que despliegue el código abierto se convierte, desde el momento del 
 Usted dispone de derechos de acceso, copia, rectificación, cese del tratamiento y eliminación sobre sus propios datos. Este capítulo explica mediante qué función se hace efectivo cada derecho; las definiciones completas están en la sección 9 de la [Política de Privacidad](/es/mail/privacy-policy/).
 
 <div class="google-illustration-container">
-  <img src="/images/mail/data-sovereignty-export.svg" alt="Control de datos de EpoCanvas Mail: exportación de autoservicio, eliminación con búfer de papelera y derechos exigibles" width="416" height="276" />
+  <img src="/images/mail/es/data-sovereignty-export.svg" alt="Control de datos de EpoCanvas Mail: exportación de autoservicio, eliminación con búfer de papelera y derechos exigibles" width="416" height="276" />
 </div>
 
 *Figura: tres vías de control: exportación de autoservicio (JSON), eliminación (búfer de papelera y luego eliminación física) y ejercicio de derechos (respuesta en 30 días).*

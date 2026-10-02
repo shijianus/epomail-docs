@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Kaart van verwerkers: één instantie, vier deelcategorieën — verwerkers, door u geautoriseerde diensten, door u geactiveerde AI en wettelijk verzoek">
+  <style>
+    .bg { fill: #f8fafc; }
+    .hub { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.8; }
+    .grp { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
+    .gt { font: 600 13.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .gb { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #475569; }
+    .tag { font: 600 10.5px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; letter-spacing: 1px; fill: #2563eb; }
+    .hub-t { font: 600 15px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #0f172a; }
+    .hub-b { font: 400 11px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans', sans-serif; fill: #64748b; }
+    .line { stroke: #cbd5e1; stroke-width: 1.5; fill: none; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0b0f19; }
+      .hub { fill: rgba(59,130,246,0.12); stroke: #3b82f6; }
+      .grp { fill: #111827; stroke: #1e293b; }
+      .gt { fill: #f1f5f9; }
+      .gb { fill: #94a3b8; }
+      .tag { fill: #60a5fa; }
+      .hub-t { fill: #f1f5f9; }
+      .hub-b { fill: #94a3b8; }
+      .line { stroke: #334155; }
+    }
+  </style>
+  <rect class="bg" width="1000" height="470" rx="16"/>
+  <rect class="hub" x="390" y="185" width="220" height="100" rx="14"/>
+  <text class="hub-t" x="414" y="222">EpoCanvas Mail</text>
+  <text class="hub-t" x="414" y="242">instantie</text>
+  <text class="hub-b" x="414" y="264">delen op minimale basis · geen verkoop,</text>
+  <text class="hub-b" x="414" y="280">geen advertenties, geen trackers</text>
+  <rect class="grp" x="48" y="48" width="290" height="120" rx="12"/>
+  <text class="tag" x="70" y="74">VERWERKERS</text>
+  <text class="gt" x="70" y="98">Cloudflare · Resend / Mailjet</text>
+  <text class="gb" x="70" y="120">Infrastructuur en uitgaande aflevering.</text>
+  <text class="gb" x="70" y="138">SOC 2 Type II · ISO/IEC 27001 · EU-SCC.</text>
+  <text class="gb" x="70" y="156">Volledige mailinhoud alleen voor uitgaande post.</text>
+  <rect class="grp" x="662" y="48" width="290" height="120" rx="12"/>
+  <text class="tag" x="684" y="74">DOOR U GEAUTHORISEERD</text>
+  <text class="gt" x="684" y="98">Telegram · OAuth-apps · Linux DO</text>
+  <text class="gb" x="684" y="120">alleen met uw toestemming ; bereik</text>
+  <text class="gb" x="684" y="138">openid / profile / email ; altijd intrekbaar</text>
+  <text class="gb" x="684" y="156">en direct van kracht.</text>
+  <rect class="grp" x="48" y="302" width="290" height="120" rx="12"/>
+  <text class="tag" x="70" y="328">DOOR U GEACTIVEERDE AI</text>
+  <text class="gt" x="70" y="352" font-size="12.5">Modelendpoint · Workers AI · MyMemory</text>
+  <text class="gb" x="70" y="374">Vertaling en OCR alleen op uw initiatief.</text>
+  <text class="gb" x="70" y="392">Code-extractie is de enige automatische AI-stap</text>
+  <text class="gb" x="70" y="410">(optioneel ; eerste 6.000 tekens).</text>
+  <rect class="grp" x="662" y="302" width="290" height="120" rx="12"/>
+  <text class="tag" x="684" y="328">BIJ WETTELIJK VERZOEK</text>
+  <text class="gt" x="684" y="352">Bevoegde autoriteiten</text>
+  <text class="gb" x="684" y="374">alleen wettelijk gedwongen proces ; minimale</text>
+  <text class="gb" x="684" y="392">openbaarmaking ; legaliteit gecontroleerd ;</text>
+  <text class="gb" x="684" y="410">u wordt ingelicht waar de wet het toelaat.</text>
+  <path class="line" d="M390,210 C330,196 340,150 338,140"/>
+  <path class="line" d="M610,210 C670,196 660,150 662,140"/>
+  <path class="line" d="M390,260 C330,274 340,320 338,330"/>
+  <path class="line" d="M610,260 C670,274 660,320 662,330"/>
+</svg>

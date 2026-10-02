@@ -9,7 +9,7 @@ description: Overview of the EpoCanvas Mail legal documents — platform identit
 
 This page is the guide to all legal documents of the EpoCanvas Mail service (the "Service"); it explains the roles of the parties, the document architecture, and the order in which the documents apply. Before registering for or using the Service, you should read this page together with the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/).
 
-![EpoCanvas Mail legal document architecture: the Terms of Service as the contract layer; the Privacy Policy and Acceptable Use Policy as the policy layer; data processing and security, the sub-processor list, and key terms as supporting documents — all standing on the base of applicable law and security-maintenance duties](/images/mail/legal-architecture.svg)
+![EpoCanvas Mail legal document architecture: the Terms of Service as the contract layer; the Privacy Policy and Acceptable Use Policy as the policy layer; data processing and security, the sub-processor list, and key terms as supporting documents — all standing on the base of applicable law and security-maintenance duties](/images/mail/en/legal-architecture.svg)
 
 *Figure: the architecture of this site's legal documents. The Terms of Service set the contractual conditions; the Privacy Policy carries the notice and processing standards for personal data; the Acceptable Use Policy sets conduct boundaries; Data Processing & Security, the Sub-processor List, and Key Terms are supporting documents. The law applicable to each instance is determined by its operator's location.*
 
@@ -24,7 +24,7 @@ EpoCanvas Mail is an open-source e-mail service built on Cloudflare's edge infra
 
 The legal documents of the service use the "data controller / data processor" division, broadly equivalent to the classification used by the GDPR and similar regimes; the law applicable to each instance is determined by its operator's location.
 
-![EpoCanvas Mail responsibility boundaries: the upstream open-source project (MIT license) provides source code; the instance you use is operated independently by its operator, who bears data-controller responsibility; your account and mail data reside in that instance's Cloudflare resources](/images/mail/self-host-responsibilities.svg)
+![EpoCanvas Mail responsibility boundaries: the upstream open-source project (MIT license) provides source code; the instance you use is operated independently by its operator, who bears data-controller responsibility; your account and mail data reside in that instance's Cloudflare resources](/images/mail/en/self-host-responsibilities.svg)
 
 *Figure: the responsibility boundaries among the software, the operator, and the user. The upstream open-source authors operate no e-mail service and are not responsible for any instance's conduct.*
 

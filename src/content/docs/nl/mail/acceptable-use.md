@@ -62,7 +62,7 @@ Het is u niet toegestaan:
 
 De Exploitant neemt maatregelen die evenredig zijn aan de aard en de ernst van de overtreding; voor inhoud met seksuele uitbuiting van kinderen en jongeren geldt de geleidelijke ladder niet en wordt rechtstreeks de nultolerantieprocedure gevolgd.
 
-![Handhavingsladder van het Beleid voor acceptabel gebruik van EpoCanvas Mail: vijf niveaus van waarschuwing, frequentiebeperking, quarantaine naar spam, opschorting van het account en fysieke verwijdering, met een bezwaarroute, en een nultolerantiekortpad voor seksuele uitbuiting van kinderen en jongeren dat rechtstreeks naar verwijdering leidt](/images/mail/aup-ladder.svg)
+![Handhavingsladder van het Beleid voor acceptabel gebruik van EpoCanvas Mail: vijf niveaus van waarschuwing, frequentiebeperking, quarantaine naar spam, opschorting van het account en fysieke verwijdering, met een bezwaarroute, en een nultolerantiekortpad voor seksuele uitbuiting van kinderen en jongeren dat rechtstreeks naar verwijdering leidt](/images/mail/nl/aup-ladder.svg)
 
 *Figuur: de handhavingsladder. Maatregelen escaleren niveau voor niveau op grond van het evenredigheidsbeginsel; fysieke verwijdering is de onomkeerbare eindmaatregel. Het stippellijn-nultolerantiepad geldt voor seksuele uitbuiting van kinderen en jongeren en seksuele beelden zonder toestemming, die onmiddellijk worden verwijderd met bewaring van het bewijs.*
 

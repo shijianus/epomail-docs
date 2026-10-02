@@ -32,7 +32,7 @@ The Traditional Chinese (Taiwan) versions of this site's legal documents are the
 Protection on the official hosted instance is organised into four layers: transport, edge processing, storage at rest, and credentials. Every measure is implemented in the open-source code and can be audited independently.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/security-trust-shield.svg" alt="EpoCanvas Mail defense in depth: encrypted transport, stateless edge processing, encryption at rest, and credential protection, resting on user control" width="416" height="276" />
+  <img src="/images/mail/en/security-trust-shield.svg" alt="EpoCanvas Mail defense in depth: encrypted transport, stateless edge processing, encryption at rest, and credential protection, resting on user control" width="416" height="276" />
 </div>
 
 *Figure: four layers of protection — transport, edge, storage at rest, and credentials; the base is your own control (self-service export, deletion, and two-step verification).*
@@ -78,7 +78,7 @@ The data categories, collected fields, purposes, storage media, and retention pe
 EpoCanvas Mail is both an official hosted service and an open-source project. The definition of the data controller and the division of responsibility among the three parties are set out in Section 2 of the [Privacy & Terms Overview](/en/mail/overview/); this chapter supplements them with the positioning of the hosted instance and the rules for distributing the open-source code.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/dual-nature-scale.svg" alt="EpoCanvas Mail dual-track governance: one open-source codebase, with the data controller and responsibility boundaries of hosted and self-hosted instances" width="416" height="276" />
+  <img src="/images/mail/en/dual-nature-scale.svg" alt="EpoCanvas Mail dual-track governance: one open-source codebase, with the data controller and responsibility boundaries of hosted and self-hosted instances" width="416" height="276" />
 </div>
 
 *Figure: two operating tracks over one open-source codebase. The operations team is the data controller of the hosted instance; the deployer is the sole data controller of a self-hosted instance; upstream authors run no service and hold no data.*
@@ -110,7 +110,7 @@ A third party who deploys the open-source code becomes, from the moment of deplo
 You have the rights of access, copying, correction, stopping processing, and deletion with respect to your own data. This chapter explains which features implement each right; the full definitions are in Section 9 of the [Privacy Policy](/en/mail/privacy-policy/).
 
 <div class="google-illustration-container">
-  <img src="/images/mail/data-sovereignty-export.svg" alt="EpoCanvas Mail data control: self-service export, deletion with a recycle buffer, and enforceable rights" width="416" height="276" />
+  <img src="/images/mail/en/data-sovereignty-export.svg" alt="EpoCanvas Mail data control: self-service export, deletion with a recycle buffer, and enforceable rights" width="416" height="276" />
 </div>
 
 *Figure: three routes of control — self-service export (JSON), deletion (recycle-bin buffer, then hard deletion), and exercising rights (answered within 30 days).*

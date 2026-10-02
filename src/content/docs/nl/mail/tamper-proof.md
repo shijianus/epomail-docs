@@ -11,7 +11,7 @@ Dit document legt uit hoe officiële systeemmail wordt uitgegeven en hoe u haar 
 
 De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend. De juridische en technische documenten op deze site volgen de open-sourceimplementatie van de dienst en beogen transparante, strenge, niet-commerciële normen voor gemeenschapscommunicatie.
 
-![Drielagige architectuur van officiële mail van EpoCanvas Mail: de uitgiftelaag vergrendelt het officiële afzenderadres en injecteert de officiële vlag; de afleverlaag fixeert een onveranderlijke momentopname met terugval op vooraf ingestelde vertaling; de clientlaag isoleert rendering met Shadow DOM en inhoudssanering](/images/mail/anti-tamper-architecture.svg)
+![Drielagige architectuur van officiële mail van EpoCanvas Mail: de uitgiftelaag vergrendelt het officiële afzenderadres en injecteert de officiële vlag; de afleverlaag fixeert een onveranderlijke momentopname met terugval op vooraf ingestelde vertaling; de clientlaag isoleert rendering met Shadow DOM en inhoudssanering](/images/mail/nl/anti-tamper-architecture.svg)
 
 *Figuur: de drie lagen van de verwerking van officiële mail. De uitgiftelaag vergrendelt het officiële afzenderadres en injecteert de officiële vlag; de afleverlaag fixeert een onveranderlijke momentopname met terugval op vooraf ingestelde vertaling; de clientlaag isoleert rendering en draagt de documentverificatie.*
 

@@ -13,7 +13,7 @@ Internationale doorgifte volgt de eisen van het toepasselijke recht en de beperk
 
 De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend. De juridische en technische documenten op deze site volgen de open-sourceimplementatie van de dienst en beogen transparante, strenge, niet-commerciële normen voor gemeenschapscommunicatie.
 
-![Kaart van het delen met derden door EpoCanvas Mail: gecentreerd op de instantie, vier categorieën, namelijk verwerkers op basis van bewaarneming, op autorisatie van de betrokkene, door de betrokkene geactiveerde AI-verwerking en wettelijke vereisten; met het beginsel van minimale noodzakelijkheid en de toezeggingen van niet verkopen, geen advertenties en niet volgen](/images/mail/subprocessor-map.svg)
+![Kaart van het delen met derden door EpoCanvas Mail: gecentreerd op de instantie, vier categorieën, namelijk verwerkers op basis van bewaarneming, op autorisatie van de betrokkene, door de betrokkene geactiveerde AI-verwerking en wettelijke vereisten; met het beginsel van minimale noodzakelijkheid en de toezeggingen van niet verkopen, geen advertenties en niet volgen](/images/mail/nl/subprocessor-map.svg)
 
 *Figuur: de vier categorieën van paden voor delen met derden door de Dienst. De activeringsvoorwaarden, de betrokken gegevens en de waarborgmechanismen per categorie staan in de hiernavolgende tabellen.*
 

@@ -13,7 +13,7 @@ These terms are standard terms, published in full on the registration page for y
 
 The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
 
-![EpoCanvas Mail contract lifecycle of the Terms of Service: electronic consent (agree by registering, same force as writing) → performance (account security, your content, liability limits) → revision (announced before material changes take effect) → termination (deactivation, data export and deletion), on the base of governing law and jurisdiction (the operator's location; Taiwan for the hosted instance)](/images/mail/tos-contract.svg)
+![EpoCanvas Mail contract lifecycle of the Terms of Service: electronic consent (agree by registering, same force as writing) → performance (account security, your content, liability limits) → revision (announced before material changes take effect) → termination (deactivation, data export and deletion), on the base of governing law and jurisdiction (the operator's location; Taiwan for the hosted instance)](/images/mail/en/tos-contract.svg)
 
 *Figure: the contract's lifecycle from formation to termination. Electronic consent has the same force as writing; account, content, and liability terms are in Sections 3, 5, and 10; revision in Section 12; termination and data deletion in Section 8; governing law and jurisdiction in Section 11.*
 

@@ -62,7 +62,7 @@ No puede usted:
 
 El Operador adopta medidas proporcionales a la naturaleza y la gravedad de la infracción; para el contenido de explotación sexual de niños y adolescentes, la escala gradual no se aplica y se aplica directamente el procedimiento de tolerancia cero.
 
-![Escala de aplicación de la Política de Uso Aceptable de EpoCanvas Mail: cinco niveles de advertencia, limitación de frecuencia, cuarentena en correo no deseado, suspensión de cuenta y supresión física, con una vía de apelación, y un atajo de tolerancia cero para la explotación sexual de niños y adolescentes que conduce directamente a la supresión](/images/mail/aup-ladder.svg)
+![Escala de aplicación de la Política de Uso Aceptable de EpoCanvas Mail: cinco niveles de advertencia, limitación de frecuencia, cuarentena en correo no deseado, suspensión de cuenta y supresión física, con una vía de apelación, y un atajo de tolerancia cero para la explotación sexual de niños y adolescentes que conduce directamente a la supresión](/images/mail/es/aup-ladder.svg)
 
 *Figura: La escala de aplicación. Las medidas escalan nivel a nivel conforme al principio de proporcionalidad; la supresión física es la medida final irreversible. La vía de tolerancia cero señalada por la línea discontinua se aplica a la explotación sexual de niños y adolescentes y a las imágenes íntimas sin consentimiento, que se eliminan de plano conservando las pruebas.*
 

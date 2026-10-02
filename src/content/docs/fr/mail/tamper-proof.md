@@ -11,7 +11,7 @@ Le présent document explique comment les courriels système officiels sont émi
 
 Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Les documents juridiques et techniques de ce site suivent l'implémentation open source du service et visent à établir des normes de communication communautaires transparentes, rigoureuses et non commerciales.
 
-![Architecture en trois couches des courriels officiels d'EpoCanvas Mail : la couche d'émission verrouille l'adresse officielle d'expédition et injecte la marque officielle ; la couche de livraison fige un instantané immuable avec repli de traduction prédéfinie ; la couche client isole le rendu avec Shadow DOM et assainissement du contenu](/images/mail/anti-tamper-architecture.svg)
+![Architecture en trois couches des courriels officiels d'EpoCanvas Mail : la couche d'émission verrouille l'adresse officielle d'expédition et injecte la marque officielle ; la couche de livraison fige un instantané immuable avec repli de traduction prédéfinie ; la couche client isole le rendu avec Shadow DOM et assainissement du contenu](/images/mail/fr/anti-tamper-architecture.svg)
 
 *Figure : les trois couches du traitement des courriels officiels. La couche d'émission verrouille l'adresse officielle d'expédition et injecte la marque officielle ; la couche de livraison fige un instantané immuable avec repli de traduction prédéfinie ; la couche client isole le rendu et prend en charge la vérification documentaire.*
 

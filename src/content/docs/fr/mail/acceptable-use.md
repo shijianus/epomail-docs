@@ -62,7 +62,7 @@ Vous ne devez pas :
 
 Selon la nature et la gravité de la violation, l'Opérateur prend des mesures proportionnées ; les contenus d'exploitation sexuelle d'enfants et d'adolescents ne relèvent pas de l'échelle graduée et suivent directement la procédure de tolérance zéro.
 
-![L'échelle d'exécution de la Politique d'utilisation acceptable d'EpoCanvas Mail : cinq niveaux — avertissement, limitation de débit, quarantaine vers les pourriels, suspension du compte, suppression physique — avec un chemin de recours, et un raccourci de tolérance zéro pour l'exploitation sexuelle d'enfants et d'adolescents menant directement à la suppression](/images/mail/aup-ladder.svg)
+![L'échelle d'exécution de la Politique d'utilisation acceptable d'EpoCanvas Mail : cinq niveaux — avertissement, limitation de débit, quarantaine vers les pourriels, suspension du compte, suppression physique — avec un chemin de recours, et un raccourci de tolérance zéro pour l'exploitation sexuelle d'enfants et d'adolescents menant directement à la suppression](/images/mail/fr/aup-ladder.svg)
 
 *Figure : l'échelle d'exécution. Les mesures s'élèvent niveau par niveau selon le principe de proportionnalité ; la suppression physique est la mesure finale irréversible. Le chemin de tolérance zéro figuré en pointillé s'applique à l'exploitation sexuelle d'enfants et d'adolescents ainsi qu'aux images sexuelles non consensuelles : suppression immédiate et conservation des preuves.*
 

@@ -13,7 +13,7 @@ Las transferencias internacionales se rigen por los requisitos de la ley aplicab
 
 Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. Los documentos jurídicos y técnicos de este sitio siguen la implementación de código abierto del servicio y buscan establecer normas de comunicación comunitarias transparentes, rigurosas y no comerciales.
 
-![Mapa de comunicación de datos a terceros de EpoCanvas Mail: centrado en la instancia, cuatro categorías —encargados del tratamiento, autorizado por el interesado, tratamiento mediante IA activado por el interesado y requerimientos legales— con el principio de mínima necesidad y los compromisos de no venta, no publicidad y no rastreo señalados](/images/mail/subprocessor-map.svg)
+![Mapa de comunicación de datos a terceros de EpoCanvas Mail: centrado en la instancia, cuatro categorías —encargados del tratamiento, autorizado por el interesado, tratamiento mediante IA activado por el interesado y requerimientos legales— con el principio de mínima necesidad y los compromisos de no venta, no publicidad y no rastreo señalados](/images/mail/es/subprocessor-map.svg)
 
 *Figura: Los cuatro canales de comunicación de datos a terceros en el Servicio. Las condiciones de activación, los datos implicados y las garantías de cada categoría se exponen en las tablas siguientes.*
 

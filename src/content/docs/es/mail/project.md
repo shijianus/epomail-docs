@@ -10,7 +10,7 @@ EpoCanvas Mail es un servicio de correo electrónico de código abierto que func
 
 Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. Los documentos jurídicos y técnicos de este sitio siguen la implementación de código abierto del servicio y buscan establecer normas de comunicación comunitarias transparentes, rigurosas y no comerciales.
 
-![Arquitectura del sistema de EpoCanvas Mail: la capa de clientes (aplicación web, aplicación Android, aplicaciones de terceros OAuth) se conecta a través del edge de Cloudflare; los Workers sostienen la API, el análisis del correo entrante y las funciones de IA, con envío saliente vía Resend y Telegram; los datos se guardan en dos bases D1, KV y almacenamiento de objetos](/images/mail/project-architecture.svg)
+![Arquitectura del sistema de EpoCanvas Mail: la capa de clientes (aplicación web, aplicación Android, aplicaciones de terceros OAuth) se conecta a través del edge de Cloudflare; los Workers sostienen la API, el análisis del correo entrante y las funciones de IA, con envío saliente vía Resend y Telegram; los datos se guardan en dos bases D1, KV y almacenamiento de objetos](/images/mail/es/project-architecture.svg)
 
 *Figura: Arquitectura del sistema. Los clientes se conectan por el edge, sin servidor de origen único; el correo entrante lo recibe y analiza Email Routing, y el envío saliente pasa por el canal de Resend; todo el estado queda en los recursos de Cloudflare del propio desplegador.*
 

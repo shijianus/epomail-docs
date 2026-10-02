@@ -9,7 +9,7 @@ description: Overzicht van de juridische documenten van EpoCanvas Mail — ident
 
 Deze pagina is de gids van alle juridische documenten van de dienst EpoCanvas Mail (hierna «de Dienst») en beschrijft de rollen van de partijen, de documentstructuur en de volgorde van toepassing. Voordat u zich registreert voor de Dienst of deze gebruikt, dient u deze pagina te lezen, samen met het [Privacybeleid](/nl/mail/privacy-policy/) en de [Servicevoorwaarden](/nl/mail/terms-of-service/).
 
-![Juridische documentarchitectuur van EpoCanvas Mail: de Servicevoorwaarden als contractlaag, het Privacybeleid en het Beleid voor acceptabel gebruik als beleidslaag, Gegevensverwerking en beveiliging, de Lijst van verwerkers en de Begrippenlijst als ondersteunende documenten; alles rustend op de basis van het toepasselijke recht en de veiligheidsverplichtingen](/images/mail/legal-architecture.svg)
+![Juridische documentarchitectuur van EpoCanvas Mail: de Servicevoorwaarden als contractlaag, het Privacybeleid en het Beleid voor acceptabel gebruik als beleidslaag, Gegevensverwerking en beveiliging, de Lijst van verwerkers en de Begrippenlijst als ondersteunende documenten; alles rustend op de basis van het toepasselijke recht en de veiligheidsverplichtingen](/images/mail/nl/legal-architecture.svg)
 
 *Figuur: de architectuur van de juridische documenten op deze site. De Servicevoorwaarden stellen de contractuele voorwaarden vast; het Privacybeleid bevat de informatieverplichtingen en verwerkingsnormen voor persoonsgegevens; het Beleid voor acceptabel gebruik stelt de grenzen van gedrag vast; Gegevensverwerking en beveiliging, de Lijst van verwerkers en de Begrippenlijst zijn ondersteunende documenten. Het toepasselijke recht van elke instantie wordt bepaald door de vestigingsplaats van de Exploitant.*
 
@@ -24,7 +24,7 @@ EpoCanvas Mail is een open source-e-maildienst gebouwd op de edge-computingarchi
 
 De juridische documenten van de Dienst hanteren de rolverdeling tussen «verwerkingsverantwoordelijke» en «verwerker»; die komt overeen met de algemene indeling die in rechtstelsels zoals de Algemene verordening gegevensbescherming (AVG) van de Europese Unie bestaat. Het toepasselijke recht van elke instantie wordt bepaald door de vestigingsplaats van de Exploitant.
 
-![Verantwoordelijkheidsgrenzen van EpoCanvas Mail: het upstream open source-project (MIT-licentie) levert de broncode; de instantie die u gebruikt wordt onafhankelijk uitgebaat door de Exploitant, die de verantwoordelijkheid van verwerkingsverantwoordelijke draagt; uw account en uw e-mailgegevens worden bewaard in de Cloudflare-resources van die instantie](/images/mail/self-host-responsibilities.svg)
+![Verantwoordelijkheidsgrenzen van EpoCanvas Mail: het upstream open source-project (MIT-licentie) levert de broncode; de instantie die u gebruikt wordt onafhankelijk uitgebaat door de Exploitant, die de verantwoordelijkheid van verwerkingsverantwoordelijke draagt; uw account en uw e-mailgegevens worden bewaard in de Cloudflare-resources van die instantie](/images/mail/nl/self-host-responsibilities.svg)
 
 *Figuur: de verantwoordelijkheidsgrenzen tussen software, Exploitant en gebruikers. De upstream open source-auteurs exploiteren geen enkele e-maildienst en zijn niet aansprakelijk voor het handelen van enige instantie.*
 

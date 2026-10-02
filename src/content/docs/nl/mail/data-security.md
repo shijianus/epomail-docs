@@ -32,7 +32,7 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 De bescherming van gegevens op de officiële gehoste instantie is georganiseerd in vier lagen: transport, verwerking aan de rand, opslag in rust en referentiegegevens. Elke maatregel is in de open-sourcecode geïmplementeerd en onafhankelijk te controleren.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/security-trust-shield.svg" alt="Defensie in diepte van EpoCanvas Mail: versleuteld transport, staatloze randverwerking, versleuteling in rust en bescherming van referentiegegevens, rustend op de controle door de gebruiker" width="416" height="276" />
+  <img src="/images/mail/nl/security-trust-shield.svg" alt="Defensie in diepte van EpoCanvas Mail: versleuteld transport, staatloze randverwerking, versleuteling in rust en bescherming van referentiegegevens, rustend op de controle door de gebruiker" width="416" height="276" />
 </div>
 
 *Figuur: vier beschermingslagen — transport, rand, opslag in rust en referentiegegevens; de basis is uw eigen controle (zelfservice-export, verwijdering en tweestapsverificatie).*
@@ -78,7 +78,7 @@ De gegevenscategorieën, verzamelde velden, doelen, opslagmedia en bewaartermijn
 EpoCanvas Mail is tegelijk een officiële gehoste dienst en een open-sourceproject. De definitie van de verwerkingsverantwoordelijke en de verdeling van verantwoordelijkheid tussen de drie partijen staan in paragraaf 2 van het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/); dit hoofdstuk vult aan met de positionering van de gehoste instantie en de regels voor het verspreiden van de open-sourcecode.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/dual-nature-scale.svg" alt="Dubbele bestuursstructuur van EpoCanvas Mail: één open-sourcecodebase, met de verwerkingsverantwoordelijke en verantwoordelijkheidsgrenzen van gehoste en zelfgehoste instanties" width="416" height="276" />
+  <img src="/images/mail/nl/dual-nature-scale.svg" alt="Dubbele bestuursstructuur van EpoCanvas Mail: één open-sourcecodebase, met de verwerkingsverantwoordelijke en verantwoordelijkheidsgrenzen van gehoste en zelfgehoste instanties" width="416" height="276" />
 </div>
 
 *Figuur: twee exploitatiesporen op één open-sourcecodebase. Het exploitatieteam is de verwerkingsverantwoordelijke van de gehoste instantie; de deployer is de enige verwerkingsverantwoordelijke van een zelfgehoste instantie; de oorspronkelijke auteurs exploiteren geen dienst en houden geen gegevens bij.*
@@ -110,7 +110,7 @@ Een derde die de open-sourcecode deployt, wordt vanaf het moment van deployen de
 U heeft met betrekking tot uw eigen gegevens recht op inzage, kopie, verbetering, het stopzetten van verwerking en verwijdering. Dit hoofdstuk legt uit via welke functie elk recht wordt gerealiseerd; de volledige definities staan in paragraaf 9 van het [Privacybeleid](/nl/mail/privacy-policy/).
 
 <div class="google-illustration-container">
-  <img src="/images/mail/data-sovereignty-export.svg" alt="Gegevenscontrole van EpoCanvas Mail: zelfservice-export, verwijderen met prullenbakbuffer en afdwingbare rechten" width="416" height="276" />
+  <img src="/images/mail/nl/data-sovereignty-export.svg" alt="Gegevenscontrole van EpoCanvas Mail: zelfservice-export, verwijderen met prullenbakbuffer en afdwingbare rechten" width="416" height="276" />
 </div>
 
 *Figuur: drie controlevanen: zelfservice-export (JSON), verwijdering (prullenbakbuffer, daarna fysieke verwijdering) en rechtenuitoefening (antwoord binnen 30 dagen).*

@@ -62,7 +62,7 @@ You must not:
 
 The operator takes measures proportionate to the nature and severity of the violation; the zero-tolerance ladder-buffer for child sexual exploitation does not apply — such cases go straight to the zero-tolerance procedure.
 
-![EpoCanvas Mail enforcement ladder of the Acceptable Use Policy: five levels from warning, rate limiting, quarantine to spam, and account suspension to physical deletion, with an appeal path, and a zero-tolerance shortcut to deletion for child sexual exploitation](/images/mail/aup-ladder.svg)
+![EpoCanvas Mail enforcement ladder of the Acceptable Use Policy: five levels from warning, rate limiting, quarantine to spam, and account suspension to physical deletion, with an appeal path, and a zero-tolerance shortcut to deletion for child sexual exploitation](/images/mail/en/aup-ladder.svg)
 
 *Figure: the enforcement ladder. Measures escalate step by step on the principle of proportionality; physical deletion is the irreversible final measure. The dashed zero-tolerance path, for child sexual exploitation and non-consensual intimate imagery, leads directly to deletion with evidence preserved.*
 
