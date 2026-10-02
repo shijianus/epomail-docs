@@ -7,67 +7,43 @@ description: Overview of the EpoCanvas Mail legal framework, including platform 
 
 **Effective Date: October 1, 2026 | Version: 5.5**
 
-This document serves as the foundational guide to the legal and privacy framework of EpoCanvas Mail (the "Service"). It outlines the structural relationship between the open-source software, the instance operators, and the end users. Before deploying, registering for, or using the Service, please review this page alongside our [Privacy Policy](/en/mail/privacy-policy/) and [Terms of Service](/en/mail/terms-of-service/).
+Welcome to the EpoCanvas Mail legal framework hub. We believe that transparency should be built into the very architecture of our platform, not just our code. This document serves as the foundational guide to understanding how we govern our services, protect your data, and define the boundaries of our responsibilities. We encourage you to read this overview as your starting point before diving into our specific policies.
 
-![EpoCanvas Mail legal document architecture: the Terms of Service as the contract layer; the Privacy Policy and the Acceptable Use Policy as the policy layer; Data Processing and Security Maintenance, the Third-Party Processor List, and Key Terms as supporting documents](/images/mail/legal-architecture.svg)
+![EpoCanvas Mail Legal Framework Overview](/images/mail/partition-overview.svg)
 
-*Figure: The architecture of our legal framework. The Terms of Service govern the conditions of use; the Privacy Policy details data processing and privacy rights; the Acceptable Use Policy defines community standards; while supporting documents provide technical specifics on data security and third-party processors.*
+## The Dual-Nature of EpoCanvas Mail
 
-## 1. Platform Identity & Non-Commercial Nature
+EpoCanvas Mail operates under a unique "Dual-Nature Fusion" model. Our identity is divided into two distinct, yet complementary facets: an open-source project and a community-hosted service. Understanding this duality is crucial for navigating our legal documentation and understanding your rights.
 
-EpoCanvas Mail is a community-driven, open-source email platform built on edge computing architecture (Cloudflare Workers, D1, KV, R2). The upstream source code is released under the permissive MIT License. 
+### 1. The Open Source Ecosystem (`github.com/shijianus/epomail`)
 
-The Service is provided strictly for personal self-hosting, technical research, and non-commercial community communication. We do not operate a commercial email enterprise, we do not offer enterprise-grade Service Level Agreements (SLAs), and we do not guarantee suitability for commercial or mission-critical business operations. The Service exists in two primary deployment models:
+The core software of EpoCanvas Mail is completely open-source, released under the permissive MIT License. We actively encourage independent self-hosting (Self-Hosting), community contributions, and secondary development. 
 
-1. **Hosted Community Instance**: A public demonstration site (`mail.epocanvas.com`) operated by the EpoCanvas maintainers, provided "as is" for community use.
-2. **Self-Hosted Instance**: A private deployment where any individual or organization runs the open-source codebase on their own domain and infrastructure.
+**Zero Telemetry Guarantee:** The upstream code repository contains absolutely no telemetry, tracking scripts, or backdoors. When you deploy the software on your own infrastructure, you have total sovereignty over your environment. 
+**Independent Data Controllers:** If you choose to self-host EpoCanvas Mail, you become the sole Data Controller (Sole Data Controller) for your instance and your users. The upstream developers bear no responsibility for the data processed on third-party deployments.
+**Brand Protection:** While we encourage forks and self-hosting, third-party operators are strictly prohibited from impersonating the official EpoCanvas Mail service. You may not use the `epocanvas.com` domain or official branding in a way that suggests endorsement or affiliation. You must provide your own domain and contact information.
 
-## 2. The Responsibility Triad
+### 2. The Community Hosted Service (`mail.epocanvas.com`)
 
-Because EpoCanvas Mail is fundamentally a self-hostable open-source project, data processing responsibilities are strictly divided into three distinct roles. 
+We operate a public, hosted instance of EpoCanvas Mail to serve our community, academic researchers, and personal users. This deployment is governed by our official Privacy Policy and Terms of Service.
 
-![EpoCanvas Mail Architecture and Non-Commercial Governance Partition](/images/mail/partition-overview.svg)
+**Non-Commercial Declaration:** The official instance is a non-commercial, free service. We do not provide commercial-grade Service Level Agreements (SLAs), uptime guarantees, or warranties of suitability for mission-critical business use.
+**Lifecycle Management:** To ensure platform sustainability, we enforce a strict 30-day automatic trash cleanup policy for all accounts on our hosted infrastructure.
 
-### A. Upstream Open-Source Project
-The EpoCanvas Mail upstream project and its core maintainers act solely as the **Code Provider**. 
-- **Zero Telemetry**: The codebase contains no hidden tracking, telemetry, or "phone home" mechanisms.
-- **No Data Access**: Upstream maintainers have absolutely no access to the databases, encryption keys, or email contents of any self-hosted instance.
-- **No Compliance Liability**: The open-source project itself is not a service provider and bears no compliance, regulatory, or operational liability for deployed instances.
+> [!NOTE] 
+> Whether you are using our official hosted service or a self-hosted instance, the fundamental principles of privacy and user autonomy remain at the core of the EpoCanvas Mail experience.
 
-### B. Instance Operator / Deployer
-The individual or organization deploying the software is the **Sole Data Controller** and **Infrastructure Manager**.
-- **Data Governance**: The Operator exercises complete control over the instance's Cloudflare resources, database, and object storage.
-- **Key Custodian**: The Operator holds the master encryption keys and is responsible for instance security.
-- **Compliance**: The Operator is legally responsible for maintaining privacy compliance, responding to user requests, and establishing their own local policies in their jurisdiction.
+## Navigating Our Legal Architecture
 
-### C. End User
-The individual utilizing an EpoCanvas Mail account.
-- **Credential Protection**: The user is exclusively responsible for securing their account through strong passwords and Two-Factor Authentication (Passkey/TOTP).
-- **Fair Use**: The user must comply with the Acceptable Use Policy and refrain from utilizing the service for spam, abuse, or illegal activities.
-- **Content Ownership**: The user retains full ownership of their transmitted data and is responsible for its legality.
+Our legal framework is designed to be modular, readable, and highly specific to the different aspects of your interaction with EpoCanvas Mail. We have separated our governance into distinct documents to ensure clarity and precision.
 
-## 3. Document Architecture
+### The Contract Layer: Terms of Service
 
-Our legal framework is organized into specific, cross-referencing documents that collectively constitute your agreement with the Operator:
+The [Terms of Service](/en/mail/terms-of-service/) constitute the binding legal agreement governing your use of the EpoCanvas Mail platform. This document outlines your account responsibilities, the acceptable use of our infrastructure, and the non-commercial limitations of our provided service. It explicitly details the boundaries of liability and the "as-is" nature of our platform.
 
-| Document | Purpose & Scope |
-| --- | --- |
-| [Privacy Policy](/en/mail/privacy-policy/) | Details why data is processed, how it is protected, when sharing occurs, your privacy rights, and data retention schedules. |
-| [Terms of Service](/en/mail/terms-of-service/) | Establishes the contractual conditions, non-commercial warranty disclaimers, rights, obligations, and limitations of liability. |
-| [Acceptable Use Policy](/en/mail/acceptable-use/) | Defines prohibited conduct, abuse mitigation strategies, and enforcement procedures. |
-| [Data Processing & Security](/en/mail/data-security/) | Outlines the technical data lifecycle, encryption at rest, incident response, and security measures. |
-| [Third-Party Processors](/en/mail/sub-processors/) | Lists external processors (e.g., Cloudflare, Resend), authorized data sharing, and international transfer safeguards. |
-| [Anti-Tampering Specs](/en/mail/tamper-proof/) | Documents our 16-tier security notices, anti-spoofing mechanisms, and tamper-proof verification protocols. |
+### The Protection Layer: Privacy Policy
 
-## 4. Order of Precedence
+Our [Privacy Policy](/en/mail/privacy-policy/) is dedicated exclusively to how we handle your personal information. It details the specific data points we collect, our reliance on the Cloudflare global edge network for encrypted transit, and our strict commitment to zero data monetization. It also outlines your comprehensive data subject rights under global privacy regulations.
 
-1. For matters concerning personal data, the [Privacy Policy](/en/mail/privacy-policy/) shall govern. For operational usage rules, the [Terms of Service](/en/mail/terms-of-service/) apply. 
-2. In the event of a conflict between documents, the policy most specific to the subject matter shall prevail.
-3. This English version is an authoritative, standalone document. It governs your relationship with the Service independently of any other language versions.
-
-## 5. Contact Channels
-
-- **Privacy & Data Rights**: `privacy@epocanvas.com`
-- **General Inquiries**: `admin@epocanvas.com` or via in-app messaging.
-- **Upstream Open Source Project**: GitHub Issues at `github.com/shijianus/epomail`.
-- **Self-Hosted Instances**: Please contact the Operator directly via the administrative email provided on their deployment.
+> [!IMPORTANT]
+> If you are accessing a self-hosted instance of EpoCanvas Mail, the operator of that specific instance is responsible for providing their own privacy policy and terms of service. Our official documents only govern the `mail.epocanvas.com` deployment and the interactions with the primary open-source repositories.

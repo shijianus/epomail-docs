@@ -7,81 +7,77 @@ description: EpoCanvas Mail Terms of Service—governing account responsibilitie
 
 **Effective Date: October 1, 2026 | Version: 5.5**
 
-Welcome to EpoCanvas Mail (the "Service"). These Terms of Service ("Terms") constitute a binding legal agreement between you and the Operator of the instance you are utilizing. 
+Welcome to EpoCanvas Mail. These Terms of Service ("Terms") establish the legal agreement between you ("the User") and the provider of the EpoCanvas Mail service ("the Operator"). By registering an account, transmitting messages, or interacting with our infrastructure, you acknowledge that you have read, comprehended, and agreed to be bound by these Terms. 
 
-By registering an account, logging in, or interacting with the Service, you explicitly acknowledge that you have read, understood, and agreed to these Terms. If you do not agree to these Terms, you must immediately cease using the Service. This English version is an authoritative, standalone document governing your contractual relationship with the Service.
+![EpoCanvas Mail Terms of Service and Governance](/images/mail/partition-terms.svg)
 
-![EpoCanvas Mail Terms of Service and Non-Commercial Governance](/images/mail/partition-terms.svg)
+## 1. The Dual-Nature of Our Platform
 
-## 1. Nature of the Service
+EpoCanvas Mail operates simultaneously as an open-source software project and a community-hosted service. Your legal relationship depends entirely on how you access the platform.
 
-EpoCanvas Mail is an open-source, community-driven email platform. The software underlying the Service is released under the MIT License and is freely auditable. 
+### The Open Source Upstream (`github.com/shijianus/epomail`)
 
-**Non-Commercial Declaration**: 
-The Service is provided strictly for personal communications, self-hosting deployments, and technical research. It is **not** a commercial enterprise solution. We do not provide, nor do we imply, any Service Level Agreements (SLAs), uptime guarantees, or suitability for mission-critical business communications. 
+The source code powering EpoCanvas Mail is provided under the MIT License. The upstream developers and contributors provide this code "as is," without any warranties of any kind. They do not operate infrastructure, they do not possess user data, and they are entirely shielded from liability regarding how third parties deploy the software.
 
-## 2. The Responsibility Triad
+### The Hosted Service (`mail.epocanvas.com`)
 
-Your relationship with the Service is defined by the following division of responsibility:
+When you use the official `mail.epocanvas.com` service, you are entering into an agreement with the maintainers of that specific infrastructure. 
 
-- **Upstream Open-Source Project**: The original developers provide the source code "as is." They operate no infrastructure, hold no user data, and bear zero liability for how the software is deployed or utilized.
-- **The Instance Operator**: The entity hosting the infrastructure (whether the EpoCanvas maintainers at `mail.epocanvas.com` or an independent self-hoster) acts as the service provider. The Operator manages the infrastructure, maintains server keys, and enforces these Terms.
-- **The End User (You)**: You are responsible for the security of your credentials, the legality of the content you transmit, and adherence to community guidelines.
+**Non-Commercial Declaration:** This official hosted instance is provided strictly for personal communication, open-source community collaboration, and technical evaluation. It is **not** a commercial enterprise service. We expressly disclaim any obligation to provide Service Level Agreements (SLAs), enterprise support tiers, or continuous uptime guarantees. 
 
-## 3. Account Responsibilities
+> [!IMPORTANT]
+> If you are utilizing a self-hosted instance of EpoCanvas Mail managed by a third party, your legal relationship is entirely with that specific Instance Operator. The upstream developers hold no jurisdiction or liability over third-party deployments. Furthermore, third-party operators are strictly prohibited from impersonating the official EpoCanvas Mail brand or utilizing the `epocanvas.com` domain.
 
-To maintain the integrity of the platform, you agree to the following account rules:
+## 2. Account Responsibilities and Security
 
-- **Accurate Information**: You must provide a valid receiving email address during registration. Impersonation or the unauthorized use of domains is strictly prohibited.
-- **Age Requirements**: You must be at least 14 years of age to utilize the Service.
-- **Security Obligations**: You are solely responsible for safeguarding your password, Two-Factor Authentication (2FA) mechanisms, and API tokens. Any action performed under your account is legally presumed to be executed by you. We strongly recommend enabling Passkey or TOTP verification.
-- **Administrative Rights**: The Operator reserves the right to restrict registrations, enforce invite-only models, or reserve specific usernames (`admin`, `support`, etc.) to maintain system stability.
+The integrity of our service relies heavily on the responsible behavior of our users. You are granted access to our infrastructure under strict conditions of accountability.
 
-## 4. User Content and Conduct
+### Registration and Verification
 
-- **Ownership**: You retain full intellectual property ownership of the emails, attachments, and metadata you transmit through the Service. The Operator claims no ownership over your communications.
-- **License to Operate**: By using the Service, you grant the Operator a narrow, technical license to process, store, and transmit your data globally, strictly to the extent necessary to deliver the email functionality you request.
-- **Acceptable Use**: You are bound by our [Acceptable Use Policy](/en/mail/acceptable-use/). You explicitly agree not to utilize the platform for distributing malware, conducting phishing campaigns, transmitting illegal material, or sending unsolicited bulk communications (spam). 
+**Accurate Provisioning:** You must provide accurate, non-deceptive information during the registration process. The use of automated scripts to create bulk accounts or the impersonation of external entities is strictly forbidden.
+**Age Verification:** The service is restricted to individuals who are at least 14 years of age. By registering, you warrant that you meet this minimum age requirement under the laws of your jurisdiction.
 
-## 5. Service Availability and Modifications
+### Security Obligations
 
-- **"As Is" Provision**: The Service operates on distributed edge networks. While the Operator endeavors to maintain stability, the platform is susceptible to upstream outages. The Service is provided on an "as is" and "as available" basis.
-- **Experimental Features**: Certain functionalities (e.g., edge AI translation) may be designated as experimental. These may exhibit instability and can be modified or deprecated without prior notice.
-- **Maintenance**: The Operator may temporarily suspend access to the Service for routine maintenance, security patching, or architectural upgrades. We are not liable for any resulting disruption to your communications.
+**Credential Stewardship:** You are exclusively responsible for maintaining the confidentiality and physical security of your passwords, WebAuthn passkeys, and API tokens. 
+**Presumption of Action:** Any action, message transmission, or configuration change originating from your authenticated account is legally presumed to have been authorized and executed by you. We strongly mandate the use of Two-Factor Authentication (2FA) to mitigate credential compromise.
 
-## 6. Termination and Data Deletion
+## 3. Acceptable Use and Content Ownership
 
-- **Termination by You**: You possess the absolute right to terminate this agreement at any time by executing an account cancellation via your dashboard. Upon cancellation, your data will be queued for permanent, physical destruction.
-- **Termination by the Operator**: The Operator reserves the right to suspend or permanently terminate your account if you breach these Terms or the Acceptable Use Policy. 
-- **Data Recovery Disclaimer**: Once data undergoes physical deletion (whether initiated by you, via automated trash expiration, or due to Operator enforcement), **it cannot be recovered**. You are entirely responsible for maintaining independent backups of critical communications.
+EpoCanvas Mail is a neutral routing and storage platform. We do not claim ownership over the thoughts you express or the files you share, but we do strictly regulate the impact your usage has on our network.
 
-## 7. Non-Commercial Warranty Disclaimers
+### Intellectual Property Rights
 
-To the maximum extent permitted by applicable law, the Operator and the Upstream Open-Source Project explicitly disclaim all warranties, whether express or implied. 
+**User Retention:** You retain total and complete ownership of the intellectual property contained within your emails, attachments, and metadata. We claim zero copyright, licensing rights, or ownership over your private communications.
+**Operational License:** By utilizing the platform, you grant us a narrow, strictly technical license to encrypt, route, store, and transmit your data globally, solely to the extent required to execute the email delivery services you request.
 
-**WE DISCLAIM ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.** 
+### Prohibited Conduct
 
-We do not warrant that the Service will be uninterrupted, error-free, entirely secure, or that any outbound email will successfully bypass third-party spam filters and reach its intended recipient. You utilize the platform entirely at your own risk.
+Our infrastructure may not be utilized to degrade the internet ecosystem. The following activities will result in immediate, unappealable account termination:
 
-## 8. Limitation of Liability
+- **Spam and Abuse:** The transmission of unsolicited bulk email, phishing campaigns, or participation in botnets.
+- **Malware Distribution:** The intentional hosting or routing of viruses, ransomware, or malicious payloads.
+- **Illegal Content:** The storage or distribution of material that violates international law, including child exploitation imagery or terrorist propaganda.
 
-To the maximum extent permitted by law, under no circumstances shall the Operator or the open-source maintainers be liable for any indirect, incidental, consequential, special, or punitive damages. This includes, but is not limited to, damages for loss of profits, loss of goodwill, data loss, or business interruption, arising out of or related to your use (or inability to use) the Service.
+## 4. Service Limitations and Disclaimers
 
-In all events, the total cumulative liability of the Operator for any claims arising under these Terms shall be strictly limited to the greater of: (a) the total amount you paid directly to the Operator in the twelve (12) months preceding the claim, or (b) One Hundred United States Dollars ($100.00 USD).
+We deploy EpoCanvas Mail on distributed edge networks to maximize resilience, but we cannot guarantee flawless operation in a complex global internet environment.
 
-## 9. Governing Law and Jurisdiction
+### "As Is" and "As Available" Provision
 
-These Terms are governed by and construed in accordance with the law of the Operator's primary location. 
-- For the hosted community instance (`mail.epocanvas.com`), this agreement is governed by the laws of Taiwan, and you consent to the exclusive jurisdiction of the Taiwan Taipei District Court. 
-- For self-hosted instances, the governing law and jurisdiction are determined by the location of the specific Deployer/Operator.
+The Service is provided strictly on an "as is" and "as available" basis. We do not warrant that the platform will be free from disruption, latency, or unforeseen architectural errors. We reserve the right to deploy experimental features that may exhibit instability, and we may suspend access for critical maintenance without prior warning.
 
-## 10. Modifications to These Terms
+### Comprehensive Warranty Disclaimer
 
-The Operator reserves the right to modify these Terms to accommodate platform evolutions or regulatory shifts. We will provide advance notice of material changes via system announcements. Your continued use of the Service following the effective date of a modification constitutes your binding acceptance of the revised Terms.
+**TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, WE EXPLICITLY DISCLAIM ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED. THIS INCLUDES, BUT IS NOT LIMITED TO, ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT GUARANTEE THAT OUTBOUND COMMUNICATIONS WILL SUCCESSFULLY BYPASS THIRD-PARTY SPAM FILTERS OR REACH THEIR INTENDED RECIPIENT.**
 
-## 11. Contact Information
+## 5. Limitation of Liability and Governing Law
 
-- **Administration & Support**: `admin@epocanvas.com`
-- **Legal & Privacy**: `privacy@epocanvas.com`
-- **Source Code & Issues**: `github.com/shijianus/epomail`
-- **Self-Hosted Inquiries**: Please contact the administrator of your specific instance.
+In no event shall the Operator, the upstream open-source developers, or our infrastructure providers be liable for any indirect, consequential, punitive, or incidental damages. 
+
+**Cap on Liability:** This includes damages for loss of profits, data corruption, or business interruption. In all circumstances, our maximum cumulative liability arising from your use of the service shall be strictly limited to the greater of: (a) the total amount you paid directly to us in the twelve months preceding the claim, or (b) One Hundred United States Dollars ($100.00 USD).
+
+**Jurisdiction:** For users of the official `mail.epocanvas.com` service, these Terms are governed by the laws of Taiwan, and you consent to the exclusive jurisdiction of the Taiwan Taipei District Court. Self-hosted instances are governed by the legal jurisdiction of their respective operators.
+
+> [!NOTE]
+> We may iteratively update these Terms to reflect architectural shifts or legal requirements. We will notify active users of material changes. Continued use of the platform constitutes your acceptance of the revised Terms.
