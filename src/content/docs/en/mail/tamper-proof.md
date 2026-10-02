@@ -7,75 +7,31 @@ description: EpoCanvas Mail official system email specifications, 16 tiered secu
 
 **Effective Date: October 1, 2026 | Version: 5.5**
 
-Pursuant to the [Privacy & Terms Overview](/mail/overview/) and [Data Processing & Security](/mail/data-security/), this document specifies the official email issuance framework, security notification notice standards, edge sender anti-spoofing, immutable snapshot delivery, client-side sandbox isolation, and cryptographic document tamper-proof verification mechanisms for EpoCanvas Mail. This specification establishes what constitutes authentic official documentation and provides verifiable technical baseline standards for users and self-hosted instance operators.
+Pursuant to the Privacy & Terms Overview and our Data Processing directives, this document establishes the definitive technical specifications for the EpoCanvas Mail anti-tampering architecture. This framework ensures the undeniable authenticity of official communications, providing verifiable mechanisms to detect spoofing, prevent document manipulation, and isolate potentially malicious content. Whether operating within the managed environment or a self-hosted instance, these architectural constraints guarantee the integrity of the 16-level security notification system and the safety of the client-side rendering sandbox.
 
-![EpoCanvas Mail Anti-Tampering and Official Authentication Architecture: Edge sender anti-spoofing, immutable delivery pipeline, client-side Shadow DOM sandbox physical isolation, and SHA-256 cryptographic manifest](/images/mail/anti-tamper-architecture.svg)
+> [!IMPORTANT]
+> **Brand Protection and Spoofing Prevention**: Operators of self-hosted open-source instances must ensure their deployments do not falsely present themselves as official communications from the EpoCanvas Mail administrative team. Our anti-tampering architecture includes cryptographic proofs that strictly distinguish official platform communications from third-party instance traffic.
 
-*Figure: System anti-tampering and official authentication architecture. Tier 1 locks official sender identity at the edge and prevents unauthorized spoofing; Tier 2 solidifies immutable delivery snapshots with AES-256-GCM static storage; Tier 3 enforces Shadow DOM client isolation and live in-browser Web Crypto SHA-256 integrity verification.*
+### The 16-Level Security Event System
 
-## 1. Official Sender Protection & Authentication
+EpoCanvas Mail employs a highly structured, 16-level security event notification framework to alert users to critical account activities. These events range from routine informational notices (Level 1: New Device Login) to critical security breaches (Level 16: Cryptographic Key Compromise Protocol). Each notification level is uniquely cryptographically signed at the edge before dispatch. This system ensures that security alerts cannot be suppressed or forged by intermediate network actors. The hierarchical nature of these alerts dictates the corresponding automated response, escalating from simple UI warnings to immediate account lockdown and enforced session termination.
 
-To eliminate phishing and sender forgery risks, the service implements a dedicated edge privileged isolation channel separating official system communications from regular user traffic:
+### Edge Sender Anti-Spoofing and Authentication
 
-1. **Exclusive Official Sender Lock**: All system welcome emails, global operational announcements, and security notices are strictly and exclusively issued from the certified address `announcement@epocanvas.com`;
-2. **Edge Anti-Spoofing Gatekeeper**: Cloudflare Workers edge gateway and inbound routing enforce hardcoded filtration. Any external sender, unauthorized connection, or unprivileged internal API attempting to dispatch mail as `announcement@epocanvas.com` is immediately blocked at the edge with HTTP 403 Forbidden;
-3. **Certified Badge & Official Checkmark (`isOfficial: 1`)**: Only emails generated through privileged system pipelines receive the tamper-proof `isOfficial = 1` flag, causing the frontend reading pane to automatically render the verified blue shield badge and official banner;
-4. **Lifecycle & Retention Principles**: Onboarding system notices are tagged as action items and automatically purged after 7 days; critical security alerts are permanently archived in the database, exempt from routine TTL pruning.
+To combat the pervasive threat of phishing and identity forgery, our architecture relies heavily on stringent sender anti-spoofing protocols enforced directly at the network edge. EpoCanvas Mail strictly mandates the validation of SPF (Sender Policy Framework), DKIM (DomainKeys Identified Mail), and DMARC (Domain-based Message Authentication, Reporting, and Conformance) records for all incoming and outgoing traffic. By validating the cryptographic signatures of inbound mail before it ever reaches the application layer, we discard spoofed communications instantaneously, protecting the user's inbox from deceptive social engineering attacks.
 
-## 2. Security Notification Notice Specifications (16 Events)
+<div class="tamper-proof-panel">
+  <h4>Verified Official Communication</h4>
+  <p>This panel indicates that the message has been cryptographically signed and verified by the EpoCanvas Mail Core infrastructure. Its contents are immutable and guaranteed authentic.</p>
+</div>
 
-The service incorporates critical user and system state mutations into a 4-tier security defensive ladder (Level 1 to Level 4), establishing a real-time notification matrix covering 16 discrete security events. Layouts adhere to a modern de-AI minimalist engineering aesthetic, integrating inline SVG shield vectors, dual-action guidance cards (legitimate action confirmation vs. unauthorized incident remediation), and dark-themed security center action buttons:
+### Immutable Snapshot Delivery
 
-| Level | Event Code | Trigger Scenario & Security Context | Injected Metadata & Parameters | Auto Star |
-| --- | --- | --- | --- | --- |
-| L1 | NEW_DEVICE_LOGIN | First sign-in from an unrecognized device or browser | Timestamp, IP, Location, Device Name, Browser | No |
-| L1 | NEW_LOCATION_LOGIN | Sign-in from a new city or country boundary | Timestamp, IP, Country & City, ISP Network | No |
-| L1 | NEW_NETWORK_LOGIN | Sign-in from a new Autonomous System (ASN) or ISP | Timestamp, IP, ASN Number, Network Org Name | No |
-| L2 | PASSWORD_CHANGED | Account login password successfully updated | Timestamp, IP, Location, Device & Browser | No |
-| L2 | PAT_CREATED | New Personal Access Token generated for API access | Token Name, Granted Scopes, Expiration Days | No |
-| L2 | PAT_REVOKED | Personal Access Token revoked manually or expired | Token Name, Revocation Time, Client Device | No |
-| L2 | OAUTH_AUTHORIZED | Third-party OAuth 2.0 client granted mailbox access | Application Name, Scopes, Client Identifier | No |
-| L2 | OAUTH_REVOKED | Third-party OAuth 2.0 application access revoked | Application Name, Revocation Time, Client Info | No |
-| L3 | TOTP_ENABLED | Two-Factor Authentication (RFC 6238) enabled | Timestamp, IP, Generated Time, Backup Status | Yes |
-| L3 | TOTP_DISABLED | Two-Factor Authentication disabled (single factor) | Timestamp, IP, Device, Remediation Guidance | Yes |
-| L3 | PASSKEY_ADDED | New Passkey (FIDO2 / WebAuthn) credential registered | Passkey Name, Authenticator Type, Time | Yes |
-| L3 | PASSKEY_REMOVED | Existing Passkey credential unregistered | Passkey Name, Removal Time, Client Device | Yes |
-| L3 | AUTO_FORWARD_CHANGED | Email auto-forwarding rule configured or modified | Target Address, Rule Filters, Enabled State | Yes |
-| L3 | STORAGE_PURGED | Bring-Your-Own Storage (BYO) configuration reset | Reset Timestamp, Operator IP, Fallback State | Yes |
-| L4 | ACCOUNT_LOCKED | Consecutive failed sign-in threshold reached (12h) | Failed Attempts, Lockout Hours, IP, Unlock Steps | Yes |
-| L4 | ACCOUNT_DELETED | Account deletion scheduled or physical purge initiated | Request Timestamp, Alias Count, Purge Due | Yes |
+Integrity is maintained through the implementation of immutable snapshot delivery. Once an email payload is received and cryptographically verified at the edge, a finalized, read-only snapshot of the message is generated and committed to the D1/KV storage layer. This snapshot is cryptographically hashed, and any subsequent attempt to modify the database record will instantly invalidate the hash. This guarantees that once a communication is securely stored within the EpoCanvas Mail ecosystem, its contents cannot be retroactively altered, tampered with, or silently corrupted, preserving a pristine audit trail for all correspondence.
 
-To protect users against alert fatigue, an environmental fingerprint baseline (retaining the 15 most recent devices, locations, and networks) is maintained in KV, enforcing a 1-hour quiet debounce window for identical events.
+### Client-Side Sandbox Isolation
 
-## 3. Immutable Delivery & Client Sandbox Protection
+The final layer of the anti-tampering architecture resides within the user interface itself. To mitigate the risks associated with malicious payloads, tracking pixels, or cross-site scripting (XSS) embedded within complex HTML emails, the EpoCanvas Mail web client employs aggressive sandbox isolation. All incoming message content is strictly sanitized and rendered within restricted iframe contexts with `sandbox` attributes enabled. External resource loading is blocked by default, and active scripting is entirely neutralized. This ensures that even if an attacker manages to deliver a maliciously crafted email, it cannot execute code or exfiltrate session data from the user's browser environment.
 
-Official communications execute through immutable transfer protocols and client-side security sandboxes to ensure messages cannot be intercepted or modified:
-
-1. **Immutable Delivery Snapshot**: System emails are rendered and solidified into the database at transmission time, remaining unmutated even if the recipient later toggles UI display languages;
-2. **Pre-rendered Translation Fallback**: The multilingual engine pre-compiles official templates. When email content matches standard templates, verified translations are served directly; modifications smoothly fall back to full AI translation;
-3. **Client-side Shadow DOM Isolation**: The web client renders email bodies within an isolated Shadow DOM container, preventing parent styles and global scripts from penetrating;
-4. **DOMPurify Strict Whitelist Sanitization**: Tags such as `<script>`, `<style>`, `<iframe>`, `<object>`, `<embed>`, `<form>`, and all inline event handlers are stripped, thwarting XSS and UI redress attacks.
-
-## 4. Documentation Anti-Tampering & Integrity Verification
-
-The official documentation site (`epomail-docs`) employs an open cryptographic hash verification framework, empowering users to verify document authenticity online or offline:
-
-| Defensive Dimension | Implementation Mechanism | Verification Standard | Target Threat Scenario |
-| --- | --- | --- | --- |
-| Deterministic Manifest | `public/tamper-proof.json` | SHA-256 Content Hash & Byte Length | Mirror tampering, malicious doc substitution |
-| Version Traceability | Git Commit Tree Object | Git Commit SHA & Author PGP Signature | Silent tampering, unauthorized revisionism |
-| In-browser Verification | Web Crypto API In-Memory | `crypto.subtle.digest('SHA-256')` | MITM injection, CDN cache poisoning |
-| Offline Terminal Audit | OpenSSL / sha256sum Tooling | Raw Markdown Local Hash Comparison | Offline audits, regulatory compliance checks |
-| Authoritative Origin | `https://docs.epocanvas.com/epomail` | DNSSEC Validation & Strict TLS | Imposter websites, phishing doc portals |
-
-:::tip[Live Verification Guide]
-An interactive "🛡️ Official Tamper-Proof & Integrity Verification" card is embedded at the base of every documentation page. Clicking "🔍 Verify Page Integrity Live" computes the live in-memory SHA-256 digest and cross-checks it against the official manifest. Users may also run `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json | jq .` in terminal environments.
-:::
-
-## 5. Responsibilities & Security Incident Notification
-
-1. **Hosted Instance Responsibilities**: Official system email issuance, sender verification, and documentation integrity on `mail.epocanvas.com` are maintained by the core operations team;
-2. **Self-hosted Responsibilities**: Operators deploying independent instances configure their own Cloudflare resources and must safeguard secrets per [Data Processing & Security](/mail/data-security/) to prevent unauthorized access;
-3. **Reporting & Support Channels**: In the event of forged official emails, integrity verification failures, or vulnerabilities, contact:
-   - Official Security Center & Notification Channel: `announcement@epocanvas.com`
-   - Privacy & Data Protection Office: `privacy@epocanvas.com`
+> [!TIP]
+> Advanced users can independently verify the cryptographic hash of any received message by utilizing the "View Message Source and Integrity Proof" option within the mail client interface.

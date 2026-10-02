@@ -5,34 +5,26 @@ description: Information regarding the third-party infrastructure and services u
 
 **Effective Date: October 1, 2026 | Version: 5.5**
 
-As an open-source, non-commercial project designed for self-hosting, EpoCanvas Mail does not operate central servers or process user data on behalf of its user base. Instead, administrators deploy the software onto their own infrastructure. 
+The architectural foundation of EpoCanvas Mail is built upon a highly optimized, edge-native technology stack. To deliver global scalability, robust security, and unparalleled performance, we leverage specific, carefully vetted third-party infrastructure providers. Understanding the dual-nature of EpoCanvas Mail is critical: for the managed service (`mail.epocanvas.com`), these sub-processors handle the underlying compute and storage on our behalf. For users running self-hosted instances (`epocanvas-mail`), these same technologies represent the infrastructure required within your own accounts. This document defines the technical processing scope, boundaries, and isolation guarantees of our authorized sub-processors.
 
-This document outlines the standard third-party sub-processors and infrastructure providers utilized when deploying EpoCanvas Mail in its default, recommended configuration.
+> [!IMPORTANT]
+> **Self-Hosted Autonomy**: When you self-host EpoCanvas Mail, you establish direct agreements with these infrastructure providers (e.g., Cloudflare) under your own account. EpoCanvas Mail, as the software authors, acts purely as the provider of the open-source code and has no access to, or control over, the data processed within your independent environment.
 
-## 1. Core Infrastructure Provider
+### Cloudflare Workers: Edge Compute Framework
 
-The EpoCanvas Mail architecture is heavily optimized for edge deployment, primarily utilizing the **Cloudflare** ecosystem. When an administrator deploys the project, Cloudflare acts as the primary infrastructure sub-processor.
+Cloudflare Workers serve as the primary execution environment for the EpoCanvas Mail application logic. Operating at the network edge, Workers utilize V8 isolates to provide secure, ephemeral compute resources globally. The processing scope of this sub-processor includes handling all incoming HTTP requests, executing API endpoints, and orchestrating authentication flows. Cloudflare's isolation guarantees ensure that EpoCanvas Mail processes are strictly separated from other tenants on their network, preventing cross-tenant memory access and mitigating the risk of side-channel attacks during execution.
 
-### Cloudflare, Inc.
-- **Cloudflare Workers**: Serverless execution environment handling API requests, routing, and application logic.
-- **Cloudflare D1**: Serverless SQL database utilized for storing structured relational data, user accounts, and email metadata.
-- **Cloudflare KV**: Global, low-latency key-value data store used for session management, caching, and rate limiting states.
-- **Cloudflare R2**: S3-compatible object storage utilized for storing email attachments and large payload data.
+### Cloudflare D1: Relational Database Storage
 
-**Isolation Requirements**: Data stored within the Cloudflare ecosystem is governed by the administrator's direct relationship with Cloudflare. EpoCanvas Mail enforces encryption at rest and limits data access scopes, but relies on Cloudflare's inherent tenant isolation models to prevent cross-account contamination.
+For structured data persistence, EpoCanvas Mail utilizes Cloudflare D1, a globally distributed relational database built on SQLite. The processing scope of D1 encompasses the storage of user profiles, configuration metadata, routing rules, and the indexing of mailbox contents. Data written to D1 is encrypted at rest using AES-256-GCM and replicated across Cloudflare's network for high availability. The technical boundary is strictly maintained; Cloudflare provides the storage infrastructure, while the cryptographic access control and application-level encryption keys remain securely managed within the EpoCanvas Mail logic.
 
-## 2. Optional Integrations
+### Cloudflare KV and R2: Object and Key-Value Stores
 
-Depending on the administrator's configuration, additional optional sub-processors may be enabled to handle specific functionalities:
+Ephemeral state, session data, and large unstructured objects (such as email attachments and raw message payloads) are managed by Cloudflare KV (Key-Value) and R2 (Object Storage). KV provides ultra-low latency access for rapidly changing data, such as rate-limiting counters and active session tokens. R2 offers durable, S3-compatible storage for larger blobs. Both sub-processors enforce strict access control policies and encryption at rest. EpoCanvas Mail architectures leverage these services to decouple compute from storage, ensuring that large attachments do not bottleneck the edge workers while maintaining strict geographical data distribution controls.
 
-### Resend
-- **Purpose**: Outbound transactional email delivery.
-- **Scope**: Processes outgoing email addresses, subject lines, and message bodies solely for the purpose of transmission.
+> [!NOTE]
+> All data transmitted between the Cloudflare compute instances (Workers) and the storage layers (D1, KV, R2) remains within Cloudflare's private network backbone, bypassing the public internet and significantly reducing exposure to external interception.
 
-### Sentry
-- **Purpose**: Error tracking and application monitoring.
-- **Scope**: Captures stack traces, runtime errors, and limited environmental metadata to assist the administrator in debugging self-hosted deployments. Administrators are strongly advised to configure data scrubbing rules to prevent the leakage of PII (Personally Identifiable Information) into Sentry logs.
+### Resend: Optional Transactional Mail Delivery
 
-## 3. Administrator Responsibilities
-
-Self-hosting administrators act as the primary Data Controllers. It is the administrator's responsibility to review the Data Processing Agreements (DPAs) and privacy policies of Cloudflare and any optional sub-processors to ensure compliance with their local jurisdictional requirements before deploying EpoCanvas Mail.
+While EpoCanvas Mail is capable of handling direct SMTP routing, administrators of self-hosted instances may optionally integrate with Resend to manage complex transactional email delivery and ensure high deliverability rates. If configured, Resend acts as a sub-processor responsible strictly for the final outbound delivery of specifically designated transactional messages. The technical boundary is clear: Resend processes only the outbound payload and headers required for delivery. EpoCanvas Mail ensures that internal service communications, private drafts, and non-transactional data are entirely isolated and never exposed to the Resend API.

@@ -5,67 +5,54 @@ description: A glossary of terminology used throughout the EpoCanvas Mail docume
 
 **Effective Date: October 1, 2026 | Version: 5.5**
 
-This glossary defines critical legal, technical, and operational terms utilized within the EpoCanvas Mail documentation, policies, and configuration guides. These definitions establish a clear, standardized vocabulary to ensure precise understanding of the project's architecture and compliance standards.
+This glossary defines the critical legal, technical, and operational terminology utilized throughout the EpoCanvas Mail documentation framework, security policies, and architectural guides. By establishing a precise, standardized vocabulary modeled after industry best practices, we ensure clarity for users navigating the dual-nature of our platform—whether utilizing our managed service (`mail.epocanvas.com`) or maintaining an independent, self-hosted deployment (`epocanvas-mail`).
 
-## A
+### A-C
 
-**AES-256-GCM**
-Advanced Encryption Standard with a 256-bit key in Galois/Counter Mode. The primary symmetric cryptographic algorithm utilized by EpoCanvas Mail to ensure both the confidentiality and integrity (authenticated encryption) of data at rest.
+**Anycast Edge Routing**
+A network routing methodology where multiple geographically distributed edge nodes share the same IP address. EpoCanvas Mail utilizes Cloudflare's Anycast network to route user requests to the nearest physical data center, dramatically reducing latency, enhancing global availability, and inherently mitigating volumetric Distributed Denial of Service (DDoS) attacks by absorbing traffic across the entire edge network.
 
-**AUP (Acceptable Use Policy)**
-The policy document outlining the permitted and prohibited activities when operating or utilizing an EpoCanvas Mail instance, including rules against spam, phishing, and infrastructure abuse.
+**Asymmetric Cryptography**
+A cryptographic system that uses pairs of keys: public keys, which may be disseminated widely, and private keys, which are known only to the owner. EpoCanvas Mail employs asymmetric cryptography for WebAuthn/Passkey authentication and digital signature verification, ensuring that sensitive private keys are never transmitted across the network or stored on our servers.
 
-## D
+**Cloudflare Workers**
+The serverless, V8 isolate-based execution environment operating at the network edge, utilized by EpoCanvas Mail to process application logic, handle API requests, and orchestrate security policies globally without the need for traditional origin servers.
+
+### D-E
 
 **Data Controller**
-The entity or individual (typically the self-hosting Administrator) who determines the purposes and means of processing personal data within their specific EpoCanvas Mail deployment.
+The legal entity or individual that determines the purposes and means of processing personal data. In the context of the EpoCanvas Mail managed service, EpoCanvas acts as the Data Controller. However, in the self-hosted open-source ecosystem, the user or organization deploying the instance assumes full responsibility as the sole Data Controller.
 
-**D1**
-Cloudflare's serverless SQL database, utilized by EpoCanvas Mail as the primary relational data store for user profiles, configuration states, and communication metadata.
+**Data Processor**
+An entity that processes personal data on behalf of the Data Controller. When utilizing the managed service, infrastructure providers like Cloudflare act as Sub-Processors. For self-hosted deployments, the hosting provider utilized by the instance administrator functions as their Data Processor.
 
-## E
+**Dual-Nature Fusion**
+The foundational philosophy of the EpoCanvas Mail project, which explicitly differentiates between the commercially managed hosting environment (`mail.epocanvas.com`) and the freely available, self-hosted open-source software (`epocanvas-mail`), while maintaining parity in security standards and core functionality across both.
 
-**Edge Deployment**
-An architectural pattern where application logic (via Cloudflare Workers) is executed close to the end-user geographically, minimizing latency and reducing reliance on centralized, origin servers.
+### K-P
 
-## K
+**Key Lifecycle Management**
+The comprehensive process encompassing the generation, distribution, rotation, storage, and eventual destruction of cryptographic keys. EpoCanvas Mail enforces strict key lifecycle management, including automated rotation of system signing keys, to limit the potential impact of any theoretical cryptographic compromise.
 
-**KV (Key-Value Store)**
-Cloudflare's distributed data storage solution used for high-read, low-latency access, primarily leveraged for session validation, caching layers, and enforcing rate limiting rules.
+**Passkey**
+A highly secure, phishing-resistant digital credential bound to a user's device and specific domain (relying party). Built upon the WebAuthn standard, Passkeys replace traditional passwords with asymmetric cryptographic key pairs, virtually eliminating the risk of credential stuffing and remote server breaches.
 
-## P
+**Platform Abuse**
+Any activity that violates the Acceptable Use Policy, including but not limited to the transmission of spam, phishing attempts, deliberate circumvention of rate limits, or the unauthorized use of the EpoCanvas Mail brand to deceive end-users.
 
-**Phishing**
-The fraudulent practice of sending communications purporting to be from reputable sources in order to induce individuals to reveal personal information, such as passwords or cryptographic keys. Strictly prohibited under the AUP.
+### R-Z
 
-## R
+**Resident Key**
+Within the WebAuthn ecosystem, a Resident Key (or Discoverable Credential) is a private key stored persistently on the user's authenticating device (e.g., a security key or secure enclave). This enables seamless, passwordless login flows where the user merely needs to verify their physical presence to authenticate to their EpoCanvas Mail account.
 
-**R2**
-Cloudflare's S3-compatible object storage service, utilized by EpoCanvas Mail for retaining large binary files, such as email attachments and raw message payloads.
+**Self-Sovereign Identity**
+A digital identity model where the individual maintains complete control over their authentication credentials and personal data, without relying on centralized identity providers. EpoCanvas Mail facilitates this through open-source self-hosting and localized cryptographic key management.
 
-**Rate Limiting**
-An automated defensive mechanism that restricts the number of requests a user or IP address can make to an API endpoint within a specific timeframe, designed to mitigate brute-force attacks and resource exhaustion.
-
-## S
-
-**Self-Hosting**
-The practice of deploying, maintaining, and managing the EpoCanvas Mail software on infrastructure controlled directly by the user or administrator, rather than relying on a centralized SaaS (Software as a Service) provider.
-
-**SLA (Service Level Agreement)**
-A formal commitment regarding uptime, performance, and support. EpoCanvas Mail, as an open-source non-commercial project, is provided "as is" without any commercial SLA.
-
-**Spam**
-Unsolicited, bulk, or commercial email communications. The distribution of spam is explicitly forbidden across all EpoCanvas Mail instances.
-
-## T
-
-**TLS 1.3 (Transport Layer Security)**
-The latest version of the cryptographic protocol designed to provide secure communication over a computer network. EpoCanvas Mail enforces TLS 1.3 for all in-transit data protection.
-
-## W
-
-**WebAuthn / Passkey**
-A web standard published by the W3C that allows servers to register and authenticate users utilizing public key cryptography instead of a password, providing robust defense against phishing and credential stuffing.
+**WebAuthn (Web Authentication)**
+A web standard published by the W3C that defines an API enabling the creation and use of strong, attested, scoped, public key-based credentials by web applications, serving as the technical foundation for EpoCanvas Mail's passwordless authentication architecture.
 
 **Zero Telemetry**
-A strict design philosophy ensuring the software does not inherently collect, transmit, or phone home any usage analytics, performance metrics, or diagnostic data to the core developers or third parties.
+A strict privacy mandate ensuring that the software does not collect, transmit, or analyze any usage statistics, behavioral tracking data, or diagnostic metrics. EpoCanvas Mail guarantees Zero Telemetry in both its managed and open-source deployments, ensuring user operations remain completely opaque to the developers.
+
+> [!TIP]
+> **Navigating the Docs**: Whenever you encounter these terms in our architectural diagrams or policy documents, refer back to this glossary to ensure you understand the specific operational context within the EpoCanvas Mail ecosystem.

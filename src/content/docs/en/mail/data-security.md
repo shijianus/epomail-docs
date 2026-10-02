@@ -5,32 +5,32 @@ description: Technical architecture and cryptographic standards protecting EpoCa
 
 **Effective Date: October 1, 2026 | Version: 5.5**
 
-EpoCanvas Mail is engineered with a security-first architecture, prioritizing data confidentiality, integrity, and isolation. As a community open-source project intended for personal self-hosting and non-commercial use, the system enforces rigorous cryptographic standards without relying on centralized, commercial data collection.
+EpoCanvas Mail is engineered with a security-first architecture, prioritizing data confidentiality, integrity, and isolation. Our platform is defined by a fundamental "Dual-Nature Fusion": the managed service environment (`mail.epocanvas.com`) provides seamless, highly available communication, while the open-source ecosystem (`epocanvas-mail`) empowers users with complete data sovereignty through self-hosting. This document outlines the rigorous cryptographic standards and architectural boundaries designed to protect your data across both deployment models, ensuring that security is never compromised for convenience.
 
 ![EpoCanvas Mail Data Processing and Infrastructure Security Defense](/images/mail/partition-security.svg)
 
-## 1. Zero Telemetry and Data Sovereignty
+> [!IMPORTANT]
+> **The Principle of Zero Telemetry**: EpoCanvas Mail is built upon a foundation of absolute privacy. We enforce a strict Zero Telemetry policy across both our managed and open-source distributions. The software does not transmit usage analytics, behavioral metrics, or diagnostic data back to any centralized authority. Your operational data remains entirely within your control.
 
-EpoCanvas Mail operates on a strict **Zero Telemetry** principle. The software does not transmit diagnostic data, usage metrics, or user metadata back to the core maintainers or any third-party analytics services. Administrators of self-hosted instances retain absolute data sovereignty and control over their deployment environment.
+### AES-256-GCM Static Data Encryption
 
-## 2. Cryptographic Architecture
+The protection of data at rest is a cornerstone of our security model. All persistent user data, including mailbox contents, metadata, and configuration profiles stored within the underlying D1 database and KV storage, is subjected to robust AES-256-GCM encryption. This Galois/Counter Mode provides not only high-speed encryption but also authenticated encryption, ensuring data integrity alongside confidentiality. The encryption keys are securely derived and isolated from the application logic, meaning that even in the event of a raw storage compromise, the data remains cryptographically inaccessible without the corresponding contextual key material.
 
-### 2.1. Encryption at Rest
-All persistent data, including email payloads, attachments, and user metadata stored within the database (Cloudflare D1) and object storage (Cloudflare R2), is encrypted at rest. The system utilizes **AES-256-GCM** (Advanced Encryption Standard with Galois/Counter Mode), ensuring both confidentiality and authenticated encryption to detect any unauthorized modifications.
+### TLS 1.3 Transport Layer Security
 
-### 2.2. Encryption in Transit
-Network communications between the client application and the server endpoints, as well as server-to-server traffic, strictly require **TLS 1.3**. Downgrade requests to legacy, deprecated transport protocols are automatically rejected at the edge.
+To safeguard data in transit against interception and tampering, EpoCanvas Mail mandates the use of TLS 1.3 for all network communications. Whether accessing the web interface, communicating via APIs, or transmitting emails between edge nodes, the transport layer is heavily encrypted using modern cipher suites. TLS 1.3 significantly reduces the attack surface by deprecating obsolete cryptographic algorithms and accelerating the handshake process, providing both enhanced security and improved performance for our globally distributed user base. Downgrade attacks are actively prevented through strict transport security headers.
 
-### 2.3. Asymmetric Key Rotation
-To mitigate the risk of long-term key compromise, EpoCanvas Mail employs automated asymmetric key rotation protocols for internal signing and encryption keys. Cryptographic keys used for JWT issuance and payload verification are systematically rotated, invalidating older keys and ensuring forward secrecy.
+### WebAuthn and Passkey Credential Isolation
 
-## 3. Authentication and Credential Isolation
+Authentication within EpoCanvas Mail represents a departure from vulnerable legacy password systems. We have deeply integrated WebAuthn and Passkey technologies to provide phishing-resistant, hardware-backed authentication. Cryptographic credentials are bound specifically to the domain of the deployment, completely isolating user identities from traditional credential stuffing or password breach vectors. When deploying a self-hosted instance, the WebAuthn relying party identity is tied strictly to your chosen domain, ensuring that credentials cannot be exported or reused maliciously across different environments. 
 
-EpoCanvas Mail adopts modern, phishing-resistant authentication standards:
+> [!NOTE]
+> Passkeys rely on asymmetric cryptography. The private key never leaves your device's secure enclave, while the EpoCanvas Mail server only stores the corresponding public key, rendering server-side credential theft mathematically impossible.
 
-- **WebAuthn / Passkey Integration**: The platform supports hardware-backed authenticators and platform passkeys via the WebAuthn standard, eliminating reliance on easily compromised passwords.
-- **Credential Isolation**: Cryptographic credentials, session tokens, and recovery codes are heavily salted, hashed using memory-hard algorithms (e.g., Argon2id), and isolated from standard transactional data to prevent lateral movement in the event of a database compromise.
+### Asymmetric Key Rotation and Lifecycle Management
 
-## 4. Operational Security and Self-Hosting
+To maintain long-term cryptographic resilience, our architecture supports robust asymmetric key rotation protocols. Security keys used for signing system events, verifying internal service communications, and managing session integrity are subject to automated rotation schedules. This limits the potential impact of any hypothetical key compromise, bounding the validity period of cryptographic material. Administrators of self-hosted instances are provided with seamless CLI tooling to initiate key rotation events without disrupting active user sessions or causing downtime, ensuring continuous compliance with modern security lifecycle practices.
 
-Because EpoCanvas Mail is a self-hosted solution, the overall security posture heavily depends on the administrator's operational practices. Administrators are responsible for securely managing their Cloudflare API tokens, environment variables (`.dev.vars` / Wrangler secrets), and DNS configurations (SPF, DKIM, DMARC) in accordance with the project's setup guidelines.
+### Ephemeral Processing and Memory Safety
+
+Operating heavily on the Cloudflare Workers edge network, EpoCanvas Mail leverages the inherent security benefits of ephemeral, V8 isolate-based execution. Application logic is executed in isolated environments that are created on-demand and destroyed immediately upon request completion. This architecture prevents memory leaks, neutralizes persistent cross-request contamination, and ensures that sensitive data, such as decrypted payloads or session tokens, exist in memory only for the absolute minimum duration required. This stateless approach fundamentally hardens the application against traditional server-side persistence attacks.
