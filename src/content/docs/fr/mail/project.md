@@ -5,7 +5,7 @@ description: Présentation complète du projet EpoCanvas Mail—positionnement, 
 
 **Premier commit : 21 juillet 2026 | Version actuelle : v1.1.0 | Licence : MIT**
 
-**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.8**
+**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.9**
 
 EpoCanvas Mail est un service de messagerie open source qui fonctionne sur le réseau edge de Cloudflare. Avec un seul domaine et un compte Cloudflare, vous pouvez mettre en place un service de messagerie personnel prenant en charge l'envoi et la réception d'e-mails, les pièces jointes et l'accès multi-appareils. Le projet est exploité en tant qu'instance hébergée à l'adresse [mail.epocanvas.com](https://mail.epocanvas.com), publie l'intégralité de son code source pour l'auto-hébergement et propose une application Android compagnon (epomail). Cette page présente le positionnement du projet, ses fonctions, son architecture technique, sa conception de la sécurité et son historique de développement ; les conditions juridiques du service et les pratiques de confidentialité sont énoncées dans l'[Aperçu des mentions légales](/fr/mail/overview/).
 
@@ -23,66 +23,13 @@ Exploiter son propre système de messagerie exige un serveur entretenu dans la d
 - Maîtrise des données : toutes les données d'une instance auto-hébergée résident dans la base D1 et le stockage d'objets du déployeur lui-même ; le code n'intègre aucune télémétrie ;
 - Double usage : s'inscrire sur l'instance hébergée, ou prendre le code source et le déployer sur son propre domaine. La répartition du rôle de responsable du traitement dans chaque scénario figure à la section 2 de l'[Aperçu](/fr/mail/overview/).
 
-## 2. Fonctions principales
+## 2. Aperçu des fonctionnalités
 
-Chaque fonction ci-dessous a été vérifiée point par point dans le code source du dépôt, regroupée par thème.
+Le projet couvre l'envoi et la réception, l'organisation, la recherche, l'automatisation et la plateforme ouverte ; le détail de chaque fonctionnalité avec captures d'écran réelles figure dans le [Guide des fonctionnalités](/fr/mail/features/). Points clés : réception via Cloudflare Email Routing et envoi multi-canaux ; boîte de réception à huit vues avec fils de discussion et vue en trois colonnes ; syntaxe de recherche avancée et moteur de règles de classement ; extraction des codes de vérification par Workers AI et traduction intégrale préservant la mise en page ; centre OAuth 2.0 / OIDC et jetons API personnels ; export des données (JSON et .eml).
 
-### 2.1 Envoi, réception et gestion du courrier
+## 3. Aperçu de l'architecture
 
-| Capacité | Description |
-| --- | --- |
-| Courrier entrant | Reçu via Cloudflare Email Routing, analysé par postal-mime (corps et pièces jointes) |
-| Courrier sortant | Envoyé via l'API Resend, avec envoi groupé, images intégrées et pièces jointes, et suivi de l'état d'envoi |
-| Trois modes de messagerie | Modes Tout, Privé et Chiffré ; la sémantique du chiffrement et la visibilité administrateur sont décrites dans [Traitement des données et sécurité](/fr/mail/data-security/) |
-| Stockage des pièces jointes | le stockage d'objets propre à l'instance (résolu dans l'ordre : stockage compatible S3 personnel ou configuré, liaison Cloudflare R2, par défaut Cloudflare KV), avec comptage de quota |
-| Expérience de lecture | Fil de conversation, vue fractionnée à trois colonnes, réponse en ligne, réactions par émoji, report／indésirables／corbeille, et consulteur d'en-têtes bruts |
-| E-mails officiels et avis de sécurité | Badge bleu certifié announcement@epocanvas.com (isOfficial), 16 avis de sécurité hiérarchisés, livraison immuable et vérification d'intégrité (voir [Anti-falsification et normes officielles](/fr/mail/tamper-proof/)) |
-
-### 2.2 Recherche et classement
-
-- Syntaxe de recherche avancée : filtres par champs tels que `from`, `to` et `subject` combinés à des mots-clés libres, à deux niveaux (recherche sur tout le site et recherche dans la page), avec surlignage des correspondances fondé sur la CSS Highlights API ;
-- Moteur de règles de classement : modèles par défaut intégrés (Communauté, Abonnements, Promotions, Travail), conditions composables et exceptions, listes noires et blanches avec interception stricte, et commutateur de contournement du courrier interne ;
-- Extraction des codes de vérification : Workers AI extrait automatiquement les codes de vérification des e-mails.
-
-### 2.3 Fonctions d'IA
-
-- Pool de modèles AI Hub : connexion aux protocoles OpenAI, Anthropic, DeepSeek et autres ; détection automatique des points de terminaison et des modèles, test de vitesse à zéro jeton, autorisation des modèles par rôle ;
-- Traduction intégrale : traduction multilingue qui conserve la mise en page HTML d'origine de l'e-mail, avec répartition de charge concurrente par segments, sous-titres OCR pour les images et langue cible configurable ;
-- Analyse d'utilisation : graphiques des tendances d'appel à l'IA et de la distribution des modèles, présentés dans le même panneau d'analyse que les statistiques du système.
-
-### 2.4 Identité, rôles et plateforme ouverte
-
-- Sécurité des comptes : mots de passe salés et hachés avec PBKDF2-HMAC-SHA256 à 100 000 itérations ; vérification en deux étapes TOTP et Passkey ; verrouillage anti-force brute de 12 heures ; vérification humaine Turnstile ;
-- Permissions par rôle : système RBAC à 6 groupes de rôles d'administration ; fonctions, modèles et quotas restreints par rôle ; les visiteurs entrent dans un bac à sable en lecture seule ;
-- Centre d'authentification OAuth 2.0 / OIDC : enregistrement d'applications tierces avec les flux par code d'autorisation et par identifiants du client ; l'utilisateur peut consulter et révoquer en temps réel les autorisations accordées aux applications tierces ;
-- Domaines multiples : une instance peut lier plusieurs domaines de messagerie, avec connexion administrateur multi-domaines et connexion par alias.
-
-### 2.5 Interface et langues
-
-- Six langues d'interface : chinois simplifié, chinois traditionnel, English, Français, Español, Nederlands ; les dictionnaires frontal et dorsal sont 100 % symétriques entre les six langues (nombre de clés selon la sortie de l'audit statique `scripts/i18n-*.mjs`), garantissant zéro chaîne visible codée en dur ;
-- Courrier multilingue : les e-mails de bienvenue et les annonces à l'échelle du système embarquent des modèles officiels en six langues ; les courriels système sont délivrés dans la version rédigée par l'administrateur (instantané immuable) ; à la lecture, les courriels officiels non modifiés sont rendus localement dans votre langue à partir des modèles prédéfinis, les versions modifiées revenant à la traduction par IA ;
-- Détails d'interface : plus de 300 icônes vectorielles hors ligne (zéro requête externe), thèmes clair et sombre, mise en page réactive, installation PWA, titre du site et arrière-plan de connexion personnalisables.
-
-## 3. Architecture technique
-
-| Couche | Technologie |
-| --- | --- |
-| Client | Vue 3.5, Element Plus, Pinia, vue-i18n, ECharts, Dexie, Vite 7, vite-plugin-pwa |
-| Coque de connexion | React 18, Tailwind CSS 4, Vite 6 (compilée séparément, livrée avec le bundle frontend) |
-| Serveur | Hono 4.12, Drizzle ORM, postal-mime, i18next, SDK Resend |
-| Plateforme | Cloudflare Workers, D1 (double base), KV, R2, Workers AI, Email Routing, Turnstile |
-| Services externes | Resend (envoi), Telegram Bot (notifications push), stockage B2／compatible S3 en option |
-
-Les deux bases de données sont physiquement isolées : `USER_DB` conserve les comptes, les rôles et les paramètres, tandis que `MAIL_DB` conserve le courrier et les journaux ; le déploiement à base unique reste rétrocompatible à 100 %. L'organisation du dépôt est la suivante :
-
-| Répertoire | Responsabilité |
-| --- | --- |
-| `mail-worker` | Backend : api (20 modules de points de terminaison), service, dao, email (traitement entrant), security, i18n, init (amorçage du déploiement) |
-| `mail-vue` | Application mono-page frontend (PWA) |
-| `temp_login_ui` | Coque de connexion React, compilée dans `dist/login` du frontend |
-| `EpomailDocs` | Le présent site de documents juridiques (Astro 5 + Starlight, dépôt git séparé) |
-| `tests` | Plus d'une centaine de scripts de test, d'audit et d'inspection automatisés (Playwright pleine pile, bout-en-bout public, analyses statiques) |
-| `scripts` | Chaîne d'outils incluant le trio d'audit i18n symétrie／références／codage en dur |
+Le serveur fonctionne sur Cloudflare Workers (sandbox V8 Isolate sans état) ; les données résident dans deux bases D1 physiquement isolées (base utilisateurs et base courriels, rétrocompatibilité à 100 % en déploiement mono-base), dans KV et dans le stockage d'objets (chaîne à quatre niveaux : S3 personnel, S3 configuré, R2, KV) ; la réception passe par Email Routing, l'envoi par Resend / Mailjet et autres canaux, et l'IA par Workers AI. Topologie complète, chiffrement, quotas par rôle et cycle de vie des courriels : voir [Architecture technique](/fr/mail/architecture/).
 
 ## 4. À qui ce projet convient et à qui il ne convient pas
 
@@ -99,15 +46,9 @@ Le projet convient aux situations suivantes :
 - communications nécessitant un chiffrement de bout en bout : le chiffrement du service est un chiffrement statique côté serveur et ne couvre pas les pièces jointes (voir [Traitement des données et sécurité](/fr/mail/data-security/), Section 3) ;
 - utilisateurs ne souhaitant pas maintenir les ressources Cloudflare, le domaine et la configuration des clés : l'auto-hébergement requiert l'injection des secrets et l'initialisation (voir Section 8).
 
-## 5. Conception de la sécurité
+## 5. Aperçu de la conception de sécurité
 
-- Identifiants et sessions : mots de passe salés et hachés avec PBKDF2-HMAC-SHA256 à 100 000 itérations ; sessions sous forme de JWT valables 30 jours, conservées dans KV et fortement expurgées ;
-- Routage anti-falsification : les URL des e-mails utilisent toujours un hachage aléatoire de 20 caractères signé en HMAC-SHA256, lié à l'utilisateur et au locataire ; les identifiants séquentiels ne sont jamais exposés, ce qui exclut l'énumération et la falsification BOLA／IDOR ;
-- Défense XSS à trois niveaux : assainissement par DOMPurify, filtrage des injections de style body, sortie des pièces jointes restreinte à une liste blanche MIME avec CSP stricte et `nosniff` ;
-- Blocage SSRF : les requêtes sortantes passent une vérification d'adresse publique ; les adresses de bouclage, RFC 1918 et de métadonnées cloud sont toujours rejetées ;
-- Passerelle de permissions : 137 routes couvertes à 100 % par l'authentification ; la suppression d'un compte révoque immédiatement sa session KV.
-
-Ces mesures ont été bouclées lors du durcissement de sécurité complet du 22 septembre 2026 (traitement des constatations P0／P1／P2, 43 assertions automatisées toutes vertes). Les obligations d'information envers les personnes concernées, les durées de conservation, la liste des tiers et les droits des personnes concernées sont décrites dans [Traitement des données et sécurité](/fr/mail/data-security/) et la [Liste des sous-traitants](/fr/mail/sub-processors/).
+Les mots de passe sont hachés par PBKDF2-HMAC-SHA256 (100 000 itérations) avec sel ; les clés TOTP sont chiffrées au repos par AES-256-GCM ; les URL des courriels utilisent un hachage aléatoire de 20 caractères signé HMAC-SHA256 contre l'escalade de privilèges et l'énumération ; triple défense XSS et blocage SSRF ; remise des courriels officiels sous forme d'instantanés immuables. Ces mesures ont été bouclées lors du durcissement de sécurité complet du 22 septembre 2026 (43 assertions automatisées au vert) ; la liste complète figure dans [Architecture technique](/fr/mail/architecture/), section 7, et les informations et durées de conservation dues aux personnes dans [Traitement des données et maintien de la sécurité](/fr/mail/data-security/).
 
 ## 6. Historique de développement et chaîne des commits
 

@@ -3,7 +3,7 @@ title: Especificación del correo oficial y verificación contra manipulaciones
 description: Cómo se emite e identifica el correo oficial del sistema de EpoCanvas Mail — marca oficial, entrega inmutable, aislamiento del renderizado en el cliente y verificación contra manipulaciones de los documentos.
 ---
 
-**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.8**
+**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.9**
 
 Este documento explica cómo se emite el correo oficial del sistema y cómo identificarlo, y describe el mecanismo de verificación contra manipulaciones de los documentos jurídicos de este sitio, para que pueda confirmar la autenticidad de las comunicaciones y los documentos oficiales. Se establece en virtud de la [Vista general de Privacidad y Términos](/es/mail/overview/) y de [Tratamiento de Datos y Mantenimiento de la Seguridad](/es/mail/data-security/).
 

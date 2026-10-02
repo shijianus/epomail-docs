@@ -5,7 +5,7 @@ description: Een complete introductie van het EpoCanvas Mail-project—positione
 
 **Eerste commit: 21 juli 2026 | Huidige versie: v1.1.0 | Licentie: MIT**
 
-**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.8**
+**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.9**
 
 EpoCanvas Mail is een open source e-mailservice die draait op het Cloudflare-edge-netwerk. Met één domein en één Cloudflare-account richt u een eigen mailboxdienst op met verzending en ontvangst van e-mail, bijlagen en toegang vanaf meerdere apparaten. Het project wordt geëxploiteerd als gehoste instantie op [mail.epocanvas.com](https://mail.epocanvas.com), publiceert zijn volledige broncode voor zelf-hosting en levert een bijbehorende Android-app (epomail). Deze pagina beschrijft de positionering, de functies, de technische architectuur, het beveiligingsontwerp en de ontwikkelgeschiedenis van het project; de juridische voorwaarden van de dienst en de privacypraktijken staan in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/).
 
@@ -23,66 +23,13 @@ Een eigen mailsysteem draaien vraagt om een server die langdurig onderhouden wor
 - Eigendom van gegevens: alle gegevens van een zelf-gehoste instantie staan in de eigen D1- en objectopslag van de uitroller; de code bevat geen enkele telemetry;
 - Twee manieren van gebruik: registreren op de gehoste instantie, of de broncode nemen en uitrollen op uw eigen domein. De toewijzing van de verwerkingsverantwoordelijke rol in elk scenario staat in sectie 2 van het [Overzicht](/nl/mail/overview/).
 
-## 2. Kernfuncties
+## 2. Functieoverzicht
 
-Elke functie hieronder is punt voor punt geverifieerd tegen de broncode van de repository, gegroepeerd per thema.
+Het project omvat verzenden en ontvangen, indeling, zoeken, automatisering en een open platform; de per-functie toelichting met echte interface-screenshots staat in de [Functiegids](/nl/mail/features/). Kernpunten: ontvangst via Cloudflare Email Routing en multikanaal verzenden; een inbox met acht weergaven, conversatiedraden en drie-paneelweergave; geavanceerde zoeksyntaxis en de classificatieregelengine; verificatiecode-extractie via Workers AI en indeling-bewarende volledige vertaling; een OAuth 2.0 / OIDC-centrum en persoonlijke API-tokens; en gegevensexport (JSON en .eml).
 
-### 2.1 Verzenden, ontvangen en mailbeheer
+## 3. Architectuuroverzicht
 
-| Mogelijkheid | Beschrijving |
-| --- | --- |
-| Inkomende e-mail | Ontvangen via Cloudflare Email Routing, geparseerd door postal-mime (body en bijlagen) |
-| Uitgaande e-mail | Verzonden via de Resend-API, met bulkverzending, ingesloten afbeeldingen en bijlagen, en inzicht in de verzendstatus |
-| Drie e-mailmodi | De modi Alles, Privé en Versleuteld; de versleutelingssemantiek en zichtbaarheid voor de beheerder staan beschreven in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) |
-| Bijlageopslag | De eigen objectopslag van de instantie (in volgorde: eigen of geconfigureerde S3-compatibele opslag, een Cloudflare R2-binding, standaard Cloudflare KV), met quotummeting |
-| Leeservaring | Gespreksthreads, driedelig gesplitst aanzicht, inline beantwoorden, emoji-reacties, uitstellen／spam／prullenbak en een viewer voor originele headers |
-| Officiële e-mail en beveiligingsberichten | Geverifieerd blauw vinkje announcement@epocanvas.com (isOfficial), 16 beveiligingsmeldingen, onveranderlijke aflevering en integriteitsverificatie (zie [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/)) |
-
-### 2.2 Zoeken en classificatie
-
-- Geavanceerde zoeksyntaxis: veldfilters zoals `from`, `to` en `subject` gecombineerd met vrije trefwoorden, op twee niveaus (zoeken op de hele site en zoeken op de pagina), met markering van treffers op basis van de CSS Highlights API;
-- Regelengine voor classificatie: ingebouwde standaardsjablonen (Gemeenschap, Abonnementen, Promoties, Werk), combineerbare voorwaarden en uitzonderingen, zwarte en witte lijsten met harde onderschepping, en een bypass-schakelaar voor interne mail;
-- Extractie van verificatiecodes: Workers AI haalt automatisch verificatiecodes uit e-mail.
-
-### 2.3 AI-mogelijkheden
-
-- AI Hub-modellenpool: verbinding met de protocollen van OpenAI, Anthropic, DeepSeek en anderen; endpoints en modellen worden automatisch gedetecteerd, met snelheidstests zonder tokens en modelautorisatie per rol;
-- Volledige vertaling: meertalige vertaling die de originele HTML-opmaak van de e-mail behoudt, met gelijktijdige lastverdeling per segment, OCR-ondertitels voor afbeeldingen en een instelbare doeltaal;
-- Gebruiksanalyse: grafieken van AI-aanroeptrends en modelverdeling, in hetzelfde analysepaneel als de systeemstatistieken.
-
-### 2.4 Identiteit, rollen en het open platform
-
-- Accountbeveiliging: wachtwoorden gezouten en gehasht met PBKDF2-HMAC-SHA256 bij 100.000 iteraties; tweestapsverificatie met TOTP en Passkey; een blokkade tegen brute-force van 12 uur; menselijke verificatie met Turnstile;
-- Rollen en rechten: een RBAC-systeem met 6 kernbeheerrolgroepen; functies, modellen en quota worden per rol beperkt, en bezoekers komen in een alleen-lezen sandbox;
-- OAuth 2.0 / OIDC-authenticatiecentrum: registratie van apps van derden met de autorisatiecode- en client credentials-flows; gebruikers kunnen verleende machtigingen aan apps van derden realtime inzien en intrekken;
-- Meerdere domeinen: één instantie kan meerdere e-maildomeinen binden, met multidomein-beheerdersaanmelding en aanmelding via alias.
-
-### 2.5 Interface en talen
-
-- Zes interfacestalen: Vereenvoudigd Chinees, Traditioneel Chinees, English, Français, Español, Nederlands; de frontend- en backend-woordenboeken zijn 100% symmetrisch over de zes talen (sleutelaantallen volgens de statische audituitvoer van `scripts/i18n-*.mjs`), wat nul hardgecodeerde zichtbare teksten garandeert;
-- Meertalige e-mail: welkomstmails en systeembrede aankondigingsmails beschikken over officiële sjablonen in zes talen; systeemberichten worden afgeleverd in de versie zoals door de beheerder verzonden (een onveranderlijke momentopname); bij het lezen worden ongewijzigde officiële berichten lokaal in uw taal weergegeven vanuit de vooraf ingestelde sjablonen, gewijzigde vallen terug op AI-vertaling;
-- Interfacedetails: meer dan 300 offline vectorpictogrammen (nul externe verzoeken), lichte en donkere thema's, responsieve lay-out, PWA-installatie en aanpasbare sitetitel en aanmeldachtergrond.
-
-## 3. Technische architectuur
-
-| Laag | Technologie |
-| --- | --- |
-| Client | Vue 3.5, Element Plus, Pinia, vue-i18n, ECharts, Dexie, Vite 7, vite-plugin-pwa |
-| Aanmeldschil | React 18, Tailwind CSS 4, Vite 6 (apart gebouwd, meegeleverd met het frontend-bundel) |
-| Server | Hono 4.12, Drizzle ORM, postal-mime, i18next, Resend SDK |
-| Platform | Cloudflare Workers, D1 (dubbele database), KV, R2, Workers AI, Email Routing, Turnstile |
-| Externe diensten | Resend (verzending), Telegram Bot (pushmeldingen), optionele B2／S3-compatibele opslag |
-
-De twee databases zijn fysiek gescheiden: `USER_DB` bevat accounts, rollen en instellingen, terwijl `MAIL_DB` e-mail en logboeken bevat; uitrol met één database blijft 100% achterwaarts compatibel. De repository is als volgt ingedeeld:
-
-| Map | Verantwoordelijkheid |
-| --- | --- |
-| `mail-worker` | Backend: api (20 endpoint-modules), service, dao, email (inkomende verwerking), security, i18n, init (uitrol-bootstrap) |
-| `mail-vue` | Frontend single-page applicatie (PWA) |
-| `temp_login_ui` | React-aanmeldschil, ingebouwd in `dist/login` van de frontend |
-| `EpomailDocs` | Deze site met juridische documenten (Astro 5 + Starlight, een aparte git-repository) |
-| `tests` | Ruim honderd geautomatiseerde test-, audit- en inspectiescripts (Playwright full-stack, publiek end-to-end, statische scans) |
-| `scripts` | Toolchain met daaronder het i18n-audittrio symmetrie／verwijzingen／hardcoding |
+De server draait op Cloudflare Workers (stateless V8 Isolate-sandboxen); gegevens staan in twee fysiek gescheiden D1-databases (een gebruikers- en een maildatabase, met 100% achterwaartse compatibiliteit in single-database-uitrol), KV en objectopslag (een keten van vier niveaus: eigen S3, geconfigureerde S3, R2, KV); inkomende post komt via Email Routing, uitgaande post via kanalen als Resend / Mailjet, en AI draait op Workers AI. De volledige topologie, het versleutelingssysteem, rolquota en de levenscyclus van e-mail: zie [Technische architectuur](/nl/mail/architecture/).
 
 ## 4. Voor wie dit project geschikt is en voor wie niet
 
@@ -99,15 +46,9 @@ Overweeg een alternatief in de volgende situaties:
 - communicatie die end-to-end-versleuteling vereist: de versleuteling van de dienst is statisch aan serverzijde en omvat geen bijlagen (zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/), Sectie 3);
 - gebruikers die Cloudflare-resources, het domein en de sleutelconfiguratie niet willen beheren: selfhosting vereist nog steeds het injecteren van de sleutels en initialisatie (zie Sectie 8).
 
-## 5. Beveiligingsontwerp
+## 5. Beveiligingsontwerp in het kort
 
-- Referenties en sessies: wachtwoorden gezouten en gehasht met PBKDF2-HMAC-SHA256 bij 100.000 iteraties; sessies als JWT's die 30 dagen geldig zijn, bewaard in KV en sterk geanonimiseerd;
-- Manipulatiebestendige routering: mail-URL's gebruiken altijd een willekeurige hash van 20 tekens, ondertekend met HMAC-SHA256 en gebonden aan gebruiker en tenant; sequentiële ID's worden nooit blootgesteld, wat enumeratie en BOLA／IDOR-manipulatie uitsluit;
-- Drieledige XSS-verdediging: opschoning met DOMPurify, filtering van body style-injecties, en uitvoer van bijlagen beperkt tot een MIME-whitelist met strikte CSP en `nosniff`;
-- SSRF-blokkade: uitgaande verzoeken passeren een controle op publieke adressen; loopback-, RFC 1918- en cloud-metadata-adressen worden altijd geweigerd;
-- Permissiegateway: 137 routes met 100% authenticatiedekking; bij het verwijderen van een account wordt de KV-sessie onmiddellijk ingetrokken.
-
-Deze maatregelen zijn afgerond in de volledige beveiligingsverharding van 22 september 2026 (afhandeling van bevindingen P0／P1／P2, 43 geautomatiseerde asserties allemaal groen). De informatieverplichtingen richting personen, bewaartermijnen, de lijst van derden en de rechten van betrokkenen staan beschreven in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) en de [Verwerkerslijst](/nl/mail/sub-processors/).
+Wachtwoorden worden opgeslagen alsgezouten PBKDF2-HMAC-SHA256-hashes (100.000 iteraties); TOTP-sleutels worden met AES-256-GCM in rust versleuteld; mail-URL's gebruiken willekeurige 20-tekens hashes ondertekend met HMAC-SHA256 tegen privilege-escalatie en enumeratie; drievoudige XSS-verdediging en SSRF-blokkering; officiële mail wordt geleverd als onveranderlijke snapshots. Deze maatregelen zijn afgerond in de volledige security-hardening van 22 september 2026 (43 geautomatiseerde asserts groen); de volledige lijst staat in [Technische architectuur](/nl/mail/architecture/), paragraaf 7, en de informaties en bewaartermijnen jegens personen in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
 ## 6. Ontwikkelgeschiedenis en de commit-keten
 

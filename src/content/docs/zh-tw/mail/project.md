@@ -5,7 +5,7 @@ description: EpoCanvas Mail 專案完整介紹——定位、核心功能、技�
 
 **首次提交：2026 年 7 月 21 日｜當前版本：v1.1.0｜授權條款：MIT**
 
-**生效日期：2026 年 10 月 3 日｜版本：5.8**
+**生效日期：2026 年 10 月 3 日｜版本：5.9**
 
 EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件服務。使用者僅需一個網域與一個 Cloudflare 帳號，即可搭建支援收發郵件、附件與多終端存取的專屬信箱。專案以託管實例 [mail.epocanvas.com](https://mail.epocanvas.com) 對外營運，同時開放全部原始碼供自行部署，並提供配套的 Android 行動應用（epomail）。本頁說明專案的定位、功能、技術架構、安全設計與開發歷程；服務與隱私的法律約定見[隱私權與條款總覽](/zh-tw/mail/overview/)。
 
@@ -23,66 +23,13 @@ EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件�
 - 資料自主：自行部署實例的全部資料落於部署者自己的 D1 與物件儲存，程式碼不內建任何遙測回傳；
 - 雙軌使用：直接註冊使用託管實例，或取得原始碼部署於自有網域。兩種形態下的資料控管者界定見[總覽](/zh-tw/mail/overview/)第 2 節。
 
-## 2. 核心功能
+## 2. 核心功能概覽
 
-以下功能均經儲存庫原始碼逐項核實，按主題分組。
+本專案功能橫跨收發、整理、檢索、自動化與開放平台，逐項說明與真實執行介面截圖見[功能指南](/zh-tw/mail/features/)。要點：Cloudflare Email Routing 入站與多通道出站；八視圖收件匣、會話執行緒與三欄分割；進階搜尋語法與分類規則引擎；Workers AI 驗證碼提取與保留排版的全文翻譯；OAuth 2.0／OIDC 認證中心與個人 API 權杖；資料匯出（JSON 與 .eml）。
 
-### 2.1 郵件收發與管理
+## 3. 技術架構概覽
 
-| 能力 | 說明 |
-| --- | --- |
-| 入站接收 | Cloudflare Email Routing 接收，postal-mime 解析本文與附件 |
-| 郵件寄送 | Resend API 寄送，支援群發、內嵌圖片與附件，寄送狀態可查 |
-| 三種郵件模式 | 全部、隱私、加密三種模式，加密語義與管理員可及範圍見[資料處理與安全維護](/zh-tw/mail/data-security/) |
-| 附件儲存 | 實例自有物件儲存（依序解析：自備或配置之 S3 相容儲存、Cloudflare R2 綁定，預設 Cloudflare KV），配額計量 |
-| 閱讀體驗 | 會話群組檢視、三欄分割畫面、內嵌回覆、表情回應、延後／垃圾郵件／垃圾桶、原始信頭檢視 |
-| 官方郵件與安全通知 | announcement@epocanvas.com 官方認證藍標 (isOfficial)、16 類分級安全操作通知、不可變投遞與防竄改校驗（詳見[防竄改與官方規範](/zh-tw/mail/tamper-proof/)） |
-
-### 2.2 搜尋與分類
-
-- 進階搜尋語法：`from`／`to`／`subject` 等欄位過濾與自由關鍵字組合，全站檢索與頁內尋找兩級，命中高亮基於 CSS Highlights API；
-- 分類規則引擎：內建預設範本（社群、訂閱、推銷、工作），支援可組合條件與例外、黑白名單與硬攔截、站內郵件繞行開關；
-- 驗證碼識別：Workers AI 自動擷取郵件中的驗證碼。
-
-### 2.3 AI 能力
-
-- AI Hub 多模型池：接入 OpenAI、Anthropic、DeepSeek 等協定，端點與模型自動識別，0-Token 測速，模型池按角色授權；
-- 全文翻譯：保留原郵件 HTML 排版的多語言翻譯，多片並發負載均衡，圖片經 OCR 產生字幕，目標語言可設定；
-- 用量分析：AI 呼叫趨勢與模型分布圖表，與系統分析頁同面板呈現。
-
-### 2.4 身分、權限與開放平台
-
-- 帳號安全：密碼經 PBKDF2-HMAC-SHA256 十萬次迭代加鹽雜湊；TOTP 與 Passkey 兩步驟驗證；12 小時防爆破鎖定；Turnstile 人機驗證；
-- 角色權限：6 大核心管理群組的 RBAC 體系，功能、模型與配額按角色收斂，參觀者以唯讀沙箱進入；
-- OAuth 2.0 / OIDC 認證中心：註冊第三方應用，支援授權碼與憑證流程；用戶端提供第三方應用授權的即時查看與撤銷；
-- 多網域：一個實例綁定多個郵件網域，支援多網域管理員登入與別名登入。
-
-### 2.5 介面與多語言
-
-- 六種介面語言：簡體中文、繁體中文、English、Français、Español、Nederlands；前後端字典六語言 100% 對稱（鍵數以 `scripts/i18n-*.mjs` 靜態稽核輸出為準），保障使用者可見文字零硬編碼洩漏；
-- 多語言郵件：歡迎郵件與全域公告郵件內建六語言官方範本；系統郵件預設以管理員發送的版本投遞（不可變快照），閱讀時未經修改的官方郵件由預置範本於本地渲染對應語言，已修改者經 AI 翻譯；
-- 介面細節：300+ 離線向量圖示（零外部請求）、明暗雙主題、響應式版面、PWA 安裝、自訂網站標題與登入背景。
-
-## 3. 技術架構
-
-| 層 | 技術 |
-| --- | --- |
-| 用戶端 | Vue 3.5、Element Plus、Pinia、vue-i18n、ECharts、Dexie、Vite 7、vite-plugin-pwa |
-| 登入面 | React 18、Tailwind CSS 4、Vite 6（獨立建置，隨前端產物一併發布） |
-| 伺服端 | Hono 4.12、Drizzle ORM、postal-mime、i18next、Resend SDK |
-| 平台 | Cloudflare Workers、D1（雙庫）、KV、R2、Workers AI、Email Routing、Turnstile |
-| 外部服務 | Resend（寄送）、Telegram Bot（推送）、可選 B2／S3 相容儲存 |
-
-雙資料庫為物理隔離架構：`USER_DB` 承載帳號、角色與設定，`MAIL_DB` 承載郵件與日誌；單庫部署保持 100% 向後相容。儲存庫目錄分工如下：
-
-| 目錄 | 職責 |
-| --- | --- |
-| `mail-worker` | 後端：api（20 個介面模組）、service、dao、email（入站處理）、security、i18n、init（部署引導） |
-| `mail-vue` | 前端單頁應用（PWA） |
-| `temp_login_ui` | React 登入面，建置產物併入前端 `dist/login` |
-| `EpomailDocs` | 本法律文件站（Astro 5 + Starlight，獨立 git 儲存庫） |
-| `tests` | 自動化測試、稽核與巡檢腳本逾百個（Playwright 全真環境、公網端對端、靜態掃描） |
-| `scripts` | i18n 對稱性／引用／硬編碼三件套等工具鏈 |
+伺服端運行於 Cloudflare Workers（V8 Isolate 無狀態沙箱），資料落於雙 D1 物理隔離（使用者庫與郵件庫，單庫部署 100% 向後相容）、KV 與物件儲存（自備 S3、設定 S3、R2、KV 四級解析）；入站經 Email Routing，出站經 Resend／Mailjet 等通道，AI 能力由 Workers AI 承載。完整拓撲、加密體系、角色配額與郵件生命週期見[技術架構](/zh-tw/mail/architecture/)。
 
 ## 4. 適合誰與不適合誰
 
@@ -99,15 +46,9 @@ EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件�
 - 需要端對端加密之通信者：本服務之加密為伺服器端靜態加密且不涵蓋附件（見[資料處理與安全維護](/zh-tw/mail/data-security/)第 3 節）；
 - 無意願維護 Cloudflare 資源、網域與金鑰配置者：自行部署仍需完成金鑰注入與初始化（見第 8 節）。
 
-## 5. 安全設計
+## 5. 安全設計概覽
 
-- 憑證與會話：密碼經 PBKDF2-HMAC-SHA256 十萬次迭代加鹽雜湊；會話為 30 天有效期的 JWT 權杖，落於 KV 並經深度遮蔽；
-- 防越權路由：郵件 URL 一律使用 HMAC-SHA256 簽章的 20 位隨機雜湊，綁定使用者與租戶，不暴露遞增 ID，杜絕枚舉與 BOLA／IDOR 越權；
-- XSS 三重防禦：DOMPurify 消毒、body style 注入過濾、附件輸出 MIME 白名單加嚴格 CSP 與 `nosniff`；
-- SSRF 阻斷：出站請求經公共位址校驗，回環、RFC 1918 與雲端中繼資料位址一律拒絕；
-- 權限閘道：137 條路由 100% 鑑權覆蓋；帳號刪除即時吊銷其 KV 會話。
-
-上述措施於 2026 年 9 月 22 日的全量安全強化中完成閉環（P0／P1／P2 缺陷治理，43 項自動化斷言全綠）。面向當事人的告知義務、保留期限、第三方清單與當事人權利，見[資料處理與安全維護](/zh-tw/mail/data-security/)與[第三方處理者清單](/zh-tw/mail/sub-processors/)。
+密碼經 PBKDF2-HMAC-SHA256（100,000 次迭代）加鹽雜湊，TOTP 金鑰以 AES-256-GCM 靜態加密；郵件 URL 採用 HMAC-SHA256 簽章之 20 位隨機 Hash 防越權與防枚舉；XSS 三重防禦與 SSRF 阻斷；官方郵件不可變快照投遞。上述措施於 2026 年 9 月 22 日全量安全加固中閉環（43 項自動化斷言全綠）；完整清單見[技術架構](/zh-tw/mail/architecture/)第 7 節，面向個人之告知與保存期限見[資料處理與安全維護](/zh-tw/mail/data-security/)。
 
 ## 6. 開發歷程與提交鏈路
 

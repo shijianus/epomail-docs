@@ -3,7 +3,7 @@ title: Terms of Service
 description: The EpoCanvas Mail Terms of Service — acceptance and review, account rules, your content, limitation of liability, governing law, and jurisdiction.
 ---
 
-**Effective Date: October 3, 2026 | Version: 5.8**
+**Effective Date: October 3, 2026 | Version: 5.9**
 
 These terms are the agreement between you and the operator of the instance you use concerning the use of the EpoCanvas Mail service (the "Service"). By completing registration, logging in, or otherwise using the Service, you confirm that you have read and agree to all of these terms; if you disagree, do not register or use the Service.
 

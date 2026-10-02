@@ -600,3 +600,11 @@
   font-size: 0.78rem;
   color: var(--sl-color-gray-1);
 }
+
+/* 宽视口下正文栏在主面板内水平居中（Starlight 的 margin-inline 回退在此环境解析为
+   margin-left:auto/margin-right:0，致内容栏右贴目录、左侧大片留白），此处显式居中。 */
+@media (min-width: 72rem) {
+  .content-panel > .sl-container {
+    margin-inline: auto;
+  }
+}

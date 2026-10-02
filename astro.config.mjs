@@ -128,6 +128,8 @@ export default defineConfig({
 			sidebar: [
 				g('专案与架构', [
 					t('专案介绍', 'mail/project'),
+					t('功能指南', 'mail/features'),
+					t('技术架构', 'mail/architecture'),
 					t('防篡改与官方规范', 'mail/tamper-proof'),
 				]),
 				g('隐私与数据保护', [

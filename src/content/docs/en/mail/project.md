@@ -5,7 +5,7 @@ description: A complete introduction to the EpoCanvas Mail project — positioni
 
 **First commit: July 21, 2026 | Current version: v1.1.0 | License: MIT**
 
-**Effective Date: October 3, 2026 | Version: 5.8**
+**Effective Date: October 3, 2026 | Version: 5.9**
 
 EpoCanvas Mail is an open-source e-mail service running on Cloudflare's edge network. With just a domain and a Cloudflare account, you can set up your own mailbox supporting sending and receiving, attachments, and multi-device access. The project is operated publicly through the hosted instance [mail.epocanvas.com](https://mail.epocanvas.com), releases all source code for self-hosting, and ships a companion Android app (epomail). This page covers the project's positioning, features, technical architecture, security design, and development history; the legal terms of the service and privacy are in the [Privacy & Terms Overview](/en/mail/overview/).
 
@@ -23,66 +23,13 @@ Self-hosted mail systems demand long-term maintained servers, fixed IPs, and ant
 - Data autonomy: all data of a self-hosted instance lands in the deployer's own D1 and object storage; the code has no telemetry built in;
 - Two tracks: register on the hosted instance directly, or take the source code and deploy on your own domain. The definition of the data controller in each form is in Section 2 of the [Overview](/en/mail/overview/).
 
-## 2. Core Features
+## 2. Feature Overview
 
-All features below were verified item by item against the repository source, grouped by theme.
+The project spans sending and receiving, organisation, search, automation, and an open platform; a per-feature walkthrough with real interface screenshots is in the [Feature Guide](/en/mail/features/). Highlights: inbound via Cloudflare Email Routing with multi-channel outbound; an eight-view inbox with threads and a three-pane split; advanced search syntax and the classification rule engine; Workers AI code extraction and layout-preserving full-text translation; an OAuth 2.0 / OIDC centre and personal API tokens; and data export (JSON and .eml).
 
-### 2.1 Mail Sending, Receiving, and Management
+## 3. Architecture Overview
 
-| Capability | Description |
-| --- | --- |
-| Inbound reception | received by Cloudflare Email Routing, parsed by postal-mime for body and attachments |
-| Mail sending | sent through the Resend API with bulk sending, inline images, and attachments; delivery status viewable |
-| Three mail modes | All, Private, and Encrypted modes; encryption semantics and administrator reach in [Data Processing & Security Maintenance](/en/mail/data-security/) |
-| Attachment storage | the instance's own object storage (resolved in order: your own or a configured S3-compatible store, a Cloudflare R2 binding, KV by default) with quota metering |
-| Reading experience | conversation-thread view, three-pane split, inline reply, emoji reactions, snooze / spam / trash, raw header viewer |
-| Official mail and security notices | announcement@epocanvas.com official flag (isOfficial), built-in template system mail, immutable delivery and tamper-proof verification (see [Official Mail & Tamper-Proof Verification](/en/mail/tamper-proof/)) |
-
-### 2.2 Search and Classification
-
-- Advanced search syntax: field filters (`from` / `to` / `subject`, and others) combined with free keywords; two-level site-wide search and in-page find, with hit highlighting on the CSS Highlights API;
-- Classification rule engine: built-in default templates (communities, subscriptions, promotions, work), composable conditions and exceptions, block/allow lists with hard interception, and an on-site mail bypass switch;
-- Code recognition: Workers AI extracts verification codes from mail automatically.
-
-### 2.3 AI Features
-
-- AI Hub multi-model pool: connects OpenAI, Anthropic, DeepSeek, and other protocols, with endpoint and model auto-detection, 0-Token speed tests, and role-scoped model pools;
-- Full-text translation: multilingual translation preserving the mail's original HTML layout, multi-chunk concurrent load balancing, image captions via OCR, configurable target language;
-- Usage analytics: charts of AI call trends and model distribution, presented in the same panel as the system analytics page.
-
-### 2.4 Identity, Permissions, and the Open Platform
-
-- Account security: passwords hashed with PBKDF2-HMAC-SHA256 at 100,000 iterations and salt; TOTP and passkey two-step verification; 12-hour brute-force lockout; Turnstile human verification;
-- Role permissions: an RBAC system of six core admin groups, with functions, models, and quotas scoped per role, and a read-only sandbox for visitors;
-- OAuth 2.0 / OIDC authorization center: register third-party apps with authorization-code and client-credential flows; users get live viewing and revocation of third-party app authorizations;
-- Multiple domains: one instance binds several mail domains, with multi-domain administrator login and alias login.
-
-### 2.5 Interface and Languages
-
-- Six interface languages: Simplified Chinese, Traditional Chinese, English, Français, Español, Nederlands; front-end and back-end dictionaries are 100% symmetric across the six languages (key counts per the `scripts/i18n-*.mjs` static audit), keeping user-visible text free of hard-coded leaks;
-- Multilingual mail: welcome mail and global announcement mail ship with six-language official templates; system mail is delivered in the version the administrator sent (immutable snapshot); unmodified official mail renders the preset target-language template locally at reading time, and modified mail goes through AI translation;
-- Interface details: 300+ offline vector icons (zero external requests), light and dark themes, responsive layout, PWA install, custom site title and login background.
-
-## 3. Technical Architecture
-
-| Layer | Technology |
-| --- | --- |
-| Client | Vue 3.5, Element Plus, Pinia, vue-i18n, ECharts, Dexie, Vite 7, vite-plugin-pwa |
-| Login surface | React 18, Tailwind CSS 4, Vite 6 (built separately, shipped with the front-end bundle) |
-| Server | Hono 4.12, Drizzle ORM, postal-mime, i18next, Resend SDK |
-| Platform | Cloudflare Workers, D1 (dual databases), KV, R2, Workers AI, Email Routing, Turnstile |
-| External services | Resend (sending), Telegram Bot (push), optional B2 / S3-compatible storage |
-
-The dual databases are physically isolated: `USER_DB` carries accounts, roles, and settings; `MAIL_DB` carries mail and logs; single-database deployments remain 100% backward compatible. Repository layout:
-
-| Directory | Responsibility |
-| --- | --- |
-| `mail-worker` | back end: api (20 interface modules), service, dao, email (inbound processing), security, i18n, init (deployment bootstrap) |
-| `mail-vue` | front-end single-page application (PWA) |
-| `temp_login_ui` | React login surface, build output merged into the front-end `dist/login` |
-| `EpomailDocs` | this legal-documents site (Astro 5 + Starlight, separate git repository) |
-| `tests` | over a hundred automated test, audit, and inspection scripts (Playwright full-stack, public-network end-to-end, static scanning) |
-| `scripts` | toolchain such as the i18n symmetry / reference / hard-coded trio |
+The server runs on Cloudflare Workers (stateless V8 Isolate sandboxes); data lands in dual physically isolated D1 databases (a user database and a mail database, with 100% single-database backward compatibility), KV, and object storage (a four-level chain: BYO S3, configured S3, R2, KV); inbound mail arrives via Email Routing, outbound goes through Resend / Mailjet and similar channels, and AI runs on Workers AI. The full topology, encryption scheme, role quotas, and mail lifecycle are in [Technical Architecture](/en/mail/architecture/).
 
 ## 4. Who It Suits — and Who Should Look Elsewhere
 
@@ -99,15 +46,9 @@ Evaluate alternatives when:
 - you need end-to-end encryption: this service's encryption is server-side encryption at rest and does not cover attachments (see Section 1 of [Data Processing & Security Maintenance](/en/mail/data-security/));
 - you have no intention of maintaining Cloudflare resources, domains, and key configuration: self-hosting still requires key injection and initialisation (see Section 8).
 
-## 5. Security Design
+## 5. Security Design Overview
 
-- Credentials and sessions: passwords hashed with PBKDF2-HMAC-SHA256 at 100,000 iterations and salt; sessions are 30-day JWTs held in KV and deeply desensitised;
-- Anti-IDOR routing: mail URLs always use a 20-character random hash signed with HMAC-SHA256, bound to user and tenant, never exposing auto-increment IDs, defeating enumeration and BOLA/IDOR;
-- XSS triple defense: DOMPurify sanitising, body-style injection filtering, and an attachment-output MIME allow-list with strict CSP and `nosniff`;
-- SSRF blocking: outbound requests are checked against public addresses; loopback, RFC 1918, and cloud-metadata addresses are always rejected;
-- Permission gateway: all management and business routes are checked by the authentication gateway, with public endpoints (login, registration, OAuth, initialisation, and the like) excepted; account deletion revokes that account's KV sessions immediately.
-
-These measures were closed out in the full security hardening of September 22, 2026 (P0/P1/P2 defect remediation, 43 automated assertions green). The notice duties, retention periods, sub-processor list, and data-subject rights for individuals are in [Data Processing & Security Maintenance](/en/mail/data-security/) and the [Sub-processor List](/en/mail/sub-processors/).
+Passwords are salted PBKDF2-HMAC-SHA256 hashes (100,000 iterations); TOTP secrets are encrypted at rest with AES-256-GCM; mail URLs use 20-character HMAC-SHA256-signed random hashes against privilege escalation and enumeration; XSS is handled by triple defence and SSRF is blocked; official mail is delivered as immutable snapshots. These measures were closed out in the 2026-09-22 full security hardening (43 automated assertions green); the complete list is in [Technical Architecture](/en/mail/architecture/), Section 7, and the notices and retention owed to individuals are in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
 ## 6. Development History and Commit Chain
 
