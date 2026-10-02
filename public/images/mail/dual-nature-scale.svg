@@ -1,0 +1,97 @@
+<svg width="416" height="276" viewBox="0 0 416 276" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EpoCanvas Mail Dual Nature: Hosted Cloud Service and Open-Source Code Balance">
+  <style>
+    .bg-plate { fill: #F8F9FA; }
+    .stroke-main { stroke: #1F1F1F; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .stroke-sub { stroke: #1F1F1F; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+    .fill-white { fill: #FFFFFF; }
+    .fill-blue-main { fill: #1967D2; }
+    .fill-blue-dark { fill: #185ABC; }
+    .fill-blue-light { fill: #E8F0FE; }
+    .fill-yellow { fill: #FCBD00; }
+    .fill-green { fill: #34A853; }
+    .fill-red { fill: #EA4335; }
+    .fill-gray { fill: #E1E3E1; }
+    @media (prefers-color-scheme: dark) {
+      .bg-plate { fill: #131B2E; }
+      .fill-white { fill: #1E293B; }
+      .stroke-main { stroke: #E2E8F0; }
+      .stroke-sub { stroke: #CBD5E1; }
+      .fill-blue-light { fill: rgba(25, 103, 210, 0.25); }
+      .fill-gray { fill: #334155; }
+    }
+  </style>
+
+  <!-- Background Card -->
+  <rect class="bg-plate" width="416" height="276" rx="28"/>
+
+  <!-- Grounding Baseline -->
+  <path class="stroke-main" d="M56 218 H360"/>
+
+  <!-- Central Scale Stand & Fulcrum -->
+  <g transform="translate(208, 0)">
+    <!-- Base Pedestal -->
+    <path class="fill-white stroke-main" d="M-28 218 L-14 198 H14 L28 218 Z"/>
+    <!-- Vertical Pillar -->
+    <path class="stroke-main" d="M0 198 V74"/>
+    <!-- Top Fulcrum Medallion -->
+    <circle cx="0" cy="74" r="9" class="fill-yellow stroke-main"/>
+    <circle cx="0" cy="74" r="3" class="stroke-sub fill-white"/>
+    <!-- Horizontal Cross Beam (Slight balanced tilt) -->
+    <path class="stroke-main" d="M-112 76 L112 72"/>
+  </g>
+
+  <!-- Left Scale Pan: Hosted Cloud Service (mail.epocanvas.com) -->
+  <g transform="translate(96, 76)">
+    <!-- Suspension Chains -->
+    <path class="stroke-sub" d="M0 0 L-34 56 M0 0 L34 56" stroke-dasharray="3 3"/>
+    <!-- Scale Plate -->
+    <path class="fill-white stroke-main" d="M-40 56 Q0 70 40 56 Z"/>
+    
+    <!-- Floating Cloud & Server Item on Plate -->
+    <g transform="translate(0, 18)">
+      <!-- Cloud Outline -->
+      <path class="fill-blue-light stroke-main" d="M-22 28 C-28 28 -32 23 -32 18 C-32 12 -27 8 -21 8 C-20 2 -14 -4 -6 -4 C3 -4 9 0 11 6 C15 5 21 8 21 14 C21 21 16 28 9 28 Z"/>
+      <!-- Server Rack Lines Inside Cloud -->
+      <rect class="fill-white stroke-sub" x="-12" y="8" width="24" height="6" rx="2"/>
+      <rect class="fill-white stroke-sub" x="-12" y="17" width="24" height="6" rx="2"/>
+      <circle cx="-7" cy="11" r="1" fill="#1967D2"/>
+      <circle cx="-7" cy="20" r="1" fill="#34A853"/>
+    </g>
+    <!-- Label/Indicator Pill below plate -->
+    <rect class="fill-blue-main" x="-26" y="66" width="52" height="15" rx="7.5"/>
+    <text x="0" y="77" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">HOSTED</text>
+  </g>
+
+  <!-- Right Scale Pan: Open-Source Project & Freedom (epocanvas-mail) -->
+  <g transform="translate(320, 72)">
+    <!-- Suspension Chains -->
+    <path class="stroke-sub" d="M0 0 L-34 60 M0 0 L34 60" stroke-dasharray="3 3"/>
+    <!-- Scale Plate -->
+    <path class="fill-white stroke-main" d="M-40 60 Q0 74 40 60 Z"/>
+
+    <!-- Terminal Code Box & Git Branch Item on Plate -->
+    <g transform="translate(0, 16)">
+      <!-- Code Window Box -->
+      <rect class="fill-white stroke-main" x="-24" y="-2" width="48" height="38" rx="6"/>
+      <path class="stroke-sub" d="M-24 8 H24"/>
+      <!-- Window Controls -->
+      <circle cx="-18" cy="3" r="1.5" class="fill-red"/>
+      <circle cx="-13" cy="3" r="1.5" class="fill-yellow"/>
+      <circle cx="-8" cy="3" r="1.5" class="fill-green"/>
+      <!-- Code Symbols < / > -->
+      <path class="stroke-main" d="M-14 20 L-8 15 M-14 22 L-8 27" stroke="#1967D2"/>
+      <path class="stroke-main" d="M14 20 L8 15 M14 22 L8 27" stroke="#1967D2"/>
+      <path class="stroke-main" d="M-3 28 L3 14" stroke="#34A853"/>
+    </g>
+    <!-- Label/Indicator Pill below plate -->
+    <rect class="fill-green" x="-26" y="70" width="52" height="15" rx="7.5"/>
+    <text x="0" y="81" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">MIT CODE</text>
+  </g>
+
+  <!-- Delicate Stars and Accents -->
+  <path class="stroke-sub" d="M56 68 Q56 75 63 75 Q56 75 56 82 Q56 75 49 75 Q56 75 56 68Z" fill="#1F1F1F"/>
+  <path class="stroke-sub" d="M356 54 Q356 61 363 61 Q356 61 356 68 Q356 61 349 61 Q356 61 356 54Z" fill="#1F1F1F"/>
+  <!-- Curved Doodles -->
+  <path class="stroke-sub" d="M190 42 C180 34 168 44 176 54" fill="none"/>
+  <path class="stroke-sub" d="M226 42 C236 34 248 44 240 54" fill="none"/>
+</svg>

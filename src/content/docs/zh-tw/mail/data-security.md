@@ -1,331 +1,159 @@
 ---
 title: 資料處理與安全維護
-description: EpoCanvas Mail 資料生命週期、處理矩陣、縱深防禦體系、雙重屬性治理與全球合規指南。
+description: EpoCanvas Mail 全鏈路資料安全、雲端託管與開源專案雙軌法律治理及全球合規保障。
 ---
 
-**生效日期：2026 年 10 月 1 日｜版本：5.6**
+**生效日期：2026 年 10 月 1 日 ｜ 歸檔版本 ｜ 版本：5.6**
 
-<div class="google-hero-card">
-  <div class="google-hero-lead">
-    EpoCanvas Mail 秉持「隱私即基本人權」與「程式碼即契約」的工程哲學。我們構建了結合託管雲端服務與開源自治專案的「雙重屬性融合」治理架構。本規範詳盡公開個人資料於系統內的全鏈路生命週期、加密儲存矩陣、四層縱深防禦工程，以及因應全球不同法域的合規標準與責任邊界。
+當您使用 EpoCanvas Mail 時，即代表您信任我們對您個人資訊與通訊資料的處理方式。我們深知這項責任事關重大，因此始終致力於以最嚴謹的密碼學工程保障您的資料安全，並確保您在任何時候都對自己的資料擁有絕對的知情權與控制權。
+
+本文檔依[隱私政策](/zh-tw/mail/privacy-policy/)與[服務條款](/zh-tw/mail/terms-of-service/)訂定，既作為官方託管平臺（mail.epocanvas.com）使用者的安全與隱私權威指南，亦明確界定開源專案程式碼（epocanvas-mail）的法律邊界與自建節點的獨立營運者責任。
+
+<div class="privacy-checkup-row">
+  <div class="privacy-checkup-icon">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" rx="10" fill="#E8F0FE"/>
+      <path d="M20 9L29 13V19C29 24.5 25.2 29.6 20 31C14.8 29.6 11 24.5 11 19V13L20 9Z" fill="#1967D2"/>
+      <path d="M17 20L19.2 22.2L23.8 17.6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
-  <div class="google-hero-meta">
-    <span class="google-pill">🛡️ 零遙測追蹤 (Zero Telemetry)</span>
-    <span class="google-pill">🔐 AES-256-GCM 靜態加密</span>
-    <span class="google-pill">⚡ 邊緣瞬時執行 (Edge V8)</span>
-    <span class="google-pill">🌐 全球多法域合規 (GDPR / CCPA)</span>
-  </div>
-</div>
-
-本文檔依[隱私政策](/zh-tw/mail/privacy-policy/)與[服務條款](/zh-tw/mail/terms-of-service/)訂定，既作為託管服務用戶查驗隱私保障與安全技術之權威指南，亦作為獨立部署者搭建合規通訊節點及主管機關依法稽核之基準規範。
-
-## 1. 全鏈路資料生命週期與邊緣處理模型
-
-本服務將個人資料與通訊流之生命週期嚴格劃分為「收集、處理、利用、傳輸、保存、銷毀」六大階段。各階段均在 Cloudflare 邊緣計算與全球 Anycast 網路上以無狀態方式流轉，杜絕持久化殘留與越權讀取。
-
-![EpoCanvas Mail 資料處理與全鏈路生命週期流水線：無狀態收集、邊緣 V8 沙箱執行、AES-256-GCM 密文封包、分層儲存與密碼學粉碎](/images/mail/data-security-pipeline.svg)
-
-*圖 1：個人資料於本服務之全鏈路生命週期流水線。系統在各個環節均落實最小必要原則與強加密隔離，具體法律性質參見[隱私政策](/zh-tw/mail/privacy-policy/)第 5 節。*
-
-### 1.1 最小化收集與零遙測承諾
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🛡️ 極簡採集與零商業遙測</div>
-    <span class="google-pill">資料最小化 · 零追蹤</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>嚴格最小化採集</strong>：除用戶主動註冊所必需的帳號識別（使用者名稱、郵箱別名）及身分憑據外，系統絕不索取或收集通訊錄、剪貼簿、設備感測器（陀螺儀）或跨站行為資料。</p>
-    <p><strong>堅決杜絕商業遙測</strong>：EpoCanvas Mail 無論在官方託管平台還是開原始碼庫中，均恪守絕對的「零行為遙測」（Zero Telemetry）準則。系統絕不內嵌任何廣告轉化追蹤器、商業分析 SDK 或第三方監控腳本，所有通訊與閱讀互動僅在本地信箱沙箱內生效。</p>
-  </div>
-</div>
-
-### 1.2 邊緣瞬時執行與記憶體隔離
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">⚡ 邊緣瞬時計算與奈秒沙箱</div>
-    <span class="google-pill">Cloudflare V8 · 記憶體隔離</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>無狀態奈秒級沙箱</strong>：當郵件遞送抵達或用戶發起互動請求時，業務邏輯直接在離用戶地理最近的 Cloudflare Workers 邊緣節點（V8 Isolate）中瞬時執行，處理完成後沙箱環境奈秒級物理銷毀。</p>
-    <p><strong>零宿主磁碟留存</strong>：郵件解密明文與路由上下文僅暫存於邊緣節點的易失性記憶體中，絕不寫入任何宿主機物理磁碟。這種底層架構徹底消除了傳統持久化伺服器中因常駐行程殘留、記憶體洩漏或多租戶側信道導致的潛在安全風險。</p>
-  </div>
-</div>
-
-### 1.3 密碼學銷毀與徹底遺忘機制
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🗑️ 密碼學粉碎與被遺忘權保障</div>
-    <span class="google-pill">7 日緩衝 · 金鑰覆寫滅失</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>7 日緩衝與定時物理清理</strong>：用戶移入垃圾桶的郵件提供 7 日防誤刪緩衝期，到期由邊緣 Cron 定時任務執行不可逆的物理級覆寫擦除；當用戶信箱用量突破 90% 預警閾值時，系統亦會對已刪除郵件逕行實體擦除以保障信箱健康。</p>
-    <p><strong>不可逆金鑰覆寫粉碎</strong>：當用戶請求主動註銷帳號時，系統不僅立即抹除 D1 關聯式資料庫與 KV 快取中的關聯索引，更會在物理儲存層執行加密主金鑰覆寫粉碎，從密碼學數學底層實現永久且不可逆的徹底物理滅失。</p>
+  <div class="privacy-checkup-content">
+    <div class="privacy-checkup-title">安全與隱私快速指引</div>
+    <div class="privacy-checkup-desc">想要檢查您的信箱安全狀態、設定 FIDO2 通行密鑰、開啟兩步驗證（TOTP）或匯出備份資料？</div>
+    <a href="/zh-tw/mail/overview/" class="privacy-checkup-link">前往安全設定指引 ↗</a>
   </div>
 </div>
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 2. 資料處理矩陣與儲存介質規格
+## 1. 我們在服務中內建了安全功能，以保護您的資料
 
-本服務所涉全部資料類別、具體收集欄位、處理目的、底層儲存媒體及安全基準如下表所列。我們對不同敏感級別的資料實施物理分層與差異化存取控制：
+所有由官方託管平臺（mail.epocanvas.com）處理的資料，均受到系統內建多重深度防禦工程的持續保護。我們公開說明資料處理的全過程，確保資料流轉透明可信。
 
-| 資料類別 | 具體項目 | 處理目的 | 儲存媒體與安全基準 | 保存與銷毀 |
+<div class="google-illustration-container">
+  <img src="/images/mail/security-trust-shield.svg" alt="EpoCanvas Mail 安全承諾與信賴保障" width="416" height="276" />
+</div>
+
+### 1.1 傳輸中加密與通道防護
+
+我們使用現代傳輸層安全協定（TLS 1.3）對使用者與服務之間的全部網路連線實施強制通道加密，並配置 HTTP 嚴格傳輸安全（HSTS）預載入策略。無論是透過瀏覽器網頁端訪問信箱、呼叫後臺 API 介面，還是進行郵件跨節點中繼，資料在公共網際網路傳輸過程中始終保持高強度密文狀態，有效防禦中間人竊聽、封包篡改與降級劫持。
+
+### 1.2 邊緣無狀態執行與記憶體隔離
+
+當您收發郵件或發起管理操作時，業務邏輯直接在離您地理距離最近的 Cloudflare Workers 全球邊緣計算節點（V8 Isolate 沙箱）中瞬時執行。郵件解密明文僅暫存於易失性記憶體中處理，處理完畢後沙箱奈秒級物理銷毀，宿主機物理磁碟零留存。這種底層無狀態架構徹底根除了傳統持久化伺服器中因常駐程序殘留、記憶體洩漏或多租戶側信道導致的潛在安全隱患。
+
+### 1.3 工業級靜態儲存加密（AES-256-GCM）
+
+所有郵件正文與敏感元資料在持久化寫入 Cloudflare D1 關聯式資料庫之前，均強制經由加密主密鑰衍生生成獨立密文，並採用帶有密碼學認證標籤（Auth Tag）的 AES-256-GCM 演算法進行封包。靜態加密密鑰由 Cloudflare Workers 執行時加密環境變數注入，不落盤、不入庫、不提交程式碼倉。即使資料庫底層檔案或備份介質遭遇物理竊取，攻擊者亦無法解密還原出任何明文內容。
+
+### 1.4 憑證脫敏與硬體級認證保障
+
+使用者帳號憑證絕不以明文或簡單雜湊形式儲存。系統強制採用高強度密碼學隨機鹽（Salt），結合 PBKDF2 演算法進行 100,000 次密鑰迭代拉伸，能夠有效抵禦離線彩虹表與專用 GPU 暴力碰撞。雙重驗證（TOTP）密鑰入庫前由主密鑰實施對稱加密；系統全面支援 WebAuthn / FIDO2 通行密鑰（Passkey），私鑰永久固化於使用者本地安全晶片（Secure Enclave），根本杜絕網路釣魚與偽造攻擊。
+
+### 1.5 全生命週期資料處理矩陣
+
+本服務所涉全部資料類別、具體收集欄位、處理目的、底層儲存介質及留存週期如下表所列：
+
+| 資料類別 | 具體收集欄位 | 核心處理目的 | 儲存介質與技術防護 | 保存與銷毀週期 |
 | --- | --- | --- | --- | --- |
-| 帳號憑證 | 電子郵件地址、使用者名稱、密碼雜湊值與鹽、TOTP 金鑰（AES-GCM 加密）、備用碼雜湊值、Passkey 公鑰 | 註冊、驗證、兩步驟驗證、憑證恢復 | Cloudflare D1；密碼 PBKDF2（100,000 次反覆運算加鹽）、TOTP 靜態加密 | 保存至帳號終止；實體刪除時即刻清除 |
-| 網路與設備資料 | 註冊 IP、最近登入 IP、作業系統、瀏覽器 User-Agent、設備類型 | 安全稽核、異常登入識別、限流 | Cloudflare D1；限管理員稽核存取 | 保存至帳號實體刪除 |
-| 會話狀態 | JWT 權杖、RBAC 角色識別、選定信箱 | 邊緣閘道授權、請求路由 | Cloudflare KV；最長有效期 30 日 | 登出即撤銷；30 日未活動自然過期 |
-| 通訊資料 | 寄件人與收件人、CC/BCC、主旨、時間戳記、已讀狀態、標籤、星號、正文 | 郵件投遞、會話組織、搜尋 | Cloudflare D1（詮釋資料）；依模式以 AES-256-GCM 靜態加密 | 由當事人控制；垃圾桶 7 日實體刪除；用量逾 90% 時對已刪郵件逕行實體刪除 |
-| 附件 | 原始檔名、MIME 類型、檔案大小、二進位內容 | 附件傳輸、內嵌顯示、安全下載 | 實例自有物件儲存（依序解析：自備或營運者配置之 S3 相容儲存、Cloudflare R2 綁定，預設 Cloudflare KV）；下載採防禦性標頭 | 隨所屬郵件之生命週期；實體刪除時一併清除 |
-| 安全與限流記錄 | 登入失敗計數、註冊頻控記錄、AI 用量統計 | 暴力破解防護、濫用防治 | Cloudflare KV；固定視窗計數器 | 登入失敗計數 12 小時內自動過期；註冊頻控記錄每日例行清理；AI 用量統計保留 60 日 |
-| 安全通知環境指紋 | 已知設備、登入地點 (Geo)、網路 ASN 指紋，1 小時防疲勞時間戳記 | 登入環境異常識別、防警報風暴去重 | Cloudflare KV（前綴 USER_KNOWN_ENV_）；保留最新 15 條指紋 | 90 日未活動或帳號實體刪除時一併清除 |
-| 介面偏好 | 語言（6 語言）、明暗模式、通知旗標 | 介面一致性 | 瀏覽器 localStorage，選擇性同步至 D1 | 保留至清除快取或手動重設 |
+| **帳號憑證** | 電子郵件地址、使用者名稱、密碼雜湊與隨機鹽、TOTP 密鑰、備用碼雜湊、Passkey 公鑰 | 身分註冊、登入驗證、兩步驗證憑證找回 | Cloudflare D1；PBKDF2（100k 次迭代）、TOTP 靜態 AES 加密 | 保存至帳號終止；帳號註銷時物理覆寫清除 |
+| **通訊資料** | 發件人與收件人、副本/密件副本、主旨、時間戳、已讀狀態、標籤、郵件正文 | 郵件收發投遞、對話組織管理、關鍵字檢索 | Cloudflare D1（元資料）；正文強制 AES-256-GCM 獨立密文封包 | 由使用者自主控制；垃圾桶保留 7 日防誤刪緩衝期，到期由定時任務物理擦除 |
+| **網路與裝置資料** | 註冊 IP、最近登入 IP、作業系統、瀏覽器 User-Agent、裝置型號標識 | 帳號安全稽核、異常環境登入識別、反暴力破解限流 | Cloudflare D1；僅限系統管理員稽核查詢，絕不利用於商業畫像 | 保存至帳號實體刪除 |
+| **會話與授權** | JWT 身分權杖、RBAC 角色權限、活動信箱上下文 | 邊緣 API 閘道鑑權、微服務請求安全路由 | Cloudflare KV；最長有效期 30 日 | 登出即刻廢止加入黑名單；30 日未活動自然過期 |
+| **附件資產** | 原始檔名、MIME 類型、檔案體積、二進位資料流 | 附件安全傳輸、內嵌預覽、下載串流分發 | 依實例配置支援 S3 相容自備儲存貯體、Cloudflare R2 或 KV；下載附帶防禦性標頭 | 隨所屬郵件生命週期；郵件徹底刪除時同步物理清除 |
+| **安全風控指紋** | 已知常用裝置、登入地理分佈 (Geo)、網路 ASN 指紋、防警報風暴時間戳 | 識別異地異常登入、防止憑證盜用與撞庫攻擊 | Cloudflare KV（前綴 USER_KNOWN_ENV_）；自動保留最新 15 組指紋 | 90 日未活動自動輪換淘汰，或帳號註銷時一併清除 |
 
-### 2.1 憑證脫敏與 PBKDF2 / WebAuthn 儲存基準
+:::caution[加密之範圍、技術說明與使用者自主風險知情]
+本服務在官方託管雲端平臺所提供之「加密儲存」，係指**伺服器端靜態加密（Server-side Encryption at Rest）**。解密密鑰由實例執行時的安全環境變數在處理收發邏輯時載入記憶體。該機制旨在防範資料庫勒索、底層儲存介質失竊或離線快照外洩等基礎設施級風險，而非傳統端對端加密（E2EE）。
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🔐 單向密碼學保護與硬體金鑰隔離</div>
-    <span class="google-pill">PBKDF2 100k · WebAuthn FIDO2</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>PBKDF2 100,000 次金鑰拉伸</strong>：密碼憑證絕不以明文或簡單散列儲存，系統強制採用高強度隨機鹽（Salt）結合 PBKDF2 演算法進行 100,000 次金鑰反覆運算拉伸，有效防禦離線彩虹表分析與專用 GPU 算力碰撞破解。</p>
-    <p><strong>TOTP 與 FIDO2 Passkey 硬體防護</strong>：雙重驗證 TOTP 金鑰入庫前經由實例主金鑰實施 AES-256-GCM 靜態加密；Passkey 基於非對稱公鑰密碼學，私鑰永久固化於用戶安全晶片（Secure Enclave），伺服端僅儲存公鑰憑證，根本杜絕中間人釣魚與資料庫被盜冒充。</p>
-  </div>
-</div>
-
-### 2.2 儲存分層與自備物件儲存架構
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">📦 儲存解耦與防禦性內容標頭</div>
-    <span class="google-pill">BYO-S3 · R2 原生 · KV 降級</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>三級彈性儲存通道</strong>：系統支援按優先順序智慧路由附件資產：優先接入用戶或企業自備的 S3 相容儲存桶（BYO-Storage），次選 Cloudflare R2 邊緣原生儲存，並在輕量情境下平滑回退至 KV。自備儲存支援物理隔離讀寫憑證，賦予資料所有者完全的主權控制。</p>
-    <p><strong>瀏覽器防禦性安全回應標頭</strong>：附件串流式下發時強制附加 <code>Content-Disposition: attachment</code> 與 <code>X-Content-Type-Options: nosniff</code> 標頭，強制阻斷惡意檔案內嵌解析，從瀏覽器通訊協定層切斷跨站腳本注入（XSS）與驅動式下載攻擊鏈路。</p>
-  </div>
-</div>
-
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
-
-## 3. 四層縱深防禦體系與密碼學實現
-
-為確保系統抵禦來自全球公共網際網路的複雜網路威脅，EpoCanvas Mail 在架構上構建了覆蓋邊緣閘道、認證通道、靜態加密及前端沙箱的四層縱深防禦體系：
-
-![EpoCanvas Mail 縱深防禦技術架構模型：第 1 層邊緣網路與反 SSRF 閘道、第 2 層 FIDO2 Passkeys 認證、第 3 層 AES-256 靜態加密、第 4 層 Shadow DOM 客戶端沙箱與不可變存證](/images/mail/defense-layers-architecture.svg)
-
-*圖 2：四層縱深防禦技術模型。各層獨立設防、互為補充，即使單點機制面臨極端壓力，整體資料資產依然處於受控的安全屏障之內。*
-
-下表完整列出系統在技術、管理、流程與稽核維度的 11 項核心安全維護落實標準：
-
-| 安全維護事項 | 本服務之落實 |
-| --- | --- |
-| 人員與資源配置 | 實例營運者指定管理員，依 RBAC 多級角色劃分權限 |
-| 個人資料範圍之界定 | 本文檔第 2 節之處理矩陣，明確界定各類資料 |
-| 風險評估及管理機制 | 三種郵件模式之加密選擇、失敗鎖定、限流與配額機制；開原始碼公開受社群檢視 |
-| 事故之預防、通報及應變 | 見本文檔第 4 節 |
-| 收集處理利用之內部管理程序 | [隱私政策](/zh-tw/mail/privacy-policy/)第 5 節之處理活動對應表 |
-| 資料安全管理及人員管理 | 密碼學雜湊路由（防越權存取）、預設拒絕（fail-closed）之權限檢查、非白名單參數於閘道剝離 |
-| 認知倡導及教育訓練 | 自行部署營運者應自行辦理；本站文檔可作為訓練素材 |
-| 設備安全管理 | Cloudflare 邊緣設施承擔實體與虛擬設備安全（SOC 2 Type II、ISO/IEC 27001）；金鑰以環境變數注入，不入程式碼庫 |
-| 資料安全稽核機制 | 安全日誌（登入 IP、設備、失敗記錄）留存並限稽核存取；會話得即時撤銷 |
-| 使用記錄、軌跡資料及證據保存 | 登入與安全日誌保存至帳號實體刪除；濫用事件之證據依[可接受使用政策](/zh-tw/mail/acceptable-use/)保存 |
-| 安全維護之整體持續改善 | 開源項目持續演進；重大安全修復隨版本發布並公告 |
-
-### 3.1 邊緣網路與反濫用閘道
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🌐 邊緣清洗與智慧反 SSRF 阻斷</div>
-    <span class="google-pill">Layer 1 防線 · TLS 1.3 / HSTS</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>全球 Anycast 邊緣清洗</strong>：由 Cloudflare 邊緣網路抵禦並清洗全方位的分散式阻斷服務（DDoS）攻擊，全站強制執行 TLS 1.3 高強度傳輸加密與 HSTS 預先載入，根除中間人監聽與降級劫持隱患。</p>
-    <p><strong>入站反 SSRF 攔截閘道</strong>：針對外部 Webhook、圖片代理與擷取請求內嵌嚴密的 IP 位址校驗機制。凡試圖探測私有區域網路（RFC 1918 內部位址）或雲端服務商底層詮釋資料介面（如 169.254.169.254）的惡意請求，一律在接入邊緣物理阻斷。</p>
-  </div>
-</div>
-
-### 3.2 強身分認證與無密碼通行金鑰
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🔑 網域綁定通行金鑰與頻控防線</div>
-    <span class="google-pill">Layer 2 防線 · 指紋識別</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>FIDO2 WebAuthn 強綁定</strong>：系統深度整合現代通行金鑰標準，憑證與特定根網域實施密碼學綁定，天然免疫釣魚網站詐欺；全面支援硬體安全金鑰（YubiKey）與平台生物識別。</p>
-    <p><strong>指數退避與環境異常警示</strong>：密碼登入通道配備多階梯頻控引擎，短時連續失敗觸發指數級退避並鎖定 12 小時；後台同步核對最新 15 組常用設備與網路 ASN 指紋，對異地異常登入即時推送分級安全警報。</p>
-  </div>
-</div>
-
-### 3.3 靜態資料加密與金鑰隔離
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🔒 工業級 AES-256-GCM 密文封包</div>
-    <span class="google-pill">Layer 3 防線 · 金鑰隔離</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>信件獨立認證標籤（Tag）</strong>：郵件寫入 D1 關聯式資料庫前，正文經由加密主金鑰衍生生成獨立密文並攜帶認證標籤（AES-256-GCM），全面防禦資料庫離線勒索與未授權磁碟快照外洩風險。</p>
-    <p><strong>執行階段安全環境變數注入</strong>：主加密金鑰由 Cloudflare Workers 執行階段加密環境變數注入，不落盤、不入庫、不提交程式碼倉，確保儲存介質與加解密上下文在物理拓撲上絕對隔離。</p>
-  </div>
-</div>
-
-### 3.4 客戶端沙箱與不可變存證
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🛡️ Shadow DOM 隔離與版本指紋校驗</div>
-    <span class="google-pill">Layer 4 防線 · DOMPurify 白名單</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>雙重客戶端內容沙箱</strong>：所有外部接收的富文本 HTML 均通過 DOMPurify 白名單剝離 <code>&lt;script&gt;</code>、<code>&lt;iframe&gt;</code>、<code>&lt;style&gt;</code> 等惡意節點，並在獨立封裝的 Shadow DOM 沙箱中隔離渲染，阻斷樣式滲透與跨站腳本竊取會話。</p>
-    <p><strong>不可變規範公開存證</strong>：官方發布規格依託 Git Commit 與 SHA-256 雜湊雙向存證，保障版本可追溯且全網公開可核驗，消除傳統中心化平台暗箱修改規則的技術隱患。</p>
-  </div>
-</div>
-
-:::caution[加密之範圍與技術限制]
-本服務所提供之「全部／隱私／加密」模式，系指伺服器端靜態加密（Server-side Encryption at Rest）。金鑰由實例伺服器之運行時安全環境變數與用戶身分上下文衍生。此機制旨在防範資料庫勒索、脫機備份遭竊取或儲存快照洩漏之系統級風險，而非傳統端對端加密（E2EE）；掌握伺服器實例底層運行權限與環境變數之營運者在理論技術上具備解密能力。若用戶間通訊涉及國家安全、高度機密或要求營運者亦完全無法查閱之絕對保密場景，當事人應自行使用 GPG / PGP 等客戶端公鑰密碼學工具於本地完成正文加解密後再行投遞。
+在技術原理上，持有底層維運最高權限之系統營運者具備解密能力。我們沒有阻撓任何人使用本服務，但使用者必須充分知曉自身風險：若您的通訊涉及極高機密、國家安全或要求任何第三方（包括服務提供方）均絕對無法查閱之極度隱私場景，**當事人應當自主使用 GPG / OpenPGP 等用戶端密碼學工具在本地離線完成正文加解密後再行投遞**。
 :::
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 4. 雙重屬性融合與開源治理邊界
+## 2. 雙軌架構治理：官方託管服務與開源專案原始碼
 
-EpoCanvas Mail 具有鮮明的「雙重屬性」：它既是一個面向公眾開放的免費託管郵件服務平台，也是一個在 MIT 協議下公開運作的開源軟體專案。明確兩者的權責分工與法律邊界，是維護健康社群生態的基石：
+EpoCanvas Mail 具有鮮明的「雙重屬性」：它既是一個面向公眾開放的免費託管郵件服務平臺，也是一個在 MIT 協議下公開運作的開源軟體專案。明確兩者的權責分工與法律邊界，是維護健康社群生態的基石。
 
-![EpoCanvas Mail 雙重屬性治理與全球合規矩陣：官方託管雲服務與開源自治專案權責劃分，以及 GDPR、CCPA 與 APAC 法規落地標準](/images/mail/dual-nature-compliance-matrix.svg)
-
-*圖 3：雙重屬性融合治理邊界與全球合規矩陣。上游開源項目僅提供程式碼；各實例營運者是獨立的資料控制者並全權承擔法律責任；終端用戶享有自主選擇託管或私有化部署的充分權利。*
-
-### 4.1 官方託管服務之營運承諾與責任限制
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">☁️ 官方託管服務定位與免責範疇</div>
-    <span class="google-pill">mail.epocanvas.com · 非商用 SLA</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>公共託管服務品質</strong>：官方託管站點 <code>mail.epocanvas.com</code> 由核心團隊作為獨立營運者提供。我們承諾全力維護託管節點的可用性、零遙測合規性及密碼學防篡改標準，保障普通用戶免費享用安全純淨的通訊服務。</p>
-    <p><strong>免責與用戶備份義務</strong>：託管服務屬於非商業公益性質，不提供企業級商業 SLA（服務水準協議）承諾，亦不對因不可抗力、上游雲基礎設施故障（如 Cloudflare 網路中斷）或用戶自身保管不慎導致的憑證遺失承擔間接賠償責任。用戶對其資料資產負有最終保管義務，應定期匯出備份重要通信。</p>
-  </div>
+<div class="google-illustration-container">
+  <img src="/images/mail/dual-nature-scale.svg" alt="EpoCanvas Mail 雙軌融合治理：託管雲端與開源程式碼權責天平" width="416" height="276" />
 </div>
 
-### 4.2 開源專案許可、二次開發與分發準則
+### 2.1 官方免費託管服務定位（mail.epocanvas.com）
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">📜 MIT 許可授權與二次開發紅線</div>
-    <span class="google-pill">MIT 協議 · 商標隔離 · 獨立聲明</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>程式碼自由與稽核權利</strong>：系統底層原始碼依託 MIT 許可證全面開放，任何人均擁有自由查閱、獨立稽核、Fork 分支二次開發或搭建私有商業節點的完整法定權利。</p>
-    <p><strong>分發與品牌三大紅線</strong>：</p>
-    <ul>
-      <li><strong>商標與官方品牌隔離</strong>：未經書面許可，任何第三方部署實例或二次開發版本不得在網域、介面標題或行銷文案中使用「EpoCanvas Mail 官方」、「官方節點」等誤導性字樣；</li>
-      <li><strong>版權與許可完整保留</strong>：所有二次分發的原始碼副本或實質修改版本，必須完整保留原作者版權聲明及 MIT 許可證原文；</li>
-      <li><strong>獨立營運者聲明</strong>：二次開發者若面向公眾提供服務，必須公示其自身營運主體與隱私條款，不得將官方文檔用作自身服務的法律背書。</li>
-    </ul>
-  </div>
-</div>
+官方託管站點 `mail.epocanvas.com` 由核心團隊作為獨立營運者提供。我們承諾全力維護託管節點的可用性、零商業廣告注入及密碼學防篡改標準，保障普通使用者免費享用純淨、現代、高安全性的通訊服務。
 
-### 4.3 獨立自建節點營運者之法定受託義務
+託管服務屬於非商業公益性質，不提供企業級商業 SLA（服務水準協議）保證，亦不對因不可抗力、上游雲基礎設施故障（如全球主幹網中斷）或使用者自身保管不慎導致的憑證遺失承擔間接賠償責任。使用者對其資料資產負有最終保管義務，應養成定期匯出備份重要通訊的良好習慣。
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">⚖️ 自建節點營運者之獨佔資料控制權</div>
-    <span class="google-pill">獨立資料控制者 · 無連帶責任</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>排他性資料控制者地位</strong>：第三方使用本專案程式碼在自有 Cloudflare 帳戶或伺服器搭建節點時，<strong>該營運者即成為該實例唯一且排他的「資料控制者」（Data Controller）</strong>。上游開源貢獻者與官方團隊對該獨立實例無物理控制權、無資料存取權限，亦不承擔任何法律連帶責任。</p>
-    <p><strong>屬地合規與監管承接</strong>：自建節點營運者必須依法獨立履行其所在地資料保護義務，包括安全注入加密金鑰、制定符合當地法規的隱私聲明、處理用戶刪號與資料匯出請求，並獨立應對屬地司法與監管機構的合法調閱。</p>
-  </div>
-</div>
+### 2.2 我們對使用者的期望與反濫用紅線
+
+我們希望為所有使用者營造安全、可靠的通訊環境。訪問或使用我們的託管服務，您必須遵守以下基本行為準則：
+
+*   **遵守適用的法律法規**：不得利用本服務違反出口管制、經濟制裁或侵犯他人的法定權益；
+*   **嚴禁發送垃圾郵件（Spamming）**：嚴禁利用本服務發送未經請求的大宗商業廣告郵件、行銷轟炸信件或高頻惡意騷擾訊息；
+*   **嚴禁網路釣魚與惡意攻擊**：嚴禁散布惡意軟體、木馬病毒，嚴禁偽造發件人身分或冒充金融機構實施欺詐，嚴禁對系統進行對抗性破解注入；
+*   **嚴禁濫用系統資源**：不得利用腳本自動化高頻註冊虛假帳號，不得試圖繞過頻控與配額限制破壞服務的整體可用性。一經檢測違規，營運團隊有權即刻封禁相關帳號。
+
+### 2.3 開源專案許可、二次開發與分發準則
+
+EpoCanvas Mail 的底層原始碼依託 MIT 開源許可證全面開放。全球任何個人、機構或商業公司均擁有自由查閱、獨立稽核、Fork 分支二次開發、修改整合或自建私有通訊節點的完整自由。
+
+在享受開源自由的同時，任何分發與二次開發者均必須恪守以下三條法律紅線：
+
+*   **商標與官方品牌隔離**：未經官方團隊事先書面許可，任何第三方自建實例、衍生版本或商業發行版，均**嚴格禁止**在網域名稱、介面標題、軟體名稱或行銷材料中使用「EpoCanvas Mail 官方」、「官方認證節點」等具有誤導性的品牌標識；
+*   **完整保留版權聲明**：所有包含本專案原始碼的副本、實質修改版本或衍生作品，必須完整保留原作者版權聲明及 MIT 許可證全文；
+*   **獨立營運主體公示**：若第三方二次開發者面向公眾提供郵件註冊與託管服務，必須明確公示其自身真實的營運主體、服務條款與獨立隱私政策，絕不得將官方文檔用作自身第三方服務的法律背書。
+
+### 2.4 獨立自建節點營運者之排他性資料控制權（法律防火牆）
+
+這是開源軟體生態中至關重要的法律邊界：
+
+第三方下載本專案開源程式碼並在其自有 Cloudflare 帳戶、私有伺服器或第三方雲平臺上完成搭建後，**該第三方營運者即為其該自建實例【唯一且排他的資料控制者（Sole Data Controller）】**。
+
+上游開源作者與核心開發團隊既無技術後門、也無任何物理手段或法律義務訪問、管理或干預任何第三方獨立自建實例中的資料流轉；上游開源作者亦不收集任何自建節點的遙測日誌。第三方自建節點發生之任何資料洩漏、安全事故、系統停機、非法營運或由此引發的任何法律爭議與賠償請求，**均完全由該自建節點營運者自行承擔全部獨立法律責任，上游開源作者與貢獻者不承擔任何連帶擔保或賠償責任**。
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 5. 全球區域合規與跨境資料流動
+## 3. 掌控您的資料：匯出、刪除與全球法域合規
 
-EpoCanvas Mail 服務面向全球網際網路開放。為確保用戶在不受到地域無理阻隔的同時，清晰了解不同司法管轄區下的法律權利與資料主權風險，我們針對全球主流法規體系制定了針對性的合規實施框架：
+EpoCanvas Mail 面向全球網際網路開放。無論您身在何處，您對自己的通訊資料均享有完整的主權與控制權。我們不阻撓任何人使用服務，但需要讓使用者自己清晰了解自身面臨的法域環境與資料流動風險。
 
-### 5.1 歐洲經濟區 (GDPR) 權利保障與跨境標準條款
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🇪🇺 歐盟 GDPR 權利賦能與跨境保護</div>
-    <span class="google-pill">GDPR Art. 15-22 · Art. 6 · SCCs</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>資料主體法定權利（Articles 15–22）</strong>：歐盟與歐洲經濟區（EEA）用戶享有隨時查閱、更正、匯出全部個人通訊資料、限制處理以及請求徹底刪除帳號的不可剝奪權利。</p>
-    <p><strong>合法處理依據與標準合約條款（SCCs）</strong>：系統處理通訊流嚴格基於履行服務合約之必需（Art. 6(1)(b)）或用戶明確知情同意（Art. 6(1)(a)）；跨境中繼傳輸依託 Cloudflare 全球基礎設施所具備的歐盟標準合約條款（SCCs）與 GDPR 附錄協議保障流轉合法性。</p>
-  </div>
+<div class="google-illustration-container">
+  <img src="/images/mail/data-sovereignty-export.svg" alt="EpoCanvas Mail 資料主權、隱私控制與便攜匯出" width="416" height="276" />
 </div>
 
-### 5.2 美國法域 (CCPA / CPRA) 隱私權利與無銷售承諾
+### 3.1 歐盟通用資料保護條例（GDPR）權利全面賦能
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🇺🇸 加州 CCPA / CPRA 隱私權利聲明</div>
-    <span class="google-pill">No Sale / Share · 無歧視對待</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>絕不銷售或共享個人資訊承諾</strong>：我們明確聲明：過去 12 個月內未曾、且未來亦絕不向任何資料經紀商、廣告聯盟或第三方商業實體銷售、出租或共享用戶的任何個人資訊與郵件資料（Do Not Sell or Share My Personal Information）。</p>
-    <p><strong>知情權與非歧視待遇</strong>：加州居民享有要求揭露系統收集之資訊類別、商業目的及要求實體刪除的同等法定權利；系統絕不因用戶行使隱私權利而在服務水準、儲存容量或接入速度上施加任何歧視性限制。</p>
-  </div>
-</div>
+對於位於歐洲經濟區（EEA）的使用者，系統全面落實 GDPR 第 15 至 22 條所賦予的資料主體法定權利：
 
-### 5.3 亞太地區法規調適與當事人自主風險認知
+*   **知情權與訪問權（Articles 15）**：您可以隨時在信箱介面中查閱系統收集的全部個人資訊、登入歷史與通訊記錄；
+*   **資料便攜權與一鍵匯出（Article 20）**：您可以隨時匯出屬於自己的全部郵件資料副本，系統支援通用的標準 `.eml` 原始郵件格式與結構化 JSON 元資料包，便於您輕鬆遷移至其他服務商；
+*   **刪除權與被遺忘權（Article 17）**：當您主動申請註銷帳號時，系統不僅會立即切斷所有會話並清空資料庫關聯記錄，更會在物理儲存層銷毀加密主密鑰，從密碼學數學底層實現永久且不可逆的徹底物理覆寫滅失；
+*   **跨境資料傳輸標準（SCCs）**：系統跨境中繼與邊緣分發嚴格依託 Cloudflare 全球網路所具備的歐盟標準合同條款（Standard Contractual Clauses, SCCs）與 GDPR 附錄協議保障流轉合法性。
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🌏 亞太地區法規調適與自主風險認知</div>
-    <span class="google-pill">台灣 PDPA · 跨國路由 · 終端安全</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>屬地管轄與跨國中繼路徑</strong>：官方託管實例由位於台灣的團隊營運，嚴格遵守當地個人資料保護法制（PDPA）。跨國電子郵件經由公網 SMTP 通訊協定流轉時，可能經過不同國家的網路交換節點並受沿途電信法例管轄，當事人應對跨法域路由具備基本認知。</p>
-    <p><strong>終端自衛與反濫用治理</strong>：用戶應切實保管自身終端設備安全（防範木馬、定期更新韌體、啟用 Passkey/TOTP 雙重驗證）；嚴禁利用本服務從事跨國駭客攻擊、網路釣魚或垃圾郵件轟炸，違者營運團隊將依[可接受使用政策](/zh-tw/mail/acceptable-use/)迅速封禁並配合合法司法調查。</p>
-  </div>
-</div>
+### 3.2 加利福尼亞州消費者隱私法案（CCPA / CPRA）剛性承諾
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+對於美國及加利福尼亞州居民，我們依據 CCPA / CPRA 做出以下明確揭露與不可撤銷之承諾：
 
-## 6. 安全事件應急響應與主管機關受檢
+*   **絕不銷售或共享個人資訊承諾（Do Not Sell or Share My Personal Information）**：我們在過去 12 個月內未曾、且未來亦絕不向任何資料經紀商、廣告公司或商業第三方銷售、出租、交易或共享任何使用者的個人資訊、通訊內容或使用習慣；
+*   **限制使用敏感個人資訊**：我們收集的資訊僅用於向您提供電子郵件通訊服務，絕不用於跨上下文行為廣告（Cross-context Behavioral Advertising）分析或訓練未經許可的商業 AI 模型；
+*   **非歧視待遇原則**：您行使任何法定的隱私權利（包括要求刪除資料或限制處理），系統均絕不在功能完整性、服務品質或傳輸速率上對您施加任何歧視性差別對待。
 
-為積極應對突發的網路安全事件與資料安全漏洞，EpoCanvas Mail 建立了標準化的安全應急響應與通報機制，確保在最短時間內控制風險並向相關方公開透明說明：
+### 3.3 亞太地區法規調適與跨境網路路由認知
 
-### 6.1 72 小時應急阻斷與通報流程
+官方託管團隊位於台灣，嚴格遵守當地個人資料保護法制（PDPA）。在面對全球化網際網路時，當事人應對底層技術機制保持理性認知：
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🚨 應急響應標準作業程序 (SOP)</div>
-    <span class="google-pill">72 小時通報 · 快速阻斷 · 社群補丁</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>四步緊急阻斷與通報程序</strong>：</p>
-    <ul>
-      <li><strong>即時阻斷與威脅隔離</strong>：數分鐘內於邊緣閘道阻斷惡意來源 IP、強制註銷涉事會話 JWT 權杖，並視險情立即輪換實例加解密主金鑰；</li>
-      <li><strong>數位鑑識與影響評估</strong>：隔離邊緣稽核日誌，精準界定受波及的帳號範圍、欄位類型與實際安全影響等級；</li>
-      <li><strong>72 小時法定公開通報</strong>：若達到法定重大事件門檻，營運者將於確認事故後 72 小時內，通過全站公告及官方系統郵件通知受影響當事人，並向監管機關正式報備；</li>
-      <li><strong>開源根因修復與安全公告</strong>：查明漏洞後立即合併上游修復程式碼，發布官方安全公告（Security Advisory），指引全網自建節點同步修補。</li>
-    </ul>
-  </div>
-</div>
+電子郵件本質上是基於國際公網 SMTP 協定流轉的分散式協定。當您與全球不同國家或地區的收件人互相通訊時，封包在跨國骨幹網中繼過程中可能穿越不同國家和地區的網路交換節點，並受沿途電信網路法例管轄。使用者應切實保管好自身終端裝置安全（防範本地鍵盤記錄木馬、定期更新作業系統），並優先啟用 FIDO2 通行密鑰增強帳戶抗風險能力。
 
-### 6.2 官方通報管道與受檢配合承接
+### 3.4 72 小時安全事件應急響應與官方聯絡管道
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">📮 官方專屬安全溝通與主管機關對接窗口</div>
-    <span class="google-pill">官方對接 · 漏洞報告</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>合規受檢與自建責任隔離</strong>：官方託管服務 <code>mail.epocanvas.com</code> 接受主管機關依法實施的檢查與監督，本文檔即作為稽核基準。自建節點營運者應制定其自有規章並獨立應對屬地監管。安全研究員或用戶發現漏洞隱患時，請通過官方唯一可信窗口聯絡：</p>
-    <ul>
-      <li><strong>官方安全應急響應中心</strong>：<code>announcement@epocanvas.com</code></li>
-      <li><strong>隱私與資料保護合規辦公室</strong>：<code>privacy@epocanvas.com</code></li>
-    </ul>
-  </div>
-</div>
+我們建立了標準化的安全應急響應標準作業程序（SOP）：
+
+*   **快速阻斷與威脅隔離**：一旦監測到安全威脅，邊緣閘道將於數分鐘內阻斷異常來源 IP、強制廢止涉事會話 JWT 權杖，並視險情立即輪換實例加解密主密鑰；
+*   **72 小时法定通報機制**：若發生導致個人資料嚴重受損的重大安全事故，營運團隊將於確認事故後 72 小時內，透過全站顯著公告及系統郵件通知受波及當事人，並依法向主管機關正式報備；
+*   **開源程式碼協同修復**：查明漏洞根因後立即合併上游修復補丁並發布安全公告（Security Advisory），協助全網自建節點同步修補。
+
+使用者或安全研究員如發現任何安全隱患、合規疑問或漏洞線索，請透過官方唯一可信窗口聯絡：
+
+*   **官方安全應急響應中心**：`announcement@epocanvas.com`
+*   **隱私與資料保護合規辦公室**：`privacy@epocanvas.com`

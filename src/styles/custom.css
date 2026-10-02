@@ -223,6 +223,70 @@
   margin: 1.5rem 0;
 }
 
+/* Google-Style Editorial Illustrations & Callouts */
+.google-illustration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.25rem auto;
+  max-width: 440px;
+}
+
+.google-illustration-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.06);
+}
+
+.privacy-checkup-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  margin: 1.85rem 0;
+  border-radius: 12px;
+  background-color: var(--sl-color-gray-6);
+  border: 1px solid var(--sl-color-hairline);
+}
+
+.privacy-checkup-icon {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.privacy-checkup-content {
+  flex: 1;
+}
+
+.privacy-checkup-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--sl-color-white);
+  margin-bottom: 0.25rem;
+}
+
+.privacy-checkup-desc {
+  font-size: 0.9rem;
+  color: var(--sl-color-gray-2);
+  line-height: 1.55;
+  margin-bottom: 0.45rem;
+}
+
+.privacy-checkup-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--sl-color-accent);
+  text-decoration: none;
+}
+
+.privacy-checkup-link:hover {
+  text-decoration: underline;
+}
+
 .google-card {
   padding: 1.35rem 1.6rem;
   border-radius: 12px;

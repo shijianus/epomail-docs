@@ -1,331 +1,159 @@
 ---
-title: Data Processing & Security Operations
-description: Technical architecture, cryptographic standards, data lifecycle matrix, dual-nature governance, and global regulatory compliance for EpoCanvas Mail.
+title: Data Processing & Security Maintenance
+description: EpoCanvas Mail end-to-end data security, dual-nature cloud and open-source governance, and global regulatory compliance.
 ---
 
-**Effective Date: October 1, 2026 | Version: 5.6**
+**Effective Date: October 1, 2026 | Archived Versions | Version: 5.6**
 
-<div class="google-hero-card">
-  <div class="google-hero-lead">
-    EpoCanvas Mail operates under a core engineering ethos: "Privacy is a Fundamental Human Right" and "Code is the Contract." Our platform is structured upon a foundational Dual-Nature Fusion: combining a zero-telemetry, zero-ad managed cloud service with an autonomous, open-source software project. This document discloses our end-to-end data lifecycle, cryptographic at-rest storage matrix, four-tier defense-in-depth engineering, and multi-jurisdictional compliance boundaries across global legal frameworks.
+When you use EpoCanvas Mail, you trust us with your personal communications and data. We understand that this is a major responsibility and work hard to protect your information, uphold absolute transparency, and ensure that you remain in complete control of your data at all times.
+
+This document is governed by our [Privacy Policy](/en/mail/privacy-policy/) and [Terms of Service](/en/mail/terms-of-service/). It serves as an authoritative guide for users on our official hosted platform (mail.epocanvas.com), while establishing clear legal boundaries for the open-source codebase (epocanvas-mail) and the independent data controller liabilities of self-hosted operators.
+
+<div class="privacy-checkup-row">
+  <div class="privacy-checkup-icon">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" rx="10" fill="#E8F0FE"/>
+      <path d="M20 9L29 13V19C29 24.5 25.2 29.6 20 31C14.8 29.6 11 24.5 11 19V13L20 9Z" fill="#1967D2"/>
+      <path d="M17 20L19.2 22.2L23.8 17.6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
-  <div class="google-hero-meta">
-    <span class="google-pill">🛡️ Strict Zero Telemetry</span>
-    <span class="google-pill">🔐 AES-256-GCM At-Rest Encryption</span>
-    <span class="google-pill">⚡ Ephemeral V8 Edge Compute</span>
-    <span class="google-pill">🌐 Global Compliance (GDPR / CCPA)</span>
-  </div>
-</div>
-
-This document is governed by our [Privacy Policy](/en/mail/privacy-policy/) and [Terms of Service](/en/mail/terms-of-service/). It serves as an authoritative guide for users verifying our privacy guarantees, as an operational baseline for self-hosted node administrators, and as an audit specification for regulatory authorities.
-
-## 1. End-to-End Data Lifecycle & Edge Processing Model
-
-User personal data and mailstreams flow through six strictly demarcated lifecycle phases: Collection, Processing, Utilization, Transfer, Retention, and Cryptographic Shredding. All phases execute statelessly across Cloudflare's global Anycast edge network, preventing persistent storage remnants or unauthorized lateral access.
-
-![EpoCanvas Mail Data Processing & Security Pipeline: Minimalist Ingestion, Edge V8 Isolate Compute, AES-256-GCM Envelope Encryption, Tiered Cloudflare Storage, and Cryptographic Shredding](/images/mail/data-security-pipeline.svg)
-
-*Figure 1: End-to-end data lifecycle pipeline. Data minimization and rigorous cryptographic isolation are enforced at every stage; for legal definitions, refer to [Privacy Policy](/en/mail/privacy-policy/) Section 5.*
-
-### 1.1 Minimalist Collection & Strict Zero-Telemetry Guarantee
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🛡️ Data Minimization & Absolute Zero Telemetry</div>
-    <span class="google-pill">Zero Tracking · Zero Profiling</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Strict Data Minimization</strong>: Beyond the account identifiers strictly necessary for registration and routing (username, mailbox alias) and authentication credentials, the system never requests or accesses address books, clipboard buffers, device gyroscopes, or cross-site tracking data.</p>
-    <p><strong>Unconditional Zero-Telemetry Policy</strong>: EpoCanvas Mail maintains a strict zero-telemetry architecture across both its official hosted deployment and open-source codebase. We embed zero commercial analytics SDKs, advertising pixel trackers, or third-party monitoring scripts. All interactions execute purely within your local client sandbox.</p>
-  </div>
-</div>
-
-### 1.2 Ephemeral Edge Compute & V8 Memory Isolation
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">⚡ Ephemeral Edge Isolates & Volatile RAM Sandboxing</div>
-    <span class="google-pill">Cloudflare V8 · Zero Disk Spooling</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Stateless Nanosecond Isolates</strong>: When emails arrive or users initiate requests, business logic executes instantaneously within Cloudflare Workers V8 isolates physically closest to the user. Each isolate environment terminates in nanoseconds post-execution.</p>
-    <p><strong>Zero Host Disk Residue</strong>: Decrypted mail payloads and routing parameters reside exclusively in volatile server RAM and are never spooled to physical host drives. This architecture fundamentally eliminates data leaks from long-running daemons, uncollected memory residues, or cross-tenant side-channel attacks.</p>
-  </div>
-</div>
-
-### 1.3 Cryptographic Key Shredding & Right to Erasure
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🗑️ Cryptographic Shredding & Permanent Erasure</div>
-    <span class="google-pill">7-Day Retention · Key Shredding</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>7-Day Recovery Window & Routine Purges</strong>: Deleted messages placed in the Trash are held for a 7-day safety window before being irreversibly overwritten by edge Cron triggers; mailboxes exceeding 90% quota trigger automatic physical deletion of trashed items to ensure storage resilience.</p>
-    <p><strong>Irreversible Cryptographic Key Shredding</strong>: When an account is terminated, relational database records in D1 and cache entries in KV are purged, and the cryptographic master encryption keys are overwritten in hardware storage, ensuring data becomes mathematically and physically irrecoverable forever.</p>
+  <div class="privacy-checkup-content">
+    <div class="privacy-checkup-title">Privacy & Security Quick Guide</div>
+    <div class="privacy-checkup-desc">Looking to review your mailbox security, configure FIDO2 Passkeys, enable two-factor authentication (TOTP), or export your data?</div>
+    <a href="/en/mail/overview/" class="privacy-checkup-link">Go to Security Overview ↗</a>
   </div>
 </div>
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 2. Data Processing Matrix & Storage Media Specifications
+## 1. We Build Security into Our Services to Protect Your Information
 
-The table below catalogs all data categories, collected fields, processing purposes, underlying storage media, and retention lifecycles. We apply tiered cryptographic controls across all data sensitivity levels:
+All data processed across our official hosted cloud service (mail.epocanvas.com) is safeguarded by multiple layers of built-in defense-in-depth engineering. We openly detail every phase of data processing so you can verify our cryptographic safeguards.
 
-| Data Category | Specific Items | Processing Purpose | Storage Media & Security Standard | Retention & Disposal |
+<div class="google-illustration-container">
+  <img src="/images/mail/security-trust-shield.svg" alt="EpoCanvas Mail Security and Trust Guarantees" width="416" height="276" />
+</div>
+
+### 1.1 Encryption in Transit & Network Channel Security
+
+We enforce modern Transport Layer Security (TLS 1.3) with HTTP Strict Transport Security (HSTS) preloading across all inbound and outbound network connections. Whether you interact with the web client, access the backend via authenticated REST APIs, or route email across intermediate relays, your communication stays encrypted in transit, neutralizing eavesdropping, packet tampering, and downgrade attacks.
+
+### 1.2 Ephemeral Edge Compute & Memory Isolation
+
+When you send or receive mail, business logic executes instantaneously within Cloudflare Workers V8 isolates physically nearest to you. Mail payloads are decrypted only in volatile server RAM during transit and are wiped in nanoseconds as the isolate terminates. No decrypted data is ever spooled to physical host disks, eradicating side-channel leaks, lingering daemon residues, and cross-tenant memory snooping.
+
+### 1.3 Industrial-Grade Storage Encryption at Rest (AES-256-GCM)
+
+Before emails and sensitive metadata are committed to Cloudflare D1 relational databases, payloads are sealed with distinct, dynamically generated initialization vectors (IVs) using authenticated AES-256-GCM encryption. Encryption keys are injected dynamically via secure Cloudflare runtime environment secrets—never stored in repositories, committed to disks, or exposed in logs. Even if underlying database volumes or offline snapshots were compromised, all records remain mathematically unreadable.
+
+### 1.4 Credential Hashing & Hardware-Bound Passkeys
+
+Account credentials are never stored in plaintext or simple hashes. Passwords undergo 100,000 rounds of PBKDF2 iteration with cryptographically secure random salts, resisting offline rainbow tables and GPU brute-force attacks. Two-factor TOTP secrets are encrypted at rest with the instance master key. The platform natively supports FIDO2 / WebAuthn Passkeys, where private keys reside immutably inside your device's Secure Enclave, providing mathematical immunity to phishing.
+
+### 1.5 Comprehensive Data Processing Matrix
+
+The following table itemizes all categories of data collected, specific fields, processing purposes, storage media, and retention periods:
+
+| Data Category | Specific Fields Collected | Core Processing Purpose | Storage Media & Protection | Retention & Erasure Schedule |
 | --- | --- | --- | --- | --- |
-| Account Credentials | Email address, username, password hash & salt, TOTP secret (AES-GCM), recovery hash, Passkey public key | Registration, verification, 2FA, credential recovery | Cloudflare D1; PBKDF2 (100,000 iterations + salt), TOTP at-rest encryption | Retained until termination; purged upon deletion |
-| Network & Device Data | Registration IP, last login IP, OS, browser User-Agent, device classification | Security audit, anomaly detection, rate limiting | Cloudflare D1; restricted to administrative audit access | Retained until physical account deletion |
-| Session State | JWT token, RBAC role claims, selected mailbox identifier | Edge gateway authorization, routing | Cloudflare KV; maximum 30-day lifetime | Revoked on logout; expires after 30 days inactivity |
-| Communications Data | Sender/recipient, CC/BCC, subject, timestamps, read flags, tags, stars, body content | Email delivery, threading, full-text search | Cloudflare D1 (metadata); payload encrypted with AES-256-GCM | Controlled by user; Trash purged after 7 days; auto-purged over 90% quota |
-| Attachments | Original filename, MIME type, byte size, raw binary payload | Attachment transport, preview rendering, secure download | Instance object storage (precedence: BYO-S3, Cloudflare R2, fallback KV); defensive headers | Bound to parent email lifecycle; purged together |
-| Security & Rate Limits | Failed login attempts, signup rate limits, AI consumption counters | Brute-force defense, anti-abuse throttling | Cloudflare KV; sliding-window counters | Failed logins expire in 12h; signups purged daily; AI logs kept 60 days |
-| Security Anomaly Fingerprints | Known devices, login Geo, network ASN fingerprints, 1-hour anti-fatigue markers | Abnormal environment alerts, alert deduplication | Cloudflare KV (`USER_KNOWN_ENV_`); top 15 fingerprints | Purged after 90 days inactivity or account deletion |
-| UI Preferences | Locale (6 languages), dark/light theme, notification flags | Interface consistency | Browser localStorage, optional D1 sync | Retained until cache clear or manual reset |
+| **Account Credentials** | Email address, username, password hash and salt, TOTP secret, backup codes, Passkey public key | User registration, authentication, 2FA validation, credential recovery | Cloudflare D1; PBKDF2 (100,000 iterations), TOTP AES encrypted | Retained until account termination; permanently overwritten upon account deletion |
+| **Communications** | Sender, recipients, CC/BCC, subject, timestamps, read flags, custom labels, message body | Message routing, mailbox organization, search indexing | Cloudflare D1 (metadata); body strictly sealed via AES-256-GCM | Controlled by user; Trash retains 7-day recovery buffer before automated cryptographic erasure |
+| **Network & Device Data** | Registration IP, recent login IP, OS, User-Agent, device type identifier | Account security audits, anomaly detection, rate limiting, brute-force defense | Cloudflare D1; restricted to administrative security audits; never used for commercial profiling | Retained until account entity deletion |
+| **Session & Authorization** | JWT session tokens, RBAC roles, active mailbox context | Edge API gateway authorization, microservice routing | Cloudflare KV; maximum 30-day lifetime | Revoked immediately upon logout; expires naturally after 30 days of inactivity |
+| **Attachment Assets** | Original filename, MIME type, byte size, binary payload | Safe asset transfer, inline preview, streaming downloads | Configurable BYO-S3 bucket, Cloudflare R2, or KV; served with defensive security headers | Follows parent email lifecycle; purged simultaneously upon hard deletion |
+| **Security Fingerprints** | Known devices, geographical ASN footprint, anti-alarm fatigue timestamps | Identifying unfamiliar logins, credential stuffing prevention | Cloudflare KV (`USER_KNOWN_ENV_` prefix); retains top 15 fingerprints | Pruned automatically after 90 days of inactivity or upon account deletion |
 
-### 2.1 Credential De-identification & PBKDF2 / WebAuthn Standards
+:::caution[Encryption Scope, Technical Limits & User Risk Acknowledgment]
+Encryption provided by our official hosted cloud service constitutes **Server-Side Encryption at Rest**. Cryptographic keys are loaded into server execution memory during active delivery routines. This design protects against database theft, compromised storage media, and offline snapshot extraction, but does not represent end-to-end encryption (E2EE).
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🔐 One-Way Cryptographic Salting & Hardware Key Security</div>
-    <span class="google-pill">PBKDF2 100k · WebAuthn FIDO2</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>PBKDF2 100,000 Iterations Key Stretching</strong>: Password credentials are never stored in plaintext or basic hashes. We mandate cryptographically secure per-user random salts with 100,000 PBKDF2 iterations, providing robust mathematical defense against precomputed rainbow tables and specialized GPU clusters.</p>
-    <p><strong>Hardware-Isolated TOTP & FIDO2 Passkeys</strong>: TOTP secrets undergo AES-256-GCM envelope encryption before persistence; Passkeys rely on asymmetric public-key cryptography where private keys never leave user Secure Enclaves, making phishing and credential replay attacks architecturally impossible.</p>
-  </div>
-</div>
-
-### 2.2 Storage Tiering & BYO-Storage Architecture
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">📦 Storage Decoupling & Defensive HTTP Response Headers</div>
-    <span class="google-pill">BYO-S3 · Native R2 · KV Fallback</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Three-Tier Dynamic Storage Pipeline</strong>: Attachments resolve via a strict hierarchy: enterprise/user-provided S3-compatible storage (BYO-Storage) first, native Cloudflare R2 second, with KV acting as a lightweight fallback. Bring-Your-Own storage empowers operators with sovereign control over physical file assets.</p>
-    <p><strong>Defensive Browser Security Headers</strong>: All file downloads are streamed with mandatory <code>Content-Disposition: attachment</code> and <code>X-Content-Type-Options: nosniff</code> headers, neutralizing malicious in-browser script execution and blocking drive-by download vectors.</p>
-  </div>
-</div>
-
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
-
-## 3. Four-Tier Defense-in-Depth Model & Cryptographic Implementation
-
-To insulate communications against complex internet threats, EpoCanvas Mail implements a four-tier defense-in-depth model spanning edge gateways, authentication pipelines, storage encryption, and client sandboxes:
-
-![EpoCanvas Mail Four-Tier Defense-in-Depth Security Model: Layer 1 Edge Gateway, Layer 2 FIDO2 WebAuthn Passkeys, Layer 3 AES-256-GCM At-Rest Encryption, and Layer 4 Client Sandbox & Cryptographic Manifest](/images/mail/defense-layers-architecture.svg)
-
-*Figure 2: Four-tier defense-in-depth model. Each tier operates independently to safeguard data assets even under extreme adversarial pressure.*
-
-The table below outlines our technical, procedural, operational, and auditing standards across 11 key security controls:
-
-| Security Control | Implementation Baseline |
-| --- | --- |
-| Personnel & RBAC Allocation | Instance operators assign administrators using strict role-based access control (RBAC) |
-| Personal Data Demarcation | Scope strictly delineated in Section 2 Data Matrix |
-| Risk Assessment & Management | Three encryption modes, lockout thresholds, rate limiting; public source code audit |
-| Incident Prevention & Escalation | Governed by Section 4 incident response procedures |
-| Operational Processing Protocols | Standard operating procedures mapped in [Privacy Policy](/en/mail/privacy-policy/) Section 5 |
-| Access Control & Personnel Vetting | Cryptographic hash routing (anti-IDOR), fail-closed permission checks, parameter sanitization |
-| Security Awareness & Training | Mandatory for self-hosted operators; official docs serve as training baselines |
-| Facility & Infrastructure Security | Cloudflare edge facilities provide SOC 2 Type II & ISO/IEC 27001 certified physical security |
-| Security Audit Trails & Logging | Audit logs (login IP, device fingerprint, failures) kept with strict access; session revocation |
-| Evidentiary Retention & Records | Logs kept until account termination; abuse logs preserved per [Acceptable Use Policy](/en/mail/acceptable-use/) |
-| Continuous Security Improvement | Open-source project evolution; critical vulnerabilities remediated via public advisories |
-
-### 3.1 Edge Network Infrastructure & Anti-SSRF Gateways
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🌐 Edge DDoS Scrubbing & Intelligent Anti-SSRF Protection</div>
-    <span class="google-pill">Tier 1 · TLS 1.3 / HSTS</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Global Anycast Edge Scrubbing</strong>: Cloudflare edge infrastructure absorbs and scrubs distributed denial-of-service (DDoS) traffic at scale, enforcing TLS 1.3 encryption and HSTS preloading to eradicate man-in-the-middle interception and protocol downgrade attacks.</p>
-    <p><strong>Inbound Anti-SSRF Defense Filter</strong>: Outbound webhooks, image proxies, and URL crawlers pass through rigorous IP validation routines. Ingress requests targeting internal subnets (RFC 1918) or cloud metadata endpoints (e.g., 169.254.169.254) are dropped at the edge barrier.</p>
-  </div>
-</div>
-
-### 3.2 Strong Authentication & Passwordless Passkeys
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🔑 Domain-Bound Passkeys & Adaptive Rate Limiting</div>
-    <span class="google-pill">Tier 2 · Fingerprint Anomaly Defense</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>FIDO2 WebAuthn Passkey Integration</strong>: Modern passkeys cryptographically bind credentials to our exact root origin, neutralizing credential stuffing and phishing; hardware tokens (YubiKey) and platform biometrics are supported natively.</p>
-    <p><strong>Exponential Backoff & Environment Fingerprinting</strong>: Password authentication triggers exponential backoff and a 12-hour lockout upon repeated failures; logins are cross-checked against the top 15 known device/ASN fingerprints, raising real-time alerts upon novel environments.</p>
-  </div>
-</div>
-
-### 3.3 At-Rest Encryption & Key Segregation
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🔒 Industrial-Grade AES-256-GCM Envelope Encryption</div>
-    <span class="google-pill">Tier 3 · Cryptographic Segregation</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Per-Message Authentication Tags (Tag)</strong>: Email contents are encrypted with unique keys deriving authenticated ciphertexts (AES-256-GCM) before reaching D1 databases, protecting records against offline database extortion and storage snapshot leaks.</p>
-    <p><strong>Runtime Secret Injection</strong>: Primary encryption keys are injected strictly via encrypted Cloudflare Workers runtime variables, never touching source control or storage disks, ensuring absolute physical segregation between storage media and decryption logic.</p>
-  </div>
-</div>
-
-### 3.4 Client-Side Sandboxing & Tamper-Proof Audit
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🛡️ Shadow DOM Isolation & Manifest Integrity Verification</div>
-    <span class="google-pill">Tier 4 · DOMPurify Sanitization</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Dual-Layer Client HTML Sandboxing</strong>: Untrusted inbound HTML emails pass through strict DOMPurify whitelists, stripping <code>&lt;script&gt;</code>, <code>&lt;iframe&gt;</code>, and inline event handlers, and render within an isolated Shadow DOM to block style leakage and session theft.</p>
-    <p><strong>Immutable Public Verification Manifest</strong>: Official documentation specifications are cryptographically cross-verified against Git Commit hashes and SHA-256 digests, ensuring transparency and verifiable integrity across public deployments.</p>
-  </div>
-</div>
-
-:::caution[Scope & Technical Limitations of Encryption]
-The "All / Privacy / Encrypted" storage modes provide Server-side Encryption at Rest. Encryption keys derive from instance runtime secrets and authenticated session contexts. This architecture mitigates risks from physical disk theft, backup extraction, and unauthorized database access; it is not End-to-End Encryption (E2EE), as server administrators technically retain the ability to inspect payloads during processing. For state-level confidentiality or untrusted host environments, users must apply client-side cryptographic tools such as GPG / PGP locally prior to message dispatch.
+Operators with root infrastructure access theoretically retain technical decryption capabilities. We place zero obstacles on anyone utilizing our service, but users must fully understand their own risk profile: If your communications involve state-level sensitivity, extreme trade secrets, or demand zero-trust privacy where no host can ever inspect content, **you must independently employ client-side tools (such as GPG / OpenPGP) to encrypt message bodies locally before transmission**.
 :::
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 4. Dual-Nature Fusion & Open-Source Governance Boundaries
+## 2. Dual-Nature Architecture: Hosted Cloud Service & Open-Source Codebase
 
-EpoCanvas Mail embodies a fundamental "Dual-Nature": it operates as a free, publicly accessible managed cloud service, while simultaneously standing as an MIT-licensed open-source software project. Clear demarcation between these facets is vital to our community ecosystem:
+EpoCanvas Mail embodies a unique "Dual Nature": it functions both as a free hosted communications service accessible to the public, and as an autonomous open-source software project distributed under the MIT License. Establishing explicit legal boundaries between the two is vital to a healthy, sustainable ecosystem.
 
-![EpoCanvas Mail Dual-Nature Governance & Global Compliance Matrix: Hosted Cloud Service vs. Open-Source Project boundaries, alongside GDPR, CCPA, and APAC regulatory alignments](/images/mail/dual-nature-compliance-matrix.svg)
-
-*Figure 3: Dual-nature governance boundaries and global compliance matrix. Upstream developers supply codebase artifacts; independent operators serve as sole Data Controllers; users enjoy complete autonomy over hosting choices.*
-
-### 4.1 Hosted Service Commitments & Limitations of Liability
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">☁️ Official Hosted Cloud Service Commitments</div>
-    <span class="google-pill">mail.epocanvas.com · Non-Commercial SLA</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Public Service Availability</strong>: The official hosted platform at <code>mail.epocanvas.com</code> is maintained by the core engineering team as an independent operator. We commit to maintaining high node availability, zero-telemetry operations, and cryptographic integrity standards.</p>
-    <p><strong>Disclaimer & User Backup Responsibilities</strong>: Provided as a free community public service, the hosted deployment does not provide commercial enterprise SLAs, nor does it assume liability for upstream cloud outages (such as Cloudflare disruptions) or user credential negligence. Users remain ultimate custodians of their communication records and must maintain periodic local backups.</p>
-  </div>
+<div class="google-illustration-container">
+  <img src="/images/mail/dual-nature-scale.svg" alt="EpoCanvas Mail Dual-Nature Governance Balance" width="416" height="276" />
 </div>
 
-### 4.2 Open-Source Licensing, Secondary Forks & Distribution Rules
+### 2.1 Hosted Cloud Service Commitments (mail.epocanvas.com)
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">📜 MIT Codebase Rights & Brand Governance Redlines</div>
-    <span class="google-pill">MIT License · Trademark Isolation · Disclaimers</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Source Code Freedom & Auditability</strong>: The underlying codebase is licensed under the permissive MIT License. Anyone possesses the legal right to inspect code, conduct audits, build private commercial services, or maintain public forks.</p>
-    <p><strong>Mandatory Distribution Redlines</strong>:</p>
-    <ul>
-      <li><strong>Trademark & Brand Isolation</strong>: Third-party deployments or modified distributions may not use "Official EpoCanvas Mail", "Official Node", or deceptive brandings in their domain names, logos, or marketing;</li>
-      <li><strong>License & Copyright Preservation</strong>: All redistributed source code copies or substantial portions must retain original author copyright notices and the MIT License verbatim;</li>
-      <li><strong>Independent Privacy Notices</strong>: Downstream developers hosting public instances must display their own legal entity identities and privacy policies, and may not link to official policies as operational guarantees.</li>
-    </ul>
-  </div>
-</div>
+The official hosted platform at `mail.epocanvas.com` is operated independently by the core development team as a public benefit. We commit to maintaining reliable service availability, strict zero-commercial-ad policies, zero behavioral tracking, and cryptographic integrity.
 
-### 4.3 Self-Hosted Operator Obligations as Sole Data Controllers
+Because the hosted platform is provided free of charge, it does not carry enterprise commercial Service Level Agreements (SLAs). We disclaim liability for indirect damages arising from upstream backbone outages (such as global Cloudflare fiber cuts) or compromised user devices. Users retain ultimate custodianship over their communications and should maintain regular offline backups.
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">⚖️ Independent Operator Duties & Autonomous Control</div>
-    <span class="google-pill">Exclusive Data Controller · Zero Upstream Recourse</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Exclusive Data Controller Status</strong>: When a third-party deploys an instance on their own Cloudflare account or infrastructure, <strong>that operator acts as the sole, exclusive Data Controller</strong>. Upstream open-source authors possess zero access, zero technical control, and zero joint liability.</p>
-    <p><strong>Jurisdictional Compliance Responsibilities</strong>: Self-hosted operators bear sole legal responsibility for configuring secure environment secrets, establishing localized privacy notices, executing user erasure requests, and handling lawful regulatory inquiries independently.</p>
-  </div>
-</div>
+### 2.2 What We Expect from You & Anti-Abuse Standards
+
+We strive to maintain a safe, welcoming, and dependable communication environment. In accessing or using our hosted platform, you agree to uphold fundamental standards of conduct:
+
+*   **Comply with Applicable Laws**: Do not use the service to violate export controls, economic sanctions, or third-party statutory rights;
+*   **Zero Tolerance for Spam**: You are strictly prohibited from transmitting unsolicited bulk marketing emails, marketing blasts, or high-frequency harassment messages;
+*   **Prohibition of Phishing & Attacks**: You must not distribute malware, trojans, or ransomware, spoof sender headers, impersonate financial institutions, or conduct adversarial penetration attacks against our systems;
+*   **No Automated Exploitation**: You must not use automated bots to register accounts in bulk or bypass rate limits. Accounts violating these standards will be terminated immediately.
+
+### 2.3 Open-Source Licensing, Forks & Secondary Distribution
+
+The complete source code of EpoCanvas Mail is published under the permissive MIT License. Anyone worldwide possesses the unrestricted legal right to inspect, audit, fork, customize, or deploy independent private mail nodes.
+
+When redistributing or modifying the code, developers must respect three strict legal boundaries:
+
+*   **Trademark & Brand Isolation**: Without prior written authorization, no third-party self-hosted instance, commercial derivative, or community fork may use the names "EpoCanvas Mail Official", "Official Node", or official brand logos in domains, app titles, or marketing;
+*   **Preservation of Copyright Notices**: All copies, substantial portions, or derivative works must retain the original copyright notice and the full text of the MIT License;
+*   **Independent Operator Disclosures**: Any party offering hosted email services to the public based on this code must publish their own corporate identity, terms of service, and privacy policy, and may not cite our official docs as their own legal warranty.
+
+### 2.4 Exclusive Data Controller Responsibility for Self-Hosted Nodes (Legal Shield)
+
+This is the cornerstone legal distinction of our open-source software model:
+
+When third parties deploy this codebase onto their own Cloudflare accounts, private servers, or third-party cloud infrastructure, **that independent operator becomes the sole and exclusive Data Controller for their instance under global privacy laws**.
+
+The upstream open-source authors possess zero technical backdoors, zero telemetry ingestion, and zero physical ability or legal duty to inspect or govern third-party deployments. Any data breach, service downtime, regulatory sanction, or legal dispute occurring on a third-party self-hosted deployment is **the sole, exclusive liability of that self-hosted operator; upstream authors and contributors bear zero joint or secondary liability**.
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 5. Global Jurisdictional Compliance & Cross-Border Data Flows
+## 3. Controlling Your Data: Export, Deletion & Global Jurisdiction Compliance
 
-EpoCanvas Mail serves a global community. To empower users with clear awareness of their rights and jurisdictional realities across borders without restricting service access, we adhere to international data protection principles:
+EpoCanvas Mail is open to users globally. Regardless of where you reside, you retain absolute ownership and control over your communications. We impose no arbitrary barriers on your use of the service, but provide transparent disclosures regarding legal jurisdictions and transit risks.
 
-### 5.1 European Economic Area (GDPR) Rights & Cross-Border Safeguards
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🇪🇺 EU GDPR Statutory Rights & Transfer Safeguards</div>
-    <span class="google-pill">GDPR Art. 15-22 · Art. 6 · SCCs</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Data Subject Statutory Rights (Articles 15–22)</strong>: European users hold unequivocal rights to access, rectify, export, restrict processing, and demand permanent erasure of their personal mailboxes.</p>
-    <p><strong>Lawful Processing & Standard Contractual Clauses (SCCs)</strong>: Processing relies upon contractual necessity (Art. 6(1)(b)) or explicit informed consent (Art. 6(1)(a)); cross-border transit across Cloudflare's Anycast nodes is legally safeguarded by EU Standard Contractual Clauses (SCCs) and GDPR data processing addenda.</p>
-  </div>
+<div class="google-illustration-container">
+  <img src="/images/mail/data-sovereignty-export.svg" alt="EpoCanvas Mail Data Sovereignty and Export Rights" width="416" height="276" />
 </div>
 
-### 5.2 United States (CCPA / CPRA) Privacy Rights & No-Sale Pledge
+### 3.1 European Economic Area (GDPR) Full Rights Realization
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🇺🇸 California CCPA / CPRA Consumer Rights</div>
-    <span class="google-pill">Do Not Sell / Share · Non-Discrimination</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Absolute No Sale or Sharing Pledge</strong>: We state unequivocally: we have not sold or shared, and will never sell, rent, or share personal data or communications with data brokers, ad networks, or commercial entities (Do Not Sell or Share My Personal Information).</p>
-    <p><strong>Right to Know & Non-Discrimination</strong>: California residents enjoy rights to know collected categories, commercial purposes, and to request deletion; we will never discriminate against users in bandwidth, capacity, or performance for exercising privacy rights.</p>
-  </div>
-</div>
+For users within the European Economic Area (EEA), our platform fully enforces data subject rights under GDPR Articles 15 through 22:
 
-### 5.3 Asia-Pacific Frameworks & User Self-Protection Responsibilities
+*   **Right of Access & Transparency (Article 15)**: You may inspect all personal account parameters, login audit logs, and communications stored in the system at any time;
+*   **Data Portability & One-Click Export (Article 20)**: You can export complete copies of your communications at any time in industry-standard `.eml` format accompanied by structured JSON metadata packages for seamless migration to another provider;
+*   **Right to Erasure / Right to be Forgotten (Article 17)**: When you delete your account, the system terminates active sessions, purges relational records, and cryptographically overwrites master encryption keys at the physical storage level, achieving permanent, mathematically irreversible destruction;
+*   **Cross-Border Transfer Safeguards (SCCs)**: Routing across our global edge relies on European Commission Standard Contractual Clauses (SCCs) and GDPR Data Processing Addenda provided by our underlying infrastructure.
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🌏 Asia-Pacific Compliance & User Security Responsibilities</div>
-    <span class="google-pill">Taiwan PDPA · Cross-Border Transit · Client Security</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Jurisdiction & Transit Pathway Realities</strong>: Hosted operations are headquartered in Taiwan, adhering strictly to Taiwan's Personal Data Protection Act (PDPA). Users acknowledge that public internet SMTP routing may traverse intermediate global exchange points subject to international transit laws.</p>
-    <p><strong>Endpoint Security & Anti-Abuse Standards</strong>: Users maintain responsibility for securing their client environments (patching OS, avoiding malware, activating Passkeys/TOTP); abusing services for cyberattacks or unsolicited bulk spam triggers immediate termination under our [Acceptable Use Policy](/en/mail/acceptable-use/).</p>
-  </div>
-</div>
+### 3.2 California Consumer Privacy Act (CCPA / CPRA) Commitments
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+For residents of California and the United States, we provide explicit statutory disclosures under the CCPA/CPRA:
 
-## 6. Security Incident Response & Regulatory Cooperation
+*   **No Sale or Sharing of Personal Information (Do Not Sell or Share)**: We have not sold or shared, and will never sell, rent, monetize, or share personal data, mailbox contents, or usage analytics with data brokers, advertisers, or third parties;
+*   **Limitation on Sensitive Data**: Data collected is utilized solely to deliver email functionality and is never used for cross-context behavioral advertising or unauthorized AI model training;
+*   **Non-Discrimination Guarantee**: We will never degrade service quality, restrict quotas, or alter features should you choose to exercise any of your statutory privacy rights.
 
-To maintain rapid containment and absolute transparency during potential security incidents or vulnerability disclosures, EpoCanvas Mail enforces a standardized Incident Response SOP:
+### 3.3 Asia-Pacific Compliance & International Transit Awareness
 
-### 6.1 72-Hour Containment & Breach Notification Pipeline
+The core hosted infrastructure team operates from Taiwan and adheres to the Personal Data Protection Act (PDPA). When navigating global communications, users should maintain realistic awareness of underlying technical realities:
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🚨 Emergency Incident Response Standard Operating Procedure</div>
-    <span class="google-pill">72h Notice · Rapid Quarantine · Upstream Patching</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Four-Step Incident Response Protocol</strong>:</p>
-    <ul>
-      <li><strong>Immediate Threat Quarantine</strong>: Malicious IPs are blocked at edge gateways, compromised JWT sessions are revoked, and master secrets rotated within minutes;</li>
-      <li><strong>Forensic Auditing & Scope Assessment</strong>: Edge audit logs are isolated to determine affected account scopes, exposed data elements, and risk severity;</li>
-      <li><strong>72-Hour Statutory Notification</strong>: Where mandated, affected users receive in-app notifications and official emails within 72 hours alongside formal regulatory filings;</li>
-      <li><strong>Upstream Patching & Public Advisory</strong>: Root vulnerabilities are remediated in the public GitHub repository with synchronized Security Advisories for global self-hosters.</li>
-    </ul>
-  </div>
-</div>
+Email relies on the federated, global Simple Mail Transfer Protocol (SMTP). Transmitting messages internationally inherently routes packets across multiple global tier-1 backbones subject to the telecommunications regulations of transit countries. Users should maintain robust hygiene on their own endpoints (protecting against local keyloggers, applying OS patches) and leverage FIDO2 Passkeys to strengthen defense.
 
-### 6.2 Regulatory Cooperation & Official Reporting Channels
+### 3.4 72-Hour Incident Response & Official Communication Channels
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">📮 Official Incident Reporting & Compliance Inquiries</div>
-    <span class="google-pill">Official Liaison · Vulnerability Reports</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Compliance Audits & Operator Segregation</strong>: The official hosted platform <code>mail.epocanvas.com</code> cooperates with lawful administrative oversight. Operators of independent self-hosted nodes must formulate separate internal policies and independently interface with their regional regulators. Security researchers discovering vulnerabilities should report directly via official channels:</p>
-    <ul>
-      <li><strong>Security Incident Response Center</strong>: <code>announcement@epocanvas.com</code></li>
-      <li><strong>Data Protection & Privacy Office</strong>: <code>privacy@epocanvas.com</code></li>
-    </ul>
-  </div>
-</div>
+We maintain a standardized Security Incident Response Standard Operating Procedure (SOP):
+
+*   **Rapid Containment**: In the event of an anomaly, the edge gateway drops malicious IP ranges within minutes, revokes compromised JWT tokens, and triggers emergency master key rotation;
+*   **72-Hour Breach Notification**: If a verified security incident impacts personal communications, we will notify affected individuals via prominent site notices and direct emails within 72 hours, and file appropriate reports with regulatory bodies;
+*   **Upstream Patch Distribution**: Root-cause fixes are merged into the public repository alongside formal Security Advisories to assist self-hosted operators worldwide.
+
+Users and security researchers with vulnerability disclosures, compliance inquiries, or security reports should reach us via our official dedicated channels:
+
+*   **Security Incident Response Team**: `announcement@epocanvas.com`
+*   **Privacy & Data Protection Office**: `privacy@epocanvas.com`

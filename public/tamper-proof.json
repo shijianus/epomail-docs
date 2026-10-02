@@ -6,12 +6,12 @@
   "repository": "https://github.com/shijianus/epomail-docs",
   "verifiedChannel": "announcement@epocanvas.com",
   "algorithm": "SHA-256",
-  "gitCommit": "e6c9f5df9aa4225571e846271ff1312a5790f92c",
-  "gitShortCommit": "e6c9f5d",
-  "committedAt": "2026-10-02T04:18:27-08:00",
-  "generatedAt": "2026-10-02T12:18:40.122Z",
+  "gitCommit": "1a4e02d8df99c7fa583c84525ee186143a05d142",
+  "gitShortCommit": "1a4e02d",
+  "committedAt": "2026-10-02T04:18:40-08:00",
+  "generatedAt": "2026-10-02T13:19:42.068Z",
   "totalDocuments": 54,
-  "totalBytes": 725001,
+  "totalBytes": 657393,
   "documents": {
     "en/mail/acceptable-use": {
       "slug": "en/mail/acceptable-use",
@@ -23,11 +23,11 @@
     },
     "en/mail/data-security": {
       "slug": "en/mail/data-security",
-      "title": "Data Processing & Security Operations",
+      "title": "Data Processing & Security Maintenance",
       "path": "src/content/docs/en/mail/data-security.md",
-      "sha256": "588dffcc166e659ea202861323457319a1fec71acb0b0a4b4e94cd0bcd0d7987",
-      "bytes": 26667,
-      "characters": 26575
+      "sha256": "409e4ba14702661221a52951f4f61feedbe07c36840dccc39367c18b14783022",
+      "bytes": 16316,
+      "characters": 16306
     },
     "en/mail/key-terms": {
       "slug": "en/mail/key-terms",
@@ -97,9 +97,9 @@
       "slug": "es/mail/data-security",
       "title": "Procesamiento de Datos y Mantenimiento de la Seguridad",
       "path": "src/content/docs/es/mail/data-security.md",
-      "sha256": "192bf4569f8466fa46d53ddb586e909e5278b5bd9692e271b32b64f48ff85174",
-      "bytes": 28271,
-      "characters": 27810
+      "sha256": "80b9460cf78af08bf49b9f34d009ef25281528ce5cac7955e227c0d83c01740c",
+      "bytes": 16223,
+      "characters": 16029
     },
     "es/mail/key-terms": {
       "slug": "es/mail/key-terms",
@@ -167,11 +167,11 @@
     },
     "fr/mail/data-security": {
       "slug": "fr/mail/data-security",
-      "title": "Traitement des Données et Maintenance de la Sécurité",
+      "title": "Traitement des Données et Maintien de la Sécurité",
       "path": "src/content/docs/fr/mail/data-security.md",
-      "sha256": "cae6974b3370f15d8e5bf5ea4d49d5662e726fdfc9002ac8b71860d09c1c9015",
-      "bytes": 29611,
-      "characters": 28731
+      "sha256": "240b468264c72a90ff7704301e45e1c604e3c238744b51bca39e4184d0ba6980",
+      "bytes": 16830,
+      "characters": 16336
     },
     "fr/mail/key-terms": {
       "slug": "fr/mail/key-terms",
@@ -241,9 +241,9 @@
       "slug": "mail/data-security",
       "title": "数据处理与安全维护",
       "path": "src/content/docs/mail/data-security.md",
-      "sha256": "9491e5eef46c5bdafbd016430c1fcf6900331664dba520f60aafdb089bc2bb53",
-      "bytes": 26177,
-      "characters": 14297
+      "sha256": "c4a0f56a1e45d0d9ac0addacaa18e11489aa5bc186060926c262f1c418ce1255",
+      "bytes": 16235,
+      "characters": 7503
     },
     "mail/key-terms": {
       "slug": "mail/key-terms",
@@ -313,9 +313,9 @@
       "slug": "nl/mail/data-security",
       "title": "Gegevensverwerking en Beveiligingsonderhoud",
       "path": "src/content/docs/nl/mail/data-security.md",
-      "sha256": "11bab8b9234bd0df3353e6234425ae0490753153c8b8483148fdef82b8df4778",
-      "bytes": 27643,
-      "characters": 27501
+      "sha256": "a9486e5c48eb85c845b8463c3fe850a4c22827110279a4b1441e5fb9e919e356",
+      "bytes": 15117,
+      "characters": 15079
     },
     "nl/mail/key-terms": {
       "slug": "nl/mail/key-terms",
@@ -385,9 +385,9 @@
       "slug": "zh-tw/mail/data-security",
       "title": "資料處理與安全維護",
       "path": "src/content/docs/zh-tw/mail/data-security.md",
-      "sha256": "82842335fe18d634d3981f3a2bed49a539be8c212bec58b81e92d2078536a944",
-      "bytes": 26330,
-      "characters": 14372
+      "sha256": "d6b05985ed8310f6c8cf8e5dceb2b38e0adfb3d11708db288a63a0d04925c018",
+      "bytes": 16370,
+      "characters": 7560
     },
     "zh-tw/mail/key-terms": {
       "slug": "zh-tw/mail/key-terms",

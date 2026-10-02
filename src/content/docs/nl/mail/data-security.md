@@ -1,331 +1,159 @@
 ---
 title: Gegevensverwerking en Beveiligingsonderhoud
-description: Gegevenslevenscyclus, verwerkingsmatrix, diepgaande verdedigingsarchitectuur, dubbele bestuursstructuur en wereldwijde naleving van EpoCanvas Mail.
+description: EpoCanvas Mail end-to-end gegevensbeveiliging, dubbele bestuursstructuur van cloud en open source, en wereldwijde naleving.
 ---
 
-**Ingangsdatum: 1 oktober 2026 | Versie: 5.6**
+**Ingangsdatum: 1 oktober 2026 | Gearchiveerde versies | Versie: 5.6**
 
-<div class="google-hero-card">
-  <div class="google-hero-lead">
-    EpoCanvas Mail hanteert de kernfilosofie dat «privacy een fundamenteel mensenrecht is» en «code het contract vormt». Wij hebben een bestuursmodel met een «dubbele aard» opgezet, waarbij een beheerde clouddienst harmonieus samengaat met een autonoom open-sourcesoftwareproject. Dit document beschrijft de volledige levenscyclus van persoonsgegevens, onze cryptografische opslagmatrix, onze diepgaande verdediging in vier lagen en de wettelijke kaders in verschillende rechtsgebieden.
+Wanneer u EpoCanvas Mail gebruikt, vertrouwt u ons uw persoonlijke communicatie en gegevens toe. Wij begrijpen dat dit een grote verantwoordelijkheid is en doen er alles aan om uw gegevens te beveiligen, absolute transparantie te waarborgen en ervoor te zorgen dat u te allen tijde de volledige controle en soevereiniteit over uw informatie behoudt.
+
+Dit document valt onder ons [Privacybeleid](/nl/mail/privacy-policy/) en onze [Servicevoorwaarden](/nl/mail/terms-of-service/). Het dient als gezaghebbende handleiding voor gebruikers van ons officiële gehoste platform (mail.epocanvas.com), terwijl het duidelijke juridische grenzen stelt voor het open-sourceproject (epocanvas-mail) en de exclusieve verantwoordelijkheid van zelf-hostende beheerders als onafhankelijke verwerkingsverantwoordelijken definieert.
+
+<div class="privacy-checkup-row">
+  <div class="privacy-checkup-icon">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="40" height="40" rx="10" fill="#E8F0FE"/>
+      <path d="M20 9L29 13V19C29 24.5 25.2 29.6 20 31C14.8 29.6 11 24.5 11 19V13L20 9Z" fill="#1967D2"/>
+      <path d="M17 20L19.2 22.2L23.8 17.6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
-  <div class="google-hero-meta">
-    <span class="google-pill">🛡️ Nul telemetrie (Zero Telemetry)</span>
-    <span class="google-pill">🔐 AES-256-GCM versleuteling in rust</span>
-    <span class="google-pill">⚡ Vluchtige edge-uitvoering (V8)</span>
-    <span class="google-pill">🌐 Wereldwijde naleving (AVG / CCPA)</span>
-  </div>
-</div>
-
-Dit document valt onder ons [Privacybeleid](/nl/mail/privacy-policy/) en onze [Servicevoorwaarden](/nl/mail/terms-of-service/). Het dient als gezaghebbende leidraad voor gebruikers die onze privacygaranties willen verifiëren, als operationele basis voor zelfstandige nodebeheerders en als toetsingskader voor toezichthoudende autoriteiten.
-
-## 1. Volledige gegevenslevenscyclus en edge-verwerkingsmodel
-
-Persoonsgegevens en berichtenstromen worden strikt ingedeeld in zes fasen: Verzameling, Verwerking, Gebruik, Doorgifte, Bewaring en Cryptografische vernietiging. Alle fasen worden staatloos uitgevoerd op het wereldwijde Anycast-edgenetwerk van Cloudflare, waardoor persistentie op fysieke schijven en ongeoorloofde zijwaartse toegang worden uitgesloten.
-
-![Gegevensverwerking en end-to-end levenscyclus van EpoCanvas Mail: Staatloze verzameling, edge V8-isolatie, AES-256-GCM envelopversleuteling, gelaagde opslag en cryptografische vernietiging](/images/mail/data-security-pipeline.svg)
-
-*Figuur 1: Volledige levenscyclus van persoonsgegevens. Minimale gegevensverzameling en strikte cryptografische isolatie worden in elke fase gehandhaafd; zie sectie 5 van het [Privacybeleid](/nl/mail/privacy-policy/) voor juridische definities.*
-
-### 1.1 Minimale verzameling en belofte van nul telemetrie
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🛡️ Minimale gegevensverzameling en absolute nul telemetrie</div>
-    <span class="google-pill">Gegevensminimalisatie · Geen profilering</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Strikte minimalisatie</strong>: Naast de accountgegevens die strikt noodzakelijk zijn voor registratie en routering (gebruikersnaam, e-mailalias) en authenticatiereferenties, verzamelt het systeem nooit adresboeken, klemborden, gyroscopen of browseroverstijgende trackinggegevens.</p>
-    <p><strong>Nul telemetrie zonder compromis</strong>: EpoCanvas Mail handhaaft een onvoorwaardelijk beleid van «nul gedragstelemetrie», zowel op het beheerde platform als in de open-source codebase. Er zijn geen commerciële analytics-SDK's, advertentiepixels of monitorscripts van derden aanwezig; alle interacties vinden uitsluitend plaats in uw lokale geïsoleerde mailbox.</p>
-  </div>
-</div>
-
-### 1.2 Vluchtige edge-uitvoering en geheugenisolatie
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">⚡ Vluchtige edge-rekenkracht en nanoseconde-zandbakken</div>
-    <span class="google-pill">Cloudflare V8 · Geen fysieke schijfopslag</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Staatloze V8-isolaten</strong>: Zodra e-mails binnenkomen of gebruikers verzoeken indienen, wordt de bedrijfslogica direct uitgevoerd op het dichtstbijzijnde Cloudflare Workers edge-knooppunt (V8 Isolate), waarna de zandbakomgeving binnen nanoseconden fysiek wordt vernietigd.</p>
-    <p><strong>Geen persistentie op fysieke schijven</strong>: Ontsleutelde payloads en routeringsparameters verblijven uitsluitend in het vluchtige RAM-geheugen en worden nooit weggeschreven naar fysieke schijven van de hostserver, wat risico's op achterblijvende processen of zijdelingse aanvallen tussen huurders uitsluit.</p>
-  </div>
-</div>
-
-### 1.3 Cryptografische vernietiging en onherroepelijk recht op vergetelheid
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🗑️ Cryptografische vernietiging en permanent wissen</div>
-    <span class="google-pill">7 dagen herstelperiode · Sleuteloverschrijving</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>7 dagen veiligheidsbuffer en periodieke opschoning</strong>: Berichten in de prullenbak worden gedurende een veiligheidsperiode van 7 dagen bewaard tegen per ongeluk wissen, waarna ze onomkeerbaar fysiek worden overschreven door edge-Cron-taken; bij een mailboxbezetting boven 90% volgt automatische fysieke verwijdering.</p>
-    <p><strong>Onherroepelijke sleuteloverschrijving</strong>: Bij accountbeëindiging worden niet alleen de records in de D1-database en KV-opslag gewist, maar worden ook de hoofdsleutels in de hardwarematige opslag overschreven, waardoor gegevens mathematisch en fysiek voorgoed onherstelbaar zijn.</p>
+  <div class="privacy-checkup-content">
+    <div class="privacy-checkup-title">Beknopte privacy- en beveiligingsgids</div>
+    <div class="privacy-checkup-desc">Wilt u de beveiligingsstatus van uw mailbox controleren, FIDO2-toegangssleutels instellen, tweestapsverificatie (TOTP) inschakelen of uw gegevens exporteren?</div>
+    <a href="/nl/mail/overview/" class="privacy-checkup-link">Naar het beveiligingsoverzicht ↗</a>
   </div>
 </div>
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 2. Gegevensverwerkingsmatrix en opslagmediaspecificaties
+## 1. Wij bouwen beveiliging in onze diensten in om uw gegevens te beschermen
 
-In de onderstaande tabel zijn alle gegevenscategorieën, verzamelde velden, verwerkingsdoeleinden, onderliggende opslagmedia en bewaartermijnen gecatalogiseerd onder gelaagde cryptografische beveiliging:
+Alle gegevens die worden verwerkt op ons officiële gehoste cloudplatform (mail.epocanvas.com) worden continu beschermd door meerdere lagen van diepgaande verdediging. Wij leggen de volledige verwerkingscyclus openbaar uit, zodat u onze technische garanties kunt verifiëren.
 
-| Gegevenscategorie | Specifieke elementen | Verwerkingsdoel | Opslagmedium en beveiligingsstandaard | Bewaring en verwijdering |
+<div class="google-illustration-container">
+  <img src="/images/mail/security-trust-shield.svg" alt="Beveiligings- en vertrouwensgaranties van EpoCanvas Mail" width="416" height="276" />
+</div>
+
+### 1.1 Versleuteling tijdens overdracht en netwerkbeveiliging
+
+Wij dwingen het moderne Transport Layer Security-protocol (TLS 1.3) af met HSTS-preloadbeleid voor alle inkomende en uitgaande netwerkverbindingen. Of u nu via de webinterface interacteert, de beveiligde REST API aanroept of e-mail tussen knooppunten verzendt, uw communicatie blijft tijdens de overdracht versleuteld om afluisteren en manipulatie te voorkomen.
+
+### 1.2 Vluchtige edge-uitvoering en geheugenscheiding
+
+Wanneer u e-mails verzendt of ontvangt, wordt de bedrijfslogica onmiddellijk uitgevoerd in de Cloudflare Workers edge-knooppunten (V8-isolaten) die zich fysiek het dichtst bij uw locatie bevinden. Ontsleutelde gegevens bevinden zich tijdens de verwerking uitsluitend in het vluchtige RAM-geheugen en de omgeving wordt na voltooiing binnen nanoseconden fysiek vernietigd, zonder residu op fysieke schijven.
+
+### 1.3 Industriële versleuteling in rust (AES-256-GCM)
+
+Voordat e-mailberichten en gevoelige metagegevens worden opgeslagen in de Cloudflare D1-database, worden de gegevens verzegeld met dynamische initialisatievectoren (IV) via het AES-256-GCM-algoritme met authenticatielabel (Auth Tag). Versleutelingssleutels worden dynamisch geïnjecteerd via beveiligde runtime-omgevingsvariabelen, zonder ooit op schijf of in code-opslagplaatsen te worden bewaard.
+
+### 1.4 Robuuste wachtwoordhashing en fysieke toegangssleutels
+
+Wachtwoorden worden nooit in platte tekst of als eenvoudige hashes bewaard. Het systeem past 100.000 rondes van het PBKDF2-algoritme toe in combinatie met willekeurige cryptografische salts. Tweefactorverificatiesleutels (TOTP) worden in rust versleuteld met de hoofdsleutel. Het systeem ondersteunt standaard WebAuthn / FIDO2-toegangssleutels (Passkeys), waarbij privésleutels veilig zijn opgeslagen in de hardware-chip van de gebruiker.
+
+### 1.5 Uitgebreide gegevensverwerkingsmatrix
+
+De volgende tabel geeft een overzicht van alle verzamelde gegevenscategorieën, specifieke velden, verwerkingsdoeleinden, opslagmedia en bewaartermijnen:
+
+| Gegevenscategorie | Specifieke verzamelde velden | Primair verwerkingsdoel | Opslagmedium en beveiliging | Bewaartermijn en vernietiging |
 | --- | --- | --- | --- | --- |
-| Accountreferenties | E-mailadres, gebruikersnaam, wachtwoordhash & zout, TOTP-sleutel (AES-GCM), backuphash, Passkey-publieke sleutel | Registratie, verificatie, tweestapsverificatie, herstel | Cloudflare D1; wachtwoord PBKDF2 (100.000 iteraties met zout), statische TOTP-versleuteling | Tot beëindiging van account; direct fysiek gewist |
-| Netwerk- en apparaatgegevens | Registratie-IP, laatste login-IP, besturingssysteem, User-Agent, apparaattype | Beveiligingsaudit, anomaliedetectie, snelheidsbeperking | Cloudflare D1; strikt beperkt tot administratieve audits | Tot fysieke verwijdering van het account |
-| Sessiestatus | JWT-token, RBAC-rolclaims, geselecteerde mailbox | Autorisatie bij edge-gateway, routering | Cloudflare KV; maximale geldigheidsduur van 30 dagen | Ingetrokken bij uitloggen; verloopt na 30 dagen inactiviteit |
-| Communicatiegegevens | Afzender/ontvanger, CC/BCC, onderwerp, tijdstempels, leesstatus, labels, sterren, inhoud | E-mailaflevering, conversatieweergave, zoekfunctie | Cloudflare D1 (metadata); inhoud versleuteld in rust met AES-256-GCM | Beheerd door betrokkene; prullenbak na 7d geleegd; auto-wis bij >90% opslag |
-| Bijlagen | Oorspronkelijke bestandsnaam, MIME-type, bestandsgrootte, binaire inhoud | Bijlageoverdracht, voorbeeldweergave, veilige download | Eigen objectopslag (volgorde: eigen S3, Cloudflare R2, fallback KV); defensieve headers | Gekoppeld aan levenscyclus van e-mail; tegelijk fysiek gewist |
-| Beveiligingslogs | Mislukte inlogpogingen, registratiefrequentie, AI-gebruiksstatistieken | Bescherming tegen brute-force, misbruikpreventie | Cloudflare KV; schuivende-venstertellers | Mislukte logins verlopen na 12u; registratielogs dagelijks gewist; AI 60d |
-| Afwijkende omgevingsvingerafdrukken | Bekende apparaten, geolocatie (Geo), netwerk-ASN, tijdstempels van 1 uur | Detectie van verdachte logins, alarmontdubbeling | Cloudflare KV (voorvoegsel `USER_KNOWN_ENV_`); 15 recente vingerafdrukken | Gewist na 90 dagen inactiviteit of bij accountverwijdering |
-| Interfacevoorkeuren | Taal (6 talen), donker/licht thema, notificatievlaggen | Visuele consistentie | Browser localStorage, optionele synchronisatie naar D1 | Bewaard tot cachewissing of handmatige reset |
+| **Accountreferenties** | E-mailadres, gebruikersnaam, wachtwoordhash en salt, TOTP-sleutel, Passkey-publieke sleutel | Registratie, inloggen, tweestapsverificatie, herstel | Cloudflare D1; PBKDF2 (100k iteraties), TOTP AES-versleuteld | Bewaard tot beëindiging; fysiek overschreven bij accountverwijdering |
+| **Communicatie** | Afzender, ontvangers, CC/BCC, onderwerp, tijdstempels, labels, inhoud van berichten | E-mailbezorging, mailboxbeheer, zoekfunctionaliteit | Cloudflare D1 (metagegevens); inhoud verzegeld met AES-256-GCM | Beheerd door gebruiker; prullenbak bewaart 7 dagen voor definitieve wisactie |
+| **Netwerk- en apparaatdata** | Registratie-IP, recent login-IP, besturingssysteem, User-Agent, model | Beveiligingsaudits, anomaliedetectie, snelheidsbeperking | Cloudflare D1; strikt beperkt tot administratieve audits; nooit voor profilering | Bewaard tot accountverwijdering |
+| **Sessie en autorisatie** | JWT-sessietokens, RBAC-rollen, actieve mailboxcontext | Autorisatie bij edge API-gateway, routering | Cloudflare KV; maximale geldigheidsduur 30 dagen | Direct ingetrokken bij uitloggen; verloopt na 30 dagen inactiviteit |
+| **Bijlagen** | Oorspronkelijke bestandsnaam, MIME-type, bestandsgrootte, binaire data | Veilige bestandsoverdracht, inline weergave, downloads | Configureerbare S3, Cloudflare R2 of KV; geserveerd met defensieve headers | Volgt levenscyclus van e-mail; verwijderd bij definitieve wisactie |
+| **Veiligheidsvingerafdrukken** | Bekende apparaten, geografische ASN-voetafdruk, anti-alarmtijdstempels | Ongebruikelijke inlogpogingen herkennen, accountbeveiliging | Cloudflare KV (`USER_KNOWN_ENV_`-voorvoegsel); laatste 15 patronen | Opgeschoond na 90 dagen inactiviteit of bij uitschrijving |
 
-### 2.1 Pseudonimisering van inloggegevens en PBKDF2 / WebAuthn-standaarden
+:::caution[Reikwijdte van versleuteling, technische beperkingen en risicobewustzijn]
+De versleuteling op het officiële gehoste cloudplatform betreft **versleuteling in rust aan de serverzijde (Server-side Encryption at Rest)**. Ontsleutelingssleutels worden tijdens de actieve verwerking in het vluchtige werkgeheugen geladen. Dit beschermt tegen diefstal van databases of fysieke schijven, maar is geen end-to-end versleuteling (E2EE).
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🔐 Eenrichtingscryptografie en hardwarematige sleutelisolatie</div>
-    <span class="google-pill">PBKDF2 100k · WebAuthn FIDO2</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>PBKDF2 met 100.000 iteraties</strong>: Wachtwoorden worden nooit in platte tekst opgeslagen. Het systeem dwingt een uniek willekeurig zout af in combinatie met 100.000 PBKDF2-iteraties, wat krachtige mathematische bescherming biedt tegen regenboogtabellen en brute-force-aanvallen via gespecialiseerde GPU's.</p>
-    <p><strong>Hardwarematige bescherming met TOTP en Passkeys</strong>: TOTP-sleutels worden versleuteld via AES-256-GCM voor opslag; Passkeys rusten op asymmetrische cryptografie waarbij de privésleutel het beveiligde hardware-element (Secure Enclave) van het apparaat nooit verlaat, wat phishing en identiteitsdiefstal onmogelijk maakt.</p>
-  </div>
-</div>
-
-### 2.2 Ontkoppeling van opslag en BYO-Storage-architectuur
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">📦 Modulaire opslag en defensieve HTTP-headers</div>
-    <span class="google-pill">BYO-S3 · Native R2 · KV-noodoplossing</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Dynamische opslagroutering in drie niveaus</strong>: Bijlagen worden intelligent toegewezen: primair naar eigen S3-compatibele buckets van de gebruiker of organisatie (BYO-Storage), secundair naar Cloudflare R2, en als lichte noodvoorziening naar KV. BYO biedt gebruikers volledige soevereiniteit over hun bestanden.</p>
-    <p><strong>Defensieve headers voor webbrowsers</strong>: Downloads van bijlagen worden verplicht vergezeld van de headers <code>Content-Disposition: attachment</code> en <code>X-Content-Type-Options: nosniff</code>, waardoor kwaadaardige inline-uitvoering en drive-by-download-aanvallen effectief worden geblokkeerd.</p>
-  </div>
-</div>
-
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
-
-## 3. Diepgaande verdediging in vier lagen en cryptografische implementatie
-
-Om communicatie te beschermen tegen complexe internetbedreigingen, hanteert EpoCanvas Mail een defensiemodel in vier onafhankelijke lagen:
-
-![EpoCanvas Mail diepgaande verdedigingsarchitectuur in vier niveaus: Niveau 1 Edge-gateway en anti-SSRF, Niveau 2 FIDO2 Passkeys-authenticatie, Niveau 3 AES-256-GCM versleuteling in rust, Niveau 4 Shadow DOM-zandbak en integriteitsaudit](/images/mail/defense-layers-architecture.svg)
-
-*Figuur 2: Vierlagig diepgaand verdedigingsmodel. Elke laag functioneert autonoom om gegevens veilig te houden onder extreme omstandigheden.*
-
-De onderstaande tabel specificeert onze technische, organisatorische en auditnormen op basis van 11 fundamentele beveiligingscontroles:
-
-| Beveiligingscontrole | Toepassing binnen de dienst |
-| --- | --- |
-| Toewijzing van personeel en rechten | Beheerders aangewezen met strikt op rollen gebaseerd toegangsbeheer (RBAC) |
-| Afbakening van persoonsgegevens | Reikwijdte nauwkeurig gedefinieerd in de matrix van sectie 2 |
-| Risicobeoordeling en -beheer | Drie versleutelingsmodi, accountvergrendeling, snelheidslimieten en openbare code |
-| Incidentpreventie en -afhandeling | Geformaliseerd in het protocol van sectie 4 |
-| Interne beheerprocedures | Operationeel kader vastgelegd in sectie 5 van het [Privacybeleid](/nl/mail/privacy-policy/) |
-| Toegangscontrole en integriteit | Cryptografische hash-routering, standaard restrictief beleid en parameterfiltering |
-| Beveiligingsbewustzijn en training | Verantwoordelijkheid van zelfstandige beheerders; documentatie dient als lesmateriaal |
-| Fysieke beveiliging van apparatuur | Cloudflare-infrastructuur gecertificeerd volgens SOC 2 Type II en ISO/IEC 27001 |
-| Beveiligingsaudits en traceerbaarheid | Auditlogs met strikte autorisatie en onmiddellijke sessie-intrekking |
-| Bewaring van bewijsmateriaal | Logs bewaard tot verwijdering van account of conform het [Beleid voor Toegestaan Gebruik](/nl/mail/acceptable-use/) |
-| Continue beveiligingsverbetering | Voortdurende open-sourceontwikkeling en gecoördineerde beveiligingsbulletins |
-
-### 3.1 Edge-infrastructuur en anti-SSRF-gateway
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🌐 Anycast edge-verkeersfiltering en intelligente anti-SSRF-bescherming</div>
-    <span class="google-pill">Laag 1 · TLS 1.3 / HSTS</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Wereldwijde Anycast DDoS-mitigatie</strong>: Het Cloudflare-edgenetwerk absorbeert en neutraliseert grootschalige DDoS-aanvallen en dwingt TLS 1.3-versleuteling met HSTS-preload af om man-in-the-middle-onderschepping en protocoldegradatie uit te bannen.</p>
-    <p><strong>Inkomend anti-SSRF-inspectiefilter</strong>: Uitgaande webhooks, afbeeldingsproxy's en crawlers ondergaan strenge IP-validatie. Elk verzoek gericht op privénetwerken (RFC 1918) of interne metadata-eindpunten van cloudproviders (zoals 169.254.169.254) wordt aan de edge geblokkeerd.</p>
-  </div>
-</div>
-
-### 3.2 Sterke authenticatie en wachtwoordloze Passkeys
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🔑 Domeingebonden Passkeys en aanpasbare snelheidsbeperking</div>
-    <span class="google-pill">Laag 2 · Omgevingsdetectie</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>FIDO2 WebAuthn-integratie</strong>: Moderne passkeys zijn cryptografisch gebonden aan de hoofddomeinoorsprong, waardoor phishing effectief wordt voorkomen; fysieke beveiligingssleutels (YubiKey) en ingebouwde biometrische sensoren worden volledig ondersteund.</p>
-    <p><strong>Exponentiële vertraging en waarschuwingen</strong>: Opeenvolgende mislukte inlogpogingen triggeren een exponentiële vertraging en een uitsluiting van 12 uur; aanmeldingen worden vergeleken met de 15 bekende apparaat- en netwerkvingerafdrukken voor onmiddellijke alarmering bij afwijkingen.</p>
-  </div>
-</div>
-
-### 3.3 Gegevensversleuteling in rust en sleutelscheiding
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🔒 Industriële AES-256-GCM envelopversleuteling</div>
-    <span class="google-pill">Laag 3 · Fysieke scheiding</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Berichtspecifieke authenticatietags (Tag)</strong>: Voordat e-mailinhoud in de D1-database wordt opgeslagen, wordt deze versleuteld met afgeleide sleutels (AES-256-GCM), wat bescherming biedt tegen offline databasediefstal of ongeoorloofde snapshots.</p>
-    <p><strong>Beveiligde omgevingsvariabelen tijdens runtime</strong>: Hoofdversleutelingssleutels worden uitsluitend geïnjecteerd via versleutelde Cloudflare Workers-runtimevariabelen, zonder ooit op schijf of in de code te belanden, wat strikte fysieke scheiding garandeert.</p>
-  </div>
-</div>
-
-### 3.4 Zandbak aan clientzijde en onveranderlijke audit
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🛡️ Shadow DOM-isolatie en controle via onveranderlijke vingerafdrukken</div>
-    <span class="google-pill">Laag 4 · DOMPurify-whitelisting</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Dubbele HTML-zandbak</strong>: Alle externe opgemaakte HTML-berichten worden gezuiverd via DOMPurify, waarbij <code>&lt;script&gt;</code>-, <code>&lt;iframe&gt;</code>- en inline-eventhandlers worden verwijderd, en weergegeven in een afgesloten Shadow DOM om stijlinbreuk en sessiediefstal tegen te gaan.</p>
-    <p><strong>Openbaar controlemanifest</strong>: Documentatiespecificaties zijn gekoppeld aan Git-commits en SHA-256-hashes, waardoor onveranderlijke traceerbaarheid en openbare verifieerbaarheid zijn gewaarborgd.</p>
-  </div>
-</div>
-
-:::caution[Reikwijdte en technische beperkingen van versleuteling]
-De opslagmodi «Alles / Privacy / Versleuteld» hebben betrekking op statische versleuteling aan de serverzijde (Server-side Encryption at Rest). De sleutels worden afgeleid van omgevingsvariabelen van de instantie en de geauthenticeerde gebruikerssessie. Deze opzet beschermt tegen fysieke diefstal van back-ups of datalekken op schijfniveau, maar vormt geen end-to-end versleuteling (E2EE); de beheerder van de instantie behoudt technisch de mogelijkheid om gegevens tijdens verwerking in te zien. Voor vertrouwelijke communicatie die absolute geheimhouding vereist, dienen gebruikers asymmetrische encryptietools zoals GPG / PGP lokaal toe te passen voorafgaand aan verzending.
+Beheerders met root-infrastructuurtoegang hebben technisch gezien de theoretische mogelijkheid tot inzage in het geheugen. Wij leggen niemand belemmeringen op om de dienst te gebruiken, maar gebruikers dienen zich bewust te zijn van hun risico's: als uw communicatie staatsgeheimen bevat of absolute zero-trust vertrouwelijkheid vereist, **moet u zelfstandig cryptografische hulpmiddelen aan de clientzijde (zoals GPG / OpenPGP) gebruiken om berichten lokaal te versleutelen vóór verzending**.
 :::
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 4. Dubbele aard en bestuurskaders voor open source
+## 2. Bestuursmodel met dubbele aard: Gehoste dienst en open-source codebase
 
-EpoCanvas Mail bezit een uitgesproken «dubbele aard»: het fungeert als een gratis openbare beheerde clouddienst en tegelijkertijd als een open-sourcesoftwareproject onder de MIT-licentie. Een duidelijke scheiding tussen beide aspecten is essentieel voor het ecosysteem:
+EpoCanvas Mail kent een duidelijke dubbele identiteit: het is zowel een gratis toegankelijke gehoste e-maildienst voor het publiek als een autonoom open-sourcesoftwareproject onder de MIT-licentie. Het duidelijk afbakenen van de verantwoordelijkheden en juridische grenzen van beide is essentieel voor een gezond ecosysteem.
 
-![EpoCanvas Mail bestuursmatrix en wereldwijde naleving: Afbakening tussen beheerde clouddienst en open-sourceproject, afgestemd op AVG, CCPA en APAC-kaders](/images/mail/dual-nature-compliance-matrix.svg)
-
-*Figuur 3: Bestuursgrenzen en internationale nalevingsmatrix. Het upstream-project levert de broncode; zelfstandige nodebeheerders treden op als exclusieve verwerkingsverantwoordelijken met volledige wettelijke aansprakelijkheid.*
-
-### 4.1 Verplichtingen en aansprakelijkheidsbeperkingen van de beheerde dienst
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">☁️ Operationeel kader van de officiële clouddienst</div>
-    <span class="google-pill">mail.epocanvas.com · Niet-commerciële SLA</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Kwaliteit van de openbare dienst</strong>: Het officiële platform <code>mail.epocanvas.com</code> wordt beheerd door het kernteam als onafhankelijke operator. Wij streven naar hoge beschikbaarheid van de nodes, strikte naleving van nul telemetrie en cryptografische integriteit.</p>
-    <p><strong>Uitsluiting van aansprakelijkheid en back-upverplichting</strong>: Aangezien dit een gratis gemeenschapsdienst betreft, worden er geen commerciële enterprise-SLA's verstrekt en aanvaarden wij geen aansprakelijkheid voor netwerkstoringen bij Cloudflare of verlies van inloggegevens door onzorgvuldigheid. Gebruikers blijven de uiteindelijke bewaarders van hun gegevens en dienen periodiek back-ups te maken.</p>
-  </div>
+<div class="google-illustration-container">
+  <img src="/images/mail/dual-nature-scale.svg" alt="Evenwicht in het bestuursmodel met dubbele aard van EpoCanvas Mail" width="416" height="276" />
 </div>
 
-### 4.2 Open-sourcelicentie, afgeleide projecten en distributieregels
+### 2.1 Verbintenissen van het officiële platform (mail.epocanvas.com)
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">📜 MIT-licentie en rode lijnen voor secundaire ontwikkeling</div>
-    <span class="google-pill">MIT-licentie · Merkbescherming · Eigen verklaring</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Vrijheid van broncode en auditrecht</strong>: De onderliggende code is vrijgegeven onder de MIT-licentie. Eenieder heeft het wettelijke recht om de code te inspecteren, te auditeren, af te splitsen (forken) of toe te passen in private commerciële implementaties.</p>
-    <p><strong>Drie bindende distributierichtlijnen</strong>:</p>
-    <ul>
-      <li><strong>Strikte merkscheiding</strong>: Zonder schriftelijke toestemming mogen externe implementaties of afgeleide versies nooit termen als «EpoCanvas Mail Officieel» of «Officiële Node» gebruiken in domeinen of marketing;</li>
-      <li><strong>Behoud van auteursrechten en licentietekst</strong>: Bij alle herdistributies van de broncode moeten de oorspronkelijke auteursrechtvermelding en de volledige MIT-licentietekst behouden blijven;</li>
-      <li><strong>Zelfstandige serviceverklaring</strong>: Ontwikkelaars die diensten aanbieden aan het publiek moeten hun eigen entiteitsgegevens en privacybeleid publiceren en mogen niet verwijzen naar officiële documenten als juridische dekking.</li>
-    </ul>
-  </div>
-</div>
+Het officiële platform `mail.epocanvas.com` wordt door het kernteam beheerd als een dienst van algemeen nut. Wij verplichten ons tot het handhaven van een hoge beschikbaarheid, de volledige afwezigheid van commerciële advertenties, een strikt beleid van nul tracking en het naleven van cryptografische integriteitsnormen.
 
-### 4.3 Wettelijke verplichtingen van zelfstandige nodebeheerders
+Aangezien het platform kosteloos wordt aangeboden, zijn er geen commerciële Service Level Agreements (SLA's) van toepassing. Wij wijzen aansprakelijkheid voor indirecte schade ten gevolge van netwerkstoringen bij upstream-infrastructuur (zoals Cloudflare-storingen) of onveilige gebruikersapparaten af. Gebruikers zijn zelf verantwoordelijk voor het regelmatig maken van offline back-ups.
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">⚖️ Exclusieve rol als verwerkingsverantwoordelijke voor zelfstandige nodes</div>
-    <span class="google-pill">Enige verwerkingsverantwoordelijke · Geen hoofdelijke aansprakelijkheid</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Exclusieve status als verwerkingsverantwoordelijke</strong>: Wanneer een derde een instantie uitrolt op een eigen Cloudflare-account of server, <strong>treedt deze beheerder op als enige en exclusieve «Verwerkingsverantwoordelijke» (Data Controller)</strong>. De upstream-ontwikkelaars hebben geen toegang tot gegevens en aanvaarden geen hoofdelijke aansprakelijkheid.</p>
-    <p><strong>Regionale nalevingsplichten</strong>: Zelfstandige beheerders moeten zelf veilige omgevingsvariabelen instellen, een lokaal privacybeleid opstellen, verzoeken tot verwijdering of export van gebruikers afhandelen en zelfstandig reageren op wettelijke bevelen van autoriteiten.</p>
-  </div>
-</div>
+### 2.2 Wat wij van u verwachten en anti-misbruikregels
+
+Wij willen een veilige en betrouwbare communicatieomgeving bieden. Door gebruik te maken van onze gehoste dienst stemt u in met de volgende basisregels:
+
+*   **Toepasselijke wetgeving naleven**: De dienst niet gebruiken om exportcontroles, economische sancties of wettelijke rechten van derden te schenden;
+*   **Nultolerantie voor spam**: Het is ten strengste verboden ongevraagde commerciële bulkmail, marketingberichten of intimidatie te verzenden;
+*   **Verbod op phishing en aanvallen**: Geen kwaadaardige software verspreiden, geen identiteitsfraude plegen en geen injectie-aanvallen op onze systemen uitvoeren;
+*   **Geen geautomatiseerde exploitatie**: Geen accounts massaal registreren via scripts of snelheidslimieten omzeilen. Accounts die deze regels overtreden, worden per direct beëindigd.
+
+### 2.3 Open-sourcelicentie, aanpassingen en distributie
+
+De volledige broncode van EpoCanvas Mail is gepubliceerd onder de MIT-licentie. Iedereen heeft het onbeperkte wettelijke recht om de code te inspecteren, te auditen, te forken, aan te passen of onafhankelijke privé-knooppunten te implementeren.
+
+Bij herdistributie of aanpassing moeten drie strikte grenzen in acht worden genomen:
+
+*   **Bescherming van het officiële merk**: Zonder voorafgaande schriftelijke toestemming mag geen enkele externe instantie de aanduiding «EpoCanvas Mail Officieel» of officiële logo's gebruiken in domeinen of promotie;
+*   **Behoud van auteursrechten**: Alle kopieën of substantiële wijzigingen moeten de oorspronkelijke auteursrechtvermelding en de volledige MIT-licentietekst behouden;
+*   **Duidelijkheid over de onafhankelijke beheerder**: Elke partij die e-maildiensten aanbiedt op basis van deze code, moet haar eigen juridische identiteit, voorwaarden en privacybeleid publiceren.
+
+### 2.4 Exclusieve verantwoordelijkheid voor zelf-hostende beheerders
+
+Dit is een fundamentele juridische scheidslijn:
+
+Wanneer een derde partij de broncode implementeert op een eigen Cloudflare-account of eigen server, **wordt die beheerder de enige en exclusieve verwerkingsverantwoordelijke (Data Controller) voor die instantie**.
+
+De oorspronkelijke softwareontwikkelaars hebben geen achterdeurtjes, verzamelen geen telemetrie en hebben geen toegang tot gegevens van externe instanties. Elk gegevenslek of juridisch geschil op een zelf-gehoste server **valt onder de uitsluitende verantwoordelijkheid van de betreffende beheerder; de oorspronkelijke auteurs dragen geen enkele hoofdelijke aansprakelijkheid**.
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 5. Internationale wetgeving en grensoverschrijdende gegevensstromen
+## 3. Controle over uw gegevens: Export, verwijdering en wereldwijde naleving
 
-EpoCanvas Mail is wereldwijd toegankelijk. Om ervoor te zorgen dat gebruikers een duidelijk begrip hebben van hun juridische rechten en gegevenssoevereiniteit zonder belemmering van toegang, hanteren wij een gestandaardiseerd nalevingskader:
+EpoCanvas Mail is wereldwijd toegankelijk. Ongeacht waar u woont, behoudt u het volledige eigendom en de controle over uw gegevens.
 
-### 5.1 Rechten binnen de Europese Economische Ruimte (AVG) en doorgiftegaranties
-
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🇪🇺 Wettelijke rechten onder de AVG en standaardcontractbepalingen</div>
-    <span class="google-pill">AVG Art. 15-22 · Art. 6 · SCC's</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Rechten van betrokkenen (Artikelen 15–22)</strong>: Gebruikers in de EU en de EER hebben te allen tijde het recht op inzage, rectificatie, gegevensoverdraagbaarheid, beperking van de verwerking en definitieve verwijdering van hun account.</p>
-    <p><strong>Grondslagen en internationale doorgifte</strong>: De verwerking is gebaseerd op de noodzaak voor de uitvoering van de overeenkomst (Art. 6(1)(b)) of op uitdrukkelijke toestemming (Art. 6(1)(a)); doorgifte via het wereldwijde netwerk van Cloudflare wordt gewaarborgd door Standaardcontractbepalingen (SCC's) en gegevensverwerkingsbijlagen conform de AVG.</p>
-  </div>
+<div class="google-illustration-container">
+  <img src="/images/mail/data-sovereignty-export.svg" alt="Gegevenssoevereiniteit en exportrechten in EpoCanvas Mail" width="416" height="276" />
 </div>
 
-### 5.2 Amerikaanse wetgeving (CCPA / CPRA) en toezegging van niet-verkoop
+### 3.1 Volledige uitoefening van rechten onder de Europese AVG
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🇺🇸 Privacyverklaring voor Californië (CCPA / CPRA)</div>
-    <span class="google-pill">Geen verkoop of deling · Non-discriminatie</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Garantie tegen verkoop of delen van gegevens</strong>: Wij verklaren uitdrukkelijk dat wij in de afgelopen 12 maanden nooit persoonsgegevens of e-mailinhoud hebben verkocht, verhuurd of gedeeld met databrokers, advertentienetwerken of commerciële entiteiten (Do Not Sell or Share My Personal Information).</p>
-    <p><strong>Inzagerecht en gelijke behandeling</strong>: Inwoners van Californië hebben het recht om te weten welke categorieën gegevens zijn verzameld en om verwijdering te verzoeken; wij zullen gebruikers op geen enkele wijze benadelen in prestaties, capaciteit of snelheid wegens het uitoefenen van hun rechten.</p>
-  </div>
-</div>
+Voor gebruikers in de Europese Economische Ruimte (EER) waarborgen wij de rechten uit artikelen 15 tot en met 22 van de AVG:
 
-### 5.3 Kaders in Azië-Pacific en eigen verantwoordelijkheid voor eindpuntbeveiliging
+*   **Recht op inzage (Artikel 15)**: U kunt te allen tijde uw accountgegevens, inloggeschiedenis en opgeslagen e-mails inzien;
+*   **Gegevensoverdraagbaarheid en export (Artikel 20)**: U kunt een volledige kopie van uw e-mails downloaden in het standaardformaat `.eml` met gestructureerde JSON-metagegevens;
+*   **Recht op gegevenswissing / vergetelheid (Artikel 17)**: Wanneer u uw account verwijdert, beëindigt het systeem actieve sessies en wordt de versleutelingssleutel op fysiek niveau cryptografisch overschreven, waardoor herstel onmogelijk is;
+*   **Standaardcontractbepalingen (SCC's)**: Doorgiften via het wereldwijde edgenetwerk zijn gebaseerd op de modelcontractbepalingen van de Europese Commissie.
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🌏 Regelgeving in Azië-Pacific en beveiliging van het eindpunt</div>
-    <span class="google-pill">Taiwanese PDPA · SMTP-routering · Lokale beveiliging</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Rechtsgebied en internationale routering</strong>: De officiële beheerde instantie wordt geëxploiteerd vanuit Taiwan en voldoet aan de Wet bescherming persoonsgegevens (PDPA). Gebruikers dienen te begrijpen dat internationale e-mails via openbare SMTP-knooppunten worden getransporteerd en onderhevig kunnen zijn aan lokale telecommunicatiewetgeving.</p>
-    <p><strong>Verantwoordelijkheid voor eindpuntbeveiliging</strong>: Gebruikers zijn zelf verantwoordelijk voor de beveiliging van hun apparaten (regelmatige updates, weren van malware, inschakelen van Passkeys/TOTP); misbruik van de dienst voor cyberaanvallen of bulk-spam leidt tot onmiddellijke beëindiging conform het [Beleid voor Toegestaan Gebruik](/nl/mail/acceptable-use/).</p>
-  </div>
-</div>
+### 3.2 Toezeggingen onder de California Consumer Privacy Act (CCPA / CPRA)
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+Voor inwoners van Californië en de Verenigde Staten verklaren wij:
 
-## 6. Respons op beveiligingsincidenten en medewerking aan toezichthouders
+*   **Geen verkoop of deling van persoonsgegevens (Do Not Sell or Share)**: In de afgelopen 12 maanden hebben wij geen persoonsgegevens van gebruikers verkocht of gedeeld met databrokers of adverteerders, en wij zullen dit ook nooit doen;
+*   **Beperking van gevoelige gegevens**: Gegevens worden uitsluitend gebruikt om de e-maildienst te leveren en nooit voor gedragsadvertenties of ongeautoriseerde AI-training;
+*   **Verbod op discriminatie**: Wij zullen de dienstverlening of opslagcapaciteit nooit beperken wanneer u uw privacyrechten uitoefent.
 
-Om direct te kunnen reageren op beveiligingsincidenten en volledige transparantie te bieden, hanteert EpoCanvas Mail een gestandaardiseerde noodprocedure:
+### 3.3 Regio Azië-Pacific en internationale doorgifte
 
-### 6.1 Containment en meldplicht bij datalekken binnen 72 uur
+Het officiële team opereert vanuit Taiwan en voldoet aan de Wet bescherming persoonsgegevens (PDPA). Gebruikers dienen rekening te houden met de aard van het internet:
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">🚨 Noodrespons volgens gestandaardiseerde operationele procedures</div>
-    <span class="google-pill">72-uursmelding · Snelle isolatie · Upstream-patch</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Vierfasenprotocol bij incidenten</strong>:</p>
-    <ul>
-      <li><strong>Directe isolatie en dreigingsblokkade</strong>: Binnen enkele minuten worden kwaadaardige IP-adressen aan de edge geblokkeerd, aangetaste JWT-sessies ingetrokken en hoofdsleutels geroteerd;</li>
-      <li><strong>Digitaal sporenonderzoek en impactanalyse</strong>: Isolatie van auditlogs om de reikwijdte van getroffen accounts en de ernst van het incident vast te stellen;</li>
-      <li><strong>Wettelijke melding binnen 72 uur</strong>: Bij een ernstig incident worden betrokkenen en toezichthoudende autoriteiten binnen 72 uur formeel op de hoogte gesteld;</li>
-      <li><strong>Oplossing in de broncode en openbaar advies</strong>: Snelle integratie van patches in de open-source repository en publicatie van een beveiligingsadvies voor zelfstandige beheerders.</li>
-    </ul>
-  </div>
-</div>
+E-mail is een gedistribueerd protocol op basis van SMTP. Bij communicatie met internationale ontvangers doorkruisen datapakketten wereldwijde netwerkknooppunten die vallen onder de telecomwetgeving van de transitlanden. Het wordt aangeraden lokale apparaten te beveiligen en FIDO2-toegangssleutels te gebruiken.
 
-### 6.2 Officiële communicatiekanalen en medewerking aan toezicht
+### 3.4 Incidentrespons binnen 72 uur en officiële contactkanalen
 
-<div class="google-card">
-  <div class="google-card-header">
-    <div class="google-card-title">📮 Officiële contactpunten voor kwetsbaarheden en toezicht</div>
-    <span class="google-pill">Officieel contact · Melding van kwetsbaarheden</span>
-  </div>
-  <div class="google-card-desc">
-    <p><strong>Medewerking aan audits en scheiding van verantwoordelijkheden</strong>: Het officiële platform <code>mail.epocanvas.com</code> verleent medewerking aan rechtmatige inspecties door bevoegde autoriteiten. Beheerders van zelfstandige nodes dienen zelfstandig verantwoording af te leggen aan hun lokale toezichthouders. Beveiligingsonderzoekers die een kwetsbaarheid ontdekken, kunnen contact opnemen via:</p>
-    <ul>
-      <li><strong>Centrum voor Beveiligingsincidenten</strong>: <code>announcement@epocanvas.com</code></li>
-      <li><strong>Kantoor voor Gegevensbescherming en Naleving</strong>: <code>privacy@epocanvas.com</code></li>
-    </ul>
-  </div>
-</div>
+Wij hanteren een gestandaardiseerde werkwijze (SOP) voor incidentrespons:
+
+*   **Snelle beheersing**: Bij dreigingen blokkeert de gateway verdachte IP-adressen en trekt sessietokens binnen enkele minuten in;
+*   **Wettelijke melding binnen 72 uur**: Als een geverifieerd incident persoonsgegevens raakt, stellen wij getroffenen binnen 72 uur per e-mail en via de website op de hoogte, en melden wij dit bij de toezichthouder;
+*   **Open-source patches**: Oplossingen worden gepubliceerd in de openbare repository, vergezeld van beveiligingsadviezen (Security Advisories).
+
+Voor beveiligingsmeldingen, kwetsbaarheden of privacyvragen kunt u contact opnemen via onze officiële kanalen:
+
+*   **Veiligheidsresponscentrum**: `announcement@epocanvas.com`
+*   **Privacy- en gegevensbeschermingsbureau**: `privacy@epocanvas.com`
