@@ -3,9 +3,7 @@ title: Privacy Policy
 description: The EpoCanvas Mail Privacy Policy — how personal data is collected, processed, and transferred; the nature of processing; your rights; and the security-maintenance standards the operator follows.
 ---
 
-# Privacy Policy
-
-**Effective Date: October 2, 2026 | Version: 5.7**
+**Effective Date: October 3, 2026 | Version: 5.8**
 
 This policy explains how the EpoCanvas Mail service (the "Service") collects, processes, and transfers your personal data, and the standards the operator follows to protect it. Please read this policy before registering for or using the Service; if you disagree with any part of it, please do not use the Service.
 
@@ -22,6 +20,8 @@ This policy applies to personal data arising from any use of the Service, includ
 1. visiting the Service's website (`mail.epocanvas.com` or a self-hosted instance's domain);
 2. using the mobile app (epomail);
 3. connecting to the Service through its open API.
+
+Mailbox addresses issued by the hosted instance belong to the `epomail.bond` and `epomail.cyou` domains; official system mail (welcome mail, global announcements) is sent from `announcement@epocanvas.com`.
 
 This policy does not apply to third-party websites and services linked or embedded in the Service; those third parties have their own privacy policies and are responsible for them.
 
@@ -66,7 +66,8 @@ The e-mail you send and receive (sender and recipients, subject, body, timestamp
 ### 4.3 Technical data recorded automatically
 
 - **Login and security logs**: the IP address, browser User-Agent, and the operating system, browser, and device type parsed from it at registration and login, used for security auditing and unusual-login detection.
-- **Session tokens**: after login a JWT (valid 30 days) is stored in your browser's localStorage. The Service uses no cookies and performs no cross-site tracking.
+- **Session tokens**: after login a JWT (valid 30 days) is stored in your browser's localStorage to maintain your signed-in state and interface preferences. The Service does not use cookies to identify you or track behaviour, and performs no cross-site tracking.
+- **Cookies and human verification**: Turnstile verification is provided by Cloudflare; technical storage strictly necessary to complete the challenge may appear in your browser during verification. The Service does not read it and does not use it for identification or advertising. The Service embeds no advertising, analytics, or social-platform scripts.
 - **Edge network logs**: Cloudflare processes request metadata under its own policies.
 
 ### 4.4 What the Service does not collect
@@ -111,6 +112,8 @@ The Service shares personal data with third parties on a minimal-necessary basis
 3. **Triggered by you**: AI translation and image text recognition services (see Section 6);
 4. **Legal requirements**: provided only when a competent authority requires it through due legal process, and notified to you to the extent the law allows.
 
+Principles for handling law-enforcement and judicial requests: the operator discloses data only where a request rests on a specific legal basis, verifies the legality and scope of the request, does not voluntarily provide content beyond what the request covers, and notifies affected users in advance where the law allows (unless notice is prohibited by law); the Service does not submit to arbitrary access without a legal basis.
+
 The Service is built on Cloudflare's global edge network, so your personal data may be processed at nodes outside your operator's country. The operator follows applicable law's requirements for international transfers and the restrictions lawfully imposed by the competent authority, and relies on Cloudflare's data-protection measures (SOC 2 Type II and ISO/IEC 27001 certification, and the EU Standard Contractual Clauses mechanism) to safeguard transfers. Self-hosted operators must assess and ensure on their own that their international transfers meet their location's legal requirements.
 
 ## 8. Retention and Deletion
@@ -122,7 +125,7 @@ The Service is built on Cloudflare's global edge network, so your personal data 
 | Trash mail | hard-deleted by a scheduled task 7 days after receipt (attachments and indexes included) |
 | Official system mail (welcome mail, global announcements) | by default auto-deleted 7 days after delivery; the operator may configure the number of days |
 | Mailbox usage over 90% | mail you have marked deleted is hard-deleted immediately to free space |
-| Account deactivation | sessions end immediately; mail enters a soft-deleted state until an administrator performs the hard deletion |
+| Account deactivation | sessions end immediately; mail enters a soft-deleted state and, unless retention is required by law, an administrator performs the hard deletion within 90 days |
 | Hard deletion | account data, mailbox, mail, attachments, OAuth authorisations, and sessions are removed together, irreversibly |
 | Enforcement | after an account is banned for violations, the operator may forcibly empty its mail and attachments to free space (see the [Acceptable Use Policy](/en/mail/acceptable-use/) enforcement ladder) |
 | Instance shutdown | the operator should give advance notice and a data-export window; after shutdown data is destroyed with the Cloudflare resources |

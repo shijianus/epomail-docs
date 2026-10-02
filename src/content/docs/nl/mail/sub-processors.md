@@ -3,9 +3,7 @@ title: Lijst van verwerkers
 description: Volledige lijst van de verwerkers, ontvangers van gegevens, betrokken gegevenscategorieën, triggercondities en mechanismen voor internationale doorgifte van EpoCanvas Mail.
 ---
 
-# Lijst van verwerkers
-
-**Datum van inwerkingtreding: 2 oktober 2026 | Versie: 5.7**
+**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.8**
 
 Deze lijst sluit aan bij paragraaf 7 van het [Privacybeleid](/nl/mail/privacy-policy/) en vermeldt volledig de derden die bij de persoonsgegevens van de Dienst betrokken zijn, de voorwaarden voor delen en de waarborgmechanismen. Het delen door de Dienst volgt het beginsel van minimale noodzakelijkheid: gegevens die de instantie niet hoeven te verlaten, verlaten die niet; gegevens die moeten worden verlaten, worden uitdrukkelijk vermeld met de ontvanger en de meegegeven gegevens. Met geen van de hierna genoemde partijen bestaat enige relatie van verkoop van gegevens of van het delen van advertentie-inkomsten.
 
@@ -21,7 +19,7 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 
 | Verwerker | Functie | Betrokken gegevens | Doorgiftegebieden en waarborgen |
 | --- | --- | --- | --- |
-| Cloudflare, Inc. (Verenigde Staten) | edge computing (Workers), gestructureerde opslag (D1), sessies en cache (KV), objectopslag (R2), e-mailroutering (Email Routing), mensverificatie (Turnstile), edge-AI (Workers AI), edge-logs | requestmetadata, alle opgeslagen inhoud, verificatieverzoeken | wereldwijd edge-netwerk; certificeringen SOC 2 Type II en ISO/IEC 27001; het mechanisme van de Europese standaardcontractbepalingen (SCC) is beschikbaar; de doorgifte is tijdens de gehele overdracht versleuteld met TLS |
+| Cloudflare, Inc. (Verenigde Staten) | edge computing (Workers), gestructureerde opslag (D1), sessies en cache (KV), objectopslag (R2, optioneel; wanneer niet ingeschakeld, worden bijlagen in KV opgeslagen), e-mailroutering (Email Routing), mensverificatie (Turnstile), edge-AI (Workers AI), edge-logs | requestmetadata, alle opgeslagen inhoud, verificatieverzoeken | wereldwijd edge-netwerk; certificeringen SOC 2 Type II en ISO/IEC 27001; het mechanisme van de Europese standaardcontractbepalingen (SCC) is beschikbaar; de doorgifte is tijdens de gehele overdracht versleuteld met TLS |
 | Resend, Inc. / Mailjet (Sinch) (Verenigde Staten / Frankrijk) | aflevering van e-mail naar buiten de site (MTA) | de volledige uitgaande e-mail (ontvanger, onderwerp, berichttekst, bijlagen) | alleen geactiveerd bij verzending van e-mail waarvan de ontvangers buiten de site zijn en wanneer de Exploitant een afleverkanaal heeft geconfigureerd; de afleverreferenties worden bewaard als geïsoleerde API-tokens en komen niet in diagnostische logs |
 
 ## 2. Verwerkers geautoriseerd door de betrokkene

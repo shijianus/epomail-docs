@@ -3,9 +3,7 @@ title: Servicevoorwaarden
 description: Servicevoorwaarden van EpoCanvas Mail — aanvaarding en lezing van de voorwaarden, accountregels, inhoud van gebruikers, beperking van aansprakelijkheid, toepasselijk recht en bevoegde rechter.
 ---
 
-# Servicevoorwaarden
-
-**Datum van inwerkingtreding: 2 oktober 2026 | Versie: 5.7**
+**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.8**
 
 Deze voorwaarden vormen de overeenkomst tussen u en de Exploitant van de instantie die u gebruikt, met betrekking tot het gebruik van de dienst EpoCanvas Mail (hierna «de Dienst»). Door de registratie te voltooien, u aan te melden of de Dienst anderszins te gebruiken, verklaart u dat u de volledige inhoud van deze voorwaarden heeft gelezen en aanvaard; indien u niet instemt, registreer de Dienst dan niet of gebruik deze niet.
 
@@ -32,7 +30,7 @@ De Dienst is gebouwd op een open source-project onder de MIT-licentie en blijft 
 ## 3. Aanvraag en beveiliging van het account
 
 1. **Registratiegegevens**: registratie vereist een geldig ontvangend e-mailadres en een wachtwoord. U kunt zich niet onder een valse identiteit registreren en geen domein gebruiken waarover u geen beschikkingsrecht heeft.
-2. **Geschiktheid**: u bevestigt dat u 14 jaar of ouder bent; personen jonger dan 14 mogen de Dienst niet gebruiken. U zorgt er tevens voor dat uw registratie en gebruik binnen het recht van uw woonplaats blijven.
+2. **Geschiktheid**: u bevestigt dat u 14 jaar of ouder bent; personen jonger dan 14 mogen de Dienst niet gebruiken. De leeftijd is gebaseerd op uw eerlijke verklaring bij registratie; de Dienst heeft geen afzonderlijk leeftijdsverificatiemechanisme, en bij een onjuiste verklaring kan de Exploitant het account beëindigen en de gegevens verwijderen. U zorgt er tevens voor dat uw registratie en gebruik binnen het recht van uw woonplaats blijven.
 3. **Bewaring van referenties**: u draagt de verantwoordelijkheid voor het bewaren van uw wachtwoord, uw tweestapsverificatiereferenties en uw API-tokens. Handelingen die met uw referenties worden verricht, worden vermoed uw eigen handelingen te zijn.
 4. **Tweestapsverificatie**: TOTP of passkeys wordt aanbevolen. Voor instanties met de e-mailmodus «versleuteld» kan de Exploitant activering verplicht stellen op grond van het beveiligingsbeleid.
 5. **Bescherming bij aanmelding**: vijf opeenvolgende foutieve wachtwoordinvoer blokkeert de aanmelding voor twaalf uur; per account bestaan maximaal tien actieve sessies, en u kunt op elk apparaat uitloggen om tokens onmiddellijk in te trekken.
@@ -64,7 +62,7 @@ Uw gebruik van de Dienst is gebonden aan alle bepalingen van het [Beleid voor ac
 
 ## 8. Bewaring, verwijdering en beëindiging van het account
 
-1. **Beëindiging door u**: u kunt uw account op elk moment zelf opzeggen via de instellingen, of de Exploitant verzoeken het te verwijderen. Na opzegging vervallen sessies onmiddellijk; de e-mail komt in een zacht-verwijderde staat totdat een beheerder de fysieke verwijdering uitvoert.
+1. **Beëindiging door u**: u kunt uw account op elk moment zelf opzeggen via de instellingen, of de Exploitant verzoeken het te verwijderen. Na opzegging vervallen sessies onmiddellijk; de e-mail komt in een zacht-verwijderde staat en, tenzij de wet bewaring vereist, voert een beheerder de fysieke verwijdering binnen 90 dagen uit.
 2. **Routinematige opschoning door het systeem**: spam staat zeven dagen in quarantaine en gaat daarna naar de prullenbak; e-mail in de prullenbak wordt door het systeem zeven dagen na ontvangst fysiek verwijderd (inclusief bijlagen). Verwijdering is onomkeerbaar; haal eerst via «Gegevensexport» een JSON-kopie op.
 3. **Beëindiging door de Exploitant**: bij overtreding van het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/) kan de Exploitant uw gebruik overeenkomstig dat beleid opschorten of beëindigen.
 4. **Wettelijke bewaring**: voor bewaring die op grond van wetgeving of een gerechtelijke procedure noodzakelijk is, kan de Exploitant verwijdering binnen het noodzakelijke bestek uitstellen en volgens wettelijke procedure afhandelen.

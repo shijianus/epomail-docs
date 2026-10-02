@@ -3,9 +3,7 @@ title: Conditions d'utilisation
 description: Conditions d'utilisation d'EpoCanvas Mail — acceptation et examen des conditions, règles de compte, contenu des utilisateurs, limitations de responsabilité, droit applicable et juridiction.
 ---
 
-# Conditions d'utilisation
-
-**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
+**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.8**
 
 Les présentes conditions constituent l'accord conclu entre vous et l'Opérateur de l'instance que vous utilisez, au sujet de l'utilisation du service EpoCanvas Mail (le « Service »). En achevant votre inscription, en vous connectant ou en utilisant le Service par tout autre moyen, vous déclarez avoir lu et accepter l'intégralité des présentes conditions ; si vous n'y consentez pas, n'effectuez pas d'inscription et n'utilisez pas le Service.
 
@@ -32,7 +30,7 @@ Le Service repose sur un projet open source sous licence MIT et s'inscrit dans l
 ## 3. Demande de compte et sécurité
 
 1. **Informations d'inscription** : l'inscription requiert une adresse électronique de réception valide et un mot de passe. Vous ne devez pas usurper l'identité d'autrui ni utiliser un domaine dont vous n'avez pas le droit de vous prévaloir.
-2. **Conditions d'admission** : vous confirmez être âgé d'au moins 14 ans ; les personnes de moins de 14 ans ne peuvent pas utiliser le Service. Vous devez en outre veiller à ce que votre inscription et votre usage demeurent dans les limites permises par le droit du lieu où vous vous trouvez.
+2. **Conditions d'admission** : vous confirmez être âgé d'au moins 14 ans ; les personnes de moins de 14 ans ne peuvent pas utiliser le Service. L'âge repose sur la déclaration sincère faite lors de l'inscription ; le Service ne dispose d'aucun mécanisme distinct de vérification de l'âge, et en cas de fausse déclaration l'Opérateur peut clôturer le compte et supprimer ses données. Vous devez en outre veiller à ce que votre inscription et votre usage demeurent dans les limites permises par le droit du lieu où vous vous trouvez.
 3. **Garde des identifiants** : vous êtes responsable de la garde de votre mot de passe, de vos identifiants de vérification en deux étapes et de vos jetons API. Les opérations effectuées au moyen de vos identifiants sont présumées être les vôtres.
 4. **Vérification en deux étapes** : l'activation de TOTP ou des clés d'accès est recommandée. Les instances adoptant le mode de messagerie « chiffré » peuvent en imposer l'activation au titre de leur politique de sécurité.
 5. **Protection des connexions** : 5 échecs de mot de passe consécutifs entraînent un verrouillage de la connexion pendant 12 heures ; un compte conserve au plus 10 sessions actives, et vous pouvez vous déconnecter depuis n'importe quel appareil pour révoquer les jetons immédiatement.
@@ -64,7 +62,7 @@ L'utilisation du Service est soumise à l'intégralité des stipulations de la [
 
 ## 8. Conservation, suppression des données et clôture du compte
 
-1. **Clôture par vous** : vous pouvez à tout moment clôturer votre compte en libre-service depuis les paramètres, ou demander sa suppression à l'Opérateur. Après la clôture, les sessions deviennent immédiatement invalides ; les courriels passent en état de suppression logique jusqu'à la suppression physique par un administrateur.
+1. **Clôture par vous** : vous pouvez à tout moment clôturer votre compte en libre-service depuis les paramètres, ou demander sa suppression à l'Opérateur. Après la clôture, les sessions deviennent immédiatement invalides ; les courriels passent en état de suppression logique et, sauf conservation exigée par la loi, un administrateur effectue la suppression physique dans les 90 jours.
 2. **Nettoyage de routine du système** : les pourriels passent en corbeille après 7 jours de quarantaine ; les courriels de la corbeille sont physiquement supprimés par le système 7 jours après réception (pièces jointes comprises). La suppression est irréversible ; obtenez d'abord une copie JSON via « Export des données ».
 3. **Clôture par l'Opérateur** : en cas de violation de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/), l'Opérateur peut suspendre ou résilier votre droit d'usage selon cette politique.
 4. **Conservation légale** : lorsque la conservation est exigée par la loi ou nécessaire à une procédure judiciaire, l'Opérateur peut différer la suppression dans la mesure nécessaire et procéder selon la procédure légale.

@@ -3,9 +3,7 @@ title: Politique de confidentialité
 description: Politique de confidentialité d'EpoCanvas Mail — les standards et engagements en matière de collecte et d'utilisation des données, nature du traitement, droits de la personne concernée, transferts internationaux et mesures de maintien de la sécurité.
 ---
 
-# Politique de confidentialité
-
-**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
+**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.8**
 
 La présente politique explique comment le service EpoCanvas Mail (le « Service ») collecte, traite, utilise et transmet vos données personnelles, ainsi que les standards et engagements que l'Opérateur suit en matière de protection des données. Vous devez lire la présente politique avant de vous inscrire ou d'utiliser le Service ; si vous n'en acceptez pas l'une quelconque des dispositions, n'utilisez pas le Service.
 
@@ -22,6 +20,8 @@ La présente politique s'applique aux données personnelles produites par toute 
 1. la consultation du site du Service (`mail.epocanvas.com` ou le domaine d'une instance auto-hébergée) ;
 2. l'utilisation de l'application mobile (epomail) ;
 3. l'accès au Service par son API ouverte.
+
+Les adresses électroniques attribuées par l'instance hébergée appartiennent aux domaines `epomail.bond` et `epomail.cyou` ; les courriels officiels du système (courriels de bienvenue, annonces globales) sont envoyés depuis `announcement@epocanvas.com`.
 
 La présente politique ne s'applique pas aux sites et services tiers que le Service relie ou intègre ; ces tiers ont chacun leur propre politique de confidentialité, dont ils assument seuls la responsabilité.
 
@@ -66,7 +66,8 @@ Les courriels que vous envoyez et recevez (avec leurs métadonnées : expéditeu
 ### 4.3 Données techniques enregistrées automatiquement
 
 - **Journaux de connexion et de sécurité** : adresse IP, User-Agent du navigateur, ainsi que le système d'exploitation, le navigateur et le type d'appareil qui en sont déduits, enregistrés lors de l'inscription et de la connexion, aux fins d'audit de sécurité et d'identification des connexions anormales.
-- **Jetons de session** : le JWT émis après connexion (valable 30 jours) est stocké dans le localStorage de votre navigateur. Le Service n'utilise pas de cookie et ne pratique aucun suivi intersites.
+- **Jetons de session** : le JWT émis après connexion (valable 30 jours) est stocké dans le localStorage de votre navigateur afin de maintenir votre état de connexion et vos préférences d'interface. Le Service n'utilise pas de cookie pour vous identifier ni pour suivre votre comportement, et ne pratique aucun suivi intersites.
+- **Cookies et vérification humaine** : la vérification Turnstile est fournie par Cloudflare ; un stockage technique strictement nécessaire à la réalisation du défi peut apparaître dans votre navigateur pendant la vérification. Le Service ne le lit pas et ne l'utilise ni à des fins d'identification ni à des fins publicitaires. Le Service n'intègre aucun script publicitaire, statistique ou de plateforme sociale.
 - **Journaux du réseau de périphérie** : Cloudflare traite les métadonnées des requêtes selon sa propre politique.
 
 ### 4.4 Données que le Service ne collecte pas
@@ -111,6 +112,8 @@ Le Service partage des données personnelles avec des tiers selon le principe de
 3. **À votre initiative** : services d'IA de traduction et de reconnaissance de texte dans les images (voir la section 6) ;
 4. **Exigence légale** : communication uniquement sur demande d'une autorité habilitée présentée selon les procédures légales, avec information de votre part dans la mesure permise par la loi.
 
+Principes de traitement des demandes des autorités répressives et judiciaires : l'Opérateur ne communique des données que si la demande repose sur une base légale précise, vérifie la licéité et le périmètre de la demande, ne fournit pas de son propre chef de contenu allant au-delà de ce que la demande couvre et informe au préalable les personnes concernées dans la mesure permise par la loi (sauf interdiction légale) ; le Service ne se soumet à aucun accès arbitraire dépourvu de base légale.
+
 Le Service est construit sur le réseau mondial de périphérie de Cloudflare ; vos données personnelles peuvent être traitées sur des nœuds situés hors du pays où réside l'Opérateur. L'Opérateur se conforme aux exigences du droit applicable en matière de transferts internationaux et aux restrictions prononcées par l'autorité compétente conformément à la loi, et s'appuie sur les mesures de protection des données de Cloudflare (certifications SOC 2 Type II et ISO/IEC 27001, mécanisme des clauses contractuelles types de l'Union européenne) pour garantir la sécurité des transferts. Les Opérateurs auto-hébergés apprécient eux-mêmes et garantissent que leurs transferts internationaux satisfont aux exigences légales de leur lieu.
 
 ## 8. Durées de conservation et destruction
@@ -122,7 +125,7 @@ Le Service est construit sur le réseau mondial de périphérie de Cloudflare ; 
 | Courriels de la corbeille | Supprimés physiquement par la tâche de routine du système 7 jours après réception (pièces jointes et index compris) |
 | Courriels officiels du système (courriels de bienvenue, annonces globales) | expiration et suppression automatiques 7 jours après l'envoi par défaut ; l'Opérateur peut configurer le délai |
 | Boîte remplie à plus de 90 % | Le système supprime physiquement les courriels déjà marqués comme supprimés afin de libérer l'espace |
-| Clôture du compte | Les sessions deviennent immédiatement invalides ; les courriels passent en état de suppression logique jusqu'à la suppression physique par un administrateur |
+| Clôture du compte | Les sessions deviennent immédiatement invalides ; les courriels passent en état de suppression logique et, sauf conservation exigée par la loi, un administrateur effectue la suppression physique dans les 90 jours |
 | Suppression physique | Données de compte, boîtes, courriels, pièces jointes, autorisations OAuth et sessions supprimées ensemble, sans possibilité de restauration |
 | Traitement des violations | après le bannissement d'un compte pour violation, l'Opérateur peut purger de force ses courriels et pièces jointes pour libérer de l'espace (voir l'échelle d'application de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/)) |
 | Arrêt de l'instance | L'Opérateur doit en aviser à l'avance et offrir une période d'export des données ; après l'arrêt, les données disparaissent avec les ressources Cloudflare |

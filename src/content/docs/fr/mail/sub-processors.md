@@ -3,9 +3,7 @@ title: Liste des sous-traitants
 description: Liste complète des sous-traitants d'EpoCanvas Mail, des destinataires du partage, des données concernées, des conditions de déclenchement et des mécanismes de transfert international.
 ---
 
-# Liste des sous-traitants
-
-**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
+**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.8**
 
 À la suite de la section 7 de la [Politique de confidentialité](/fr/mail/privacy-policy/), la présente liste expose intégralement les tiers impliqués dans les données personnelles du Service, les conditions de partage et les mécanismes de garantie. Le principe de partage du Service est la nécessité minimale : les données qui peuvent rester dans l'instance n'en sortent pas ; celles qui doivent en sortir voient clairement indiqués leur destinataire et les données qu'elles emportent. Le Service n'entretient avec aucune des parties ci-après de relation de vente de données ni de partage de revenus publicitaires.
 
@@ -21,7 +19,7 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 
 | Sous-traitant | Fonction | Données concernées | Régions de transfert et garanties |
 | --- | --- | --- | --- |
-| Cloudflare, Inc. (États-Unis) | calcul en périphérie (Workers), stockage structuré (D1), sessions et cache (KV), stockage d'objets (R2), routage du courrier (Email Routing), vérification humaine (Turnstile), IA en périphérie (Workers AI), journaux en périphérie | métadonnées des requêtes, contenu stocké intégral, requêtes de vérification | réseau de périphérie mondial ; certifications SOC 2 Type II et ISO/IEC 27001 ; mécanisme des clauses contractuelles types de l'Union européenne (SCC) disponible ; transferts chiffrés en TLS sur toute leur durée |
+| Cloudflare, Inc. (États-Unis) | calcul en périphérie (Workers), stockage structuré (D1), sessions et cache (KV), stockage d'objets (R2, optionnel ; lorsqu'il n'est pas activé, les pièces jointes sont stockées en KV), routage du courrier (Email Routing), vérification humaine (Turnstile), IA en périphérie (Workers AI), journaux en périphérie | métadonnées des requêtes, contenu stocké intégral, requêtes de vérification | réseau de périphérie mondial ; certifications SOC 2 Type II et ISO/IEC 27001 ; mécanisme des clauses contractuelles types de l'Union européenne (SCC) disponible ; transferts chiffrés en TLS sur toute leur durée |
 | Resend, Inc. / Mailjet (Sinch) (États-Unis / France) | acheminement des envois sortants hors du site (MTA) | courriel sortant complet (destinataire, objet, corps, pièces jointes) | déclenché uniquement lorsqu'un courriel est envoyé à un destinataire hors du site et que l'Opérateur a configuré un canal d'acheminement ; les identifiants d'acheminement sont conservés sous forme de jetons API isolés et ne tombent pas dans les journaux de diagnostic |
 
 ## 2. Destinataires autorisés par la personne concernée

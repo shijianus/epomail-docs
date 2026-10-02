@@ -3,9 +3,7 @@ title: Terms of Service
 description: The EpoCanvas Mail Terms of Service — acceptance and review, account rules, your content, limitation of liability, governing law, and jurisdiction.
 ---
 
-# Terms of Service
-
-**Effective Date: October 2, 2026 | Version: 5.7**
+**Effective Date: October 3, 2026 | Version: 5.8**
 
 These terms are the agreement between you and the operator of the instance you use concerning the use of the EpoCanvas Mail service (the "Service"). By completing registration, logging in, or otherwise using the Service, you confirm that you have read and agree to all of these terms; if you disagree, do not register or use the Service.
 
@@ -33,7 +31,7 @@ The Service is built on an MIT-licensed open-source project and remains open sou
 ## 3. Accounts and Security
 
 1. **Registration information**: registration requires a valid mailbox address and password. You must not impersonate another person or use a domain you have no right to use.
-2. **Eligibility**: you confirm you are at least 14 years old; children under 14 may not use the Service. You must also ensure your registration and use comply with the law of your location.
+2. **Eligibility**: you confirm you are at least 14 years old; children under 14 may not use the Service. Age is taken on your honest declaration at registration; the Service has no separate age-verification mechanism, and where a declaration proves false the operator may terminate the account and delete its data. You must also ensure your registration and use comply with the law of your location.
 3. **Credential custody**: you are responsible for safeguarding your password, two-step verification credentials, and API tokens. Operations performed with your credentials are presumed to be yours.
 4. **Two-step verification**: enabling TOTP or a passkey is recommended. On instances using the "Encrypted" mail mode, the operator may require it under its security policy.
 5. **Login protection**: 5 consecutive wrong passwords lock login for 12 hours; an account keeps at most 10 active sessions, and you can sign out on any device to revoke a token immediately.
@@ -65,7 +63,7 @@ Your use of the Service must comply with the [Acceptable Use Policy](/en/mail/ac
 
 ## 8. Retention, Removal, and Account Termination
 
-1. **You terminate**: you can deactivate your account yourself in Settings at any time, or ask the operator to delete it. After deactivation, sessions end immediately and mail enters a soft-deleted state until an administrator performs the hard deletion.
+1. **You terminate**: you can deactivate your account yourself in Settings at any time, or ask the operator to delete it. After deactivation, sessions end immediately and mail enters a soft-deleted state; unless retention is required by law, an administrator performs the hard deletion within 90 days.
 2. **Routine cleanup**: spam is quarantined 7 days and then moved to trash; trash mail is hard-deleted (attachments included) 7 days after receipt. Deletion is irreversible; first obtain a JSON copy through "Data Export".
 3. **Operator termination**: if you violate the [Acceptable Use Policy](/en/mail/acceptable-use/), the operator may suspend or terminate your use under that policy.
 4. **Statutory retention**: where retention is required by law or judicial process, the operator may postpone deletion within the necessary scope and process according to due legal procedure.

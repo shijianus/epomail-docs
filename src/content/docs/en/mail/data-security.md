@@ -3,8 +3,7 @@ title: Data Processing & Security Maintenance
 description: EpoCanvas Mail data security and personal-data protection — security measures, dual-track operating boundaries, exercise of your rights, and security-incident response.
 ---
 
-
-**Effective Date: October 2, 2026 | Version: 5.7**
+**Effective Date: October 3, 2026 | Version: 5.8**
 
 This document describes the measures with which the official hosted instance (mail.epocanvas.com) protects data, the boundaries of responsibility between the hosted service and the open-source project, and how you can query, export, and delete your own data. It is established under the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/); the technical facts stated here follow the actual implementation in the open-source code.
 
@@ -67,7 +66,8 @@ The data categories, collected fields, purposes, storage media, and retention pe
 | --- | --- | --- | --- | --- |
 | Account credentials | e-mail address, username, password hash and salt, TOTP secret (encrypted), backup-code hashes, passkey public keys | registration, login, two-step verification | Cloudflare D1; PBKDF2 (100,000 iterations), TOTP encrypted at rest | while the account exists; sessions revoked on deactivation, unrecoverable after hard deletion |
 | Communication data | sender and recipients, CC/BCC, subject, timestamps, read status, labels, mail body | sending, receiving, threading, keyword search | Cloudflare D1 (metadata); subject and body encrypted per mail mode | under your control; trash kept 7 days, then hard-deleted |
-| Network and device data | registration IP, latest login IP, operating system, browser and device type, country/region code from the edge request | security auditing, unusual-login detection | Cloudflare D1; visible only to administrator audits, never used for commercial profiling | until the account is hard-deleted |
+| Network and device data | registration IP, latest login IP, operating system, browser and device type | security auditing, unusual-login detection | Cloudflare D1; visible only to administrator audits, never used for commercial profiling | until the account is hard-deleted |
+| Edge environment data | the edge country/region code of the request (`cf-ipcountry`) | interface pre-selection (such as the default phone country code) | not persisted; returned only with the response to the browser | not stored; destroyed when the response ends |
 | Sessions and authorization | JWT session tokens, role permissions | edge API authentication | Cloudflare KV allow-list; at most 10 active sessions per account | valid 30 days; removed immediately on logout |
 | Attachment assets | original file name, MIME type, file size, binary content | attachment transfer, preview, download | instance object storage (resolved in order: your own S3-compatible storage, R2 binding, KV by default); defensive headers on download | removed together with the owning mail |
 
@@ -124,7 +124,7 @@ You have the rights of access, copying, correction, stopping processing, and del
 ### 3.2 Deletion
 
 - **Deleting mail**: deleted mail first goes to the trash and is hard-deleted (with attachments and indexes) by a scheduled task 7 days later; deletion is irreversible. When mailbox usage exceeds 90% of quota, deletions you perform are hard-deleted immediately to free space;
-- **Account deactivation**: you can deactivate your account yourself in Settings. Sessions are revoked immediately and mail and data enter a soft-deleted state until an administrator performs the hard deletion; after hard deletion, account data, mail, attachments, and authorizations are removed from the database and object storage and cannot be recovered;
+- **Account deactivation**: you can deactivate your account yourself in Settings. Sessions are revoked immediately and mail and data enter a soft-deleted state; unless retention is required by law, an administrator performs the hard deletion within 90 days of deactivation. After hard deletion, account data, mail, attachments, and authorizations are removed from the database and object storage and cannot be recovered;
 - **Corresponding statutory rights**: the rights of access, copying, and deletion that users in the European Economic Area have under the GDPR, and the rights of notice, deletion, and non-discrimination that California residents have under the CCPA/CPRA, are implemented through the self-service features and the manual request channel above; users elsewhere exercise equivalent rights under the law applicable at their location.
 
 ### 3.3 No Selling, No Tracking
@@ -138,7 +138,7 @@ You have the rights of access, copying, correction, stopping processing, and del
 If personal data is stolen, leaked, altered, or lost, the operator will proceed as follows:
 
 1. **Immediate containment**: force relevant sessions offline and quarantine affected content, pausing parts of the service where necessary to stop the damage from spreading;
-2. **Statutory notification**: notify the competent authority within the period required by applicable law, and inform affected users through an on-site announcement or system mail;
+2. **Statutory notification**: notify the competent authority within 72 hours of becoming aware of the incident (where applicable law sets a different period, that period applies and notice is given without delay), and inform affected users through an on-site announcement or system mail;
 3. **Published remediation**: after the cause is identified, publish fixes and a security advisory in the open-source repository so self-hosted operators can patch in step.
 
 To report a security issue or vulnerability, use:

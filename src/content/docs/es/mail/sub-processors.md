@@ -3,9 +3,7 @@ title: Subencargados del Tratamiento
 description: Lista completa de los encargados del tratamiento de EpoCanvas Mail por cuenta de tercero, destinatarios de la comunicación de datos, datos implicados, condiciones de activación y mecanismos de transferencia internacional.
 ---
 
-# Lista de Subencargados del Tratamiento
-
-**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
+**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.8**
 
 En seguimiento de la sección 7 de la [Política de Privacidad](/es/mail/privacy-policy/), esta lista expone en su integridad los terceros implicados en los datos personales del Servicio, las condiciones de la comunicación de datos y las garantías. El principio de comunicación de datos del Servicio es la mínima necesidad: los datos que no necesitan salir de la instancia no salen; los que deben salir están claramente señalados con el destinatario y los datos transportados. El Servicio no mantiene con ninguna de las partes siguientes relación de venta de datos ni de reparto de ingresos publicitarios.
 
@@ -21,7 +19,7 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 
 | Encargado | Función | Datos implicados | Regiones de transferencia y garantías |
 | --- | --- | --- | --- |
-| Cloudflare, Inc. (Estados Unidos) | Computación perimetral (Workers), almacenamiento estructurado (D1), sesiones y caché (KV), almacenamiento de objetos (R2), enrutamiento de correo (Email Routing), verificación humana (Turnstile), IA perimetral (Workers AI) y registros perimetrales | Metadatos de las solicitudes, todo el contenido almacenado, solicitudes de verificación | Red perimetral global; certificaciones SOC 2 Type II e ISO/IEC 27001; está disponible el mecanismo de las Cláusulas Contractuales Tipo de la UE (SCC); transferencias cifradas con TLS de extremo a extremo |
+| Cloudflare, Inc. (Estados Unidos) | Computación perimetral (Workers), almacenamiento estructurado (D1), sesiones y caché (KV), almacenamiento de objetos (R2, opcional; cuando no está activado, los adjuntos se almacenan en KV), enrutamiento de correo (Email Routing), verificación humana (Turnstile), IA perimetral (Workers AI) y registros perimetrales | Metadatos de las solicitudes, todo el contenido almacenado, solicitudes de verificación | Red perimetral global; certificaciones SOC 2 Type II e ISO/IEC 27001; está disponible el mecanismo de las Cláusulas Contractuales Tipo de la UE (SCC); transferencias cifradas con TLS de extremo a extremo |
 | Resend, Inc. / Mailjet (Sinch) (Estados Unidos / Francia) | Entrega de correo fuera del sitio (MTA) | Correo saliente completo (destinatario, asunto, cuerpo, adjuntos) | Se activa únicamente cuando se envía correo cuyos destinatarios están fuera del sitio y el Operador ha configurado un canal de entrega; las credenciales de entrega se guardan como tokens de API aislados y nunca entran en los registros de diagnóstico |
 
 ## 2. Encargados autorizados por el interesado

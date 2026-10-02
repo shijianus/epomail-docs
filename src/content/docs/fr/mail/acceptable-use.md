@@ -3,9 +3,7 @@ title: Politique d'utilisation acceptable
 description: Politique d'utilisation acceptable d'EpoCanvas Mail — liste des comportements interdits, mesures de l'Opérateur et procédure de recours.
 ---
 
-# Politique d'utilisation acceptable
-
-**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
+**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.8**
 
 La présente politique concrétise la section 7 (« Utilisation acceptable ») des [Conditions d'utilisation](/fr/mail/terms-of-service/) et fixe les limites de conduite lors de l'utilisation du service EpoCanvas Mail (le « Service »). En cas de violation de la présente politique, l'Opérateur prend les mesures prévues à la section « Mesures d'exécution » ; les faits susceptibles de constituer une infraction sont en outre traités conformément à la loi.
 
@@ -74,6 +72,8 @@ Selon la nature et la gravité de la violation, l'Opérateur prend des mesures p
 | 4 | Suspension du compte | Accès au compte arrêté, données conservées en attendant réexamen |
 | 5 | Suppression physique | Compte et ensemble des données supprimés, sans possibilité de restauration |
 
+Base technique de l'échelle d'exécution : le volume sortant est plafonné par le quota d'envoi du rôle du compte (utilisateurs de base 5 courriels/jour, LV.0 8/jour, LV.1 10/jour, administrateurs 100/jour ; le compte Webmestre est sans limite), les compteurs quotidiens étant réinitialisés chaque jour ; les pourriels sont mis en quarantaine 7 jours puis déplacés vers la corbeille ; lorsque la boîte dépasse 90 % du quota, les courriels déjà marqués comme supprimés sont immédiatement supprimés définitivement. Ces paramètres varient selon le rôle et la configuration de l'instance, laquelle prévaut.
+
 En cas de comportement illicite, l'Opérateur peut conserver les preuves nécessaires (au moins 180 jours dans les cas visés à la section 2) et coopère aux enquêtes des autorités compétentes. Lorsque votre comportement expose l'Opérateur à des sanctions de Cloudflare ou d'un fournisseur amont, l'Opérateur peut en demander réparation à votre égard selon la section 10 des [Conditions d'utilisation](/fr/mail/terms-of-service/).
 
 ## 7. Recours et signalement
@@ -81,6 +81,13 @@ En cas de comportement illicite, l'Opérateur peut conserver les preuves nécess
 1. **Recours** : si vous estimez une mesure erronée, vous pouvez former un recours par les canaux énumérés à la section 13 des [Conditions d'utilisation](/fr/mail/terms-of-service/) ; l'Opérateur réexamine et répond dans un délai raisonnable. Sauf urgence, une possibilité de s'expliquer est offerte avant toute mesure importante de niveau 4 ou plus.
 2. **Signalement** : toute personne qui découvre un comportement violant la présente politique ou un risque de sécurité (sources de pourriels, courriels d'hameçonnage, tentatives d'accès non autorisé, etc.) peut le signaler par les canaux précités ; les signalements de bonne foi sont tous vérifiés et traités.
 3. **Exception** : pour les contenus d'exploitation sexuelle d'enfants et d'adolescents ou les images sexuelles non consensuelles visées à la section 2, l'Opérateur n'applique pas la procédure de recours : il procède directement à la suppression, met fin au compte, conserve les preuves et transmet l'affaire aux autorités compétentes.
+
+
+## 8. Avis et contre-avis relatifs au droit d'auteur et à la propriété intellectuelle
+
+Le titulaire de droits qui estime qu'un contenu hébergé sur le Service porte atteinte à son droit d'auteur, à sa marque ou à d'autres droits légitimes peut adresser un avis à l'Opérateur. L'avis précise : la description du droit violé et la preuve de titularité, les informations permettant de localiser le contenu en cause (adresse du destinataire et objet du courriel, par exemple), les coordonnées de contact, ainsi qu'une déclaration de bonne foi dûment signée indiquant que l'utilisation n'est pas autorisée. Après vérification, l'Opérateur retire le contenu ou en restreint l'accès et informe l'auteur de l'avis du résultat.
+
+L'utilisateur dont le contenu a été retiré et qui estime que ce retrait est erroné peut soumettre un contre-avis exposant ses raisons et assorti d'une déclaration de bonne foi ; l'Opérateur transmet le contre-avis à l'auteur de l'avis initial. Les atteintes répétées aux droits d'autrui exposent l'utilisateur à une escalade selon l'échelle d'exécution de la section 6, jusqu'à la suppression définitive. Les avis et contre-avis de mauvaise foi causant un préjudice à autrui peuvent engager la responsabilité de leur auteur.
 
 ---
 

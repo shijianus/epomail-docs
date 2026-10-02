@@ -3,9 +3,7 @@ title: Beleid voor acceptabel gebruik
 description: Beleid voor acceptabel gebruik van EpoCanvas Mail — de lijst van verboden gedragingen, de maatregelen van de Exploitant en de bezwaarprocedure.
 ---
 
-# Beleid voor acceptabel gebruik
-
-**Datum van inwerkingtreding: 2 oktober 2026 | Versie: 5.7**
+**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.8**
 
 Dit beleid concretiseert paragraaf 7 («Aanvaardbaar gebruik») van de [Servicevoorwaarden](/nl/mail/terms-of-service/) en stelt de grenzen aan uw gedrag bij gebruik van de dienst EpoCanvas Mail (hierna «de Dienst»). Bij overtreding van dit beleid kan de Exploitant optreden volgens de paragraaf «Handhavingsmaatregelen»; bestaat er een vermoeden van een strafbaar feit, dan wordt dat tevens volgens de wet afgehandeld.
 
@@ -74,6 +72,8 @@ De Exploitant neemt maatregelen die evenredig zijn aan de aard en de ernst van d
 | 4 | Opschorting van het account | de toegang tot het account wordt gestaakt, gegevens blijven bewaard voor heroverweging |
 | 5 | Fysieke verwijdering | het account en alle gegevens worden verwijderd, onherstelbaar |
 
+Technische basis van de handhavingsladder: het uitgaande volume is begrensd door de verzendquota van de accountrol (gewone gebruikers 5 berichten/dag, LV.0 8/dag, LV.1 10/dag, beheerders 100/dag; het masteraccount is onbeperkt), met dagelijkse tellers die elke dag worden gereset; spam blijft 7 dagen in quarantaine en gaat daarna naar de prullenbak; bij mailboxgebruik boven 90 % van de quota wordt e-mail die al als verwijderd is gemarkeerd onmiddellijk fysiek verwijderd. Deze parameters verschillen per rol en instantieconfiguratie; de werkelijke configuratie van de instantie is leidend.
+
 Is sprake van onrechtmatig gedrag, dan kan de Exploitant het noodzakelijke bewijs bewaren (voor de gevallen in paragraaf 2 ten minste 180 dagen) en meewerken aan onderzoek door het bevoegd gezag. Brengt uw gedrag mee dat de Exploitant door Cloudflare of een upstream-leverancier wordt beboet, dan kan de Exploitant dat op u verhalen op grond van paragraaf 10 van de [Servicevoorwaarden](/nl/mail/terms-of-service/).
 
 ## 7. Bezwaar en meldingen
@@ -81,6 +81,13 @@ Is sprake van onrechtmatig gedrag, dan kan de Exploitant het noodzakelijke bewij
 1. **Bezwaar**: oordeelt u dat een maatregel ten onrechte is genomen, dan kunt u bezwaar maken via de kanalen die in paragraaf 13 van de [Servicevoorwaarden](/nl/mail/terms-of-service/) staan; de Exploitant heroverweegt en antwoordt binnen een redelijke termijn. Behoudens urgente omstandigheden krijgt u vóór zware maatregelen van niveau 4 en hoger de gelegenheid zich uit te laten.
 2. **Melding**: iedereen die gedrag in strijd met dit beleid of een veiligheidsrisico constateert (spambronnen, phishingmail, pogingen tot ongeautoriseerde toegang en dergelijke), kan dat via de voornoemde kanalen melden; meldingen te goeder trouw worden in elk geval geverifieerd en afgehandeld.
 3. **Uitzondering**: voor inhoud inzake seksuele uitbuiting van kinderen en jongeren, of voor de seksuele beelden zonder toestemming uit paragraaf 2, past de Exploitant de bezwaarbufferprocedure niet toe: de inhoud wordt rechtstreeks verwijderd, het account wordt beëindigd, het bewijs wordt bewaard en de zaak wordt overgedragen aan het bevoegd gezag.
+
+
+## 8. Melding en tegenmelding inzake auteursrecht en intellectuele eigendom
+
+Een rechtenhouder die van mening is dat inhoud op de Dienst inbreuk maakt op zijn auteursrecht, merk of andere rechten kan een melding sturen aan de Exploitant. De melding vermeldt: een omschrijving van het geschonden recht en bewijs van rechtheidschap, voldoende informatie om de inhoud te lokaliseren (zoals het adres van de ontvanger en het onderwerp van de e-mail), contactgegevens en een naar behoren ondertekende verklaring in goed vertrouwen dat het gebruik niet is toegestaan. Na verificatie verwijdert de Exploitant de inhoud of beperkt hij de toegang ertoe en stelt hij de melder van de uitkomst in kennis.
+
+Een gebruiker wiens inhoud is verwijderd en die van mening is dat dit ten onrechte gebeurde, kan een tegenmelding indienen met zijn redenen en een verklaring in goed vertrouwen; de Exploitant stuurt de tegenmelding door aan de oorspronkelijke melder. Herhaalde inbreuken op de rechten van anderen leiden tot escalatie volgens de handhavingsladder van paragraaf 6, tot fysieke verwijdering aan toe. Meldingen en tegenmeldingen die te kwader trouw worden gedaan en anderen schaden, kunnen tot aansprakelijkheid leiden.
 
 ---
 

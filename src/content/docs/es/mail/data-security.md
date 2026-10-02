@@ -3,8 +3,7 @@ title: Tratamiento de Datos y Mantenimiento de la Seguridad
 description: Seguridad de los datos y protección de datos personales de EpoCanvas Mail — medidas de seguridad, límites de responsabilidad de la operación de doble vía, ejercicio de sus derechos y respuesta ante incidentes de seguridad.
 ---
 
-
-**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
+**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.8**
 
 Este documento describe las medidas con que la instancia alojada oficial (mail.epocanvas.com) protege los datos, los límites de responsabilidad entre el servicio alojado y el proyecto de código abierto, y cómo puede consultar, exportar y eliminar sus propios datos. Se establece en virtud de la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos del Servicio](/es/mail/terms-of-service/); los hechos técnicos que enuncia siguen la implementación real del código abierto.
 
@@ -67,7 +66,8 @@ Las categorías de datos, los campos recopilados, las finalidades, los soportes 
 | --- | --- | --- | --- | --- |
 | Credenciales de cuenta | dirección de correo, nombre de usuario, resumen de contraseña y sal, secreto TOTP (cifrado), resúmenes de códigos de respaldo, claves públicas de llaves de acceso | registro, inicio de sesión, verificación en dos pasos | Cloudflare D1; PBKDF2 (100.000 iteraciones), TOTP cifrado en reposo | mientras exista la cuenta; sesiones revocadas al desactivarla, irrecuperables tras la eliminación física |
 | Datos de comunicación | remitente y destinatarios, CC/CCO, asunto, marcas de tiempo, estado de lectura, etiquetas, cuerpo del correo | envío, recepción, organización en conversaciones, búsqueda por palabras clave | Cloudflare D1 (metadatos); asunto y cuerpo cifrados según el modo de correo | bajo su control; la papelera se conserva 7 días y luego se elimina físicamente |
-| Datos de red y dispositivo | IP de registro, IP del último inicio de sesión, sistema operativo, tipo de navegador y dispositivo, código de país o región procedente de la solicitud en el borde | auditoría de seguridad, detección de inicios de sesión inusuales | Cloudflare D1; consultables solo en auditorías de administración, nunca para perfiles comerciales | hasta la eliminación física de la cuenta |
+| Datos de red y dispositivo | IP de registro, IP del último inicio de sesión, sistema operativo, tipo de navegador y dispositivo | auditoría de seguridad, detección de inicios de sesión inusuales | Cloudflare D1; consultables solo en auditorías de administración, nunca para perfiles comerciales | hasta la eliminación física de la cuenta |
+| Datos del entorno perimetral | código de país o región de la solicitud (`cf-ipcountry`) | preselección de interfaz (p. ej., el prefijo telefónico predeterminado) | no se persisten; se devuelven únicamente con la respuesta al navegador | no se almacenan; se destruyen al terminar la respuesta |
 | Sesiones y autorizaciones | tokens de sesión JWT, permisos de rol | autenticación de la API en el borde | lista de autorización en Cloudflare KV; como máximo 10 sesiones activas por cuenta | válidos 30 días; eliminados de inmediato al cerrar sesión |
 | Adjuntos | nombre de archivo original, tipo MIME, tamaño, contenido binario | transferencia, vista previa y descarga de adjuntos | almacenamiento de objetos de la instancia (resuelto en este orden: almacenamiento compatible con S3 propio, enlace R2, KV por defecto); cabeceras defensivas en la descarga | se eliminan junto con el correo al que pertenecen |
 
@@ -124,7 +124,7 @@ Usted dispone de derechos de acceso, copia, rectificación, cese del tratamiento
 ### 3.2 Eliminación
 
 - **Eliminación de correos**: los correos eliminados pasan primero a la papelera y una tarea programada los elimina físicamente (adjuntos e índices incluidos) 7 días después; la eliminación es irreversible. Cuando el buzón supera el 90 % de la cuota, las eliminaciones que usted ejecuta son físicas de inmediato para liberar espacio;
-- **Desactivación de la cuenta**: puede desactivarla usted mismo en los ajustes. Las sesiones se revocan de inmediato y los correos y datos pasan a estado de eliminación lógica hasta que un administrador ejecute la eliminación física; tras esta, los datos de la cuenta, los correos, los adjuntos y las autorizaciones se retiran de la base de datos y del almacenamiento de objetos, sin posibilidad de recuperación;
+- **Desactivación de la cuenta**: puede desactivarla usted mismo en los ajustes. Las sesiones se revocan de inmediato y los correos y datos pasan a estado de eliminación lógica; salvo que la ley exija su conservación, un administrador ejecuta la eliminación física en un plazo de 90 días desde la desactivación. Tras esta, los datos de la cuenta, los correos, los adjuntos y las autorizaciones se retiran de la base de datos y del almacenamiento de objetos, sin posibilidad de recuperación;
 - **Derechos legales correspondientes**: los derechos de acceso, copia y eliminación que el RGPD reconoce a los usuarios del Espacio Económico Europeo, y los derechos de información, eliminación y no discriminación que el CCPA/CPRA reconoce a los residentes de California, se hacen efectivos mediante las funciones de autoservicio y el canal de solicitud manual anteriores; los usuarios de otras jurisdicciones ejercen derechos equivalentes conforme al derecho aplicable en su lugar.
 
 ### 3.3 Exclusión de venta y rastreo
@@ -138,7 +138,7 @@ Usted dispone de derechos de acceso, copia, rectificación, cese del tratamiento
 Si datos personales son robados, divulgados, alterados o perdidos, el operador procederá así:
 
 1. **Contención inmediata**: desconexión forzada de las sesiones afectadas y cuarentena del contenido comprometido, suspendiendo parte del servicio si es necesario para impedir que el daño crezca;
-2. **Notificación legal**: notificación a la autoridad competente dentro del plazo que exija el derecho aplicable, e información a las personas afectadas mediante un aviso en el sitio o un correo del sistema;
+2. **Notificación legal**: notificación a la autoridad competente dentro de las 72 horas siguientes al conocimiento del incidente (cuando el derecho aplicable fije un plazo distinto, se aplicará este y se notificará sin demora), e información a las personas afectadas mediante un aviso en el sitio o un correo del sistema;
 3. **Correcciones publicadas**: identificada la causa, publicación de las correcciones y de un aviso de seguridad en el repositorio de código abierto para que los operadores autoalojados se pongan al día.
 
 Para informar de un problema o vulnerabilidad de seguridad, utilice:

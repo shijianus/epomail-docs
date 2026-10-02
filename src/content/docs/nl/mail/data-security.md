@@ -3,8 +3,7 @@ title: Gegevensverwerking en Beveiligingsonderhoud
 description: Gegevensbeveiliging en bescherming van persoonsgegevens van EpoCanvas Mail — beveiligingsmaatregelen, verantwoordelijkheidsgrenzen van de dubbele exploitatiesporen, uitoefening van uw rechten en reactie op beveiligingsincidenten.
 ---
 
-
-**Datum van inwerkingtreding: 2 oktober 2026 | Versie: 5.7**
+**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.8**
 
 Dit document beschrijft de maatregelen waarmee de officiële gehoste instantie (mail.epocanvas.com) gegevens beschermt, de verantwoordelijkheidsgrenzen tussen de gehoste dienst en het open-sourceproject, en hoe u uw eigen gegevens kunt inzien, exporteren en verwijderen. Het is opgesteld krachtens het [Privacybeleid](/nl/mail/privacy-policy/) en de [Servicevoorwaarden](/nl/mail/terms-of-service/); de technische feiten volgen de werkelijke implementatie in de open-sourcecode.
 
@@ -67,7 +66,8 @@ De gegevenscategorieën, verzamelde velden, doelen, opslagmedia en bewaartermijn
 | --- | --- | --- | --- | --- |
 | Accountreferenties | e-mailadres, gebruikersnaam, wachtwoordhash en zout, TOTP-geheim (versleuteld), hashes van herstelcodes, publieke sleutels van toegangssleutels | registratie, aanmelding, tweestapsverificatie | Cloudflare D1; PBKDF2 (100.000 iteraties), TOTP versleuteld in rust | zolang het account bestaat; sessies ingetrokken bij deactivering, onherstelbaar na fysieke verwijdering |
 | Communicatiegegevens | afzender en ontvangers, CC/BCC, onderwerp, tijdstempels, leesstatus, labels, e-mailbody | verzenden, ontvangen, gesprekken organiseren, trefwoordzoekopdrachten | Cloudflare D1 (metadata); onderwerp en body versleuteld volgens de e-mailmodus | onder uw controle; prullenbak 7 dagen bewaard en daarna fysiek verwijderd |
-| Netwerk- en apparaatgegevens | registratie-IP, IP van de laatste aanmelding, besturingssysteem, browser- en apparaattype, land/regiocode uit het randverzoek | beveiligingsaudit, opsporing van ongebruikelijke aanmeldingen | Cloudflare D1; alleen in te zien door beheerdersaudits, nooit voor commercieel profileren | tot de fysieke verwijdering van het account |
+| Netwerk- en apparaatgegevens | registratie-IP, IP van de laatste aanmelding, besturingssysteem, browser- en apparaattype | beveiligingsaudit, opsporing van ongebruikelijke aanmeldingen | Cloudflare D1; alleen in te zien door beheerdersaudits, nooit voor commercieel profileren | tot de fysieke verwijdering van het account |
+| Randomgeving-gegevens | land/regiocode van het verzoek (`cf-ipcountry`) | interface-preselectie (zoals de standaard telefoonlandcode) | niet persistent; wordt alleen met het antwoord naar de browser teruggegeven | niet opgeslagen; vernietigd zodra het antwoord eindigt |
 | Sessies en autorisaties | JWT-sessietokens, rolmachtigingen | rand-API-authenticatie | toestaanlijst in Cloudflare KV; hooguit 10 actieve sessies per account | 30 dagen geldig; direct verwijderd bij uitloggen |
 | Bijlagen | originele bestandsnaam, MIME-type, bestandsgrootte, binaire inhoud | overdracht, voorbeeld en download van bijlagen | objectopslag van de instantie (opgelost in deze volgorde: eigen S3-compatibele opslag, R2-koppeling, standaard KV); defensieve koppen bij download | samen met de bijbehorende e-mail verwijderd |
 
@@ -124,7 +124,7 @@ U heeft met betrekking tot uw eigen gegevens recht op inzage, kopie, verbetering
 ### 3.2 Verwijdering
 
 - **E-mail verwijderen**: verwijderde e-mail gaat eerst naar de prullenbak en wordt 7 dagen later door een geplande taak fysiek verwijderd (bijlagen en indexen inbegrepen); verwijdering is onomkeerbaar. Bij mailboxgebruik boven 90 % van de quota wordt wat u verwijdert onmiddellijk fysiek verwijderd om ruimte vrij te maken;
-- **Account deactiveren**: dat kunt u zelf in de instellingen doen. Sessies vervallen onmiddellijk en e-mail en gegevens komen in een zacht-verwijderde staat tot een beheerder de fysieke verwijdering uitvoert; daarna zijn accountgegevens, e-mail, bijlagen en machtigingen uit de database en objectopslag verwijderd en niet herstelbaar;
+- **Account deactiveren**: dat kunt u zelf in de instellingen doen. Sessies vervallen onmiddellijk en e-mail en gegevens komen in een zacht-verwijderde staat; tenzij de wet bewaring vereist, voert een beheerder de fysieke verwijdering binnen 90 dagen na deactivering uit. Daarna zijn accountgegevens, e-mail, bijlagen en machtigingen uit de database en objectopslag verwijderd en niet herstelbaar;
 - **Overeenkomende wettelijke rechten**: de rechten op inzage, kopie en verwijdering die het AVG gebruikers in de Europese Economische Ruimte geeft, en de rechten op informatie, verwijdering en non-discriminatie die de CCPA/CPRA inwoners van Californië geeft, worden via bovengenoemde zelfservicefuncties en het handmatige verzoekkanaal gerealiseerd; gebruikers elders oefenen gelijkwaardige rechten uit krachtens het recht op hun locatie.
 
 ### 3.3 Uitsluiting van verkoop en tracking
@@ -138,7 +138,7 @@ U heeft met betrekking tot uw eigen gegevens recht op inzage, kopie, verbetering
 Als persoonsgegevens worden gestolen, gelekt, gewijzigd of verloren, gaat de exploitant als volgt te werk:
 
 1. **Onmiddellijke insluiting**: betrokken sessies gedwongen afmelden en getroffen inhoud in quarantaine, met zo nodig gedeeltelijke stillegging van de dienst om ergere schade te voorkomen;
-2. **Wettelijke melding**: melding bij de toezichthouder binnen de termijn die het toepasselijke recht vereist, en informering van getroffenen via een aankondiging op de site of systeemmail;
+2. **Wettelijke melding**: melding bij de toezichthouder binnen 72 uur nadat het incident bekend is geworden (voor zover het toepasselijke recht een andere termijn stelt, geldt die termijn en wordt zo snel mogelijk gemeld), en informering van getroffenen via een aankondiging op de site of systeemmail;
 3. **Gepubliceerde herstelmaatregelen**: nadat de oorzaak duidelijk is, publicatie van fixes en een beveiligingsbericht in de open-sourcebron, zodat zelfhosters gelijktijdig kunnen patchen.
 
 Om een beveiligingsprobleem of kwetsbaarheid te melden, gebruikt u:

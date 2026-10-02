@@ -3,9 +3,7 @@ title: Política de Privacidad
 description: Política de Privacidad de EpoCanvas Mail—los estándares y compromisos en materia de recopilación y utilización de datos, naturaleza del tratamiento, derechos de los interesados, transferencias internacionales y medidas de mantenimiento de la seguridad.
 ---
 
-# Política de Privacidad
-
-**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
+**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.8**
 
 Esta Política explica cómo el servicio EpoCanvas Mail (el «Servicio») recopila, trata, utiliza y transmite sus datos personales, así como los estándares y compromisos que el Operador sigue en materia de protección de datos. Debe leer esta Política antes de registrarse en el Servicio o utilizarlo; si no está de acuerdo con alguna parte de esta Política, no utilice el Servicio.
 
@@ -22,6 +20,8 @@ Esta Política se aplica a los datos personales derivados de cualquier uso del S
 1. la visita al sitio web del Servicio (`mail.epocanvas.com` o el dominio de una instancia autoalojada);
 2. el uso de la aplicación móvil (epomail);
 3. la conexión al Servicio a través de la API abierta.
+
+Las direcciones de correo que emite la instancia alojada pertenecen a los dominios `epomail.bond` y `epomail.cyou`; los correos oficiales del sistema (correos de bienvenida, anuncios globales) se envían desde `announcement@epocanvas.com`.
 
 Esta Política no se aplica a los sitios web y servicios de terceros enlazados o incrustados en el Servicio; esos terceros cuentan con sus propias políticas de privacidad, de las cuales son responsables.
 
@@ -66,7 +66,8 @@ El correo electrónico que envía y recibe (incluidos metadatos como remitente y
 ### 4.3 Datos técnicos registrados automáticamente
 
 - **Registros de inicio de sesión y de seguridad**: la dirección IP, el User-Agent del navegador y el sistema operativo, el navegador y el tipo de dispositivo analizados a partir de este, registrados durante el registro de la cuenta y el inicio de sesión, utilizados para la auditoría de seguridad de la información y la identificación de inicios de sesión anómalos.
-- **Tokens de sesión**: el JWT emitido tras el inicio de sesión (válido durante 30 días) se almacena en el localStorage de su navegador. El Servicio no utiliza cookies y no existe rastreo entre sitios.
+- **Tokens de sesión**: el JWT emitido tras el inicio de sesión (válido durante 30 días) se almacena en el localStorage de su navegador para mantener su sesión iniciada y sus preferencias de interfaz. El Servicio no utiliza cookies para identificarle ni para rastrear su comportamiento, y no existe rastreo entre sitios.
+- **Cookies y verificación humana**: la verificación de Turnstile la proporciona Cloudflare; durante la verificación puede aparecer en su navegador un almacenamiento estrictamente necesario para completar el desafío. El Servicio no lo lee ni lo utiliza con fines de identificación o publicidad. El Servicio no incrusta scripts de publicidad, análisis ni plataformas sociales.
 - **Registros de la red perimetral**: Cloudflare trata los metadatos de las solicitudes conforme a sus propias políticas.
 
 ### 4.4 Datos que el Servicio no recopila
@@ -111,6 +112,8 @@ El Servicio comparte datos personales con terceros conforme al principio de mín
 3. **Activados por usted**: servicios de traducción mediante IA y de reconocimiento de texto en imágenes (véase la Sección 6);
 4. **Requisitos legales**: se proporcionan únicamente cuando una autoridad competente así lo requiera mediante procedimientos legales, con notificación a usted en la medida permitida por la ley.
 
+Principios de tratamiento de las solicitudes de las autoridades encargadas de la aplicación de la ley y judiciales: el Operador solo facilita datos cuando la solicitud se basa en un fundamento legal concreto, verifica la legalidad y el alcance de la solicitud, no facilita voluntariamente contenido que exceda lo solicitado y notifica con antelación a las personas afectadas cuando la ley lo permite (salvo prohibición legal); el Servicio no se somete a accesos arbitrarios sin fundamento legal.
+
 El Servicio está construido sobre la red perimetral global de Cloudflare y sus datos personales pueden tratarse en nodos situados fuera del país donde resida el Operador; el Operador cumple los requisitos de la ley aplicable en materia de transferencias internacionales y las restricciones que la autoridad competente dicte conforme a la ley, y se apoya en las medidas de protección de datos de Cloudflare (certificaciones SOC 2 Type II e ISO/IEC 27001) y en el mecanismo de las Cláusulas Contractuales Estándar (SCC) de la UE para garantizar las transferencias. Los operadores de instancias autoalojadas deberán evaluar por sí mismos y asegurar que sus transferencias internacionales cumplan los requisitos legales de su lugar de ubicación.
 
 ## 8. Plazos de conservación y supresión de los datos
@@ -122,7 +125,7 @@ El Servicio está construido sobre la red perimetral global de Cloudflare y sus 
 | Correo de la papelera | Supresión física mediante una tarea programada del sistema 7 días después de la recepción (incluidos adjuntos e índices) |
 | Correos oficiales del sistema (correos de bienvenida, anuncios globales) | Caducan y se suprimen automáticamente 7 días después de la entrega por defecto; el Operador puede configurar el plazo |
 | Uso del buzón superior al 90 % | El sistema suprime físicamente el correo ya marcado como eliminado para liberar espacio |
-| Cancelación de la cuenta | Las sesiones quedan invalidadas de inmediato; el correo pasa a un estado de eliminación lógica hasta que un administrador realice la supresión física |
+| Cancelación de la cuenta | Las sesiones quedan invalidadas de inmediato; el correo pasa a un estado de eliminación lógica y, salvo que la ley exija su conservación, un administrador realiza la supresión física en un plazo de 90 días |
 | Supresión física | Los datos de cuenta, los buzones, el correo, los adjuntos, las autorizaciones OAuth y las sesiones se eliminan conjuntamente y no pueden recuperarse |
 | Aplicación por infracciones | después de que una cuenta sea suspendida por infracciones, el Operador puede purgar de forma forzada sus correos y adjuntos para liberar espacio (véase la escalera de aplicación de la [Política de Uso Aceptable](/es/mail/acceptable-use/)) |
 | Cese de la instancia | El Operador deberá notificarlo con antelación y ofrecer una ventana de exportación de datos; tras el cese, los datos se destruyen junto con los recursos de Cloudflare |

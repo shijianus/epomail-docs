@@ -3,9 +3,7 @@ title: Acceptable Use Policy
 description: The EpoCanvas Mail Acceptable Use Policy — the list of prohibited conduct, the operator's enforcement measures, and the appeal procedure.
 ---
 
-# Acceptable Use Policy
-
-**Effective Date: October 2, 2026 | Version: 5.7**
+**Effective Date: October 3, 2026 | Version: 5.8**
 
 This policy concretises Section 7 ("Acceptable Use") of the [Terms of Service](/en/mail/terms-of-service/) and sets the boundaries of conduct when you use the EpoCanvas Mail service (the "Service"). If you violate this policy, the operator may act under the "Enforcement measures" chapter; conduct suspected of being criminal will also be handled according to law.
 
@@ -74,6 +72,8 @@ The operator takes measures proportionate to the nature and severity of the viol
 | 4 | Account suspension | account access stopped, data kept for review |
 | 5 | Physical deletion | account and all data deleted, irreversible |
 
+Technical basis of the enforcement ladder: outbound volume is constrained by the sending quota of the account role (base users 5 messages/day, LV.0 8/day, LV.1 10/day, administrators 100/day; the master account is unlimited), with daily counters reset each day; spam is quarantined for 7 days and then moved to trash; when mailbox usage exceeds 90% of quota, mail already marked as deleted is hard-deleted immediately. These parameters vary with role and instance settings; the instance's actual configuration prevails.
+
 Where conduct may be unlawful, the operator may preserve the necessary evidence (at least 180 days in the Section 2 cases) and cooperate with the competent authorities' investigations. If your conduct causes the operator to be penalised by Cloudflare or upstream providers, the operator may seek compensation from you under Section 10 of the [Terms of Service](/en/mail/terms-of-service/).
 
 ## 7. Appeals and Reports
@@ -81,3 +81,9 @@ Where conduct may be unlawful, the operator may preserve the necessary evidence 
 1. **Appeals**: if you believe a measure was mistaken, appeal through the channels listed in Section 13 of the [Terms of Service](/en/mail/terms-of-service/); the operator will review and answer within a reasonable period. Except in urgent situations, you will be given a chance to explain before a measure of level 4 or above.
 2. **Reports**: anyone who discovers conduct violating this policy or a security hazard (spam sources, phishing mail, unauthorised-access attempts, and the like) may report it through the same channels; good-faith reports are always verified and handled.
 3. **Exception**: for child sexual exploitation content or the non-consensual intimate imagery of Section 2, the operator does not apply the appeal buffer: content is deleted and the account terminated directly, evidence preserved, and the matter handed to the competent authorities.
+
+## 8. Copyright and Intellectual Property Notice and Counter-Notice
+
+A rights holder who believes content stored on the Service infringes their copyright, trademark, or other lawful rights may send the operator a notice. The notice must state: a description of the infringed right and proof of ownership, information sufficient to locate the content (such as the recipient address and mail subject), contact details, and a duly signed good-faith statement that the use is unauthorised. After verification, the operator removes the content or restricts access to it and informs the notifier of the outcome.
+
+A user whose content has been removed and who believes the removal was mistaken may submit a counter-notice stating the reasons and a good-faith declaration; the operator forwards the counter-notice to the original notifier. Users who repeatedly infringe the rights of others face escalation under the Section 6 enforcement ladder, up to hard deletion. Notices and counter-notices made in bad faith that harm others may give rise to legal liability.

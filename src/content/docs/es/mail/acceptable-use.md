@@ -3,9 +3,7 @@ title: Política de Uso Aceptable
 description: Política de Uso Aceptable de EpoCanvas Mail—la lista de conductas prohibidas, las medidas del Operador y el procedimiento de reclamación.
 ---
 
-# Política de Uso Aceptable
-
-**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
+**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.8**
 
 Esta Política da efecto específico a la Sección 7 («Uso aceptable») de los [Términos del Servicio](/es/mail/terms-of-service/) y establece los límites de conducta cuando usted utiliza el servicio EpoCanvas Mail (el «Servicio»). En caso de vulneración de esta Política, el Operador puede adoptar las medidas previstas en la sección «Medidas de aplicación»; la conducta con indicios de criminalidad será también tratada conforme a la ley.
 
@@ -74,6 +72,8 @@ El Operador adopta medidas proporcionales a la naturaleza y la gravedad de la in
 | 4 | Suspensión de la cuenta | Se suspende el acceso a la cuenta; los datos se conservan pendiente de revisión |
 | 5 | Supresión física | La cuenta y todos los datos se eliminan, de forma irrecuperable |
 
+Base técnica de la escala de ejecución: el volumen saliente está limitado por la cuota de envío del rol de la cuenta (usuarios base 5 correos/día, LV.0 8/día, LV.1 10/día, administradores 100/día; la cuenta Webmaster no tiene límite), con contadores diarios que se restablecen cada día; el correo no deseado permanece en cuarentena 7 días y luego pasa a la papelera; cuando el buzón supera el 90 % de la cuota, el correo ya marcado como eliminado se suprime físicamente de inmediato. Estos parámetros varían según el rol y la configuración de la instancia, que prevalece.
+
 Cuando esté involucrada una conducta ilícita, el Operador puede conservar las pruebas necesarias (en los supuestos de la Sección 2, durante al menos 180 días) y cooperar con las investigaciones de las autoridades competentes. Si su conducta provoca que Cloudflare o un proveedor ascendente sancione al Operador, este puede reclamarle una indemnización conforme a la Sección 10 de los [Términos del Servicio](/es/mail/terms-of-service/).
 
 ## 7. Apelaciones y denuncias
@@ -81,6 +81,13 @@ Cuando esté involucrada una conducta ilícita, el Operador puede conservar las 
 1. **Apelaciones**: si usted considera que una medida de aplicación fue errónea, puede recurrir a través de los canales indicados en la Sección 13 de los [Términos del Servicio](/es/mail/terms-of-service/); el Operador revisará y responderá dentro de un plazo razonable. Salvo en circunstancias urgentes, se dará oportunidad de explicar antes de las medidas de aplicación importantes de nivel 4 o superior.
 2. **Denuncias**: cualquier persona que descubra una conducta que vulnere esta Política o un riesgo de seguridad (fuentes de correo no deseado, correo de phishing, intentos de acceso no autorizado y similares) puede denunciarla a través de los canales descritos anteriormente; las denuncias de buena fe serán todas verificadas y tramitadas.
 3. **Excepción**: para el contenido de explotación sexual de niños y adolescentes o las imágenes íntimas sin consentimiento descritas en la Sección 2, el Operador no aplica el procedimiento previo de apelación; elimina el contenido y cierra la cuenta directamente, conserva las pruebas y remite el asunto a las autoridades competentes.
+
+
+## 8. Notificación y contra-notificación por derechos de autor y propiedad intelectual
+
+El titular de derechos que considere que un contenido alojado en el Servicio vulnera sus derechos de autor, su marca u otros derechos legítimos puede enviar una notificación al Operador. La notificación debe indicar: la descripción del derecho vulnerado y la prueba de titularidad, la información suficiente para localizar el contenido (como la dirección del destinatario y el asunto del correo), los datos de contacto y una declaración de buena fe debidamente firmada de que el uso no está autorizado. Tras la verificación, el Operador suprime el contenido o restringe su acceso e informa del resultado al notificante.
+
+El usuario cuyo contenido haya sido suprimido y que considere que la supresión es errónea puede presentar una contra-notificación que exponga sus razones junto con una declaración de buena fe; el Operador la trasladará al notificante original. La vulneración reiterada de derechos ajenos expone al usuario a la escalada de la Sección 6, hasta la supresión física. Las notificaciones y contra-notificaciones de mala fe que perjudiquen a terceros pueden generar responsabilidad legal.
 
 ---
 

@@ -3,9 +3,7 @@ title: Key Terms
 description: Definitions of the technical and legal terms used in the EpoCanvas Mail legal documents — general data-protection usage, interpreted by this service's architecture.
 ---
 
-# Key Terms
-
-**Effective Date: October 2, 2026 | Version: 5.7**
+**Effective Date: October 3, 2026 | Version: 5.8**
 
 This page defines the terms used across this site's legal documents. Legal terms follow general data-protection usage; technical terms are interpreted by the actual implementation of the Service's open-source code.
 

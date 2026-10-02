@@ -3,9 +3,7 @@ title: Sub-processor List
 description: The complete list of EpoCanvas Mail's entrusted processors, shared objects, data involved, trigger conditions, and international-transfer safeguards.
 ---
 
-# Sub-processor List
-
-**Effective Date: October 2, 2026 | Version: 5.7**
+**Effective Date: October 3, 2026 | Version: 5.8**
 
 Following Section 7 of the [Privacy Policy](/en/mail/privacy-policy/), this list sets out in full the third parties involved in the Service's personal data, the sharing conditions, and the safeguard mechanisms. The Service's sharing principle is minimal necessity: data that need not leave the instance do not leave; what must leave states clearly who receives it and what it carries. The Service has no data-sale or advertising-revenue relationship with any party below.
 
@@ -21,7 +19,7 @@ The Traditional Chinese (Taiwan) versions of this site's legal documents are the
 
 | Processor | Function | Data involved | Region and safeguards |
 | --- | --- | --- | --- |
-| Cloudflare, Inc. (USA) | edge compute (Workers), structured storage (D1), sessions and cache (KV), object storage (R2), mail routing (Email Routing), human verification (Turnstile), edge AI (Workers AI), edge logs | request metadata, all stored content, verification requests | global edge network; SOC 2 Type II and ISO/IEC 27001 certified; EU Standard Contractual Clauses (SCC) mechanism offered; transfers TLS-encrypted throughout |
+| Cloudflare, Inc. (USA) | edge compute (Workers), structured storage (D1), sessions and cache (KV), object storage (R2, optional; when not enabled, attachments are stored in KV), mail routing (Email Routing), human verification (Turnstile), edge AI (Workers AI), edge logs | request metadata, all stored content, verification requests | global edge network; SOC 2 Type II and ISO/IEC 27001 certified; EU Standard Contractual Clauses (SCC) mechanism offered; transfers TLS-encrypted throughout |
 | Resend, Inc. / Mailjet (Sinch) (USA / France) | outbound mail delivery (MTA) | full outbound mail (recipients, subject, body, attachments) | triggered only for mail addressed off-site when the operator has configured a delivery channel; delivery credentials kept as an isolated API token, never written to diagnostic logs |
 
 ## 2. Processors Authorised by the Data Subject

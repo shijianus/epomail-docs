@@ -3,9 +3,7 @@ title: Privacybeleid
 description: Privacybeleid van EpoCanvas Mail — de normen en toezeggingen voor de verzameling en het gebruik van gegevens, de aard van de verwerking, de rechten van de betrokkene, internationale doorgifte en de beveiligingsmaatregelen.
 ---
 
-# Privacybeleid
-
-**Datum van inwerkingtreding: 2 oktober 2026 | Versie: 5.7**
+**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.8**
 
 Dit beleid beschrijft hoe de dienst EpoCanvas Mail (hierna «de Dienst») uw persoonsgegevens verzamelt, verwerkt en doorgeeft, evenals de normen en toezeggingen waarop de Exploitant zich bij de bescherming van gegevens baseert. U dient dit beleid te lezen voordat u zich registreert voor de Dienst of deze gebruikt; indien u met enig onderdeel van dit beleid niet instemt, gebruik de Dienst dan niet.
 
@@ -22,6 +20,8 @@ Dit beleid is van toepassing op de persoonsgegevens die ontstaan wanneer u de Di
 1. een bezoek aan de website van de Dienst (`mail.epocanvas.com` of het domein van een zelfgehoste instantie);
 2. het gebruik van de mobiele app (epomail);
 3. de toegang tot de Dienst via de open API.
+
+Mailboxadressen die door de gehoste instantie worden uitgegeven, behoren tot de domeinen `epomail.bond` en `epomail.cyou`; officiële systeem-e-mails (welkomst-e-mails, globale aankondigingen) worden verzonden vanaf `announcement@epocanvas.com`.
 
 Dit beleid is niet van toepassing op websites en diensten van derden waarnaar de Dienst verwijst of die de Dienst integreert; die derden hebben hun eigen privacybeleid en dragen daar zelf de verantwoordelijkheid voor.
 
@@ -66,7 +66,8 @@ De e-mail die u verzendt en ontvangt (inclusief metadata zoals afzender en ontva
 ### 4.3 Automatisch geregistreerde technische gegevens
 
 - **Aanmeld- en beveiligingslogboeken**: het IP-adres, de browser-User-Agent en het daaruit afgeleide besturingssysteem, de browser en het apparaattype, geregistreerd bij registratie en aanmelding, gebruikt voor de beveiligingsaudit en de identificatie van afwijkende aanmeldingen.
-- **Sessietokens**: de na aanmelding uitgegeven JWT (30 dagen geldig) wordt bewaard in de localStorage van uw browser. De Dienst gebruikt geen cookies en doet geen cross-site-tracking.
+- **Sessietokens**: de na aanmelding uitgegeven JWT (30 dagen geldig) wordt bewaard in de localStorage van uw browser om uw aangemelde status en interfacevoorkeuren te behouden. De Dienst gebruikt geen cookies om u te identificeren of uw gedrag te volgen en doet geen cross-site-tracking.
+- **Cookies en mensverificatie**: Turnstile-verificatie wordt geleverd door Cloudflare; tijdens de verificatie kan in uw browser een technische opslag verschijnen die strikt noodzakelijk is om de challenge af te ronden. De Dienst leest die niet en gebruikt die niet voor identificatie of reclame. De Dienst embedt geen advertentie-, analytische of sociale-platformscripts.
 - **Edge-netwerklogboeken**: Cloudflare verwerkt de requestmetadata overeenkomstig het eigen beleid.
 
 ### 4.4 Gegevens die de Dienst niet verzamelt
@@ -111,6 +112,8 @@ De Dienst deelt persoonsgegevens volgens het beginsel van minimale noodzakelijkh
 3. **Door u geactiveerd**: AI-vertaling en tekstherkenning in afbeeldingen (zie paragraaf 6);
 4. **Wettelijke vereisten**: verstrekt uitsluitend wanneer een bevoegd orgaan dat op grond van wettelijke procedures verlangt, met kennisgeving aan u voor zover de wet dat toelaat.
 
+Beginselen voor het afhandelen van verzoeken van handhavings- en justitiële autoriteiten: de Exploitant verstrekt gegevens alleen wanneer een verzoek op een concrete wettelijke basis rust, verifieert de rechtmatigheid en het bereik van het verzoek, verstrekt niet uit eigen beweging meer dan het verzoek dekt en stelt getroffenen waar de wet dat toelaat vooraf in kennis (tenzij de wet dat verbiedt); de Dienst onderwerpt zich niet aan willekeurige toegang zonder wettelijke basis.
+
 De Dienst draait op het wereldwijde edge-netwerk van Cloudflare; uw persoonsgegevens kunnen worden verwerkt op knooppunten buiten het land waar de Exploitant is gevestigd. De Exploitant volgt de eisen van het toepasselijke recht voor internationale doorgifte en de beperkingen die het bevoegd gezag overeenkomstig de wet oplegt, en steunt op de beschermende maatregelen van Cloudflare (certificeringen SOC 2 Type II en ISO/IEC 27001, en het mechanisme van de Europese standaardcontractbepalingen) voor de beveiliging van de doorgifte. Exploitanten van zelfgehoste instanties beoordelen zelf en waarborgen zelf dat hun internationale doorgifte voldoet aan de wettelijke eisen op hun vestigingsplaats.
 
 ## 8. Bewaartermijnen en vernietiging
@@ -122,7 +125,7 @@ De Dienst draait op het wereldwijde edge-netwerk van Cloudflare; uw persoonsgege
 | E-mail in de prullenbak | zeven dagen na ontvangst fysiek verwijderd door een routinetaak van het systeem (inclusief bijlagen en indexen) |
 | Officiële systeem-e-mails (welkomst-e-mails, globale aankondigingen) | vervallen en worden standaard 7 dagen na bezorging automatisch gewist; de Exploitant kan de termijn configureren |
 | Mailboxgebruik boven 90 % | het systeem verwijdert fysiek de e-mail die al als verwijderd is gemarkeerd, om ruimte vrij te maken |
-| Opzegging van het account | sessies vervallen onmiddellijk; de e-mail komt in een zacht-verwijderde staat totdat een beheerder de fysieke verwijdering uitvoert |
+| Opzegging van het account | sessies vervallen onmiddellijk; de e-mail komt in een zacht-verwijderde staat en, tenzij de wet bewaring vereist, voert een beheerder de fysieke verwijdering binnen 90 dagen uit |
 | Fysieke verwijdering | accountgegevens, mailboxen, e-mail, bijlagen, OAuth-autorisaties en sessies worden gezamenlijk verwijderd en kunnen niet worden hersteld |
 | Handhaving bij overtredingen | nadat een account wegens overtredingen is geblokkeerd, kan de Exploitant de e-mails en bijlagen forcerend wissen om ruimte vrij te maken (zie de handhavingsladder in het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/)) |
 | Beëindiging van de instantie | de Exploitant dient dit vooraf aan te kondigen en een periode voor gegevensexport aan te bieden; na beëindiging worden de gegevens vernietigd samen met de Cloudflare-resources |

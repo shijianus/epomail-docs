@@ -3,8 +3,7 @@ title: Traitement des Données et Maintien de la Sécurité
 description: Sécurité des données et protection des données personnelles d'EpoCanvas Mail — mesures de sécurité, frontières de responsabilité de l'exploitation à double voie, exercice de vos droits et réponse aux incidents de sécurité.
 ---
 
-
-**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
+**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.8**
 
 Le présent document décrit les mesures par lesquelles l'instance hébergée officielle (mail.epocanvas.com) protège les données, les frontières de responsabilité entre le service hébergé et le projet open source, ainsi que les modalités de consultation, d'exportation et de suppression de vos propres données. Il est établi en vertu de la [Politique de confidentialité](/fr/mail/privacy-policy/) et des [Conditions d'utilisation](/fr/mail/terms-of-service/) ; les faits techniques qui y sont énoncés suivent l'implémentation réelle du code open source.
 
@@ -67,7 +66,8 @@ Les catégories de données, les champs collectés, les finalités, les supports
 | --- | --- | --- | --- | --- |
 | Identifiants de compte | adresse électronique, nom d'utilisateur, haché de mot de passe et sel, secret TOTP (chiffré), hachés des codes de secours, clés publiques des clés d'accès | inscription, connexion, vérification en deux étapes | Cloudflare D1 ; PBKDF2 (100 000 itérations), TOTP chiffré au repos | pendant la vie du compte ; sessions révoquées à la désactivation, irrécupérables après suppression définitive |
 | Données de communication | expéditeur et destinataires, CC/CCI, objet, horodatages, statut de lecture, étiquettes, corps du courriel | envoi, réception, organisation en conversations, recherche par mots-clés | Cloudflare D1 (métadonnées) ; objet et corps chiffrés selon le mode de messagerie | sous votre contrôle ; corbeille conservée 7 jours puis supprimée définitivement |
-| Données réseau et d'appareil | IP d'inscription, IP de dernière connexion, système d'exploitation, type de navigateur et d'appareil, code pays/région issu de la requête en périphérie | audit de sécurité, détection de connexions inhabituelles | Cloudflare D1 ; consultables uniquement dans le cadre d'audits d'administration, jamais utilisées pour le profilage commercial | jusqu'à la suppression définitive du compte |
+| Données réseau et d'appareil | IP d'inscription, IP de dernière connexion, système d'exploitation, type de navigateur et d'appareil | audit de sécurité, détection de connexions inhabituelles | Cloudflare D1 ; consultables uniquement dans le cadre d'audits d'administration, jamais utilisées pour le profilage commercial | jusqu'à la suppression définitive du compte |
+| Données d'environnement périphérique | code pays/région de la requête (`cf-ipcountry`) | présélection d'interface (indicatif téléphonique par défaut, par exemple) | non persistées ; renvoyées uniquement avec la réponse au navigateur | non stockées ; détruites à la fin de la réponse |
 | Sessions et autorisations | jetons de session JWT, permissions de rôle | authentification de l'API en périphérie | liste d'autorisation Cloudflare KV ; au plus 10 sessions actives par compte | validité de 30 jours ; suppression immédiate à la déconnexion |
 | Pièces jointes | nom de fichier d'origine, type MIME, taille, contenu binaire | transfert, aperçu et téléchargement des pièces jointes | stockage d'objets de l'instance (résolution dans l'ordre : stockage S3 compatible fourni, liaison R2, KV par défaut) ; en-têtes défensifs au téléchargement | supprimées en cascade avec le courriel auquel elles appartiennent |
 
@@ -124,7 +124,7 @@ Vous disposez de droits de consultation, de copie, de rectification, d'oppositio
 ### 3.2 Suppression
 
 - **Suppression des courriels** : les courriels supprimés passent d'abord à la corbeille et sont supprimés définitivement (pièces jointes et index compris) par une tâche planifiée 7 jours plus tard ; la suppression est irréversible. Lorsque l'utilisation de la boîte dépasse 90 % du quota, les suppressions que vous effectuez sont immédiatement définitives afin de libérer l'espace ;
-- **Désactivation du compte** : vous pouvez désactiver votre compte vous-même dans les paramètres. Les sessions prennent fin immédiatement et les courriels et données passent en état de suppression logicielle jusqu'à ce qu'un administrateur effectue la suppression définitive ; après celle-ci, les données du compte, les courriels, les pièces jointes et les autorisations sont retirés de la base de données et du stockage d'objets, sans possibilité de récupération ;
+- **Désactivation du compte** : vous pouvez désactiver votre compte vous-même dans les paramètres. Les sessions prennent fin immédiatement et les courriels et données passent en état de suppression logicielle ; sauf conservation exigée par la loi, un administrateur effectue la suppression définitive dans les 90 jours suivant la désactivation. Après celle-ci, les données du compte, les courriels, les pièces jointes et les autorisations sont retirés de la base de données et du stockage d'objets, sans possibilité de récupération ;
 - **Droits légaux correspondants** : les droits de consultation, de copie et de suppression dont disposent, en vertu du RGPD, les utilisateurs de l'Espace économique européen, et les droits d'information, de suppression et de non-discrimination dont disposent, en vertu du CCPA/CPRA, les résidents de Californie, sont mis en œuvre par les fonctions en libre-service et le canal de demande manuelle ci-dessus ; les utilisateurs d'autres juridictions exercent des droits équivalents selon le droit applicable sur leur lieu.
 
 ### 3.3 Exclusion de la vente et du suivi
@@ -138,7 +138,7 @@ Vous disposez de droits de consultation, de copie, de rectification, d'oppositio
 Si des données personnelles sont volées, divulguées, altérées ou perdues, l'exploitant procédera comme suit :
 
 1. **Confinement immédiat** : déconnexion forcée des sessions concernées et mise en quarantaine du contenu touché, avec suspension partielle du service si nécessaire pour empêcher l'aggravation du dommage ;
-2. **Notification légale** : notification à l'autorité compétente dans le délai exigé par le droit applicable, et information des personnes touchées par une annonce sur le site ou un courriel système ;
+2. **Notification légale** : notification à l'autorité compétente dans les 72 heures suivant la constatation de l'incident (lorsque le droit applicable prévoit un délai différent, ce dernier s'applique et la notification intervient sans délai), et information des personnes touchées par une annonce sur le site ou un courriel système ;
 3. **Correctifs publiés** : une fois la cause identifiée, publication des correctifs et d'un avis de sécurité dans le dépôt open source afin que les exploitants auto-hébergés puissent s'aligner.
 
 Pour signaler un problème ou une vulnérabilité de sécurité, utilisez :

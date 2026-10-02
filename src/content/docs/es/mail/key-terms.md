@@ -3,9 +3,7 @@ title: Glosario
 description: Definiciones de los términos técnicos y jurídicos empleados en los documentos legales de EpoCanvas Mail — definiciones generales del derecho de protección de datos, interpretadas conforme a la arquitectura del Servicio.
 ---
 
-# Glosario
-
-**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
+**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.8**
 
 Esta página define los términos empleados en los documentos legales de este sitio. Los términos jurídicos siguen las definiciones generales del derecho de protección de datos; los términos técnicos se interpretan conforme a la implementación real del código abierto del Servicio.
 

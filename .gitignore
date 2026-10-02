@@ -8,3 +8,6 @@ dist/
 *.log
 tmp_laws/
 screenshots/
+
+# wrangler 本地运行产物（miniflare 状态与临时 bundle）
+.wrangler/

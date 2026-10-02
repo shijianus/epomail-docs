@@ -3,9 +3,7 @@ title: Spécifications des courriels officiels et vérification anti-falsificati
 description: Comment les courriels système officiels d'EpoCanvas Mail sont émis et identifiés — marque officielle, livraison immuable, isolation du rendu côté client et vérification anti-falsification des documents.
 ---
 
-# Spécifications des courriels officiels et vérification anti-falsification
-
-**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
+**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.8**
 
 Le présent document explique comment les courriels système officiels sont émis et comment les identifier, et décrit le mécanisme de vérification anti-falsification des documents juridiques de ce site, afin que vous puissiez confirmer l'authenticité des communications et des documents officiels. Il est établi en vertu de la [Vue d'ensemble Confidentialité et conditions](/fr/mail/overview/) et du document [Traitement des Données et Maintien de la Sécurité](/fr/mail/data-security/).
 

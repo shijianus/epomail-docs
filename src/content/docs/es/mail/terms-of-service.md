@@ -3,9 +3,7 @@ title: Términos del Servicio
 description: Términos del Servicio de EpoCanvas Mail—aceptación y revisión de los términos, reglas de cuenta, contenido del usuario, limitaciones de responsabilidad, y ley aplicable y jurisdicción.
 ---
 
-# Términos del Servicio
-
-**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
+**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.8**
 
 Estos Términos constituyen el acuerdo entre usted y el Operador de la instancia que utiliza con respecto al uso del servicio EpoCanvas Mail (el «Servicio»). Al completar el registro, iniciar sesión o utilizar de otro modo el Servicio, usted declara que ha leído y acepta la totalidad de estos Términos; si no está de acuerdo, no se registre ni utilice el Servicio.
 
@@ -32,7 +30,7 @@ El Servicio está construido sobre un proyecto de código abierto bajo la Licenc
 ## 3. Solicitud de cuenta y seguridad
 
 1. **Información de registro**: el registro requiere una dirección de correo electrónico de recepción válida y una contraseña. No debe suplantar a otra persona ni utilizar un dominio para el que no esté autorizado.
-2. **Requisitos de edad**: usted confirma que tiene al menos 14 años de edad; las personas menores de 14 años no pueden utilizar el Servicio. Debe asimismo asegurarse de que su registro y uso cumplen las leyes de su lugar de residencia.
+2. **Requisitos de edad**: usted confirma que tiene al menos 14 años de edad; las personas menores de 14 años no pueden utilizar el Servicio. La edad se basa en su declaración honesta al registrarse; el Servicio no dispone de un mecanismo independiente de verificación de la edad, y si la declaración resulta falsa, el Operador puede cancelar la cuenta y suprimir sus datos. Debe asimismo asegurarse de que su registro y uso cumplen las leyes de su lugar de residencia.
 3. **Custodia de credenciales**: usted es responsable de salvaguardar su contraseña, sus credenciales de verificación en dos pasos y sus tokens de API. Las operaciones realizadas con sus credenciales se presumen actos suyos.
 4. **Verificación en dos pasos**: se recomiendan TOTP o passkeys. Para las instancias que utilicen el modo «correo cifrado», el Operador puede hacer obligatoria su activación conforme a su política de seguridad.
 5. **Protección del inicio de sesión**: 5 fallos consecutivos de contraseña bloquean el inicio de sesión durante 12 horas; una cuenta mantiene como máximo 10 sesiones activas, y puede cerrar sesión en cualquier dispositivo para revocar los tokens de inmediato.
@@ -64,7 +62,7 @@ Su uso del Servicio está sujeto a todas las disposiciones de la [Política de U
 
 ## 8. Conservación de datos, eliminación y cierre de cuentas
 
-1. **Baja por su parte**: puede cancelar su cuenta en cualquier momento mediante el autoservicio en la configuración, o solicitar al Operador que la elimine. Tras la cancelación, las sesiones quedan invalidadas de inmediato; el correo pasa a un estado de eliminación lógica hasta que un administrador realice la supresión física.
+1. **Baja por su parte**: puede cancelar su cuenta en cualquier momento mediante el autoservicio en la configuración, o solicitar al Operador que la elimine. Tras la cancelación, las sesiones quedan invalidadas de inmediato; el correo pasa a un estado de eliminación lógica y, salvo que la ley exija su conservación, un administrador realiza la supresión física en un plazo de 90 días.
 2. **Depuración periódica del sistema**: el correo no deseado permanece en cuarentena durante 7 días y luego se traslada a la papelera; el correo de la papelera se suprime físicamente por el sistema 7 días después de la recepción (incluidos los adjuntos). La eliminación es irreversible; obtenga antes una copia JSON mediante «Exportar datos».
 3. **Baja por el Operador**: cuando usted vulnere la [Política de Uso Aceptable](/es/mail/acceptable-use/), el Operador puede suspender o poner fin a su uso conforme a dicha Política.
 4. **Conservación legal**: cuando la conservación sea exigida por la ley o por procedimientos judiciales, el Operador puede aplazar la eliminación en la medida necesaria y tratar los datos conforme a los procedimientos legales.
