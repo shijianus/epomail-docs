@@ -5,11 +5,11 @@ description: Política de Privacidad de EpoCanvas Mail—los estándares y compr
 
 # Política de Privacidad
 
-**Fecha de entrada en vigor: 1 de octubre de 2026 | Versión: 5.4**
+**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
 
 Esta Política explica cómo el servicio EpoCanvas Mail (el «Servicio») recopila, trata, utiliza y transmite sus datos personales, así como los estándares y compromisos que el Operador sigue en materia de protección de datos. Debe leer esta Política antes de registrarse en el Servicio o utilizarlo; si no está de acuerdo con alguna parte de esta Política, no utilice el Servicio.
 
-Los hechos técnicos descritos en esta Política se rigen por la implementación real del código abierto del Servicio. Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. La ley aplicable a la instancia que usted utiliza se determina por la ubicación de su operador (véase la Sección 12).
+Los hechos técnicos descritos en esta Política se rigen por la implementación real del código abierto del Servicio. Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. La ley aplicable a la instancia que usted utiliza se determina por la ubicación de su operador (véase la Sección 12). Los documentos jurídicos y técnicos de este sitio siguen la implementación de código abierto del servicio y buscan establecer normas de comunicación comunitarias transparentes, rigurosas y no comerciales.
 
 ![Los cinco pilares de la Política de Privacidad de EpoCanvas Mail: recopilación, utilización, transferencia, seguridad y derechos de los interesados, con contenidos respectivamente en el contrato y el consentimiento, la limitación de la finalidad, las garantías de transferencia, el mantenimiento de la seguridad y los recursos de los derechos, todos ellos sobre la base de la supervisión de la autoridad](/images/mail/privacy-pillars.svg)
 

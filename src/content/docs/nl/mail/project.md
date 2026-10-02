@@ -4,11 +4,11 @@ description: Een complete introductie van het EpoCanvas Mail-project—positione
 ---
 
 **Eerste commit: 21 juli 2026 | Huidige versie: v1.1.0 | Licentie: MIT**
-**Datum van inwerkingtreding: 1 oktober 2026 | Versie: 5.4**
+**Datum van inwerkingtreding: 2 oktober 2026 | Versie: 5.7**
 
 EpoCanvas Mail is een open source e-mailservice die draait op het Cloudflare-edge-netwerk. Met één domein en één Cloudflare-account richt u een eigen mailboxdienst op met verzending en ontvangst van e-mail, bijlagen en toegang vanaf meerdere apparaten. Het project wordt geëxploiteerd als gehoste instantie op [mail.epocanvas.com](https://mail.epocanvas.com), publiceert zijn volledige broncode voor zelf-hosting en levert een bijbehorende Android-app (epomail). Deze pagina beschrijft de positionering, de functies, de technische architectuur, het beveiligingsontwerp en de ontwikkelgeschiedenis van het project; de juridische voorwaarden van de dienst en de privacypraktijken staan in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/).
 
-De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
+De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend. De juridische en technische documenten op deze site volgen de open-sourceimplementatie van de dienst en beogen transparante, strenge, niet-commerciële normen voor gemeenschapscommunicatie.
 
 ![Systeemarchitectuur van EpoCanvas Mail: de clientlaag (webapp, Android-app, OAuth-apps van derden) verbindt via de Cloudflare-edge; Workers dragen de API, de verwerking van inkomende e-mail en de AI-mogelijkheden, met uitgaande verzending via Resend en Telegram; gegevens worden opgeslagen in dubbele D1-databases, KV en objectopslag](/images/mail/project-architecture.svg)
 
@@ -33,7 +33,7 @@ Elke functie hieronder is punt voor punt geverifieerd tegen de broncode van de r
 | Inkomende e-mail | Ontvangen via Cloudflare Email Routing, geparseerd door postal-mime (body en bijlagen) |
 | Uitgaande e-mail | Verzonden via de Resend-API, met bulkverzending, ingesloten afbeeldingen en bijlagen, en inzicht in de verzendstatus |
 | Drie e-mailmodi | De modi Alles, Privé en Versleuteld; de versleutelingssemantiek en zichtbaarheid voor de beheerder staan beschreven in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) |
-| Bijlageopslag | De eigen objectopslag van de instance (in volgorde: eigen of geconfigureerde S3-compatibele opslag, een Cloudflare R2-binding, standaard Cloudflare KV), met quotummeting |
+| Bijlageopslag | De eigen objectopslag van de instantie (in volgorde: eigen of geconfigureerde S3-compatibele opslag, een Cloudflare R2-binding, standaard Cloudflare KV), met quotummeting |
 | Leeservaring | Gespreksthreads, driedelig gesplitst aanzicht, inline beantwoorden, emoji-reacties, uitstellen／spam／prullenbak en een viewer voor originele headers |
 | Officiële e-mail en beveiligingsberichten | Geverifieerd blauw vinkje announcement@epocanvas.com (isOfficial), 16 beveiligingsmeldingen, onveranderlijke aflevering en integriteitsverificatie (zie [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/)) |
 

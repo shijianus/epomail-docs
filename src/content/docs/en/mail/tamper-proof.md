@@ -1,32 +1,73 @@
 ---
-title: Official Mail Specification & Anti-Tampering Architecture
-description: EpoCanvas Mail official system email specifications, 16 tiered security notifications, sender anti-spoofing, immutable delivery, client sandboxing, and document integrity verification.
+title: Official Mail Specification & Tamper-Proof Verification
+description: How EpoCanvas Mail official system mail is issued and identified — the official flag, immutable delivery, client-side rendering isolation, and document tamper-proof verification.
 ---
 
-# Official Mail Specification & Anti-Tampering Architecture
+# Official Mail Specification & Tamper-Proof Verification
 
-**Effective Date: October 1, 2026 | Version: 5.5**
+**Effective Date: October 2, 2026 | Version: 5.7**
 
-Pursuant to the Privacy & Terms Overview and our Data Processing directives, this document establishes the definitive technical specifications for the EpoCanvas Mail anti-tampering architecture. This framework ensures the undeniable authenticity of official communications, providing verifiable mechanisms to detect spoofing, prevent document manipulation, and isolate potentially malicious content. Whether operating within the managed environment or a self-hosted instance, these architectural constraints guarantee the integrity of the 16-level security notification system and the safety of the client-side rendering sandbox.
+This document explains how official system mail is issued and how to identify it, and describes the tamper-proof verification mechanism for the legal documents on this site, so you can confirm the authenticity of official communications and documents. It is established under the [Privacy & Terms Overview](/en/mail/overview/) and [Data Processing & Security Maintenance](/en/mail/data-security/).
 
-> [!IMPORTANT]
-> **Brand Protection and Spoofing Prevention**: Operators of self-hosted open-source instances must ensure their deployments do not falsely present themselves as official communications from the EpoCanvas Mail administrative team. Our anti-tampering architecture includes cryptographic proofs that strictly distinguish official platform communications from third-party instance traffic.
+The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
 
-### The 16-Level Security Event System
+![EpoCanvas Mail three-layer official mail pipeline: the issuance layer locks the official sender address and injects the official flag; the delivery layer fixes an immutable snapshot with preset-translation fallback; the client layer isolates rendering with Shadow DOM and content sanitizing](/images/mail/anti-tamper-architecture.svg)
 
-EpoCanvas Mail employs a highly structured, 16-level security event notification framework to alert users to critical account activities. These events range from routine informational notices (Level 1: New Device Login) to critical security breaches (Level 16: Cryptographic Key Compromise Protocol). Each notification level is uniquely cryptographically signed at the edge before dispatch. This system ensures that security alerts cannot be suppressed or forged by intermediate network actors. The hierarchical nature of these alerts dictates the corresponding automated response, escalating from simple UI warnings to immediate account lockdown and enforced session termination.
+*Figure: the three layers of official-mail processing. The issuance layer locks the official sender address and injects the official flag; the delivery layer fixes an immutable snapshot with preset-translation fallback; the client layer isolates rendering and supports document verification.*
 
-### Edge Sender Anti-Spoofing and Authentication
+## 1. Official Sender Identity and the Official Flag
 
-To combat the pervasive threat of phishing and identity forgery, our architecture relies heavily on stringent sender anti-spoofing protocols enforced directly at the network edge. EpoCanvas Mail strictly mandates the validation of SPF (Sender Policy Framework), DKIM (DomainKeys Identified Mail), and DMARC (Domain-based Message Authentication, Reporting, and Conformance) records for all incoming and outgoing traffic. By validating the cryptographic signatures of inbound mail before it ever reaches the application layer, we discard spoofed communications instantaneously, protecting the user's inbox from deceptive social engineering attacks.
+Official system communications are distinguished from ordinary user mail as follows:
 
-### Immutable Snapshot Delivery
+1. **A single official sender address**: welcome mail, global announcements, and security notices are issued by the system from `announcement@epocanvas.com`. The address is built into the program; official mail is generated only through the privileged system pipeline.
+2. **The official flag (isOfficial)**: mail whose sender is `announcement@epocanvas.com` or `admin@epocanvas.com`, or that carries the "official" label, is marked by the system; the reading pane shows an official badge and banner so you can tell it apart from ordinary mail.
+3. **Lifecycle**: welcome mail and global announcements expire after a configurable number of days (7 by default) counted from delivery and are cleaned up by a scheduled task.
 
-Integrity is maintained through the implementation of immutable snapshot delivery. Once an email payload is received and cryptographically verified at the edge, a finalized, read-only snapshot of the message is generated and committed to the D1/KV storage layer. This snapshot is cryptographically hashed, and any subsequent attempt to modify the database record will instantly invalidate the hash. This guarantees that once a communication is securely stored within the EpoCanvas Mail ecosystem, its contents cannot be retroactively altered, tampered with, or silently corrupted, preserving a pristine audit trail for all correspondence.
+## 2. Catalogue of Official Mail
 
-### Client-Side Sandbox Isolation
+The official system mail of the service is limited to the following types, all generated from built-in templates:
 
-The final layer of the anti-tampering architecture resides within the user interface itself. To mitigate the risks associated with malicious payloads, tracking pixels, or cross-site scripting (XSS) embedded within complex HTML emails, the EpoCanvas Mail web client employs aggressive sandbox isolation. All incoming message content is strictly sanitized and rendered within restricted iframe contexts with `sandbox` attributes enabled. External resource loading is blocked by default, and active scripting is entirely neutralized. This ensures that even if an attacker manages to deliver a maliciously crafted email, it cannot execute code or exfiltrate session data from the user's browser environment.
+| Type | Trigger | Description |
+| --- | --- | --- |
+| Welcome mail | a new mailbox is created | built-in six-language template; expires after the configured days (7 by default) |
+| Global announcement | an administrator publishes a system announcement | built-in six-language template; same lifetime as welcome mail |
+| Two-step verification enabled notice | you enable TOTP | in-app notice: two-step verification is on and other sessions were signed out |
+| Two-step verification disabled warning | you disable TOTP | in-app notice: security has been reduced |
+| Two-step verification reset alert | an administrator resets your TOTP | in-app notice telling you to contact the administrator; also sent as outbound mail when a delivery channel is configured |
 
-> [!TIP]
-> Advanced users can independently verify the cryptographic hash of any received message by utilizing the "View Message Source and Integrity Proof" option within the mail client interface.
+Beyond this table, the system never sends mail of the kind "account abnormal", "you have won", or "verification overdue" from any address. If you receive mail claiming to be official from a different sender address, report it through the channel in Section 6.
+
+## 3. Immutable Delivery and Preset Translation
+
+1. **Immutable snapshot delivery**: official mail has its placeholders substituted and its content fixed into a snapshot at send time; it is not regenerated when a recipient later changes the interface language, keeping official communications objectively unique;
+2. **Preset-translation fallback**: when you use "Translate" on an unmodified official mail, the preset official template in your language is rendered locally and no mail content is sent to any AI service; only mail whose body an administrator has modified goes through full-text AI translation (see Section 6 of the [Privacy Policy](/en/mail/privacy-policy/)).
+
+## 4. Client-Side Rendering Isolation
+
+Mail content (official and inbound alike) is rendered in the browser under the following isolation measures:
+
+1. **Shadow DOM isolation**: the body is rendered inside its own Shadow DOM; page-wide styles and scripts cannot affect the mail content, and styles inside the mail cannot leak into the page;
+2. **Whitelist sanitizing**: the body is sanitized with DOMPurify; `<script>`, `<iframe>`, `<object>`, `<embed>`, `<form>`, and `<style>` tags and inline event handlers are removed, blocking script injection and interface spoofing.
+
+## 5. Document Tamper-Proof Verification
+
+The legal documents on this site are sealed cryptographically when published, so anyone can verify that what they read matches the released version in the open-source repository:
+
+| Verification route | Mechanism | Description |
+| --- | --- | --- |
+| Integrity manifest | `tamper-proof.json` | generated by the build pipeline from the git repository; records each document's SHA-256 hash, byte size, and pinned commit |
+| Embedded page panel | "Official Tamper-Proof & Integrity Verification" at the bottom of every page | shows this document's official hash and pinned commit; clicking "Verify this page now" re-fetches the manifest and compares it with the hash embedded in the page |
+| Offline verification | `sha256sum` / OpenSSL | hash the Markdown sources in the open-source repository and compare them against the manifest item by item |
+| Authoritative origin | `docs.epocanvas.com/epomail` | served over HTTPS; content read from another domain or a mirror should be checked against the manifest hashes |
+
+:::tip[How to verify online]
+Click "Verify this page now" at the bottom of any document page: the panel re-fetches the official manifest and compares it with the hash embedded in the page. You can also run `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json` in a terminal to obtain the manifest and run `sha256sum` on the repository's Markdown files for an item-by-item check.
+:::
+
+## 6. Responsibility Boundaries and Reporting Channels
+
+1. **Hosted instance**: the issuance of official mail, the sender identity, and the document seals are maintained by the official operations team;
+2. **Self-hosted instances**: self-hosters configure their own delivery channels and keys and should protect their instance as described in [Data Processing & Security Maintenance](/en/mail/data-security/); official communications of a self-hosted instance are the responsibility of that instance's operator;
+3. **Reporting channels**: to report mail impersonating the official identity, verification anomalies, or security vulnerabilities, contact:
+   - Official sending & security channel: `announcement@epocanvas.com`
+   - Privacy & data protection channel: `privacy@epocanvas.com`

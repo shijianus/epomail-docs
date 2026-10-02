@@ -5,15 +5,15 @@ description: Volledige lijst van de verwerkers, ontvangers van gegevens, betrokk
 
 # Lijst van verwerkers
 
-**Datum van inwerkingtreding: 1 oktober 2026 | Versie: 5.4**
+**Datum van inwerkingtreding: 2 oktober 2026 | Versie: 5.7**
 
-Deze lijst sluit aan bij paragraaf 7 van het [Privacybeleid](/nl/mail/privacy-policy/) en vermeldt volledig de derden die bij de persoonsgegevens van de Dienst betrokken zijn, de voorwaarden voor delen en de waarborgmechanismen. Het delen door de Dienst volgt het beginsel van minimale noodzakelijkheid: gegevens die de instance niet hoeven te verlaten, verlaten die niet; gegevens die moeten worden verlaten, worden uitdrukkelijk vermeld met de ontvanger en de meegegeven gegevens. Met geen van de hierna genoemde partijen bestaat enige relatie van verkoop van gegevens of van het delen van advertentie-inkomsten.
+Deze lijst sluit aan bij paragraaf 7 van het [Privacybeleid](/nl/mail/privacy-policy/) en vermeldt volledig de derden die bij de persoonsgegevens van de Dienst betrokken zijn, de voorwaarden voor delen en de waarborgmechanismen. Het delen door de Dienst volgt het beginsel van minimale noodzakelijkheid: gegevens die de instantie niet hoeven te verlaten, verlaten die niet; gegevens die moeten worden verlaten, worden uitdrukkelijk vermeld met de ontvanger en de meegegeven gegevens. Met geen van de hierna genoemde partijen bestaat enige relatie van verkoop van gegevens of van het delen van advertentie-inkomsten.
 
 Internationale doorgifte volgt de eisen van het toepasselijke recht en de beperkingen die bevoegde autoriteiten overeenkomstig de wet oplegen, met standaardcontractbepalingen en vergelijkbare mechanismen als waarborg voor de veiligheid van de doorgifte. Verwerkers verwerken de gegevens allemaal op instructie van de verwerkingsverantwoordelijke en binnen het bestek van het beoogde doel.
 
-De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
+De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend. De juridische en technische documenten op deze site volgen de open-sourceimplementatie van de dienst en beogen transparante, strenge, niet-commerciële normen voor gemeenschapscommunicatie.
 
-![Kaart van het delen met derden door EpoCanvas Mail: gecentreerd op de instance, vier categorieën, namelijk verwerkers op basis van bewaarneming, op autorisatie van de betrokkene, door de betrokkene geactiveerde AI-verwerking en wettelijke vereisten; met het beginsel van minimale noodzakelijkheid en de toezeggingen van niet verkopen, geen advertenties en niet volgen](/images/mail/subprocessor-map.svg)
+![Kaart van het delen met derden door EpoCanvas Mail: gecentreerd op de instantie, vier categorieën, namelijk verwerkers op basis van bewaarneming, op autorisatie van de betrokkene, door de betrokkene geactiveerde AI-verwerking en wettelijke vereisten; met het beginsel van minimale noodzakelijkheid en de toezeggingen van niet verkopen, geen advertenties en niet volgen](/images/mail/subprocessor-map.svg)
 
 *Figuur: de vier categorieën van paden voor delen met derden door de Dienst. De activeringsvoorwaarden, de betrokken gegevens en de waarborgmechanismen per categorie staan in de hiernavolgende tabellen.*
 
@@ -32,13 +32,13 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 | OAuth-apps van derden | aanmelding of geautoriseerde toegang via derden | beperkt tot openid / profile / email (identificator, e-mailadres, naam, avatar); toegangstokens zijn 2 uur geldig | alleen na actieve autorisatie door de betrokkene; op elk moment in te trekken op de pagina «Apps van derden», met onmiddellijke werking |
 | Linux DO | identiteitsbron voor aanmelding via derden | de via OAuth verkregen gebruikersidentificator, nickname, avatar en vertrouwensniveau | alleen bij aanmelding met een Linux DO-account |
 | Blog van het exploitatieteam (blog.epocanvas.com) | koppeling van blogactiviteitsniveau en quotumverhoging | uw e-mailadres (verzonden in de queryaanvraag) | alleen in realtime geraadpleegd wanneer u de blogniveausynchronisatie bekijkt |
-| Avatar-afbeeldingshost (standaard: de eigen objectopslag van de instance; de Exploitant kan via een omgevingsvariabele een externe host configureren) | opslag van avatars en afbeeldingen | het afbeeldingsbestand zelf | alleen bij het uploaden van avatars en dergelijke afbeeldingen; als een externe host is geconfigureerd, worden de afbeeldingsbestanden naar die host verzonden |
+| Avatar-afbeeldingshost (standaard: de eigen objectopslag van de instantie; de Exploitant kan via een omgevingsvariabele een externe host configureren) | opslag van avatars en afbeeldingen | het afbeeldingsbestand zelf | alleen bij het uploaden van avatars en dergelijke afbeeldingen; als een externe host is geconfigureerd, worden de afbeeldingsbestanden naar die host verzonden |
 
 ## 3. De AI-verwerkingsketen (met activering door de betrokkene als uitgangspunt)
 
 | Dienst | Functie | Betrokken gegevens | Triggerconditie |
 | --- | --- | --- | --- |
-| Modelendpoint geconfigureerd door de instance (standaard OpenAI-compatibel protocol) | e-mailvertaling | te vertalen tekstsegmenten (gehele alinea's hebben voorrang; lange teksten in segmenten) | alleen wanneer de betrokkene op «Vertalen» klikt |
+| Modelendpoint geconfigureerd door de instantie (standaard OpenAI-compatibel protocol) | e-mailvertaling | te vertalen tekstsegmenten (gehele alinea's hebben voorrang; lange teksten in segmenten) | alleen wanneer de betrokkene op «Vertalen» klikt |
 | Cloudflare Workers AI | extractie van verificatiecodes (edge-inferentie), vertaal-back-up, tekstherkenning in afbeeldingen | het onderwerp en de eerste 6.000 tekens van de berichttekst (extractie van verificatiecodes); tekst en afbeeldingen voor vertaling en herkenning | extractie van verificatiecodes is de enige AI-verwerking die niet handmatig wordt geactiveerd (optioneel in te schakelen door de Exploitant); de overige worden door de betrokkene geactiveerd |
 | MyMemory / openbare API's van Google Translate | vertaal-back-up | afgeknipte tekstfragmenten | uitsluitend als back-up wanneer het modelendpoint niet beschikbaar is |
 
@@ -62,7 +62,7 @@ De voornoemde zelf aangebrachte diensten worden gekozen door de partij die ze co
 
 ## 6. Delen op grond van wettelijke vereisten
 
-De Exploitant maakt persoonsgegevens naar buiten bekend uitsluitend wanneer de wet dat dwingend verlangt of wanneer een rechterlijk orgaan dat op grond van wettelijke procedures verzoekt. De Exploitant verifieert de rechtmatigheid van het verzoek, maakt uitsluitend de minimale omvang openbaar die de wet verlangt, en stelt de getroffen betrokkenen binnen de grenzen van de wet in kennis (behoudens wanneer de wet dat verbiedt). Exploitanten van zelfgehoste instances vullen de bijbehorende toezeggingen aan voor hun eigen rechtsgebied.
+De Exploitant maakt persoonsgegevens naar buiten bekend uitsluitend wanneer de wet dat dwingend verlangt of wanneer een rechterlijk orgaan dat op grond van wettelijke procedures verzoekt. De Exploitant verifieert de rechtmatigheid van het verzoek, maakt uitsluitend de minimale omvang openbaar die de wet verlangt, en stelt de getroffen betrokkenen binnen de grenzen van de wet in kennis (behoudens wanneer de wet dat verbiedt). Exploitanten van zelfgehoste instanties vullen de bijbehorende toezeggingen aan voor hun eigen rechtsgebied.
 
 ## 7. Kennisgeving van wijzigingen in verwerkers
 

@@ -5,11 +5,11 @@ description: Definiciones de los términos técnicos y jurídicos empleados en l
 
 # Glosario
 
-**Fecha de entrada en vigor: 1 de octubre de 2026 | Versión: 5.4**
+**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
 
 Esta página define los términos empleados en los documentos legales de este sitio. Los términos jurídicos siguen las definiciones generales del derecho de protección de datos; los términos técnicos se interpretan conforme a la implementación real del código abierto del Servicio.
 
-Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
+Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. Los documentos jurídicos y técnicos de este sitio siguen la implementación de código abierto del servicio y buscan establecer normas de comunicación comunitarias transparentes, rigurosas y no comerciales.
 
 ![Mapa del glosario: términos jurídicos (responsable del tratamiento, encargado, persona interesada, finalidad determinada, etc.) y términos técnicos (instancia, D1/KV/R2, cifrado en reposo, cero telemetría, etc.): dos familias de definiciones usadas de forma coherente en todos los documentos, interpretadas según el uso general de protección de datos y la implementación real del código abierto](/images/mail/key-terms-glossary.svg)
 

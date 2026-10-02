@@ -1,83 +1,73 @@
 ---
-title: Spécifications des e-mails officiels et architecture anti-falsification
-description: Spécifications des e-mails système officiels d'EpoCanvas Mail, 16 notifications de sécurité hiérarchisées, protection de l'expéditeur, livraison immuable et intégrité.
+title: Spécifications des courriels officiels et vérification anti-falsification
+description: Comment les courriels système officiels d'EpoCanvas Mail sont émis et identifiés — marque officielle, livraison immuable, isolation du rendu côté client et vérification anti-falsification des documents.
 ---
 
-# Spécifications des e-mails officiels et architecture anti-falsification
+# Spécifications des courriels officiels et vérification anti-falsification
 
-**Date d'entrée en vigueur : 1er octobre 2026 | Version : 5.5**
+**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
 
-Conformément à l'[Aperçu de la confidentialité et des conditions](/mail/overview/) et au [Traitement des données et sécurité](/mail/data-security/), ce document détaille le cadre d'émission des e-mails officiels, les spécifications des avis de sécurité, la protection de l'expéditeur en périphérie, la livraison immuable par instantané, l'isolation en bac à sable côté client, ainsi que les mécanismes de vérification cryptographique anti-falsification pour EpoCanvas Mail.
+Le présent document explique comment les courriels système officiels sont émis et comment les identifier, et décrit le mécanisme de vérification anti-falsification des documents juridiques de ce site, afin que vous puissiez confirmer l'authenticité des communications et des documents officiels. Il est établi en vertu de la [Vue d'ensemble Confidentialité et conditions](/fr/mail/overview/) et du document [Traitement des Données et Maintien de la Sécurité](/fr/mail/data-security/).
 
-Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
+Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Les documents juridiques et techniques de ce site suivent l'implémentation open source du service et visent à établir des normes de communication communautaires transparentes, rigoureuses et non commerciales.
 
-![Architecture anti-falsification et d'authentification officielle d'EpoCanvas Mail : protection de l'expéditeur en périphérie, pipeline de livraison immuable, isolation Shadow DOM côté client et manifeste SHA-256](/images/mail/anti-tamper-architecture.svg)
+![Architecture en trois couches des courriels officiels d'EpoCanvas Mail : la couche d'émission verrouille l'adresse officielle d'expédition et injecte la marque officielle ; la couche de livraison fige un instantané immuable avec repli de traduction prédéfinie ; la couche client isole le rendu avec Shadow DOM et assainissement du contenu](/images/mail/anti-tamper-architecture.svg)
 
-*Figure : Architecture de sécurité et de certification officielle du système. Le premier niveau verrouille l'expéditeur officiel en périphérie ; le deuxième niveau fige les instantanés immuables sous chiffrement AES-256-GCM ; le troisième niveau assure l'isolation Shadow DOM côté client et la vérification SHA-256 en direct via Web Crypto.*
+*Figure : les trois couches du traitement des courriels officiels. La couche d'émission verrouille l'adresse officielle d'expédition et injecte la marque officielle ; la couche de livraison fige un instantané immuable avec repli de traduction prédéfinie ; la couche client isole le rendu et prend en charge la vérification documentaire.*
 
-## 1. Protection et authentification de l'expéditeur officiel
+## 1. Identité officielle de l'expéditeur et marque officielle
 
-Afin d'éliminer définitivement les risques d'hameçonnage et d'usurpation d'identité, le service met en œuvre un canal d'isolation privilégié en périphérie séparant strictement les communications système des flux utilisateurs :
+Les communications système officielles se distinguent du courrier ordinaire des utilisateurs comme suit :
 
-1. **Verrouillage exclusif de l'adresse officielle** : Tous les messages de bienvenue, annonces globales et alertes de sécurité sont émis de manière stricte et exclusive depuis l'adresse certifiée `announcement@epocanvas.com` ;
-2. **Interception des usurpations en périphérie** : La passerelle Cloudflare Workers applique un filtrage strict. Tout expéditeur externe ou appel interne non privilégié tentant d'émettre en tant que `announcement@epocanvas.com` est immédiatement bloqué avec une erreur HTTP 403 ;
-3. **Badge certifié et coche bleue officielle (`isOfficial: 1`)** : Seuls les messages générés par les pipelines système privilégiés reçoivent l'attribut infalsifiable `isOfficial = 1`, déclenchant l'affichage du bouclier bleu officiel et de la bannière certifiée dans l'interface ;
-4. **Cycle de vie et règles de rétention** : Les e-mails de bienvenue sont marqués pour suivi et purgés automatiquement après 7 jours ; les notifications d'incidents de sécurité majeurs sont archivées de manière permanente dans la base de données.
+1. **Une adresse d'expédition officielle unique** : les courriels de bienvenue, les annonces globales et les avis de sécurité sont émis par le système depuis `announcement@epocanvas.com`. Cette adresse est intégrée au programme ; les courriels officiels ne sont générés que par le canal privilégié du système ;
+2. **La marque officielle (isOfficial)** : les courriels dont l'expéditeur est `announcement@epocanvas.com` ou `admin@epocanvas.com`, ou qui portent l'étiquette « officiel », reçoivent la marque du système ; le volet de lecture affiche un badge et une bannière officiels afin de les distinguer du courrier ordinaire ;
+3. **Cycle de vie** : les courriels de bienvenue et les annonces globales expirent après un nombre de jours configurable (7 par défaut) à compter de la livraison, puis sont nettoyés par une tâche planifiée.
 
-## 2. Système d'avis de sécurité (16 catégories d'événements)
+## 2. Catalogue des courriels officiels
 
-Le service intègre les mutations d'état critiques dans une échelle défensive à 4 niveaux (L1 à L4), établissant une matrice de notification en temps réel couvrant 16 événements distincts. La mise en page adopte un design d'ingénierie épuré sans formulation artificielle, intégrant un bouclier vectoriel SVG, des cartes d'action bilatérales (confirmation d'action légitime vs remédiation d'urgence) et un bouton d'action sombre vers le centre de sécurité :
+Les courriels système officiels du service se limitent aux types suivants, tous générés à partir de modèles intégrés :
 
-| Niveau | Code d'événement | Scénario de déclenchement et contexte | Métadonnées et paramètres injectés | Étoile auto |
-| --- | --- | --- | --- | --- |
-| L1 | NEW_DEVICE_LOGIN | Première connexion depuis un nouvel appareil ou navigateur | Horodatage, IP, Localisation, Appareil, Navigateur | Non |
-| L1 | NEW_LOCATION_LOGIN | Connexion depuis une nouvelle ville ou un nouveau pays | Horodatage, IP, Pays et Ville, Opérateur réseau | Non |
-| L1 | NEW_NETWORK_LOGIN | Connexion depuis un nouveau système autonome (ASN) ou FAI | Horodatage, IP, Numéro ASN, Nom de l'opérateur | Non |
-| L2 | PASSWORD_CHANGED | Mot de passe de connexion au compte modifié avec succès | Horodatage, IP, Localisation, Appareil et Navigateur | Non |
-| L2 | PAT_CREATED | Nouveau jeton d'accès personnel (PAT) généré pour l'API | Nom du jeton, Étendue des accès, Durée de validité | Non |
-| L2 | PAT_REVOKED | Jeton d'accès personnel révoqué manuellement ou expiré | Nom du jeton, Date de révocation, Appareil client | Non |
-| L2 | OAUTH_AUTHORIZED | Application OAuth 2.0 autorisée à accéder à la boîte mail | Nom de l'application, Permissions, Identifiant client | Non |
-| L2 | OAUTH_REVOKED | Autorisation accordée à une application OAuth 2.0 révoquée | Nom de l'application, Date de révocation, Infos client | Non |
-| L3 | TOTP_ENABLED | Authentification à deux facteurs (RFC 6238) activée | Horodatage, IP, Date d'activation, Codes de secours | Oui |
-| L3 | TOTP_DISABLED | Authentification à deux facteurs désactivée (mot de passe seul) | Horodatage, IP, Appareil, Consignes de sécurité | Oui |
-| L3 | PASSKEY_ADDED | Nouvelle clé d'accès (Passkey FIDO2 / WebAuthn) ajoutée | Nom de la clé d'accès, Type d'authentificateur | Oui |
-| L3 | PASSKEY_REMOVED | Clé d'accès précédemment enregistrée supprimée | Nom de la clé d'accès, Date de suppression | Oui |
-| L3 | AUTO_FORWARD_CHANGED | Règle de transfert automatique d'e-mails configurée | Adresse de destination, Filtres, État activé | Oui |
-| L3 | STORAGE_PURGED | Configuration du stockage personnalisé (BYO) réinitialisée | Horodatage, IP opératrice, État de repli | Oui |
-| L4 | ACCOUNT_LOCKED | Seuil d'échecs de connexion atteint (blocage 12h) | Tentatives échouées, Durée de blocage, IP | Oui |
-| L4 | ACCOUNT_DELETED | Suppression du compte demandée ou purge programmée | Horodatage de la demande, Nombre d'alias, Délai | Oui |
+| Type | Déclencheur | Description |
+| --- | --- | --- |
+| Courriel de bienvenue | création d'une nouvelle boîte | modèle officiel en six langues intégré ; expire après le nombre de jours configuré (7 par défaut) |
+| Annonce globale | publication d'une annonce système par un administrateur | modèle officiel en six langues intégré ; durée de vie identique au courriel de bienvenue |
+| Avis d'activation de la vérification en deux étapes | activation de TOTP par vos soins | avis dans l'application : la vérification en deux étapes est active et les autres sessions ont été déconnectées |
+| Alerte de désactivation de la vérification en deux étapes | désactivation de TOTP par vos soins | avis dans l'application : la sécurité a été réduite |
+| Alerte de réinitialisation de la vérification en deux étapes | réinitialisation de votre TOTP par un administrateur | avis dans l'application vous invitant à contacter l'administrateur ; envoyé également par courriel sortant lorsqu'un canal de distribution est configuré |
 
-Pour prémunir les utilisateurs contre la fatigue des alertes, une empreinte environnementale (retenant les 15 derniers appareils, emplacements et réseaux) est maintenue dans KV, imposant une fenêtre de silence d'une heure pour les événements identiques.
+Au-delà de ce tableau, le système n'envoie jamais, depuis aucune adresse, de courriels du type « compte anormal », « vous avez gagné » ou « vérification expirée ». Si vous recevez un courriel se réclamant du caractère officiel depuis une autre adresse, signalez-le par le canal de la section 6.
 
-## 3. Livraison immuable et bac à sable client anti-falsification
+## 3. Livraison immuable et traduction prédéfinie
 
-Les communications officielles s'exécutent au moyen de protocoles de transfert immuables et d'une isolation en bac à sable côté client, garantissant qu'aucun intermédiaire ne puisse altérer les messages :
+1. **Livraison par instantané immuable** : les variables des courriels officiels sont substituées et leur contenu figé en un instantané au moment de l'envoi ; il n'est pas régénéré lorsque le destinataire change ensuite la langue de l'interface, ce qui préserve le caractère objectivement unique des communications officielles ;
+2. **Repli de traduction prédéfinie** : lorsque vous utilisez « Traduire » sur un courriel officiel non modifié, le modèle officiel prédéfini dans votre langue est rendu localement et aucun contenu n'est transmis à un service d'IA ; seuls les courriels dont le corps a été modifié par un administrateur passent par la traduction IA intégrale (voir la section 6 de la [Politique de confidentialité](/fr/mail/privacy-policy/)).
 
-1. **Livraison immuable par instantané (Immutable Delivery)** : Les e-mails système sont figés dans la base de données lors de leur envoi et ne sont pas traduits dynamiquement lorsque le destinataire modifie sa langue d'interface ;
-2. **Repli symétrique vers les modèles pré-traduits** : Le moteur multilingue pré-compile les traductions officielles. Lorsqu'un message correspond au modèle certifié, la traduction validée est servie directement ; en cas d'altération, le système bascule élégamment vers l'IA ;
-3. **Isolation physique par Shadow DOM** : Le client web encapsule le corps des e-mails dans un Shadow DOM hermétique, empêchant les styles parents et les scripts globaux d'interférer ;
-4. **Filtrage strict DOMPurify** : Les balises `<script>`, `<style>`, `<iframe>`, `<object>`, `<embed>`, `<form>` et les gestionnaires d'événements inline sont neutralisés, prévenant toute tentative de XSS ou de falsification visuelle.
+## 4. Isolation du rendu côté client
 
-## 4. Dispositif anti-falsification et de vérification des documents
+Le contenu des courriels (officiels comme entrants) est rendu dans le navigateur sous les mesures d'isolation suivantes :
 
-Le site de documentation officielle (`epomail-docs`) intègre un mécanisme ouvert de contrôle d'intégrité par hachage cryptographique permettant à chaque utilisateur de vérifier l'authenticité des pages :
+1. **Isolation Shadow DOM** : le corps est rendu dans son propre Shadow DOM ; les styles et scripts globaux de la page ne peuvent affecter le contenu du courriel, et les styles du courriel ne peuvent s'étendre à la page ;
+2. **Assainissement par liste blanche** : le corps est assaini par DOMPurify ; les balises `<script>`, `<iframe>`, `<object>`, `<embed>`, `<form>` et `<style>` ainsi que les gestionnaires d'événements en ligne sont supprimés, ce qui bloque l'injection de scripts et l'usurpation d'interface.
 
-| Dimension défensive | Mécanisme technique | Critère de vérification | Menace neutralisée |
-| --- | --- | --- | --- |
-| Manifeste déterministe | `public/tamper-proof.json` | Hachage SHA-256 et taille en octets | Altération de miroir, substitution de document |
-| Traçabilité des versions | Objet arborescent Git Commit | SHA du commit Git et signature PGP | Révisions non autorisées, falsification historique |
-| Vérification dans le navigateur | API Web Crypto en mémoire | `crypto.subtle.digest('SHA-256')` | Injection intermédiaire (MITM), pollution de cache |
-| Audit hors ligne en terminal | Outils OpenSSL / sha256sum | Comparaison locale des fichiers Markdown | Audits hors ligne, conformité réglementaire |
-| Origine officielle vérifiée | `https://docs.epocanvas.com/epomail` | Validation DNSSEC et certificats TLS | Sites miroirs malveillants, portails trompeurs |
+## 5. Vérification anti-falsification des documents
 
-:::tip[Guide de vérification en direct]
-Un panneau interactif « 🛡️ Vérification officielle anti-falsification et intégrité » est intégré en bas de chaque page de documentation. Cliquer sur « 🔍 Vérifier l'intégrité de la page en direct » calcule instantanément l'empreinte SHA-256 en mémoire locale et la compare au manifeste officiel. La commande `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json | jq .` permet la même opération en ligne de commande.
+Les documents juridiques de ce site sont scellés cryptographiquement lors de leur publication, afin que chacun puisse vérifier que ce qu'il lit correspond à la version publiée dans le dépôt open source :
+
+| Voie de vérification | Mécanisme | Description |
+| --- | --- | --- |
+| Manifeste d'intégrité | `tamper-proof.json` | généré par la chaîne de build à partir du dépôt git ; enregistre pour chaque document le haché SHA-256, la taille en octets et le commit figé |
+| Panneau intégré à la page | « Sceau officielle et vérification d'intégrité » au bas de chaque page | affiche le haché officiel et le commit figé du présent document ; cliquer sur « Vérifier cette page » récupère à nouveau le manifeste et le compare au haché intégré dans la page |
+| Vérification hors ligne | `sha256sum` / OpenSSL | hacher les sources Markdown du dépôt open source et les comparer au manifeste élément par élément |
+| Origine faisant autorité | `docs.epocanvas.com/epomail` | servi en HTTPS ; le contenu lu depuis un autre domaine ou un miroir doit être vérifié à l'aune des hachés du manifeste |
+
+:::tip[Comment vérifier en ligne]
+Cliquez sur « Vérifier cette page » au bas de n'importe quelle page de document : le panneau récupère à nouveau le manifeste officiel et le compare au haché intégré dans la page. Vous pouvez aussi exécuter `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json` dans un terminal pour obtenir le manifeste, puis `sha256sum` sur les fichiers Markdown du dépôt pour une vérification élément par élément.
 :::
 
-## 5. Délimitation des responsabilités et signalement de sécurité
+## 6. Frontières de responsabilité et canaux de signalement
 
-1. **Responsabilité de l'instance hébergée** : L'émission sécurisée des e-mails, l'authentification de l'expéditeur et l'intégrité de la documentation sur `mail.epocanvas.com` relèvent de l'équipe d'exploitation officielle ;
-2. **Responsabilité de l'auto-hébergement** : Les exploitants déployant une instance autonome configurent leurs propres ressources Cloudflare et doivent protéger leurs clés conformément au document [Traitement des données et sécurité](/mail/data-security/) ;
-3. **Canaux de signalement et d'assistance** : En cas de détection d'e-mail falsifié, d'anomalie de vérification ou de faille potentielle, contactez immédiatement :
-   - Centre de sécurité et canal officiel : `announcement@epocanvas.com`
-   - Délégué à la protection des données : `privacy@epocanvas.com`
+1. **Instance hébergée** : l'émission des courriels officiels, l'identité de l'expéditeur et les scellés documentaires sont maintenus par l'équipe d'exploitation officielle ;
+2. **Instances auto-hébergées** : les auto-hébergeurs configurent leurs propres canaux de distribution et clés, et doivent protéger leur instance comme décrit dans [Traitement des Données et Maintien de la Sécurité](/fr/mail/data-security/) ; les communications officielles d'une instance auto-hébergée relèvent de l'exploitant de cette instance ;
+3. **Canaux de signalement** : pour signaler un courriel usurpant l'identité officielle, une anomalie de vérification ou une vulnérabilité de sécurité, contactez :
+   - Canal officiel d'envoi et de sécurité : `announcement@epocanvas.com`
+   - Canal de confidentialité et de protection des données : `privacy@epocanvas.com`

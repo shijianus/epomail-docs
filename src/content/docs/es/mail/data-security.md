@@ -1,13 +1,14 @@
 ---
-title: Procesamiento de Datos y Mantenimiento de la Seguridad
-description: EpoCanvas Mail seguridad integral de datos, gobernanza dual en la nube y código abierto, y cumplimiento normativo global.
+title: Tratamiento de Datos y Mantenimiento de la Seguridad
+description: Seguridad de los datos y protección de datos personales de EpoCanvas Mail — medidas de seguridad, límites de responsabilidad de la operación de doble vía, ejercicio de sus derechos y respuesta ante incidentes de seguridad.
 ---
 
-**Fecha de vigencia: 1 de octubre de 2026 | Versiones archivadas | Versión: 5.6**
 
-Al utilizar EpoCanvas Mail, confía en nosotros para proteger sus comunicaciones e información personal. Entendemos que se trata de una gran responsabilidad y nos esforzamos por proteger sus datos, mantener una transparencia absoluta y garantizar que mantenga el control total y la soberanía sobre su información en todo momento.
+**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
 
-El presente documento se rige por nuestra [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos de Servicio](/es/mail/terms-of-service/). Sirve como guía de referencia para los usuarios de nuestra plataforma oficial alojada (mail.epocanvas.com), al tiempo que define las fronteras legales del proyecto de código abierto (epocanvas-mail) y la responsabilidad exclusiva de los operadores autohospedados como controladores de datos independientes.
+Este documento describe las medidas con que la instancia alojada oficial (mail.epocanvas.com) protege los datos, los límites de responsabilidad entre el servicio alojado y el proyecto de código abierto, y cómo puede consultar, exportar y eliminar sus propios datos. Se establece en virtud de la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos del Servicio](/es/mail/terms-of-service/); los hechos técnicos que enuncia siguen la implementación real del código abierto.
+
+Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. Los documentos jurídicos y técnicos de este sitio siguen la implementación de código abierto del servicio y buscan establecer normas de comunicación comunitarias transparentes, rigurosas y no comerciales.
 
 <div class="privacy-checkup-row">
   <div class="privacy-checkup-icon">
@@ -19,141 +20,128 @@ El presente documento se rige por nuestra [Política de Privacidad](/es/mail/pri
   </div>
   <div class="privacy-checkup-content">
     <div class="privacy-checkup-title">Guía rápida de seguridad y privacidad</div>
-    <div class="privacy-checkup-desc">¿Desea revisar el estado de seguridad de su buzón, configurar llaves de paso FIDO2, activar la verificación en dos pasos (TOTP) o exportar sus datos?</div>
-    <a href="/es/mail/overview/" class="privacy-checkup-link">Ir a la descripción general de seguridad ↗</a>
+    <div class="privacy-checkup-desc">¿Quiere saber cómo se recopilan y protegen los datos, cómo ejercer sus derechos o cómo verificar estos documentos?</div>
+    <a href="/es/mail/overview/" class="privacy-checkup-link">Ir a la vista general ↗</a>
   </div>
 </div>
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 1. Incorporamos funciones de seguridad en nuestros servicios para proteger sus datos
+## 1. Seguridad integrada en el servicio
 
-Todos los datos procesados en nuestra plataforma oficial alojada en la nube (mail.epocanvas.com) están protegidos de forma continua mediante múltiples capas de defensa en profundidad. Explicamos detalladamente todo el ciclo de procesamiento para que pueda verificar nuestras garantías técnicas.
+La protección de datos en la instancia alojada oficial se organiza en cuatro capas: transporte, procesamiento en el borde, almacenamiento en reposo y credenciales. Cada medida está implementada en el código abierto y puede auditarse de forma independiente.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/security-trust-shield.svg" alt="Compromiso de seguridad y confianza de EpoCanvas Mail" width="416" height="276" />
+  <img src="/images/mail/security-trust-shield.svg" alt="Defensa en profundidad de EpoCanvas Mail: transporte cifrado, procesamiento sin estado en el borde, cifrado en reposo y protección de credenciales, sobre el control del usuario" width="416" height="276" />
 </div>
 
-### 1.1 Cifrado en tránsito y protección de canales de red
+*Figura: cuatro capas de protección: transporte, borde, almacenamiento en reposo y credenciales; la base es su propio control (exportación de autoservicio, eliminación y verificación en dos pasos).*
 
-Aplicamos de forma obligatoria el protocolo moderno de seguridad de la capa de transporte (TLS 1.3) con directivas de precarga HSTS en todas las conexiones entrantes y salientes. Ya sea mediante la interfaz web, llamadas a la API REST autenticada o retransmisión entre nodos, sus comunicaciones se mantienen estrictamente cifradas en tránsito, neutralizando escuchas clandestinas e interceptaciones.
+### 1.1 Cifrado del transporte
 
-### 1.2 Ejecución perimetral efímera y aislamiento en memoria
+Cuando accede al servicio mediante navegador o aplicación móvil, todas las conexiones viajan cifradas con HTTPS/TLS, de modo que el contenido de las comunicaciones resulta ilegible para los intermediarios de las redes públicas. Los recursos estáticos del sitio se distribuyen mediante una red de distribución de contenidos, con cabeceras de caché y de seguridad.
 
-Cuando envía o recibe correos, la lógica de negocio se ejecuta de forma instantánea en los nodos perimetrales de Cloudflare Workers (aislados V8) más cercanos a su ubicación geográfica. El contenido descifrado solo reside en memoria RAM volátil durante el procesamiento y el entorno se destruye físicamente en nanosegundos tras finalizar, sin escribir en discos del host.
+### 1.2 Procesamiento sin estado en el borde
 
-### 1.3 Cifrado industrial en reposo (AES-256-GCM)
+La lógica de negocio se ejecuta en Cloudflare Workers (entornos aislados V8 Isolate): el texto plano de los correos descifrado durante el procesamiento existe solo en la memoria de esa solicitud; al terminar, el entorno aislado se libera y no queda texto plano en los discos físicos del equipo anfitrión. El servicio no mantiene servidores persistentes propios ni procesos en segundo plano permanentes.
 
-Antes de persistir correos electrónicos o metadatos confidenciales en la base de datos relacional Cloudflare D1, los datos se sellan con vectores de inicialización (IV) únicos y dinámicos mediante el algoritmo AES-256-GCM con etiqueta de autenticación (Auth Tag). Las claves se inyectan como variables de entorno seguras de ejecución, sin almacenarse en repositorios ni persistir en discos físicos.
+### 1.3 Cifrado en reposo
 
-### 1.4 Hashing robusto de credenciales y llaves de paso por hardware
+El cifrado del asunto y el cuerpo de los correos depende del modo de correo que adopte la instancia: en modo «Cifrado», el asunto y el cuerpo de todos los correos se almacenan con AES-256-GCM (con etiquetas de autenticación); en modo «Privado», todo se cifra salvo el correo no deseado y la papelera; en modo «Todo», no se aplica cifrado. Cada registro utiliza un vector de inicialización aleatorio. Las claves de cifrado se derivan mediante HKDF-SHA256 de una variable de entorno de secreto maestro a nivel de instancia (`jwt_secret` / `totp_enc_key`) con una sal por usuario; el secreto maestro nunca se escribe en la base de datos ni se confirma en el repositorio. Los adjuntos quedan fuera del alcance del cifrado.
 
-Las contraseñas de las cuentas se procesan con 100.000 iteraciones del algoritmo PBKDF2 junto con sales criptográficas aleatorias de alta entropía, resistiendo ataques de fuerza bruta por GPU. Las claves secretas de dos factores (TOTP) se cifran en reposo con la clave maestra de la instancia. El sistema admite de forma nativa llaves de paso WebAuthn / FIDO2 (Passkeys), cuyas claves privadas residen de forma inmutable en el enclave seguro del dispositivo del usuario.
-
-### 1.5 Matriz completa de tratamiento de datos
-
-La siguiente tabla desglosa todas las categorías de datos recopilados, los campos específicos, las finalidades de tratamiento, los medios de almacenamiento y los plazos de conservación:
-
-| Categoría de datos | Campos específicos recopilados | Finalidad principal del tratamiento | Soporte de almacenamiento y seguridad | Plazo de conservación y destrucción |
-| --- | --- | --- | --- | --- |
-| **Credenciales de cuenta** | Dirección de correo, nombre de usuario, hash y sal de contraseña, clave TOTP, códigos de respaldo, clave pública Passkey | Registro, inicio de sesión, validación de doble factor, recuperación | Cloudflare D1; PBKDF2 (100k iteraciones), TOTP cifrado en reposo AES | Hasta la terminación de la cuenta; destrucción física irreversible al darse de baja |
-| **Comunicaciones** | Remitente, destinatarios, CC/BCC, asunto, marcas de tiempo, etiquetas, cuerpo del mensaje | Entrega y enrutamiento, organización de buzones, búsqueda | Cloudflare D1 (metadatos); cuerpo sellado estrictamente con AES-256-GCM | Controlado por el usuario; la papelera retiene 7 días antes de la purga criptográfica |
-| **Datos de red y dispositivo** | IP de registro, IP de acceso reciente, sistema operativo, User-Agent, modelo | Auditoría de seguridad, detección de anomalías, limitación de velocidad | Cloudflare D1; acceso exclusivo para auditoría administrativa; jamás para perfiles comerciales | Conservado hasta la eliminación de la cuenta |
-| **Sesión y autorización** | Token JWT, rol RBAC, contexto de buzón activo | Autenticación en puerta de enlace API perimetral, enrutamiento | Cloudflare KV; validez máxima de 30 días | Revocado de inmediato al cerrar sesión; caduca tras 30 días de inactividad |
-| **Archivos adjuntos** | Nombre original, tipo MIME, tamaño en bytes, flujo binario | Transferencia de archivos, vista previa integrada, descarga | S3 compatible configurable, Cloudflare R2 o KV; servido con cabeceras defensivas | Sigue el ciclo de vida del correo; eliminado físicamente al borrar el correo |
-| **Huellas de seguridad** | Dispositivos conocidos, distribución geográfica (Geo), ASN de red, marca anti-fatiga | Identificación de accesos no habituales, prevención de relleno de credenciales | Cloudflare KV (prefijo `USER_KNOWN_ENV_`); conserva las últimas 15 huellas | Purgado tras 90 días de inactividad o al darse de baja |
-
-:::caution[Alcance del cifrado, límites técnicos y conocimiento del riesgo por el usuario]
-El cifrado proporcionado en la plataforma oficial en la nube constituye **cifrado en reposo del lado del servidor (Server-side Encryption at Rest)**. Las claves residen en variables seguras del entorno de ejecución durante el procesamiento activo. Este mecanismo protege contra robos de bases de datos o filtraciones de copias de seguridad físicas, pero no equivale a cifrado de extremo a extremo (E2EE).
-
-Técnicamente, los operadores con acceso de administración raíz conservan la capacidad de descifrado en memoria. No impedimos que nadie utilice el servicio, pero los usuarios deben evaluar su propio riesgo: si sus comunicaciones contienen secretos de estado o exigen privacidad absoluta de confianza cero, **los usuarios deben emplear herramientas criptográficas del lado del cliente (como GPG / OpenPGP) para cifrar los mensajes localmente antes de enviarlos**.
+:::caution[Alcance y límites del cifrado]
+El cifrado descrito es un cifrado en reposo del lado del servidor: protege frente a riesgos de infraestructura como el robo de archivos de la base de datos o la fuga de instantáneas; no es cifrado de extremo a extremo. Un operador que controle el servidor de la instancia y el secreto maestro es técnicamente capaz de descifrar el contenido. Lo que los administradores pueden ver depende del modo de correo: en modo «Todo», el administrador puede leer todos los correos; en modo «Privado», solo el correo no deseado, eliminado y sin destinatario; en modo «Cifrado», la interfaz de administración no devuelve el contenido de los correos. Si necesita confidencialidad frente a todo tercero, incluido el operador, cifre usted mismo el cuerpo con GPG/OpenPGP o una herramienta similar del lado del cliente antes de enviarlo.
 :::
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+### 1.4 Protección de las credenciales
 
-## 2. Gobernanza de doble naturaleza: Servicio en la nube y código abierto
+- **Contraseñas**: se calculan con PBKDF2-HMAC-SHA256 a 100.000 iteraciones con una sal aleatoria única por usuario; nunca se almacenan en texto plano ni de forma reversible;
+- **Verificación en dos pasos**: el secreto TOTP se almacena cifrado con AES-256-GCM; los códigos de recuperación se guardan solo como resúmenes SHA-256;
+- **Llaves de acceso (Passkey/WebAuthn)**: el servidor almacena únicamente la clave pública y el identificador de la credencial; la clave privada permanece en el autenticador de su dispositivo y nunca viaja por la red.
 
-EpoCanvas Mail posee una identidad dual: es tanto un servicio gratuito de correo gestionado accesible al público en general, como un proyecto de software de código abierto bajo licencia MIT. Definir con claridad las responsabilidades y límites legales de ambos es fundamental para la salud del ecosistema.
+### 1.5 Matriz de tratamiento de datos
 
-<div class="google-illustration-container">
-  <img src="/images/mail/dual-nature-scale.svg" alt="Equilibrio de gobernanza de doble naturaleza de EpoCanvas Mail" width="416" height="276" />
-</div>
+Las categorías de datos, los campos recopilados, las finalidades, los soportes de almacenamiento y los plazos de conservación del servicio son los siguientes:
 
-### 2.1 Compromisos del servicio oficial alojado (mail.epocanvas.com)
-
-La plataforma oficial `mail.epocanvas.com` es operada por el equipo central como un servicio de interés público. Nos comprometemos a mantener la disponibilidad, la ausencia total de publicidad comercial, la política de cero rastreo y los estándares de integridad criptográfica.
-
-Dado su carácter gratuito y no comercial, el servicio no incluye acuerdos de nivel de servicio (SLA) comerciales ni asume responsabilidad indirecta por interrupciones de infraestructura troncal (como cortes de fibra de Cloudflare) o descuidos en dispositivos locales. Los usuarios son responsables de conservar copias de seguridad de sus comunicaciones críticas.
-
-### 2.2 Lo que esperamos de usted y normas contra el abuso
-
-Deseamos mantener un entorno de comunicación seguro y confiable. Al acceder a nuestro servicio alojado, usted acepta cumplir las siguientes reglas fundamentales:
-
-*   **Cumplir las leyes aplicables**: No utilizar el servicio para evadir controles de exportación, sanciones económicas o vulnerar derechos legales de terceros;
-*   **Tolerancia cero con el spam**: Queda estrictamente prohibido enviar correos comerciales masivos no solicitados, campañas de marketing no deseadas o acoso masivo;
-*   **Prohibición de phishing y ataques**: Prohibido distribuir software malicioso, suplantar entidades financieras o intentar vulnerar la seguridad de la infraestructura;
-*   **Sin explotación automatizada**: Prohibido registrar cuentas mediante bots o manipular los límites de frecuencia. Las cuentas infractoras serán canceladas de inmediato.
-
-### 2.3 Licencia de código abierto, modificaciones y distribución
-
-El código fuente de EpoCanvas Mail se distribuye bajo la licencia permisiva MIT. Cualquier persona u organización tiene el derecho legal irrestricto de inspeccionar, auditar, crear bifurcaciones (forks), modificar o desplegar instancias privadas.
-
-Al distribuir o adaptar el código, se deben respetar tres límites legales obligatorios:
-
-*   **Aislamiento de marca comercial**: Sin autorización previa por escrito, ningún despliegue de terceros puede utilizar «EpoCanvas Mail Oficial» o logotipos oficiales en dominios o materiales de promoción;
-*   **Conservación de avisos de derechos de autor**: Todas las copias o modificaciones deben incluir el aviso original de derechos de autor y el texto de la licencia MIT;
-*   **Identificación del operador independiente**: Cualquier tercero que ofrezca servicios de registro de correo basados en este código debe publicar su propia entidad legal, términos y política de privacidad independiente.
-
-### 2.4 Responsabilidad exclusiva como controlador de datos para nodos autohospedados
-
-Esta es la frontera legal primordial del software libre:
-
-Cuando un tercero descarga el código y lo despliega en su propia cuenta de Cloudflare, servidor privado o infraestructura de nube, **dicho operador independiente se convierte en el único y exclusivo Controlador de Datos (Data Controller) de esa instancia**.
-
-Los desarrolladores originales del proyecto carecen de puertas traseras, no recopilan telemetría ni tienen capacidad física o deber legal de acceder o gestionar datos de instancias de terceros. Cualquier fuga de datos, incidente de seguridad o litigio legal en un nodo autohospedado **es responsabilidad exclusiva de su operador independiente; los autores del proyecto original no asumen responsabilidad solidaria o subsidiaria alguna**.
+| Categoría de datos | Campos recopilados | Finalidad | Almacenamiento y protección | Conservación |
+| --- | --- | --- | --- | --- |
+| Credenciales de cuenta | dirección de correo, nombre de usuario, resumen de contraseña y sal, secreto TOTP (cifrado), resúmenes de códigos de respaldo, claves públicas de llaves de acceso | registro, inicio de sesión, verificación en dos pasos | Cloudflare D1; PBKDF2 (100.000 iteraciones), TOTP cifrado en reposo | mientras exista la cuenta; sesiones revocadas al desactivarla, irrecuperables tras la eliminación física |
+| Datos de comunicación | remitente y destinatarios, CC/CCO, asunto, marcas de tiempo, estado de lectura, etiquetas, cuerpo del correo | envío, recepción, organización en conversaciones, búsqueda por palabras clave | Cloudflare D1 (metadatos); asunto y cuerpo cifrados según el modo de correo | bajo su control; la papelera se conserva 7 días y luego se elimina físicamente |
+| Datos de red y dispositivo | IP de registro, IP del último inicio de sesión, sistema operativo, tipo de navegador y dispositivo, código de país o región procedente de la solicitud en el borde | auditoría de seguridad, detección de inicios de sesión inusuales | Cloudflare D1; consultables solo en auditorías de administración, nunca para perfiles comerciales | hasta la eliminación física de la cuenta |
+| Sesiones y autorizaciones | tokens de sesión JWT, permisos de rol | autenticación de la API en el borde | lista de autorización en Cloudflare KV; como máximo 10 sesiones activas por cuenta | válidos 30 días; eliminados de inmediato al cerrar sesión |
+| Adjuntos | nombre de archivo original, tipo MIME, tamaño, contenido binario | transferencia, vista previa y descarga de adjuntos | almacenamiento de objetos de la instancia (resuelto en este orden: almacenamiento compatible con S3 propio, enlace R2, KV por defecto); cabeceras defensivas en la descarga | se eliminan junto con el correo al que pertenecen |
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 3. Control de sus datos: Exportación, supresión y cumplimiento global
+## 2. Límites de responsabilidad de la operación de doble vía
 
-EpoCanvas Mail está abierto a usuarios de todo el mundo. Con independencia de su ubicación geográfica, usted conserva la propiedad y el control absolutos sobre sus comunicaciones.
+EpoCanvas Mail es a la vez un servicio alojado oficial y un proyecto de código abierto. La definición del responsable del tratamiento y el reparto de responsabilidades entre las tres partes figuran en la sección 2 de la [Vista general de Privacidad y Términos](/es/mail/overview/); esta sección complementa el posicionamiento de la instancia alojada y las reglas de distribución del código abierto.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/data-sovereignty-export.svg" alt="Soberanía de datos y derechos de exportación en EpoCanvas Mail" width="416" height="276" />
+  <img src="/images/mail/dual-nature-scale.svg" alt="Gobernanza de doble vía de EpoCanvas Mail: una base de código abierto, con el responsable del tratamiento y los límites de responsabilidad de las instancias alojadas y autoalojadas" width="416" height="276" />
 </div>
 
-### 3.1 Ejercicio pleno de derechos bajo el RGPD de la Unión Europea
+*Figura: dos vías de operación sobre una misma base de código abierto. El equipo de operación es el responsable del tratamiento de la instancia alojada; quien despliega una instancia autoalojada es su único responsable del tratamiento; los autores originales no operan ningún servicio ni custodian datos.*
 
-Para los usuarios en el Espacio Económico Europeo (EEE), garantizamos el pleno cumplimiento de los artículos 15 a 22 del RGPD:
+### 2.1 Posicionamiento de la instancia alojada oficial
 
-*   **Derecho de acceso (Artículo 15)**: Puede consultar en todo momento sus datos de cuenta, historial de accesos y registros almacenados;
-*   **Portabilidad y exportación (Artículo 20)**: Puede descargar una copia completa de sus correos en formato estándar `.eml` junto con paquetes JSON estructurados para facilitar la migración a otros proveedores;
-*   **Derecho de supresión / al olvido (Artículo 17)**: Al solicitar la eliminación de su cuenta, el sistema borra las asociaciones de bases de datos y destruye criptográficamente la clave de cifrado en almacenamiento físico, garantizando la destrucción irreversible;
-*   **Cláusulas contractuales tipo (SCCs)**: Las transferencias transfronterizas perimetrales se amparan en las Cláusulas Contractuales Tipo de la Comisión Europea y los acuerdos de tratamiento de datos de nuestra infraestructura subyacente.
+La instancia alojada mail.epocanvas.com es operada por el equipo de operación con carácter no comercial: no se inserta publicidad, no se venden ni alquilan datos de usuarios y no se ofrece ningún acuerdo de nivel de servicio (SLA) empresarial. La disponibilidad depende de servicios upstream como Cloudflare y los canales de entrega; exporte usted mismo, con regularidad, copias de seguridad de su correspondencia importante (véase la sección 3).
 
-### 3.2 Compromisos con la Ley de Privacidad del Consumidor de California (CCPA / CPRA)
+### 2.2 Límites de conducta
 
-Para los residentes de California y de los Estados Unidos, declaramos formalmente:
+El uso de la instancia alojada queda sujeto a la íntegra de la [Política de Uso Aceptable](/es/mail/acceptable-use/), incluida la prohibición del correo masivo no solicitado, la suplantación por phishing y la difusión de malware, el registro masivo y el abuso de recursos. Las infracciones se tramitan conforme a la escala de ejecución de esa política, hasta la eliminación física.
 
-*   **No venta ni intercambio de datos (Do Not Sell or Share My Personal Information)**: En los últimos 12 meses no hemos vendido, alquilado ni compartido, ni venderemos jamás, información personal de usuarios con intermediarios de datos o anunciantes comerciales;
-*   **Limitación en datos sensibles**: La información se recopila exclusivamente para prestar el servicio de correo y jamás para publicidad basada en el comportamiento ni entrenamiento de modelos de inteligencia artificial;
-*   **Garantía de no discriminación**: Jamás degradaremos la calidad del servicio, las cuotas ni la velocidad si decide ejercer sus derechos legales de privacidad.
+### 2.3 Distribución y modificación del código abierto
 
-### 3.3 Región Asia-Pacífico y enrutamiento transfronterizo
+El código fuente se publica bajo licencia MIT; cualquier persona u organización puede consultarlo, auditarlo, modificarlo y autoalojarlo. Al distribuir o modificar el código:
 
-El equipo oficial opera desde Taiwán y cumple la Ley de Protección de Datos Personales (PDPA). Los usuarios deben comprender la naturaleza técnica del correo electrónico:
+1. conserve íntegramente el aviso de derechos de autor original y el texto completo de la licencia MIT;
+2. no insinúe en dominios, interfaces ni material promocional que una instancia está operada o avalada por el equipo oficial;
+3. si ofrece registro público de correo, publique su propia entidad operadora, sus términos de servicio y su política de privacidad. Los documentos de este sitio pueden servirle de plantilla; eso no constituye un aval.
 
-El protocolo SMTP es distribuido y transfronterizo. Al comunicarse con destinatarios internacionales, los paquetes de datos atraviesan redes troncales globales sujetas a las normativas de telecomunicaciones de los países de tránsito. Se recomienda encarecidamente proteger los dispositivos finales y activar llaves de paso FIDO2.
+### 2.4 Responsabilidad independiente de las instancias autoalojadas
 
-### 3.4 Respuesta a incidentes en 72 horas y canales oficiales
+Un tercero que despliegue el código abierto se convierte, desde el momento del despliegue, en el único y exclusivo responsable del tratamiento para los usuarios de su instancia, y debe cumplir por sí mismo las obligaciones de información, mantenimiento de la seguridad y supervisión que exija el derecho aplicable en su lugar. Los autores y colaboradores originales no operan ninguna instancia, no acceden a los datos de las instancias autoalojadas y no asumen responsabilidad solidaria alguna por su operación, sus incidentes de seguridad ni sus litigios.
 
-Disponemos de un procedimiento operativo estandarizado (SOP) de respuesta a incidentes:
+<div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-*   **Bloqueo inmediato**: La puerta de enlace bloquea IPs maliciosas y revoca tokens JWT comprometidos en cuestión de minutos ante cualquier anomalía;
-*   **Notificación legal en 72 horas**: Si se produce un incidente confirmado que comprometa datos personales, notificaremos a los afectados por correo y anuncio web en menos de 72 horas y lo comunicaremos a los reguladores pertinentes;
-*   **Publicación de parches de código abierto**: El equipo publicará las correcciones en el repositorio público junto con avisos de seguridad (Security Advisories).
+## 3. El control de sus datos
 
-Para consultas de seguridad, avisos de vulnerabilidad o cuestiones de privacidad, comuníquese a través de nuestros canales oficiales:
+Usted dispone de derechos de acceso, copia, rectificación, cese del tratamiento y eliminación sobre sus propios datos. Este capítulo explica mediante qué función se hace efectivo cada derecho; las definiciones completas están en la sección 9 de la [Política de Privacidad](/es/mail/privacy-policy/).
 
-*   **Centro de respuesta a incidentes de seguridad**: `announcement@epocanvas.com`
-*   **Oficina de privacidad y protección de datos**: `privacy@epocanvas.com`
+<div class="google-illustration-container">
+  <img src="/images/mail/data-sovereignty-export.svg" alt="Control de datos de EpoCanvas Mail: exportación de autoservicio, eliminación con búfer de papelera y derechos exigibles" width="416" height="276" />
+</div>
+
+*Figura: tres vías de control: exportación de autoservicio (JSON), eliminación (búfer de papelera y luego eliminación física) y ejercicio de derechos (respuesta en 30 días).*
+
+### 3.1 Acceso, exportación y rectificación
+
+- **Autoservicio en la interfaz**: puede consultar en cualquier momento su perfil, sus registros de inicio de sesión y todos sus correos en la interfaz del buzón;
+- **Exportación de datos**: «Ajustes → Exportación de datos» genera una copia completa en formato JSON (perfil y texto íntegro del correo no eliminado); un correo individual también puede descargarse como archivo .eml;
+- **Solicitudes manuales**: las solicitudes que requieren gestión humana, como la rectificación o el cese del tratamiento, se responden y tramitan en un plazo de 30 días desde su recepción, mediante `privacy@epocanvas.com`.
+
+### 3.2 Eliminación
+
+- **Eliminación de correos**: los correos eliminados pasan primero a la papelera y una tarea programada los elimina físicamente (adjuntos e índices incluidos) 7 días después; la eliminación es irreversible. Cuando el buzón supera el 90 % de la cuota, las eliminaciones que usted ejecuta son físicas de inmediato para liberar espacio;
+- **Desactivación de la cuenta**: puede desactivarla usted mismo en los ajustes. Las sesiones se revocan de inmediato y los correos y datos pasan a estado de eliminación lógica hasta que un administrador ejecute la eliminación física; tras esta, los datos de la cuenta, los correos, los adjuntos y las autorizaciones se retiran de la base de datos y del almacenamiento de objetos, sin posibilidad de recuperación;
+- **Derechos legales correspondientes**: los derechos de acceso, copia y eliminación que el RGPD reconoce a los usuarios del Espacio Económico Europeo, y los derechos de información, eliminación y no discriminación que el CCPA/CPRA reconoce a los residentes de California, se hacen efectivos mediante las funciones de autoservicio y el canal de solicitud manual anteriores; los usuarios de otras jurisdicciones ejercen derechos equivalentes conforme al derecho aplicable en su lugar.
+
+### 3.3 Exclusión de venta y rastreo
+
+- El operador no vende, alquila ni intercambia sus datos personales ni el contenido de sus comunicaciones;
+- Los datos no se utilizan para publicidad conductual entre contextos, perfiles de usuario ni entrenamiento de modelos comerciales;
+- El ejercicio de sus derechos de privacidad no degrada la funcionalidad, la calidad ni la disponibilidad del servicio.
+
+### 3.4 Respuesta ante incidentes de seguridad
+
+Si datos personales son robados, divulgados, alterados o perdidos, el operador procederá así:
+
+1. **Contención inmediata**: desconexión forzada de las sesiones afectadas y cuarentena del contenido comprometido, suspendiendo parte del servicio si es necesario para impedir que el daño crezca;
+2. **Notificación legal**: notificación a la autoridad competente dentro del plazo que exija el derecho aplicable, e información a las personas afectadas mediante un aviso en el sitio o un correo del sistema;
+3. **Correcciones publicadas**: identificada la causa, publicación de las correcciones y de un aviso de seguridad en el repositorio de código abierto para que los operadores autoalojados se pongan al día.
+
+Para informar de un problema o vulnerabilidad de seguridad, utilice:
+
+- **Seguridad y comunicaciones oficiales**: `announcement@epocanvas.com`
+- **Privacidad y protección de datos**: `privacy@epocanvas.com`

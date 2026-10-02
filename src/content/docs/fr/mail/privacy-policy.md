@@ -5,11 +5,11 @@ description: Politique de confidentialité d'EpoCanvas Mail — les standards et
 
 # Politique de confidentialité
 
-**Date d'entrée en vigueur : 1 octobre 2026 | Version : 5.4**
+**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
 
 La présente politique explique comment le service EpoCanvas Mail (le « Service ») collecte, traite, utilise et transmet vos données personnelles, ainsi que les standards et engagements que l'Opérateur suit en matière de protection des données. Vous devez lire la présente politique avant de vous inscrire ou d'utiliser le Service ; si vous n'en acceptez pas l'une quelconque des dispositions, n'utilisez pas le Service.
 
-Les faits techniques décrits dans la présente politique font foi d'après la mise en œuvre réelle du code open source du Service. Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses. Le droit applicable de l'instance que vous utilisez est déterminé par le lieu où réside son Opérateur (voir la section 12).
+Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Les faits techniques décrits dans la présente politique font foi d'après la mise en œuvre réelle du code open source du Service. Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses. Le droit applicable de l'instance que vous utilisez est déterminé par le lieu où réside son Opérateur (voir la section 12).
 
 ![Les cinq piliers de la Politique de confidentialité d'EpoCanvas Mail : la collecte, l'utilisation, le transfert, la sécurité et les droits de la personne concernée, ayant respectivement pour contenu le contrat et le consentement, la limitation de la finalité, les garanties de transfert, le maintien de la sécurité et les recours des droits, l'ensemble reposant sur le socle de la supervision par l'autorité](/images/mail/privacy-pillars.svg)
 

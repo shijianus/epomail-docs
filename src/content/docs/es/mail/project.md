@@ -4,11 +4,11 @@ description: Presentación completa del proyecto EpoCanvas Mail—posicionamient
 ---
 
 **Primer commit: 21 de julio de 2026 | Versión actual: v1.1.0 | Licencia: MIT**
-**Fecha de entrada en vigor: 1 de octubre de 2026 | Versión: 5.4**
+**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
 
 EpoCanvas Mail es un servicio de correo electrónico de código abierto que funciona en la red edge de Cloudflare. Con un solo dominio y una cuenta de Cloudflare, puedes montar un servicio de buzones propio con envío y recepción de correo, adjuntos y acceso multiplataforma. El proyecto se explota como instancia alojada en [mail.epocanvas.com](https://mail.epocanvas.com), publica su código fuente completo para autoalojamiento y ofrece una aplicación Android acompañante (epomail). Esta página describe el posicionamiento del proyecto, sus funciones, su arquitectura técnica, su diseño de seguridad y su historial de desarrollo; los términos legales del servicio y las prácticas de privacidad figuran en la [Descripción general de privacidad y condiciones](/es/mail/overview/).
 
-Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
+Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. Los documentos jurídicos y técnicos de este sitio siguen la implementación de código abierto del servicio y buscan establecer normas de comunicación comunitarias transparentes, rigurosas y no comerciales.
 
 ![Arquitectura del sistema de EpoCanvas Mail: la capa de clientes (aplicación web, aplicación Android, aplicaciones de terceros OAuth) se conecta a través del edge de Cloudflare; los Workers sostienen la API, el análisis del correo entrante y las funciones de IA, con envío saliente vía Resend y Telegram; los datos se guardan en dos bases D1, KV y almacenamiento de objetos](/images/mail/project-architecture.svg)
 

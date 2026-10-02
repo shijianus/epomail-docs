@@ -1,13 +1,14 @@
 ---
 title: Data Processing & Security Maintenance
-description: EpoCanvas Mail end-to-end data security, dual-nature cloud and open-source governance, and global regulatory compliance.
+description: EpoCanvas Mail data security and personal-data protection — security measures, dual-track operating boundaries, exercise of your rights, and security-incident response.
 ---
 
-**Effective Date: October 1, 2026 | Archived Versions | Version: 5.6**
 
-When you use EpoCanvas Mail, you trust us with your personal communications and data. We understand that this is a major responsibility and work hard to protect your information, uphold absolute transparency, and ensure that you remain in complete control of your data at all times.
+**Effective Date: October 2, 2026 | Version: 5.7**
 
-This document is governed by our [Privacy Policy](/en/mail/privacy-policy/) and [Terms of Service](/en/mail/terms-of-service/). It serves as an authoritative guide for users on our official hosted platform (mail.epocanvas.com), while establishing clear legal boundaries for the open-source codebase (epocanvas-mail) and the independent data controller liabilities of self-hosted operators.
+This document describes the measures with which the official hosted instance (mail.epocanvas.com) protects data, the boundaries of responsibility between the hosted service and the open-source project, and how you can query, export, and delete your own data. It is established under the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/); the technical facts stated here follow the actual implementation in the open-source code.
+
+The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
 
 <div class="privacy-checkup-row">
   <div class="privacy-checkup-icon">
@@ -18,142 +19,129 @@ This document is governed by our [Privacy Policy](/en/mail/privacy-policy/) and 
     </svg>
   </div>
   <div class="privacy-checkup-content">
-    <div class="privacy-checkup-title">Privacy & Security Quick Guide</div>
-    <div class="privacy-checkup-desc">Looking to review your mailbox security, configure FIDO2 Passkeys, enable two-factor authentication (TOTP), or export your data?</div>
-    <a href="/en/mail/overview/" class="privacy-checkup-link">Go to Security Overview ↗</a>
+    <div class="privacy-checkup-title">Security & Privacy Quick Guide</div>
+    <div class="privacy-checkup-desc">Looking for how data is collected and protected, how to exercise your rights, or how to verify these documents?</div>
+    <a href="/en/mail/overview/" class="privacy-checkup-link">Go to the Documents Overview ↗</a>
   </div>
 </div>
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 1. We Build Security into Our Services to Protect Your Information
+## 1. Security Built into the Service
 
-All data processed across our official hosted cloud service (mail.epocanvas.com) is safeguarded by multiple layers of built-in defense-in-depth engineering. We openly detail every phase of data processing so you can verify our cryptographic safeguards.
+Protection on the official hosted instance is organised into four layers: transport, edge processing, storage at rest, and credentials. Every measure is implemented in the open-source code and can be audited independently.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/security-trust-shield.svg" alt="EpoCanvas Mail Security and Trust Guarantees" width="416" height="276" />
+  <img src="/images/mail/security-trust-shield.svg" alt="EpoCanvas Mail defense in depth: encrypted transport, stateless edge processing, encryption at rest, and credential protection, resting on user control" width="416" height="276" />
 </div>
 
-### 1.1 Encryption in Transit & Network Channel Security
+*Figure: four layers of protection — transport, edge, storage at rest, and credentials; the base is your own control (self-service export, deletion, and two-step verification).*
 
-We enforce modern Transport Layer Security (TLS 1.3) with HTTP Strict Transport Security (HSTS) preloading across all inbound and outbound network connections. Whether you interact with the web client, access the backend via authenticated REST APIs, or route email across intermediate relays, your communication stays encrypted in transit, neutralizing eavesdropping, packet tampering, and downgrade attacks.
+### 1.1 Transport Encryption
 
-### 1.2 Ephemeral Edge Compute & Memory Isolation
+When you access the service through a browser or the mobile app, every connection is encrypted with HTTPS/TLS, so communication content stays unreadable to intermediaries on public networks. Static site assets are delivered through a content delivery network with caching and security response headers.
 
-When you send or receive mail, business logic executes instantaneously within Cloudflare Workers V8 isolates physically nearest to you. Mail payloads are decrypted only in volatile server RAM during transit and are wiped in nanoseconds as the isolate terminates. No decrypted data is ever spooled to physical host disks, eradicating side-channel leaks, lingering daemon residues, and cross-tenant memory snooping.
+### 1.2 Stateless Processing at the Edge
 
-### 1.3 Industrial-Grade Storage Encryption at Rest (AES-256-GCM)
+Business logic runs on Cloudflare Workers (V8 Isolate sandboxes): mail plaintext decrypted during processing exists only in the memory of that request; when the request ends, the sandbox is released and no plaintext remains on the host machine's physical disks. The service runs no self-maintained persistent servers and no always-on background processes.
 
-Before emails and sensitive metadata are committed to Cloudflare D1 relational databases, payloads are sealed with distinct, dynamically generated initialization vectors (IVs) using authenticated AES-256-GCM encryption. Encryption keys are injected dynamically via secure Cloudflare runtime environment secrets—never stored in repositories, committed to disks, or exposed in logs. Even if underlying database volumes or offline snapshots were compromised, all records remain mathematically unreadable.
+### 1.3 Encryption at Rest
 
-### 1.4 Credential Hashing & Hardware-Bound Passkeys
+Whether mail subjects and bodies are encrypted depends on the mail mode the instance uses: in "Encrypted" mode every mail's subject and body are stored with AES-256-GCM (with authentication tags); in "Private" mode everything except spam and trash is encrypted; in "All-mail" mode no encryption is applied. Each record uses a random initialization vector. Encryption keys are derived by HKDF-SHA256 from an instance-level master-secret environment variable (`jwt_secret` / `totp_enc_key`) with a per-user salt; the master secret is never written to the database or committed to the repository. Attachments are outside the encryption scope.
 
-Account credentials are never stored in plaintext or simple hashes. Passwords undergo 100,000 rounds of PBKDF2 iteration with cryptographically secure random salts, resisting offline rainbow tables and GPU brute-force attacks. Two-factor TOTP secrets are encrypted at rest with the instance master key. The platform natively supports FIDO2 / WebAuthn Passkeys, where private keys reside immutably inside your device's Secure Enclave, providing mathematical immunity to phishing.
-
-### 1.5 Comprehensive Data Processing Matrix
-
-The following table itemizes all categories of data collected, specific fields, processing purposes, storage media, and retention periods:
-
-| Data Category | Specific Fields Collected | Core Processing Purpose | Storage Media & Protection | Retention & Erasure Schedule |
-| --- | --- | --- | --- | --- |
-| **Account Credentials** | Email address, username, password hash and salt, TOTP secret, backup codes, Passkey public key | User registration, authentication, 2FA validation, credential recovery | Cloudflare D1; PBKDF2 (100,000 iterations), TOTP AES encrypted | Retained until account termination; permanently overwritten upon account deletion |
-| **Communications** | Sender, recipients, CC/BCC, subject, timestamps, read flags, custom labels, message body | Message routing, mailbox organization, search indexing | Cloudflare D1 (metadata); body strictly sealed via AES-256-GCM | Controlled by user; Trash retains 7-day recovery buffer before automated cryptographic erasure |
-| **Network & Device Data** | Registration IP, recent login IP, OS, User-Agent, device type identifier | Account security audits, anomaly detection, rate limiting, brute-force defense | Cloudflare D1; restricted to administrative security audits; never used for commercial profiling | Retained until account entity deletion |
-| **Session & Authorization** | JWT session tokens, RBAC roles, active mailbox context | Edge API gateway authorization, microservice routing | Cloudflare KV; maximum 30-day lifetime | Revoked immediately upon logout; expires naturally after 30 days of inactivity |
-| **Attachment Assets** | Original filename, MIME type, byte size, binary payload | Safe asset transfer, inline preview, streaming downloads | Configurable BYO-S3 bucket, Cloudflare R2, or KV; served with defensive security headers | Follows parent email lifecycle; purged simultaneously upon hard deletion |
-| **Security Fingerprints** | Known devices, geographical ASN footprint, anti-alarm fatigue timestamps | Identifying unfamiliar logins, credential stuffing prevention | Cloudflare KV (`USER_KNOWN_ENV_` prefix); retains top 15 fingerprints | Pruned automatically after 90 days of inactivity or upon account deletion |
-
-:::caution[Encryption Scope, Technical Limits & User Risk Acknowledgment]
-Encryption provided by our official hosted cloud service constitutes **Server-Side Encryption at Rest**. Cryptographic keys are loaded into server execution memory during active delivery routines. This design protects against database theft, compromised storage media, and offline snapshot extraction, but does not represent end-to-end encryption (E2EE).
-
-Operators with root infrastructure access theoretically retain technical decryption capabilities. We place zero obstacles on anyone utilizing our service, but users must fully understand their own risk profile: If your communications involve state-level sensitivity, extreme trade secrets, or demand zero-trust privacy where no host can ever inspect content, **you must independently employ client-side tools (such as GPG / OpenPGP) to encrypt message bodies locally before transmission**.
+:::caution[Scope and Limits of Encryption]
+The encryption described above is server-side encryption at rest. It protects against infrastructure-level risks such as stolen database files or leaked snapshots; it is not end-to-end encryption. An operator who controls the instance server and the master secret is technically able to decrypt content. What administrators can see depends on the mail mode: in "All-mail" mode the administrator can read every mail; in "Private" mode only spam, deleted, and unassigned mail; in "Encrypted" mode the admin interface does not return user mail content. If you need confidentiality from every third party, including the operator, encrypt the body yourself with GPG/OpenPGP or a similar client-side tool before sending.
 :::
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+### 1.4 Credential Protection
 
-## 2. Dual-Nature Architecture: Hosted Cloud Service & Open-Source Codebase
+- **Passwords** are hashed with PBKDF2-HMAC-SHA256 at 100,000 iterations with a unique random salt per user; they are never stored in plaintext or reversible form.
+- **Two-step verification**: the TOTP secret is stored encrypted with AES-256-GCM; backup recovery codes are stored only as SHA-256 hashes.
+- **Passkeys (WebAuthn/FIDO2)**: the server stores only the public key and credential identifier; the private key stays in the authenticator on your device and never travels over the network.
 
-EpoCanvas Mail embodies a unique "Dual Nature": it functions both as a free hosted communications service accessible to the public, and as an autonomous open-source software project distributed under the MIT License. Establishing explicit legal boundaries between the two is vital to a healthy, sustainable ecosystem.
+### 1.5 Data Processing Matrix
 
-<div class="google-illustration-container">
-  <img src="/images/mail/dual-nature-scale.svg" alt="EpoCanvas Mail Dual-Nature Governance Balance" width="416" height="276" />
-</div>
+The data categories, collected fields, purposes, storage media, and retention periods of the service are as follows:
 
-### 2.1 Hosted Cloud Service Commitments (mail.epocanvas.com)
-
-The official hosted platform at `mail.epocanvas.com` is operated independently by the core development team as a public benefit. We commit to maintaining reliable service availability, strict zero-commercial-ad policies, zero behavioral tracking, and cryptographic integrity.
-
-Because the hosted platform is provided free of charge, it does not carry enterprise commercial Service Level Agreements (SLAs). We disclaim liability for indirect damages arising from upstream backbone outages (such as global Cloudflare fiber cuts) or compromised user devices. Users retain ultimate custodianship over their communications and should maintain regular offline backups.
-
-### 2.2 What We Expect from You & Anti-Abuse Standards
-
-We strive to maintain a safe, welcoming, and dependable communication environment. In accessing or using our hosted platform, you agree to uphold fundamental standards of conduct:
-
-*   **Comply with Applicable Laws**: Do not use the service to violate export controls, economic sanctions, or third-party statutory rights;
-*   **Zero Tolerance for Spam**: You are strictly prohibited from transmitting unsolicited bulk marketing emails, marketing blasts, or high-frequency harassment messages;
-*   **Prohibition of Phishing & Attacks**: You must not distribute malware, trojans, or ransomware, spoof sender headers, impersonate financial institutions, or conduct adversarial penetration attacks against our systems;
-*   **No Automated Exploitation**: You must not use automated bots to register accounts in bulk or bypass rate limits. Accounts violating these standards will be terminated immediately.
-
-### 2.3 Open-Source Licensing, Forks & Secondary Distribution
-
-The complete source code of EpoCanvas Mail is published under the permissive MIT License. Anyone worldwide possesses the unrestricted legal right to inspect, audit, fork, customize, or deploy independent private mail nodes.
-
-When redistributing or modifying the code, developers must respect three strict legal boundaries:
-
-*   **Trademark & Brand Isolation**: Without prior written authorization, no third-party self-hosted instance, commercial derivative, or community fork may use the names "EpoCanvas Mail Official", "Official Node", or official brand logos in domains, app titles, or marketing;
-*   **Preservation of Copyright Notices**: All copies, substantial portions, or derivative works must retain the original copyright notice and the full text of the MIT License;
-*   **Independent Operator Disclosures**: Any party offering hosted email services to the public based on this code must publish their own corporate identity, terms of service, and privacy policy, and may not cite our official docs as their own legal warranty.
-
-### 2.4 Exclusive Data Controller Responsibility for Self-Hosted Nodes (Legal Shield)
-
-This is the cornerstone legal distinction of our open-source software model:
-
-When third parties deploy this codebase onto their own Cloudflare accounts, private servers, or third-party cloud infrastructure, **that independent operator becomes the sole and exclusive Data Controller for their instance under global privacy laws**.
-
-The upstream open-source authors possess zero technical backdoors, zero telemetry ingestion, and zero physical ability or legal duty to inspect or govern third-party deployments. Any data breach, service downtime, regulatory sanction, or legal dispute occurring on a third-party self-hosted deployment is **the sole, exclusive liability of that self-hosted operator; upstream authors and contributors bear zero joint or secondary liability**.
+| Data category | Fields collected | Purpose | Storage and protection | Retention |
+| --- | --- | --- | --- | --- |
+| Account credentials | e-mail address, username, password hash and salt, TOTP secret (encrypted), backup-code hashes, passkey public keys | registration, login, two-step verification | Cloudflare D1; PBKDF2 (100,000 iterations), TOTP encrypted at rest | while the account exists; sessions revoked on deactivation, unrecoverable after hard deletion |
+| Communication data | sender and recipients, CC/BCC, subject, timestamps, read status, labels, mail body | sending, receiving, threading, keyword search | Cloudflare D1 (metadata); subject and body encrypted per mail mode | under your control; trash kept 7 days, then hard-deleted |
+| Network and device data | registration IP, latest login IP, operating system, browser and device type, country/region code from the edge request | security auditing, unusual-login detection | Cloudflare D1; visible only to administrator audits, never used for commercial profiling | until the account is hard-deleted |
+| Sessions and authorization | JWT session tokens, role permissions | edge API authentication | Cloudflare KV allow-list; at most 10 active sessions per account | valid 30 days; removed immediately on logout |
+| Attachment assets | original file name, MIME type, file size, binary content | attachment transfer, preview, download | instance object storage (resolved in order: your own S3-compatible storage, R2 binding, KV by default); defensive headers on download | removed together with the owning mail |
 
 <div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-## 3. Controlling Your Data: Export, Deletion & Global Jurisdiction Compliance
+## 2. Responsibility Boundaries of the Dual-Track Operation
 
-EpoCanvas Mail is open to users globally. Regardless of where you reside, you retain absolute ownership and control over your communications. We impose no arbitrary barriers on your use of the service, but provide transparent disclosures regarding legal jurisdictions and transit risks.
+EpoCanvas Mail is both an official hosted service and an open-source project. The definition of the data controller and the division of responsibility among the three parties are set out in Section 2 of the [Privacy & Terms Overview](/en/mail/overview/); this chapter supplements them with the positioning of the hosted instance and the rules for distributing the open-source code.
 
 <div class="google-illustration-container">
-  <img src="/images/mail/data-sovereignty-export.svg" alt="EpoCanvas Mail Data Sovereignty and Export Rights" width="416" height="276" />
+  <img src="/images/mail/dual-nature-scale.svg" alt="EpoCanvas Mail dual-track governance: one open-source codebase, with the data controller and responsibility boundaries of hosted and self-hosted instances" width="416" height="276" />
 </div>
 
-### 3.1 European Economic Area (GDPR) Full Rights Realization
+*Figure: two operating tracks over one open-source codebase. The operations team is the data controller of the hosted instance; the deployer is the sole data controller of a self-hosted instance; upstream authors run no service and hold no data.*
 
-For users within the European Economic Area (EEA), our platform fully enforces data subject rights under GDPR Articles 15 through 22:
+### 2.1 Positioning of the Official Hosted Instance
 
-*   **Right of Access & Transparency (Article 15)**: You may inspect all personal account parameters, login audit logs, and communications stored in the system at any time;
-*   **Data Portability & One-Click Export (Article 20)**: You can export complete copies of your communications at any time in industry-standard `.eml` format accompanied by structured JSON metadata packages for seamless migration to another provider;
-*   **Right to Erasure / Right to be Forgotten (Article 17)**: When you delete your account, the system terminates active sessions, purges relational records, and cryptographically overwrites master encryption keys at the physical storage level, achieving permanent, mathematically irreversible destruction;
-*   **Cross-Border Transfer Safeguards (SCCs)**: Routing across our global edge relies on European Commission Standard Contractual Clauses (SCCs) and GDPR Data Processing Addenda provided by our underlying infrastructure.
+The hosted instance mail.epocanvas.com is operated by the operations team on a non-commercial basis: no advertising is placed, no user data is sold or rented out, and no enterprise-grade service level agreement (SLA) is offered. Availability depends on upstream services such as Cloudflare and the delivery channels; please export backups of important correspondence yourself at regular intervals (see Section 3).
 
-### 3.2 California Consumer Privacy Act (CCPA / CPRA) Commitments
+### 2.2 Boundaries of Conduct
 
-For residents of California and the United States, we provide explicit statutory disclosures under the CCPA/CPRA:
+Use of the hosted instance is subject to the [Acceptable Use Policy](/en/mail/acceptable-use/) in full, including the prohibitions on spam, phishing and malware distribution, bulk registration, and resource abuse. Violations are handled under that policy's enforcement ladder, up to hard deletion.
 
-*   **No Sale or Sharing of Personal Information (Do Not Sell or Share)**: We have not sold or shared, and will never sell, rent, monetize, or share personal data, mailbox contents, or usage analytics with data brokers, advertisers, or third parties;
-*   **Limitation on Sensitive Data**: Data collected is utilized solely to deliver email functionality and is never used for cross-context behavioral advertising or unauthorized AI model training;
-*   **Non-Discrimination Guarantee**: We will never degrade service quality, restrict quotas, or alter features should you choose to exercise any of your statutory privacy rights.
+### 2.3 Distributing and Modifying the Open-Source Code
 
-### 3.3 Asia-Pacific Compliance & International Transit Awareness
+The source code is published under the MIT license; any individual or organization may inspect, audit, modify, and self-host it. When distributing or modifying the code:
 
-The core hosted infrastructure team operates from Taiwan and adheres to the Personal Data Protection Act (PDPA). When navigating global communications, users should maintain realistic awareness of underlying technical realities:
+1. keep the original copyright notice and the full MIT license text intact;
+2. do not suggest in domains, interfaces, or promotional material that an instance is operated or endorsed by the official team;
+3. if you offer public e-mail registration, publish your own operating entity, terms of service, and privacy policy. The documents on this site may serve as a template; that does not constitute an endorsement.
 
-Email relies on the federated, global Simple Mail Transfer Protocol (SMTP). Transmitting messages internationally inherently routes packets across multiple global tier-1 backbones subject to the telecommunications regulations of transit countries. Users should maintain robust hygiene on their own endpoints (protecting against local keyloggers, applying OS patches) and leverage FIDO2 Passkeys to strengthen defense.
+### 2.4 Independent Responsibility of Self-Hosted Instances
 
-### 3.4 72-Hour Incident Response & Official Communication Channels
+A third party who deploys the open-source code becomes, from the moment of deployment, the sole and exclusive data controller for that instance's users, and must independently fulfil the notice, security-maintenance, and oversight obligations required by the law applicable at its location. Upstream authors and contributors operate no instance, have no access to data on self-hosted instances, and bear no joint liability for any instance's operation, security incidents, or legal disputes.
 
-We maintain a standardized Security Incident Response Standard Operating Procedure (SOP):
+<div class="google-divider"><span class="google-divider-icon">✦</span></div>
 
-*   **Rapid Containment**: In the event of an anomaly, the edge gateway drops malicious IP ranges within minutes, revokes compromised JWT tokens, and triggers emergency master key rotation;
-*   **72-Hour Breach Notification**: If a verified security incident impacts personal communications, we will notify affected individuals via prominent site notices and direct emails within 72 hours, and file appropriate reports with regulatory bodies;
-*   **Upstream Patch Distribution**: Root-cause fixes are merged into the public repository alongside formal Security Advisories to assist self-hosted operators worldwide.
+## 3. Control over Your Data
 
-Users and security researchers with vulnerability disclosures, compliance inquiries, or security reports should reach us via our official dedicated channels:
+You have the rights of access, copying, correction, stopping processing, and deletion with respect to your own data. This chapter explains which features implement each right; the full definitions are in Section 9 of the [Privacy Policy](/en/mail/privacy-policy/).
 
-*   **Security Incident Response Team**: `announcement@epocanvas.com`
-*   **Privacy & Data Protection Office**: `privacy@epocanvas.com`
+<div class="google-illustration-container">
+  <img src="/images/mail/data-sovereignty-export.svg" alt="EpoCanvas Mail data control: self-service export, deletion with a recycle buffer, and enforceable rights" width="416" height="276" />
+</div>
+
+*Figure: three routes of control — self-service export (JSON), deletion (recycle-bin buffer, then hard deletion), and exercising rights (answered within 30 days).*
+
+### 3.1 Access, Export, and Correction
+
+- **Self-service in the interface**: you can review your profile, login records, and all mail in the mailbox interface at any time;
+- **Data export**: "Settings → Data Export" produces a complete copy in JSON format (profile and full text of undeleted mail); a single mail can also be downloaded as an .eml file;
+- **Manual requests**: requests that need human handling, such as correction or stopping processing, are answered and processed within 30 days of receipt via `privacy@epocanvas.com`.
+
+### 3.2 Deletion
+
+- **Deleting mail**: deleted mail first goes to the trash and is hard-deleted (with attachments and indexes) by a scheduled task 7 days later; deletion is irreversible. When mailbox usage exceeds 90% of quota, deletions you perform are hard-deleted immediately to free space;
+- **Account deactivation**: you can deactivate your account yourself in Settings. Sessions are revoked immediately and mail and data enter a soft-deleted state until an administrator performs the hard deletion; after hard deletion, account data, mail, attachments, and authorizations are removed from the database and object storage and cannot be recovered;
+- **Corresponding statutory rights**: the rights of access, copying, and deletion that users in the European Economic Area have under the GDPR, and the rights of notice, deletion, and non-discrimination that California residents have under the CCPA/CPRA, are implemented through the self-service features and the manual request channel above; users elsewhere exercise equivalent rights under the law applicable at their location.
+
+### 3.3 No Selling, No Tracking
+
+- The operator does not sell, rent, or trade your personal data or communication content;
+- Data is not used for cross-context behavioral advertising, user profiling, or commercial model training;
+- Exercising your privacy rights does not degrade the functionality, quality, or availability of the service.
+
+### 3.4 Security-Incident Response
+
+If personal data is stolen, leaked, altered, or lost, the operator will proceed as follows:
+
+1. **Immediate containment**: force relevant sessions offline and quarantine affected content, pausing parts of the service where necessary to stop the damage from spreading;
+2. **Statutory notification**: notify the competent authority within the period required by applicable law, and inform affected users through an on-site announcement or system mail;
+3. **Published remediation**: after the cause is identified, publish fixes and a security advisory in the open-source repository so self-hosted operators can patch in step.
+
+To report a security issue or vulnerability, use:
+
+- **Security & official communications**: `announcement@epocanvas.com`
+- **Privacy & data protection**: `privacy@epocanvas.com`

@@ -1,83 +1,73 @@
 ---
-title: Officiële e-mailspecificaties en architectuur tegen manipulatie
-description: Officiële e-mailspecificaties van EpoCanvas Mail, 16 gelaagde beveiligingsmeldingen, afzenderbescherming, onveranderlijke aflevering en integriteitsverificatie.
+title: Officiële e-mailspecificaties en verificatie tegen manipulatie
+description: Hoe de officiële systeemmail van EpoCanvas Mail wordt uitgegeven en herkend — de officiële vlag, onveranderlijke aflevering, isolatie van rendering in de client en verificatie tegen manipulatie van documenten.
 ---
 
-# Officiële e-mailspecificaties en architectuur tegen manipulatie
+# Officiële e-mailspecificaties en verificatie tegen manipulatie
 
-**Ingangsdatum: 1 oktober 2026 | Versie: 5.5**
+**Datum van inwerkingtreding: 2 oktober 2026 | Versie: 5.7**
 
-Overeenkomstig het [Overzicht van privacy en voorwaarden](/mail/overview/) en [Gegevensverwerking en beveiliging](/mail/data-security/) legt dit document het kader vast voor de uitgifte van officiële e-mails, specificaties voor beveiligingsberichten, afzenderbeveiliging aan de edge, onveranderlijke aflevering via momentopnames, client-side sandbox-isolatie en cryptografische verificatiemechanismen tegen manipulatie voor EpoCanvas Mail.
+Dit document legt uit hoe officiële systeemmail wordt uitgegeven en hoe u haar herkent, en beschrijft het verificatiemechanisme tegen manipulatie van de juridische documenten op deze site, zodat u de echtheid van officiële communicatie en documenten kunt bevestigen. Het is opgesteld krachtens het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/) en [Gegevensverwerking en Beveiligingsonderhoud](/nl/mail/data-security/).
 
-De formele referentieversie van alle juridische en technische documenten op deze site is de versie in het Traditioneel Chinees (Taiwan); andere taalversies worden uitsluitend ter informatie verstrekt. In geval van afwijkingen prevaleert de Traditioneel Chinese versie.
+De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend. De juridische en technische documenten op deze site volgen de open-sourceimplementatie van de dienst en beogen transparante, strenge, niet-commerciële normen voor gemeenschapscommunicatie.
 
-![Architectuur tegen manipulatie en officiële verificatie van EpoCanvas Mail: afzenderbeveiliging aan de edge, onveranderlijke afleveringspijplijn, Shadow DOM-sandbox-isolatie op de client en SHA-256-manifest](/images/mail/anti-tamper-architecture.svg)
+![Drielagige architectuur van officiële mail van EpoCanvas Mail: de uitgiftelaag vergrendelt het officiële afzenderadres en injecteert de officiële vlag; de afleverlaag fixeert een onveranderlijke momentopname met terugval op vooraf ingestelde vertaling; de clientlaag isoleert rendering met Shadow DOM en inhoudssanering](/images/mail/anti-tamper-architecture.svg)
 
-*Afbeelding: Systeemarchitectuur tegen manipulatie en officiële verificatie. Niveau 1 vergrendelt de officiële afzenderidentiteit aan de edge; niveau 2 consolideert onveranderlijke momentopnames met AES-256-GCM-opslag; niveau 3 garandeert Shadow DOM-isolatie op de client en realtime SHA-256-verificatie via Web Crypto.*
+*Figuur: de drie lagen van de verwerking van officiële mail. De uitgiftelaag vergrendelt het officiële afzenderadres en injecteert de officiële vlag; de afleverlaag fixeert een onveranderlijke momentopname met terugval op vooraf ingestelde vertaling; de clientlaag isoleert rendering en draagt de documentverificatie.*
 
-## 1. Bescherming en verificatie van de officiële afzender
+## 1. Officiële afzenderidentiteit en de officiële vlag
 
-Om risico's op phishing en afzendervervalsing definitief uit te sluiten, hanteert de dienst een geprivilegieerd isolatiekanaal aan de edge dat officiële systeemcommunicatie strikt scheidt van reguliere gebruikersstromen:
+Officiële systeemcommunicatie onderscheidt zich van gewone gebruikersmail als volgt:
 
-1. **Exclusieve vergrendeling van het officiële adres**: Alle welkomstberichten, algemene mededelingen en beveiligingswaarschuwingen worden uitsluitend en exclusief verzonden vanaf het gecertificeerde adres `announcement@epocanvas.com`;
-2. **Onderschepping van vervalsingen aan de edge**: De Cloudflare Workers-gateway past strikte filtering toe. Elke externe afzender of ongeautoriseerde interne aanroep die probeert te verzenden als `announcement@epocanvas.com` wordt onmiddellijk geblokkeerd met een HTTP 403-fout;
-3. **Geverifieerd schild en officieel vinkje (`isOfficial: 1`)**: Alleen berichten gegenereerd via geprivilegieerde systeempijplijnen ontvangen de onveranderlijke eigenschap `isOfficial = 1`, waardoor in het leesvenster automatisch het geverifieerde blauwe schild en de officiële banner worden weergegeven;
-4. **Levenscyclus en verwijderingsprincipes**: Welkomstberichten worden gemarkeerd voor opvolging en na 7 dagen automatisch fysiek gewist; meldingen van kritieke beveiligingsincidenten worden permanent bewaard in de database.
+1. **Eén officieel afzenderadres**: welkomstmail, wereldwijde aankondigingen en beveiligingsmeldingen worden door het systeem verstuurd vanaf `announcement@epocanvas.com`. Het adres is in het programma ingebouwd; officiële mail wordt alleen via de bevoorrechte systeempijplijn gegenereerd;
+2. **De officiële vlag (isOfficial)**: mail waarvan de afzender `announcement@epocanvas.com` of `admin@epocanvas.com` is, of die het label «officieel» draagt, krijgt de vlag van het systeem; het leesvenster toont een officieel insigne en een banner, zodat u haar van gewone mail kunt onderscheiden;
+3. **Levenscyclus**: welkomstmail en wereldwijde aankondigingen vervallen na een instelbaar aantal dagen (standaard 7) na aflevering en worden door een geplande taak opgeruimd.
 
-## 2. Systeem voor beveiligingsberichten (16 gebeurtenissen)
+## 2. Catalogus van officiële mail
 
-De dienst deelt kritieke statuswijzigingen in volgens een beveiligingsladder van 4 niveaus (Niveau 1 tot Niveau 4) met een realtime waarschuwingsmatrix van 16 afzonderlijke gebeurtenissen. De lay-out hanteert een nuchtere technische opmaak zonder kunstmatige bewoordingen, met een vectoriële SVG-schildbadge, tweezijdige actiekaarten (bevestiging van legitieme actie vs. noodmaatregelen) en een donkere actieknop naar het beveiligingscentrum:
+De officiële systeemmail van de dienst is beperkt tot de volgende typen, alle gegenereerd uit ingebouwde sjablonen:
 
-| Niveau | Gebeurteniscode | Scenario en beveiligingscontext | Geïnjecteerde parameters | Auto ster |
-| --- | --- | --- | --- | --- |
-| L1 | NEW_DEVICE_LOGIN | Eerste aanmelding vanaf een nieuw apparaat of browser | Tijdstip, IP, Locatie, Apparaatnaam, Browser | Nee |
-| L1 | NEW_LOCATION_LOGIN | Aanmelding vanuit een nieuwe stad of een nieuw land | Tijdstip, IP, Land en Stad, Netwerkprovider | Nee |
-| L1 | NEW_NETWORK_LOGIN | Aanmelding via een nieuw autonoom netwerksysteem (ASN) | Tijdstip, IP, ASN-nummer, Netwerkorganisatie | Nee |
-| L2 | PASSWORD_CHANGED | Inlogwachtwoord van het account succesvol gewijzigd | Tijdstip, IP, Locatie, Apparaat en Browser | Nee |
-| L2 | PAT_CREATED | Nieuw persoonlijk toegangstoken (PAT) aangemaakt voor API | Tokennaam, Toegangsrechten, Geldigheidsduur | Nee |
-| L2 | PAT_REVOKED | Persoonlijk toegangstoken handmatig ingetrokken | Tokennaam, Tijdstip van intrekking, Apparaat | Nee |
-| L2 | OAUTH_AUTHORIZED | Externe OAuth 2.0-applicatie geautoriseerd voor inbox | Applicatienaam, Rechten, Client-ID | Nee |
-| L2 | OAUTH_REVOKED | Toegang van externe OAuth 2.0-applicatie ingetrokken | Applicatienaam, Tijdstip van intrekking | Nee |
-| L3 | TOTP_ENABLED | Tweeledige verificatie (RFC 6238) succesvol geactiveerd | Tijdstip, IP, Aanmaaktijd, Status back-upcodes | Ja |
-| L3 | TOTP_DISABLED | Tweeledige verificatie gedeactiveerd (enkele factor) | Tijdstip, IP, Apparaat, Veiligheidsinstructies | Ja |
-| L3 | PASSKEY_ADDED | Nieuwe toegangssleutel (Passkey FIDO2) geregistreerd | Sleutelnaam, Type authenticator, Tijdstip | Ja |
-| L3 | PASSKEY_REMOVED | Eerder geregistreerde toegangssleutel verwijderd | Sleutelnaam, Tijdstip van verwijdering | Ja |
-| L3 | AUTO_FORWARD_CHANGED | Regel voor automatisch doorsturen van e-mail gewijzigd | Doeladres, Filters, Ingeschakelde status | Ja |
-| L3 | STORAGE_PURGED | Aangepaste opslagconfiguratie (BYO) gereset | Tijdstip van reset, IP-adres, Terugvalstatus | Ja |
-| L4 | ACCOUNT_LOCKED | Drempel voor mislukte inlogpogingen bereikt (12 uur) | Aantal pogingen, Duur van blokkade, IP | Ja |
-| L4 | ACCOUNT_DELETED | Verwijdering van account aangevraagd of ingepland | Tijdstip van aanvraag, Aantal aliassen | Ja |
+| Type | Trigger | Beschrijving |
+| --- | --- | --- |
+| Welkomstmail | er wordt een nieuwe mailbox aangemaakt | ingebouwd zestalig officieel sjabloon; vervalt na de ingestelde dagen (standaard 7) |
+| Wereldwijde aankondiging | een beheerder publiceert een systeemaankondiging | ingebouwd zestalig officieel sjabloon; dezelfde looptijd als welkomstmail |
+| Melding dat tweestapsverificatie is ingeschakeld | u schakelt TOTP in | melding in de app: tweestapsverificatie staat aan en andere sessies zijn afgemeld |
+| Waarschuwing dat tweestapsverificatie is uitgeschakeld | u schakelt TOTP uit | melding in de app: de beveiliging is verminderd |
+| Alarm dat tweestapsverificatie is gereset | een beheerder reset uw TOTP | melding in de app met de oproep de beheerder te contacteren; ook als uitgaande mail verzonden wanneer een bezorgkanaal is ingesteld |
 
-Om waarschuwingsmoeheid bij gebruikers te voorkomen, wordt in KV een omgevingsprofiel bijgehouden (met de 15 recentste apparaten, locaties en netwerken), waarbij een stiltevenster van één uur geldt voor identieke gebeurtenissen.
+Buiten deze tabel stuurt het systeem nooit, vanaf geen enkel adres, mail van het soort «account afwijkend», «u heeft gewonnen» of «verificatie verlopen». Ontvangt u mail die zich officieel noemt vanaf een ander afzenderadres, meld dat dan via het kanaal in paragraaf 6.
 
-## 3. Onveranderlijke aflevering en sandbox-beveiliging op de client
+## 3. Onveranderlijke aflevering en vooraf ingestelde vertaling
 
-Officiële communicatie verloopt via onveranderlijke overdrachtsprotocollen en beveiligde sandboxes op de client om manipulatie van berichten te verhinderen:
+1. **Aflevering via onveranderlijke momentopname**: de variabelen van officiële mail worden bij het verzenden vervangen en de inhoud als momentopname vastgelegd; zij wordt niet opnieuw gegenereerd wanneer de ontvanger later de interfacetaal wisselt, waardoor officiële communicatie objectief uniek blijft;
+2. **Terugval op vooraf ingestelde vertaling**: wanneer u «Vertalen» gebruikt op een ongewijzigde officiële mail, wordt het vooraf ingestelde officiële sjabloon in uw taal lokaal gerenderd en wordt geen mailinhoud naar een AI-dienst gestuurd; alleen mail waarvan een beheerder de body heeft gewijzigd, gaat door volledige AI-vertaling (zie paragraaf 6 van het [Privacybeleid](/nl/mail/privacy-policy/)).
 
-1. **Onveranderlijke momentopname (Immutable Delivery)**: Systeemberichten worden bij verzending vastgelegd in de database en worden niet dynamisch opnieuw vertaald als de ontvanger later van interfacetaal wisselt;
-2. **Symmetrische terugval naar officiële sjablonen**: De meertalige vertaalengine compileert officiële sjablonen vooraf. Komt de inhoud overeen, dan wordt de gecertificeerde vertaling getoond; bij aanpassingen schakelt het systeem soepel over naar AI;
-3. **Fysieke isolatie via Shadow DOM**: De webclient rendert e-mailberichten in een hermetisch afgesloten Shadow DOM, waardoor bovenliggende stijlen en scripts geen invloed kunnen uitoefenen;
-4. **Strikte opschoning met DOMPurify**: Tags zoals `<script>`, `<style>`, `<iframe>`, `<object>`, `<embed>`, `<form>` en inline scripts worden verwijderd ter bescherming tegen XSS en visuele vervalsingen.
+## 4. Isolatie van rendering in de client
 
-## 4. Beveiliging tegen manipulatie en documentverificatie
+Mailinhoud (zowel officiële als inkomende mail) wordt in de browser onder de volgende isolatiemaatregelen gerenderd:
 
-Het officiële documentatieplatform (`epomail-docs`) maakt gebruik van een open cryptografisch hash-systeem waarmee iedere gebruiker de authenticiteit van documenten kan controleren:
+1. **Shadow DOM-isolatie**: de body wordt binnen een eigen Shadow DOM gerenderd; paginabrede stijlen en scripts kunnen de mailinhoud niet beïnvloeden, en stijlen uit de mail kunnen niet naar de pagina lekken;
+2. **Sanering via whitelist**: de body wordt met DOMPurify gezuiverd; de tags `<script>`, `<iframe>`, `<object>`, `<embed>`, `<form>` en `<style>` en inline event-handlers worden verwijderd, wat scriptinjectie en interfacevervalsing blokkeert.
 
-| Dimensie | Technisch mechanisme | Verificatiecriterium | Geneutraliseerde dreiging |
-| --- | --- | --- | --- |
-| Deterministisch manifest | `public/tamper-proof.json` | SHA-256-hash en bestandsgrootte | Wijzigingen op spiegelsites, tekstvervanging |
-| Versieherleidbaarheid | Git Commit-structuurobject | Git Commit-SHA en PGP-handtekening | Ongeautoriseerde revisies, geschiedvervalsing |
-| Verificatie in de browser | Web Crypto API in het geheugen | `crypto.subtle.digest('SHA-256')` | Onderschepping onderweg (MITM), cachevervuiling |
-| Offline controle in terminal | OpenSSL- / sha256sum-tools | Lokale vergelijking van Markdown-hashes | Onafhankelijke audits, compliancy-toetsing |
-| Officiële bron | `https://docs.epocanvas.com/epomail` | DNSSEC-validatie en TLS-certificaten | Frauduleuze websites, phishingportalen |
+## 5. Verificatie tegen manipulatie van documenten
 
-:::tip[Instructies voor realtime verificatie]
-Onderaan elke documentatiepagina bevindt zich het paneel «🛡️ Officiële verificatie van integriteit en anti-manipulatie». Klik op «🔍 Controleer integriteit van pagina» om direct in de browser een SHA-256-controle uit te voeren en te vergelijken met het officiële manifest. Via de terminal kan dit met `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json | jq .`.
+De juridische documenten op deze site worden bij publicatie cryptografisch verzegeld, zodat iedereen kan verifiëren dat wat hij leert overeenkomt met de gepubliceerde versie in de open-sourcebron:
+
+| Verificatieroute | Mechanisme | Beschrijving |
+| --- | --- | --- |
+| Integriteitsmanifest | `tamper-proof.json` | gegenereerd door de buildpijplijn uit de git-bron; legt per document de SHA-256-hash, de grootte in bytes en de vastgepinde commit vast |
+| Ingebed paginapaneel | «Officiële verzegeling en integriteitsverificatie» onder aan elke pagina | toont de officiële hash en vastgepinde commit van dit document; klikken op «Deze pagina nu verifiëren» haalt het manifest opnieuw op en vergelijkt het met de hash in de pagina |
+| Offline verificatie | `sha256sum` / OpenSSL | hash de Markdown-bronnen in de open-sourcebron en vergelijk ze item voor item met het manifest |
+| Autoritatieve oorsprong | `docs.epocanvas.com/epomail` | geleverd via HTTPS; inhoud van een ander domein of een spiegel moet met de manifesthashes worden gecontroleerd |
+
+:::tip[Hoe online te verifiëren]
+Klik onder aan een willekeurige documentpagina op «Deze pagina nu verifiëren»: het paneel haalt het officiële manifest opnieuw op en vergelijkt het met de hash in de pagina. U kunt ook `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json` in een terminal uitvoeren om het manifest op te halen, en `sha256sum` op de Markdown-bestanden van de bron voor een item-voor-item controle.
 :::
 
-## 5. Verantwoordelijkheden en melding van beveiligingsincidenten
+## 6. Verantwoordelijkheidsgrenzen en meldkanalen
 
-1. **Verantwoordelijkheid voor de gehoste instantie**: De veilige uitgifte van e-mails, afzenderverificatie en documentintegriteit op `mail.epocanvas.com` vallen onder het officiële operationele team;
-2. **Verantwoordelijkheid bij zelf hosten**: Beheerders van zelfstandige instanties configureren hun eigen Cloudflare-omgeving en dienen hun sleutels te beveiligen conform [Gegevensverwerking en beveiliging](/mail/data-security/) ;
-3. **Meldings- en ondersteuningskanalen**: Neem bij vervalste e-mails, afwijkingen bij verificatie of vermoedelijke kwetsbaarheden direct contact op via:
-   - Veiligheidscentrum en officieel verzendkanaal: `announcement@epocanvas.com`
-   - Privacy- en gegevensbeschermingsfunctionaris: `privacy@epocanvas.com`
+1. **Gehoste instantie**: de uitgifte van officiële mail, de afzenderidentiteit en de documentverzegeling worden door het officiële exploitatieteam onderhouden;
+2. **Zelfgehoste instanties**: zelfhosters stellen hun eigen bezorgkanalen en sleutels in en beschermen hun instantie zoals beschreven in [Gegevensverwerking en Beveiligingsonderhoud](/nl/mail/data-security/); officiële communicatie van een zelfgehoste instantie is de verantwoordelijkheid van de exploitant van die instantie;
+3. **Meldkanalen**: om mail die zich voor de officiële identiteit uitgeeft, verificatieafwijkingen of beveiligingskwetsbaarheden te melden, contacteert u:
+   - Officieel verzend- en beveiligingskanaal: `announcement@epocanvas.com`
+   - Privacy- en gegevensbeschermingskanaal: `privacy@epocanvas.com`

@@ -5,13 +5,13 @@ description: Liste complète des sous-traitants d'EpoCanvas Mail, des destinatai
 
 # Liste des sous-traitants
 
-**Date d'entrée en vigueur : 1 octobre 2026 | Version : 5.4**
+**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
 
 À la suite de la section 7 de la [Politique de confidentialité](/fr/mail/privacy-policy/), la présente liste expose intégralement les tiers impliqués dans les données personnelles du Service, les conditions de partage et les mécanismes de garantie. Le principe de partage du Service est la nécessité minimale : les données qui peuvent rester dans l'instance n'en sortent pas ; celles qui doivent en sortir voient clairement indiqués leur destinataire et les données qu'elles emportent. Le Service n'entretient avec aucune des parties ci-après de relation de vente de données ni de partage de revenus publicitaires.
 
 Les transferts internationaux respectent les exigences du droit applicable et les restrictions légales des autorités compétentes, avec les clauses contractuelles types et des mécanismes analogues en garantie. Les sous-traitants traitent toutes les données sur instruction du responsable du traitement et dans les limites de la finalité confiée.
 
-Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
+Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
 
 ![Carte du partage avec des tiers d'EpoCanvas Mail : centrée sur l'instance, répartie en quatre catégories — sous-traitants, autorisés par la personne concernée, traitements par IA déclenchés par la personne concernée et exigences légales — avec la mention du principe de nécessité minimale et des engagements de non-vente, de non-publicité et de non-suivi](/images/mail/subprocessor-map.svg)
 

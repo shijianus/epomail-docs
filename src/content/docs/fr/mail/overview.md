@@ -5,7 +5,7 @@ description: Vue d'ensemble des documents juridiques d'EpoCanvas Mail — identi
 
 # Confidentialité et conditions
 
-**Date d'entrée en vigueur : 1 octobre 2026 | Version : 5.4**
+**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
 
 La présente page constitue le guide de l'ensemble des documents juridiques du service EpoCanvas Mail (le « Service ») ; elle explique le rôle des parties, l'architecture documentaire et l'ordre d'application. Avant de vous inscrire ou d'utiliser le Service, vous devez lire la présente page, ainsi que la [Politique de confidentialité](/fr/mail/privacy-policy/) et les [Conditions d'utilisation](/fr/mail/terms-of-service/).
 
@@ -53,7 +53,7 @@ Les documents juridiques du présent site sont organisés par thème ; ils se re
 
 1. En matière de confidentialité, la [Politique de confidentialité](/fr/mail/privacy-policy/) constitue la disposition spécifique ; pour les conditions d'utilisation du Service, les [Conditions d'utilisation](/fr/mail/terms-of-service/) constituent la disposition spécifique ; toutes les autres questions s'interprètent selon l'architecture exposée sur la présente page.
 2. En cas d'incompatibilité entre documents, le document directement lié à l'objet en cause prévaut.
-3. Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses. Le droit applicable de chaque instance est déterminé par le lieu où réside son Opérateur (voir la section 2).
+3. Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Le droit applicable de chaque instance est déterminé par le lieu où réside son Opérateur (voir la section 2).
 
 ## 5. Points de contact
 

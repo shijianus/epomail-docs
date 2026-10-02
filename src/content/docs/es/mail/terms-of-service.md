@@ -5,13 +5,13 @@ description: Términos del Servicio de EpoCanvas Mail—aceptación y revisión 
 
 # Términos del Servicio
 
-**Fecha de entrada en vigor: 1 de octubre de 2026 | Versión: 5.4**
+**Fecha de entrada en vigor: 2 de octubre de 2026 | Versión: 5.7**
 
 Estos Términos constituyen el acuerdo entre usted y el Operador de la instancia que utiliza con respecto al uso del servicio EpoCanvas Mail (el «Servicio»). Al completar el registro, iniciar sesión o utilizar de otro modo el Servicio, usted declara que ha leído y acepta la totalidad de estos Términos; si no está de acuerdo, no se registre ni utilice el Servicio.
 
 Estos Términos constituyen condiciones tipo: el texto íntegro está disponible públicamente en la página de registro para su revisión, y las versiones históricas se archivan con el repositorio de código abierto. Su consentimiento otorgado por medios electrónicos tiene el mismo efecto que un documento y una firma físicos. Los derechos que la ley aplicable no permite excluir o limitar mediante condiciones tipo no quedan afectados por estos Términos.
 
-Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
+Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. Los documentos jurídicos y técnicos de este sitio siguen la implementación de código abierto del servicio y buscan establecer normas de comunicación comunitarias transparentes, rigurosas y no comerciales.
 
 ![Ciclo de vida contractual de los Términos del Servicio de EpoCanvas Mail: consentimiento electrónico (registrarse implica aceptar, con la misma fuerza que por escrito) → cumplimiento (seguridad de la cuenta, su contenido, límites de responsabilidad) → revisión (los cambios importantes se anuncian antes de su entrada en vigor) → fin (cancelación, exportación y supresión de datos), sobre la base de la ley aplicable y la jurisdicción (ubicación del Operador; instancia alojada: Taiwán)](/images/mail/tos-contract.svg)
 

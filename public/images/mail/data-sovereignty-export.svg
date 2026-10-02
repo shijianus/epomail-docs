@@ -1,86 +1,62 @@
-<svg width="416" height="276" viewBox="0 0 416 276" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EpoCanvas Mail Data Sovereignty, User Controls and Export Rights Illustration">
+<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data sovereignty: self-service export, deletion with a recycle buffer, and enforceable rights">
   <style>
-    .bg-plate { fill: #F8F9FA; }
-    .stroke-main { stroke: #1F1F1F; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-    .stroke-sub { stroke: #1F1F1F; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
-    .fill-white { fill: #FFFFFF; }
-    .fill-blue-main { fill: #1967D2; }
-    .fill-blue-dark { fill: #185ABC; }
-    .fill-blue-light { fill: #E8F0FE; }
-    .fill-yellow { fill: #FCBD00; }
-    .fill-green { fill: #34A853; }
-    .fill-red { fill: #EA4335; }
-    .fill-gray { fill: #E1E3E1; }
+    .bg { fill: #f8fafc; }
+    .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; }
+    .base { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1; }
+    .ico { fill: #eff6ff; stroke: #2563eb; stroke-width: 1; }
+    .icod { fill: none; stroke: #2563eb; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .t { font: 600 10px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #0f172a; }
+    .b { font: 400 8px -apple-system, 'Segoe UI', Roboto, 'PingFang TC', 'Microsoft JhengHei', sans-serif; fill: #64748b; }
+    .tag { font: 600 8px -apple-system, 'Segoe UI', Roboto, sans-serif; letter-spacing: 1px; fill: #2563eb; }
+    .bt { font: 600 9px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #334155; }
     @media (prefers-color-scheme: dark) {
-      .bg-plate { fill: #131B2E; }
-      .fill-white { fill: #1E293B; }
-      .stroke-main { stroke: #E2E8F0; }
-      .stroke-sub { stroke: #CBD5E1; }
-      .fill-blue-light { fill: rgba(25, 103, 210, 0.25); }
-      .fill-gray { fill: #334155; }
+      .bg { fill: #0b0f19; }
+      .card { fill: #111827; stroke: #1e293b; }
+      .base { fill: #111827; stroke: #1e293b; }
+      .ico { fill: rgba(59,130,246,0.10); stroke: #3b82f6; }
+      .icod { stroke: #60a5fa; }
+      .t { fill: #f1f5f9; }
+      .b { fill: #94a3b8; }
+      .tag { fill: #60a5fa; }
+      .bt { fill: #cbd5e1; }
     }
   </style>
+  <rect class="bg" width="416" height="276" rx="16"/>
 
-  <!-- Background Card -->
-  <rect class="bg-plate" width="416" height="276" rx="28"/>
+  <text class="tag" x="26" y="26">YOUR DATA, YOUR CONTROL</text>
+  <text class="b" x="390" y="26" text-anchor="end">storage stays inside the instance</text>
 
-  <!-- Grounding Baseline -->
-  <path class="stroke-main" d="M56 218 H360"/>
+  <!-- export -->
+  <rect class="card" x="26" y="40" width="112" height="128" rx="10"/>
+  <rect class="ico" x="42" y="54" width="26" height="26" rx="8"/>
+  <path class="icod" d="M55 60 V72 M51 68.5 L55 72.5 L59 68.5"/>
+  <path class="icod" d="M49 76 H61"/>
+  <text class="t" x="42" y="96">Export</text>
+  <text class="b" x="42" y="110">self-service copy</text>
+  <text class="b" x="42" y="122">in JSON format,</text>
+  <text class="b" x="42" y="134">any time, in the app</text>
 
-  <!-- Left: User Profile Avatar Badge -->
-  <g transform="translate(84, 88)">
-    <!-- Avatar Card Container -->
-    <rect class="fill-white stroke-main" x="0" y="0" width="72" height="130" rx="12"/>
-    <!-- Head & Shoulders Silhouette inside badge -->
-    <circle cx="36" cy="38" r="16" class="fill-blue-light stroke-sub"/>
-    <circle cx="36" cy="34" r="7" class="fill-blue-main"/>
-    <path d="M24 49 C24 43 29 41 36 41 C43 41 48 43 48 49 Z" class="fill-blue-main"/>
-    <!-- Identity Lines -->
-    <rect class="fill-gray stroke-sub" x="12" y="66" width="48" height="6" rx="3"/>
-    <rect class="fill-gray stroke-sub" x="16" y="78" width="40" height="6" rx="3"/>
-    <!-- Verification Check Badge -->
-    <circle cx="36" cy="104" r="11" class="fill-green stroke-sub"/>
-    <path class="stroke-main" d="M31 104 L34 107 L41 100" stroke="#FFFFFF"/>
-  </g>
+  <!-- delete -->
+  <rect class="card" x="152" y="40" width="112" height="128" rx="10"/>
+  <rect class="ico" x="168" y="54" width="26" height="26" rx="8"/>
+  <path class="icod" d="M176 61 H186 M179 61 V59 H183 V61 M178 61 L179 74 H183 L184 61"/>
+  <text class="t" x="168" y="96">Delete</text>
+  <text class="b" x="168" y="110">recycle bin buffer,</text>
+  <text class="b" x="168" y="122">then hard delete;</text>
+  <text class="b" x="168" y="134">account deletion is final</text>
 
-  <!-- Centerpiece: Data File Vault & Rising Upward Export Arrow -->
-  <g transform="translate(180, 68)">
-    <!-- Document Stack Behind -->
-    <rect class="fill-gray stroke-main" x="10" y="32" width="80" height="118" rx="8"/>
-    <!-- Main Data Card -->
-    <rect class="fill-white stroke-main" x="0" y="40" width="80" height="110" rx="8"/>
-    <!-- Content Rows -->
-    <path class="stroke-sub" d="M14 60 H56 M14 72 H66 M14 84 H66 M14 96 H48"/>
+  <!-- rights -->
+  <rect class="card" x="278" y="40" width="112" height="128" rx="10"/>
+  <rect class="ico" x="294" y="54" width="26" height="26" rx="8"/>
+  <path class="icod" d="M301 60 H315 L312 64 L315 68 H301 Z M303 68 V74"/>
+  <text class="t" x="294" y="96">Rights</text>
+  <text class="b" x="294" y="110">access, copy, correct,</text>
+  <text class="b" x="294" y="122">stop processing, erase;</text>
+  <text class="b" x="294" y="134">answer within 30 days</text>
 
-    <!-- Prominent Rising Export Arrow (GDPR Portability) -->
-    <g transform="translate(40, 20)">
-      <!-- Pulsing Ring/Glow -->
-      <circle cx="0" cy="0" r="22" class="fill-blue-light stroke-sub"/>
-      <!-- Arrow Shaft & Head -->
-      <path class="stroke-main" d="M0 16 V -12" stroke-width="2.5" stroke="#1967D2"/>
-      <path class="stroke-main" d="M-8 -5 L0 -14 L8 -5" stroke-width="2.5" stroke="#1967D2"/>
-    </g>
-    <!-- Format Pill at bottom of file: JSON / EML -->
-    <rect class="fill-yellow" x="14" y="118" width="52" height="18" rx="9"/>
-    <text x="40" y="131" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#1F1F1F" text-anchor="middle">.EML / JSON</text>
-  </g>
-
-  <!-- Right: Cryptographic Erasure / Hard Delete Vault -->
-  <g transform="translate(288, 102)">
-    <!-- Security Box -->
-    <rect class="fill-white stroke-main" x="0" y="18" width="56" height="98" rx="10"/>
-    <!-- Golden Padlock & Key on Vault -->
-    <circle cx="28" cy="46" r="14" class="fill-yellow stroke-sub"/>
-    <rect x="23" y="44" width="10" height="12" rx="2" fill="#1F1F1F"/>
-    <path d="M25 44 V39 C25 36.5 31 36.5 31 39 V44" stroke="#1F1F1F" stroke-width="1.5" fill="none"/>
-    <!-- Shredding / Erasure Sparkle Lines -->
-    <path class="stroke-sub" d="M12 76 H44 M16 86 H40 M20 96 H36" stroke-dasharray="3 2" stroke="#EA4335"/>
-  </g>
-
-  <!-- Ambient Stars & Whimsical Flourishes -->
-  <path class="stroke-sub" d="M68 62 Q68 70 76 70 Q68 70 68 78 Q68 70 60 70 Q68 70 68 62Z" fill="#1F1F1F"/>
-  <path class="stroke-sub" d="M344 74 Q344 81 351 81 Q344 81 344 88 Q344 81 337 81 Q344 81 344 74Z" fill="#1F1F1F"/>
-  <!-- Curved Accent -->
-  <path class="stroke-sub" d="M148 48 C160 38 174 50 166 60" fill="none"/>
-  <path class="stroke-sub" d="M248 50 C260 40 274 52 266 62" fill="none"/>
+  <!-- base -->
+  <rect class="base" x="26" y="184" width="364" height="42" rx="10"/>
+  <text class="bt" x="44" y="202">Where your data lives:</text>
+  <text class="b" x="44" y="216">the operator's Cloudflare resources (D1 / KV / objects) · applicable law follows the operator's jurisdiction</text>
+  <text class="b" x="26" y="248">Self-hosting? You become the data controller — publish your own notice and channels.</text>
 </svg>

@@ -1,42 +1,83 @@
 ---
 title: Acceptable Use Policy
-description: Rules and guidelines for utilizing EpoCanvas Mail services and infrastructure.
+description: The EpoCanvas Mail Acceptable Use Policy — the list of prohibited conduct, the operator's enforcement measures, and the appeal procedure.
 ---
 
-**Effective Date: October 1, 2026 | Version: 5.5**
+# Acceptable Use Policy
 
-This Acceptable Use Policy ("AUP") defines the rigorous standards and permitted uses of the EpoCanvas Mail infrastructure. Whether you are operating on the managed service environment (`mail.epocanvas.com`) or utilizing the open-source self-hosted ecosystem (`epocanvas-mail`), these rules establish the compliance baseline necessary to maintain operational integrity, protect our network reputation, and ensure a secure communication environment for all users. The dual-nature of our platform means that while users enjoy the freedom of self-hosting under the MIT License, they also bear the responsibility of governing their deployments in accordance with international communication standards.
+**Effective Date: October 2, 2026 | Version: 5.7**
 
-> [!IMPORTANT]
-> **Self-Hosted Compliance Responsibility**: For users deploying EpoCanvas Mail independently, you operate as the sole Data Controller of your instance. You are entirely responsible for managing your own anti-spam policies, adhering to DKIM/SPF/DMARC configurations, and ensuring that your independent deployment does not masquerade as the official EpoCanvas Mail managed service. 
+This policy concretises Section 7 ("Acceptable Use") of the [Terms of Service](/en/mail/terms-of-service/) and sets the boundaries of conduct when you use the EpoCanvas Mail service (the "Service"). If you violate this policy, the operator may act under the "Enforcement measures" chapter; conduct suspected of being criminal will also be handled according to law.
 
-### Anti-Spam and Unsolicited Communications
+Much of the conduct listed here may also be unlawful under the law of your or the operator's location in addition to breaching this policy; the definitive characterisation belongs to the competent authorities, and this document is not legal advice.
 
-The transmission of unsolicited commercial email (spam) is strictly prohibited. EpoCanvas Mail maintains a zero-tolerance policy against the abuse of our infrastructure for bulk, non-consensual mail delivery. Operators of self-hosted instances must configure their systems to prevent open relay abuse and are required to honor all unsubscribe requests promptly. Our managed service employs advanced heuristic filtering and reputation monitoring to detect and block unsolicited bulk email before it reaches the broader internet ecosystem. We mandate the correct implementation of SPF, DKIM, and DMARC records for all outbound domains to establish verifiable sender identities and protect against domain spoofing. 
+The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
 
-### Anti-Phishing and Identity Protection
+## 1. Unlawful and Harmful Content
 
-Phishing, social engineering, and any attempts to deceptively obtain sensitive user credentials or financial information are direct violations of this policy. You may not forge headers, manipulate sender identities, or employ misleading domain names that imitate legitimate organizations or the EpoCanvas Mail brand. The open-source nature of our platform grants you the right to modify the software, but it strictly prohibits leveraging our codebase to create deceptive portals or to impersonate official communications from the EpoCanvas Mail administrative team. Any instance found engaging in such activities will be immediately blacklisted across our managed infrastructure.
+You must not use the Service to transmit, store, or distribute the following:
 
-> [!WARNING]
-> Any third-party deployment attempting to impersonate the official `mail.epocanvas.com` service will face immediate action. We actively monitor for brand infringement and will report malicious infrastructure to appropriate registrars and hosting providers.
+| Prohibited conduct | Operator's response |
+| --- | --- |
+| Sexual exploitation of children and juveniles, including photographing, producing, reproducing, holding, distributing, broadcasting, delivering, publicly displaying, or selling sexual imagery of children or juveniles, or sexually related drawings, audio, or objects | Zero tolerance: on discovery, the content is deleted and the account terminated, evidence is preserved and handed to the competent authorities; the appeal buffer does not apply |
+| Distributing or broadcasting violence, gore, pornography, obscenity, or gambling harmful to the physical or mental health of children and juveniles | Zero-tolerance procedure: access restricted or content removed first |
+| Recording, reproducing, or distributing non-consensual intimate imagery, or producing fabricated sexual imagery by computer synthesis (see Section 2) | Browsing restricted or content removed first; evidence kept at least 180 days; cooperation with investigations |
+| Distribution, broadcasting, sale, or public display of obscene text, drawings, sound, images, or other objects | Handled upon report; unlawful content is removed and dealt with according to severity |
+| Fraud, phishing, impersonation (including forged senders or impersonating government agencies and officials) in mail or content | Fraud-related content quarantined or deleted; suspected crimes handed to the competent authorities |
+| Distributing malware, viruses, or ransomware; mail aimed at credential theft; unauthorised intrusion, obtaining, deleting or altering electronic records, or interfering with computer systems | Immediate quarantine and account termination; suspected crimes handed to the competent authorities |
+| Content infringing copyright, trademark, privacy, or reputation | Removed after a valid notice from the rights holder and handled under the relevant law |
 
-### High-Frequency Attacks and Rate Limiting
+## 2. Non-Consensual Intimate Imagery
 
-To safeguard the availability and performance of our Edge infrastructure, EpoCanvas Mail implements strict rate limiting and high-frequency attack mitigation. Automated scripts, brute-force login attempts, and excessive API polling can severely degrade service quality. Our Cloudflare-backed architecture dynamically scales to absorb legitimate traffic spikes, but sustained, anomalous request volumes will trigger automated rate-limiting thresholds. Application-level safeguards ensure that individual accounts cannot exhaust shared resources, thereby protecting the overall integrity of the multi-tenant environment. 
+Anyone who uploads, transmits, or stores non-consensual intimate imagery using the Service will have it restricted or removed on discovery, and the following applies:
 
-### Violation Escalation and Disposal Ladder
+1. **Criminal prohibition**: recording, reproducing, or distributing another person's intimate imagery without consent, or producing and distributing fabricated sexual imagery by computer synthesis or similar technology, is a criminal offence in most jurisdictions.
+2. **Platform removal duty**: when the operator becomes aware of facts suggesting a sexual-offence crime, it restricts access to or removes the material concerned first; that material, the suspect's personal data, and network usage records are kept at least 180 days for judicial and police investigation.
+3. **Handling**: after receiving a notice or report, the operator restricts access or removes the content first, preserves evidence, and cooperates with judicial and police investigations. The appeal buffer of Section 7 does not apply to this chapter.
 
-Enforcement of this AUP follows a structured, graduated escalation process designed to address violations transparently and proportionately. When anomalous or non-compliant behavior is detected, our automated systems and compliance team will initiate the following disposal ladder:
+## 3. Spam and Abuse
 
-1.  **Warning Notification**: An initial administrative alert is issued to the account owner, detailing the policy violation and requiring immediate corrective action within a specified timeframe.
-2.  **Rate Limiting**: If the behavior persists, temporary rate limits and API throttling are applied to the offending account to mitigate immediate risks and prevent infrastructure abuse.
-3.  **Account Suspension**: Continued or severe violations will result in the temporary suspension of inbound and outbound mail capabilities, pending a comprehensive security review.
-4.  **Permanent Deletion**: In cases of malicious intent, persistent abuse, or illegal activities, the account and all associated data will be permanently and irrevocably deleted from the managed service, with no option for data recovery.
+You must not:
 
-### Cross-Border Communication Compliance
+1. Send unsolicited bulk commercial mail (UBE/UCE), market to recipients who have not consented, use the Service for mailbox warm-up, or run address-verification bombardment. Such conduct may violate the law of the recipients' location (such as the US CAN-SPAM Act, the EU ePrivacy Directive, or Canada's CASL); for cross-border sending, the law of the destination applies. Where personal data is used for marketing, marketing must stop immediately when the data subject objects.
+2. Register accounts in bulk programmatically, bypass human verification (Turnstile), bypass registration keys or quota limits.
+3. Use the Service as an anonymous relaying springboard or a short-lived bulk-sending pool, or repeatedly re-register to evade enforcement.
 
-Operating on a global infrastructure requires adherence to complex cross-border data transfer and communication regulations. When routing mail through international boundaries, users must ensure compliance with relevant local laws, including export control regulations and digital communications acts. EpoCanvas Mail routes traffic via Anycast networks to optimize delivery, but the ultimate responsibility for the legality of the transmitted content rests with the user. We do not provide legal counsel, and operators of self-hosted instances must independently verify their compliance with jurisdictions applicable to their user base and server locations.
+## 4. Attacks and Interference
 
-> [!TIP]
-> Administrators of self-hosted environments should regularly review their Cloudflare routing configurations and ensure their privacy policies clearly communicate cross-border data flows to their end-users.
+You must not:
+
+1. Scan, probe, or brute-force the Service or third-party systems; attempt unauthorised access to other people's mailboxes, the admin interface, or other users' data. Such conduct may constitute a crime, and the operator may additionally seek civil and administrative remedies.
+2. Use shared resources such as AI translation, attachments, or the API in a way that is unjustified and degrades other users' normal use.
+3. Harass, defame, or abuse the rights of Cloudflare, the upstream open-source community, or the operator.
+4. Violate the terms of third-party services (Cloudflare, Resend, Mailjet, Telegram, and others).
+
+## 5. General Obligations on Resource Use
+
+1. Use resources within your account's storage quota; quotas are set by the operator per role.
+2. Do not lend, rent out, or transfer accounts or API tokens to third parties.
+3. If you bring your own external storage (BYOS) or external database, you must ensure those services meet your location's legal requirements for international transfers.
+
+## 6. Enforcement Measures
+
+The operator takes measures proportionate to the nature and severity of the violation; the zero-tolerance ladder-buffer for child sexual exploitation does not apply — such cases go straight to the zero-tolerance procedure.
+
+![EpoCanvas Mail enforcement ladder of the Acceptable Use Policy: five levels from warning, rate limiting, quarantine to spam, and account suspension to physical deletion, with an appeal path, and a zero-tolerance shortcut to deletion for child sexual exploitation](/images/mail/aup-ladder.svg)
+
+*Figure: the enforcement ladder. Measures escalate step by step on the principle of proportionality; physical deletion is the irreversible final measure. The dashed zero-tolerance path, for child sexual exploitation and non-consensual intimate imagery, leads directly to deletion with evidence preserved.*
+
+| Level | Measure | Applies to |
+| --- | --- | --- |
+| 1 | Warning | minor or first-time violations |
+| 2 | Rate limiting | sending volume and API frequency restricted |
+| 3 | Quarantine | outbound mail diverted to the spam folder |
+| 4 | Account suspension | account access stopped, data kept for review |
+| 5 | Physical deletion | account and all data deleted, irreversible |
+
+Where conduct may be unlawful, the operator may preserve the necessary evidence (at least 180 days in the Section 2 cases) and cooperate with the competent authorities' investigations. If your conduct causes the operator to be penalised by Cloudflare or upstream providers, the operator may seek compensation from you under Section 10 of the [Terms of Service](/en/mail/terms-of-service/).
+
+## 7. Appeals and Reports
+
+1. **Appeals**: if you believe a measure was mistaken, appeal through the channels listed in Section 13 of the [Terms of Service](/en/mail/terms-of-service/); the operator will review and answer within a reasonable period. Except in urgent situations, you will be given a chance to explain before a measure of level 4 or above.
+2. **Reports**: anyone who discovers conduct violating this policy or a security hazard (spam sources, phishing mail, unauthorised-access attempts, and the like) may report it through the same channels; good-faith reports are always verified and handled.
+3. **Exception**: for child sexual exploitation content or the non-consensual intimate imagery of Section 2, the operator does not apply the appeal buffer: content is deleted and the account terminated directly, evidence preserved, and the matter handed to the competent authorities.

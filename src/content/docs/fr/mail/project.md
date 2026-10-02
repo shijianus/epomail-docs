@@ -4,11 +4,11 @@ description: Présentation complète du projet EpoCanvas Mail—positionnement, 
 ---
 
 **Premier commit : 21 juillet 2026 | Version actuelle : v1.1.0 | Licence : MIT**
-**Date d'entrée en vigueur : 1 octobre 2026 | Version : 5.4**
+**Date d'entrée en vigueur : 2 octobre 2026 | Version : 5.7**
 
 EpoCanvas Mail est un service de messagerie open source qui fonctionne sur le réseau edge de Cloudflare. Avec un seul domaine et un compte Cloudflare, vous pouvez mettre en place un service de messagerie personnel prenant en charge l'envoi et la réception d'e-mails, les pièces jointes et l'accès multi-appareils. Le projet est exploité en tant qu'instance hébergée à l'adresse [mail.epocanvas.com](https://mail.epocanvas.com), publie l'intégralité de son code source pour l'auto-hébergement et propose une application Android compagnon (epomail). Cette page présente le positionnement du projet, ses fonctions, son architecture technique, sa conception de la sécurité et son historique de développement ; les conditions juridiques du service et les pratiques de confidentialité sont énoncées dans l'[Aperçu des mentions légales](/fr/mail/overview/).
 
-Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
+Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
 
 ![Architecture système d'EpoCanvas Mail : la couche client (application web, application Android, applications tierces OAuth) se connecte via le edge Cloudflare ; les Workers portent l'API, l'analyse des e-mails entrants et les fonctions d'IA, l'envoi sortant passant par Resend et Telegram ; les données sont stockées dans deux bases D1, KV et un stockage d'objets](/images/mail/project-architecture.svg)
 

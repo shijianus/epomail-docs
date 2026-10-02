@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="EpoCanvas Mail Anti-Tampering &amp; Official Integrity Verification Architecture: Edge Sender Authentication, Immutable Delivery Pipeline, Client Shadow DOM Sandbox, and Verifiable SHA-256 Digest">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="Official mail pipeline: sender lock and official flag at issuance, immutable snapshot and preset-translation fallback at delivery, client sandbox isolation and document integrity manifest for verification">
   <style>
     .bg { fill: #f8fafc; }
     .band { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -9,10 +9,9 @@
     .lbl-blue { font: 700 11px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #2563eb; letter-spacing: 1.4px; }
     .lbl-green { font: 700 11px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #16a34a; letter-spacing: 1.4px; }
     .lbl-amber { font: 700 11px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #d97706; letter-spacing: 1.4px; }
-    .t { font: 600 14px -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #0f172a; }
-    .b { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #64748b; }
-    .chip { fill: #f1f5f9; stroke: #e2e8f0; stroke-width: 1; }
-    .chip-t { font: 600 10.5px ui-monospace, 'Cascadia Code', Consolas, monospace; fill: #334155; }
+    .t { font: 600 14px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #0f172a; }
+    .b { font: 400 11.5px -apple-system, 'Segoe UI', Roboto, sans-serif; fill: #64748b; }
+    .mono { font: 500 11px ui-monospace, 'Cascadia Code', Consolas, monospace; fill: #64748b; }
     .arrow { stroke: #94a3b8; stroke-width: 1.8; fill: none; marker-end: url(#pa); }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #0b0f19; }
@@ -26,8 +25,7 @@
       .lbl-amber { fill: #fbbf24; }
       .t { fill: #f1f5f9; }
       .b { fill: #94a3b8; }
-      .chip { fill: #1e293b; stroke: #334155; }
-      .chip-t { fill: #94a3b8; }
+      .mono { fill: #94a3b8; }
       .arrow { stroke: #475569; }
     }
   </style>
@@ -38,59 +36,59 @@
   </defs>
   <rect class="bg" width="1000" height="480" rx="16"/>
 
-  <!-- Tier 1: Authoritative Sender & Edge Gatekeeper -->
+  <!-- Tier 1: issuance -->
   <rect class="band" x="40" y="35" width="920" height="110" rx="14"/>
-  <text class="lbl-blue" x="60" y="58">TIER 1 · 边缘发件人防伪鉴权与特权通道 (EDGE IDENTITY LOCK)</text>
-  
+  <text class="lbl-blue" x="60" y="58">TIER 1 · OFFICIAL SENDER IDENTITY (ISSUANCE)</text>
+
   <rect class="box-blue" x="60" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="78" y="93">官方权威发件人锁定</text>
-  <text class="b" x="78" y="112">announcement@epocanvas.com</text>
+  <text class="t" x="78" y="93">Official sender lock</text>
+  <text class="mono" x="78" y="112">announcement@epocanvas.com</text>
 
   <rect class="box" x="355" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="373" y="93">边缘冒充阻断 (Anti-Spoofing)</text>
-  <text class="b" x="373" y="112">外部发件人与非特权接口严禁伪造 (403)</text>
+  <text class="t" x="373" y="93">Official flag (isOfficial)</text>
+  <text class="b" x="373" y="112">official addresses &amp; the official label</text>
 
   <rect class="box-green" x="650" y="70" width="290" height="60" rx="10"/>
-  <text class="t" x="668" y="93">权威认证标记 (isOfficial: 1)</text>
-  <text class="b" x="668" y="112">Edge Worker 内部密钥签名，蓝标防伪</text>
+  <text class="t" x="668" y="93">Reader badge &amp; banner</text>
+  <text class="b" x="668" y="112">official mail visually marked in the client</text>
 
   <path class="arrow" d="M195,145 L195,185"/>
   <path class="arrow" d="M490,145 L490,185"/>
   <path class="arrow" d="M795,145 L795,185"/>
 
-  <!-- Tier 2: Immutable Delivery Pipeline & Cryptographic Storage -->
+  <!-- Tier 2: delivery -->
   <rect class="band" x="40" y="190" width="920" height="115" rx="14"/>
-  <text class="lbl-amber" x="60" y="213">TIER 2 · 不可变投递与存储防篡改 (IMMUTABLE SNAPSHOT &amp; AES-GCM)</text>
+  <text class="lbl-amber" x="60" y="213">TIER 2 · IMMUTABLE DELIVERY (STORAGE)</text>
 
   <rect class="box" x="60" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="78" y="249">不可变快照投递 (Immutable)</text>
-  <text class="b" x="78" y="268">与收件人语言解耦，正文发布即固化</text>
+  <text class="t" x="78" y="249">Immutable snapshot</text>
+  <text class="b" x="78" y="268">rendered once at send, language-independent</text>
 
   <rect class="box-amber" x="355" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="373" y="249">环境指纹证据链 (Fingerprint)</text>
-  <text class="b" x="373" y="268">IP · Geo 城市 · ASN 提供商 · 1h 静默窗口</text>
+  <text class="t" x="373" y="249">Preset translation fallback</text>
+  <text class="b" x="373" y="268">unmodified mail renders locally; edits go to AI</text>
 
   <rect class="box" x="650" y="225" width="290" height="64" rx="10"/>
-  <text class="t" x="668" y="249">静态加密与生命周期存证</text>
-  <text class="b" x="668" y="268">AES-256-GCM 加密，安全日志物理审计</text>
+  <text class="t" x="668" y="249">Lifecycle &amp; encryption</text>
+  <text class="b" x="668" y="268">expires after configured days (default 7)</text>
 
   <path class="arrow" d="M195,305 L195,345"/>
   <path class="arrow" d="M490,305 L490,345"/>
   <path class="arrow" d="M795,305 L795,345"/>
 
-  <!-- Tier 3: Client Sandbox & Live Verification -->
+  <!-- Tier 3: client + verification -->
   <rect class="band" x="40" y="350" width="920" height="105" rx="14"/>
-  <text class="lbl-green" x="60" y="373">TIER 3 · 客户端沙箱物理隔离与动态防篡改校验 (SANDBOX &amp; SHA-256 PROOF)</text>
+  <text class="lbl-green" x="60" y="373">TIER 3 · CLIENT SANDBOX &amp; DOCUMENT INTEGRITY (VERIFICATION)</text>
 
   <rect class="box-green" x="60" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="78" y="405">Shadow DOM 物理沙箱</text>
-  <text class="b" x="78" y="423">DOMPurify 白名单净化，阻断脚本注入</text>
+  <text class="t" x="78" y="405">Shadow DOM isolation</text>
+  <text class="b" x="78" y="423">page styles and scripts cannot cross in or out</text>
 
   <rect class="box" x="355" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="373" y="405">双向操作安全处置卡片</text>
-  <text class="b" x="373" y="423">本人操作无忧 vs 非本人操作应急通道</text>
+  <text class="t" x="373" y="405">DOMPurify whitelist</text>
+  <text class="b" x="373" y="423">script · iframe · embed · form · style removed</text>
 
   <rect class="box-blue" x="650" y="383" width="290" height="58" rx="10"/>
-  <text class="t" x="668" y="405">实时防篡改验真 (Web Crypto)</text>
-  <text class="b" x="668" y="423">SHA-256 内容哈希 + Git Commit 签名核验</text>
+  <text class="t" x="668" y="405">Integrity manifest</text>
+  <text class="b" x="668" y="423">tamper-proof.json · SHA-256 · git commit anchor</text>
 </svg>
