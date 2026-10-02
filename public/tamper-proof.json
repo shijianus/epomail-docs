@@ -6,12 +6,12 @@
   "repository": "https://github.com/shijianus/epomail-docs",
   "verifiedChannel": "announcement@epocanvas.com",
   "algorithm": "SHA-256",
-  "gitCommit": "2b2655d0ffaa18ead2417adbfd96b27c658b5edb",
-  "gitShortCommit": "2b2655d",
-  "committedAt": "2026-10-02T03:18:13-08:00",
-  "generatedAt": "2026-10-02T11:18:29.191Z",
+  "gitCommit": "e6c9f5df9aa4225571e846271ff1312a5790f92c",
+  "gitShortCommit": "e6c9f5d",
+  "committedAt": "2026-10-02T04:18:27-08:00",
+  "generatedAt": "2026-10-02T12:18:40.122Z",
   "totalDocuments": 54,
-  "totalBytes": 693970,
+  "totalBytes": 725001,
   "documents": {
     "en/mail/acceptable-use": {
       "slug": "en/mail/acceptable-use",
@@ -25,9 +25,9 @@
       "slug": "en/mail/data-security",
       "title": "Data Processing & Security Operations",
       "path": "src/content/docs/en/mail/data-security.md",
-      "sha256": "dbb27377d575dee08d37257b253cd1ab99f60d352cf997a9a465015d7aaf883c",
-      "bytes": 21984,
-      "characters": 21962
+      "sha256": "588dffcc166e659ea202861323457319a1fec71acb0b0a4b4e94cd0bcd0d7987",
+      "bytes": 26667,
+      "characters": 26575
     },
     "en/mail/key-terms": {
       "slug": "en/mail/key-terms",
@@ -95,11 +95,11 @@
     },
     "es/mail/data-security": {
       "slug": "es/mail/data-security",
-      "title": "Tratamiento de datos y operaciones de seguridad",
+      "title": "Procesamiento de Datos y Mantenimiento de la Seguridad",
       "path": "src/content/docs/es/mail/data-security.md",
-      "sha256": "ccca4cb5d2d4c775d9ce8ac6783701659f573a1726049e18d274e9d73887eaa5",
-      "bytes": 22877,
-      "characters": 22544
+      "sha256": "192bf4569f8466fa46d53ddb586e909e5278b5bd9692e271b32b64f48ff85174",
+      "bytes": 28271,
+      "characters": 27810
     },
     "es/mail/key-terms": {
       "slug": "es/mail/key-terms",
@@ -167,11 +167,11 @@
     },
     "fr/mail/data-security": {
       "slug": "fr/mail/data-security",
-      "title": "Traitement des données et opérations de sécurité",
+      "title": "Traitement des Données et Maintenance de la Sécurité",
       "path": "src/content/docs/fr/mail/data-security.md",
-      "sha256": "f72fd4f207d489330cd6b7f0614eff28cd708a902b68c33d3ce7e234fe49df19",
-      "bytes": 23537,
-      "characters": 22830
+      "sha256": "cae6974b3370f15d8e5bf5ea4d49d5662e726fdfc9002ac8b71860d09c1c9015",
+      "bytes": 29611,
+      "characters": 28731
     },
     "fr/mail/key-terms": {
       "slug": "fr/mail/key-terms",
@@ -241,9 +241,9 @@
       "slug": "mail/data-security",
       "title": "数据处理与安全维护",
       "path": "src/content/docs/mail/data-security.md",
-      "sha256": "ba134d82699ffd261dea365c1ee25e44c2219a9dd904d317096597a03e5a0d9f",
-      "bytes": 21890,
-      "characters": 9656
+      "sha256": "9491e5eef46c5bdafbd016430c1fcf6900331664dba520f60aafdb089bc2bb53",
+      "bytes": 26177,
+      "characters": 14297
     },
     "mail/key-terms": {
       "slug": "mail/key-terms",
@@ -311,11 +311,11 @@
     },
     "nl/mail/data-security": {
       "slug": "nl/mail/data-security",
-      "title": "Gegevensverwerking en beveiliging",
+      "title": "Gegevensverwerking en Beveiligingsonderhoud",
       "path": "src/content/docs/nl/mail/data-security.md",
-      "sha256": "592e3bef2936d86560ca9d480cdbf25270932b11be7099672021e4758c7773ab",
-      "bytes": 21208,
-      "characters": 21150
+      "sha256": "11bab8b9234bd0df3353e6234425ae0490753153c8b8483148fdef82b8df4778",
+      "bytes": 27643,
+      "characters": 27501
     },
     "nl/mail/key-terms": {
       "slug": "nl/mail/key-terms",
@@ -385,9 +385,9 @@
       "slug": "zh-tw/mail/data-security",
       "title": "資料處理與安全維護",
       "path": "src/content/docs/zh-tw/mail/data-security.md",
-      "sha256": "89d11280fb9265fb7a7aacd51add58b96712b3a017b959f951fc70d7993fc05f",
-      "bytes": 22172,
-      "characters": 9774
+      "sha256": "82842335fe18d634d3981f3a2bed49a539be8c212bec58b81e92d2078536a944",
+      "bytes": 26330,
+      "characters": 14372
     },
     "zh-tw/mail/key-terms": {
       "slug": "zh-tw/mail/key-terms",
