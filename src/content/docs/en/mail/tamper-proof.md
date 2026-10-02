@@ -20,11 +20,6 @@ EpoCanvas Mail employs a highly structured, 16-level security event notification
 
 To combat the pervasive threat of phishing and identity forgery, our architecture relies heavily on stringent sender anti-spoofing protocols enforced directly at the network edge. EpoCanvas Mail strictly mandates the validation of SPF (Sender Policy Framework), DKIM (DomainKeys Identified Mail), and DMARC (Domain-based Message Authentication, Reporting, and Conformance) records for all incoming and outgoing traffic. By validating the cryptographic signatures of inbound mail before it ever reaches the application layer, we discard spoofed communications instantaneously, protecting the user's inbox from deceptive social engineering attacks.
 
-<div class="tamper-proof-panel">
-  <h4>Verified Official Communication</h4>
-  <p>This panel indicates that the message has been cryptographically signed and verified by the EpoCanvas Mail Core infrastructure. Its contents are immutable and guaranteed authentic.</p>
-</div>
-
 ### Immutable Snapshot Delivery
 
 Integrity is maintained through the implementation of immutable snapshot delivery. Once an email payload is received and cryptographically verified at the edge, a finalized, read-only snapshot of the message is generated and committed to the D1/KV storage layer. This snapshot is cryptographically hashed, and any subsequent attempt to modify the database record will instantly invalidate the hash. This guarantees that once a communication is securely stored within the EpoCanvas Mail ecosystem, its contents cannot be retroactively altered, tampered with, or silently corrupted, preserving a pristine audit trail for all correspondence.
