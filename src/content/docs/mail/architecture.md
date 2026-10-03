@@ -3,7 +3,7 @@ title: EpoCanvas Mail 技术架构
 description: EpoCanvas Mail 技术架构——Cloudflare 边缘部署拓扑、双数据库隔离、三模式加密体系、附件存储链、角色权限模型、邮件生命周期与应用安全设计。
 ---
 
-**生效日期：2026 年 10 月 3 日｜版本：5.9**
+**生效日期：2026 年 10 月 4 日｜版本：5.10**
 
 本页说明 EpoCanvas Mail 的技术实现：部署拓扑、数据加密、存储链路、权限模型与邮件生命周期。全部技术事实以开源代码之实际实现为准，可自行审计核对；对个人的隐私影响与法定告知见[数据处理与安全维护](/mail/data-security/)与[隐私政策](/mail/privacy-policy/)。
 
@@ -20,10 +20,10 @@ description: EpoCanvas Mail 技术架构——Cloudflare 边缘部署拓扑、�
 | 运算 | Cloudflare Workers（V8 Isolate 沙箱）：业务逻辑无状态，明文仅存于请求内存，请求结束即释放 |
 | 入站 | Cloudflare Email Routing 接收邮件，postal-mime 解析正文、标头与附件 |
 | 出站 | 三通道依序解析：Cloudflare Email Workers 绑定、Resend API、Mailjet；站内互发直接写库 |
-| 结构化存储 | Cloudflare D1（双库物理隔离：用户库承载帐号、角色与设置；邮件库承载邮件、星标与附件元数据；单库部署 100% 向后兼容） |
+| 结构化存储 | Cloudflare D1（双库物理隔离：用户库承载帐号、角色与设置；邮件库承载邮件、星标与附件元数据；单库部署 100% 向后兼容，托管实例当前即以单库运行） |
 | 键值存储 | Workers KV：会话令牌、登录风控计数、TOTP 中间态、用户资料与对象存储兜底 |
 | 边缘推论 | Workers AI（验证码提取等，默认 llama-3.1-8b-instruct） |
-| 定时任务 | Cron 触发器每日执行：风控计数清零、发信计数重置、回收站与垃圾邮件清理、无绑定 OAuth 帐号清除 |
+| 定时任务 | Cron 触发器执行：每 30 分钟刷新数据分析缓存；每日执行风控计数清零、发信计数重置、回收站与垃圾邮件清理、无绑定 OAuth 帐号清除 |
 | 人机验证 | Cloudflare Turnstile（HTTP API 校验，注册与新增信箱） |
 
 ## 2. 技术栈

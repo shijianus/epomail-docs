@@ -3,7 +3,7 @@ title: Functiegids van EpoCanvas Mail
 description: Functiegids van EpoCanvas Mail — indeling van de postvak IN, opstellen en verzenden, zoeksyntaxis, labelregelengine, extractie van verificatiecodes, spamaanpak, doorsturen en pushmeldingen, AI-mogelijkheden en het open platform.
 ---
 
-**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.9**
+**Datum van inwerkingtreding: 4 oktober 2026 | Versie: 5.10**
 
 Deze pagina beschrijft de daadwerkelijke functies van EpoCanvas Mail één voor één; alle inhoud is punt voor punt geverifieerd aan de hand van de open-sourcecode, en de interface-screenshots komen uit de echte werking van de officieel gehoste instantie. Voor de positionering van het project, de ontwikkelgeschiedenis en de implementatie, zie [Projectoverzicht](/nl/mail/project/); voor de gegevensverwerking en bewaartermijnen per functie, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
@@ -30,7 +30,7 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 *Figuur: schrijven (screenshot in vereenvoudigd Chinees). De teksteditor biedt 17 opmaakhulpmiddelen; geadresseerden op de site krijgen de mail rechtstreeks afgeleverd, e-mail naar buiten gaat via het afleverkanaal.*
 
 - **Teksteditor met opmaak**: alinea's, tekengrootte, vet, cursief, onderstreept, doorgehaald, kleuren, uitlijning, geordende en ongeordende lijsten, citatie, scheidingslijn, koppeling, afbeelding, tabel, emoji, vertaling en broncodemodus;
-- **Bijlagen**: maximaal 10 bijlagen per e-mail; 25 MB per bijlage voor gewone gebruikers, 100 MB voor beheerders; de opslagquota is per rol ingesteld;
+- **Bijlagen**: de mogelijkheid om bijlagen te versturen en te ontvangen wordt per accountrol ingeschakeld; de maximale grootte van één bijlage volgt de instelling van de instantie (standaard 25 MB; dit beperkt alleen gebruikers die de openbare opslag van de exploitant gebruiken, gebruikers met eigen opslag zijn niet beperkt); de opslagquota is per rol ingesteld;
 - **Verzendbereik**: directe aflevering in mailboxen op de site (geen extern transport); e-mail naar buiten de site wordt afgeleverd via de kanalen die de Exploitant heeft geconfigureerd (Resend／Mailjet en dergelijke); de betrokken derden staan in de [Lijst van verwerkers](/nl/mail/sub-processors/);
 - **Verzendbeheer**: in te zien in de weergave «Verzonden»; het uitgaande volume is begrensd door de dagelijkse verzendquota van de accountrol (zie sectie 6).
 
@@ -50,7 +50,7 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 | `before:` / `after:` | `after:2026-10-01` | filteren op datum |
 | `label:` | `label:Werk` | filteren op label |
 | `global:` | `global:project` | zoeken op de hele site, alle mailboxen meegenomen |
-| `is:` | `is:unread`, `is:starred`, `is:sent`, `is:spam`, `is:trash` | filteren op status |
+| `is:` | `is:sent`, `is:spam`, `is:trash` | filteren op status |
 
 De markering van treffers is gebaseerd op de CSS Highlights API; zoeken op de hele site en zoeken op de pagina bestaan naast elkaar op twee niveaus.
 

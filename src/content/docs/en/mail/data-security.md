@@ -3,7 +3,7 @@ title: Data Processing & Security Maintenance
 description: EpoCanvas Mail data security and personal-data protection — security measures, dual-track operating boundaries, exercise of your rights, and security-incident response.
 ---
 
-**Effective Date: October 3, 2026 | Version: 5.9**
+**Effective Date: October 4, 2026 | Version: 5.10**
 
 This document describes the measures with which the official hosted instance (mail.epocanvas.com) protects data, the boundaries of responsibility between the hosted service and the open-source project, and how you can query, export, and delete your own data. It is established under the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/); the technical facts stated here follow the actual implementation in the open-source code.
 
@@ -46,7 +46,7 @@ Business logic runs on Cloudflare Workers (V8 Isolate sandboxes): mail plaintext
 
 ### 1.3 Encryption at Rest
 
-Whether mail subjects and bodies are encrypted depends on the mail mode the instance uses: in "Encrypted" mode every mail's subject and body are stored with AES-256-GCM (with authentication tags); in "Private" mode everything except spam and trash is encrypted; in "All-mail" mode no encryption is applied. Each record uses a random initialization vector. Encryption keys are derived by HKDF-SHA256 from an instance-level master-secret environment variable (`jwt_secret` / `totp_enc_key`) with a per-user salt; the master secret is never written to the database or committed to the repository. Attachments are outside the encryption scope.
+Whether mail subjects and bodies are encrypted depends on the mail mode the instance uses: in "Encrypted" mode every mail's subject and body are stored with AES-256-GCM (with authentication tags); in "Private" mode everything except spam and trash is encrypted; in "All-mail" mode no encryption is applied. Each record uses a random initialization vector. Encryption keys are derived by HKDF-SHA256 from an instance-level master-secret environment variable (`jwt_secret` / `totp_enc_key`) with a per-user salt; the master secret is never written to the database or committed to the repository. If an instance does not configure the master-key environment variables, encryption degrades to a built-in default key hardcoded in the source; deployers must complete configuration through the initialization gate to avoid this. Attachments are outside the encryption scope.
 
 :::caution[Scope and Limits of Encryption]
 The encryption described above is server-side encryption at rest. It protects against infrastructure-level risks such as stolen database files or leaked snapshots; it is not end-to-end encryption. An operator who controls the instance server and the master secret is technically able to decrypt content. What administrators can see depends on the mail mode: in "All-mail" mode the administrator can read every mail; in "Private" mode only spam, deleted, and unassigned mail; in "Encrypted" mode the admin interface does not return user mail content. If you need confidentiality from every third party, including the operator, encrypt the body yourself with GPG/OpenPGP or a similar client-side tool before sending.

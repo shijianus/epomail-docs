@@ -3,7 +3,7 @@ title: Official Mail Specification & Tamper-Proof Verification
 description: How EpoCanvas Mail official system mail is issued and identified — the official flag, immutable delivery, client-side rendering isolation, and document tamper-proof verification.
 ---
 
-**Effective Date: October 3, 2026 | Version: 5.9**
+**Effective Date: October 4, 2026 | Version: 5.10**
 
 This document explains how official system mail is issued and how to identify it, and describes the tamper-proof verification mechanism for the legal documents on this site, so you can confirm the authenticity of official communications and documents. It is established under the [Privacy & Terms Overview](/en/mail/overview/) and [Data Processing & Security Maintenance](/en/mail/data-security/).
 
@@ -17,7 +17,7 @@ The Traditional Chinese (Taiwan) versions of this site's legal documents are the
 
 Official system communications are distinguished from ordinary user mail as follows:
 
-1. **A single official sender address**: welcome mail, global announcements, and security notices are issued by the system from `announcement@epocanvas.com`. The address is built into the program; official mail is generated only through the privileged system pipeline.
+1. **A single official sender address**: welcome mail and global announcements are issued by the system from `announcement@epocanvas.com`. The address is built into the program; official mail is generated only through the privileged system pipeline.
 2. **The official flag (isOfficial)**: mail whose sender is `announcement@epocanvas.com` or `admin@epocanvas.com`, or that carries the "official" label, is marked by the system; the reading pane shows an official badge and banner so you can tell it apart from ordinary mail.
 3. **Lifecycle**: welcome mail and global announcements expire after a configurable number of days (7 by default) counted from delivery and are cleaned up by a scheduled task.
 
@@ -29,9 +29,6 @@ The official system mail of the service is limited to the following types, all g
 | --- | --- | --- |
 | Welcome mail | a new mailbox is created | built-in six-language template; expires after the configured days (7 by default) |
 | Global announcement | an administrator publishes a system announcement | built-in six-language template; same lifetime as welcome mail |
-| Two-step verification enabled notice | you enable TOTP | in-app notice: two-step verification is on and other sessions were signed out |
-| Two-step verification disabled warning | you disable TOTP | in-app notice: security has been reduced |
-| Two-step verification reset alert | an administrator resets your TOTP | in-app notice telling you to contact the administrator; also sent as outbound mail when a delivery channel is configured |
 
 Beyond this table, the system never sends mail of the kind "account abnormal", "you have won", or "verification overdue" from any address. If you receive mail claiming to be official from a different sender address, report it through the channel in Section 6.
 

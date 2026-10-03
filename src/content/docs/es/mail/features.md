@@ -3,7 +3,7 @@ title: Guía de funciones de EpoCanvas Mail
 description: Guía de funciones de EpoCanvas Mail — organización de la bandeja de entrada, redacción y envío, sintaxis de búsqueda, motor de reglas de etiquetas, extracción de códigos de verificación, gestión del correo no deseado, reenvío y notificaciones, funciones de IA y plataforma abierta.
 ---
 
-**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.9**
+**Fecha de entrada en vigor: 4 de octubre de 2026 | Versión: 5.10**
 
 Esta página describe una a una las funciones reales de EpoCanvas Mail; todo el contenido ha sido verificado punto por punto contra el código abierto, y las capturas de pantalla de la interfaz proceden de imágenes reales del funcionamiento de la instancia alojada oficial. El posicionamiento del proyecto, su historial de desarrollo y su despliegue se describen en [Presentación del proyecto](/es/mail/project/); el tratamiento de los datos y los plazos de conservación de cada función figuran en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
@@ -30,7 +30,7 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 *Figura: redacción (captura en chino simplificado). El editor de texto enriquecido ofrece 17 herramientas de formato; los destinatarios del sitio reciben el correo por entrega directa y los externos, por el canal de entrega.*
 
 - **Edición en texto enriquecido**: párrafos, tamaño de fuente, negrita, cursiva, subrayado, tachado, colores, alineación, listas ordenadas y no ordenadas, cita, separador, enlace, imagen, tabla, emojis, traducción y modo de código fuente;
-- **Adjuntos**: hasta 10 adjuntos por correo; límite de 25 MB por adjunto para los usuarios base y de 100 MB para los administradores; la cuota de almacenamiento se fija según el rol;
+- **Adjuntos**: la capacidad de envío y recepción de adjuntos se activa según el rol de la cuenta; el límite de tamaño de cada adjunto depende de la configuración de la instancia (25 MB por defecto; solo restringe a los usuarios que emplean el almacenamiento público del Operador, sin límite para quienes disponen de almacenamiento propio); la cuota de almacenamiento se fija según el rol;
 - **Alcance de envío**: entrega directa a los buzones del sitio (sin transmisión externa); el correo dirigido fuera del sitio se entrega por los canales configurados por el Operador (Resend／Mailjet, etc.); los terceros implicados figuran en [Subencargados del Tratamiento](/es/mail/sub-processors/);
 - **Gestión de envíos**: consulta en la vista «Enviados»; el volumen saliente está sujeto a la cuota de envío diaria del rol de la cuenta (véase la sección 6).
 
@@ -50,7 +50,7 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 | `before:` / `after:` | `after:2026-10-01` | filtrar por fecha |
 | `label:` | `label:Trabajo` | filtrar por etiqueta |
 | `global:` | `global:proyecto` | búsqueda en todo el sitio y en todos los buzones |
-| `is:` | `is:unread`, `is:starred`, `is:sent`, `is:spam`, `is:trash` | filtrar por estado |
+| `is:` | `is:sent`, `is:spam`, `is:trash` | filtrar por estado |
 
 El resaltado de las coincidencias se basa en la CSS Highlights API; la búsqueda en todo el sitio y la búsqueda en la página coexisten en dos niveles.
 

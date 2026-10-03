@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent / "src" / "content" / "docs"
-SYMMETRIC_LANGS = ["mail", "zh-tw", "es", "fr", "nl"]
+SYMMETRIC_LANGS = ["mail", "zh-tw", "en", "es", "fr", "nl"]
 DOCS = ["project", "features", "architecture", "overview", "privacy-policy", "terms-of-service",
         "acceptable-use", "data-security", "sub-processors", "key-terms", "tamper-proof"]
 
@@ -62,8 +62,10 @@ def main():
             if p["tables"] != bp["tables"]:
                 print(f"MISMATCH {lang}/{doc}: tables {p['tables']} != zh-tw {bp['tables']}")
                 bad += 1
-            if p["figs"] != bp["figs"]:
-                print(f"MISMATCH {lang}/{doc}: figures {p['figs']} != zh-tw {bp['figs']}")
+            # 比较图片多重集：hero 截图按语言惯例置首（本语言界面优先），
+            # 顺序属刻意设计；缺失/多余图片仍会在此暴露
+            if sorted(p["figs"]) != sorted(bp["figs"]):
+                print(f"MISMATCH {lang}/{doc}: figures {sorted(p['figs'])} != zh-tw {sorted(bp['figs'])}")
                 bad += 1
             if p["notes"] != bp["notes"]:
                 print(f"MISMATCH {lang}/{doc}: note blocks {p['notes']} != zh-tw {bp['notes']}")
@@ -88,7 +90,7 @@ def main():
     if bad:
         print(f"FAILED: {bad} structural/integrity mismatches")
         sys.exit(1)
-    print(f"OK: 5 translation languages structurally symmetric; English standalone benchmark 100% verified ({len(DOCS)} docs)")
+    print(f"OK: {len(SYMMETRIC_LANGS)} languages structurally symmetric vs zh-tw formal base ({len(DOCS)} docs)")
 
 
 if __name__ == "__main__":

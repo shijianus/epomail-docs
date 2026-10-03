@@ -3,7 +3,7 @@ title: Privacy Policy
 description: The EpoCanvas Mail Privacy Policy — how personal data is collected, processed, and transferred; the nature of processing; your rights; and the security-maintenance standards the operator follows.
 ---
 
-**Effective Date: October 3, 2026 | Version: 5.9**
+**Effective Date: October 4, 2026 | Version: 5.10**
 
 This policy explains how the EpoCanvas Mail service (the "Service") collects, processes, and transfers your personal data, and the standards the operator follows to protect it. Please read this policy before registering for or using the Service; if you disagree with any part of it, please do not use the Service.
 

@@ -3,13 +3,13 @@ title: Technische architectuur van EpoCanvas Mail
 description: Technische architectuur van EpoCanvas Mail — Cloudflare-uitroltopologie aan de rand, scheiding van dubbele database, versleuteling in drie modi, bijlagenopslagketen, rol- en machtigingsmodel, levenscyclus van e-mail en beveiligingsontwerp van de applicatie.
 ---
 
-**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.9**
+**Datum van inwerkingtreding: 4 oktober 2026 | Versie: 5.10**
 
 Deze pagina beschrijft de technische implementatie van EpoCanvas Mail: uitroltopologie, gegevensversleuteling, opslagketen, machtigingsmodel en de levenscyclus van e-mail. Alle technische feiten volgen de werkelijke implementatie in de open-sourcecode en zijn zelfstandig te controleren; de gevolgen voor uw privacy en de wettelijke informatie staan in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) en het [Privacybeleid](/nl/mail/privacy-policy/).
 
 De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
 
-![Systeemarchitectuur van EpoCanvas Mail: de clientlaag (webapp, Android-app, OAuth-apps van derden) benadert de rand van Cloudflare; de Workers dragen de API, de analyse van inkomende e-mail en de AI-mogelijkheden, uitgaande e-mail loopt via Resend en Telegram; gegevens rusten in de dubbele D1-databases, KV en objectopslag](/images/mail/project-architecture.svg)
+![Systeemarchitectuur van EpoCanvas Mail: de clientlaag (webapp, Android-app, OAuth-apps van derden) benadert de rand van Cloudflare; de Workers dragen de API, de analyse van inkomende e-mail en de AI-mogelijkheden, uitgaande e-mail loopt via Resend en Telegram; gegevens rusten in de dubbele D1-databases, KV en objectopslag](/images/mail/nl/project-architecture.svg)
 
 *Figuur: systeemarchitectuur. Clients benaderen via de rand, zonder server op één punt; inkomende e-mail wordt ontvangen en geanalyseerd door Email Routing, uitgaande e-mail loopt via de afleverkanalen; alle status rust in de eigen Cloudflare-resources van de exploitant.*
 
@@ -20,10 +20,10 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 | Rekenwerk | Cloudflare Workers (V8 Isolate-sandbox): de bedrijfslogica is staatloos, platte tekst bestaat alleen in het verzoekgeheugen en wordt aan het einde van het verzoek vrijgegeven |
 | Inkomend | Cloudflare Email Routing ontvangt e-mail; postal-mime analyseert body, headers en bijlagen |
 | Uitgaand | sequentiële keuze uit drie kanalen: Cloudflare Email Workers-koppeling, Resend API, Mailjet; intern verkeer tussen accounts schrijft rechtstreeks naar de database |
-| Gestructureerde opslag | Cloudflare D1 (fysiek gescheiden dubbele database: de gebruikersdatabase bevat accounts, rollen en instellingen; de e-maildatabase bevat e-mail, sterren en bijlagen-metadata; uitrol met één database blijft 100% achterwaarts compatibel) |
+| Gestructureerde opslag | Cloudflare D1 (fysiek gescheiden dubbele database: de gebruikersdatabase bevat accounts, rollen en instellingen; de e-maildatabase bevat e-mail, sterren en bijlagen-metadata; uitrol met één database blijft 100% achterwaarts compatibel; de gehoste instantie draait momenteel op één database) |
 | Sleutel-waardeopslag | Workers KV: sessietokens, tellers voor aanmeldrisicobeheer, tussenstatus van TOTP, gebruikersprofielen en terugvaloptie voor objectopslag |
 | Inferentie aan de rand | Workers AI (captcha-extractie enz., standaard llama-3.1-8b-instruct) |
-| Geplande taken | Cron-triggers draaien dagelijks: nulstelling van risicotellers, reset van verzendtellers, opschoning van prullenbak en spam, verwijdering van niet-gekoppelde OAuth-accounts |
+| Geplande taken | Cron-triggers voeren uit: elke 30 minuten vernieuwing van de cache van de gegevensanalyse; dagelijks nulstelling van risicotellers, reset van verzendtellers, opschoning van prullenbak en spam, verwijdering van niet-gekoppelde OAuth-accounts |
 | Menselijke verificatie | Cloudflare Turnstile (verificatie via HTTP-API, bij registratie en het toevoegen van mailboxen) |
 
 ## 2. Technologiestack

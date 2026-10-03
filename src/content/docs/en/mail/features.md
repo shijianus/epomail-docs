@@ -3,7 +3,7 @@ title: EpoCanvas Mail Feature Guide
 description: EpoCanvas Mail feature guide — inbox organisation, composing and sending, search syntax, the labelling rule engine, verification-code extraction, spam governance, forwarding and push, AI capabilities, and the open platform.
 ---
 
-**Effective Date: October 3, 2026 | Version: 5.9**
+**Effective Date: October 4, 2026 | Version: 5.10**
 
 This page documents the actual features of EpoCanvas Mail, each verified against the open-source code; the interface screenshots come from the hosted instance in real operation. For the project positioning, development history, and deployment, see the [Project Overview](/en/mail/project/); the data handling and retention implications of each feature are covered in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
@@ -30,7 +30,7 @@ The Traditional Chinese (Taiwan) version of the legal documents on this site is 
 *Caption: composing. The rich-text editor offers 17 formatting tools; mail to local recipients is delivered in-instance, mail off-site goes through the delivery channel.*
 
 - **Rich text**: paragraph styles, size, bold/italic/underline/strikethrough, colour, alignment, ordered and unordered lists, quote, divider, link, image, table, emoji, translate, and source mode;
-- **Attachments**: up to 10 per message; 25 MB per attachment for regular users and 100 MB for administrators; storage counts against the role quota;
+- **Attachments**: attachment sending and receiving is enabled per account role; the per-attachment size limit follows the instance setting (25 MB by default; it applies only to users on the operator's shared storage, while users who bring their own storage are not subject to it); storage counts against the role quota;
 - **Delivery scope**: mail to local mailboxes is delivered in-instance (no external transfer); off-site mail goes through the operator-configured channel (Resend / Mailjet, among others) — the third parties involved are listed in the [Sub-processor List](/en/mail/sub-processors/);
 - **Send management**: the Sent view records outbound mail; daily sending quotas apply per role (see Section 6).
 
@@ -50,7 +50,7 @@ The Traditional Chinese (Taiwan) version of the legal documents on this site is 
 | `before:` / `after:` | `after:2026-10-01` | filter by date |
 | `label:` | `label:work` | filter by label |
 | `global:` | `global:project` | cross-mailbox site-wide search |
-| `is:` | `is:unread`, `is:starred`, `is:sent`, `is:spam`, `is:trash` | filter by state |
+| `is:` | `is:sent`, `is:spam`, `is:trash` | filter by state |
 
 Hits are highlighted through the CSS Highlights API; site-wide search and in-page find coexist at two levels.
 
@@ -101,6 +101,10 @@ The operator never trains models on mail content; consented AI processing can be
 
 - Six interface languages (Simplified Chinese, Traditional Chinese, English, Français, Español, Nederlands) with fully symmetric front-end and back-end dictionaries;
 - Light and dark themes, 300+ offline vector icons (zero external requests), responsive layout, and PWA installation; an Android app (epomail) is also available.
+
+![EpoCanvas Mail inbox overview in the Simplified Chinese interface: the left pane holds the compose button, the folder tree (Main, Starred, Snoozed, Sent, Drafts, All Mail, Spam, Trash) and colour-coded labels (Social, Subscriptions, Promotions, Work); the message list on the right shows senders, subjects, snippets, verification-code badges, and the official-mail verified marker](/images/mail/ui/ui-inbox-zh.png)
+
+*Caption: the inbox in the Simplified Chinese interface. Verification-code badges (green) and the verified marker for official mail (blue check) appear directly in the list; the interface language is switchable in Settings across six languages.*
 
 ![EpoCanvas Mail inbox on mobile: the responsive layout at 375 px width, with the sidebar collapsed into a drawer and the list fully readable](/images/mail/ui/ui-inbox-mobile.png)
 

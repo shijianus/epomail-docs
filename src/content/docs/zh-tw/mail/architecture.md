@@ -3,13 +3,13 @@ title: EpoCanvas Mail 技術架構
 description: EpoCanvas Mail 技術架構——Cloudflare 邊緣部署拓撲、雙資料庫隔離、三模式加密體系、附件儲存鏈、角色權限模型、郵件生命週期與應用安全設計。
 ---
 
-**生效日期：2026 年 10 月 3 日｜版本：5.9**
+**生效日期：2026 年 10 月 4 日｜版本：5.10**
 
 本頁說明 EpoCanvas Mail 的技術實作：部署拓撲、資料加密、儲存鏈路、權限模型與郵件生命週期。全部技術事實以開源程式碼之實際實作為準，可自行審計核對；對個人之隱私影響與法定告知見[資料處理與安全維護](/zh-tw/mail/data-security/)與[隱私權政策](/zh-tw/mail/privacy-policy/)。
 
 本站法律文件以繁體中文（臺灣）版本為正式版本，其餘語言版本為對照譯本，文義有疑義時以正式版本為準。
 
-![EpoCanvas Mail 系統架構：用戶端層（Web 應用、Android 應用、OAuth 第三方應用）經 Cloudflare 邊緣接入；Workers 承載 API、郵件入站解析與 AI 能力，出站經 Resend 與 Telegram；資料落於雙 D1 資料庫、KV 與物件儲存](/images/mail/project-architecture.svg)
+![EpoCanvas Mail 系統架構：用戶端層（Web 應用、Android 應用、OAuth 第三方應用）經 Cloudflare 邊緣接入；Workers 承載 API、郵件入站解析與 AI 能力，出站經 Resend 與 Telegram；資料落於雙 D1 資料庫、KV 與物件儲存](/images/mail/zh-tw/project-architecture.svg)
 
 *圖：系統架構。用戶端經邊緣接入，無單點伺服器；入站郵件由 Email Routing 接收並解析，出站經投遞通道；全部狀態落於部署者自己的 Cloudflare 資源之內。*
 
@@ -20,10 +20,10 @@ description: EpoCanvas Mail 技術架構——Cloudflare 邊緣部署拓撲、�
 | 運算 | Cloudflare Workers（V8 Isolate 沙箱）：業務邏輯無狀態，明文僅存於請求記憶體，請求結束即釋放 |
 | 入站 | Cloudflare Email Routing 接收郵件，postal-mime 解析正文、標頭與附件 |
 | 出站 | 三通道依序解析：Cloudflare Email Workers 綁定、Resend API、Mailjet；站內互發直接寫入資料庫 |
-| 結構化儲存 | Cloudflare D1（雙庫物理隔離：使用者庫承載帳號、角色與設定；郵件庫承載郵件、星標與附件中繼資料；單庫部署 100% 向後相容） |
+| 結構化儲存 | Cloudflare D1（雙庫物理隔離：使用者庫承載帳號、角色與設定；郵件庫承載郵件、星標與附件中繼資料；單庫部署 100% 向後相容，託管實例當前即以單庫運行） |
 | 鍵值儲存 | Workers KV：會話權杖、登入風控計數、TOTP 中間態、使用者資料與物件儲存兜底 |
 | 邊緣推論 | Workers AI（驗證碼提取等，預設 llama-3.1-8b-instruct） |
-| 定時任務 | Cron 觸發器每日執行：風控計數清零、發信計數重置、回收站與垃圾郵件清理、無綁定 OAuth 帳號清除 |
+| 定時任務 | Cron 觸發器執行：每 30 分鐘重新整理資料分析快取；每日執行風控計數歸零、發信計數重置、回收站與垃圾郵件清理、無綁定 OAuth 帳號清除 |
 | 人機驗證 | Cloudflare Turnstile（HTTP API 校驗，註冊與新增信箱） |
 
 ## 2. 技術棧

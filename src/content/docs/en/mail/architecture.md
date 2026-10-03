@@ -3,13 +3,13 @@ title: EpoCanvas Mail Technical Architecture
 description: EpoCanvas Mail technical architecture — the Cloudflare edge deployment topology, dual-database isolation, the three-mode encryption scheme, the attachment storage chain, the role and permission model, mail lifecycle, and application security design.
 ---
 
-**Effective Date: October 3, 2026 | Version: 5.9**
+**Effective Date: October 4, 2026 | Version: 5.10**
 
 This page documents how EpoCanvas Mail is built: the deployment topology, data encryption, storage chains, the permission model, and the mail lifecycle. Every technical statement follows the actual open-source implementation and can be audited directly; the privacy implications for individuals and the statutory notices are covered in [Data Processing & Security Maintenance](/en/mail/data-security/) and the [Privacy Policy](/en/mail/privacy-policy/).
 
 The Traditional Chinese (Taiwan) version of the legal documents on this site is the authoritative version; other languages are reference translations. Where meanings diverge, the authoritative version prevails.
 
-![EpoCanvas Mail system architecture: the client layer (web app, Android app, OAuth third-party apps) connects through the Cloudflare edge; Workers host the API, inbound mail parsing, and AI capabilities, with outbound delivery via Resend and Telegram; data lands in the dual D1 databases, KV, and object storage](/images/mail/project-architecture.svg)
+![EpoCanvas Mail system architecture: the client layer (web app, Android app, OAuth third-party apps) connects through the Cloudflare edge; Workers host the API, inbound mail parsing, and AI capabilities, with outbound delivery via Resend and Telegram; data lands in the dual D1 databases, KV, and object storage](/images/mail/en/project-architecture.svg)
 
 *Caption: system architecture. Clients connect through the edge with no single-point server; inbound mail is received by Email Routing and parsed; outbound mail goes through delivery channels; all state lives inside the deployer's own Cloudflare resources.*
 
@@ -20,10 +20,10 @@ The Traditional Chinese (Taiwan) version of the legal documents on this site is 
 | Compute | Cloudflare Workers (V8 Isolate sandbox): stateless business logic, plaintext exists only in request memory and is released when the request ends |
 | Inbound | Cloudflare Email Routing receives mail; postal-mime parses body, headers, and attachments |
 | Outbound | three channels resolved in order: the Cloudflare Email Workers binding, the Resend API, and Mailjet; mail between local mailboxes is written to the database directly |
-| Structured storage | Cloudflare D1 (dual-database physical isolation: the user database holds accounts, roles, and settings; the mail database holds mail, stars, and attachment metadata; single-database deployments remain 100% backward compatible) |
+| Structured storage | Cloudflare D1 (dual-database physical isolation: the user database holds accounts, roles, and settings; the mail database holds mail, stars, and attachment metadata; single-database deployments remain 100% backward compatible; the hosted instance currently runs on a single database) |
 | Key-value storage | Workers KV: session tokens, login risk counters, TOTP intermediate state, user profiles, and the object-storage fallback |
 | Edge inference | Workers AI (code extraction and similar; llama-3.1-8b-instruct by default) |
-| Scheduled jobs | a daily Cron trigger: risk counters cleared, send counters reset, trash and spam cleaned, unbound OAuth accounts removed |
+| Scheduled jobs | Cron triggers run every 30 minutes to refresh the analytics cache; daily runs clear risk-control counters, reset daily send counters, purge trash and spam, and remove unbound OAuth accounts |
 | Human verification | Cloudflare Turnstile (HTTP API verification, on registration and new mailboxes) |
 
 ## 2. Technology Stack

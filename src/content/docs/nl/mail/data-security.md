@@ -3,7 +3,7 @@ title: Gegevensverwerking en Beveiligingsonderhoud
 description: Gegevensbeveiliging en bescherming van persoonsgegevens van EpoCanvas Mail — beveiligingsmaatregelen, verantwoordelijkheidsgrenzen van de dubbele exploitatiesporen, uitoefening van uw rechten en reactie op beveiligingsincidenten.
 ---
 
-**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.9**
+**Datum van inwerkingtreding: 4 oktober 2026 | Versie: 5.10**
 
 Dit document beschrijft de maatregelen waarmee de officiële gehoste instantie (mail.epocanvas.com) gegevens beschermt, de verantwoordelijkheidsgrenzen tussen de gehoste dienst en het open-sourceproject, en hoe u uw eigen gegevens kunt inzien, exporteren en verwijderen. Het is opgesteld krachtens het [Privacybeleid](/nl/mail/privacy-policy/) en de [Servicevoorwaarden](/nl/mail/terms-of-service/); de technische feiten volgen de werkelijke implementatie in de open-sourcecode.
 
@@ -46,7 +46,7 @@ De bedrijfslogica draait op Cloudflare Workers (V8 Isolate-sandboxes): de tijden
 
 ### 1.3 Versleuteling in rust
 
-Of onderwerpen en bodies van e-mails worden versleuteld, hangt af van de e-mailmodus van de instantie: in de modus «Versleuteld» worden onderwerp en body van elke e-mail opgeslagen met AES-256-GCM (met authenticatietags); in de modus «Privé» wordt alles versleuteld behalve spam en prullenbak; in de modus «Alles» wordt niet versleuteld. Elke record gebruikt een willekeurige initialisatievector. De versleutelingssleutels worden met HKDF-SHA256 afgeleid van een instantiebrede omgevingsvariabele met hoofdgeheim (`jwt_secret` / `totp_enc_key`) met een zout per gebruiker; het hoofdgeheim wordt nooit in de database geschreven noch in de repository vastgelegd. Bijlagen vallen buiten de versleutelingsomvang.
+Of onderwerpen en bodies van e-mails worden versleuteld, hangt af van de e-mailmodus van de instantie: in de modus «Versleuteld» worden onderwerp en body van elke e-mail opgeslagen met AES-256-GCM (met authenticatietags); in de modus «Privé» wordt alles versleuteld behalve spam en prullenbak; in de modus «Alles» wordt niet versleuteld. Elke record gebruikt een willekeurige initialisatievector. De versleutelingssleutels worden met HKDF-SHA256 afgeleid van een instantiebrede omgevingsvariabele met hoofdgeheim (`jwt_secret` / `totp_enc_key`) met een zout per gebruiker; het hoofdgeheim wordt nooit in de database geschreven noch in de repository vastgelegd. Als een instantie de omgevingsvariabelen met het hoofdgeheim niet configureert, degradeert de versleuteling naar een in de code ingebouwde standaardsleutel; de implementator moet de configuratie via de initialisatiepoort voltooien om dit te voorkomen. Bijlagen vallen buiten de versleutelingsomvang.
 
 :::caution[Omvang en grenzen van de versleuteling]
 Bovenstaande versleuteling is serverside-versleuteling in rust: zij beschermt tegen infrastructuurrisico's zoals gestolen databasebestanden of gelekte momentopnamen; het is geen end-to-end-versleuteling. Een exploitant die de server van de instantie en het hoofdgeheim beheerst, kan inhoud technisch ontsleutelen. Wat beheerders kunnen zien, hangt af van de e-mailmodus: in de modus «Alles» kan de beheerder elke e-mail lezen; in de modus «Privé» alleen spam, verwijderde en niet-toegewezen e-mail; in de modus «Versleuteld» geeft de beheerinterface de inhoud van gebruikersmail niet terug. Wilt u vertrouwelijkheid tegenover elke derde, inclusief de exploitant, versleutel dan zelf de body met GPG/OpenPGP of een vergelijkbaar clienthulpmiddel vóór het verzenden.

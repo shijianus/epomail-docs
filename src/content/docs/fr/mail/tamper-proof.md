@@ -3,7 +3,7 @@ title: Spécifications des courriels officiels et vérification anti-falsificati
 description: Comment les courriels système officiels d'EpoCanvas Mail sont émis et identifiés — marque officielle, livraison immuable, isolation du rendu côté client et vérification anti-falsification des documents.
 ---
 
-**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.9**
+**Date d'entrée en vigueur : 4 octobre 2026 | Version : 5.10**
 
 Le présent document explique comment les courriels système officiels sont émis et comment les identifier, et décrit le mécanisme de vérification anti-falsification des documents juridiques de ce site, afin que vous puissiez confirmer l'authenticité des communications et des documents officiels. Il est établi en vertu de la [Vue d'ensemble Confidentialité et conditions](/fr/mail/overview/) et du document [Traitement des Données et Maintien de la Sécurité](/fr/mail/data-security/).
 
@@ -17,7 +17,7 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 
 Les communications système officielles se distinguent du courrier ordinaire des utilisateurs comme suit :
 
-1. **Une adresse d'expédition officielle unique** : les courriels de bienvenue, les annonces globales et les avis de sécurité sont émis par le système depuis `announcement@epocanvas.com`. Cette adresse est intégrée au programme ; les courriels officiels ne sont générés que par le canal privilégié du système ;
+1. **Une adresse d'expédition officielle unique** : les courriels de bienvenue et les annonces globales sont émis par le système depuis `announcement@epocanvas.com`. Cette adresse est intégrée au programme ; les courriels officiels ne sont générés que par le canal privilégié du système ;
 2. **La marque officielle (isOfficial)** : les courriels dont l'expéditeur est `announcement@epocanvas.com` ou `admin@epocanvas.com`, ou qui portent l'étiquette « officiel », reçoivent la marque du système ; le volet de lecture affiche un badge et une bannière officiels afin de les distinguer du courrier ordinaire ;
 3. **Cycle de vie** : les courriels de bienvenue et les annonces globales expirent après un nombre de jours configurable (7 par défaut) à compter de la livraison, puis sont nettoyés par une tâche planifiée.
 
@@ -29,9 +29,6 @@ Les courriels système officiels du service se limitent aux types suivants, tous
 | --- | --- | --- |
 | Courriel de bienvenue | création d'une nouvelle boîte | modèle officiel en six langues intégré ; expire après le nombre de jours configuré (7 par défaut) |
 | Annonce globale | publication d'une annonce système par un administrateur | modèle officiel en six langues intégré ; durée de vie identique au courriel de bienvenue |
-| Avis d'activation de la vérification en deux étapes | activation de TOTP par vos soins | avis dans l'application : la vérification en deux étapes est active et les autres sessions ont été déconnectées |
-| Alerte de désactivation de la vérification en deux étapes | désactivation de TOTP par vos soins | avis dans l'application : la sécurité a été réduite |
-| Alerte de réinitialisation de la vérification en deux étapes | réinitialisation de votre TOTP par un administrateur | avis dans l'application vous invitant à contacter l'administrateur ; envoyé également par courriel sortant lorsqu'un canal de distribution est configuré |
 
 Au-delà de ce tableau, le système n'envoie jamais, depuis aucune adresse, de courriels du type « compte anormal », « vous avez gagné » ou « vérification expirée ». Si vous recevez un courriel se réclamant du caractère officiel depuis une autre adresse, signalez-le par le canal de la section 6.
 

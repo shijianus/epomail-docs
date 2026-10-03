@@ -3,13 +3,13 @@ title: Architecture technique d'EpoCanvas Mail
 description: Architecture technique d'EpoCanvas Mail — topologie de déploiement en périphérie Cloudflare, isolation à double base de données, chiffrement à trois modes, chaîne de stockage des pièces jointes, modèle de permissions par rôle, cycle de vie des courriels et conception de sécurité applicative.
 ---
 
-**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.9**
+**Date d'entrée en vigueur : 4 octobre 2026 | Version : 5.10**
 
 Cette page décrit l'implémentation technique d'EpoCanvas Mail : topologie de déploiement, chiffrement des données, chaîne de stockage, modèle de permissions et cycle de vie des courriels. Tous les faits techniques suivent l'implémentation réelle du code open source et peuvent être audités librement ; les incidences sur votre vie privée et les informations légales figurent dans [Traitement des données et maintien de la sécurité](/fr/mail/data-security/) et la [Politique de confidentialité](/fr/mail/privacy-policy/).
 
 Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut.
 
-![Architecture système d'EpoCanvas Mail : la couche cliente (application Web, application Android, applications tierces OAuth) accède par la périphérie Cloudflare ; les Workers hébergent l'API, l'analyse du courrier entrant et les capacités d'IA, le courrier sortant passe par Resend et Telegram ; les données résident dans les doubles bases D1, KV et le stockage d'objets](/images/mail/project-architecture.svg)
+![Architecture système d'EpoCanvas Mail : la couche cliente (application Web, application Android, applications tierces OAuth) accède par la périphérie Cloudflare ; les Workers hébergent l'API, l'analyse du courrier entrant et les capacités d'IA, le courrier sortant passe par Resend et Telegram ; les données résident dans les doubles bases D1, KV et le stockage d'objets](/images/mail/fr/project-architecture.svg)
 
 *Figure : architecture système. Les clients accèdent par la périphérie, sans serveur à point unique ; le courrier entrant est reçu et analysé par Email Routing, le courrier sortant passe par les canaux de délivrance ; tout l'état réside dans les ressources Cloudflare du déployeur lui-même.*
 
@@ -20,10 +20,10 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 | Calcul | Cloudflare Workers (sandbox V8 Isolate) : la logique métier est sans état, le texte en clair n'existe que dans la mémoire de la requête et est libéré à la fin de celle-ci |
 | Entrant | Cloudflare Email Routing reçoit les courriels ; postal-mime analyse le corps, les en-têtes et les pièces jointes |
 | Sortant | résolution séquentielle par trois canaux : liaison Cloudflare Email Workers, API Resend, Mailjet ; les envois internes entre comptes écrivent directement en base |
-| Stockage structuré | Cloudflare D1 (double base physiquement isolée : la base utilisateurs porte les comptes, les rôles et les paramètres ; la base courriel porte les courriels, les étoiles et les métadonnées des pièces jointes ; le déploiement à base unique reste rétrocompatible à 100 %) |
+| Stockage structuré | Cloudflare D1 (double base physiquement isolée : la base utilisateurs porte les comptes, les rôles et les paramètres ; la base courriel porte les courriels, les étoiles et les métadonnées des pièces jointes ; le déploiement à base unique reste rétrocompatible à 100 % ; l'instance hébergée fonctionne actuellement avec une base de données unique) |
 | Stockage clé-valeur | Workers KV : jetons de session, compteurs de gestion des risques de connexion, états intermédiaires TOTP, profils utilisateur et solution de repli du stockage d'objets |
 | Inférence en périphérie | Workers AI (extraction de captcha, etc., llama-3.1-8b-instruct par défaut) |
-| Tâches planifiées | les déclencheurs Cron s'exécutent chaque jour : remise à zéro des compteurs de risque, réinitialisation des compteurs d'envoi, purge de la corbeille et des pourriels, suppression des comptes OAuth non liés |
+| Tâches planifiées | les déclencheurs Cron exécutent : l'actualisation du cache d'analyse des données toutes les 30 minutes ; chaque jour, remise à zéro des compteurs de risque, réinitialisation des compteurs d'envoi, purge de la corbeille et des pourriels, suppression des comptes OAuth non liés |
 | Vérification humaine | Cloudflare Turnstile (vérification par API HTTP, à l'inscription et à la création de boîtes supplémentaires) |
 
 ## 2. Pile technique

@@ -3,7 +3,7 @@ title: Officiële e-mailspecificaties en verificatie tegen manipulatie
 description: Hoe de officiële systeemmail van EpoCanvas Mail wordt uitgegeven en herkend — de officiële vlag, onveranderlijke aflevering, isolatie van rendering in de client en verificatie tegen manipulatie van documenten.
 ---
 
-**Datum van inwerkingtreding: 3 oktober 2026 | Versie: 5.9**
+**Datum van inwerkingtreding: 4 oktober 2026 | Versie: 5.10**
 
 Dit document legt uit hoe officiële systeemmail wordt uitgegeven en hoe u haar herkent, en beschrijft het verificatiemechanisme tegen manipulatie van de juridische documenten op deze site, zodat u de echtheid van officiële communicatie en documenten kunt bevestigen. Het is opgesteld krachtens het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/) en [Gegevensverwerking en Beveiligingsonderhoud](/nl/mail/data-security/).
 
@@ -17,7 +17,7 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 
 Officiële systeemcommunicatie onderscheidt zich van gewone gebruikersmail als volgt:
 
-1. **Eén officieel afzenderadres**: welkomstmail, wereldwijde aankondigingen en beveiligingsmeldingen worden door het systeem verstuurd vanaf `announcement@epocanvas.com`. Het adres is in het programma ingebouwd; officiële mail wordt alleen via de bevoorrechte systeempijplijn gegenereerd;
+1. **Eén officieel afzenderadres**: welkomstmail en wereldwijde aankondigingen worden door het systeem verstuurd vanaf `announcement@epocanvas.com`. Het adres is in het programma ingebouwd; officiële mail wordt alleen via de bevoorrechte systeempijplijn gegenereerd;
 2. **De officiële vlag (isOfficial)**: mail waarvan de afzender `announcement@epocanvas.com` of `admin@epocanvas.com` is, of die het label «officieel» draagt, krijgt de vlag van het systeem; het leesvenster toont een officieel insigne en een banner, zodat u haar van gewone mail kunt onderscheiden;
 3. **Levenscyclus**: welkomstmail en wereldwijde aankondigingen vervallen na een instelbaar aantal dagen (standaard 7) na aflevering en worden door een geplande taak opgeruimd.
 
@@ -29,9 +29,6 @@ De officiële systeemmail van de dienst is beperkt tot de volgende typen, alle g
 | --- | --- | --- |
 | Welkomstmail | er wordt een nieuwe mailbox aangemaakt | ingebouwd zestalig officieel sjabloon; vervalt na de ingestelde dagen (standaard 7) |
 | Wereldwijde aankondiging | een beheerder publiceert een systeemaankondiging | ingebouwd zestalig officieel sjabloon; dezelfde looptijd als welkomstmail |
-| Melding dat tweestapsverificatie is ingeschakeld | u schakelt TOTP in | melding in de app: tweestapsverificatie staat aan en andere sessies zijn afgemeld |
-| Waarschuwing dat tweestapsverificatie is uitgeschakeld | u schakelt TOTP uit | melding in de app: de beveiliging is verminderd |
-| Alarm dat tweestapsverificatie is gereset | een beheerder reset uw TOTP | melding in de app met de oproep de beheerder te contacteren; ook als uitgaande mail verzonden wanneer een bezorgkanaal is ingesteld |
 
 Buiten deze tabel stuurt het systeem nooit, vanaf geen enkel adres, mail van het soort «account afwijkend», «u heeft gewonnen» of «verificatie verlopen». Ontvangt u mail die zich officieel noemt vanaf een ander afzenderadres, meld dat dan via het kanaal in paragraaf 6.
 

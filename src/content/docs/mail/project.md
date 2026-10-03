@@ -5,7 +5,7 @@ description: EpoCanvas Mail 专案完整介绍——定位、核心功能、技�
 
 **首次提交：2026 年 7 月 21 日｜当前版本：v1.1.0｜授权条款：MIT**
 
-**生效日期：2026 年 10 月 3 日｜版本：5.9**
+**生效日期：2026 年 10 月 4 日｜版本：5.10**
 
 EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件服务。使用者仅需一个域名与一个 Cloudflare 帐号，即可搭建支持收发邮件、附件与多终端访问的专属邮箱。专案以托管实例 [mail.epocanvas.com](https://mail.epocanvas.com) 对外运营，同时开放全部源代码供自行部署，并提供配套的 Android 移动应用（epomail）。本页说明专案的定位、功能、技术架构、安全设计与开发历程；服务与隐私的法律约定见[隐私权与条款总览](/mail/overview/)。
 
@@ -52,7 +52,7 @@ EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件�
 
 ## 6. 开发历程与提交链路
 
-专案自 2026 年 7 月 21 日首次提交（`2bbb582`）起持续开发。截至 2026 年 9 月 30 日，主仓库累计逾 540 个提交；本站（EpomailDocs，独立 git 仓库）另有 12 个提交（下列链路所示，其后提交见 GitHub）。下表按阶段列出里程碑与锚点提交（短 Hash）：
+专案自 2026 年 7 月 21 日首次提交（`2bbb582`）起持续开发。截至 2026 年 10 月 4 日，主仓库累计逾 560 个提交；本站（EpomailDocs，独立 git 仓库）另有逾 45 个提交（下列链路为里程碑粒度，其间与之后的提交见 GitHub）。下表按阶段列出里程碑与锚点提交（短 Hash）：
 
 | 阶段 | 时间 | 交付内容 | 锚点提交 |
 | --- | --- | --- | --- |
@@ -68,6 +68,7 @@ EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件�
 | 10. Gmail 级体验对齐 | 2026-09-25 → 09-27 | 邮件详情排版分层；内联回复与表情回应；会话线程优化；Gmail 式路由与深链；密码学 Hash 防越权路由 | `a8d841a` `4af2985` `4b371a8` |
 | 11. 法律文档站 | 2026-09-27 → 09-29 | 本站六语言七篇法律文档；Google 政策范式增补；Astro 5 + Starlight 站点化；独立 git 仓库 | `2bed02b` `617cccf` |
 | 12. 定稿与上线审计 | 2026-09-29 → 09-30 | 专案介绍页与官方隐私政策整合；v5.0 去条号立场全量重写；上线前技术事实校准与第三方清单增补 | `7ad5ebc` `05c222c` `5197f50` |
+| 13. 文档站持续运营 | 2026-10-01 → 10-04 | 本地演示实例与播种工具；v5.8 视觉与入口打磨；v5.9 功能指南／技术架构扩充（×6 语言）与真实产品截图；v5.9 独立审计全量对码 | `26f6c3b` `8a60539` |
 
 主仓库的完整里程碑锚点链（40 位全量 Hash，可于 GitHub 提交历史逐条核验）：
 
@@ -97,6 +98,10 @@ b0251537e0a56b7d3b80f794ce79ff839871f945  2026-09-18  feat(auth): 登录界面�
 a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮件详情排版分层与悬浮快捷回复体验
 4b371a834458cb2be6ab5766ec15e99a91bc2022  2026-09-27  feat(routing): 严格对齐 Gmail 多账户隔离与密码学 Hash 防越权路由架构
 617cccf855a0bd9a0a46d37deaceacc4a8b0ddde  2026-09-29  docs(repo): EpomailDocs 独立为专用 git 仓库，自父仓库解除追踪
+4cf8014279669dbc67ff54ceb47239044c943ac8  2026-10-03  docs(checklist): 归档 EpomailDocs v5.8 视觉与入口打磨轮流水（EpomailDocs a1c1e89——翻页卡图标/表格居中/Accept-Language 协商）
+8a60539d318eef618b84aa0db4e8a88672c4940d  2026-10-04  docs(checklist): 归档 EpomailDocs v5.9 专案文档拆分扩充轮流水（EpomailDocs beb956a——功能指南/技术架构两新页×6 语言、真实产品截图、内容栏居中根治、本地演示实例）
+26f6c3b9750b2bad1c60f35a9a08b4db11dc1a6b  2026-10-04  feat(demo): 本地演示实例播种工具——seed-demo.py 演示邮件生成器与 wrangler-demo.toml 本地配置忽略
+33a5b0ba6abb2af208b713a81d057d9e36e17893  2026-10-04  docs(audit): EpomailDocs v5.9 独立审计——介绍与法律内容全量对码与完整性核查
 ```
 
 本站（EpomailDocs 独立仓库）的提交链路：
@@ -114,6 +119,15 @@ d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端�
 52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 独立审计修订——第三方清单增补博客等级联动披露、时效数据校正与工具补盲
 5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
 79094ac9d2686c1014c25824b25318c6206c9270  2026-09-30  docs(legal): v5.2 内容完善——正式版本条款全站覆盖、专案介绍增补适用边界与常见疑问
+90c06edcdd29a90a991bd56ba480c031cf85a9cf  2026-09-30  docs(legal): v5.3——独立复审缺陷治理与发布链路定案（docs.epocanvas.com/epomail）
+6da475e6a7bd1f892e00165031ad94d5bacdb872  2026-10-01  docs(legal): v5.4 内容完整性补齐——配图全覆盖、术语补定义、保留期缺项与引用精度
+3223e7d6181a6b82192f225eaded3ed8ddab0a56  2026-10-01  feat(legal): integrate official mail specifications and complete anti-tampering verification engine
+e6eb758709b6702b3b51fddb1057bee94380a3e7  2026-10-03  docs(legal): v5.7 全站去幻觉与六语言深度整合——源码事实校准、en 九篇 1:1 重译、配图扁平化重绘
+c5de61f5e1330726fe31257588ee21fdec178d8e  2026-10-03  feat(figures): 十二张原理图全量六语言本地化——每种语言的文档配该语言的图
+fcc1d10f9616b905e1c6b89ccb4e6f8ac953c476  2026-10-03  docs(legal): v5.8 独立复审打磨——P1/P2 全项治理、八项补章、全站单 h1 与首次公网发布
+a1c1e89c4e8b85579346304df3d5b37d197b68db  2026-10-03  feat(ui)+feat(infra): v5.8 视觉与入口打磨——翻页卡文档图标、表格居中与 Accept-Language 入口协商
+beb956a1b50b5c4b94d3bbc9b9feba8ef774417a  2026-10-03  feat(docs): v5.9 专案文档拆分扩充——功能指南/技术架构两新页 ×6 语言 + 真实产品截图 + 内容栏居中
+e34ce0270c42dc7b50f0add6f0a47310046cf37e  2026-10-04  chore: sync manifest commit hash for beb956a
 ```
 
 上表与上方锚点链为里程碑粒度；阶段之间的全部日常修复、测试与文档提交均保存于 git 历史，可经 [GitHub 提交历史](https://github.com/shijianus/epomail/commits)逐条追溯。主仓库另设 `CHECKLIST.log`（任务执行流水）与 `REPORTS.md`（专项审计报告）两份归档，与提交一一对应。

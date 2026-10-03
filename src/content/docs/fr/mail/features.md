@@ -3,7 +3,7 @@ title: Guide des fonctionnalités d'EpoCanvas Mail
 description: Guide des fonctionnalités d'EpoCanvas Mail — organisation de la boîte de réception, rédaction et envoi, syntaxe de recherche, moteur de règles d'étiquettes, extraction des codes de vérification, gestion des pourriels, réexpédition et notifications, capacités d'IA et plateforme ouverte.
 ---
 
-**Date d'entrée en vigueur : 3 octobre 2026 | Version : 5.9**
+**Date d'entrée en vigueur : 4 octobre 2026 | Version : 5.10**
 
 La présente page décrit une à une les fonctionnalités réelles d'EpoCanvas Mail ; chaque point a été vérifié à partir du code open source, et les captures d'écran de l'interface proviennent de l'exécution réelle de l'instance hébergée officielle. Le positionnement du projet, son historique de développement et son déploiement sont présentés dans [Présentation du projet](/fr/mail/project/) ; le traitement des données et les durées de conservation propres à chaque fonctionnalité figurent dans [Traitement des données et sécurité](/fr/mail/data-security/).
 
@@ -30,7 +30,7 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 *Figure : rédaction (capture en chinois simplifié). L'éditeur de texte enrichi offre 17 outils de mise en forme ; les destinataires du site reçoivent en livraison directe, les autres passent par le canal de livraison.*
 
 - **Édition en texte enrichi** : paragraphes, taille de police, gras, italique, souligné, barré, couleurs, alignement, listes ordonnées et non ordonnées, citation, séparateur, lien, image, tableau, émoji, traduction et mode code source ;
-- **Pièces jointes** : jusqu'à 10 pièces jointes par courriel ; 25 MB maximum par pièce jointe pour les utilisateurs de base, 100 MB pour les administrateurs ; le quota de stockage est fixé selon le rôle ;
+- **Pièces jointes** : la capacité d'envoi et de réception des pièces jointes est activée selon le rôle du compte ; la taille maximale d'une pièce jointe dépend du réglage de l'instance (25 Mo par défaut, contraignant uniquement les utilisateurs du stockage public de l'Opérateur ; ceux qui apportent leur propre stockage ne sont pas limités) ; le quota de stockage est fixé selon le rôle ;
 - **Portée d'envoi** : livraison directe aux boîtes du site (aucune transmission externe) ; les courriels destinés à l'extérieur sont acheminés par les canaux configurés par l'Opérateur (Resend／Mailjet, etc.) ; les tiers concernés figurent dans la [Liste des sous-traitants](/fr/mail/sub-processors/) ;
 - **Gestion de l'envoi** : consultation dans la vue « Envoyés » ; le volume sortant est soumis au quota d'envoi quotidien du rôle du compte (voir la section 6).
 
@@ -50,7 +50,7 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 | `before:` / `after:` | `after:2026-10-01` | filtrer par date |
 | `label:` | `label:Travail` | filtrer par étiquette |
 | `global:` | `global:projet` | recherche sur tout le site, toutes boîtes confondues |
-| `is:` | `is:unread`, `is:starred`, `is:sent`, `is:spam`, `is:trash` | filtrer par état |
+| `is:` | `is:sent`, `is:spam`, `is:trash` | filtrer par état |
 
 Le surlignage des correspondances repose sur la CSS Highlights API ; la recherche sur tout le site et la recherche dans la page coexistent sur deux niveaux.
 

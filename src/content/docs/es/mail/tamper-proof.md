@@ -3,7 +3,7 @@ title: Especificación del correo oficial y verificación contra manipulaciones
 description: Cómo se emite e identifica el correo oficial del sistema de EpoCanvas Mail — marca oficial, entrega inmutable, aislamiento del renderizado en el cliente y verificación contra manipulaciones de los documentos.
 ---
 
-**Fecha de entrada en vigor: 3 de octubre de 2026 | Versión: 5.9**
+**Fecha de entrada en vigor: 4 de octubre de 2026 | Versión: 5.10**
 
 Este documento explica cómo se emite el correo oficial del sistema y cómo identificarlo, y describe el mecanismo de verificación contra manipulaciones de los documentos jurídicos de este sitio, para que pueda confirmar la autenticidad de las comunicaciones y los documentos oficiales. Se establece en virtud de la [Vista general de Privacidad y Términos](/es/mail/overview/) y de [Tratamiento de Datos y Mantenimiento de la Seguridad](/es/mail/data-security/).
 
@@ -17,7 +17,7 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 
 Las comunicaciones oficiales del sistema se distinguen del correo ordinario de los usuarios del siguiente modo:
 
-1. **Una única dirección oficial de envío**: los correos de bienvenida, los anuncios globales y los avisos de seguridad los emite el sistema desde `announcement@epocanvas.com`. La dirección está integrada en el programa; el correo oficial solo se genera mediante el canal privilegiado del sistema;
+1. **Una única dirección oficial de envío**: los correos de bienvenida y los anuncios globales los emite el sistema desde `announcement@epocanvas.com`. La dirección está integrada en el programa; el correo oficial solo se genera mediante el canal privilegiado del sistema;
 2. **La marca oficial (isOfficial)**: los correos cuyo remitente es `announcement@epocanvas.com` o `admin@epocanvas.com`, o que llevan la etiqueta «oficial», reciben la marca del sistema; el panel de lectura muestra un distintivo y un banner oficiales para distinguirlos del correo ordinario;
 3. **Ciclo de vida**: los correos de bienvenida y los anuncios globales caducan tras un número de días configurable (7 por defecto) desde la entrega, y una tarea programada los limpia.
 
@@ -29,9 +29,6 @@ El correo oficial del sistema del servicio se limita a los siguientes tipos, tod
 | --- | --- | --- |
 | Correo de bienvenida | se crea un buzón nuevo | plantilla oficial de seis idiomas integrada; caduca tras los días configurados (7 por defecto) |
 | Anuncio global | un administrador publica un anuncio del sistema | plantilla oficial de seis idiomas integrada; misma vigencia que el correo de bienvenida |
-| Aviso de activación de la verificación en dos pasos | usted activa TOTP | aviso en la aplicación: la verificación en dos pasos está activa y las demás sesiones se han cerrado |
-| Advertencia de desactivación de la verificación en dos pasos | usted desactiva TOTP | aviso en la aplicación: la seguridad se ha reducido |
-| Alarma de restablecimiento de la verificación en dos pasos | un administrador restablece su TOTP | aviso en la aplicación que le invita a contactar con el administrador; también se envía como correo saliente cuando hay un canal de entrega configurado |
 
 Más allá de esta tabla, el sistema nunca envía, desde ninguna dirección, correos del tipo «cuenta anomal», «usted ha ganado» o «verificación caducada». Si recibe un correo que se declara oficial desde otra dirección de envío, repórtelo por el canal de la sección 6.
 

@@ -1,6 +1,14 @@
-import { chromium } from '/home/shijian/projects/epocanvas-mail/node_modules/playwright/index.mjs';
+import { createRequire } from 'module';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+// playwright 从仓库依赖树解析（EpomailDocs 无此依赖，落至父仓库 node_modules），避免硬编码绝对路径
+const require = createRequire(import.meta.url);
+const { chromium } = require('playwright');
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const screenshotsDir = path.resolve(__dirname, '..', 'screenshots');
 
 async function audit() {
   const browser = await chromium.launch({
@@ -15,7 +23,6 @@ async function audit() {
     networkErrors: []
   };
 
-  const screenshotsDir = '/home/shijian/projects/epomail-docs/screenshots';
   if (!fs.existsSync(screenshotsDir)) {
     fs.mkdirSync(screenshotsDir, { recursive: true });
   }

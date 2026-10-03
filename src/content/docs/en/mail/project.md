@@ -5,7 +5,7 @@ description: A complete introduction to the EpoCanvas Mail project — positioni
 
 **First commit: July 21, 2026 | Current version: v1.1.0 | License: MIT**
 
-**Effective Date: October 3, 2026 | Version: 5.9**
+**Effective Date: October 4, 2026 | Version: 5.10**
 
 EpoCanvas Mail is an open-source e-mail service running on Cloudflare's edge network. With just a domain and a Cloudflare account, you can set up your own mailbox supporting sending and receiving, attachments, and multi-device access. The project is operated publicly through the hosted instance [mail.epocanvas.com](https://mail.epocanvas.com), releases all source code for self-hosting, and ships a companion Android app (epomail). This page covers the project's positioning, features, technical architecture, security design, and development history; the legal terms of the service and privacy are in the [Privacy & Terms Overview](/en/mail/overview/).
 
@@ -52,7 +52,7 @@ Passwords are salted PBKDF2-HMAC-SHA256 hashes (100,000 iterations); TOTP secret
 
 ## 6. Development History and Commit Chain
 
-The project has been developed continuously since its first commit (`2bbb582`) on July 21, 2026. As of September 30, 2026 the main repository holds more than 540 commits; this site (EpomailDocs, a separate git repository) has 12 more (shown in the chain below; later commits are on GitHub). The table lists milestones and anchor commits (short hashes) by stage:
+The project has been developed continuously since its first commit (`2bbb582`) on July 21, 2026. As of October 4, 2026 the main repository holds more than 560 commits; this site (EpomailDocs, a separate git repository) has more than 45 commits (the lists below are milestone-granular; interim and later commits are on GitHub). The table lists milestones and anchor commits (short hashes) by stage:
 
 | Stage | Period | Delivered | Anchor commits |
 | --- | --- | --- | --- |
@@ -68,6 +68,7 @@ The project has been developed continuously since its first commit (`2bbb582`) o
 | 10. Gmail-grade experience | 2026-09-25 → 09-27 | layered mail-detail layout; inline reply and emoji reactions; conversation-thread refinement; Gmail-style routing and deep links; cryptographic-hash anti-IDOR routing | `a8d841a` `4af2985` `4b371a8` |
 | 11. Legal documents site | 2026-09-27 → 09-29 | this site's six-language seven-document legal set; Google policy paradigm additions; Astro 5 + Starlight site; separate git repository | `2bed02b` `617cccf` |
 | 12. Finalisation and launch audit | 2026-09-29 → 09-30 | project overview page and official privacy policy integration; v5.0 full rewrite without article citations; pre-launch technical-fact calibration and sub-processor additions | `7ad5ebc` `05c222c` `5197f50` |
+| 13. Sustained documentation operation | 2026-10-01 → 10-04 | local demo instance and seeding tool; v5.8 visual and entry polish; v5.9 features/architecture expansion (×6 languages) with real product screenshots; v5.9 independent audit with full claim-to-source verification | `26f6c3b` `8a60539` |
 
 The main repository's full milestone anchor chain (40-character hashes, verifiable in the GitHub commit history):
 
@@ -97,6 +98,10 @@ b0251537e0a56b7d3b80f794ce79ff839871f945  2026-09-18  feat(auth): 登录界面�
 a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮件详情排版分层与悬浮快捷回复体验
 4b371a834458cb2be6ab5766ec15e99a91bc2022  2026-09-27  feat(routing): 严格对齐 Gmail 多账户隔离与密码学 Hash 防越权路由架构
 617cccf855a0bd9a0a46d37deaceacc4a8b0ddde  2026-09-29  docs(repo): EpomailDocs 独立为专用 git 仓库，自父仓库解除追踪
+4cf8014279669dbc67ff54ceb47239044c943ac8  2026-10-03  docs(checklist): 归档 EpomailDocs v5.8 视觉与入口打磨轮流水（EpomailDocs a1c1e89——翻页卡图标/表格居中/Accept-Language 协商）
+8a60539d318eef618b84aa0db4e8a88672c4940d  2026-10-04  docs(checklist): 归档 EpomailDocs v5.9 专案文档拆分扩充轮流水（EpomailDocs beb956a——功能指南/技术架构两新页×6 语言、真实产品截图、内容栏居中根治、本地演示实例）
+26f6c3b9750b2bad1c60f35a9a08b4db11dc1a6b  2026-10-04  feat(demo): 本地演示实例播种工具——seed-demo.py 演示邮件生成器与 wrangler-demo.toml 本地配置忽略
+33a5b0ba6abb2af208b713a81d057d9e36e17893  2026-10-04  docs(audit): EpomailDocs v5.9 独立审计——介绍与法律内容全量对码与完整性核查
 ```
 
 This site's (EpomailDocs separate repository) commit chain:
@@ -114,6 +119,15 @@ d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端�
 52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 独立审计修订——第三方清单增补博客等级联动披露、时效数据校正与工具补盲
 5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
 79094ac9d2686c1014c25824b25318c6206c9270  2026-09-30  docs(legal): v5.2 内容完善——正式版本条款全站覆盖、专案介绍增补适用边界与常见疑问
+90c06edcdd29a90a991bd56ba480c031cf85a9cf  2026-09-30  docs(legal): v5.3——独立复审缺陷治理与发布链路定案（docs.epocanvas.com/epomail）
+6da475e6a7bd1f892e00165031ad94d5bacdb872  2026-10-01  docs(legal): v5.4 内容完整性补齐——配图全覆盖、术语补定义、保留期缺项与引用精度
+3223e7d6181a6b82192f225eaded3ed8ddab0a56  2026-10-01  feat(legal): integrate official mail specifications and complete anti-tampering verification engine
+e6eb758709b6702b3b51fddb1057bee94380a3e7  2026-10-03  docs(legal): v5.7 全站去幻觉与六语言深度整合——源码事实校准、en 九篇 1:1 重译、配图扁平化重绘
+c5de61f5e1330726fe31257588ee21fdec178d8e  2026-10-03  feat(figures): 十二张原理图全量六语言本地化——每种语言的文档配该语言的图
+fcc1d10f9616b905e1c6b89ccb4e6f8ac953c476  2026-10-03  docs(legal): v5.8 独立复审打磨——P1/P2 全项治理、八项补章、全站单 h1 与首次公网发布
+a1c1e89c4e8b85579346304df3d5b37d197b68db  2026-10-03  feat(ui)+feat(infra): v5.8 视觉与入口打磨——翻页卡文档图标、表格居中与 Accept-Language 入口协商
+beb956a1b50b5c4b94d3bbc9b9feba8ef774417a  2026-10-03  feat(docs): v5.9 专案文档拆分扩充——功能指南/技术架构两新页 ×6 语言 + 真实产品截图 + 内容栏居中
+e34ce0270c42dc7b50f0add6f0a47310046cf37e  2026-10-04  chore: sync manifest commit hash for beb956a
 ```
 
 The table and anchor chains above are milestone-granular; all routine fixes, tests, and documentation commits between stages are preserved in git history, traceable one by one via the [GitHub commit history](https://github.com/shijianus/epomail/commits). The main repository also keeps `CHECKLIST.log` (task execution log) and `REPORTS.md` (special-audit reports), matched one-to-one with commits.
