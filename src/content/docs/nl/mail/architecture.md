@@ -3,7 +3,7 @@ title: Technische architectuur van EpoCanvas Mail
 description: Technische architectuur van EpoCanvas Mail — Cloudflare-uitroltopologie aan de rand, scheiding van dubbele database, versleuteling in drie modi, bijlagenopslagketen, rol- en machtigingsmodel, levenscyclus van e-mail en beveiligingsontwerp van de applicatie.
 ---
 
-**Datum van inwerkingtreding: 4 oktober 2026 | Versie: 5.10**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.11**
 
 Deze pagina beschrijft de technische implementatie van EpoCanvas Mail: uitroltopologie, gegevensversleuteling, opslagketen, machtigingsmodel en de levenscyclus van e-mail. Alle technische feiten volgen de werkelijke implementatie in de open-sourcecode en zijn zelfstandig te controleren; de gevolgen voor uw privacy en de wettelijke informatie staan in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) en het [Privacybeleid](/nl/mail/privacy-policy/).
 
@@ -89,6 +89,8 @@ Alle beheer- en bedrijfsroutes worden gecontroleerd door één authenticatiegate
 
 | Bron | Link |
 | --- | --- |
+| Werkingsmodi: implementatievormen, e-mailmodi en aanmelding | [Werkingsmodi](/nl/mail/modes/) |
+| Instellingengids: persoonlijke instellingen en de beheerconsole | [Instellingengids](/nl/mail/settings/) |
 | Functies in detail en schermafbeeldingen | [Functiegids](/nl/mail/features/) |
 | Positionering van het project en ontwikkelgeschiedenis | [Projectoverzicht](/nl/mail/project/) |
 | Versleutelingssemantiek, bewaartermijnen en rechten van betrokkenen | [Gegevensverwerking en beveiliging](/nl/mail/data-security/) |

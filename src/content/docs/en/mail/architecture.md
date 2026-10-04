@@ -3,7 +3,7 @@ title: EpoCanvas Mail Technical Architecture
 description: EpoCanvas Mail technical architecture — the Cloudflare edge deployment topology, dual-database isolation, the three-mode encryption scheme, the attachment storage chain, the role and permission model, mail lifecycle, and application security design.
 ---
 
-**Effective Date: October 4, 2026 | Version: 5.10**
+**Effective Date: October 5, 2026 | Version: 5.11**
 
 This page documents how EpoCanvas Mail is built: the deployment topology, data encryption, storage chains, the permission model, and the mail lifecycle. Every technical statement follows the actual open-source implementation and can be audited directly; the privacy implications for individuals and the statutory notices are covered in [Data Processing & Security Maintenance](/en/mail/data-security/) and the [Privacy Policy](/en/mail/privacy-policy/).
 
@@ -89,6 +89,8 @@ All administrative and business routes pass a single authorisation gateway; publ
 
 | Resource | Link |
 | --- | --- |
+| Operating Modes: deployment forms, mail modes and sign-in | [Operating Modes](/en/mail/modes/) |
+| Settings Guide: personal settings and the admin console | [Settings Guide](/en/mail/settings/) |
 | Feature walkthrough with screenshots | [Feature Guide](/en/mail/features/) |
 | Positioning and development history | [Project Overview](/en/mail/project/) |
 | Encryption semantics, retention, and rights | [Data Processing & Security Maintenance](/en/mail/data-security/) |

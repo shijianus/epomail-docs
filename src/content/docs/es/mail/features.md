@@ -3,7 +3,7 @@ title: Guía de funciones de EpoCanvas Mail
 description: Guía de funciones de EpoCanvas Mail — organización de la bandeja de entrada, redacción y envío, sintaxis de búsqueda, motor de reglas de etiquetas, extracción de códigos de verificación, gestión del correo no deseado, reenvío y notificaciones, funciones de IA y plataforma abierta.
 ---
 
-**Fecha de entrada en vigor: 4 de octubre de 2026 | Versión: 5.10**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.11**
 
 Esta página describe una a una las funciones reales de EpoCanvas Mail; todo el contenido ha sido verificado punto por punto contra el código abierto, y las capturas de pantalla de la interfaz proceden de imágenes reales del funcionamiento de la instancia alojada oficial. El posicionamiento del proyecto, su historial de desarrollo y su despliegue se describen en [Presentación del proyecto](/es/mail/project/); el tratamiento de los datos y los plazos de conservación de cada función figuran en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
@@ -114,6 +114,8 @@ El Operador no entrena ningún modelo con el contenido del correo; el tratamient
 
 | Recurso | Enlace |
 | --- | --- |
+| Modos de funcionamiento: formas de despliegue, modos de correo e inicio de sesión | [Modos de funcionamiento](/es/mail/modes/) |
+| Guía de configuración: configuración personal y consola de administración | [Guía de configuración](/es/mail/settings/) |
 | Posicionamiento y despliegue del proyecto | [Presentación del proyecto](/es/mail/project/) |
 | Arquitectura técnica y diseño de seguridad | [Arquitectura técnica](/es/mail/architecture/) |
 | Correo oficial y verificación contra manipulaciones | [Seguridad contra manipulaciones y normas](/es/mail/tamper-proof/) |

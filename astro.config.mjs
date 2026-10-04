@@ -36,6 +36,14 @@ const SIDEBAR_I18N = {
 		'zh-tw': '專案介紹', en: 'Project Overview',
 		fr: 'Présentation du projet', es: 'Presentación del proyecto', nl: 'Projectoverzicht',
 	},
+	'运行模式': {
+		'zh-tw': '運行模式', en: 'Operating Modes',
+		fr: 'Modes de fonctionnement', es: 'Modos de funcionamiento', nl: 'Werkingsmodi',
+	},
+	'设置指南': {
+		'zh-tw': '設定指南', en: 'Settings Guide',
+		fr: 'Guide des paramètres', es: 'Guía de configuración', nl: 'Instellingengids',
+	},
 	'总览': {
 		'zh-tw': '總覽', en: 'Overview',
 		fr: 'Aperçu', es: 'Descripción general', nl: 'Overzicht',
@@ -129,6 +137,8 @@ export default defineConfig({
 				g('专案与架构', [
 					t('专案介绍', 'mail/project'),
 					t('功能指南', 'mail/features'),
+					t('运行模式', 'mail/modes'),
+					t('设置指南', 'mail/settings'),
 					t('技术架构', 'mail/architecture'),
 					t('防篡改与官方规范', 'mail/tamper-proof'),
 				]),

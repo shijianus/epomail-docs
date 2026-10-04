@@ -3,7 +3,7 @@ title: EpoCanvas Mail Feature Guide
 description: EpoCanvas Mail feature guide — inbox organisation, composing and sending, search syntax, the labelling rule engine, verification-code extraction, spam governance, forwarding and push, AI capabilities, and the open platform.
 ---
 
-**Effective Date: October 4, 2026 | Version: 5.10**
+**Effective Date: October 5, 2026 | Version: 5.11**
 
 This page documents the actual features of EpoCanvas Mail, each verified against the open-source code; the interface screenshots come from the hosted instance in real operation. For the project positioning, development history, and deployment, see the [Project Overview](/en/mail/project/); the data handling and retention implications of each feature are covered in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
@@ -114,6 +114,8 @@ The operator never trains models on mail content; consented AI processing can be
 
 | Resource | Link |
 | --- | --- |
+| Operating Modes: deployment forms, mail modes and sign-in | [Operating Modes](/en/mail/modes/) |
+| Settings Guide: personal settings and the admin console | [Settings Guide](/en/mail/settings/) |
 | Positioning and deployment | [Project Overview](/en/mail/project/) |
 | Architecture and security design | [Technical Architecture](/en/mail/architecture/) |
 | Official mail and anti-tampering checks | [Anti-Tampering & Official Specs](/en/mail/tamper-proof/) |

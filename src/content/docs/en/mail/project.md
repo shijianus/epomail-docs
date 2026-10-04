@@ -5,7 +5,7 @@ description: A complete introduction to the EpoCanvas Mail project — positioni
 
 **First commit: July 21, 2026 | Current version: v1.1.0 | License: MIT**
 
-**Effective Date: October 4, 2026 | Version: 5.10**
+**Effective Date: October 5, 2026 | Version: 5.11**
 
 EpoCanvas Mail is an open-source e-mail service running on Cloudflare's edge network. With just a domain and a Cloudflare account, you can set up your own mailbox supporting sending and receiving, attachments, and multi-device access. The project is operated publicly through the hosted instance [mail.epocanvas.com](https://mail.epocanvas.com), releases all source code for self-hosting, and ships a companion Android app (epomail). This page covers the project's positioning, features, technical architecture, security design, and development history; the legal terms of the service and privacy are in the [Privacy & Terms Overview](/en/mail/overview/).
 
@@ -177,6 +177,8 @@ A domain and a Cloudflare account; deployment steps and key injection are in Sec
 
 | Resource | Link |
 | --- | --- |
+| Operating Modes: deployment forms, mail modes and sign-in | [Operating Modes](/en/mail/modes/) |
+| Settings Guide: personal settings and the admin console | [Settings Guide](/en/mail/settings/) |
 | Privacy & Terms Overview | [Overview](/en/mail/overview/) |
 | Privacy Policy | [Privacy Policy](/en/mail/privacy-policy/) |
 | Terms of Service | [Terms of Service](/en/mail/terms-of-service/) |

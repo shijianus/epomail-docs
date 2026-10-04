@@ -3,7 +3,7 @@ title: Subencargados del Tratamiento
 description: Lista completa de los encargados del tratamiento de EpoCanvas Mail por cuenta de tercero, destinatarios de la comunicación de datos, datos implicados, condiciones de activación y mecanismos de transferencia internacional.
 ---
 
-**Fecha de entrada en vigor: 4 de octubre de 2026 | Versión: 5.10**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.11**
 
 En seguimiento de la sección 7 de la [Política de Privacidad](/es/mail/privacy-policy/), esta lista expone en su integridad los terceros implicados en los datos personales del Servicio, las condiciones de la comunicación de datos y las garantías. El principio de comunicación de datos del Servicio es la mínima necesidad: los datos que no necesitan salir de la instancia no salen; los que deben salir están claramente señalados con el destinatario y los datos transportados. El Servicio no mantiene con ninguna de las partes siguientes relación de venta de datos ni de reparto de ingresos publicitarios.
 

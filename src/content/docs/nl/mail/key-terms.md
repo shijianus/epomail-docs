@@ -3,7 +3,7 @@ title: Begrippenlijst
 description: Definities van de juridische en technische begrippen die in de juridische documenten van EpoCanvas Mail worden gebruikt — algemene definities uit het gegevensbeschermingsrecht, uitgelegd naar de architectuur van de dienst.
 ---
 
-**Datum van inwerkingtreding: 4 oktober 2026 | Versie: 5.10**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.11**
 
 Deze pagina definieert de begrippen die in de juridische documenten op deze site worden gebruikt. De juridische begrippen volgen de algemene definities uit het gegevensbeschermingsrecht; de technische begrippen worden uitgelegd naar de daadwerkelijke implementatie in de open source-broncode van de Dienst.
 

@@ -3,7 +3,7 @@ title: EpoCanvas Mail 技術架構
 description: EpoCanvas Mail 技術架構——Cloudflare 邊緣部署拓撲、雙資料庫隔離、三模式加密體系、附件儲存鏈、角色權限模型、郵件生命週期與應用安全設計。
 ---
 
-**生效日期：2026 年 10 月 4 日｜版本：5.10**
+**生效日期：2026 年 10 月 5 日｜版本：5.11**
 
 本頁說明 EpoCanvas Mail 的技術實作：部署拓撲、資料加密、儲存鏈路、權限模型與郵件生命週期。全部技術事實以開源程式碼之實際實作為準，可自行審計核對；對個人之隱私影響與法定告知見[資料處理與安全維護](/zh-tw/mail/data-security/)與[隱私權政策](/zh-tw/mail/privacy-policy/)。
 
@@ -89,6 +89,8 @@ description: EpoCanvas Mail 技術架構——Cloudflare 邊緣部署拓撲、�
 
 | 資源 | 連結 |
 | --- | --- |
+| 運行模式：部署形態、郵件模式與登入方式 | [運行模式](/zh-tw/mail/modes/) |
+| 設定指南：個人設定與管理控制台 | [設定指南](/zh-tw/mail/settings/) |
 | 功能詳解與介面截圖 | [功能指南](/zh-tw/mail/features/) |
 | 專案定位與開發歷程 | [專案介紹](/zh-tw/mail/project/) |
 | 加密語義、保存期限與當事人權利 | [資料處理與安全維護](/zh-tw/mail/data-security/) |

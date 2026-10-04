@@ -3,7 +3,7 @@ title: Privacy and Terms Overview
 description: Overview of the EpoCanvas Mail legal documents — platform identity, data-processing roles, document architecture, order of precedence, and contact channels.
 ---
 
-**Effective Date: October 4, 2026 | Version: 5.10**
+**Effective Date: October 5, 2026 | Version: 5.11**
 
 This page is the guide to all legal documents of the EpoCanvas Mail service (the "Service"); it explains the roles of the parties, the document architecture, and the order in which the documents apply. Before registering for or using the Service, you should read this page together with the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/).
 

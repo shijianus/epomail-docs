@@ -3,7 +3,7 @@ title: Política de Uso Aceptable
 description: Política de Uso Aceptable de EpoCanvas Mail—la lista de conductas prohibidas, las medidas del Operador y el procedimiento de reclamación.
 ---
 
-**Fecha de entrada en vigor: 4 de octubre de 2026 | Versión: 5.10**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.11**
 
 Esta Política da efecto específico a la Sección 7 («Uso aceptable») de los [Términos del Servicio](/es/mail/terms-of-service/) y establece los límites de conducta cuando usted utiliza el servicio EpoCanvas Mail (el «Servicio»). En caso de vulneración de esta Política, el Operador puede adoptar las medidas previstas en la sección «Medidas de aplicación»; la conducta con indicios de criminalidad será también tratada conforme a la ley.
 

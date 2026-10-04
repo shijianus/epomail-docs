@@ -3,7 +3,7 @@ title: Functiegids van EpoCanvas Mail
 description: Functiegids van EpoCanvas Mail — indeling van de postvak IN, opstellen en verzenden, zoeksyntaxis, labelregelengine, extractie van verificatiecodes, spamaanpak, doorsturen en pushmeldingen, AI-mogelijkheden en het open platform.
 ---
 
-**Datum van inwerkingtreding: 4 oktober 2026 | Versie: 5.10**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.11**
 
 Deze pagina beschrijft de daadwerkelijke functies van EpoCanvas Mail één voor één; alle inhoud is punt voor punt geverifieerd aan de hand van de open-sourcecode, en de interface-screenshots komen uit de echte werking van de officieel gehoste instantie. Voor de positionering van het project, de ontwikkelgeschiedenis en de implementatie, zie [Projectoverzicht](/nl/mail/project/); voor de gegevensverwerking en bewaartermijnen per functie, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
@@ -114,6 +114,8 @@ De Exploitant traint geen enkel model op de inhoud van e-mail; de toegestemde AI
 
 | Resource | Link |
 | --- | --- |
+| Werkingsmodi: implementatievormen, e-mailmodi en aanmelding | [Werkingsmodi](/nl/mail/modes/) |
+| Instellingengids: persoonlijke instellingen en de beheerconsole | [Instellingengids](/nl/mail/settings/) |
 | Positionering en implementatie van het project | [Projectoverzicht](/nl/mail/project/) |
 | Technische architectuur en beveiligingsontwerp | [Technische architectuur](/nl/mail/architecture/) |
 | Officiële e-mail en verificatie tegen manipulatie | [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/) |

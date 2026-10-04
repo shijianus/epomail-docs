@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent / "src" / "content" / "docs"
 SYMMETRIC_LANGS = ["mail", "zh-tw", "en", "es", "fr", "nl"]
-DOCS = ["project", "features", "architecture", "overview", "privacy-policy", "terms-of-service",
+DOCS = ["project", "features", "modes", "settings", "architecture", "overview", "privacy-policy", "terms-of-service",
         "acceptable-use", "data-security", "sub-processors", "key-terms", "tamper-proof"]
 
 H = re.compile(r"^(#{2,3})\s+(.*)$", re.M)
