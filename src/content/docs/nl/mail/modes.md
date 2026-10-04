@@ -3,7 +3,7 @@ title: Werkingsmodi
 description: Werkingsmodi van EpoCanvas Mail — implementatievormen, de drie privacy niveaus van de e-mailmodus, identiteitsgroepen en quota's, aanmelding en tweestapsverificatie, meerdere accounts en weergavemodi van de interface.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.11**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.12**
 
 Dezelfde codebasis van EpoCanvas Mail neemt bij verschillende configuraties verschillende werkingsvormen aan: een instantie kan gehost of zelf uitgerold worden; de beheerder kiest tussen privacy en controleerbaarheid in drie e-mailmodi; accounts krijgen quota's en rechten naar gelang hun identiteitsgroep; en aanmelding, meerdere accounts en de weergave bieden elk verschillende opties. Deze pagina beschrijft het gedrag van en de verschillen tussen elke modus. Voor de gegevensverwerking die erbij hoort, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/); voor het gebruik van de functies, zie de [Functiegids](/nl/mail/features/); voor de instellingen zelf, zie de [Instellingengids](/nl/mail/settings/).
 
@@ -38,7 +38,7 @@ Elk account hoort bij één identiteitsgroep, die het verzendquotum, het aantal 
 
 ![Permissionspagina van EpoCanvas Mail: de tabel noemt de zes identiteitsgroepen — Gewone gebruiker, Bezoeker, Gewone gebruiker LV.0, Gewone gebruiker LV.1, Moderator en Meester — elk met positietag, opslagquota, verzendlimiet, bijlagerecht en AI-modelautorisatiekolommen (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-roles.png)
 
-*Figuur: het architectuur- en gradatieoverzicht op de permissionspagina. Opslagquota, verzendlimiet en bijlagerecht worden per groep ingesteld; de groep Meester heeft geen verzend- of opslagplafond.*
+*Figuur: het architectuur- en gradatieoverzicht op de permissionspagina. Opslagquota, verzendlimiet en bijlagerecht worden per groep ingesteld; de groep Meester heeft geen verzend- of mailboxplafond.*
 
 | Identiteitsgroep | Positionering | Dagelijkse verzending | Mailboxen | Opslagquota | Bijlagen |
 | --- | --- | --- | --- | --- | --- |
@@ -47,9 +47,9 @@ Elk account hoort bij één identiteitsgroep, die het verzendquotum, het aantal 
 | Gewone gebruiker LV.0 | Gecertificeerde vriend | 8 | 2 | 10 MB | Niet toegestaan |
 | Gewone gebruiker LV.1 | Actieve geleerde | 10 | 3 | 25 MB | Toegestaan |
 | Moderator | Medebeheer | 100 | 10 | 500 MB | Toegestaan |
-| Meester | Hoogste gezag | Geen plafond | Geen plafond | Geen plafond | Toegestaan |
+| Meester | Hoogste gezag | Geen plafond | Geen plafond | 1024 MB | Toegestaan |
 
-Nieuwe registraties belanden in de fabrieksstandaardgroep, de Bezoeker; de exploitant kan de standaardgroep op de permissionspagina wijzigen. De niveaus LV.0 en LV.1 synchroniseren automatisch via de blogniveaus: een blogaccount koppelen tilt het account naar LV.0, en actieve blogdeelname naar LV.1. De Bezoeker is een alleen-lezen zandbak met de volledige interface: de alleen-lezen beheersecties zijn te bekijken, maar het versturen van e-mail is verboden. Quota's en rechten blijven per instantie instelbaar op de permissionspagina; de tabel hierboven toont de fabrieksstandaardwaarden.
+Nieuwe registraties belanden in de fabrieksstandaardgroep, de Bezoeker; de exploitant kan de standaardgroep op de permissionspagina wijzigen. De niveaus LV.0 en LV.1 synchroniseren automatisch via de blogniveaus: een blogaccount koppelen tilt het account naar LV.0, en actieve blogdeelname naar LV.1. De Bezoeker is een alleen-lezen zandbak met de volledige interface: de alleen-lezen beheersecties zijn te bekijken, maar het versturen van e-mail is verboden. Quota's en rechten blijven per instantie instelbaar op de permissionspagina; de tabel hierboven toont de fabrieksstandaardwaarden. Verzending en het aantal mailboxen van de groep Meester hebben geen plafond (nulwaarden); de opslag staat fabrieksstandaard op 1024 MB (de permissionspagina labelt deze als «onbeperkt») en blijft naar behoefte instelbaar.
 
 ## 4. Aanmelding en tweestapsverificatie
 
@@ -59,8 +59,8 @@ Nieuwe registraties belanden in de fabrieksstandaardgroep, de Bezoeker; de explo
 
 - Aanmelden met wachtwoord: de basisweg op elke instantie; de wachtzin wordt als gezouten hash opgeslagen, en herhaalde mislukkingen lokken een anti-bruteforce-blokkade uit;
 - Tweestapsverificatie: wordt door de accounthouder ingeschakeld in het tweestapscentrum van de beveiligingsinstellingen; er zijn drie tweede factoren: een authenticator-app (TOTP dynamische codes), back-upherstelcodes (10 eenmalige codes) en toegangssleutels (Passkey, hardwarebeveiligingssleutels of biometrie van het apparaat);
-- Vertrouwde apparaten: na het aanvinken van «Niet opnieuw vragen op dit apparaat» bij aanmelding en het doorlopen van de tweestapsverificatie blijft het apparaat 30 dagen van herverificatie vrijgesteld; tussen 30 en 60 dagen wordt de verificatie opnieuw gevraagd, en na 60 dagen vervalt het vertrouwen; automatisering of manipulatie van de omgeving krijgt de vrijstelling altijd geweigerd;
-- Snelle aanmelding via derden: de beheerder schakelt en configureert aanbieders één voor één in uit GitHub, Google, Microsoft, Apple en een eigen SSO; een ingeschakelde aanbieder zonder sleutels staat grijs als «binnenkort», een uitgeschakelde wordt niet getoond; aanmelden met een Linux DO-account wordt ook ondersteund. De gegevens die bij aanmelding via derden meekomen, staan in de [Verwerkerslijst](/nl/mail/sub-processors/).
+- Vertrouwde apparaten: na het aanvinken van «Niet opnieuw vragen op dit apparaat» tijdens de tweestapsverificatie blijft het apparaat 30 dagen van herverificatie vrijgesteld; tussen 30 en 60 dagen wordt de verificatie opnieuw gevraagd, en na 60 dagen vervalt het vertrouwen; automatisering of manipulatie van de omgeving krijgt de vrijstelling altijd geweigerd;
+- Snelle aanmelding via derden: de beheerder schakelt en configureert aanbieders één voor één in uit GitHub, Google, Microsoft, Apple en een eigen SSO; een ingeschakelde aanbieder zonder sleutels staat grijs als «binnenkort», een uitgeschakelde wordt niet getoond. De gegevens die bij aanmelding via derden meekomen, staan in de [Verwerkerslijst](/nl/mail/sub-processors/).
 
 ![Beveiligingsinstellingenpagina van EpoCanvas Mail: de bovenste kaart bevat gebruikersnaam, mailbox en wachtwoordwijziging; eronder somt het tweestapscentrum de drie tweede factoren op — authenticator-app, back-upherstelcodes en toegangssleutels — elk met configuratiestatus en actieknoppen (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-security-2fa.png)
 

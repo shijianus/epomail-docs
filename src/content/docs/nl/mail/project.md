@@ -5,7 +5,7 @@ description: Een complete introductie van het EpoCanvas Mail-project—positione
 
 **Eerste commit: 21 juli 2026 | Huidige versie: v1.1.0 | Licentie: MIT**
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.11**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.12**
 
 EpoCanvas Mail is een open source e-mailservice die draait op het Cloudflare-edge-netwerk. Met één domein en één Cloudflare-account richt u een eigen mailboxdienst op met verzending en ontvangst van e-mail, bijlagen en toegang vanaf meerdere apparaten. Het project wordt geëxploiteerd als gehoste instantie op [mail.epocanvas.com](https://mail.epocanvas.com), publiceert zijn volledige broncode voor zelf-hosting en levert een bijbehorende Android-app (epomail). Deze pagina beschrijft de positionering, de functies, de technische architectuur, het beveiligingsontwerp en de ontwikkelgeschiedenis van het project; de juridische voorwaarden van de dienst en de privacypraktijken staan in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/).
 
@@ -52,7 +52,7 @@ Wachtwoorden worden opgeslagen alsgezouten PBKDF2-HMAC-SHA256-hashes (100.000 it
 
 ## 6. Ontwikkelgeschiedenis en de commit-keten
 
-Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 (`2bbb582`). Per 4 oktober 2026 telt de hoofdrepository meer dan 560 commits; deze site (EpomailDocs, een aparte git-repository) komt daar nog eens meer dan 45 commits bij (de onderstaande lijsten hebben mijlpaalgranulariteit; tussenliggende en latere commits staan op GitHub). De tabel hieronder somt de mijlpalen per fase op met hun ankercommits (korte hashes):
+Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 (`2bbb582`). Per 5 oktober 2026 telt de hoofdrepository meer dan 660 commits; deze site (EpomailDocs, een aparte git-repository) komt daar nog eens meer dan 50 commits bij (de onderstaande lijsten hebben mijlpaalgranulariteit; tussenliggende en latere commits staan op GitHub). De tabel hieronder somt de mijlpalen per fase op met hun ankercommits (korte hashes):
 
 | Fase | Periode | Opgeleverd | Ankercommits |
 | --- | --- | --- | --- |
@@ -69,6 +69,7 @@ Het project wordt doorlopend ontwikkeld sinds de eerste commit van 21 juli 2026 
 | 11. Site met juridische documenten | 2026-09-27 → 09-29 | Juridisch geheel van deze site in zes talen en zeven documenten; uitbreiding volgens het Google-beleidsparadigma; bouw van de site met Astro 5 + Starlight; aparte git-repository | `2bed02b` `617cccf` |
 | 12. Finalesering en audit vóór de lancering | 2026-09-29 → 09-30 | Integratie van de projectpagina en het officiële privacybeleid; volledige v5.0-herziening zonder artikelnummerverwijzingen; kalibratie van technische feiten en aanvulling van de verwerkerslijst vóór de lancering | `7ad5ebc` `05c222c` `5197f50` |
 | 13. Duurzame exploitatie van de documentatiesite | 2026-10-01 → 10-04 | lokale demo-instantie en seedtool; v5.8 visuele en ingangspolijsting; v5.9 uitbreiding van functiegids/architectuur (×6 talen) met echte productscreenshots; v5.9 onafhankelijke audit met volledige verificatie van claims tegen de broncode | `26f6c3b` `8a60539` |
+| 14. Auditgovernance en uitbreiding van de projectintroductie | 2026-10-04 → 10-05 | v5.10 onafhankelijke auditgovernance (volledige claim-tot-broncorrecties, «en» opgenomen in de structuursymmetrie); v5.11 pagina's voor bedrijfsmodi en instellingsgids (×6 talen, echte productscreenshots); herbouw van de auditconsole (RBAC en D1-persistentie) en OAuth-functievlag | `08448fb` `ff4e93f` `596e7c1` |
 
 De complete keten van mijlpaalankercommits van de hoofdrepository (volledige 40-tekens hashes, één voor één verifieerbaar in de GitHub-commitgeschiedenis):
 
@@ -102,6 +103,9 @@ a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮
 8a60539d318eef618b84aa0db4e8a88672c4940d  2026-10-04  docs(checklist): 归档 EpomailDocs v5.9 专案文档拆分扩充轮流水（EpomailDocs beb956a——功能指南/技术架构两新页×6 语言、真实产品截图、内容栏居中根治、本地演示实例）
 26f6c3b9750b2bad1c60f35a9a08b4db11dc1a6b  2026-10-04  feat(demo): 本地演示实例播种工具——seed-demo.py 演示邮件生成器与 wrangler-demo.toml 本地配置忽略
 33a5b0ba6abb2af208b713a81d057d9e36e17893  2026-10-04  docs(audit): EpomailDocs v5.9 独立审计——介绍与法律内容全量对码与完整性核查
+21af692803770c94ac2cfbdec5c32624e45754ce  2026-10-03  feat(sys-setting): 新增底层特性开关 ENABLE_OAUTH_INTEGRATION 并默认关闭隐藏第三方认证设置
+73a2561d3e91867a2b9e442bebe8366a639b5914  2026-10-04  feat(audit): refactor audit console to user-list standards with RBAC and D1 persistence
+596e7c1f4e4d022f3573917cfd56f72b65ae0136  2026-10-05  docs(checklist): 归档 EpomailDocs v5.11 专案介绍扩充轮流水（EpomailDocs ff4e93f+c597fca——运行模式/设置指南两新页×6 语言、9 张真实产品截图、全站 5.11 版本同步、本地视觉验证全绿）
 ```
 
 De commit-keten van deze site (de aparte EpomailDocs-repository):
@@ -128,6 +132,10 @@ fcc1d10f9616b905e1c6b89ccb4e6f8ac953c476  2026-10-03  docs(legal): v5.8 独立�
 a1c1e89c4e8b85579346304df3d5b37d197b68db  2026-10-03  feat(ui)+feat(infra): v5.8 视觉与入口打磨——翻页卡文档图标、表格居中与 Accept-Language 入口协商
 beb956a1b50b5c4b94d3bbc9b9feba8ef774417a  2026-10-03  feat(docs): v5.9 专案文档拆分扩充——功能指南/技术架构两新页 ×6 语言 + 真实产品截图 + 内容栏居中
 e34ce0270c42dc7b50f0add6f0a47310046cf37e  2026-10-04  chore: sync manifest commit hash for beb956a
+68a014ce25cca575ec348f68db746419fd19e2ce  2026-10-04  chore: sync manifest commit hash for 08448fb
+08448fb63b011699b129e69266e7150a2174a49e  2026-10-04  feat(docs): v5.10 独立审计治理轮——P1×3 全量对码修订、P2 全项落地、en 纳入结构对称校验
+ff4e93f7bb9da6ee1a4729cb2d826b1993fe5167  2026-10-05  feat(docs): v5.11 专案介绍扩充——运行模式/设置指南两新页 ×6 语言与真实产品截图全量入库
+c597fca8b14005a6fc7a3482d683b9a2937c55d8  2026-10-05  chore: sync manifest commit hash for ff4e93f
 ```
 
 De tabel en ankerketen hierboven zijn op mijlpaalniveau; elke reguliere fix, test en documentatiecommit tussen de fasen is bewaard in de git-geschiedenis en is één voor één te volgen via de [GitHub-commitgeschiedenis](https://github.com/shijianus/epomail/commits). De hoofdrepository bewaart daarnaast twee archiefbestanden, `CHECKLIST.log` (taakuitvoeringslog) en `REPORTS.md` (diepgaande auditrapporten), één-op-één gekoppeld aan de commits.

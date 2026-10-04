@@ -3,7 +3,7 @@ title: Instellingengids
 description: Instellingengids van EpoCanvas Mail — de vijf secties van de persoonlijke instellingen (profiel, algemeen, beveiliging, gegevens, labels) en een volledige rondleiding langs de negen secties van de beheerconsole en de kaarten van de systeeminstellingen.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.11**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.12**
 
 EpoCanvas Mail verdeelt zijn instellingen over twee zones: de zone «instellingen» van de zijbalk bevat de persoonlijke instellingen die elk account zelf kan aanpassen, in vijf secties — profiel, algemeen, beveiliging, gegevens en labels; de zone «beheer» verschijnt alleen voor identiteitsgroepen met beheerrechten en draagt de configuratie op instantieniveau. Deze pagina loopt elke zone langs en laat zien hoe de instellingen samenhangen. Voor het gedrag op werkingsniveau — multi-account, e-mailmodi, aanmelding — zie [Werkingsmodi](/nl/mail/modes/).
 
@@ -33,7 +33,7 @@ De kaart basisinformatie beheert avatar, bijnaam, geslacht en verjaardag. De con
 
 - Uiterlijk: donker, licht en systeem volgen als paletten; acht achtergrondpresets plus eigen achtergronden; de persoonlijke achtergrond en de interfacedichtheid worden apart ingesteld;
 - Leesvoorkeuren: type postvak IN, positie van het leesvenster en de schakelaar voor gespreksweergave;
-- Taal: één interfacetaal uit zes; de doeltaal van vertaling wordt apart ingesteld, met 17 opties, en bepaalt het doel van de volledige AI-vertaling; vertaling via tekstherkenning in afbeeldingen kan apart worden uitgezet;
+- Taal: één interfacetaal uit zes; de doeltaal van vertaling wordt apart ingesteld, met 16 opties, en bepaalt het doel van de volledige AI-vertaling; vertaling via tekstherkenning in afbeeldingen kan apart worden uitgezet;
 - Het privacygedeelte voor gegevens bundelt de ingangen voor voorkeuren over persoonlijke gegevens en AI-verwerking.
 
 ## 4. Beveiliging: wachtwoord en tweestapsverificatie
@@ -79,15 +79,15 @@ De pagina systeeminstellingen ordent de configuratie op instantieniveau in kaart
 | Kaart | Inhoud |
 | --- | --- |
 | Website-instellingen | Open registratie, openbare profielen, e-mailmodus, tweestapsverificatie, verborgen aanmelddomein, registratiecodes, extra mailboxen, snel wisselen tussen accounts, regels voor mailboxvoorvoegsel |
-| Interface-aanpassing | Sitetitel, pop-upmeldingen, dynamische/statische interface |
+| Personalisatie | Sitetitel, pop-upmeldingen, dynamische/statische interface |
 | Derdenauthenticatie en SSO | De hoofdschakelaar voor snelle aanmelding via derden en referenties per aanbieder (getoond onder een functievlag) |
 | Opslag en kerndatabase | Objectopslag (B2 / S3, standaard met terugval op R2 / KV), architectuur van kerndatabase en externe database, limiet voor enkele bijlage en trapsgewijs wissen, KV-cachegezondheidscheck |
 | E-mail-push | Telegram-bot, globaal doorsturen en doorsturen via regels (in de versleutelde modus vergrendeld op uit) |
-| AI Hub | AI-aanbieder (eigen OpenAI-compatibel eindpunt of Cloudflare Workers AI), inschakelaar, dagquotum en ratelimiet, modelautorisatie |
+| AI-engine en modelintegratie | AI-aanbieder (eigen OpenAI-compatibel eindpunt of Cloudflare Workers AI), inschakelaar, dagquotum en ratelimiet, modelautorisatie |
 | Gebruikersgegevensbeheer | Telegram-push van gebruikers, e-mail doorsturen, API en eigen opslag, en de standaard opslagquota |
 | Turnstile | Sitesleutel van de mensverificatie en schakelaar |
-| Meldingen op de site en welkomstmail | Meldingpop-ups, aankondigingsverzendingen en welkomstmail-sjablonen (meertalig) |
-| Beleid van het auditrapport | Operationele drempels die waarschuwingen uitlokken |
+| Aankondiging | Meldingpop-ups, aankondigingsverzendingen en welkomstmail-sjablonen (meertalig) |
+| Operatierapporten | Operationele drempels die waarschuwingen uitlokken |
 | Over | Versie-informatie en updatecontrole |
 
 De pagina auditrapport toont de risicogebeurtenissen van de site als waarschuwingstickets, elk met klasse, prioriteit, status en de volledige omgevingsdetails (IP, geolocatie, apparaat en vingerafdruk):

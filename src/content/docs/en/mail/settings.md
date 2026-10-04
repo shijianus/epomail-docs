@@ -3,7 +3,7 @@ title: Settings Guide
 description: EpoCanvas Mail settings guide — the five personal-settings sections (profile, general, security, data, labels) and a complete tour of the nine admin-console sections and the system-settings cards.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.11**
+**Effective Date: October 5, 2026 | Version: 5.12**
 
 EpoCanvas Mail splits its settings into two areas: the "settings" area of the sidebar holds the personal settings every account can adjust itself, in five sections — profile, general, security, data and labels; the "admin" area appears only for identity groups with administrative permissions and carries the instance-level configuration. This page walks through each area and how the settings relate. For behaviour at the operating level — multi-account, mail modes, sign-in — see [Operating Modes](/en/mail/modes/).
 
@@ -33,7 +33,7 @@ The basic-information card manages the avatar, nickname, gender and birthday. Th
 
 - Appearance: dark, light and follow-system colour schemes; eight wallpaper presets plus custom wallpapers; the personal background and interface density are set separately;
 - Reading preferences: inbox type, reading-pane position and the conversation-view switch;
-- Language: one of six system languages; the translation target language is set independently with 17 options and decides the target of AI full-text translation; image OCR translation can be switched off separately;
+- Language: one of six system languages; the translation target language is set independently with 16 options and decides the target of AI full-text translation; image OCR translation can be switched off separately;
 - The data-privacy area concentrates the personal-information and AI-processing preference entrances.
 
 ## 4. Security: password and two-step verification
@@ -79,15 +79,15 @@ The system-settings page organises the instance-level configuration into cards:
 | Card | Contents |
 | --- | --- |
 | Website settings | Open registration, public profiles, mail mode, two-step verification, hidden login domain, registration codes, extra mailboxes, multi-account quick switching, mailbox-prefix rules |
-| Interface customisation | Site title, pop-up notices, dynamic/static interface |
+| Customization | Site title, pop-up notices, dynamic/static interface |
 | Third-party authentication & SSO | The quick sign-in master switch and per-provider credentials (shown under a feature flag) |
 | Storage & core database | Object storage (B2 / S3, falling back to R2 / KV by default), core and external database architecture, single-attachment limit and cascade deletion, KV cache health check |
 | Mail push | Telegram bot, global forwarding and rule forwarding (locked off in encrypted mode) |
-| AI Hub | AI provider (custom OpenAI-compatible endpoint or Cloudflare Workers AI), enable switch, daily quota and rate limit, model authorisation |
-| User data control | User Telegram push, mail forwarding, API and bring-your-own storage switches, and the default storage quota |
+| AI Engine & Model Integration Hub | AI provider (custom OpenAI-compatible endpoint or Cloudflare Workers AI), enable switch, daily quota and rate limit, model authorisation |
+| User Data Control | User Telegram push, mail forwarding, API and bring-your-own storage switches, and the default storage quota |
 | Turnstile | Human-verification site key and switch |
-| On-site notices & welcome mail | Notice pop-ups, announcement broadcasts and welcome-mail templates (multilingual) |
-| Audit report policy | Operational thresholds that trigger warnings |
+| Notice | Notice pop-ups, announcement broadcasts and welcome-mail templates (multilingual) |
+| Operation Reports | Operational thresholds that trigger warnings |
 | About | Version information and update check |
 
 The audit-report page presents site-wide risk events as warning tickets, each carrying its class, priority, status and full environment details (IP, geolocation, device and fingerprint):

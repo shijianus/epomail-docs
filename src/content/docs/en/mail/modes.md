@@ -3,7 +3,7 @@ title: Operating Modes
 description: EpoCanvas Mail operating modes — deployment forms, the three mail-mode privacy levels, identity groups and quotas, sign-in and two-step verification, multi-account, and interface display modes.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.11**
+**Effective Date: October 5, 2026 | Version: 5.12**
 
 The same code base presents different operating forms depending on configuration: an instance can be hosted or self-deployed; the administrator chooses the balance between privacy and reviewability across three mail modes; accounts receive quotas and permissions according to their identity group; and sign-in, multi-account use, and the interface each offer several options. This page documents the behaviour of and differences between each mode. For the data handling involved, see [Data Processing & Security Maintenance](/en/mail/data-security/); for feature operation, see the [Feature Guide](/en/mail/features/); for the item-by-item settings entrances, see the [Settings Guide](/en/mail/settings/).
 
@@ -38,7 +38,7 @@ Every account belongs to one identity group, which determines the sending quota,
 
 ![EpoCanvas Mail permission page: a table lists the six identity groups — Regular User, Visitor, Regular User LV.0, Regular User LV.1, Moderator and Master — each with its positioning tag, storage quota, sending limit, attachment permission and AI model authorisation columns (interface in Simplified Chinese)](/images/mail/ui/ui-roles.png)
 
-*Figure: the architecture and grading overview on the permission page. Storage quota, sending limit and attachment permission are set per group; the Master group has no sending or storage cap.*
+*Figure: the architecture and grading overview on the permission page. Storage quota, sending limit and attachment permission are set per group; the Master group has no sending or mailbox cap.*
 
 | Identity group | Positioning | Daily sending | Mailboxes | Storage quota | Attachments |
 | --- | --- | --- | --- | --- | --- |
@@ -47,9 +47,9 @@ Every account belongs to one identity group, which determines the sending quota,
 | Regular User LV.0 | Certified friend | 8 | 2 | 10 MB | Not allowed |
 | Regular User LV.1 | Active scholar | 10 | 3 | 25 MB | Allowed |
 | Moderator | Co-management | 100 | 10 | 500 MB | Allowed |
-| Master | Highest authority | Uncapped | Uncapped | Uncapped | Allowed |
+| Master | Highest authority | Uncapped | Uncapped | 1024 MB | Allowed |
 
-New registrations land in the factory-default group, the Visitor; the operator can change the default on the permission page. The LV.0 and LV.1 tiers sync automatically through blog-level linkage: binding a blog account raises the account to LV.0, and active participation on the blog raises it to LV.1. The Visitor is a read-only sandbox with the full interface for interaction: it can browse the read-only admin sections and is barred from sending mail. Quotas and permissions can also be adjusted per instance on the permission page; the table above shows the factory-seeded values.
+New registrations land in the factory-default group, the Visitor; the operator can change the default on the permission page. The LV.0 and LV.1 tiers sync automatically through blog-level linkage: binding a blog account raises the account to LV.0, and active participation on the blog raises it to LV.1. The Visitor is a read-only sandbox with the full interface for interaction: it can browse the read-only admin sections and is barred from sending mail. Quotas and permissions can also be adjusted per instance on the permission page; the table above shows the factory-seeded values. The Master group's sending and mailbox counts are uncapped via zero values, while its storage is factory-seeded at 1024 MB (the permission page labels it as unlimited) and can be adjusted as needed.
 
 ## 4. Sign-in and two-step verification
 
@@ -59,8 +59,8 @@ New registrations land in the factory-default group, the Visitor; the operator c
 
 - Password sign-in: the baseline method available on every instance; passphrases are stored as salted hashes, and repeated failures trigger brute-force lockout;
 - Two-step verification: switched on by the account holder in the two-step centre of the security settings; three second factors are available — an authenticator app (TOTP dynamic codes), backup recovery codes (10 one-time codes), and passkeys (hardware security keys or device biometrics);
-- Trusted devices: after ticking "keep the orbit connected" at sign-in and passing two-step verification, the device skips re-verification for 30 days; between 30 and 60 days verification is asked again, and after 60 days the trust lapses; automation or environment tampering is always refused the exemption;
-- Third-party quick sign-in: the administrator enables and configures providers one by one from GitHub, Google, Microsoft, Apple and custom SSO; an enabled provider without credentials shows greyed as "coming soon", a disabled one is not shown at all; sign-in with a Linux DO account is also supported. The data involved in third-party sign-in is listed in the [Sub-processor List](/en/mail/sub-processors/).
+- Trusted devices: after ticking "Don't ask again on this device" during the two-step verification step, the device skips re-verification for 30 days; between 30 and 60 days verification is asked again, and after 60 days the trust lapses; automation or environment tampering is always refused the exemption;
+- Third-party quick sign-in: the administrator enables and configures providers one by one from GitHub, Google, Microsoft, Apple and custom SSO; an enabled provider without credentials shows greyed as "coming soon", a disabled one is not shown at all. The data involved in third-party sign-in is listed in the [Sub-processor List](/en/mail/sub-processors/).
 
 ![EpoCanvas Mail security settings page: the upper card holds the username, mailbox and password change; below, the two-step centre lists the three second factors — authenticator app, backup recovery codes and passkeys — each with its configuration status and action buttons (interface in Simplified Chinese)](/images/mail/ui/ui-security-2fa.png)
 

@@ -5,7 +5,7 @@ description: Présentation complète du projet EpoCanvas Mail—positionnement, 
 
 **Premier commit : 21 juillet 2026 | Version actuelle : v1.1.0 | Licence : MIT**
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.11**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.12**
 
 EpoCanvas Mail est un service de messagerie open source qui fonctionne sur le réseau edge de Cloudflare. Avec un seul domaine et un compte Cloudflare, vous pouvez mettre en place un service de messagerie personnel prenant en charge l'envoi et la réception d'e-mails, les pièces jointes et l'accès multi-appareils. Le projet est exploité en tant qu'instance hébergée à l'adresse [mail.epocanvas.com](https://mail.epocanvas.com), publie l'intégralité de son code source pour l'auto-hébergement et propose une application Android compagnon (epomail). Cette page présente le positionnement du projet, ses fonctions, son architecture technique, sa conception de la sécurité et son historique de développement ; les conditions juridiques du service et les pratiques de confidentialité sont énoncées dans l'[Aperçu des mentions légales](/fr/mail/overview/).
 
@@ -52,7 +52,7 @@ Les mots de passe sont hachés par PBKDF2-HMAC-SHA256 (100 000 itérations) avec
 
 ## 6. Historique de développement et chaîne des commits
 
-Le projet est développé en continu depuis le premier commit du 21 juillet 2026 (`2bbb582`). Au 4 octobre 2026, le dépôt principal compte plus de 560 commits ; le présent site (EpomailDocs, dépôt git séparé) compte plus de 45 commits supplémentaires (les listes ci-dessous sont à la granularité des jalons ; les commits intermédiaires et ultérieurs sont sur GitHub). Le tableau ci-dessous présente les jalons par phase avec leurs commits d'ancrage (hachages courts) :
+Le projet est développé en continu depuis le premier commit du 21 juillet 2026 (`2bbb582`). Au 5 octobre 2026, le dépôt principal compte plus de 660 commits ; le présent site (EpomailDocs, dépôt git séparé) compte plus de 50 commits supplémentaires (les listes ci-dessous sont à la granularité des jalons ; les commits intermédiaires et ultérieurs sont sur GitHub). Le tableau ci-dessous présente les jalons par phase avec leurs commits d'ancrage (hachages courts) :
 
 | Phase | Période | Livraisons | Commits d'ancrage |
 | --- | --- | --- | --- |
@@ -69,6 +69,7 @@ Le projet est développé en continu depuis le premier commit du 21 juillet 2026
 | 11. Site de documents juridiques | 2026-09-27 → 09-29 | Ensemble juridique du présent site en six langues et sept documents ; extension selon le paradigme des pages de Google ; construction du site Astro 5 + Starlight ; dépôt git séparé | `2bed02b` `617cccf` |
 | 12. Finalisation et audit avant mise en ligne | 2026-09-29 → 09-30 | Intégration de la page de présentation et de la politique de confidentialité officielle ; réécriture complète v5.0 sans citation de numéros d'articles ; calibrage des faits techniques et complément de la liste des sous-traitants avant mise en ligne | `7ad5ebc` `05c222c` `5197f50` |
 | 13. Exploitation continue du site de documentation | 2026-10-01 → 10-04 | instance de démonstration locale et outil d'amorçage ; polissage visuel et d'entrée v5.8 ; extension v5.9 du guide des fonctionnalités et de l'architecture (×6 langues) avec captures réelles du produit ; audit indépendant v5.9 avec vérification intégrale des affirmations par rapport au code | `26f6c3b` `8a60539` |
+| 14. Gouvernance d'audit et extension de la présentation | 2026-10-04 → 10-05 | gouvernance d'audit indépendante v5.10 (corrections intégrales par rapport au code, « en » intégré au contrôle de symétrie structurale) ; pages v5.11 des modes de fonctionnement et du guide des paramètres (×6 langues, captures réelles du produit) ; refonte de la console d'audit (RBAC et persistance D1) et indicateur de fonctionnalité OAuth | `08448fb` `ff4e93f` `596e7c1` |
 
 Chaîne complète des commits d'ancrage du dépôt principal (hachages complets de 40 caractères, vérifiables un à un dans l'historique GitHub) :
 
@@ -102,6 +103,9 @@ a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮
 8a60539d318eef618b84aa0db4e8a88672c4940d  2026-10-04  docs(checklist): 归档 EpomailDocs v5.9 专案文档拆分扩充轮流水（EpomailDocs beb956a——功能指南/技术架构两新页×6 语言、真实产品截图、内容栏居中根治、本地演示实例）
 26f6c3b9750b2bad1c60f35a9a08b4db11dc1a6b  2026-10-04  feat(demo): 本地演示实例播种工具——seed-demo.py 演示邮件生成器与 wrangler-demo.toml 本地配置忽略
 33a5b0ba6abb2af208b713a81d057d9e36e17893  2026-10-04  docs(audit): EpomailDocs v5.9 独立审计——介绍与法律内容全量对码与完整性核查
+21af692803770c94ac2cfbdec5c32624e45754ce  2026-10-03  feat(sys-setting): 新增底层特性开关 ENABLE_OAUTH_INTEGRATION 并默认关闭隐藏第三方认证设置
+73a2561d3e91867a2b9e442bebe8366a639b5914  2026-10-04  feat(audit): refactor audit console to user-list standards with RBAC and D1 persistence
+596e7c1f4e4d022f3573917cfd56f72b65ae0136  2026-10-05  docs(checklist): 归档 EpomailDocs v5.11 专案介绍扩充轮流水（EpomailDocs ff4e93f+c597fca——运行模式/设置指南两新页×6 语言、9 张真实产品截图、全站 5.11 版本同步、本地视觉验证全绿）
 ```
 
 Chaîne des commits du présent site (dépôt EpomailDocs séparé) :
@@ -128,6 +132,10 @@ fcc1d10f9616b905e1c6b89ccb4e6f8ac953c476  2026-10-03  docs(legal): v5.8 独立�
 a1c1e89c4e8b85579346304df3d5b37d197b68db  2026-10-03  feat(ui)+feat(infra): v5.8 视觉与入口打磨——翻页卡文档图标、表格居中与 Accept-Language 入口协商
 beb956a1b50b5c4b94d3bbc9b9feba8ef774417a  2026-10-03  feat(docs): v5.9 专案文档拆分扩充——功能指南/技术架构两新页 ×6 语言 + 真实产品截图 + 内容栏居中
 e34ce0270c42dc7b50f0add6f0a47310046cf37e  2026-10-04  chore: sync manifest commit hash for beb956a
+68a014ce25cca575ec348f68db746419fd19e2ce  2026-10-04  chore: sync manifest commit hash for 08448fb
+08448fb63b011699b129e69266e7150a2174a49e  2026-10-04  feat(docs): v5.10 独立审计治理轮——P1×3 全量对码修订、P2 全项落地、en 纳入结构对称校验
+ff4e93f7bb9da6ee1a4729cb2d826b1993fe5167  2026-10-05  feat(docs): v5.11 专案介绍扩充——运行模式/设置指南两新页 ×6 语言与真实产品截图全量入库
+c597fca8b14005a6fc7a3482d683b9a2937c55d8  2026-10-05  chore: sync manifest commit hash for ff4e93f
 ```
 
 Le tableau et la chaîne d'ancrage ci-dessus sont à l'échelle des jalons ; chaque correctif, test et commit de documentation entre les phases est conservé dans l'historique git et peut être suivi un à un via l'[historique des commits GitHub](https://github.com/shijianus/epomail/commits). Le dépôt principal conserve en outre deux fichiers d'archive, `CHECKLIST.log` (journal d'exécution des tâches) et `REPORTS.md` (rapports d'audit approfondis), en correspondance un à un avec les commits.

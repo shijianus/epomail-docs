@@ -3,7 +3,7 @@ title: Arquitectura técnica de EpoCanvas Mail
 description: Arquitectura técnica de EpoCanvas Mail — topología de despliegue en el borde de Cloudflare, aislamiento de doble base de datos, sistema de cifrado de tres modos, cadena de almacenamiento de adjuntos, modelo de permisos por rol, ciclo de vida del correo y diseño de seguridad de la aplicación.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.11**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.12**
 
 Esta página describe la implementación técnica de EpoCanvas Mail: topología de despliegue, cifrado de datos, cadena de almacenamiento, modelo de permisos y ciclo de vida del correo. Todos los hechos técnicos siguen la implementación real del código abierto y pueden auditarse de forma independiente; las repercusiones sobre su privacidad y las informaciones legales figuran en [Procesamiento de Datos y Seguridad](/es/mail/data-security/) y en la [Política de Privacidad](/es/mail/privacy-policy/).
 

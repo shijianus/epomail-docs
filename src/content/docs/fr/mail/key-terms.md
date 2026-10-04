@@ -3,7 +3,7 @@ title: Définitions
 description: Définitions des termes techniques et juridiques employés dans les documents juridiques d'EpoCanvas Mail — définitions générales du droit de la protection des données, interprétées selon l'architecture du Service.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.11**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.12**
 
 La présente page définit les termes employés dans les documents juridiques du présent site. Les termes juridiques suivent les définitions générales du droit de la protection des données ; les termes techniques s'interprètent d'après la mise en œuvre réelle du code open source du Service.
 

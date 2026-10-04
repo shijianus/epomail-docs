@@ -5,7 +5,7 @@ description: EpoCanvas Mail 专案完整介绍——定位、核心功能、技�
 
 **首次提交：2026 年 7 月 21 日｜当前版本：v1.1.0｜授权条款：MIT**
 
-**生效日期：2026 年 10 月 5 日｜版本：5.11**
+**生效日期：2026 年 10 月 5 日｜版本：5.12**
 
 EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件服务。使用者仅需一个域名与一个 Cloudflare 帐号，即可搭建支持收发邮件、附件与多终端访问的专属邮箱。专案以托管实例 [mail.epocanvas.com](https://mail.epocanvas.com) 对外运营，同时开放全部源代码供自行部署，并提供配套的 Android 移动应用（epomail）。本页说明专案的定位、功能、技术架构、安全设计与开发历程；服务与隐私的法律约定见[隐私权与条款总览](/mail/overview/)。
 
@@ -52,7 +52,7 @@ EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件�
 
 ## 6. 开发历程与提交链路
 
-专案自 2026 年 7 月 21 日首次提交（`2bbb582`）起持续开发。截至 2026 年 10 月 4 日，主仓库累计逾 560 个提交；本站（EpomailDocs，独立 git 仓库）另有逾 45 个提交（下列链路为里程碑粒度，其间与之后的提交见 GitHub）。下表按阶段列出里程碑与锚点提交（短 Hash）：
+专案自 2026 年 7 月 21 日首次提交（`2bbb582`）起持续开发。截至 2026 年 10 月 5 日，主仓库累计逾 660 个提交；本站（EpomailDocs，独立 git 仓库）另有逾 50 个提交（下列链路为里程碑粒度，其间与之后的提交见 GitHub）。下表按阶段列出里程碑与锚点提交（短 Hash）：
 
 | 阶段 | 时间 | 交付内容 | 锚点提交 |
 | --- | --- | --- | --- |
@@ -69,6 +69,7 @@ EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件�
 | 11. 法律文档站 | 2026-09-27 → 09-29 | 本站六语言七篇法律文档；Google 政策范式增补；Astro 5 + Starlight 站点化；独立 git 仓库 | `2bed02b` `617cccf` |
 | 12. 定稿与上线审计 | 2026-09-29 → 09-30 | 专案介绍页与官方隐私政策整合；v5.0 去条号立场全量重写；上线前技术事实校准与第三方清单增补 | `7ad5ebc` `05c222c` `5197f50` |
 | 13. 文档站持续运营 | 2026-10-01 → 10-04 | 本地演示实例与播种工具；v5.8 视觉与入口打磨；v5.9 功能指南／技术架构扩充（×6 语言）与真实产品截图；v5.9 独立审计全量对码 | `26f6c3b` `8a60539` |
+| 14. 审计治理与介绍扩充 | 2026-10-04 → 10-05 | v5.10 独立审计治理（全量对码修订、en 纳入结构对称）；v5.11 运行模式／设置指南两新页（×6 语言、真实产品截图）；审计控制台重构（RBAC 与 D1 持久化）与 OAuth 特性开关 | `08448fb` `ff4e93f` `596e7c1` |
 
 主仓库的完整里程碑锚点链（40 位全量 Hash，可于 GitHub 提交历史逐条核验）：
 
@@ -102,6 +103,9 @@ a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮
 8a60539d318eef618b84aa0db4e8a88672c4940d  2026-10-04  docs(checklist): 归档 EpomailDocs v5.9 专案文档拆分扩充轮流水（EpomailDocs beb956a——功能指南/技术架构两新页×6 语言、真实产品截图、内容栏居中根治、本地演示实例）
 26f6c3b9750b2bad1c60f35a9a08b4db11dc1a6b  2026-10-04  feat(demo): 本地演示实例播种工具——seed-demo.py 演示邮件生成器与 wrangler-demo.toml 本地配置忽略
 33a5b0ba6abb2af208b713a81d057d9e36e17893  2026-10-04  docs(audit): EpomailDocs v5.9 独立审计——介绍与法律内容全量对码与完整性核查
+21af692803770c94ac2cfbdec5c32624e45754ce  2026-10-03  feat(sys-setting): 新增底层特性开关 ENABLE_OAUTH_INTEGRATION 并默认关闭隐藏第三方认证设置
+73a2561d3e91867a2b9e442bebe8366a639b5914  2026-10-04  feat(audit): refactor audit console to user-list standards with RBAC and D1 persistence
+596e7c1f4e4d022f3573917cfd56f72b65ae0136  2026-10-05  docs(checklist): 归档 EpomailDocs v5.11 专案介绍扩充轮流水（EpomailDocs ff4e93f+c597fca——运行模式/设置指南两新页×6 语言、9 张真实产品截图、全站 5.11 版本同步、本地视觉验证全绿）
 ```
 
 本站（EpomailDocs 独立仓库）的提交链路：
@@ -128,6 +132,10 @@ fcc1d10f9616b905e1c6b89ccb4e6f8ac953c476  2026-10-03  docs(legal): v5.8 独立�
 a1c1e89c4e8b85579346304df3d5b37d197b68db  2026-10-03  feat(ui)+feat(infra): v5.8 视觉与入口打磨——翻页卡文档图标、表格居中与 Accept-Language 入口协商
 beb956a1b50b5c4b94d3bbc9b9feba8ef774417a  2026-10-03  feat(docs): v5.9 专案文档拆分扩充——功能指南/技术架构两新页 ×6 语言 + 真实产品截图 + 内容栏居中
 e34ce0270c42dc7b50f0add6f0a47310046cf37e  2026-10-04  chore: sync manifest commit hash for beb956a
+68a014ce25cca575ec348f68db746419fd19e2ce  2026-10-04  chore: sync manifest commit hash for 08448fb
+08448fb63b011699b129e69266e7150a2174a49e  2026-10-04  feat(docs): v5.10 独立审计治理轮——P1×3 全量对码修订、P2 全项落地、en 纳入结构对称校验
+ff4e93f7bb9da6ee1a4729cb2d826b1993fe5167  2026-10-05  feat(docs): v5.11 专案介绍扩充——运行模式/设置指南两新页 ×6 语言与真实产品截图全量入库
+c597fca8b14005a6fc7a3482d683b9a2937c55d8  2026-10-05  chore: sync manifest commit hash for ff4e93f
 ```
 
 上表与上方锚点链为里程碑粒度；阶段之间的全部日常修复、测试与文档提交均保存于 git 历史，可经 [GitHub 提交历史](https://github.com/shijianus/epomail/commits)逐条追溯。主仓库另设 `CHECKLIST.log`（任务执行流水）与 `REPORTS.md`（专项审计报告）两份归档，与提交一一对应。

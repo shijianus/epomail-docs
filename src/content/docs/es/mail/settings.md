@@ -3,7 +3,7 @@ title: Guía de configuración
 description: Guía de configuración de EpoCanvas Mail — las cinco secciones de la configuración personal (perfil, general, seguridad, datos, etiquetas) y el recorrido completo por las nueve secciones de la consola de administración y las tarjetas de configuración del sistema.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.11**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.12**
 
 EpoCanvas Mail divide su configuración en dos zonas: la zona «configuración» de la barra lateral reúne los ajustes personales que cada cuenta puede modificar por sí misma, en cinco secciones — perfil, general, seguridad, datos y etiquetas; la zona «administración» solo aparece para los grupos de identidad con permisos administrativos y alberga la configuración al nivel de la instancia. Esta página recorre cada zona y las relaciones entre los ajustes. Para el comportamiento a nivel de funcionamiento — multicuenta, modos de correo, inicio de sesión —, véase [Modos de funcionamiento](/es/mail/modes/).
 
@@ -33,7 +33,7 @@ La tarjeta de información básica gestiona el avatar, el apodo, el género y el
 
 - Apariencia: paletas oscura, clara y seguir el sistema; ocho preajustes de fondo de pantalla más los fondos personalizados; el fondo personal y la densidad de la interfaz se ajustan por separado;
 - Preferencias de lectura: tipo de bandeja de entrada, posición del panel de lectura e interruptor de vista por conversaciones;
-- Idioma: un idioma de interfaz entre seis; el idioma de destino de la traducción se ajusta de forma independiente, con 17 opciones, y decide el destino de la traducción integral por IA; la traducción mediante reconocimiento de texto en imágenes puede desactivarse por separado;
+- Idioma: un idioma de interfaz entre seis; el idioma de destino de la traducción se ajusta de forma independiente, con 16 opciones, y decide el destino de la traducción integral por IA; la traducción mediante reconocimiento de texto en imágenes puede desactivarse por separado;
 - La zona de privacidad de datos concentra las entradas de preferencias sobre información personal y tratamiento por IA.
 
 ## 4. Seguridad: contraseña y verificación en dos pasos
@@ -79,15 +79,15 @@ La página de configuración del sistema organiza la configuración de la instan
 | Tarjeta | Contenido |
 | --- | --- |
 | Configuración del sitio | Registro abierto, perfiles públicos, modo de correo, verificación en dos pasos, dominio de inicio oculto, códigos de registro, buzones adicionales, cambio rápido multicuenta, reglas de prefijo de buzón |
-| Personalización de la interfaz | Título del sitio, avisos emergentes, interfaz dinámica/estática |
+| Personalización | Título del sitio, avisos emergentes, interfaz dinámica/estática |
 | Autenticación de terceros y SSO | Interruptor general del acceso rápido de terceros y credenciales por proveedor (se muestra bajo un indicador de función) |
 | Almacenamiento y base de datos central | Almacenamiento de objetos (B2 / S3, con repliegue a R2 / KV por defecto), arquitectura de base de datos central y externa, límite de adjunto único y borrado en cascada, control de salud de la caché KV |
 | Push de correo | Bot de Telegram, reenvío global y reenvío por reglas (bloqueado en apagado en el modo cifrado) |
-| AI Hub | Proveedor de IA (punto de enlace compatible con OpenAI personalizado o Cloudflare Workers AI), interruptor de activación, cuota diaria y límite de tasa, autorización de modelos |
+| Motor de IA e integración de modelos | Proveedor de IA (punto de enlace compatible con OpenAI personalizado o Cloudflare Workers AI), interruptor de activación, cuota diaria y límite de tasa, autorización de modelos |
 | Control de datos de usuario | Push de Telegram de los usuarios, reenvío de correo, API y almacenamiento propio, y cuota de almacenamiento por defecto |
 | Turnstile | Clave de sitio de la verificación humana e interruptor |
-| Avisos en el sitio y correo de bienvenida | Ventanas emergentes de avisos, envíos de anuncios y plantillas de correo de bienvenida (multilingües) |
-| Política del informe de auditoría | Umbrales operativos que disparan las alertas |
+| Aviso | Ventanas emergentes de avisos, envíos de anuncios y plantillas de correo de bienvenida (multilingües) |
+| Informes de operaciones | Umbrales operativos que disparan las alertas |
 | Acerca de | Información de versión y comprobación de actualizaciones |
 
 La página de informes de auditoría presenta los eventos de riesgo del sitio como avisos, cada uno con su clase, prioridad, estado y el detalle completo de su entorno (IP, geolocalización, dispositivo y huella):

@@ -3,7 +3,7 @@ title: Functiegids van EpoCanvas Mail
 description: Functiegids van EpoCanvas Mail — indeling van de postvak IN, opstellen en verzenden, zoeksyntaxis, labelregelengine, extractie van verificatiecodes, spamaanpak, doorsturen en pushmeldingen, AI-mogelijkheden en het open platform.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.11**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.12**
 
 Deze pagina beschrijft de daadwerkelijke functies van EpoCanvas Mail één voor één; alle inhoud is punt voor punt geverifieerd aan de hand van de open-sourcecode, en de interface-screenshots komen uit de echte werking van de officieel gehoste instantie. Voor de positionering van het project, de ontwikkelgeschiedenis en de implementatie, zie [Projectoverzicht](/nl/mail/project/); voor de gegevensverwerking en bewaartermijnen per functie, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
@@ -95,7 +95,6 @@ De Exploitant traint geen enkel model op de inhoud van e-mail; de toegestemde AI
 - **OAuth 2.0 / OIDC-authenticatiecentrum**: de beheerder kan apps van derden registreren, met autorisatiebereiken beperkt tot openid / profile / email en toegangstokens die 2 uur geldig zijn; de betrokkene kan de autorisaties op de pagina «Apps van derden» in realtime bekijken en op elk moment intrekken;
 - **Persoonlijke API-tokens**: gebruikers kunnen API-tokens uitgeven om hun mailbox programmatisch te lezen;
 - **Gegevensexport**: met één klik exporteert de instellingenpagina een volledige kopie in JSON-formaat (profiel en volledige tekst van niet-verwijderde e-mail); afzonderlijke e-mails kunnen als .eml worden gedownload;
-- **Aanmelden met Linux DO**: aanmelden met een Linux DO-account wordt ondersteund (betrokken gegevens: zie de [Lijst van verwerkers](/nl/mail/sub-processors/)).
 
 ## 10. Interface en mobiel
 

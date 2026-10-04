@@ -3,7 +3,7 @@ title: Guide des paramètres
 description: Guide des paramètres d'EpoCanvas Mail — les cinq sections des paramètres personnels (profil, général, sécurité, données, étiquettes) et la visite complète des neuf sections de la console d'administration et des cartes de paramètres système.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.11**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.12**
 
 EpoCanvas Mail partage ses paramètres en deux zones : la zone « paramètres » de la barre latérale regroupe les paramètres personnels que chaque compte peut ajuster lui-même, en cinq sections — profil, général, sécurité, données et étiquettes ; la zone « administration » n'apparaît que pour les groupes d'identité dotés de permissions administratives et porte la configuration au niveau de l'instance. La présente page parcourt chaque zone et les relations entre les paramètres. Pour le comportement au niveau du fonctionnement — multi-comptes, modes courriel, connexion — voir [Modes de fonctionnement](/fr/mail/modes/).
 
@@ -33,7 +33,7 @@ La carte d'informations de base gère l'avatar, le pseudonyme, le genre et l'ann
 
 - Apparence : palettes sombre, claire et suivre le système ; huit préréglages de fond d'écran plus les fonds personnalisés ; l'arrière-plan personnel et la densité d'interface se règlent séparément ;
 - Préférences de lecture : type de boîte de réception, position du volet de lecture et interrupteur de vue par conversations ;
-- Langue : une langue d'interface parmi six ; la langue cible de traduction se règle indépendamment, avec 17 options, et décide la cible de la traduction intégrale par IA ; la traduction par reconnaissance de texte d'image peut être désactivée séparément ;
+- Langue : une langue d'interface parmi six ; la langue cible de traduction se règle indépendamment, avec 16 options, et décide la cible de la traduction intégrale par IA ; la traduction par reconnaissance de texte d'image peut être désactivée séparément ;
 - La zone de confidentialité des données regroupe les entrées de préférences relatives aux informations personnelles et au traitement par IA.
 
 ## 4. Sécurité : mot de passe et vérification en deux étapes
@@ -79,15 +79,15 @@ La page des paramètres système organise la configuration de l'instance en cart
 | Carte | Contenu |
 | --- | --- |
 | Paramètres du site | Inscription ouverte, profils publics, mode courriel, vérification en deux étapes, domaine de connexion masqué, codes d'inscription, boîtes supplémentaires, changement rapide multi-comptes, règles de préfixe de boîte |
-| Personnalisation de l'interface | Titre du site, notifications contextuelles, interface dynamique/statique |
+| Personnalisation | Titre du site, notifications contextuelles, interface dynamique/statique |
 | Authentification tierce et SSO | Interrupteur général de connexion rapide tierce et identifiants par fournisseur (affiché sous un indicateur de fonctionnalité) |
 | Stockage et base de données centrale | Stockage d'objets (B2 / S3, repli R2 / KV par défaut), architecture de base de données centrale et externe, limite de pièce jointe unique et suppression en cascade, contrôle de santé du cache KV |
 | Push des courriels | Robot Telegram, transfert global et transfert par règles (verrouillé sur désactivé en mode chiffré) |
-| AI Hub | Fournisseur d'IA (point de terminaison compatible OpenAI personnalisé ou Cloudflare Workers AI), interrupteur d'activation, quota quotidien et limite de débit, autorisation de modèles |
+| Moteur IA et intégration de modèles | Fournisseur d'IA (point de terminaison compatible OpenAI personnalisé ou Cloudflare Workers AI), interrupteur d'activation, quota quotidien et limite de débit, autorisation de modèles |
 | Contrôle des données utilisateurs | Push Telegram des utilisateurs, transfert de courriels, API et stockage apporté, et quota de stockage par défaut |
 | Turnstile | Clé de site de vérification humaine et interrupteur |
-| Avis sur site et courriels de bienvenue | Fenêtres d'avis, envois groupés d'annonces et modèles de courriels de bienvenue (multilingues) |
-| Politique de rapport d'audit | Seuils opérationnels de déclenchement des alertes |
+| Annonce | Fenêtres d'avis, envois groupés d'annonces et modèles de courriels de bienvenue (multilingues) |
+| Rapports des opérations | Seuils opérationnels de déclenchement des alertes |
 | À propos | Informations de version et vérification des mises à jour |
 
 La page des rapports d'audit présente les événements de risque du site sous forme de tickets d'alerte, chacun portant sa classe, sa priorité, son état et le détail complet de son environnement (IP, géolocalisation, appareil et empreinte) :

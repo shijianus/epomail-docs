@@ -3,7 +3,7 @@ title: Modos de funcionamiento
 description: Modos de funcionamiento de EpoCanvas Mail — formas de despliegue, los tres niveles de privacidad del modo de correo, grupos de identidad y cuotas, inicio de sesión y verificación en dos pasos, multicuenta y modos de visualización de la interfaz.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.11**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.12**
 
 El mismo código de EpoCanvas Mail adopta formas de funcionamiento distintas según la configuración: una instancia puede estar alojada o autodesplegada; el administrador elige el equilibrio entre privacidad y revisabilidad entre tres modos de correo; las cuentas reciben cuotas y permisos según su grupo de identidad; y el inicio de sesión, la multicuenta y la visualización ofrecen cada uno varias opciones. Esta página describe el comportamiento y las diferencias de cada modo. El tratamiento de datos asociado figura en [Tratamiento de datos y seguridad](/es/mail/data-security/); el funcionamiento de las funciones, en la [Guía de funciones](/es/mail/features/); las entradas de configuración, en la [Guía de configuración](/es/mail/settings/).
 
@@ -38,7 +38,7 @@ Cada cuenta pertenece a un grupo de identidad, que determina la cuota de envío,
 
 ![Página de permisos de EpoCanvas Mail: la tabla enumera los seis grupos de identidad — Usuario normal, Visitante, Usuario normal LV.0, Usuario normal LV.1, Moderador y Maestro — con sus etiquetas de posicionamiento, cuotas de almacenamiento, límites de envío, permisos de adjuntos y columnas de autorización de modelos de IA (interfaz en chino simplificado)](/images/mail/ui/ui-roles.png)
 
-*Figura: vista general de la arquitectura y la graduación en la página de permisos. La cuota de almacenamiento, el límite de envío y los adjuntos se fijan grupo por grupo; el grupo Maestro no tiene techo de envío ni de almacenamiento.*
+*Figura: vista general de la arquitectura y la graduación en la página de permisos. La cuota de almacenamiento, el límite de envío y los adjuntos se fijan grupo por grupo; el grupo Maestro no tiene techo de envío ni de buzones.*
 
 | Grupo de identidad | Posicionamiento | Envío diario | Buzones | Cuota de almacenamiento | Adjuntos |
 | --- | --- | --- | --- | --- | --- |
@@ -47,9 +47,9 @@ Cada cuenta pertenece a un grupo de identidad, que determina la cuota de envío,
 | Usuario normal LV.0 | Amigo certificado | 8 | 2 | 10 MB | No permitidos |
 | Usuario normal LV.1 | Estudioso activo | 10 | 3 | 25 MB | Permitidos |
 | Moderador | Cogestión | 100 | 10 | 500 MB | Permitidos |
-| Maestro | Autoridad suprema | Sin techo | Sin techo | Sin techo | Permitidos |
+| Maestro | Autoridad suprema | Sin techo | Sin techo | 1024 MB | Permitidos |
 
-Los registros nuevos entran en el grupo por defecto de fábrica, el Visitante; el operador puede cambiar el grupo por defecto desde la página de permisos. Los niveles LV.0 y LV.1 se sincronizan automáticamente mediante la vinculación con el nivel del blog: vincular una cuenta del blog eleva la cuenta a LV.0, y la participación activa en el blog la eleva a LV.1. El Visitante es un entorno de prueba de solo lectura con la interfaz completa: puede recorrer las secciones administrativas de solo lectura y tiene prohibido enviar correo. Las cuotas y los permisos siguen siendo ajustables por instancia en la página de permisos; la tabla anterior recoge los valores sembrados de fábrica.
+Los registros nuevos entran en el grupo por defecto de fábrica, el Visitante; el operador puede cambiar el grupo por defecto desde la página de permisos. Los niveles LV.0 y LV.1 se sincronizan automáticamente mediante la vinculación con el nivel del blog: vincular una cuenta del blog eleva la cuenta a LV.0, y la participación activa en el blog la eleva a LV.1. El Visitante es un entorno de prueba de solo lectura con la interfaz completa: puede recorrer las secciones administrativas de solo lectura y tiene prohibido enviar correo. Las cuotas y los permisos siguen siendo ajustables por instancia en la página de permisos; la tabla anterior recoge los valores sembrados de fábrica. El envío y el número de buzones del grupo Maestro quedan sin techo mediante valores cero, mientras que su almacenamiento se siembra de fábrica en 1024 MB (la página de permisos lo rotula como «sin límite») y puede ajustarse según convenga.
 
 ## 4. Inicio de sesión y verificación en dos pasos
 
@@ -59,8 +59,8 @@ Los registros nuevos entran en el grupo por defecto de fábrica, el Visitante; e
 
 - Inicio de sesión con contraseña: la vía básica disponible en todas las instancias; la frase secreta se guarda como resumen con sal, y los fallos repetidos activan el bloqueo antifuerza bruta;
 - Verificación en dos pasos: se activa desde el centro de dos pasos de la configuración de seguridad; hay tres segundos factores disponibles: una aplicación de autenticación (códigos dinámicos TOTP), códigos de recuperación de respaldo (10 códigos de un solo uso) y llaves de acceso (Passkey, llaves de seguridad de hardware o biometría del dispositivo);
-- Dispositivos de confianza: tras marcar «mantener la conexión orbital» al iniciar sesión y superar la verificación en dos pasos, el dispositivo queda exento de nueva verificación durante 30 días; entre los 30 y los 60 días se vuelve a pedir verificación, y pasados los 60 días la confianza caduca; la automatización o la manipulación del entorno siempre quedan sin la exención;
-- Acceso rápido de terceros: el administrador activa y configura uno a uno los proveedores entre GitHub, Google, Microsoft, Apple y un SSO personalizado; un proveedor activado sin credenciales se muestra atenuado como «próximamente», y uno desactivado no se muestra; también se admite el inicio de sesión con cuenta de Linux DO. Los datos implicados en el acceso de terceros figuran en la [Lista de encargados del tratamiento](/es/mail/sub-processors/).
+- Dispositivos de confianza: tras marcar «No volver a preguntar en este dispositivo» durante el paso de verificación en dos pasos, el dispositivo queda exento de nueva verificación durante 30 días; entre los 30 y los 60 días se vuelve a pedir verificación, y pasados los 60 días la confianza caduca; la automatización o la manipulación del entorno siempre quedan sin la exención;
+- Acceso rápido de terceros: el administrador activa y configura uno a uno los proveedores entre GitHub, Google, Microsoft, Apple y un SSO personalizado; un proveedor activado sin credenciales se muestra atenuado como «próximamente», y uno desactivado no se muestra. Los datos implicados en el acceso de terceros figuran en la [Lista de encargados del tratamiento](/es/mail/sub-processors/).
 
 ![Página de configuración de seguridad de EpoCanvas Mail: la tarjeta superior reúne el nombre de usuario, el buzón y el cambio de contraseña; debajo, el centro de dos pasos enumera los tres segundos factores — aplicación de autenticación, códigos de recuperación y llaves de acceso — con su estado de configuración y sus botones de acción (interfaz en chino simplificado)](/images/mail/ui/ui-security-2fa.png)
 
