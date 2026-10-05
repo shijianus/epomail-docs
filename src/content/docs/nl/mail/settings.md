@@ -3,7 +3,7 @@ title: Instellingengids
 description: Instellingengids van EpoCanvas Mail — de vijf secties van de persoonlijke instellingen (profiel, algemeen, beveiliging, gegevens, labels) en een volledige rondleiding langs de negen secties van de beheerconsole en de kaarten van de systeeminstellingen.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.12**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
 
 EpoCanvas Mail verdeelt zijn instellingen over twee zones: de zone «instellingen» van de zijbalk bevat de persoonlijke instellingen die elk account zelf kan aanpassen, in vijf secties — profiel, algemeen, beveiliging, gegevens en labels; de zone «beheer» verschijnt alleen voor identiteitsgroepen met beheerrechten en draagt de configuratie op instantieniveau. Deze pagina loopt elke zone langs en laat zien hoe de instellingen samenhangen. Voor het gedrag op werkingsniveau — multi-account, e-mailmodi, aanmelding — zie [Werkingsmodi](/nl/mail/modes/).
 
@@ -107,6 +107,8 @@ De pagina auditrapport toont de risicogebeurtenissen van de site als waarschuwin
 
 | Bron | Link |
 | --- | --- |
+| De route en elementen van elke interface | [Interface en routekaart](/nl/mail/interface/) |
+| Zoekoperators en classificatieregelvoorwaarden | [Zoek- en regelreferentie](/nl/mail/search/) |
 | Implementatievormen, e-mailmodi en aanmelding | [Werkingsmodi](/nl/mail/modes/) |
 | Functies in detail met schermafbeeldingen | [Functiegids](/nl/mail/features/) |
 | Technische topologie en versleuteling | [Technische architectuur](/nl/mail/architecture/) |

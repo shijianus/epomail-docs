@@ -608,3 +608,13 @@
     margin-inline: auto;
   }
 }
+
+/* 行内代码 token（如 #inbox、from:<值>、$user）不在词中折行：表格自动布局会为最长
+   token 加宽该列，避免出现 #inbo|x 一类的断裂；超长 token 仍由整体滚动兜底 */
+.sl-markdown-content td code,
+.sl-markdown-content th code,
+.sl-markdown-content li code,
+.sl-markdown-content p code {
+  overflow-wrap: normal;
+  word-break: keep-all;
+}

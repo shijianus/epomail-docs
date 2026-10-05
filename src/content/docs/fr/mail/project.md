@@ -5,7 +5,7 @@ description: Présentation complète du projet EpoCanvas Mail—positionnement, 
 
 **Premier commit : 21 juillet 2026 | Version actuelle : v1.1.0 | Licence : MIT**
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.12**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
 
 EpoCanvas Mail est un service de messagerie open source qui fonctionne sur le réseau edge de Cloudflare. Avec un seul domaine et un compte Cloudflare, vous pouvez mettre en place un service de messagerie personnel prenant en charge l'envoi et la réception d'e-mails, les pièces jointes et l'accès multi-appareils. Le projet est exploité en tant qu'instance hébergée à l'adresse [mail.epocanvas.com](https://mail.epocanvas.com), publie l'intégralité de son code source pour l'auto-hébergement et propose une application Android compagnon (epomail). Cette page présente le positionnement du projet, ses fonctions, son architecture technique, sa conception de la sécurité et son historique de développement ; les conditions juridiques du service et les pratiques de confidentialité sont énoncées dans l'[Aperçu des mentions légales](/fr/mail/overview/).
 
@@ -27,6 +27,7 @@ Exploiter son propre système de messagerie exige un serveur entretenu dans la d
 
 Le projet couvre l'envoi et la réception, l'organisation, la recherche, l'automatisation et la plateforme ouverte ; le détail de chaque fonctionnalité avec captures d'écran réelles figure dans le [Guide des fonctionnalités](/fr/mail/features/). Points clés : réception via Cloudflare Email Routing et envoi multi-canaux ; boîte de réception à huit vues avec fils de discussion et vue en trois colonnes ; syntaxe de recherche avancée et moteur de règles de classement ; extraction des codes de vérification par Workers AI et traduction intégrale préservant la mise en page ; centre OAuth 2.0 / OIDC et jetons API personnels ; export des données (JSON et .eml).
 
+Chaque interface et route est parcourue dans l'[Interface et plan des routes](/fr/mail/interface/) ; la référence complète des opérateurs de recherche et du moteur de règles de classement figure dans la [Référence de la recherche et des règles](/fr/mail/search/).
 ## 3. Aperçu de l'architecture
 
 Le serveur fonctionne sur Cloudflare Workers (sandbox V8 Isolate sans état) ; les données résident dans deux bases D1 physiquement isolées (base utilisateurs et base courriels, rétrocompatibilité à 100 % en déploiement mono-base), dans KV et dans le stockage d'objets (chaîne à quatre niveaux : S3 personnel, S3 configuré, R2, KV) ; la réception passe par Email Routing, l'envoi par Resend / Mailjet et autres canaux, et l'IA par Workers AI. Topologie complète, chiffrement, quotas par rôle et cycle de vie des courriels : voir [Architecture technique](/fr/mail/architecture/).
@@ -167,6 +168,7 @@ cd ../mail-worker && npx wrangler deploy
 
 Après le premier déploiement, visitez `/api/init/<jwt_secret>` pour terminer l'initialisation de la base de données et l'ensemencement des six rôles standard ; les secrets de production sont toujours injectés avec `npx wrangler secret put`, et le développement local utilise `.dev.vars` (jamais versionné).
 
+Les prérequis complets, la chaîne d'amorçage d'initialisation et l'injection des secrets pour l'auto-hébergement figurent dans le [Guide de déploiement](/fr/mail/deployment/) ; la contribution, l'audit et le développement suivent le [Guide de développement](/fr/mail/development/).
 ## 9. Questions fréquentes
 
 **L'utilisation de ce service est-elle payante ?**
@@ -185,6 +187,12 @@ Un domaine et un compte Cloudflare ; les étapes de déploiement et l'injection 
 
 | Ressource | Lien |
 | --- | --- |
+| La route et les éléments de chaque interface | [Interface et plan des routes](/fr/mail/interface/) |
+| Opérateurs de recherche et conditions de règles de classement | [Référence de la recherche et des règles](/fr/mail/search/) |
+| Étapes complètes de l'auto-hébergement | [Guide de déploiement](/fr/mail/deployment/) |
+| Environnement de développement et flux d'ingénierie | [Guide de développement](/fr/mail/development/) |
+| Ce que fournit l'instance hébergée et ses canaux d'assistance | [Périmètre du service et assistance](/fr/mail/service-scope/) |
+| La licence open source et la position juridique de l'auto-hébergement | [Open source et cadre juridique de l'auto-hébergement](/fr/mail/open-source/) |
 | Modes de fonctionnement : formes de déploiement, modes courriel et connexion | [Modes de fonctionnement](/fr/mail/modes/) |
 | Guide des paramètres : paramètres personnels et console d'administration | [Guide des paramètres](/fr/mail/settings/) |
 | Aperçu des mentions légales | [Aperçu](/fr/mail/overview/) |

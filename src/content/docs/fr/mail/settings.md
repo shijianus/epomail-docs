@@ -3,7 +3,7 @@ title: Guide des paramètres
 description: Guide des paramètres d'EpoCanvas Mail — les cinq sections des paramètres personnels (profil, général, sécurité, données, étiquettes) et la visite complète des neuf sections de la console d'administration et des cartes de paramètres système.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.12**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
 
 EpoCanvas Mail partage ses paramètres en deux zones : la zone « paramètres » de la barre latérale regroupe les paramètres personnels que chaque compte peut ajuster lui-même, en cinq sections — profil, général, sécurité, données et étiquettes ; la zone « administration » n'apparaît que pour les groupes d'identité dotés de permissions administratives et porte la configuration au niveau de l'instance. La présente page parcourt chaque zone et les relations entre les paramètres. Pour le comportement au niveau du fonctionnement — multi-comptes, modes courriel, connexion — voir [Modes de fonctionnement](/fr/mail/modes/).
 
@@ -107,6 +107,8 @@ La page des rapports d'audit présente les événements de risque du site sous f
 
 | Ressource | Lien |
 | --- | --- |
+| La route et les éléments de chaque interface | [Interface et plan des routes](/fr/mail/interface/) |
+| Opérateurs de recherche et conditions de règles de classement | [Référence de la recherche et des règles](/fr/mail/search/) |
 | Formes de déploiement, modes courriel et connexion | [Modes de fonctionnement](/fr/mail/modes/) |
 | Fonctions détaillées avec captures d'écran | [Guide des fonctions](/fr/mail/features/) |
 | Topologie technique et chiffrement | [Architecture technique](/fr/mail/architecture/) |

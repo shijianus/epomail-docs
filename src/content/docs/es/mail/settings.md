@@ -3,7 +3,7 @@ title: Guía de configuración
 description: Guía de configuración de EpoCanvas Mail — las cinco secciones de la configuración personal (perfil, general, seguridad, datos, etiquetas) y el recorrido completo por las nueve secciones de la consola de administración y las tarjetas de configuración del sistema.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.12**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.13**
 
 EpoCanvas Mail divide su configuración en dos zonas: la zona «configuración» de la barra lateral reúne los ajustes personales que cada cuenta puede modificar por sí misma, en cinco secciones — perfil, general, seguridad, datos y etiquetas; la zona «administración» solo aparece para los grupos de identidad con permisos administrativos y alberga la configuración al nivel de la instancia. Esta página recorre cada zona y las relaciones entre los ajustes. Para el comportamiento a nivel de funcionamiento — multicuenta, modos de correo, inicio de sesión —, véase [Modos de funcionamiento](/es/mail/modes/).
 
@@ -107,6 +107,8 @@ La página de informes de auditoría presenta los eventos de riesgo del sitio co
 
 | Recurso | Enlace |
 | --- | --- |
+| La ruta y los elementos de cada interfaz | [Mapa de interfaz y rutas](/es/mail/interface/) |
+| Operadores de búsqueda y condiciones de reglas de clasificación | [Referencia de búsqueda y reglas](/es/mail/search/) |
 | Formas de despliegue, modos de correo e inicio de sesión | [Modos de funcionamiento](/es/mail/modes/) |
 | Funciones detalladas con capturas de pantalla | [Guía de funciones](/es/mail/features/) |
 | Topología técnica y cifrado | [Arquitectura técnica](/es/mail/architecture/) |

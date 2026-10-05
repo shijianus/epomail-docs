@@ -5,7 +5,7 @@ description: EpoCanvas Mail 專案完整介紹——定位、核心功能、技�
 
 **首次提交：2026 年 7 月 21 日｜當前版本：v1.1.0｜授權條款：MIT**
 
-**生效日期：2026 年 10 月 5 日｜版本：5.12**
+**生效日期：2026 年 10 月 5 日｜版本：5.13**
 
 EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件服務。使用者僅需一個網域與一個 Cloudflare 帳號，即可搭建支援收發郵件、附件與多終端存取的專屬信箱。專案以託管實例 [mail.epocanvas.com](https://mail.epocanvas.com) 對外營運，同時開放全部原始碼供自行部署，並提供配套的 Android 行動應用（epomail）。本頁說明專案的定位、功能、技術架構、安全設計與開發歷程；服務與隱私的法律約定見[隱私權與條款總覽](/zh-tw/mail/overview/)。
 
@@ -27,6 +27,7 @@ EpoCanvas Mail 是一套運行於 Cloudflare 邊緣網路的開源電子郵件�
 
 本專案功能橫跨收發、整理、檢索、自動化與開放平台，逐項說明與真實執行介面截圖見[功能指南](/zh-tw/mail/features/)。要點：Cloudflare Email Routing 入站與多通道出站；八視圖收件匣、會話執行緒與三欄分割；進階搜尋語法與分類規則引擎；Workers AI 驗證碼提取與保留排版的全文翻譯；OAuth 2.0／OIDC 認證中心與個人 API 權杖；資料匯出（JSON 與 .eml）。
 
+專案的介面骨架與全部路由逐項導覽於[介面與路由總覽](/zh-tw/mail/interface/)；搜尋算子與分類規則引擎的完整參考見[搜尋與規則參考](/zh-tw/mail/search/)。
 ## 3. 技術架構概覽
 
 伺服端運行於 Cloudflare Workers（V8 Isolate 無狀態沙箱），資料落於雙 D1 物理隔離（使用者庫與郵件庫，單庫部署 100% 向後相容）、KV 與物件儲存（自備 S3、設定 S3、R2、KV 四級解析）；入站經 Email Routing，出站經 Resend／Mailjet 等通道，AI 能力由 Workers AI 承載。完整拓撲、加密體系、角色配額與郵件生命週期見[技術架構](/zh-tw/mail/architecture/)。
@@ -167,6 +168,7 @@ cd ../mail-worker && npx wrangler deploy
 
 首次部署後存取 `/api/init/<jwt_secret>` 完成資料庫初始化與六個標準角色的播種；生產密鑰一律經 `npx wrangler secret put` 注入，本地開發使用 `.dev.vars`（不入庫）。
 
+自行部署的完整前置條件、初始化引導鏈與密鑰注入見[部署指南](/zh-tw/mail/deployment/)；參與開發、稽核與貢獻的流程見[開發指南](/zh-tw/mail/development/)。
 ## 9. 常見疑問
 
 **使用本服務需要付費嗎？**
@@ -185,6 +187,12 @@ cd ../mail-worker && npx wrangler deploy
 
 | 資源 | 連結 |
 | --- | --- |
+| 每一介面的路由與元素 | [介面與路由總覽](/zh-tw/mail/interface/) |
+| 搜尋算子與分類規則條件 | [搜尋與規則參考](/zh-tw/mail/search/) |
+| 自行部署的完整步驟 | [部署指南](/zh-tw/mail/deployment/) |
+| 開發環境與工程流程 | [開發指南](/zh-tw/mail/development/) |
+| 託管實例的服務內容與支援管道 | [服務範圍與支援](/zh-tw/mail/service-scope/) |
+| 開源授權與自部署法律地位 | [開源與自行部署法律](/zh-tw/mail/open-source/) |
 | 運行模式：部署形態、郵件模式與登入方式 | [運行模式](/zh-tw/mail/modes/) |
 | 設定指南：個人設定與管理控制台 | [設定指南](/zh-tw/mail/settings/) |
 | 隱私權與條款總覽 | [總覽](/zh-tw/mail/overview/) |

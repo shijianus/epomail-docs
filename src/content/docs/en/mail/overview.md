@@ -3,7 +3,7 @@ title: Privacy and Terms Overview
 description: Overview of the EpoCanvas Mail legal documents — platform identity, data-processing roles, document architecture, order of precedence, and contact channels.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.12**
+**Effective Date: October 5, 2026 | Version: 5.13**
 
 This page is the guide to all legal documents of the EpoCanvas Mail service (the "Service"); it explains the roles of the parties, the document architecture, and the order in which the documents apply. Before registering for or using the Service, you should read this page together with the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/).
 
@@ -47,6 +47,7 @@ The legal documents on this site are organised by topic and refer to one another
 | [Key Terms](/en/mail/key-terms/) | definitions of the technical and legal terms used across this site's legal documents |
 | [Official Mail & Tamper-Proof Verification](/en/mail/tamper-proof/) | official mail specifications and identification, the official flag, immutable delivery, and document tamper-proof verification |
 
+This site is organised along two complementary reading routes: readers who want to learn about the project, prepare a self-deployment or study its use can start from the [Project Overview](/en/mail/project/) and go deeper through the [Interface & Route Map](/en/mail/interface/), the [Search & Rules Reference](/en/mail/search/), the [Deployment Guide](/en/mail/deployment/) and the [Development Guide](/en/mail/development/); readers who want the scope of the service and its privacy and legal covenants can reach the legal documents below from this page. The two routes meet at the [Features Guide](/en/mail/features/) and [Operating Modes](/en/mail/modes/).
 ## 4. Order of Precedence
 
 1. For privacy matters the [Privacy Policy](/en/mail/privacy-policy/) is the specific provision; for conditions of use the [Terms of Service](/en/mail/terms-of-service/) is the specific provision; all other matters are interpreted according to the architecture on this page.

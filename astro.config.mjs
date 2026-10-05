@@ -76,6 +76,30 @@ const SIDEBAR_I18N = {
 		'zh-tw': '防竄改與官方規範', en: 'Anti-Tampering & Official Specs',
 		fr: 'Anti-falsification et spécifications officielles', es: 'Seguridad contra manipulaciones y normas oficiales', nl: 'Beveiliging tegen manipulatie en officiële specificaties',
 	},
+	'界面与路由总览': {
+		'zh-tw': '介面與路由總覽', en: 'Interface & Route Map',
+		fr: 'Interface et plan des routes', es: 'Mapa de interfaz y rutas', nl: 'Interface en routekaart',
+	},
+	'搜索与规则参考': {
+		'zh-tw': '搜尋與規則參考', en: 'Search & Rules Reference',
+		fr: 'Référence de la recherche et des règles', es: 'Referencia de búsqueda y reglas', nl: 'Zoek- en regelreferentie',
+	},
+	'部署指南': {
+		'zh-tw': '部署指南', en: 'Deployment Guide',
+		fr: 'Guide de déploiement', es: 'Guía de despliegue', nl: 'Uitrolgids',
+	},
+	'开发指南': {
+		'zh-tw': '開發指南', en: 'Development Guide',
+		fr: 'Guide de développement', es: 'Guía de desarrollo', nl: 'Ontwikkelgids',
+	},
+	'服务范围与支持': {
+		'zh-tw': '服務範圍與支援', en: 'Service Scope & Support',
+		fr: 'Périmètre du service et assistance', es: 'Alcance del servicio y soporte', nl: 'Dienstomvang en ondersteuning',
+	},
+	'开源与自行部署法律': {
+		'zh-tw': '開源與自行部署法律', en: 'Open-Source & Self-Hosting Legal',
+		fr: "Open source et cadre juridique de l'auto-hébergement", es: 'Marco legal del código abierto y el autoalojamiento', nl: 'Open source en zelfhosting: juridisch kader',
+	},
 };
 const SIDEBAR_GROUPS_I18N = {
 	'专案与架构': {
@@ -139,6 +163,10 @@ export default defineConfig({
 					t('功能指南', 'mail/features'),
 					t('运行模式', 'mail/modes'),
 					t('设置指南', 'mail/settings'),
+					t('界面与路由总览', 'mail/interface'),
+					t('搜索与规则参考', 'mail/search'),
+					t('部署指南', 'mail/deployment'),
+					t('开发指南', 'mail/development'),
 					t('技术架构', 'mail/architecture'),
 					t('防篡改与官方规范', 'mail/tamper-proof'),
 				]),
@@ -149,8 +177,10 @@ export default defineConfig({
 					t('第三方处理者清单', 'mail/sub-processors'),
 				]),
 				g('服务条款与合规', [
+					t('服务范围与支持', 'mail/service-scope'),
 					t('服务条款', 'mail/terms-of-service'),
 					t('可接受使用政策', 'mail/acceptable-use'),
+					t('开源与自行部署法律', 'mail/open-source'),
 					t('用语定义', 'mail/key-terms'),
 				]),
 			],

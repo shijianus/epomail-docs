@@ -5,7 +5,7 @@ description: Presentación completa del proyecto EpoCanvas Mail—posicionamient
 
 **Primer commit: 21 de julio de 2026 | Versión actual: v1.1.0 | Licencia: MIT**
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.12**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.13**
 
 EpoCanvas Mail es un servicio de correo electrónico de código abierto que funciona en la red edge de Cloudflare. Con un solo dominio y una cuenta de Cloudflare, puedes montar un servicio de buzones propio con envío y recepción de correo, adjuntos y acceso multiplataforma. El proyecto se explota como instancia alojada en [mail.epocanvas.com](https://mail.epocanvas.com), publica su código fuente completo para autoalojamiento y ofrece una aplicación Android acompañante (epomail). Esta página describe el posicionamiento del proyecto, sus funciones, su arquitectura técnica, su diseño de seguridad y su historial de desarrollo; los términos legales del servicio y las prácticas de privacidad figuran en la [Descripción general de privacidad y condiciones](/es/mail/overview/).
 
@@ -27,6 +27,7 @@ Operar un sistema de correo propio exige un servidor mantenido a largo plazo, un
 
 El proyecto abarca envío y recepción, organización, búsqueda, automatización y plataforma abierta; el detalle de cada función con capturas de pantalla reales está en la [Guía de funciones](/es/mail/features/). Puntos clave: entrada vía Cloudflare Email Routing y salida multicanal; bandeja de entrada con ocho vistas, hilos de conversación y vista de tres paneles; sintaxis de búsqueda avanzada y motor de reglas de clasificación; extracción de códigos de verificación con Workers AI y traducción íntegra que conserva el formato; centro OAuth 2.0 / OIDC y tokens de API personales; y exportación de datos (JSON y .eml).
 
+Cada interfaz y ruta se recorre en el [Mapa de interfaz y rutas](/es/mail/interface/); la referencia completa de los operadores de búsqueda y del motor de reglas de clasificación está en la [Referencia de búsqueda y reglas](/es/mail/search/).
 ## 3. Resumen de la arquitectura
 
 El servidor funciona sobre Cloudflare Workers (sandbox V8 Isolate sin estado); los datos residen en dos bases D1 físicamente aisladas (base de usuarios y base de correo, con retrocompatibilidad del 100 % en despliegues de una sola base), KV y almacenamiento de objetos (cadena de cuatro niveles: S3 propio, S3 configurado, R2, KV); la entrada llega vía Email Routing, la salida usa canales como Resend / Mailjet, y la IA corre en Workers AI. Topología completa, cifrado, cuotas por rol y ciclo de vida del correo: véase [Arquitectura técnica](/es/mail/architecture/).
@@ -167,6 +168,7 @@ cd ../mail-worker && npx wrangler deploy
 
 Tras el primer despliegue, visita `/api/init/<jwt_secret>` para completar la inicialización de la base de datos y la siembra de los seis roles estándar; los secretos de producción se inyectan siempre con `npx wrangler secret put`, y el desarrollo local usa `.dev.vars` (nunca versionado).
 
+Los requisitos previos completos, la cadena de arranque de la inicialización y la inyección de secretos para el autoalojamiento están en la [Guía de despliegue](/es/mail/deployment/); contribuir, auditar y desarrollar siguen la [Guía de desarrollo](/es/mail/development/).
 ## 9. Preguntas frecuentes
 
 **¿Usar este servicio cuesta algo?**
@@ -185,6 +187,12 @@ Un dominio y una cuenta de Cloudflare; los pasos de despliegue y la inyección d
 
 | Recurso | Enlace |
 | --- | --- |
+| La ruta y los elementos de cada interfaz | [Mapa de interfaz y rutas](/es/mail/interface/) |
+| Operadores de búsqueda y condiciones de reglas de clasificación | [Referencia de búsqueda y reglas](/es/mail/search/) |
+| Pasos completos para el autoalojamiento | [Guía de despliegue](/es/mail/deployment/) |
+| Entorno de desarrollo y flujo de ingeniería | [Guía de desarrollo](/es/mail/development/) |
+| Lo que ofrece la instancia alojada y sus canales de soporte | [Alcance del servicio y soporte](/es/mail/service-scope/) |
+| La licencia de código abierto y la posición jurídica del autoalojamiento | [Marco legal del código abierto y el autoalojamiento](/es/mail/open-source/) |
 | Modos de funcionamiento: formas de despliegue, modos de correo e inicio de sesión | [Modos de funcionamiento](/es/mail/modes/) |
 | Guía de configuración: configuración personal y consola de administración | [Guía de configuración](/es/mail/settings/) |
 | Descripción general de privacidad y condiciones | [Descripción general](/es/mail/overview/) |

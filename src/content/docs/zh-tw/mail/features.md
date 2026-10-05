@@ -3,7 +3,7 @@ title: EpoCanvas Mail 功能指南
 description: EpoCanvas Mail 功能指南——收件匣整理、撰寫寄送、搜尋語法、標籤規則引擎、驗證碼提取、垃圾郵件治理、轉寄推送、AI 能力與開放平台之完整說明。
 ---
 
-**生效日期：2026 年 10 月 5 日｜版本：5.12**
+**生效日期：2026 年 10 月 5 日｜版本：5.13**
 
 本頁逐項說明 EpoCanvas Mail 的實際功能，全部內容經開源程式碼逐項核實；介面截圖取自官方託管實例之真實執行畫面。專案定位、開發歷程與部署方式見[專案介紹](/zh-tw/mail/project/)；各功能涉及之資料處理與保存期限見[資料處理與安全維護](/zh-tw/mail/data-security/)。
 
@@ -52,7 +52,7 @@ description: EpoCanvas Mail 功能指南——收件匣整理、撰寫寄送、�
 | `global:` | `global:專案` | 跨信箱全站檢索 |
 | `is:` | `is:sent`、`is:spam`、`is:trash` | 按狀態過濾 |
 
-搜尋命中基於 CSS Highlights API 高亮；全站檢索與頁內尋找兩級並存。
+搜尋命中基於 CSS Highlights API 高亮；全站檢索與頁內尋找兩級並存。全部欄位算子、旗標與規則條件的完整參考見[搜尋與規則參考](/zh-tw/mail/search/)。
 
 ## 4. 標籤與分類規則引擎
 
@@ -113,6 +113,8 @@ description: EpoCanvas Mail 功能指南——收件匣整理、撰寫寄送、�
 
 | 資源 | 連結 |
 | --- | --- |
+| 搜尋算子、管理端檢索與規則條件 | [搜尋與規則參考](/zh-tw/mail/search/) |
+| 介面路由與設定分區位置 | [介面與路由總覽](/zh-tw/mail/interface/) |
 | 運行模式：部署形態、郵件模式與登入方式 | [運行模式](/zh-tw/mail/modes/) |
 | 設定指南：個人設定與管理控制台 | [設定指南](/zh-tw/mail/settings/) |
 | 專案定位與部署 | [專案介紹](/zh-tw/mail/project/) |

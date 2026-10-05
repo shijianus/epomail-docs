@@ -5,7 +5,7 @@ description: Een complete introductie van het EpoCanvas Mail-project—positione
 
 **Eerste commit: 21 juli 2026 | Huidige versie: v1.1.0 | Licentie: MIT**
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.12**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
 
 EpoCanvas Mail is een open source e-mailservice die draait op het Cloudflare-edge-netwerk. Met één domein en één Cloudflare-account richt u een eigen mailboxdienst op met verzending en ontvangst van e-mail, bijlagen en toegang vanaf meerdere apparaten. Het project wordt geëxploiteerd als gehoste instantie op [mail.epocanvas.com](https://mail.epocanvas.com), publiceert zijn volledige broncode voor zelf-hosting en levert een bijbehorende Android-app (epomail). Deze pagina beschrijft de positionering, de functies, de technische architectuur, het beveiligingsontwerp en de ontwikkelgeschiedenis van het project; de juridische voorwaarden van de dienst en de privacypraktijken staan in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/).
 
@@ -27,6 +27,7 @@ Een eigen mailsysteem draaien vraagt om een server die langdurig onderhouden wor
 
 Het project omvat verzenden en ontvangen, indeling, zoeken, automatisering en een open platform; de per-functie toelichting met echte interface-screenshots staat in de [Functiegids](/nl/mail/features/). Kernpunten: ontvangst via Cloudflare Email Routing en multikanaal verzenden; een inbox met acht weergaven, conversatiedraden en drie-paneelweergave; geavanceerde zoeksyntaxis en de classificatieregelengine; verificatiecode-extractie via Workers AI en indeling-bewarende volledige vertaling; een OAuth 2.0 / OIDC-centrum en persoonlijke API-tokens; en gegevensexport (JSON en .eml).
 
+Elke interface en route wordt doorlopen in de [Interface en routekaart](/nl/mail/interface/); de volledige referentie van zoekoperators en de classificatieregelengine staat in de [Zoek- en regelreferentie](/nl/mail/search/).
 ## 3. Architectuuroverzicht
 
 De server draait op Cloudflare Workers (stateless V8 Isolate-sandboxen); gegevens staan in twee fysiek gescheiden D1-databases (een gebruikers- en een maildatabase, met 100% achterwaartse compatibiliteit in single-database-uitrol), KV en objectopslag (een keten van vier niveaus: eigen S3, geconfigureerde S3, R2, KV); inkomende post komt via Email Routing, uitgaande post via kanalen als Resend / Mailjet, en AI draait op Workers AI. De volledige topologie, het versleutelingssysteem, rolquota en de levenscyclus van e-mail: zie [Technische architectuur](/nl/mail/architecture/).
@@ -167,6 +168,7 @@ cd ../mail-worker && npx wrangler deploy
 
 Bezoek na de eerste uitrol `/api/init/<jwt_secret>` om de database-initialisatie en het zaaien van de zes standaardrollen af te ronden; productiegeheimen worden altijd geïnjecteerd met `npx wrangler secret put`, en lokaal gebruik is `.dev.vars` (nooit ingecheckt).
 
+De volledige randvoorwaarden, de initialisatieketen en de sleutelinjectie voor zelfhosting staan in de [Uitrolgids](/nl/mail/deployment/); bijdragen, auditen en ontwikkelen volgen de [Ontwikkelgids](/nl/mail/development/).
 ## 9. Veelgestelde vragen
 
 **Kost het gebruik van deze dienst geld?**
@@ -185,6 +187,12 @@ Een domein en een Cloudflare-account; de uitrolstappen en het injecteren van de 
 
 | Bron | Link |
 | --- | --- |
+| De route en elementen van elke interface | [Interface en routekaart](/nl/mail/interface/) |
+| Zoekoperators en classificatieregelvoorwaarden | [Zoek- en regelreferentie](/nl/mail/search/) |
+| Volledige stappen voor zelfhosting | [Uitrolgids](/nl/mail/deployment/) |
+| Ontwikkelomgeving en engineeringproces | [Ontwikkelgids](/nl/mail/development/) |
+| Wat de gehoste instantie biedt en haar ondersteuningskanalen | [Dienstomvang en ondersteuning](/nl/mail/service-scope/) |
+| De open-sourcelicentie en de juridische positie van zelfhosting | [Open source en zelfhosting: juridisch kader](/nl/mail/open-source/) |
 | Werkingsmodi: implementatievormen, e-mailmodi en aanmelding | [Werkingsmodi](/nl/mail/modes/) |
 | Instellingengids: persoonlijke instellingen en de beheerconsole | [Instellingengids](/nl/mail/settings/) |
 | Privacy- en voorwaardenoverzicht | [Overzicht](/nl/mail/overview/) |

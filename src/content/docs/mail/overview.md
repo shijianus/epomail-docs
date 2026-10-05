@@ -3,7 +3,7 @@ title: 隐私权与条款总览
 description: EpoCanvas Mail 法律文档总览——平台身份、数据处理角色、文档架构、效力顺序与联络窗口。
 ---
 
-**生效日期：2026 年 10 月 5 日｜版本：5.12**
+**生效日期：2026 年 10 月 5 日｜版本：5.13**
 
 本页是 EpoCanvas Mail 服务（下称「本服务」）全部法律文档之导览，说明各方角色、文档架构与适用顺序。您于注册或使用本服务前，应先阅读本页，以及[隐私政策](/mail/privacy-policy/)与[服务条款](/mail/terms-of-service/)。
 
@@ -47,6 +47,7 @@ EpoCanvas Mail 系建置于 Cloudflare 边缘运算架构（Workers、D1、KV、
 | [用语定义](/mail/key-terms/) | 本站法律文档所用技术与法律名词之定义 |
 | [防篡改与官方规范](/mail/tamper-proof/) | 官方邮件规格与识别、官方认证标记、不可变投递与文档防篡改校验 |
 
+本站文档按两条互补的阅读路线组织：希望了解专案、准备自行部署或学习使用的读者，可自[专案介绍](/mail/project/)进入，经[界面与路由总览](/mail/interface/)、[搜索与规则参考](/mail/search/)、[部署指南](/mail/deployment/)与[开发指南](/mail/development/)逐层深入；希望了解服务范围与隐私法律约定的读者，可自本页进入下列法律文档。两条路线于[功能指南](/mail/features/)与[运行模式](/mail/modes/)处交汇。
 ## 4. 效力顺序
 
 1. 就隐私事项，[隐私政策](/mail/privacy-policy/)为特别规定；就服务使用条件，[服务条款](/mail/terms-of-service/)为特别规定；其余事项依本页所列之架构解释。

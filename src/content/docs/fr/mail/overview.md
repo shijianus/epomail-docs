@@ -3,7 +3,7 @@ title: Confidentialité et conditions — Vue d'ensemble
 description: Vue d'ensemble des documents juridiques d'EpoCanvas Mail — identité de la plateforme, rôles de traitement des données, architecture documentaire, ordre de priorité et points de contact.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.12**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
 
 La présente page constitue le guide de l'ensemble des documents juridiques du service EpoCanvas Mail (le « Service ») ; elle explique le rôle des parties, l'architecture documentaire et l'ordre d'application. Avant de vous inscrire ou d'utiliser le Service, vous devez lire la présente page, ainsi que la [Politique de confidentialité](/fr/mail/privacy-policy/) et les [Conditions d'utilisation](/fr/mail/terms-of-service/).
 
@@ -47,6 +47,7 @@ Les documents juridiques du présent site sont organisés par thème ; ils se re
 | [Définitions](/fr/mail/key-terms/) | Les définitions des termes techniques et juridiques employés dans les documents juridiques du présent site |
 | [Anti-falsification et normes officielles](/fr/mail/tamper-proof/) | Spécifications des e-mails officiels, 16 avis de sécurité, anti-usurpation et vérification d'intégrité |
 
+Ce site s'organise en deux parcours de lecture complémentaires : le lecteur qui veut découvrir le projet, préparer un auto-hébergement ou apprendre à l'utiliser part de la [Présentation du projet](/fr/mail/project/) et approfondit avec l'[Interface et plan des routes](/fr/mail/interface/), la [Référence de la recherche et des règles](/fr/mail/search/), le [Guide de déploiement](/fr/mail/deployment/) et le [Guide de développement](/fr/mail/development/) ; le lecteur qui veut connaître le périmètre du service et ses pactes de confidentialité et juridiques rejoint les documents légaux ci-dessous depuis cette page. Les deux parcours se croisent au [Guide des fonctions](/fr/mail/features/) et aux [Modes de fonctionnement](/fr/mail/modes/).
 ## 4. Ordre de priorité
 
 1. En matière de confidentialité, la [Politique de confidentialité](/fr/mail/privacy-policy/) constitue la disposition spécifique ; pour les conditions d'utilisation du Service, les [Conditions d'utilisation](/fr/mail/terms-of-service/) constituent la disposition spécifique ; toutes les autres questions s'interprètent selon l'architecture exposée sur la présente page.

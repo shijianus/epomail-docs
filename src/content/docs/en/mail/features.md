@@ -3,7 +3,7 @@ title: EpoCanvas Mail Feature Guide
 description: EpoCanvas Mail feature guide — inbox organisation, composing and sending, search syntax, the labelling rule engine, verification-code extraction, spam governance, forwarding and push, AI capabilities, and the open platform.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.12**
+**Effective Date: October 5, 2026 | Version: 5.13**
 
 This page documents the actual features of EpoCanvas Mail, each verified against the open-source code; the interface screenshots come from the hosted instance in real operation. For the project positioning, development history, and deployment, see the [Project Overview](/en/mail/project/); the data handling and retention implications of each feature are covered in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
@@ -52,7 +52,7 @@ The Traditional Chinese (Taiwan) version of the legal documents on this site is 
 | `global:` | `global:project` | cross-mailbox site-wide search |
 | `is:` | `is:sent`, `is:spam`, `is:trash` | filter by state |
 
-Hits are highlighted through the CSS Highlights API; site-wide search and in-page find coexist at two levels.
+Hits are highlighted through the CSS Highlights API; site-wide search and in-page find coexist at two levels.The complete reference of every field operator, flag and rule condition appears in the [Search & Rules Reference](/en/mail/search/).
 
 ## 4. Labels and the Classification Rule Engine
 
@@ -113,6 +113,8 @@ The operator never trains models on mail content; consented AI processing can be
 
 | Resource | Link |
 | --- | --- |
+| Search operators, admin search and rule conditions | [Search & Rules Reference](/en/mail/search/) |
+| Interface routes and where the settings sections live | [Interface & Route Map](/en/mail/interface/) |
 | Operating Modes: deployment forms, mail modes and sign-in | [Operating Modes](/en/mail/modes/) |
 | Settings Guide: personal settings and the admin console | [Settings Guide](/en/mail/settings/) |
 | Positioning and deployment | [Project Overview](/en/mail/project/) |

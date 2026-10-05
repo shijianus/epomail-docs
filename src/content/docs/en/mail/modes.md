@@ -3,7 +3,7 @@ title: Operating Modes
 description: EpoCanvas Mail operating modes — deployment forms, the three mail-mode privacy levels, identity groups and quotas, sign-in and two-step verification, multi-account, and interface display modes.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.12**
+**Effective Date: October 5, 2026 | Version: 5.13**
 
 The same code base presents different operating forms depending on configuration: an instance can be hosted or self-deployed; the administrator chooses the balance between privacy and reviewability across three mail modes; accounts receive quotas and permissions according to their identity group; and sign-in, multi-account use, and the interface each offer several options. This page documents the behaviour of and differences between each mode. For the data handling involved, see [Data Processing & Security Maintenance](/en/mail/data-security/); for feature operation, see the [Feature Guide](/en/mail/features/); for the item-by-item settings entrances, see the [Settings Guide](/en/mail/settings/).
 
@@ -82,6 +82,8 @@ The interface ships in six languages — 简体中文, 繁體中文, English, Fr
 
 | Resource | Link |
 | --- | --- |
+| Full steps for self-deployment | [Deployment Guide](/en/mail/deployment/) |
+| The hosted instance's service boundaries and support channels | [Service Scope & Support](/en/mail/service-scope/) |
 | Project positioning and deployment | [Project Overview](/en/mail/project/) |
 | Item-by-item tour of personal settings and the admin console | [Settings Guide](/en/mail/settings/) |
 | Feature details with interface screenshots | [Feature Guide](/en/mail/features/) |

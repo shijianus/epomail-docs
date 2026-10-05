@@ -3,7 +3,7 @@ title: Settings Guide
 description: EpoCanvas Mail settings guide — the five personal-settings sections (profile, general, security, data, labels) and a complete tour of the nine admin-console sections and the system-settings cards.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.12**
+**Effective Date: October 5, 2026 | Version: 5.13**
 
 EpoCanvas Mail splits its settings into two areas: the "settings" area of the sidebar holds the personal settings every account can adjust itself, in five sections — profile, general, security, data and labels; the "admin" area appears only for identity groups with administrative permissions and carries the instance-level configuration. This page walks through each area and how the settings relate. For behaviour at the operating level — multi-account, mail modes, sign-in — see [Operating Modes](/en/mail/modes/).
 
@@ -107,6 +107,8 @@ The audit-report page presents site-wide risk events as warning tickets, each ca
 
 | Resource | Link |
 | --- | --- |
+| The route and elements of every interface | [Interface & Route Map](/en/mail/interface/) |
+| Search operators and classification rule conditions | [Search & Rules Reference](/en/mail/search/) |
 | Deployment forms, mail modes and sign-in | [Operating Modes](/en/mail/modes/) |
 | Feature details with interface screenshots | [Feature Guide](/en/mail/features/) |
 | Technical topology and encryption | [Technical Architecture](/en/mail/architecture/) |

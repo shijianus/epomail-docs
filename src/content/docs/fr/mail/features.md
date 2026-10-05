@@ -3,7 +3,7 @@ title: Guide des fonctionnalités d'EpoCanvas Mail
 description: Guide des fonctionnalités d'EpoCanvas Mail — organisation de la boîte de réception, rédaction et envoi, syntaxe de recherche, moteur de règles d'étiquettes, extraction des codes de vérification, gestion des pourriels, réexpédition et notifications, capacités d'IA et plateforme ouverte.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.12**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
 
 La présente page décrit une à une les fonctionnalités réelles d'EpoCanvas Mail ; chaque point a été vérifié à partir du code open source, et les captures d'écran de l'interface proviennent de l'exécution réelle de l'instance hébergée officielle. Le positionnement du projet, son historique de développement et son déploiement sont présentés dans [Présentation du projet](/fr/mail/project/) ; le traitement des données et les durées de conservation propres à chaque fonctionnalité figurent dans [Traitement des données et sécurité](/fr/mail/data-security/).
 
@@ -52,7 +52,7 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 | `global:` | `global:projet` | recherche sur tout le site, toutes boîtes confondues |
 | `is:` | `is:sent`, `is:spam`, `is:trash` | filtrer par état |
 
-Le surlignage des correspondances repose sur la CSS Highlights API ; la recherche sur tout le site et la recherche dans la page coexistent sur deux niveaux.
+Le surlignage des correspondances repose sur la CSS Highlights API ; la recherche sur tout le site et la recherche dans la page coexistent sur deux niveaux.La référence complète de tous les opérateurs de champ, drapeaux et conditions de règles figure dans la [Référence de la recherche et des règles](/fr/mail/search/).
 
 ## 4. Étiquettes et moteur de règles de classement
 
@@ -113,6 +113,8 @@ L'Opérateur n'entraîne aucun modèle sur le contenu des courriels ; le traitem
 
 | Ressource | Lien |
 | --- | --- |
+| Opérateurs de recherche, recherche d'administration et conditions de règles | [Référence de la recherche et des règles](/fr/mail/search/) |
+| Routes d'interface et emplacement des sections de paramétrage | [Interface et plan des routes](/fr/mail/interface/) |
 | Modes de fonctionnement : formes de déploiement, modes courriel et connexion | [Modes de fonctionnement](/fr/mail/modes/) |
 | Guide des paramètres : paramètres personnels et console d'administration | [Guide des paramètres](/fr/mail/settings/) |
 | Positionnement et déploiement du projet | [Présentation du projet](/fr/mail/project/) |

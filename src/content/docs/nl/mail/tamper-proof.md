@@ -3,7 +3,7 @@ title: Officiële e-mailspecificaties en verificatie tegen manipulatie
 description: Hoe de officiële systeemmail van EpoCanvas Mail wordt uitgegeven en herkend — de officiële vlag, onveranderlijke aflevering, isolatie van rendering in de client en verificatie tegen manipulatie van documenten.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.12**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
 
 Dit document legt uit hoe officiële systeemmail wordt uitgegeven en hoe u haar herkent, en beschrijft het verificatiemechanisme tegen manipulatie van de juridische documenten op deze site, zodat u de echtheid van officiële communicatie en documenten kunt bevestigen. Het is opgesteld krachtens het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/) en [Gegevensverwerking en Beveiligingsonderhoud](/nl/mail/data-security/).
 

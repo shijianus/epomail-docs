@@ -3,7 +3,7 @@ title: Privacidad y Términos — Visión General
 description: Visión general de los documentos legales de EpoCanvas Mail—identidad de la plataforma, roles de tratamiento de datos, arquitectura documental, orden de prelación y canales de contacto.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.12**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.13**
 
 Esta página constituye una guía de todos los documentos legales del servicio EpoCanvas Mail (el «Servicio») y explica los roles de las partes, la arquitectura documental y el orden de aplicación. Antes de registrarse en el Servicio o utilizarlo, debe leer esta página, junto con la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos del Servicio](/es/mail/terms-of-service/).
 
@@ -47,6 +47,7 @@ Los documentos legales de este sitio se organizan por temas; los documentos se r
 | [Glosario](/es/mail/key-terms/) | Definiciones de los términos técnicos y jurídicos empleados en los documentos legales de este sitio |
 | [Seguridad contra manipulaciones y normas](/es/mail/tamper-proof/) | Especificaciones oficiales, 16 avisos de seguridad, protección de remitente y verificación de integridad |
 
+Este sitio se organiza en dos rutas de lectura complementarias: quien quiera conocer el proyecto, prepararse para autoalojarlo o aprender a usarlo puede empezar por la [Presentación del proyecto](/es/mail/project/) y profundizar con el [Mapa de interfaz y rutas](/es/mail/interface/), la [Referencia de búsqueda y reglas](/es/mail/search/), la [Guía de despliegue](/es/mail/deployment/) y la [Guía de desarrollo](/es/mail/development/); quien quiera conocer el alcance del servicio y sus pactos de privacidad y legales puede llegar a los documentos jurídicos siguientes desde esta página. Ambas rutas se cruzan en la [Guía de funciones](/es/mail/features/) y los [Modos de funcionamiento](/es/mail/modes/).
 ## 4. Orden de prelación
 
 1. En materia de privacidad, la [Política de Privacidad](/es/mail/privacy-policy/) constituye la disposición específica; en cuanto a las condiciones de uso del Servicio, los [Términos del Servicio](/es/mail/terms-of-service/) constituyen la disposición específica; todos los demás asuntos se interpretan conforme a la arquitectura establecida en esta página.

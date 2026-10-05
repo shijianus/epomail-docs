@@ -5,7 +5,7 @@ description: EpoCanvas Mail 专案完整介绍——定位、核心功能、技�
 
 **首次提交：2026 年 7 月 21 日｜当前版本：v1.1.0｜授权条款：MIT**
 
-**生效日期：2026 年 10 月 5 日｜版本：5.12**
+**生效日期：2026 年 10 月 5 日｜版本：5.13**
 
 EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件服务。使用者仅需一个域名与一个 Cloudflare 帐号，即可搭建支持收发邮件、附件与多终端访问的专属邮箱。专案以托管实例 [mail.epocanvas.com](https://mail.epocanvas.com) 对外运营，同时开放全部源代码供自行部署，并提供配套的 Android 移动应用（epomail）。本页说明专案的定位、功能、技术架构、安全设计与开发历程；服务与隐私的法律约定见[隐私权与条款总览](/mail/overview/)。
 
@@ -27,6 +27,7 @@ EpoCanvas Mail 是一套运行于 Cloudflare 边缘网络的开源电子邮件�
 
 本专案功能横跨收发、整理、检索、自动化与开放平台，逐项说明与真实运行界面截图见[功能指南](/mail/features/)。要点：Cloudflare Email Routing 入站与多通道出站；八视图收件箱、会话线程与三栏分屏；高级搜索语法与分类规则引擎；Workers AI 验证码提取与保留排版的全文翻译；OAuth 2.0／OIDC 认证中心与个人 API 令牌；数据导出（JSON 与 .eml）。
 
+专案的界面骨架与全部路由逐项导览于[界面与路由总览](/mail/interface/)；搜索算子与分类规则引擎的完整参考见[搜索与规则参考](/mail/search/)。
 ## 3. 技术架构概览
 
 服务端运行于 Cloudflare Workers（V8 Isolate 无状态沙箱），数据落于双 D1 物理隔离（用户库与邮件库，单库部署 100% 向后兼容）、KV 与对象存储（自备 S3、配置 S3、R2、KV 四级解析）；入站经 Email Routing，出站经 Resend／Mailjet 等通道，AI 能力由 Workers AI 承载。完整拓扑、加密体系、角色配额与邮件生命周期见[技术架构](/mail/architecture/)。
@@ -167,6 +168,7 @@ cd ../mail-worker && npx wrangler deploy
 
 首次部署后访问 `/api/init/<jwt_secret>` 完成数据库初始化与六个标准角色的播种；生产密钥一律经 `npx wrangler secret put` 注入，本地开发使用 `.dev.vars`（不入库）。
 
+自行部署的完整前置条件、初始化引导链与密钥注入见[部署指南](/mail/deployment/)；参与开发、审计与贡献的流程见[开发指南](/mail/development/)。
 ## 9. 常见疑问
 
 **使用本服务需要付费吗？**
@@ -185,6 +187,12 @@ cd ../mail-worker && npx wrangler deploy
 
 | 资源 | 链接 |
 | --- | --- |
+| 每一界面的路由与元素 | [界面与路由总览](/mail/interface/) |
+| 搜索算子与分类规则条件 | [搜索与规则参考](/mail/search/) |
+| 自行部署的完整步骤 | [部署指南](/mail/deployment/) |
+| 开发环境与工程流程 | [开发指南](/mail/development/) |
+| 托管实例的服务内容与支持渠道 | [服务范围与支持](/mail/service-scope/) |
+| 开源授权与自部署法律地位 | [开源与自行部署法律](/mail/open-source/) |
 | 运行模式：部署形态、邮件模式与登录方式 | [运行模式](/mail/modes/) |
 | 设置指南：个人设置与管理控制台 | [设置指南](/mail/settings/) |
 | 隐私权与条款总览 | [总览](/mail/overview/) |

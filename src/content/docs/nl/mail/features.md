@@ -3,7 +3,7 @@ title: Functiegids van EpoCanvas Mail
 description: Functiegids van EpoCanvas Mail — indeling van de postvak IN, opstellen en verzenden, zoeksyntaxis, labelregelengine, extractie van verificatiecodes, spamaanpak, doorsturen en pushmeldingen, AI-mogelijkheden en het open platform.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.12**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
 
 Deze pagina beschrijft de daadwerkelijke functies van EpoCanvas Mail één voor één; alle inhoud is punt voor punt geverifieerd aan de hand van de open-sourcecode, en de interface-screenshots komen uit de echte werking van de officieel gehoste instantie. Voor de positionering van het project, de ontwikkelgeschiedenis en de implementatie, zie [Projectoverzicht](/nl/mail/project/); voor de gegevensverwerking en bewaartermijnen per functie, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
@@ -52,7 +52,7 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 | `global:` | `global:project` | zoeken op de hele site, alle mailboxen meegenomen |
 | `is:` | `is:sent`, `is:spam`, `is:trash` | filteren op status |
 
-De markering van treffers is gebaseerd op de CSS Highlights API; zoeken op de hele site en zoeken op de pagina bestaan naast elkaar op twee niveaus.
+De markering van treffers is gebaseerd op de CSS Highlights API; zoeken op de hele site en zoeken op de pagina bestaan naast elkaar op twee niveaus.De volledige referentie van elke veldoperator, vlag en regelvoorwaarde staat in de [Zoek- en regelreferentie](/nl/mail/search/).
 
 ## 4. Labels en de regelengine voor classificatie
 
@@ -113,6 +113,8 @@ De Exploitant traint geen enkel model op de inhoud van e-mail; de toegestemde AI
 
 | Resource | Link |
 | --- | --- |
+| Zoekoperators, beheerderszoek en regelvoorwaarden | [Zoek- en regelreferentie](/nl/mail/search/) |
+| Interfaceroutes en locatie van de instellingensecties | [Interface en routekaart](/nl/mail/interface/) |
 | Werkingsmodi: implementatievormen, e-mailmodi en aanmelding | [Werkingsmodi](/nl/mail/modes/) |
 | Instellingengids: persoonlijke instellingen en de beheerconsole | [Instellingengids](/nl/mail/settings/) |
 | Positionering en implementatie van het project | [Projectoverzicht](/nl/mail/project/) |

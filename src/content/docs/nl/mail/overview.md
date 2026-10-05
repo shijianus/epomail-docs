@@ -3,7 +3,7 @@ title: Overzicht van privacy en voorwaarden
 description: Overzicht van de juridische documenten van EpoCanvas Mail — identiteit van het platform, rollen bij gegevensverwerking, documentstructuur, rangorde en contactpunten.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.12**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
 
 Deze pagina is de gids van alle juridische documenten van de dienst EpoCanvas Mail (hierna «de Dienst») en beschrijft de rollen van de partijen, de documentstructuur en de volgorde van toepassing. Voordat u zich registreert voor de Dienst of deze gebruikt, dient u deze pagina te lezen, samen met het [Privacybeleid](/nl/mail/privacy-policy/) en de [Servicevoorwaarden](/nl/mail/terms-of-service/).
 
@@ -47,6 +47,7 @@ De juridische documenten op deze site zijn per thema ingedeeld; de documenten ve
 | [Begrippenlijst](/nl/mail/key-terms/) | De definities van de technische en juridische termen die in de juridische documenten op deze site worden gebruikt |
 | [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/) | Officiële e-mailnormen, 16 beveiligingsmeldingen, afzenderbescherming en integriteitsverificatie |
 
+Deze site is opgezet rond twee complementaire leesroutes: wie het project wil leren kennen, zichzelf wil gaan hosten of het gebruik wil studeren, begint bij het [Projectoverzicht](/nl/mail/project/) en gaat dieper via de [Interface en routekaart](/nl/mail/interface/), de [Zoek- en regelreferentie](/nl/mail/search/), de [Uitrolgids](/nl/mail/deployment/) en de [Ontwikkelgids](/nl/mail/development/); wie de dienstomvang en de privacy- en juridische afspraken wil kennen, bereikt vanuit deze pagina de juridische documenten hieronder. Beide routes kruisen elkaar in de [Functiegids](/nl/mail/features/) en de [Werkingsmodi](/nl/mail/modes/).
 ## 4. Rangorde
 
 1. Voor privacykwesties vormt het [Privacybeleid](/nl/mail/privacy-policy/) de bijzondere regeling; voor de voorwaarden voor het gebruik van de Dienst vormen de [Servicevoorwaarden](/nl/mail/terms-of-service/) de bijzondere regeling; overige kwesties worden uitgelegd naar de structuur die op deze pagina staat.

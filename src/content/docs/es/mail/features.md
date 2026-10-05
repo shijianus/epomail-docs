@@ -3,7 +3,7 @@ title: Guía de funciones de EpoCanvas Mail
 description: Guía de funciones de EpoCanvas Mail — organización de la bandeja de entrada, redacción y envío, sintaxis de búsqueda, motor de reglas de etiquetas, extracción de códigos de verificación, gestión del correo no deseado, reenvío y notificaciones, funciones de IA y plataforma abierta.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.12**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.13**
 
 Esta página describe una a una las funciones reales de EpoCanvas Mail; todo el contenido ha sido verificado punto por punto contra el código abierto, y las capturas de pantalla de la interfaz proceden de imágenes reales del funcionamiento de la instancia alojada oficial. El posicionamiento del proyecto, su historial de desarrollo y su despliegue se describen en [Presentación del proyecto](/es/mail/project/); el tratamiento de los datos y los plazos de conservación de cada función figuran en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
@@ -52,7 +52,7 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 | `global:` | `global:proyecto` | búsqueda en todo el sitio y en todos los buzones |
 | `is:` | `is:sent`, `is:spam`, `is:trash` | filtrar por estado |
 
-El resaltado de las coincidencias se basa en la CSS Highlights API; la búsqueda en todo el sitio y la búsqueda en la página coexisten en dos niveles.
+El resaltado de las coincidencias se basa en la CSS Highlights API; la búsqueda en todo el sitio y la búsqueda en la página coexisten en dos niveles.La referencia completa de todos los operadores de campo, indicadores y condiciones de reglas está en la [Referencia de búsqueda y reglas](/es/mail/search/).
 
 ## 4. Etiquetas y motor de reglas de clasificación
 
@@ -113,6 +113,8 @@ El Operador no entrena ningún modelo con el contenido del correo; el tratamient
 
 | Recurso | Enlace |
 | --- | --- |
+| Operadores de búsqueda, búsqueda de administración y condiciones de reglas | [Referencia de búsqueda y reglas](/es/mail/search/) |
+| Rutas de interfaz y ubicación de las secciones de configuración | [Mapa de interfaz y rutas](/es/mail/interface/) |
 | Modos de funcionamiento: formas de despliegue, modos de correo e inicio de sesión | [Modos de funcionamiento](/es/mail/modes/) |
 | Guía de configuración: configuración personal y consola de administración | [Guía de configuración](/es/mail/settings/) |
 | Posicionamiento y despliegue del proyecto | [Presentación del proyecto](/es/mail/project/) |

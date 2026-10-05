@@ -5,7 +5,7 @@ description: A complete introduction to the EpoCanvas Mail project — positioni
 
 **First commit: July 21, 2026 | Current version: v1.1.0 | License: MIT**
 
-**Effective Date: October 5, 2026 | Version: 5.12**
+**Effective Date: October 5, 2026 | Version: 5.13**
 
 EpoCanvas Mail is an open-source e-mail service running on Cloudflare's edge network. With just a domain and a Cloudflare account, you can set up your own mailbox supporting sending and receiving, attachments, and multi-device access. The project is operated publicly through the hosted instance [mail.epocanvas.com](https://mail.epocanvas.com), releases all source code for self-hosting, and ships a companion Android app (epomail). This page covers the project's positioning, features, technical architecture, security design, and development history; the legal terms of the service and privacy are in the [Privacy & Terms Overview](/en/mail/overview/).
 
@@ -27,6 +27,7 @@ Self-hosted mail systems demand long-term maintained servers, fixed IPs, and ant
 
 The project spans sending and receiving, organisation, search, automation, and an open platform; a per-feature walkthrough with real interface screenshots is in the [Feature Guide](/en/mail/features/). Highlights: inbound via Cloudflare Email Routing with multi-channel outbound; an eight-view inbox with threads and a three-pane split; advanced search syntax and the classification rule engine; Workers AI code extraction and layout-preserving full-text translation; an OAuth 2.0 / OIDC centre and personal API tokens; and data export (JSON and .eml).
 
+Every interface and route is toured in the [Interface & Route Map](/en/mail/interface/); the complete reference of search operators and the classification rule engine appears in the [Search & Rules Reference](/en/mail/search/).
 ## 3. Architecture Overview
 
 The server runs on Cloudflare Workers (stateless V8 Isolate sandboxes); data lands in dual physically isolated D1 databases (a user database and a mail database, with 100% single-database backward compatibility), KV, and object storage (a four-level chain: BYO S3, configured S3, R2, KV); inbound mail arrives via Email Routing, outbound goes through Resend / Mailjet and similar channels, and AI runs on Workers AI. The full topology, encryption scheme, role quotas, and mail lifecycle are in [Technical Architecture](/en/mail/architecture/).
@@ -167,6 +168,7 @@ cd ../mail-worker && npx wrangler deploy
 
 After the first deployment, visit `/api/init/<jwt_secret>` to initialise the database and seed the six standard roles; production secrets are always injected with `npx wrangler secret put`, and local development uses `.dev.vars` (not committed).
 
+The full prerequisites, the initialisation bootstrap chain and secret injection for self-deployment appear in the [Deployment Guide](/en/mail/deployment/); contributing, auditing and development follow the [Development Guide](/en/mail/development/).
 ## 9. FAQ
 
 **Does using this service cost anything?**
@@ -185,6 +187,12 @@ A domain and a Cloudflare account; deployment steps and key injection are in Sec
 
 | Resource | Link |
 | --- | --- |
+| The route and elements of every interface | [Interface & Route Map](/en/mail/interface/) |
+| Search operators and classification rule conditions | [Search & Rules Reference](/en/mail/search/) |
+| Full steps for self-deployment | [Deployment Guide](/en/mail/deployment/) |
+| Development environment and engineering workflow | [Development Guide](/en/mail/development/) |
+| What the hosted instance provides and its support channels | [Service Scope & Support](/en/mail/service-scope/) |
+| The open-source licence and the self-hosting legal position | [Open-Source & Self-Hosting Legal](/en/mail/open-source/) |
 | Operating Modes: deployment forms, mail modes and sign-in | [Operating Modes](/en/mail/modes/) |
 | Settings Guide: personal settings and the admin console | [Settings Guide](/en/mail/settings/) |
 | Privacy & Terms Overview | [Overview](/en/mail/overview/) |

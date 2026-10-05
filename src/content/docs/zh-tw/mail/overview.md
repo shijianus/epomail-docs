@@ -3,7 +3,7 @@ title: 隱私權與條款總覽
 description: EpoCanvas Mail 法律文件總覽——平台身分、資料處理角色、文件架構、效力順序與聯絡窗口。
 ---
 
-**生效日期：2026 年 10 月 5 日｜版本：5.12**
+**生效日期：2026 年 10 月 5 日｜版本：5.13**
 
 本頁是 EpoCanvas Mail 服務（下稱「本服務」）全部法律文件之導覽，說明各方角色、文件架構與適用順序。您於註冊或使用本服務前，應先閱讀本頁，以及[隱私權政策](/zh-tw/mail/privacy-policy/)與[服務條款](/zh-tw/mail/terms-of-service/)。
 
@@ -47,6 +47,7 @@ EpoCanvas Mail 係建置於 Cloudflare 邊緣運算架構（Workers、D1、KV、
 | [用語定義](/zh-tw/mail/key-terms/) | 本站法律文件所用技術與法律名詞之定義 |
 | [防竄改與官方規範](/zh-tw/mail/tamper-proof/) | 官方郵件規格、16 類分級安全通知、發件人防偽與密碼學防竄改校驗 |
 
+本站文件按兩條互補的閱讀路線組織：希望了解專案、準備自行部署或學習使用的讀者，可自[專案介紹](/zh-tw/mail/project/)進入，經[介面與路由總覽](/zh-tw/mail/interface/)、[搜尋與規則參考](/zh-tw/mail/search/)、[部署指南](/zh-tw/mail/deployment/)與[開發指南](/zh-tw/mail/development/)逐層深入；希望了解服務範圍與隱私法律約定的讀者，可自本頁進入下列法律文件。兩條路線於[功能指南](/zh-tw/mail/features/)與[運行模式](/zh-tw/mail/modes/)處交匯。
 ## 4. 效力順序
 
 1. 就隱私事項，[隱私權政策](/zh-tw/mail/privacy-policy/)為特別規定；就服務使用條件，[服務條款](/zh-tw/mail/terms-of-service/)為特別規定；其餘事項依本頁所列之架構解釋。

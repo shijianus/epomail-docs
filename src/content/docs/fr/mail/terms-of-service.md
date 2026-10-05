@@ -3,7 +3,7 @@ title: Conditions d'utilisation
 description: Conditions d'utilisation d'EpoCanvas Mail — acceptation et examen des conditions, règles de compte, contenu des utilisateurs, limitations de responsabilité, droit applicable et juridiction.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.12**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
 
 Les présentes conditions constituent l'accord conclu entre vous et l'Opérateur de l'instance que vous utilisez, au sujet de l'utilisation du service EpoCanvas Mail (le « Service »). En achevant votre inscription, en vous connectant ou en utilisant le Service par tout autre moyen, vous déclarez avoir lu et accepter l'intégralité des présentes conditions ; si vous n'y consentez pas, n'effectuez pas d'inscription et n'utilisez pas le Service.
 
