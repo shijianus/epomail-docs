@@ -25,6 +25,18 @@ La liste présente compte par compte l'adresse, les volumes d'envoi et de récep
 
 Le bannissement génère un ticket d'alerte qui entre au [Rapport d'audit](/fr/mail/audit/) ; l'utilisateur visé peut faire appel par le portail de recours ou les canaux internes au site, à l'appréciation de l'administrateur. L'échelle des mesures et le principe de proportionnalité figurent à la section 6 de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/).
 
+<details>
+<summary>Guide visuel : la liste des utilisateurs</summary>
+
+![La liste des utilisateurs](/images/mail/fr/ui/users.png)
+
+1. Ouvrez la « Liste des utilisateurs » de la zone d'administration (clé de permission `user:query`).
+2. Localisez un compte par son adresse depuis la barre de recherche supérieure.
+3. Dans le menu d'opérations de la ligne, choisissez : réinitialisation du mot de passe, changement de groupe d'identité, réinitialisation de la double vérification, bannissement et restauration, ou purge des courriels du compte.
+4. Les bannissements et les traitements entrent sous forme de tickets d'alerte au rapport d'audit, en vue de l'arbitrage ultérieur des recours.
+
+</details>
+
 ## 4. Documents connexes
 
 | Ressource | Lien |

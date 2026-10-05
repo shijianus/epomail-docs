@@ -31,6 +31,18 @@ Wat er van het profiel naar buiten wordt getoond, volgt de schakelaar «openbaar
 
 De globale themaachtergrond geldt voor alle weergaven; de persoonlijke achtergrond bedekt alleen de mailboxzone. Donker en licht zijn ook snel in de bovenbalk te wisselen. Systeempost en welkomstpost worden afgeleverd in de taal van de ontvanger, los van de instelling van de interfacetaal.
 
+<details>
+<summary>Visuele handleiding: Profiel en Algemeen in stappen</summary>
+
+![Profiel en Algemeen in stappen](/images/mail/nl/ui/profile.png)
+
+1. «Instellingen → Profiel»: upload een avatar en vul bijnaam, geslacht en verjaardag in.
+2. De kaart Contactgegevens kan meerdere extra e-mailadressen en telefoonnummers met landcode bevatten; de drie adreskaarten bewaren respectievelijk het adres thuis, op het bedrijf en overig.
+3. «Instellingen → Algemeen»: kies het palet (donker／licht／systeem volgen) en de globale themaachtergrond (acht presets of een eigen achtergrond).
+4. Stel de leesvoorkeuren in (type postvak IN, leesvenster, gespreksweergave) en de interfacetaal; de standaard doeltaal van vertaling wordt gekozen uit 16 opties.
+
+</details>
+
 ## 4. Verwante documenten
 
 | Bron | Link |

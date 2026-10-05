@@ -30,6 +30,18 @@ La fenêtre « Ajouter » émet un code d'inscription à la fois, configurable :
 
 Une URL portant un paramètre d'invitation (`?code=`／`?regKey=`／`?invite=`) préremplit directement le formulaire d'inscription — voir la section 5 d'[Interface et plan des routes](/fr/mail/interface/).
 
+<details>
+<summary>Guide visuel : les clés d'inscription</summary>
+
+![Les clés d'inscription](/images/mail/fr/ui/regkeys.png)
+
+1. Ouvrez la page des « Clés d'inscription » de la zone d'administration (clé de permission `reg-key:query`).
+2. Cliquez sur « Ajouter » pour générer un code aléatoire à 8 caractères (un clic sur le bouton d'actualisation le régénère).
+3. Liez le groupe d'identité que rejoindront les inscriptions, et réglez la validité et les usages disponibles (1–99999).
+4. Copiez le code et transmettez-le aux invités ; le « Journal d'usage » indique sa consommation ; « Nettoyage des codes inutilisés » invalide en un clic tous les codes pas encore utilisés.
+
+</details>
+
 ## 3. Documents connexes
 
 | Ressource | Lien |

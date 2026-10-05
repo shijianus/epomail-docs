@@ -24,6 +24,18 @@ description: EpoCanvas Mail 分析页——收发量、拦截率、来源分布�
 - 观察拦截率与垃圾量，据此调整[分类管理](/mail/category/)的名单与关键词；
 - 关注 AI 调用趋势，核对[系统设置](/mail/system/)中 AI Hub 的每日配额与速率限制是否合理。
 
+<details>
+<summary>图解：分析页的查看步骤</summary>
+
+![分析页的查看步骤](/images/mail/ui/analysis.png)
+
+1. 进入管理区「分析页」（需 `analysis:query` 权限）。
+2. 查看邮件总量、用户与治理三组指标卡。
+3. 增长曲线观察用户与邮件走势；来源分布核对入站构成。
+4. AI 调用与 Token 趋势、模型用量分布用于核对系统设置的配额与限速。
+
+</details>
+
 ## 3. 相关文档
 
 | 资源 | 链接 |

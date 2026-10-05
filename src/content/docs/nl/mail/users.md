@@ -25,6 +25,18 @@ De lijst toont per account een rij met mailbox, verzend- en ontvangvolume, opsla
 
 Een blokkade komt als waarschuwingsticket in het [Auditrapport](/nl/mail/audit/); een getroffen gebruiker kan via het beroepsportaal of de kanalen op de instantie beroep aantekenen, en de beheerder beoordeelt de zaak. De handhavingsladder en het evenredigheidsbeginsel staan in sectie 6 van het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/).
 
+<details>
+<summary>Visuele handleiding: de Gebruikerslijst in stappen</summary>
+
+![De Gebruikerslijst in stappen](/images/mail/nl/ui/users.png)
+
+1. Ga in de beheerzone naar de «Gebruikerslijst» (vereist `user:query`).
+2. Zoek bovenaan in het zoekveld het account op mailbox.
+3. Kies in het actiemenu per rij: wachtwoord herstellen, identiteitsgroep wijzigen, tweestaps herstellen, blokkeren en herstellen, of de mailbox legen.
+4. Blokkades en afhandeling komen als waarschuwingsticket in het Auditrapport terecht, ten behoeve van de latere arbitrage van beroepen.
+
+</details>
+
 ## 4. Verwante documenten
 
 | Bron | Link |

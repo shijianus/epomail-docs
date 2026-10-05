@@ -30,6 +30,19 @@ El informe de auditoría es la interfaz de avisos de riesgo de la zona de admini
 
 El administrador verifica el entorno y el motivo de cada aviso de recurso antes de «liberar» o rechazar; la escala de aplicación y el derecho de apelación del usuario figuran en la sección 6 de la [Política de Uso Aceptable](/es/mail/acceptable-use/). La entrada de ejecución del bloqueo está en la [Lista de usuarios](/es/mail/users/).
 
+<details>
+<summary>Guía visual: pasos de estudio de los avisos del informe de auditoría</summary>
+
+![Pasos de estudio de los avisos del informe de auditoría](/images/mail/es/ui/audit.png)
+
+1. Entre en el «Informe de auditoría» de la zona de administración (la consulta exige `setting:query`, y el tratamiento y la adjudicación, `setting:set`).
+2. Filtre los avisos por clase (auditoría／riesgo／bloqueo／recurso) y por prioridad.
+3. Verifique la información de entorno presentada en texto plano: IP, geolocalización, dispositivo y huella.
+4. Trate cada aviso según su clase: en la alerta de recurso, «Liberar»; en la alerta de bloqueo, «Levantar la alerta»; las alertas ordinarias ofrecen un menú de operaciones estándar.
+5. En el modo cifrado las marcas de tiempo se eliminan y los avisos siguen pudiendo estudiarse; el resultado del tratamiento determina el bloqueo y la restauración del lado del usuario.
+
+</details>
+
 ## 4. Documentos relacionados
 
 | Recurso | Enlace |

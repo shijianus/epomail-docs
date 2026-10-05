@@ -46,6 +46,18 @@ Composing is an overlay (not a route of its own), entered from three places: the
 
 Message detail supports conversation threading, layered typography and hover quick reply; viewing original headers helps diagnose delivery problems. Mail from official senders carries the verified marker and an explanatory banner — see [Official Mail Specification & Tamper-Proof Verification](/en/mail/tamper-proof/).
 
+<details>
+<summary>Walkthrough: the mailbox views and message detail</summary>
+
+![Mailbox views and message detail](/images/mail/en/ui/views.png)
+
+1. After signing in you land in the Inbox by default (`/mail/u/0/#inbox`); the top buttons switch between ascending and descending time order.
+2. New mail is inserted at the top of the list automatically by polling, and unread messages carry a red dot; the sidebar folder tree switches between the eight views.
+3. Clicking a sidebar label switches the list to "All Mail", filtered by that label.
+4. Clicking any message opens the detail view (`#message/<hash>`); replying, starring, snoozing, adding labels, translation and downloading the .eml are all in the on-page action bar.
+
+</details>
+
 ## 5. Related documents
 
 | Resource | Link |

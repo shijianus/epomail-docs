@@ -30,6 +30,18 @@ The "Add" dialog issues one registration code at a time, configurable:
 
 URLs carrying an invitation parameter (`?code=` / `?regKey=` / `?invite=`) prefill the registration form directly — see Section 5 of the [Interface & Route Map](/en/mail/interface/).
 
+<details>
+<summary>Walkthrough: Registration Keys</summary>
+
+![Registration Keys](/images/mail/en/ui/regkeys.png)
+
+1. Open the admin area's Registration Keys page (permission key `reg-key:query`).
+2. Click "Add" to generate an 8-character random code (click refresh to regenerate).
+3. Bind the identity group the registration will enter, and set the expiry and the number of uses (1–99999).
+4. Copy the code and send it to the invitees; "Usage records" shows how it has been consumed; "Clean unused" voids every unused code in one click.
+
+</details>
+
 ## 3. Related documents
 
 | Resource | Link |

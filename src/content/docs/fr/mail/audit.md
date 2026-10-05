@@ -30,6 +30,19 @@ Le rapport d'audit est l'interface des tickets de risque de la zone d'administra
 
 Les tickets d'appel sont tranchés par l'administrateur — « Lever » ou rejet — après vérification de l'environnement et du motif ; l'échelle des mesures et le droit d'appel des utilisateurs figurent à la section 6 de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/). L'exécution des bannissements se fait depuis la [Liste des utilisateurs](/fr/mail/users/).
 
+<details>
+<summary>Guide visuel : l'appréciation des tickets d'alerte</summary>
+
+![L'appréciation des tickets d'alerte](/images/mail/fr/ui/audit.png)
+
+1. Ouvrez le « Rapport d'audit » de la zone d'administration (la consultation exige `setting:query`, le traitement `setting:set`).
+2. Filtrez les tickets par classe (audit／risque／bannissement／appel) et par priorité.
+3. Vérifiez les informations d'environnement présentées en texte brut : IP, géolocalisation, appareil et empreinte.
+4. Traitez selon la classe : « Lever » pour les alertes d'appel, « Lever l'alerte » pour les alertes de bannissement, menu d'opérations standard pour les alertes ordinaires.
+5. En mode chiffré, les horodatages sont dépouillés mais les tickets restent susceptibles d'être appréciés ; le résultat du traitement commande le bannissement et la restauration côté utilisateur.
+
+</details>
+
 ## 4. Documents connexes
 
 | Ressource | Lien |

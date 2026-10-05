@@ -25,6 +25,18 @@ La lista presenta cada cuenta en una fila con dimensiones como su correo, su vol
 
 El bloqueo entra en el [Informe de auditoría](/es/mail/audit/) como un aviso; el usuario tratado puede apelar por el portal de apelaciones o por los canales del sitio, y el administrador estudia el caso. La escala de aplicación y el principio de proporcionalidad figuran en la sección 6 de la [Política de Uso Aceptable](/es/mail/acceptable-use/).
 
+<details>
+<summary>Guía visual: pasos de manejo de la lista de usuarios</summary>
+
+![Pasos de manejo de la lista de usuarios](/images/mail/es/ui/users.png)
+
+1. Entre en la «Lista de usuarios» de la zona de administración (exige la clave de permiso `user:query`).
+2. Localice la cuenta por su correo en el cuadro de búsqueda de la parte superior.
+3. En el menú de operaciones de cada fila elija: restablecer la contraseña, cambiar el grupo de identidad, restablecer la verificación en dos pasos, bloquear y restaurar, o vaciar el correo del usuario.
+4. El bloqueo y demás tratamientos entran en el informe de auditoría como avisos, a la espera de la adjudicación de las apelaciones.
+
+</details>
+
 ## 4. Documentos relacionados
 
 | Recurso | Enlace |

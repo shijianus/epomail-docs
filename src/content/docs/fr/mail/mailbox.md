@@ -46,6 +46,18 @@ La rédaction est une surimpression (et non une route indépendante) ; points d'
 
 Le détail des courriels prend en charge l'agrégation en fils de conversation, la mise en page hiérarchisée et la réponse rapide flottante ; la consultation des en-têtes bruts sert à diagnostiquer les problèmes de remise. Les courriels des expéditeurs officiels portent la marque de certification et un bandeau explicatif — voir [Anti-falsification et normes officielles](/fr/mail/tamper-proof/).
 
+<details>
+<summary>Guide visuel : les vues de la boîte et le détail des courriels</summary>
+
+![Les vues de la boîte et le détail des courriels](/images/mail/fr/ui/views.png)
+
+1. Après la connexion, vous arrivez par défaut dans la boîte de réception (`/mail/u/0/#inbox`) ; les boutons de la barre supérieure basculent entre l'ordre chronologique ascendant et descendant.
+2. Les nouveaux courriels sont insérés en haut de la liste automatiquement par scrutation, et les non lus portent un point rouge ; l'arborescence des dossiers de la barre latérale bascule entre les huit vues.
+3. Un clic sur une étiquette de la barre latérale bascule aussitôt la liste vers « Tous les courriels », filtrée selon cette étiquette.
+4. Un clic sur n'importe quel courriel ouvre la vue de détail (`#message/<hash>`) ; répondre, étoiler, reporter, étiqueter, traduire et télécharger en .eml se trouvent dans la barre d'actions de la page.
+
+</details>
+
 ## 5. Documents connexes
 
 | Ressource | Lien |

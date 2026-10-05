@@ -51,6 +51,19 @@ Umbrales operativos que disparan las alertas (generan los avisos del [Informe de
 
 Información de la versión de la instancia y comprobación de actualizaciones (cotejo con GitHub Releases).
 
+<details>
+<summary>Guía visual: vista rápida de las once tarjetas de configuración (numeración según la interfaz)</summary>
+
+![Vista rápida de las once tarjetas de configuración (numeración según la interfaz)](/images/mail/es/ui/system.png)
+
+1. ① Configuración del sitio: registro abierto, perfiles públicos, modo de correo, verificación en dos pasos, códigos de registro, buzones adicionales, cambio rápido multicuenta y reglas de prefijo de buzón.
+2. ② Personalización: título del sitio, avisos emergentes e interfaz dinámica/estática. ③ Almacenamiento y base de datos central: B2／S3, base de datos central y externa, límite de adjunto único.
+3. ④ Push de correo: bot de Telegram oficial, preferencias de visualización de los campos del push, reenvío global y por reglas. ⑤ Motor de IA: proveedor, cuota y límite de tasa, autorización de modelos.
+4. ⑥ Control de datos de usuario: interruptores de push／reenvío／API／almacenamiento propio del lado del usuario y cuota por defecto. ⑦ Verificación humana de Turnstile. ⑧ Aviso del sitio: ventanas emergentes, envíos de anuncios y plantillas de correo de bienvenida.
+5. ⑨ Informes de operaciones: umbrales que disparan las alertas. ⑩ Acerca de: versión y comprobación de actualizaciones. La tarjeta de autenticación de terceros y SSO se muestra bajo un indicador de función y no se renderiza por defecto.
+
+</details>
+
 ## 12. Documentos relacionados
 
 | Recurso | Enlace |

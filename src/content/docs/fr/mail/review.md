@@ -22,6 +22,18 @@ La revue du courriel à l'échelle du site est l'interface courrier de la zone d
 
 Les comptes suspects découverts à la revue se traitent directement depuis la [Liste des utilisateurs](/fr/mail/users/) ; les événements à risque entrent au [Rapport d'audit](/fr/mail/audit/) selon leur catégorie.
 
+<details>
+<summary>Guide visuel : la revue du courriel à l'échelle du site</summary>
+
+![La revue du courriel à l'échelle du site](/images/mail/fr/ui/review.png)
+
+1. Ouvrez la section « Tous les courriels » de la zone d'administration (elle s'affiche « Pourriels » en mode courriel privé et se masque en mode chiffré).
+2. Recherchez depuis la barre supérieure avec la syntaxe avancée `$`, par exemple `$user:<boîte>` ou `$subject:<mot-clé>` ; les jetons d'état filtrent les courriels envoyés／supprimés／sans destinataire.
+3. Un clic droit sur n'importe quel courriel de la liste lance directement une nouvelle recherche par son expéditeur, son compte destinataire ou son utilisateur propriétaire.
+4. Ouvrez le tiroir de détail pour vérifier le contenu et les informations d'environnement, puis procédez à la suppression physique (à distinguer de la corbeille côté utilisateur).
+
+</details>
+
 ## 3. Documents connexes
 
 | Ressource | Lien |

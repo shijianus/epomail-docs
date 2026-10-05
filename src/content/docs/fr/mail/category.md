@@ -31,6 +31,19 @@ Extraction des codes de vérification par Workers AI et configuration de ses rè
 
 Les listes à l'échelle du site s'entretiennent par l'administrateur et s'appliquent à toute l'instance ; les règles côté utilisateur ne portent que sur la boîte de leur titulaire ; dans les deux cas, une correspondance applique automatiquement l'étiquette dédiée. Le détail du comportement des listes et des mots-clés figure à la section 9 de la [Référence de la recherche et des règles](/fr/mail/search/) ; le traitement des abus, dans la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/).
 
+<details>
+<summary>Guide visuel : la gouvernance à l'échelle du site</summary>
+
+![La gouvernance à l'échelle du site](/images/mail/fr/ui/category.png)
+
+1. Ouvrez la page « Classement » de la zone d'administration (clé de permission `setting:query`).
+2. Configurez les interrupteurs de réception／d'envoi, l'actualisation automatique et le traitement des courriels sans destinataire.
+3. Configurez l'extraction des codes de vérification par Workers AI et ses paramètres d'API.
+4. Activez au besoin : liste noire d'expéditeurs, mode liste blanche, interception stricte d'expéditeurs, mots-clés d'objet et de contenu, interception des expéditeurs sans nom, interception des non-destinataires et interception des pièces jointes exécutables.
+5. Une correspondance dans les listes applique automatiquement l'étiquette dédiée, tandis que l'interception stricte rejette net et comptabilise ; l'effet des interceptions se revérifie sur la Page d'analyse.
+
+</details>
+
 ## 5. Documents connexes
 
 | Ressource | Lien |

@@ -31,6 +31,19 @@ La extracción de códigos de verificación por Workers AI y la configuración d
 
 Las listas a nivel de sitio las mantiene el administrador y actúan sobre toda la instancia; las reglas del lado del usuario solo actúan sobre su propio buzón; la coincidencia en cualquiera de las dos capas aplica automáticamente la etiqueta correspondiente. Los detalles del comportamiento de las listas y las palabras clave figuran en la sección 9 de [Referencia de búsqueda y reglas](/es/mail/search/); el tratamiento del abuso, en la [Política de Uso Aceptable](/es/mail/acceptable-use/).
 
+<details>
+<summary>Guía visual: pasos de gobernanza a nivel de sitio</summary>
+
+![Pasos de gobernanza a nivel de sitio](/images/mail/es/ui/category.png)
+
+1. Entre en la «Gestión de clasificación» de la zona de administración (exige la clave de permiso `setting:query`).
+2. Configure los interruptores de la función de recepción y de envío, el refresco automático y el tratamiento del correo sin destinatario.
+3. Configure el reconocimiento de códigos de verificación por Workers AI y los parámetros de su API (clave, URL y modelo).
+4. Active según convenga: lista negra de remitentes, modo de lista blanca, remitentes de bloqueo duro, palabras clave de asunto y de contenido, interceptación de remitentes vacíos, de no destinatarios y de adjuntos ejecutables.
+5. La coincidencia en las listas aplica automáticamente la etiqueta correspondiente, y el bloqueo duro rechaza directamente y acumula el contador; la tasa de interceptación puede revisarse después en la página de Analítica.
+
+</details>
+
 ## 5. Documentos relacionados
 
 | Recurso | Enlace |

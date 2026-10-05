@@ -31,6 +31,19 @@ De extractie van verificatiecodes door Workers AI met haar regelconfiguratie, en
 
 De lijsten op siteniveau worden door de beheerder onderhouden en gelden voor de hele instantie; de regels aan gebruikerskant gelden alleen voor de eigen mailbox. Treffers op beide niveaus passen automatisch het bijbehorende label toe. Het gedrag van lijsten en trefwoorden in detail staat in sectie 9 van de [Zoek- en regelreferentie](/nl/mail/search/); de afhandeling van misbruik in het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/).
 
+<details>
+<summary>Visuele handleiding: de governance op siteniveau in stappen</summary>
+
+![De governance op siteniveau in stappen](/images/mail/nl/ui/category.png)
+
+1. Ga in de beheerzone naar «Classificatiebeheer» (vereist `setting:query`).
+2. Configureer de hoofdschakelaars voor ontvangst en verzending, het automatisch verversen en de afhandeling van e-mail zonder geadresseerde.
+3. Configureer de herkenning van verificatiecodes door Workers AI en haar API-parameters.
+4. Schakel naar behoefte in: de zwarte lijst van afzenders, de witte-lijstmodus, de harde onderschepping van afzenders, trefwoorden in onderwerp en inhoud, de onderschepping van afzenders zonder naam, van niet-geadresseerden en van uitvoerbare bijlagen.
+5. Een treffer op een lijst past automatisch het bijbehorende label toe; de harde onderschepping wijst ronduit af en telt het aantal onderscheppingen op; het resultaat is op de Analysepagina te controleren.
+
+</details>
+
 ## 5. Verwante documenten
 
 | Bron | Link |

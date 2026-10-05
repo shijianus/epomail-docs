@@ -51,6 +51,19 @@ Seuils opérationnels de déclenchement des alertes (qui produisent les tickets 
 
 Informations de version de l'instance et vérification des mises à jour (à comparer aux GitHub Releases).
 
+<details>
+<summary>Guide visuel : les onze cartes de configuration en un coup d'œil (numérotation conforme à l'interface)</summary>
+
+![Les onze cartes de configuration en un coup d'œil (numérotation conforme à l'interface)](/images/mail/fr/ui/system.png)
+
+1. ① Paramètres du site : inscription ouverte, profils publics, mode courriel, vérification en deux étapes, code d'inscription, boîtes supplémentaires, changement rapide multi-comptes, règles de préfixe de boîte.
+2. ② Personnalisation : titre du site, notifications contextuelles, interface dynamique／statique. ③ Stockage et base de données centrale : B2／S3, base de données centrale et externe, limite de pièce jointe unique.
+3. ④ Push des courriels : robot Telegram officiel, affichage des champs poussés, transfert global et par règles. ⑤ Moteur IA : fournisseur, quota et limite de débit, autorisation des modèles.
+4. ⑥ Contrôle des données utilisateurs : interrupteurs push／transfert／API／stockage apporté côté utilisateur et quota par défaut. ⑦ Vérification humaine Turnstile. ⑧ Annonce : fenêtre contextuelle, envois groupés et modèles de courriels de bienvenue.
+5. ⑨ Rapports des opérations : seuils de déclenchement des alertes. ⑩ À propos : version et vérification des mises à jour. L'affichage de la carte Authentification tierce et SSO est commandé par un indicateur de fonctionnalité.
+
+</details>
+
 ## 12. Documents connexes
 
 | Ressource | Lien |

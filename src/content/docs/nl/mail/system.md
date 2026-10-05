@@ -51,6 +51,19 @@ De operationele drempels die waarschuwingen uitlokken (de ticketgeneratie van he
 
 Versie-informatie van de instantie en updatecontrole (tegenover GitHub Releases).
 
+<details>
+<summary>Visuele handleiding: de elf configuratiekaarten in één oogopslag (nummering volgens de interface)</summary>
+
+![De elf configuratiekaarten in één oogopslag (nummering volgens de interface)](/images/mail/nl/ui/system.png)
+
+1. ① Website-instellingen: open registratie, openbare profielen, e-mailmodus, tweestapsverificatie, registratiecodes, extra mailboxen, snel wisselen tussen accounts en het mailboxvoorvoegsel.
+2. ② Personalisatie: sitetitel, pop-upmeldingen en de dynamische／statische interface. ③ Opslag en kerndatabase: B2／S3, de kerndatabase en externe databases, de limiet voor één bijlage.
+3. ④ E-mail-push: de officiële Telegram-bot, de zichtbaarheid van de pushvelden, globaal doorsturen en doorsturen via regels. ⑤ AI-engine: aanbieder, dagquotum en ratelimiet, modelautorisatie.
+4. ⑥ Gebruikersgegevensbeheer: de schakelaars aan gebruikerskant voor push, doorsturen, API's van derden en eigen opslag, plus de standaard opslagquota. ⑦ Turnstile-mensverificatie. ⑧ Aankondigingen: pop-ups, bulkverzending en welkomstmail-sjablonen.
+5. ⑨ Operatierapporten: de drempels die waarschuwingen uitlokken. ⑩ Over: versie-informatie en updatecontrole. De kaart Derdenauthenticatie en SSO is zichtbaar onder een onderliggende functievlag en rendert niet in een standaarduitrol.
+
+</details>
+
 ## 12. Verwante documenten
 
 | Bron | Link |

@@ -22,6 +22,18 @@ De e-mailcontrole over de hele opslag is de e-mailinterface van de beheerzone (`
 
 Verdachte accounts die de controle aan het licht brengt, kunnen meteen in de [Gebruikerslijst](/nl/mail/users/) worden afgehandeld; risicogebeurtenissen komen per klasse in het [Auditrapport](/nl/mail/audit/).
 
+<details>
+<summary>Visuele handleiding: de e-mailcontrole over de hele opslag in stappen</summary>
+
+![De e-mailcontrole over de hele opslag in stappen](/images/mail/nl/ui/review.png)
+
+1. Ga in de beheerzone naar «Alle e-mail» (in de privémodus als «Spam» getoond, in de versleutelde modus verborgen).
+2. Zoek in de bovenbalk met de geavanceerde `$`-syntax, zoals `$user:<mailbox>` en `$subject:<trefwoord>`; statustokens filteren verzonden／verwijderd／zonder geadresseerde.
+3. Een rechtsklik op een willekeurige e-mail in de lijst start meteen een nieuwe zoekronde op haar afzender, het ontvangende account of de bezittende gebruiker.
+4. Open de detail-lade om inhoud en omgevingsgegevens te verifiëren, en voer daarna de fysieke verwijdering uit (anders dan de prullenbak aan gebruikerskant).
+
+</details>
+
 ## 3. Verwante documenten
 
 | Bron | Link |

@@ -27,6 +27,19 @@ A single message can be downloaded as .eml straight from the reading pane. Trash
 - Personal object storage can be connected (bring your own Backblaze B2 or S3 bucket): once connected, new attachments are saved straight to your own cloud and no longer count against the instance quota; the platform's B2 recommendation rests on its free tier and zero egress fees;
 - The connection can be removed at any time; afterwards new attachments fall back to instance storage.
 
+<details>
+<summary>Walkthrough: export and storage</summary>
+
+![Export and storage](/images/mail/en/ui/data.png)
+
+1. Go to "Settings → Data".
+2. "Full-data export" downloads a complete JSON backup in one package (personal data, mail history, contacts, rules and security settings).
+3. "Mail history archive": choose the MBOX / JSON / CSV format and a time range, then download.
+4. "Contacts and configuration" exports the contact list and the personalisation preferences.
+5. The storage card shows attachment usage; click "Connect a bucket" to bind your own Backblaze B2 / S3, after which attachments are saved straight to your own cloud.
+
+</details>
+
 ## 3. Related documents
 
 | Resource | Link |

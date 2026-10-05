@@ -30,6 +30,18 @@ description: EpoCanvas Mail 註冊密鑰——邀請註冊碼的簽發、可用�
 
 URL 攜帶邀請碼參數（`?code=`／`?regKey=`／`?invite=`）可直接預填註冊表單，見[介面與路由總覽](/zh-tw/mail/interface/)第 5 節。
 
+<details>
+<summary>圖解：註冊密鑰的操作步驟</summary>
+
+![註冊密鑰的操作步驟](/images/mail/zh-tw/ui/regkeys.png)
+
+1. 進入管理區「註冊密鑰」（需 `reg-key:query` 權限）。
+2. 點「新增」產生 8 位隨機碼（可點擊重新整理重新產生）。
+3. 綁定註冊後進入的身分分組，設定有效期與可用次數（1–99999）。
+4. 複製註冊碼傳送給受邀者；「使用記錄」查驗消耗情況；「清理未用」一鍵作廢全部未用碼。
+
+</details>
+
 ## 3. 相關文件
 
 | 資源 | 連結 |

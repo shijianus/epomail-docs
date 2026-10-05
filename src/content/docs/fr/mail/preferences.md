@@ -31,6 +31,18 @@ La publication externe de ces informations dépend de l'interrupteur « profils 
 
 Le fond d'écran thématique global s'applique à toutes les vues ; l'arrière-plan personnel ne couvre que la zone de la boîte ; sombre／clair se bascule aussi en raccourci depuis la barre supérieure. Les courriels système et de bienvenue partent dans la langue de chaque destinataire, indépendamment du réglage de la langue d'interface.
 
+<details>
+<summary>Guide visuel : le profil et les réglages généraux</summary>
+
+![Le profil et les réglages généraux](/images/mail/fr/ui/profile.png)
+
+1. « Paramètres → Profil » : importez un avatar et renseignez le pseudonyme, le genre et l'anniversaire.
+2. La carte des coordonnées accueille plusieurs adresses électroniques supplémentaires et des numéros de téléphone avec indicatif pays ; les cartes d'adresse enregistrent séparément le domicile, l'entreprise et l'autre adresse.
+3. « Paramètres → Général » : choisissez la palette d'apparence (sombre／claire／suivre le système) et le fond d'écran thématique global (huit préréglages ou fond personnalisé).
+4. Réglez les préférences de lecture (type de boîte de réception, position du volet de lecture, vue par conversations) et la langue d'interface ; la langue cible de traduction par défaut se choisit parmi 16.
+
+</details>
+
 ## 4. Documents connexes
 
 | Ressource | Lien |

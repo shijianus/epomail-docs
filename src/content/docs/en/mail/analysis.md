@@ -24,6 +24,18 @@ The Analytics page is the admin area's data dashboard (`#manage/admin/analysis`,
 - Watch the interception rate and the spam volume, and adjust the lists and keywords under [Classification](/en/mail/category/) accordingly;
 - Follow AI call trends and check that the AI Hub daily quota and rate limit in [System Settings Cards](/en/mail/system/) are sensible.
 
+<details>
+<summary>Walkthrough: the Analytics page</summary>
+
+![The Analytics page](/images/mail/en/ui/analysis.png)
+
+1. Open the admin area's Analytics page (permission key `analysis:query`).
+2. Read the three groups of metric cards: mail totals, users and governance.
+3. The growth curves follow user and mail trends; the source distribution checks the inbound mix.
+4. AI call and token trends and the model usage distribution serve to check the quota and rate limit configured in the system settings.
+
+</details>
+
 ## 3. Related documents
 
 | Resource | Link |

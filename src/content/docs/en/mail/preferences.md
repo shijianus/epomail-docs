@@ -31,6 +31,18 @@ How much of this is shown publicly is gated by the administrator's "public profi
 
 The global theme wallpaper applies to every view, while the personal background covers only the mailbox area; dark/light can also be toggled quickly from the top bar. System mail and welcome mail are delivered in the recipient's language, independent of the interface language setting.
 
+<details>
+<summary>Walkthrough: Personal data and General</summary>
+
+![Personal data and General](/images/mail/en/ui/profile.png)
+
+1. "Settings → Personal": upload an avatar and fill in the nickname, gender and birthday.
+2. The contact-information card holds multiple additional e-mail addresses and phone numbers with country codes; the address cards store home, company and other addresses separately.
+3. "Settings → General": choose the appearance colour scheme (dark / light / follow-system) and the global theme wallpaper (eight presets or custom).
+4. Set the reading preferences (inbox type, reading-pane position, conversation view) and the interface language; the default translation target language is one of 16.
+
+</details>
+
 ## 4. Related documents
 
 | Resource | Link |

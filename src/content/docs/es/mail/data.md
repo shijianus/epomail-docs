@@ -27,6 +27,19 @@ Un mensaje suelto se descarga en .eml directamente desde la página de lectura. 
 - Puede conectar un almacenamiento de objetos personal (un cubo de Backblaze B2 o S3 propio): una vez conectado, los adjuntos nuevos se guardan directamente en su nube y dejan de ocupar la cuota de la instancia; la recomendación de la plataforma por B2 se basa en su capa gratuita y en sus 0 de coste de tráfico saliente;
 - La conexión puede retirarse en cualquier momento; una vez retirada, los adjuntos nuevos vuelven al almacenamiento de la instancia.
 
+<details>
+<summary>Guía visual: pasos de exportación y almacenamiento</summary>
+
+![Pasos de exportación y almacenamiento](/images/mail/es/ui/data.png)
+
+1. Entre en «Configuración → Datos».
+2. La «exportación integral de datos» descarga en un solo paquete JSON una copia de seguridad completa (datos de la cuenta, historial de correo, contactos, reglas y ajustes de seguridad).
+3. El «archivo del historial de correo» se descarga tras elegir el formato MBOX／JSON／CSV y el rango de fechas.
+4. «Contactos y configuración» exporta el directorio de contactos y las preferencias de personalización.
+5. El indicador de almacenamiento muestra el uso de adjuntos; pulse «conectar un almacenamiento de objetos» para vincular su propio cubo de Backblaze B2／S3: a partir de entonces los adjuntos nuevos se guardan directamente en su nube.
+
+</details>
+
 ## 3. Documentos relacionados
 
 | Recurso | Enlace |

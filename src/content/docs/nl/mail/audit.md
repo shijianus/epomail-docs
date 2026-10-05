@@ -30,6 +30,19 @@ Het auditrapport is de risicoticket-interface van de beheerzone (`#manage/admin/
 
 De beheerder verifieert omgeving en omstandigheden van een beroepsticket en geeft dan vrij of verwerpt; de handhavingsladder en het beroepsrecht van gebruikers staan in sectie 6 van het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/). De ingang om blokkades uit te voeren staat in de [Gebruikerslijst](/nl/mail/users/).
 
+<details>
+<summary>Visuele handleiding: waarschuwingstickets beoordelen in stappen</summary>
+
+![Waarschuwingstickets beoordelen in stappen](/images/mail/nl/ui/audit.png)
+
+1. Ga in de beheerzone naar het «Auditrapport» (opvragen vereist `setting:query`, afhandelen vereist `setting:set`).
+2. Filter de tickets op klasse (audit／risico／blokkade／beroep) en op prioriteit.
+3. Verifieer de omgevingsgegevens in platte tekst: IP, geolocatie, apparaat en vingerafdruk.
+4. Handel per klasse af: beroepswaarschuwingen na beoordeling «vrijgeven», blokkeerwaarschuwingen «waarschuwing opheffen», de gewone waarschuwingen via het standaardactiemenu.
+5. In de versleutelde modus worden de tijdstempels uit de records gehaald en blijven de tickets beoordeelbaar; het afhandelresultaat doorwerkt in de blokkade en het herstel aan gebruikerskant.
+
+</details>
+
 ## 4. Verwante documenten
 
 | Bron | Link |

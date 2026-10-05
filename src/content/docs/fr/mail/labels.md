@@ -39,6 +39,18 @@ Les quatre étiquettes d'usine peuvent être modifiées et supprimées ; le clas
 - La zone d'étiquettes de la barre latérale affiche en temps réel le total et les non lus de chaque étiquette ;
 - Les résultats de classement peuvent être revérifiés, distribution des sources comprise, sur la [Page d'analyse](/fr/mail/analysis/) de la zone d'administration ; les listes blanche et noire à l'échelle du site et l'interception stricte se configurent par l'administrateur dans [Classement](/fr/mail/category/).
 
+<details>
+<summary>Guide visuel : les étiquettes et le constructeur de règles</summary>
+
+![Les étiquettes et le constructeur de règles](/images/mail/fr/ui/labels.png)
+
+1. Ouvrez « Paramètres → Étiquettes » ; créez une nouvelle étiquette dans la zone d'étiquettes de la barre latérale ou dans la page des étiquettes (la barre latérale en affiche au plus 7).
+2. Choisissez pour l'étiquette une icône de la bibliothèque intégrée ou importez un SVG personnalisé, puis prenez sa couleur dans la palette d'étiquettes.
+3. Dans la zone des règles, ajoutez une règle en deux temps — « conditions + exceptions » ; la saisie des valeurs bénéficie d'une complétion suggérée.
+4. Réglez `priority` (les plus petites d'abord) et `stopProcessing` (une correspondance tronque les règles suivantes) ; les règles s'exécutent automatiquement à la réception et peuvent aussi être lancées manuellement.
+
+</details>
+
 ## 5. Documents connexes
 
 | Ressource | Lien |

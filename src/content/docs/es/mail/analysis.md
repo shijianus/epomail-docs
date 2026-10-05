@@ -24,6 +24,18 @@ La página de analítica es el panel de datos de la zona de administración (`#m
 - Observar la tasa de interceptación y el volumen de correo no deseado, y ajustar en consecuencia las listas y palabras clave de la [Gestión de clasificación](/es/mail/category/);
 - Vigilar la tendencia de llamadas a la IA y comprobar si la cuota diaria y el límite de tasa del AI Hub en la [Configuración del sistema](/es/mail/system/) son razonables.
 
+<details>
+<summary>Guía visual: pasos de consulta de la página de Analítica</summary>
+
+![Pasos de consulta de la página de Analítica](/images/mail/es/ui/analysis.png)
+
+1. Entre en la «Analítica» de la zona de administración (exige la clave de permiso `analysis:query`).
+2. Consulte los tres grupos de tarjetas de indicadores: correo total, usuarios y gobernanza.
+3. Las curvas de crecimiento muestran la evolución de usuarios y correo; la distribución de fuentes permite cotejar la composición del correo entrante.
+4. La tendencia de llamadas a la IA y de consumo de tokens, junto con la distribución de uso de los modelos, sirve para cotejar la cuota y el límite de tasa de la configuración del sistema.
+
+</details>
+
 ## 3. Documentos relacionados
 
 | Recurso | Enlace |

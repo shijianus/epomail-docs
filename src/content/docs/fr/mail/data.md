@@ -27,6 +27,19 @@ Un courriel isolé se télécharge en .eml directement depuis le volet de lectur
 - Un stockage d'objets personnel peut être branché (compartiment Backblaze B2 ou S3 à soi) : une fois branché, les nouvelles pièces jointes vont directement sur votre cloud et ne comptent plus contre le quota de l'instance ; la recommandation de la plateforme pour B2 tient à son offre gratuite et à zéro frais de trafic sortant ;
 - Le branchement se délie à tout moment ; après déliaison, les nouvelles pièces jointes regagnent le stockage de l'instance.
 
+<details>
+<summary>Guide visuel : l'export et le stockage</summary>
+
+![L'export et le stockage](/images/mail/fr/ui/data.png)
+
+1. Ouvrez « Paramètres → Données ».
+2. « Export intégral des données » télécharge d'un bloc une sauvegarde JSON complète (informations du compte, historique des courriels, contacts, règles et paramètres de sécurité).
+3. « Archive de l'historique des courriels » : choisissez le format MBOX／JSON／CSV et une plage de dates, puis téléchargez.
+4. « Contacts et configuration » exporte le répertoire et les préférences de personnalisation.
+5. La carte de stockage affiche l'utilisation des pièces jointes ; cliquez sur « Brancher un stockage d'objets » pour lier votre propre Backblaze B2 ou S3 — les nouvelles pièces jointes vont ensuite directement sur votre cloud.
+
+</details>
+
 ## 3. Documents connexes
 
 | Ressource | Lien |

@@ -24,6 +24,18 @@ La page d'analyse est le tableau de bord de données de la zone d'administration
 - Observer le taux d'interception et le volume de pourriels, puis ajuster en conséquence les listes et les mots-clés de [Classement](/fr/mail/category/) ;
 - Suivre la tendance des appels IA et vérifier dans les [cartes des paramètres système](/fr/mail/system/) si le quota quotidien et la limite de débit de l'AI Hub restent raisonnables.
 
+<details>
+<summary>Guide visuel : la page d'analyse</summary>
+
+![La page d'analyse](/images/mail/fr/ui/analysis.png)
+
+1. Ouvrez la « Page d'analyse » de la zone d'administration (clé de permission `analysis:query`).
+2. Consultez les trois groupes de cartes d'indicateurs : volume de courriels, utilisateurs et gouvernance.
+3. Les courbes de croissance suivent les tendances des utilisateurs et des courriels ; la distribution des sources sert à vérifier la composition du trafic entrant.
+4. Les tendances des appels IA et de la consommation de jetons, ainsi que la distribution d'usage des modèles, servent à vérifier le quota et la limite de débit réglés dans les paramètres système.
+
+</details>
+
 ## 3. Documents connexes
 
 | Ressource | Lien |

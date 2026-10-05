@@ -30,6 +30,18 @@ Het venster «Toevoegen» geeft per keer één registratiecode uit, met deze vel
 
 Een URL met een uitnodigingsparameter (`?code=`／`?regKey=`／`?invite=`) vult het registratieformulier direct in, zie sectie 5 van de [Interface en routekaart](/nl/mail/interface/).
 
+<details>
+<summary>Visuele handleiding: de Registratiesleutels in stappen</summary>
+
+![De Registratiesleutels in stappen](/images/mail/nl/ui/regkeys.png)
+
+1. Ga in de beheerzone naar «Registratiesleutels» (vereist `reg-key:query`).
+2. Klik op «Toevoegen» om een willekeurige code van 8 tekens uit te geven (met een klik op vernieuwen opnieuw gegenereerd).
+3. Bind de identiteitsgroep waarin geregistreerde accounts terechtkomen, en stel de geldigheid en het aantal gebruik in (1–99999).
+4. Kopieer de registratiecode en verstrek haar aan de genodigden; de «Gebruikslog» toont het verbruik; «Ongebruikte opschonen» maakt met één klik alle ongebruikte codes ongeldig.
+
+</details>
+
 ## 3. Verwante documenten
 
 | Bron | Link |

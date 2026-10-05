@@ -22,6 +22,18 @@ Full-Store Mail Review is the admin area's mail-dimension interface (`#manage/ad
 
 Suspicious accounts found in review can be jumped to the [User List](/en/mail/users/) for handling; risk events enter [Operation Reports](/en/mail/audit/) by class.
 
+<details>
+<summary>Walkthrough: Full-Store Mail Review</summary>
+
+![Full-Store Mail Review](/images/mail/en/ui/review.png)
+
+1. Open the admin area's "All Mail" section (shown as "Spam" in Privacy Mail Mode, hidden in Encrypted Mail Mode).
+2. Search from the top bar with the `$` advanced syntax, e.g. `$user:<mailbox>`, `$subject:<keyword>`; status tokens filter sent / deleted / no-recipient mail.
+3. Right-click any message in the list to start a new search directly from its sender, recipient mailbox or owning user.
+4. Open the detail drawer to verify the content and environment details, then physical deletion is available (distinct from the user-side Trash).
+
+</details>
+
 ## 3. Related documents
 
 | Resource | Link |

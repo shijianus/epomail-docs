@@ -39,6 +39,18 @@ Las cuatro etiquetas de fábrica pueden editarse y eliminarse; la clasificación
 - La zona de etiquetas de la barra lateral muestra en tiempo real el total y los no leídos de cada etiqueta;
 - Los resultados de la clasificación pueden revisarse por la distribución de fuentes en la página de [Analítica](/es/mail/analysis/) de la zona de administración; las listas blancas y negras a nivel de sitio y el bloqueo duro los configura el administrador en la [Gestión de clasificación](/es/mail/category/).
 
+<details>
+<summary>Guía visual: pasos de uso de las etiquetas y del constructor de reglas</summary>
+
+![Pasos de uso de las etiquetas y del constructor de reglas](/images/mail/es/ui/labels.png)
+
+1. Entre en «Configuración → Etiquetas»; cree etiquetas en la zona de etiquetas de la barra lateral o dentro de la página de etiquetas (la barra lateral muestra hasta 7).
+2. Elija para cada etiqueta un icono del catálogo incorporado o suba un SVG personalizado, y escoja su color en la paleta de etiquetas.
+3. En la zona de reglas, componga cada regla en dos pasos —condiciones y excepciones—; los campos de valor cuentan con autocompletado.
+4. Ajuste `priority` (primero los números menores) y `stopProcessing` (termina la cascada en cuanto una regla coincide); las reglas se ejecutan automáticamente al llegar el correo y también pueden ejecutarse manualmente.
+
+</details>
+
 ## 5. Documentos relacionados
 
 | Recurso | Enlace |

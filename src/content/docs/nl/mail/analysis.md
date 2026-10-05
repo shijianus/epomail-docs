@@ -24,6 +24,18 @@ De analysepagina is het gegevensdashboard van de beheerzone (`#manage/admin/anal
 - Het onderscheppingspercentage en de spamhoeveelheid volgen en daar de lijsten en trefwoorden van [Classificatiebeheer](/nl/mail/category/) op bijstellen;
 - De AI-trend volgen en controleren of het dagquotum en de ratelimiet van de AI Hub in de [systeeminstellingen](/nl/mail/system/) nog passend zijn.
 
+<details>
+<summary>Visuele handleiding: de Analysepagina raadplegen in stappen</summary>
+
+![De Analysepagina raadplegen in stappen](/images/mail/nl/ui/analysis.png)
+
+1. Ga in de beheerzone naar de «Analysepagina» (vereist `analysis:query`).
+2. Bekijk de drie groepen indicatorkaarten: e-mailvolume, gebruikers en beheer.
+3. Met de groeicurves volgt u de trend van gebruikers en e-mail; de bronverdeling controleert de samenstelling van inkomende e-mail.
+4. De trend van AI-aanroepen en tokenverbruik en de verdeling van het gebruik per model dienen om het quotum en de ratelimiet in de systeeminstellingen te toetsen.
+
+</details>
+
 ## 3. Verwante documenten
 
 | Bron | Link |

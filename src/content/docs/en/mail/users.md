@@ -25,6 +25,18 @@ The list shows each account row by row with mailbox, send/receive volume, storag
 
 A ban enters [Operation Reports](/en/mail/audit/) as a warning ticket; the affected user can appeal through the appeal portal or in-site channels, and an administrator adjudicates. The enforcement ladder and the principle of proportionality are in Section 6 of the [Acceptable Use Policy](/en/mail/acceptable-use/).
 
+<details>
+<summary>Walkthrough: the User List</summary>
+
+![The User List](/images/mail/en/ui/users.png)
+
+1. Open the admin area's User List (permission key `user:query`).
+2. Use the top search box to locate an account by mailbox.
+3. In the row action menu, choose: reset password, change identity group, reset two-step verification, ban and restore, or mailbox wipe.
+4. Bans and handling decisions enter Operation Reports as warning tickets for later appeal adjudication.
+
+</details>
+
 ## 4. Related documents
 
 | Resource | Link |

@@ -22,6 +22,18 @@ La revisión del correo de todo el almacén es la interfaz de la dimensión de c
 
 Las cuentas sospechosas halladas en la revisión pueden saltar a la [Lista de usuarios](/es/mail/users/) para su tratamiento; los eventos de riesgo entran según su clase en el [Informe de auditoría](/es/mail/audit/).
 
+<details>
+<summary>Guía visual: pasos de la revisión del correo de todo el almacén</summary>
+
+![Pasos de la revisión del correo de todo el almacén](/images/mail/es/ui/review.png)
+
+1. Entre en «Todo el correo» de la zona de administración (en el modo privado se muestra como «Correo no deseado», y en el modo cifrado la sección se oculta).
+2. Busque desde la barra superior con la sintaxis avanzada de `$`, p. ej. `$user:<correo>` o `$subject:<palabra clave>`; los tokens de estado filtran enviado／eliminado／sin destinatario.
+3. Pulse con el botón derecho sobre cualquier correo de la lista para iniciar directamente una nueva búsqueda por su remitente, por su cuenta destinataria o por su usuario propietario.
+4. Abra el panel deslizante de detalle para verificar el contenido y la información de entorno antes de ejecutar la eliminación física (a diferencia de la papelera del lado del usuario).
+
+</details>
+
 ## 3. Documentos relacionados
 
 | Recurso | Enlace |

@@ -33,6 +33,18 @@ Cada grupo se autoriza por claves de permiso (por ejemplo, `user:query` para con
 - LV.0 y LV.1 se sincronizan automáticamente mediante la vinculación con el nivel del blog (vincular una cuenta del blog eleva a LV.0, la interacción activa eleva a LV.1);
 - La autorización de modelos de IA se gradúa por grupo, en combinación con la cuota y el límite de tasa del AI Hub de la [Configuración del sistema](/es/mail/system/).
 
+<details>
+<summary>Guía visual: pasos de manejo del control de permisos</summary>
+
+![Pasos de manejo del control de permisos](/images/mail/es/ui/roles.png)
+
+1. Entre en el «Control de permisos» de la zona de administración (exige la clave de permiso `role:query`).
+2. Coteje en la tabla de vista de conjunto de la arquitectura y la graduación la cuota de almacenamiento, el límite de envío y los permisos de adjuntos de los seis grupos (el grupo Maestro trae de fábrica 1024 MB, que la interfaz rotula «sin límite»).
+3. Al editar un grupo ajuste su cuota, el interruptor de adjuntos y los modelos de IA autorizados; marque las claves de permiso una a una (p. ej. `user:query`, `setting:query`).
+4. El grupo por defecto es de fábrica el Visitante y puede cambiarse a otro; los grupos Visitante y Maestro están protegidos y no pueden eliminarse.
+
+</details>
+
 ## 4. Documentos relacionados
 
 | Recurso | Enlace |

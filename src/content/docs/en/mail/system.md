@@ -51,6 +51,19 @@ The operational thresholds at which warnings trigger (feeding ticket generation 
 
 Instance version information and the update check (against GitHub Releases).
 
+<details>
+<summary>Walkthrough: the eleven configuration cards at a glance (numbering matches the interface)</summary>
+
+![The eleven configuration cards at a glance (numbering matches the interface)](/images/mail/en/ui/system.png)
+
+1. ① Website settings: open registration, public profiles, mail mode, two-step verification, registration codes, extra mailboxes, multi-account switching and mailbox prefixes.
+2. ② Customization: site title, pop-up notices and the dynamic / static interface. ③ Storage & core database: B2 / S3, the core and external database, and the single-attachment limit.
+3. ④ Mail push: the official Telegram bot, push-field show/hide, global and rule forwarding. ⑤ AI Engine: the provider, quota and rate limit, and model authorisation.
+4. ⑥ User Data Control: the user-side push / forwarding / API / bring-your-own storage switches and the default quota. ⑦ Turnstile human verification. ⑧ Notice: pop-ups, broadcasts and the welcome-mail template.
+5. ⑨ Operation Reports: the thresholds at which warnings trigger. ⑩ About: version and the update check. The Third-party authentication & SSO card's display is governed by a feature flag.
+
+</details>
+
 ## 12. Related documents
 
 | Resource | Link |

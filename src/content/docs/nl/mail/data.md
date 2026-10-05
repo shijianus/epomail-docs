@@ -27,6 +27,19 @@ Een los bericht kan in het leesvenster rechtstreeks als .eml worden gedownload. 
 - Er kan een persoonlijke objectopslag worden gekoppeld (een eigen Backblaze B2- of S3-bucket): na koppeling worden nieuwe bijlagen rechtstreeks in uw eigen cloud bewaard en tellen ze niet meer mee voor de quota van de instantie; het platform beveelt B2 aan vanwege het gratis quotum en de kosten van nul voor uitgaand verkeer;
 - De koppeling kan op elk moment worden opgeheven; daarna belanden nieuwe bijlagen weer in de opslag van de instantie.
 
+<details>
+<summary>Visuele handleiding: de export en de opslag in stappen</summary>
+
+![De export en de opslag in stappen](/images/mail/nl/ui/data.png)
+
+1. Ga naar «Instellingen → Gegevens».
+2. «Volledige data-export» downloadt in één pakket een volledige JSON-back-up (accountgegevens, e-mailgeschiedenis, contacten, classificatie- en labelregels en beveiligingsinstellingen).
+3. «Archief van de e-mailgeschiedenis» downloadt u na keuze van het formaat MBOX／JSON／CSV en een periode.
+4. «Contacten en configuratie» exporteert de contactenlijst en de personalisatievoorkeuren.
+5. De opslagkaart toont het bijlagenverbruik; klik op «persoonlijke objectopslag koppelen» om een eigen Backblaze B2- of S3-bucket te binden — nieuwe bijlagen gaan daarna rechtstreeks naar uw eigen cloud.
+
+</details>
+
 ## 3. Verwante documenten
 
 | Bron | Link |

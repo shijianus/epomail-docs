@@ -33,6 +33,18 @@ Each group is authorised by permission keys (e.g. `user:query` to view the user 
 - LV.0 and LV.1 sync automatically through blog-level linkage (binding a blog account raises the account to LV.0; active participation raises it to LV.1);
 - AI model authorisation is graded per group, working with the AI Hub quota and rate limit in [System Settings Cards](/en/mail/system/).
 
+<details>
+<summary>Walkthrough: Permissions</summary>
+
+![Permissions](/images/mail/en/ui/roles.png)
+
+1. Open the admin area's Permissions page (permission key `role:query`).
+2. Check the "architecture and grading overview" table for the six groups' storage quota, sending limit and attachment permission (the Master group is factory-seeded at 1024 MB, labelled "unlimited" in the interface).
+3. Edit a group to adjust its quota, attachment switch and AI model authorisation, and tick the permission keys item by item (e.g. `user:query`, `setting:query`).
+4. The default group is factory-seeded as the Visitor and can be changed to another group; the Visitor and Master groups are protected and cannot be deleted.
+
+</details>
+
 ## 4. Related documents
 
 | Resource | Link |

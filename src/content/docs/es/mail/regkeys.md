@@ -30,6 +30,18 @@ El cuadro de diálogo «Añadir» emite un código de registro cada vez, configu
 
 Una URL que lleve el parámetro de invitación (`?code=`／`?regKey=`／`?invite=`) prellena directamente el formulario de registro; véase la sección 5 de [Mapa de interfaz y rutas](/es/mail/interface/).
 
+<details>
+<summary>Guía visual: pasos de manejo de las claves de registro</summary>
+
+![Pasos de manejo de las claves de registro](/images/mail/es/ui/regkeys.png)
+
+1. Entre en las «Claves de registro» de la zona de administración (exige la clave de permiso `reg-key:query`).
+2. Pulse «Añadir» para generar un código aleatorio de 8 caracteres (pulse el botón de actualizar para regenerarlo).
+3. Vincule el grupo de identidad al que entrarán las cuentas registradas y fije la vigencia y los usos disponibles (1–99999).
+4. Copie el código de registro y envíelo a los invitados; el «registro de uso» permite comprobar su consumo; «limpiar los no usados» deja sin validez de un clic todos los códigos aún sin usar.
+
+</details>
+
 ## 3. Documentos relacionados
 
 | Recurso | Enlace |

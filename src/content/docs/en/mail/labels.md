@@ -39,6 +39,18 @@ The four factory labels can be edited and deleted; heuristic sorting applies onl
 - The sidebar label area shows each label's total and unread counts in real time;
 - Classification results can be reviewed by source distribution on the admin [Analytics](/en/mail/analysis/) page; site-wide allow/block lists and hard interception are configured by administrators under [Classification](/en/mail/category/).
 
+<details>
+<summary>Walkthrough: labels and the rule builder</summary>
+
+![Labels and the rule builder](/images/mail/en/ui/labels.png)
+
+1. Go to "Settings → Labels"; create a new label in the sidebar label area or on the labels page (the sidebar shows at most 7).
+2. Pick a built-in icon for the label or upload a custom SVG, and choose the label colour.
+3. In the rule area, add a rule in the two steps "conditions + exceptions"; the value inputs come with autocompletion.
+4. Set `priority` (lower first) and `stopProcessing` (later rules halt once matched); rules run automatically on incoming mail and can also be applied manually.
+
+</details>
+
 ## 5. Related documents
 
 | Resource | Link |

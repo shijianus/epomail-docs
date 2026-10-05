@@ -33,6 +33,18 @@ Elke groep wordt per rechten-sleutel geautoriseerd (bijvoorbeeld `user:query` vo
 - LV.0 en LV.1 synchroniseren automatisch via de blogniveaus (een blogaccount koppelen tilt het account naar LV.0, actieve blogdeelname naar LV.1);
 - De AI-modelautorisatie is per groep getrapt en werkt samen met het dagquotum en de ratelimiet van de AI Hub in de [systeeminstellingen](/nl/mail/system/).
 
+<details>
+<summary>Visuele handleiding: het Rechtenbeheer in stappen</summary>
+
+![Het Rechtenbeheer in stappen](/images/mail/nl/ui/roles.png)
+
+1. Ga in de beheerzone naar het «Rechtenbeheer» (vereist `role:query`).
+2. Controleer in de tabel met het architectuur- en gradatieoverzicht van de zes identiteitsgroepen de opslagquota, de verzendlimiet en het bijlagerecht (de groep Meester heeft fabrieksstandaard 1024 MB, in de interface als «onbeperkt» gelabeld).
+3. Pas bij het bewerken van een groep de quota, de bijlagschakelaar en de geautoriseerde AI-modellen aan; vink de rechten-sleutels stuk voor stuk aan (zoals `user:query`, `setting:query`).
+4. Nieuwe registraties belanden fabrieksstandaard in de groep Bezoeker; de standaardgroep is naar een andere groep te wijzigen; de groepen Bezoeker en Meester zijn tegen verwijdering beschermd.
+
+</details>
+
 ## 4. Verwante documenten
 
 | Bron | Link |

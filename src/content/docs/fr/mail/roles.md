@@ -33,6 +33,18 @@ Chaque groupe reçoit ses autorisations par clés de permission (par exemple `us
 - Les paliers LV.0 et LV.1 se synchronisent automatiquement par le lien de niveau de blog (lier un compte de blog élève en LV.0, une participation active élève en LV.1) ;
 - L'autorisation des modèles IA se gradue par groupe, en coordination avec le quota et la limite de débit de l'AI Hub dans les [cartes des paramètres système](/fr/mail/system/).
 
+<details>
+<summary>Guide visuel : les permissions</summary>
+
+![Les permissions](/images/mail/fr/ui/roles.png)
+
+1. Ouvrez la page des « Permissions » de la zone d'administration (clé de permission `role:query`).
+2. Le tableau d'ensemble de l'architecture et de la graduation recense les quotas de stockage, les limites d'envoi et les permissions de pièces jointes des six groupes (le groupe Maître est semé en usine à 1024 Mo, l'interface affiche « sans plafond »).
+3. Modifiez un groupe pour ajuster son quota, son interrupteur de pièces jointes et son autorisation de modèles IA, et cochez les clés de permission une à une (par exemple `user:query`, `setting:query`).
+4. Le groupe par défaut est, en sortie d'usine, le Visiteur et peut être changé pour un autre groupe ; les groupes Visiteur et Maître sont protégés et ne peuvent être supprimés.
+
+</details>
+
 ## 4. Documents connexes
 
 | Ressource | Lien |

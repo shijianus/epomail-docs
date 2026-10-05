@@ -31,6 +31,19 @@ Workers AI verification-code extraction and its rule configuration, and the AI A
 
 Site-level lists are maintained by administrators and apply to the whole instance; user-side rules apply only to the user's own mailbox, and hits on either side apply the corresponding label automatically. Behaviour details of the lists and keywords are in Section 9 of the [Search & Rules Reference](/en/mail/search/); abuse handling is in the [Acceptable Use Policy](/en/mail/acceptable-use/).
 
+<details>
+<summary>Walkthrough: site-level governance</summary>
+
+![Site-level governance](/images/mail/en/ui/category.png)
+
+1. Open the admin area's Classification page (permission key `setting:query`).
+2. Configure the receiving / sending switches and auto-refresh, and the handling of mail without recipients.
+3. Configure Workers AI verification-code extraction and its API parameters.
+4. Enable as needed: the sender block-list, allow-list mode, sender hard interception, subject and content keywords, empty-sender interception, not-to-me interception and executable-attachment interception.
+5. List hits apply the corresponding label automatically, while hard interception rejects outright and counts up; the interception effect can be reviewed afterwards on the Analytics page.
+
+</details>
+
 ## 5. Related documents
 
 | Resource | Link |

@@ -31,6 +31,18 @@ La visibilidad externa del perfil está regida por el interruptor de «perfil p�
 
 El fondo de pantalla temático global actúa sobre todas las vistas; el fondo personal cubre solo la zona del buzón; el claro/oscuro también se conmuta con rapidez desde la barra superior. El correo del sistema y el de bienvenida se entregan en el idioma de cada destinatario, con independencia del idioma de la interfaz configurado.
 
+<details>
+<summary>Guía visual: pasos de configuración de Perfil y General</summary>
+
+![Pasos de configuración de Perfil y General](/images/mail/es/ui/profile.png)
+
+1. «Configuración → Perfil»: suba el avatar y rellene apodo, género y cumpleaños.
+2. La tarjeta de información de contacto admite varios correos electrónicos adicionales y números de teléfono con prefijo de país; las tarjetas de dirección guardan por separado casa, empresa y otras.
+3. «Configuración → General»: escoja la paleta de apariencia (oscura, clara o seguir el sistema) y el fondo de pantalla temático global (ocho preajustes o personalizado).
+4. Configure las preferencias de lectura (tipo de bandeja de entrada, posición del panel de lectura, vista por conversaciones) y el idioma de la interfaz; el idioma de destino de la traducción se elige entre 16.
+
+</details>
+
 ## 4. Documentos relacionados
 
 | Recurso | Enlace |

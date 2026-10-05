@@ -39,6 +39,18 @@ De vier fabriekslabels zijn te bewerken en te verwijderen; de heuristische class
 - Het labelgebied in de zijbalk toont in realtime per label het totaal en het aantal ongelezen;
 - De classificatieresultaten zijn in de beheerzone op de [Analysepagina](/nl/mail/analysis/) te controleren op bronverdeling; de sitewijde witte en zwarte lijsten en de harde onderschepping worden door de beheerder in [Classificatiebeheer](/nl/mail/category/) ingesteld.
 
+<details>
+<summary>Visuele handleiding: de labels en de bouwer van classificatieregels in stappen</summary>
+
+![De labels en de bouwer van classificatieregels in stappen](/images/mail/nl/ui/labels.png)
+
+1. Ga naar «Instellingen → Labels»; maak een label aan in het labelgebied van de zijbalk of op de labelpagina (de zijbalk toont er ten hoogste 7).
+2. Kies voor het label een pictogram uit de ingebouwde bibliotheek of upload een eigen SVG, en kies de labelkleur.
+3. Voeg in het regelgebied een regel toe volgens de twee stappen «voorwaarden + uitzonderingen»; de invoer van waarden krijgt vanzelf aanvullingen.
+4. Stel `priority` (kleiner eerst) en `stopProcessing` (afbreken bij een treffer) in; regels worden bij ontvangst van e-mail automatisch uitgevoerd en kunnen ook handmatig worden uitgevoerd.
+
+</details>
+
 ## 5. Verwante documenten
 
 | Bron | Link |

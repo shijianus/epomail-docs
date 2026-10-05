@@ -46,6 +46,18 @@ Schrijven is een overlay (geen eigen route), met drie ingangen: de knop «Schrij
 
 De e-maildetails ondersteunen gespreksgroepering in threads, gelaagde opmaak en zwevend snel beantwoorden; het inzien van de originele headers dient om afleverproblemen te onderzoeken. E-mail van officiële afzenders draagt de verificatiemarkering en een uitlegbalk, zie [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/).
 
+<details>
+<summary>Visuele handleiding: de mailboxweergaven en de e-maildetails in stappen</summary>
+
+![De mailboxweergaven en de e-maildetails in stappen](/images/mail/nl/ui/views.png)
+
+1. Na aanmelding landt u standaard in het Postvak IN (`/mail/u/0/#inbox`); de knop in de bovenbalk wisselt tussen op- en aflopende tijdsvolgorde.
+2. Nieuwe e-mail wordt door de peiling automatisch bovenaan de lijst ingevoegd en met een rood stipje als ongelezen gemarkeerd; de mappenboom in de zijbalk wisselt tussen de acht weergaven.
+3. Een klik op een zijbalklabel brengt de lijst naar «Alle e-mail» en filtert op dat label.
+4. Een klik op een willekeurige e-mail opent de detailweergave (`#message/<hash>`): beantwoorden, ster geven, uitstellen, labelen, vertalen en .eml downloaden staan in de actiebalk op de pagina.
+
+</details>
+
 ## 5. Verwante documenten
 
 | Bron | Link |
