@@ -3,7 +3,7 @@ title: 界面与路由总览
 description: EpoCanvas Mail 界面与路由总览——邮箱主界面八视图、写信弹层、设置与管理区全部路由、登录面流程、OAuth 授权页与公开个人主页之完整导览。
 ---
 
-**生效日期：2026 年 10 月 5 日｜版本：5.13**
+**生效日期：2026 年 10 月 5 日｜版本：5.14**
 
 本页逐一导览 EpoCanvas Mail 的每一处界面及其路由。界面路径由两部分组成：路径前缀 `/mail/u/N/`（N 为多账户会话序号，单帐号恒为 0）与 `#` 后的视图路由（如 `#inbox`）；旧式直达路径（如 `/inbox`）会自动归一化为完整形态。登录面独立部署于 `/login/`。各路由之访问能力由身份分组权限决定，见[运行模式](/mail/modes/)；逐项设置之作用见[设置指南](/mail/settings/)。
 
@@ -55,7 +55,7 @@ description: EpoCanvas Mail 界面与路由总览——邮箱主界面八视图�
 | `#settings/profile` | 个资 | 头像、昵称、性别、生日、邮箱、电话与地址 |
 | `#settings/general` | 常规 | 简介、外观色调、主题壁纸、阅读偏好、语言与数据隐私 |
 | `#settings/security` | 安全 | 用户名与密码、两步验证中心、通行密钥、注销帐号 |
-| `#settings/data` | 资料 | 数据导出、通知与转发、API 访问、第三方应用授权、存储空间 |
+| `#settings/data` | 资料 | 数据导出、通知与转发、第三方应用授权、存储空间 |
 | `#settings/labels` | 标签 | 标签管理与分类规则构建器 |
 
 ![EpoCanvas Mail 常规设置页：个性装扮区、主题壁纸与外观色调](/images/mail/ui/ui-settings-general.png)
@@ -114,6 +114,7 @@ description: EpoCanvas Mail 界面与路由总览——邮箱主界面八视图�
 
 | 资源 | 链接 |
 | --- | --- |
+| OAuth 应用注册与端点接入教程 | [OAuth 应用注册与端点接入教程](/mail/api/) |
 | 搜索算子、管理端检索与分类规则条件 | [搜索与规则参考](/mail/search/) |
 | 各设置分区逐项说明 | [设置指南](/mail/settings/) |
 | 功能详解与界面截图 | [功能指南](/mail/features/) |

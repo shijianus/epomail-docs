@@ -3,7 +3,7 @@ title: Guide des paramètres
 description: Guide des paramètres d'EpoCanvas Mail — les cinq sections des paramètres personnels (profil, général, sécurité, données, étiquettes) et la visite complète des neuf sections de la console d'administration et des cartes de paramètres système.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.14**
 
 EpoCanvas Mail partage ses paramètres en deux zones : la zone « paramètres » de la barre latérale regroupe les paramètres personnels que chaque compte peut ajuster lui-même, en cinq sections — profil, général, sécurité, données et étiquettes ; la zone « administration » n'apparaît que pour les groupes d'identité dotés de permissions administratives et porte la configuration au niveau de l'instance. La présente page parcourt chaque zone et les relations entre les paramètres. Pour le comportement au niveau du fonctionnement — multi-comptes, modes courriel, connexion — voir [Modes de fonctionnement](/fr/mail/modes/).
 
@@ -52,7 +52,7 @@ La page de sécurité modifie le nom d'utilisateur et le mot de passe (en affich
 | Archive de l'historique des courriels | MBOX (universel), JSON ou CSV | Courriels envoyés et reçus uniquement, avec plage de dates facultative |
 | Contacts et configuration | JSON | Répertoire, règles d'alias personnalisées et préférences de personnalisation |
 
-Un courriel isolé se télécharge en .eml directement depuis le volet de lecture. La zone notifications et transfert propose le push Telegram (liaison d'un robot et d'un identifiant de conversation) et le transfert de courriels par règles (adresse de destination au choix ; déclencheurs : tous les courriels, préfixe d'alias ou règles intelligentes, avec options de conservation d'une copie et de préfixe d'objet) ; l'ouverture de ces deux fonctions aux utilisateurs relève des interrupteurs de contrôle des données utilisateurs de l'opérateur. La zone de stockage affiche la jauge d'utilisation des pièces jointes et permet de brancher un stockage d'objets personnel (compartiment Backblaze B2 ou S3 à soi) ; une fois branché, les pièces jointes vont directement au cloud personnel, hors quota de l'instance.
+Un courriel isolé se télécharge en .eml directement depuis le volet de lecture. La zone « Transfert de courriels et de messages » propose le push Telegram et le transfert automatique : la liaison d'un robot privé, les préférences de push et les types de déclencheur s'expliquent pas à pas dans le [Guide des notifications et du transfert](/fr/mail/notify/) ; l'ouverture de ces deux fonctions aux utilisateurs relève de l'interrupteur « Contrôle des données utilisateurs » de l'opérateur. La zone de stockage affiche la jauge d'utilisation des pièces jointes et permet de brancher un stockage d'objets personnel (compartiment Backblaze B2 ou S3 à soi) ; une fois branché, les pièces jointes vont directement au cloud personnel, hors quota de l'instance.
 
 ## 6. Gestion des étiquettes
 
@@ -107,6 +107,9 @@ La page des rapports d'audit présente les événements de risque du site sous f
 
 | Ressource | Lien |
 | --- | --- |
+| 2FA, codes de récupération et clés d'accès pas à pas | [2FA, codes de récupération et clés d'accès pas à pas](/fr/mail/security/) |
+| Push Telegram et transfert automatique pas à pas | [Push Telegram et transfert automatique pas à pas](/fr/mail/notify/) |
+| Tutoriel d'enregistrement d'apps OAuth et d'intégration des points de terminaison | [Tutoriel d'enregistrement d'apps OAuth et d'intégration des points de terminaison](/fr/mail/api/) |
 | La route et les éléments de chaque interface | [Interface et plan des routes](/fr/mail/interface/) |
 | Opérateurs de recherche et conditions de règles de classement | [Référence de la recherche et des règles](/fr/mail/search/) |
 | Formes de déploiement, modes courriel et connexion | [Modes de fonctionnement](/fr/mail/modes/) |

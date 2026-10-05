@@ -3,7 +3,7 @@ title: Dienstomvang en ondersteuning
 description: Dienstomvang en ondersteuning van EpoCanvas Mail — wat de gehoste instantie biedt, waar die dienst eindigt, de officiële links, de ondersteuningskanalen en de beroeps- en herstelroutes.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
 
 Deze pagina beschrijft wat de gehoste instantie ([mail.epocanvas.com](https://mail.epocanvas.com)) biedt, waar die dienst eindigt, en de ondersteuningskanalen. Zelf gehoste instanties vallen buiten de «dienst» die hier beschreven wordt: de software wordt onder de MIT-licentie verstrekt en het upstreamproject draagt geen enkele verantwoordelijkheid voor de exploitatie van enige instantie — de juridische positie staat in [Open source en zelfhosting: juridisch kader](/nl/mail/open-source/); de verdeling van de rol van gegevensbeheerder tussen de beide vormen staat in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/), sectie 2.
 

@@ -3,7 +3,7 @@ title: Marco legal del código abierto y el autoalojamiento
 description: Marco legal del código abierto y el autoalojamiento de EpoCanvas Mail — el alcance de la licencia MIT, lo que queda fuera de ella, la posición de la entidad desplegadora como responsable del tratamiento, los acuerdos con terceros y las contribuciones.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.13**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.14**
 
 Esta página expone el alcance de la licencia de código abierto de EpoCanvas Mail y la posición legal del autoalojamiento. No es un contrato de usuario para ninguna instancia: los usuarios de la instancia alojada se rigen por los [Términos del Servicio](/es/mail/terms-of-service/) y la [Política de Privacidad](/es/mail/privacy-policy/); los usuarios de una instancia autoalojada se rigen por las condiciones que publique su desplegador.
 

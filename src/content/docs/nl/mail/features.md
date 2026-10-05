@@ -3,7 +3,7 @@ title: Functiegids van EpoCanvas Mail
 description: Functiegids van EpoCanvas Mail — indeling van de postvak IN, opstellen en verzenden, zoeksyntaxis, labelregelengine, extractie van verificatiecodes, spamaanpak, doorsturen en pushmeldingen, AI-mogelijkheden en het open platform.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
 
 Deze pagina beschrijft de daadwerkelijke functies van EpoCanvas Mail één voor één; alle inhoud is punt voor punt geverifieerd aan de hand van de open-sourcecode, en de interface-screenshots komen uit de echte werking van de officieel gehoste instantie. Voor de positionering van het project, de ontwikkelgeschiedenis en de implementatie, zie [Projectoverzicht](/nl/mail/project/); voor de gegevensverwerking en bewaartermijnen per functie, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
@@ -93,7 +93,7 @@ De Exploitant traint geen enkel model op de inhoud van e-mail; de toegestemde AI
 ## 9. Open platform en gegevensautonomie
 
 - **OAuth 2.0 / OIDC-authenticatiecentrum**: de beheerder kan apps van derden registreren, met autorisatiebereiken beperkt tot openid / profile / email en toegangstokens die 2 uur geldig zijn; de betrokkene kan de autorisaties op de pagina «Apps van derden» in realtime bekijken en op elk moment intrekken;
-- **Persoonlijke API-tokens**: gebruikers kunnen API-tokens uitgeven om hun mailbox programmatisch te lezen;
+- **Integratiegids**: het registreren van apps aan beheerderskant, eindpunten en integratiecode staan in [Open platform en API-toegang](/nl/mail/api/);
 - **Gegevensexport**: met één klik exporteert de instellingenpagina een volledige kopie in JSON-formaat (profiel en volledige tekst van niet-verwijderde e-mail); afzonderlijke e-mails kunnen als .eml worden gedownload;
 
 ## 10. Interface en mobiel
@@ -113,6 +113,7 @@ De Exploitant traint geen enkel model op de inhoud van e-mail; de toegestemde AI
 
 | Resource | Link |
 | --- | --- |
+| OAuth-appregistratie en eindpuntintegratietutorial | [OAuth-appregistratie en eindpuntintegratietutorial](/nl/mail/api/) |
 | Zoekoperators, beheerderszoek en regelvoorwaarden | [Zoek- en regelreferentie](/nl/mail/search/) |
 | Interfaceroutes en locatie van de instellingensecties | [Interface en routekaart](/nl/mail/interface/) |
 | Werkingsmodi: implementatievormen, e-mailmodi en aanmelding | [Werkingsmodi](/nl/mail/modes/) |

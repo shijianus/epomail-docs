@@ -76,6 +76,18 @@ const SIDEBAR_I18N = {
 		'zh-tw': '防竄改與官方規範', en: 'Anti-Tampering & Official Specs',
 		fr: 'Anti-falsification et spécifications officielles', es: 'Seguridad contra manipulaciones y normas oficiales', nl: 'Beveiliging tegen manipulatie en officiële specificaties',
 	},
+	'开放平台与 API 接入': {
+		'zh-tw': '開放平台與 API 接入', en: 'Open Platform & API Access',
+		fr: 'Plateforme ouverte et accès API', es: 'Plataforma abierta y acceso a la API', nl: 'Open platform en API-toegang',
+	},
+	'帐号安全设置指南': {
+		'zh-tw': '帳號安全設定指南', en: 'Account Security Guide',
+		fr: 'Guide de sécurité du compte', es: 'Guía de seguridad de la cuenta', nl: 'Accountbeveiligingsgids',
+	},
+	'通知与转发指南': {
+		'zh-tw': '通知與轉寄指南', en: 'Notifications & Forwarding Guide',
+		fr: 'Guide des notifications et du transfert', es: 'Guía de notificaciones y reenvío', nl: 'Handleiding meldingen en doorsturen',
+	},
 	'界面与路由总览': {
 		'zh-tw': '介面與路由總覽', en: 'Interface & Route Map',
 		fr: 'Interface et plan des routes', es: 'Mapa de interfaz y rutas', nl: 'Interface en routekaart',
@@ -102,17 +114,29 @@ const SIDEBAR_I18N = {
 	},
 };
 const SIDEBAR_GROUPS_I18N = {
-	'专案与架构': {
-		'zh-tw': '專案與架構', en: 'Project & Architecture',
-		fr: 'Projet et architecture', es: 'Proyecto y arquitectura', nl: 'Project en architectuur',
+	'产品与总览': {
+		'zh-tw': '產品與總覽', en: 'Product & Overview',
+		fr: 'Produit et aperçu', es: 'Producto y descripción general', nl: 'Product en overzicht',
+	},
+	'使用指南': {
+		'zh-tw': '使用指南', en: 'Usage Guide',
+		fr: "Guide d'utilisation", es: 'Guía de uso', nl: 'Gebruiksgids',
+	},
+	'自部署与开发': {
+		'zh-tw': '自部署與開發', en: 'Self-Hosting & Development',
+		fr: 'Auto-hébergement et développement', es: 'Autoalojamiento y desarrollo', nl: 'Zelfhosting en ontwikkeling',
+	},
+	'技术与信任': {
+		'zh-tw': '技術與信任', en: 'Technology & Trust',
+		fr: 'Technologie et confiance', es: 'Tecnología y confianza', nl: 'Technologie en vertrouwen',
 	},
 	'隐私与数据保护': {
 		'zh-tw': '隱私與資料保護', en: 'Privacy & Data Governance',
 		fr: 'Confidentialité et données', es: 'Privacidad y protección de datos', nl: 'Privacy en gegevensbescherming',
 	},
-	'服务条款与合规': {
-		'zh-tw': '服務條款與合規', en: 'Terms & Community Governance',
-		fr: 'Conditions et gouvernance', es: 'Términos y gobernanza comunitaria', nl: 'Voorwaarden en community-beleid',
+	'条款与合规': {
+		'zh-tw': '條款與合規', en: 'Terms & Compliance',
+		fr: 'Conditions et conformité', es: 'Términos y cumplimiento', nl: 'Voorwaarden en naleving',
 	},
 };
 const t = (label, slug) => ({ label, slug, translations: SIDEBAR_I18N[label] ?? {} });
@@ -158,15 +182,25 @@ export default defineConfig({
 			lastUpdated: true,
 			customCss: ['./src/styles/custom.css'],
 			sidebar: [
-				g('专案与架构', [
+				g('产品与总览', [
 					t('专案介绍', 'mail/project'),
-					t('功能指南', 'mail/features'),
-					t('运行模式', 'mail/modes'),
-					t('设置指南', 'mail/settings'),
+					t('服务范围与支持', 'mail/service-scope'),
+				]),
+				g('使用指南', [
 					t('界面与路由总览', 'mail/interface'),
+					t('功能指南', 'mail/features'),
 					t('搜索与规则参考', 'mail/search'),
+					t('设置指南', 'mail/settings'),
+					t('运行模式', 'mail/modes'),
+					t('帐号安全设置指南', 'mail/security'),
+					t('通知与转发指南', 'mail/notify'),
+				]),
+				g('自部署与开发', [
 					t('部署指南', 'mail/deployment'),
 					t('开发指南', 'mail/development'),
+					t('开放平台与 API 接入', 'mail/api'),
+				]),
+				g('技术与信任', [
 					t('技术架构', 'mail/architecture'),
 					t('防篡改与官方规范', 'mail/tamper-proof'),
 				]),
@@ -176,8 +210,7 @@ export default defineConfig({
 					t('数据处理与安全维护', 'mail/data-security'),
 					t('第三方处理者清单', 'mail/sub-processors'),
 				]),
-				g('服务条款与合规', [
-					t('服务范围与支持', 'mail/service-scope'),
+				g('条款与合规', [
 					t('服务条款', 'mail/terms-of-service'),
 					t('可接受使用政策', 'mail/acceptable-use'),
 					t('开源与自行部署法律', 'mail/open-source'),

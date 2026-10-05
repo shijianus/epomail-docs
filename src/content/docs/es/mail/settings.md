@@ -3,7 +3,7 @@ title: Guía de configuración
 description: Guía de configuración de EpoCanvas Mail — las cinco secciones de la configuración personal (perfil, general, seguridad, datos, etiquetas) y el recorrido completo por las nueve secciones de la consola de administración y las tarjetas de configuración del sistema.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.13**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.14**
 
 EpoCanvas Mail divide su configuración en dos zonas: la zona «configuración» de la barra lateral reúne los ajustes personales que cada cuenta puede modificar por sí misma, en cinco secciones — perfil, general, seguridad, datos y etiquetas; la zona «administración» solo aparece para los grupos de identidad con permisos administrativos y alberga la configuración al nivel de la instancia. Esta página recorre cada zona y las relaciones entre los ajustes. Para el comportamiento a nivel de funcionamiento — multicuenta, modos de correo, inicio de sesión —, véase [Modos de funcionamiento](/es/mail/modes/).
 
@@ -52,7 +52,7 @@ La página de seguridad modifica el nombre de usuario y la contraseña (mostrand
 | Archivo del historial de correo | MBOX (universal), JSON o CSV | Solo el correo enviado y recibido, con rango de fechas opcional |
 | Contactos y configuración | JSON | Directorio de contactos, reglas de alias personalizadas y preferencias de personalización |
 
-Un mensaje suelto se descarga en .eml directamente desde el panel de lectura. La zona de notificaciones y reenvío ofrece el push de Telegram (vinculación de un bot y un identificador de chat) y el reenvío de correo por reglas (dirección de destino a elección; los disparadores son todo el correo, prefijo de alias y reglas inteligentes, con opciones de conservar copia y de prefijar el asunto); si estas dos funciones se ofrecen a los usuarios lo deciden los interruptores de control de datos de usuario del operador. La zona de almacenamiento muestra el indicador de uso de adjuntos y permite conectar un almacenamiento de objetos personal (un cubo de Backblaze B2 o S3 propio); una vez conectado, los adjuntos van directamente a la nube personal, fuera de la cuota de la instancia.
+Un mensaje suelto se descarga en .eml directamente desde el panel de lectura. La zona «Reenvío de correo y mensajes» ofrece el push de Telegram y el reenvío automático: la vinculación de un bot privado, las preferencias de push y los tipos de disparador se explican paso a paso en la [Guía de notificaciones y reenvío](/es/mail/notify/); si estas dos funciones se ofrecen a los usuarios lo decide el interruptor de «Control de datos de usuario» del operador. La zona de almacenamiento muestra el indicador de uso de adjuntos y permite conectar un almacenamiento de objetos personal (un cubo de Backblaze B2 o S3 propio); una vez conectado, los adjuntos van directamente a la nube personal, fuera de la cuota de la instancia.
 
 ## 6. Gestión de etiquetas
 
@@ -107,6 +107,9 @@ La página de informes de auditoría presenta los eventos de riesgo del sitio co
 
 | Recurso | Enlace |
 | --- | --- |
+| 2FA, códigos de recuperación y llaves de acceso paso a paso | [2FA, códigos de recuperación y llaves de acceso paso a paso](/es/mail/security/) |
+| Push de Telegram y reenvío automático paso a paso | [Push de Telegram y reenvío automático paso a paso](/es/mail/notify/) |
+| Tutorial de registro de apps OAuth e integración de puntos de enlace | [Tutorial de registro de apps OAuth e integración de puntos de enlace](/es/mail/api/) |
 | La ruta y los elementos de cada interfaz | [Mapa de interfaz y rutas](/es/mail/interface/) |
 | Operadores de búsqueda y condiciones de reglas de clasificación | [Referencia de búsqueda y reglas](/es/mail/search/) |
 | Formas de despliegue, modos de correo e inicio de sesión | [Modos de funcionamiento](/es/mail/modes/) |

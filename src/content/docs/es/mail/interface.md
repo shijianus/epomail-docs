@@ -3,7 +3,7 @@ title: Mapa de interfaz y rutas
 description: Mapa de interfaz y rutas de EpoCanvas Mail — las ocho vistas del buzón, la capa de redacción, todas las rutas de configuración y de administración, los flujos de la superficie de inicio de sesión, la página de consentimiento OAuth y los perfiles públicos.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.13**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.14**
 
 Esta página recorre una a una las interfaces de EpoCanvas Mail y sus rutas. Una ubicación consta de dos partes: el prefijo de ruta `/mail/u/N/` (N es el índice de sesión multicuenta; siempre 0 con una sola cuenta) y la ruta de vista tras `#` (por ejemplo `#inbox`). Las rutas directas heredadas como `/inbox` se normalizan automáticamente. La superficie de inicio de sesión se despliega por separado bajo `/login/`. Lo que permite cada ruta lo deciden los permisos del grupo de identidad; véase [Modos de funcionamiento](/es/mail/modes/); el efecto de cada ajuste se describe en la [Guía de configuración](/es/mail/settings/).
 
@@ -55,7 +55,7 @@ Al entrar en la configuración, el área principal se sustituye por los paneles 
 | `#settings/profile` | Perfil | Avatar, apodo, género, cumpleaños, correo, teléfono y direcciones |
 | `#settings/general` | General | Biografía, paleta de apariencia, fondo de pantalla temático, preferencias de lectura, idioma y privacidad de datos |
 | `#settings/security` | Seguridad | Nombre de usuario y contraseña, centro de verificación en dos pasos, llaves de acceso, eliminación de la cuenta |
-| `#settings/data` | Datos | Exportación de datos, notificaciones y reenvío, acceso por API, autorizaciones de aplicaciones de terceros, almacenamiento |
+| `#settings/data` | Datos | Exportación de datos, notificaciones y reenvío, autorizaciones de aplicaciones de terceros, almacenamiento |
 | `#settings/labels` | Etiquetas | Gestión de etiquetas y constructor de reglas de clasificación |
 
 ![Página general de la configuración de EpoCanvas Mail: zona de personalización, fondo de pantalla temático y paleta de apariencia](/images/mail/ui/ui-settings-general.png)
@@ -114,6 +114,7 @@ El modo de correo también remodela la interfaz de administración: en el modo c
 
 | Recurso | Enlace |
 | --- | --- |
+| Tutorial de registro de apps OAuth e integración de puntos de enlace | [Tutorial de registro de apps OAuth e integración de puntos de enlace](/es/mail/api/) |
 | Operadores de búsqueda, búsqueda administrativa y condiciones de las reglas | [Referencia de búsqueda y reglas](/es/mail/search/) |
 | Cada sección de configuración en detalle | [Guía de configuración](/es/mail/settings/) |
 | Funciones detalladas con capturas de pantalla | [Guía de funciones](/es/mail/features/) |

@@ -3,7 +3,7 @@ title: 介面與路由總覽
 description: EpoCanvas Mail 介面與路由總覽——郵箱主介面八視圖、寫信彈層、設定與管理區全部路由、登入面流程、OAuth 授權頁與公開個人主頁之完整導覽。
 ---
 
-**生效日期：2026 年 10 月 5 日｜版本：5.13**
+**生效日期：2026 年 10 月 5 日｜版本：5.14**
 
 本頁逐一導覽 EpoCanvas Mail 的每一處介面及其路由。介面路徑由兩部分組成：路徑前綴 `/mail/u/N/`（N 為多帳號工作階段序號，單一帳號恆為 0）與 `#` 後的視圖路由（如 `#inbox`）；舊式直達路徑（如 `/inbox`）會自動正規化為完整形態。登入面獨立部署於 `/login/`。各路由之存取能力由身分分組權限決定，見[運行模式](/zh-tw/mail/modes/)；逐項設定之作用見[設定指南](/zh-tw/mail/settings/)。
 
@@ -55,7 +55,7 @@ description: EpoCanvas Mail 介面與路由總覽——郵箱主介面八視圖�
 | `#settings/profile` | 個資 | 頭像、暱稱、性別、生日、信箱、電話與地址 |
 | `#settings/general` | 一般 | 簡介、外觀色調、主題桌布、閱讀偏好、語言與資料隱私 |
 | `#settings/security` | 安全 | 使用者名稱與通關密語、兩步驗證中心、通行金鑰、註銷帳號 |
-| `#settings/data` | 資料 | 資料匯出、通知與轉寄、API 存取、第三方應用授權、儲存空間 |
+| `#settings/data` | 資料 | 資料匯出、通知與轉寄、第三方應用授權、儲存空間 |
 | `#settings/labels` | 標籤 | 標籤管理與分類規則建構器 |
 
 ![EpoCanvas Mail 一般設定頁：個性化區、主題桌布與外觀色調](/images/mail/ui/ui-settings-general.png)
@@ -114,6 +114,7 @@ description: EpoCanvas Mail 介面與路由總覽——郵箱主介面八視圖�
 
 | 資源 | 連結 |
 | --- | --- |
+| OAuth 應用註冊與端點接入教學 | [OAuth 應用註冊與端點接入教學](/zh-tw/mail/api/) |
 | 搜尋算子、管理端檢索與分類規則條件 | [搜尋與規則參考](/zh-tw/mail/search/) |
 | 各設定分區逐項說明 | [設定指南](/zh-tw/mail/settings/) |
 | 功能詳解與介面截圖 | [功能指南](/zh-tw/mail/features/) |

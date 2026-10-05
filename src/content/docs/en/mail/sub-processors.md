@@ -3,7 +3,7 @@ title: Sub-processor List
 description: The complete list of EpoCanvas Mail's entrusted processors, shared objects, data involved, trigger conditions, and international-transfer safeguards.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.13**
+**Effective Date: October 5, 2026 | Version: 5.14**
 
 Following Section 7 of the [Privacy Policy](/en/mail/privacy-policy/), this list sets out in full the third parties involved in the Service's personal data, the sharing conditions, and the safeguard mechanisms. The Service's sharing principle is minimal necessity: data that need not leave the instance do not leave; what must leave states clearly who receives it and what it carries. The Service has no data-sale or advertising-revenue relationship with any party below.
 

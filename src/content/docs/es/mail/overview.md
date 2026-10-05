@@ -3,7 +3,7 @@ title: Privacidad y Términos — Visión General
 description: Visión general de los documentos legales de EpoCanvas Mail—identidad de la plataforma, roles de tratamiento de datos, arquitectura documental, orden de prelación y canales de contacto.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.13**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.14**
 
 Esta página constituye una guía de todos los documentos legales del servicio EpoCanvas Mail (el «Servicio») y explica los roles de las partes, la arquitectura documental y el orden de aplicación. Antes de registrarse en el Servicio o utilizarlo, debe leer esta página, junto con la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos del Servicio](/es/mail/terms-of-service/).
 

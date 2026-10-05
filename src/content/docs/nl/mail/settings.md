@@ -3,7 +3,7 @@ title: Instellingengids
 description: Instellingengids van EpoCanvas Mail — de vijf secties van de persoonlijke instellingen (profiel, algemeen, beveiliging, gegevens, labels) en een volledige rondleiding langs de negen secties van de beheerconsole en de kaarten van de systeeminstellingen.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
 
 EpoCanvas Mail verdeelt zijn instellingen over twee zones: de zone «instellingen» van de zijbalk bevat de persoonlijke instellingen die elk account zelf kan aanpassen, in vijf secties — profiel, algemeen, beveiliging, gegevens en labels; de zone «beheer» verschijnt alleen voor identiteitsgroepen met beheerrechten en draagt de configuratie op instantieniveau. Deze pagina loopt elke zone langs en laat zien hoe de instellingen samenhangen. Voor het gedrag op werkingsniveau — multi-account, e-mailmodi, aanmelding — zie [Werkingsmodi](/nl/mail/modes/).
 
@@ -52,7 +52,7 @@ De beveiligingspagina wijzigt de gebruikersnaam en het wachtwoord (met de datum 
 | Archief van de e-mailgeschiedenis | MBOX (universeel), JSON of CSV | Alleen verzonden en ontvangen e-mail, met optionele periode |
 | Contacten en configuratie | JSON | Contactenlijst, eigen aliasregels en personalisatievoorkeuren |
 
-Een los bericht wordt rechtstreeks in het leesvenster als .eml gedownload. Het gedeelte meldingen en doorsturen biedt Telegram-push (een bot en chat-ID koppelen) en regels voor het doorsturen van e-mail (eigen bestemmingsadres; triggers zijn alle e-mail, aliasvoorvoegsel en slimme regels, met opties voor een kopie en een voorvoegsel bij het onderwerp); of deze twee aan gebruikers worden aangeboden, beslissen de schakelaars voor gebruikersgegevensbeheer van de exploitant. Het opslaggedeelte toont de verbruiksmeter voor bijlagen en maakt het mogelijk een eigen objectopslag te koppelen (een eigen Backblaze B2- of S3-bucket); eenmaal gekoppeld gaan bijlagen rechtstreeks naar de persoonlijke cloud, buiten de quota van de instantie.
+Een los bericht wordt rechtstreeks in het leesvenster als .eml gedownload. Het gedeelte «E-mail en berichten doorsturen» biedt Telegram-push en automatisch doorsturen: het koppelen van een eigen bot, pushvoorkeuren en triggertypes worden stap voor stap uitgelegd in de [Handleiding meldingen en doorsturen](/nl/mail/notify/); of deze twee aan gebruikers worden aangeboden, beslist de schakelaar «Gebruikersgegevensbeheer» van de exploitant. Het opslaggedeelte toont de verbruiksmeter voor bijlagen en maakt het mogelijk een eigen objectopslag te koppelen (een eigen Backblaze B2- of S3-bucket); eenmaal gekoppeld gaan bijlagen rechtstreeks naar de persoonlijke cloud, buiten de quota van de instantie.
 
 ## 6. Labelbeheer
 
@@ -107,6 +107,9 @@ De pagina auditrapport toont de risicogebeurtenissen van de site als waarschuwin
 
 | Bron | Link |
 | --- | --- |
+| 2FA, herstelcodes en toegangssleutels stap voor stap | [2FA, herstelcodes en toegangssleutels stap voor stap](/nl/mail/security/) |
+| Telegram-push en automatisch doorsturen stap voor stap | [Telegram-push en automatisch doorsturen stap voor stap](/nl/mail/notify/) |
+| OAuth-appregistratie en eindpuntintegratietutorial | [OAuth-appregistratie en eindpuntintegratietutorial](/nl/mail/api/) |
 | De route en elementen van elke interface | [Interface en routekaart](/nl/mail/interface/) |
 | Zoekoperators en classificatieregelvoorwaarden | [Zoek- en regelreferentie](/nl/mail/search/) |
 | Implementatievormen, e-mailmodi en aanmelding | [Werkingsmodi](/nl/mail/modes/) |

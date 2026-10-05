@@ -3,7 +3,7 @@ title: Guide des fonctionnalités d'EpoCanvas Mail
 description: Guide des fonctionnalités d'EpoCanvas Mail — organisation de la boîte de réception, rédaction et envoi, syntaxe de recherche, moteur de règles d'étiquettes, extraction des codes de vérification, gestion des pourriels, réexpédition et notifications, capacités d'IA et plateforme ouverte.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.14**
 
 La présente page décrit une à une les fonctionnalités réelles d'EpoCanvas Mail ; chaque point a été vérifié à partir du code open source, et les captures d'écran de l'interface proviennent de l'exécution réelle de l'instance hébergée officielle. Le positionnement du projet, son historique de développement et son déploiement sont présentés dans [Présentation du projet](/fr/mail/project/) ; le traitement des données et les durées de conservation propres à chaque fonctionnalité figurent dans [Traitement des données et sécurité](/fr/mail/data-security/).
 
@@ -93,7 +93,7 @@ L'Opérateur n'entraîne aucun modèle sur le contenu des courriels ; le traitem
 ## 9. Plateforme ouverte et autonomie des données
 
 - **Centre d'authentification OAuth 2.0 / OIDC** : l'administrateur peut enregistrer des applications tierces, avec des portées d'autorisation limitées à openid / profile / email et des jetons d'accès valables 2 heures ; la personne concernée peut suivre en temps réel les autorisations sur la page « Applications tierces » et les révoquer à tout moment ;
-- **Jetons API personnels** : les utilisateurs peuvent émettre des jetons API pour lire leur boîte par programme ;
+- **Guide d'intégration** : l'enregistrement des applications côté administration, les points de terminaison et le code d'intégration figurent dans [Plateforme ouverte et accès API](/fr/mail/api/);
 - **Export des données** : export en un clic, depuis la page des paramètres, d'une copie complète au format JSON (profil et texte intégral des courriels non supprimés) ; chaque courriel peut être téléchargé au format .eml ;
 
 ## 10. Interface et mobile
@@ -113,6 +113,7 @@ L'Opérateur n'entraîne aucun modèle sur le contenu des courriels ; le traitem
 
 | Ressource | Lien |
 | --- | --- |
+| Tutoriel d'enregistrement d'apps OAuth et d'intégration des points de terminaison | [Tutoriel d'enregistrement d'apps OAuth et d'intégration des points de terminaison](/fr/mail/api/) |
 | Opérateurs de recherche, recherche d'administration et conditions de règles | [Référence de la recherche et des règles](/fr/mail/search/) |
 | Routes d'interface et emplacement des sections de paramétrage | [Interface et plan des routes](/fr/mail/interface/) |
 | Modes de fonctionnement : formes de déploiement, modes courriel et connexion | [Modes de fonctionnement](/fr/mail/modes/) |

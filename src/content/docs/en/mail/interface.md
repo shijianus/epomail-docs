@@ -3,7 +3,7 @@ title: Interface & Route Map
 description: EpoCanvas Mail interface and route map — the eight mailbox views, the compose overlay, every settings and admin route, the login surface flows, the OAuth consent page and public profiles.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.13**
+**Effective date: 5 October 2026 | Version: 5.14**
 
 This page walks through every EpoCanvas Mail interface and its route. A location consists of two parts: the path prefix `/mail/u/N/` (N is the multi-account session index; always 0 for a single account) and the view route after `#` (for example `#inbox`). Legacy direct paths such as `/inbox` are normalised automatically. The login surface is deployed separately under `/login/`. What each route allows is decided by identity-group permissions, see [Operating Modes](/en/mail/modes/); the effect of each setting is described in the [Settings Guide](/en/mail/settings/).
 
@@ -55,7 +55,7 @@ Entering settings swaps the main area for settings panels and hides the mail sid
 | `#settings/profile` | Personal | Avatar, nickname, gender, birthday, e-mail, phone and addresses |
 | `#settings/general` | General | Bio, appearance colour scheme, theme wallpaper, reading preferences, language and data privacy |
 | `#settings/security` | Security | Username and password, two-step verification centre, passkeys, account deletion |
-| `#settings/data` | Data | Data export, notifications and forwarding, API access, third-party app authorisations, storage |
+| `#settings/data` | Data | Data export, notifications and forwarding, third-party app authorisations, storage |
 | `#settings/labels` | Labels | Label management and the classification rule builder |
 
 ![EpoCanvas Mail general settings page: personalisation area, theme wallpaper and appearance colour scheme](/images/mail/ui/ui-settings-general.png)
@@ -114,6 +114,7 @@ The mail mode also reshapes the admin interface: in encrypted mode (Level 3) the
 
 | Resource | Link |
 | --- | --- |
+| OAuth app registration and endpoint integration tutorial | [OAuth app registration and endpoint integration tutorial](/en/mail/api/) |
 | Search operators, admin search and rule conditions | [Search & Rules Reference](/en/mail/search/) |
 | Each settings section in detail | [Settings Guide](/en/mail/settings/) |
 | Feature details with screenshots | [Features Guide](/en/mail/features/) |

@@ -3,7 +3,7 @@ title: Uitrolgids
 description: De uitrolgids van EpoCanvas Mail — vereisten, de uitrol in drie stappen, initialisatie en de bootstrapketen, injectie van geheimen, mailconfiguratie, opslagkeuzes, de demo-instantie en upgrades.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
 
 Deze pagina is voor gebruikers en beheerders die EpoCanvas Mail zelf willen uitrollen; zij beslaat het volledige pad van nul tot een werkende instantie. Eenmaal uitgerold leven alle instantiegegevens in de eigen Cloudflare-bronnen van de uitroller, en wordt de uitroller de gegevensbeheerder voor diens gebruikers — de juridische positie staat uiteengezet in [Open source en zelfhosting: juridisch kader](/nl/mail/open-source/). Het gebruik van de gehoste instantie ([mail.epocanvas.com](https://mail.epocanvas.com)) vraagt om geen van deze stappen.
 

@@ -3,7 +3,7 @@ title: Référence de la recherche et des règles
 description: Référence complète de la recherche et des règles d'EpoCanvas Mail — opérateurs de champs du courriel, indicateurs de portée, commutateurs de précision, comportement du surlignage, recherche `$` d'administration, recherche des paramètres et toutes les conditions des règles de classement.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.14**
 
 EpoCanvas Mail dispose de deux systèmes de recherche : la recherche de courriels côté utilisateur (la zone de recherche de la barre supérieure) et la recherche du courriel à l'échelle du site côté administrateur (la section administrative « Tous les courriels ») ; les pages de paramètres disposent en outre de leur propre recherche des paramètres. La présente page recense chaque opérateur, indicateur et condition de règle, en correspondance avec l'implémentation actuelle. Les règles de classement partagent la même sémantique de champs que la recherche ; le moteur de règles est décrit à partir de la section 7.
 

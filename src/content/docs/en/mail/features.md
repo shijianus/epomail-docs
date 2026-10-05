@@ -3,7 +3,7 @@ title: EpoCanvas Mail Feature Guide
 description: EpoCanvas Mail feature guide — inbox organisation, composing and sending, search syntax, the labelling rule engine, verification-code extraction, spam governance, forwarding and push, AI capabilities, and the open platform.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.13**
+**Effective Date: October 5, 2026 | Version: 5.14**
 
 This page documents the actual features of EpoCanvas Mail, each verified against the open-source code; the interface screenshots come from the hosted instance in real operation. For the project positioning, development history, and deployment, see the [Project Overview](/en/mail/project/); the data handling and retention implications of each feature are covered in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
@@ -93,7 +93,7 @@ The operator never trains models on mail content; consented AI processing can be
 ## 9. Open Platform and Data Autonomy
 
 - **OAuth 2.0 / OIDC centre**: administrators register third-party apps; scope is limited to openid / profile / email, access tokens last 2 hours, and data subjects can review and revoke grants at any time on the third-party apps page;
-- **Personal API tokens**: users can issue tokens for programmatic mailbox access;
+- **Integration guide**: registering apps on the admin side, endpoints and integration code appear in [Open Platform & API Access](/en/mail/api/);
 - **Data export**: one click in Settings produces a complete JSON copy (profile plus all undeleted mail in full text); single messages download as .eml;
 
 ## 10. Interface and Mobile
@@ -113,6 +113,7 @@ The operator never trains models on mail content; consented AI processing can be
 
 | Resource | Link |
 | --- | --- |
+| OAuth app registration and endpoint integration tutorial | [OAuth app registration and endpoint integration tutorial](/en/mail/api/) |
 | Search operators, admin search and rule conditions | [Search & Rules Reference](/en/mail/search/) |
 | Interface routes and where the settings sections live | [Interface & Route Map](/en/mail/interface/) |
 | Operating Modes: deployment forms, mail modes and sign-in | [Operating Modes](/en/mail/modes/) |

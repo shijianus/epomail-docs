@@ -3,7 +3,7 @@ title: Interface en routekaart
 description: Interface en routekaart van EpoCanvas Mail — de acht mailboxweergaven, het schrijfvenster als overlay, elke instellings- en beheerroute, de aanmeldflows, de OAuth-toestemmingspagina en openbare profielen.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
 
 Deze pagina loopt elke interface van EpoCanvas Mail langs met de bijbehorende route. Een locatie bestaat uit twee delen: het padvoorvoegsel `/mail/u/N/` (N is de sessie-index voor meerdere accounts; bij één account altijd 0) en de weergaveroute na `#` (bijvoorbeeld `#inbox`). Oudere directe paden zoals `/inbox` worden automatisch genormaliseerd. De aanmeldpagina wordt apart uitgerold onder `/login/`. Wat elke route toestaat, wordt bepaald door de rechten van de identiteitsgroep, zie [Werkingsmodi](/nl/mail/modes/); het effect van elke instelling staat beschreven in de [Instellingengids](/nl/mail/settings/).
 
@@ -55,7 +55,7 @@ Bij het binnengaan van de instellingen wisselt het hoofdgebied naar instellingsp
 | `#settings/profile` | Persoonlijk | Avatar, bijnaam, geslacht, verjaardag, e-mail, telefoon en adressen |
 | `#settings/general` | Algemeen | Bio, uiterlijkpalet, themaachtergrond, leesvoorkeuren, taal en gegevensprivacy |
 | `#settings/security` | Beveiliging | Gebruikersnaam en wachtwoord, tweestapscentrum, toegangssleutels, account verwijderen |
-| `#settings/data` | Gegevens | Data-export, meldingen en doorsturen, API-toegang, autorisaties van apps van derden, opslag |
+| `#settings/data` | Gegevens | Data-export, meldingen en doorsturen, autorisaties van apps van derden, opslag |
 | `#settings/labels` | Labels | Labelbeheer en de regeleditor voor classificatie |
 
 ![Algemene instellingenpagina van EpoCanvas Mail: personalisatiegedeelte, themaachtergrond en uiterlijkpalet](/images/mail/ui/ui-settings-general.png)
@@ -114,6 +114,7 @@ De e-mailmodus vormt ook de beheerinterface om: in de versleutelde modus (Level 
 
 | Bron | Link |
 | --- | --- |
+| OAuth-appregistratie en eindpuntintegratietutorial | [Open platform en API-toegang](/nl/mail/api/) |
 | Zoekoperators, beheerderszoeken en regelvoorwaarden | [Zoek- en regelreferentie](/nl/mail/search/) |
 | Elke instellingssectie in detail | [Instellingengids](/nl/mail/settings/) |
 | Functies in detail met schermafbeeldingen | [Functiegids](/nl/mail/features/) |

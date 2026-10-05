@@ -3,7 +3,7 @@ title: Guía de funciones de EpoCanvas Mail
 description: Guía de funciones de EpoCanvas Mail — organización de la bandeja de entrada, redacción y envío, sintaxis de búsqueda, motor de reglas de etiquetas, extracción de códigos de verificación, gestión del correo no deseado, reenvío y notificaciones, funciones de IA y plataforma abierta.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.13**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.14**
 
 Esta página describe una a una las funciones reales de EpoCanvas Mail; todo el contenido ha sido verificado punto por punto contra el código abierto, y las capturas de pantalla de la interfaz proceden de imágenes reales del funcionamiento de la instancia alojada oficial. El posicionamiento del proyecto, su historial de desarrollo y su despliegue se describen en [Presentación del proyecto](/es/mail/project/); el tratamiento de los datos y los plazos de conservación de cada función figuran en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
@@ -93,7 +93,7 @@ El Operador no entrena ningún modelo con el contenido del correo; el tratamient
 ## 9. Plataforma abierta y autonomía de los datos
 
 - **Centro de autenticación OAuth 2.0 / OIDC**: el administrador puede registrar aplicaciones de terceros, con ámbitos de autorización limitados a openid / profile / email y tokens de acceso válidos durante 2 horas; la persona interesada puede consultar en tiempo real las autorizaciones en la página «Aplicaciones de terceros» y revocarlas en cualquier momento;
-- **Tokens de API personales**: los usuarios pueden emitir tokens de API para leer su buzón de forma programática;
+- **Guía de integración**: el registro de aplicaciones en la administración, los puntos de enlace y el código de integración están en [Plataforma abierta y acceso a la API](/es/mail/api/);
 - **Exportar datos**: exportación con un clic, desde la página de configuración, de una copia completa en formato JSON (perfil y texto íntegro del correo no eliminado); cada correo puede descargarse como .eml;
 
 ## 10. Interfaz y móvil
@@ -113,6 +113,7 @@ El Operador no entrena ningún modelo con el contenido del correo; el tratamient
 
 | Recurso | Enlace |
 | --- | --- |
+| Tutorial de registro de apps OAuth e integración de puntos de enlace | [Tutorial de registro de apps OAuth e integración de puntos de enlace](/es/mail/api/) |
 | Operadores de búsqueda, búsqueda de administración y condiciones de reglas | [Referencia de búsqueda y reglas](/es/mail/search/) |
 | Rutas de interfaz y ubicación de las secciones de configuración | [Mapa de interfaz y rutas](/es/mail/interface/) |
 | Modos de funcionamiento: formas de despliegue, modos de correo e inicio de sesión | [Modos de funcionamiento](/es/mail/modes/) |

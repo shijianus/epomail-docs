@@ -3,7 +3,7 @@ title: Open source et cadre juridique de l'auto-hébergement
 description: "Open source et auto-hébergement d'EpoCanvas Mail — aspects juridiques : portée de la licence MIT, ce qui en est exclu, la position de l'auto-déployeur comme responsable du traitement, les dispositifs tiers et les contributions."
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.14**
 
 La présente page expose la portée de la licence open source d'EpoCanvas Mail et la position juridique de l'auto-hébergement. Elle ne constitue pas un contrat d'utilisateur pour une instance quelconque : les utilisateurs de l'instance hébergée sont régis par les [Conditions d'utilisation](/fr/mail/terms-of-service/) et la [Politique de confidentialité](/fr/mail/privacy-policy/) ; les utilisateurs d'une instance auto-hébergée sont régis par les conditions que publie son déployeur.
 

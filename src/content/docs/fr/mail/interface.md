@@ -3,7 +3,7 @@ title: Interface et plan des routes
 description: Interface et plan des routes d'EpoCanvas Mail — les huit vues de la boîte, la fenêtre de rédaction en surimpression, toutes les routes des paramètres et de l'administration, les flux de la surface de connexion, la page de consentement OAuth et les profils publics.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.13**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.14**
 
 La présente page parcourt une à une les interfaces d'EpoCanvas Mail et leur route. Un emplacement se compose de deux parties : le préfixe de chemin `/mail/u/N/` (N est l'indice de session multi-comptes ; toujours 0 pour un compte unique) et la route de vue après `#` (par exemple `#inbox`). Les anciens chemins directs tels que `/inbox` sont normalisés automatiquement. La surface de connexion est déployée séparément sous `/login/`. Ce que chaque route autorise est décidé par les permissions du groupe d'identité — voir [Modes de fonctionnement](/fr/mail/modes/) ; l'effet de chaque paramètre est décrit dans le [Guide des paramètres](/fr/mail/settings/).
 
@@ -55,7 +55,7 @@ Entrer dans les paramètres remplace la zone principale par les panneaux de para
 | `#settings/profile` | Profil | Avatar, pseudonyme, genre, anniversaire, adresse électronique, téléphone et adresses |
 | `#settings/general` | Général | Biographie, palette d'apparence, fond d'écran thématique, préférences de lecture, langue et confidentialité des données |
 | `#settings/security` | Sécurité | Nom d'utilisateur et mot de passe, centre de vérification en deux étapes, clés d'accès, suppression du compte |
-| `#settings/data` | Données | Export des données, notifications et transfert, accès API, autorisations d'applications tierces, stockage |
+| `#settings/data` | Données | Export des données, notifications et transfert, autorisations d'applications tierces, stockage |
 | `#settings/labels` | Étiquettes | Gestion des étiquettes et constructeur de règles de classement |
 
 ![Page générale des paramètres d'EpoCanvas Mail : zone de personnalisation, fond d'écran thématique et palette d'apparence (interface en chinois simplifié)](/images/mail/ui/ui-settings-general.png)
@@ -114,6 +114,7 @@ Le mode courriel remodèle aussi l'interface d'administration : en mode chiffré
 
 | Ressource | Lien |
 | --- | --- |
+| Tutoriel d'enregistrement d'apps OAuth et d'intégration des points de terminaison | [Tutoriel d'enregistrement d'apps OAuth et d'intégration des points de terminaison](/fr/mail/api/) |
 | Opérateurs de recherche, recherche d'administration et conditions de règles | [Référence de la recherche et des règles](/fr/mail/search/) |
 | Chaque section de paramètres en détail | [Guide des paramètres](/fr/mail/settings/) |
 | Fonctions détaillées avec captures d'écran | [Guide des fonctions](/fr/mail/features/) |

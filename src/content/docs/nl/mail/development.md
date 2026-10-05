@@ -3,7 +3,7 @@ title: Ontwikkelgids
 description: De ontwikkelgids van EpoCanvas Mail — repositorystructuur, lokale omgeving, test- en inspectiesuites, de zestaligheidsdiscipline, migratiediscipline, de vijfstapsworkflow en hoe u bijdraagt.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.13**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
 
 Deze pagina is voor beheerders en ontwikkelaars die aan EpoCanvas Mail werken, deze auditen of erop voortbouwen: de repositorystructuur, de lokale omgeving, het kwaliteitsborgingssysteem en de werkwijze. De stappen voor het uitvoeren van een uitrol staan in de [Uitrolgids](/nl/mail/deployment/); die worden hier niet herhaald.
 
