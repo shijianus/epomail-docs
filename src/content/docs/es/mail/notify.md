@@ -3,7 +3,7 @@ title: Guía de notificaciones y reenvío
 description: Guía de notificaciones y reenvío de EpoCanvas Mail — vinculación del push de Telegram, preferencias de push y visibilidad de campos, y los destinos y tipos de disparador del reenvío automático.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.14**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.15**
 
 Esta página recorre paso a paso las dos capacidades de la zona «Reenvío de correo y mensajes» de la página «Configuración → Datos»: el push de mensajes de Telegram y el reenvío automático. Que una cuenta disponga de ellas lo decide la tarjeta «Control de datos de usuario» del administrador; cuando está desactivada, los bloques correspondientes no se muestran. La exportación y el almacenamiento de datos viven en la misma página; véase la sección 5 de la [Guía de configuración](/es/mail/settings/).
 

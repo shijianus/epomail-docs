@@ -1,0 +1,32 @@
+---
+title: Revisión del correo de todo el almacén
+description: Revisión del correo de todo el almacén de EpoCanvas Mail — búsqueda en la dimensión del correo, panel deslizante de detalle y eliminación física a cargo del administrador, con el efecto del modo de correo sobre la entrada.
+---
+
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.15**
+
+La revisión del correo de todo el almacén es la interfaz de la dimensión de correo de la zona de administración (`#manage/admin/mail`, clave de permiso `all-email:query`). El nombre de la sección y su alcance visible cambian con el modo de correo: el modo de todo el correo (Level 1) muestra «Todo el correo», el modo privado (Level 2) muestra «Correo no deseado» y el modo cifrado (Level 3) oculta la sección entera (véase la sección 2 de [Modos de funcionamiento](/es/mail/modes/)).
+
+## 1. Búsqueda
+
+- La sintaxis avanzada con `$` de la barra superior abarca todo el almacén: `$sender`／`$user`／`$to`／`$subject` más tokens de estado; el significado de cada uno figura en la sección 5 de [Referencia de búsqueda y reglas](/es/mail/search/);
+- Pulsar con el botón derecho sobre cualquier correo de la lista de resultados inicia directamente una nueva búsqueda por su remitente, por su cuenta destinataria o por su usuario propietario.
+
+## 2. Detalle y tratamiento
+
+| Capacidad | Descripción |
+| --- | --- |
+| Panel deslizante de detalle | Abra un mensaje para ver su contenido completo y su información de entorno sin abandonar la lista |
+| Eliminación física | Ejecuta el borrado físico del correo infractor (a diferencia de la papelera del lado del usuario); la operación queda registrada |
+| Ordenación | Ordena por tiempo para localizar los eventos recientes |
+
+Las cuentas sospechosas halladas en la revisión pueden saltar a la [Lista de usuarios](/es/mail/users/) para su tratamiento; los eventos de riesgo entran según su clase en el [Informe de auditoría](/es/mail/audit/).
+
+## 3. Documentos relacionados
+
+| Recurso | Enlace |
+| --- | --- |
+| Búsqueda con `$` y tokens de estado | [Referencia de búsqueda y reglas](/es/mail/search/) |
+| Modo de correo y alcance visible del lado administrativo | [Modos de funcionamiento](/es/mail/modes/) |
+| Estudio de las denuncias y de los avisos | [Informe de auditoría](/es/mail/audit/) |
+| Tratamiento en la dimensión de usuarios | [Lista de usuarios](/es/mail/users/) |

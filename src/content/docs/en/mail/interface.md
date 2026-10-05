@@ -3,7 +3,7 @@ title: Interface & Route Map
 description: EpoCanvas Mail interface and route map — the eight mailbox views, the compose overlay, every settings and admin route, the login surface flows, the OAuth consent page and public profiles.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.14**
+**Effective date: 5 October 2026 | Version: 5.15**
 
 This page walks through every EpoCanvas Mail interface and its route. A location consists of two parts: the path prefix `/mail/u/N/` (N is the multi-account session index; always 0 for a single account) and the view route after `#` (for example `#inbox`). Legacy direct paths such as `/inbox` are normalised automatically. The login surface is deployed separately under `/login/`. What each route allows is decided by identity-group permissions, see [Operating Modes](/en/mail/modes/); the effect of each setting is described in the [Settings Guide](/en/mail/settings/).
 

@@ -3,7 +3,7 @@ title: Zoek- en regelreferentie
 description: De complete zoek- en regelreferentie van EpoCanvas Mail — veldoperators voor mail, bereikvlaggen, precisieschakelaars, markeringsgedrag, geavanceerd beheerderszoeken met $, instellingenzoeken en elke voorwaarde van de classificatieregels.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.15**
 
 EpoCanvas Mail heeft twee opzoeksystemen: het mailzoeken voor gebruikers (het zoekvak in de bovenbalk) en het zoeken over de hele opslag voor de beheerder (de beheersectie «Alle e-mail»); instellingenpagina's hebben daarnaast hun eigen instellingenzoeken. Deze pagina somt elke operator, vlag en regelvoorwaarde op, in overeenstemming met de huidige implementatie. Classificatieregels delen dezelfde veldsemantiek als zoeken; de regelengine wordt vanaf sectie 7 beschreven.
 

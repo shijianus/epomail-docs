@@ -3,7 +3,7 @@ title: Plateforme ouverte et accès API
 description: Guide de la plateforme ouverte et de l'accès API d'EpoCanvas Mail — enregistrement des applications OAuth, points de terminaison authorize et token, userinfo, sémantique des périmètres et flux de consentement et de révocation côté utilisateur.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.14**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.15**
 
 EpoCanvas Mail embarque un centre d'autorisation OAuth 2.0 / OIDC intégré : l'administrateur enregistre les applications tierces dans la section « Gestion des applications » de la console d'administration (`#manage/admin/oauth-apps`), et les sites externes peuvent alors proposer « Se connecter avec Epomail ». La présente page constitue le tutoriel développeur complet ; l'emplacement de l'interface dans l'application figure à la section 4 de l'[Interface et plan des routes](/fr/mail/interface/), et le traitement des données d'autorisation est exposé dans la [Liste des sous-traitants](/fr/mail/sub-processors/).
 

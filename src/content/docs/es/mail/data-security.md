@@ -3,7 +3,7 @@ title: Tratamiento de Datos y Mantenimiento de la Seguridad
 description: Seguridad de los datos y protección de datos personales de EpoCanvas Mail — medidas de seguridad, límites de responsabilidad de la operación de doble vía, ejercicio de sus derechos y respuesta ante incidentes de seguridad.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.14**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.15**
 
 Este documento describe las medidas con que la instancia alojada oficial (mail.epocanvas.com) protege los datos, los límites de responsabilidad entre el servicio alojado y el proyecto de código abierto, y cómo puede consultar, exportar y eliminar sus propios datos. Se establece en virtud de la [Política de Privacidad](/es/mail/privacy-policy/) y los [Términos del Servicio](/es/mail/terms-of-service/); los hechos técnicos que enuncia siguen la implementación real del código abierto.
 

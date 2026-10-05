@@ -88,6 +88,54 @@ const SIDEBAR_I18N = {
 		'zh-tw': '通知與轉寄指南', en: 'Notifications & Forwarding Guide',
 		fr: 'Guide des notifications et du transfert', es: 'Guía de notificaciones y reenvío', nl: 'Handleiding meldingen en doorsturen',
 	},
+	"邮箱界面与邮件详情": {
+		"zh-tw": "信箱介面與郵件詳情", en: "Mailbox Interface & Message Detail",
+		fr: "Interface de la boîte et détail des courriels", es: "Interfaz del buzón y detalle del mensaje", nl: "Mailboxinterface en e-maildetails",
+	},
+	"标签与分类管理": {
+		"zh-tw": "標籤與分類管理", en: "Labels & Classification Management",
+		fr: "Gestion des étiquettes et du classement", es: "Gestión de etiquetas y clasificación", nl: "Label- en classificatiebeheer",
+	},
+	"个资与常规设置": {
+		"zh-tw": "個資與常規設定", en: "Personal Data & General Settings",
+		fr: "Profil et réglages généraux", es: "Perfil y ajustes generales", nl: "Profiel en algemene instellingen",
+	},
+	"数据导出与存储": {
+		"zh-tw": "資料匯出與儲存", en: "Data Export & Storage",
+		fr: "Export des données et stockage", es: "Exportación de datos y almacenamiento", nl: "Gegevensexport en opslag",
+	},
+	"分析页": {
+		"zh-tw": "分析頁", en: "Analytics",
+		fr: "Page d'analyse", es: "Analítica", nl: "Analysepagina",
+	},
+	"用户列表": {
+		"zh-tw": "使用者清單", en: "User List",
+		fr: "Liste des utilisateurs", es: "Lista de usuarios", nl: "Gebruikerslijst",
+	},
+	"全库邮件审查": {
+		"zh-tw": "全庫郵件審查", en: "Full-Store Mail Review",
+		fr: "Revue du courriel à l'échelle du site", es: "Revisión del correo de todo el almacén", nl: "E-mailcontrole over de hele opslag",
+	},
+	"权限控制": {
+		"zh-tw": "權限控制", en: "Permissions",
+		fr: "Permissions", es: "Control de permisos", nl: "Rechtenbeheer",
+	},
+	"注册密钥": {
+		"zh-tw": "註冊密鑰", en: "Registration Keys",
+		fr: "Clés d'inscription", es: "Claves de registro", nl: "Registratiesleutels",
+	},
+	"系统设置配置卡详解": {
+		"zh-tw": "系統設定配置卡詳解", en: "System Settings Cards",
+		fr: "Les cartes des paramètres système en détail", es: "Guía de las tarjetas de configuración del sistema", nl: "De configuratiekaarten van de systeeminstellingen",
+	},
+	"分类管理": {
+		"zh-tw": "分類管理", en: "Classification",
+		fr: "Classement", es: "Gestión de clasificación", nl: "Classificatiebeheer",
+	},
+	"操作报告": {
+		"zh-tw": "操作報告", en: "Operation Reports",
+		fr: "Rapport d'audit", es: "Informe de auditoría", nl: "Auditrapport",
+	},
 	'界面与路由总览': {
 		'zh-tw': '介面與路由總覽', en: 'Interface & Route Map',
 		fr: 'Interface et plan des routes', es: 'Mapa de interfaz y rutas', nl: 'Interface en routekaart',
@@ -114,6 +162,18 @@ const SIDEBAR_I18N = {
 	},
 };
 const SIDEBAR_GROUPS_I18N = {
+	'邮箱使用': {
+		'zh-tw': '信箱使用', en: 'Mailbox Usage',
+		fr: 'Utilisation de la boîte', es: 'Uso del buzón', nl: 'Mailboxgebruik',
+	},
+	'个人设置': {
+		'zh-tw': '個人設定', en: 'Personal Settings',
+		fr: 'Paramètres personnels', es: 'Ajustes personales', nl: 'Persoonlijke instellingen',
+	},
+	'管理控制台': {
+		'zh-tw': '管理控制台', en: 'Admin Console',
+		fr: 'Console d’administration', es: 'Consola de administración', nl: 'Beheerconsole',
+	},
 	'产品与总览': {
 		'zh-tw': '產品與總覽', en: 'Product & Overview',
 		fr: 'Produit et aperçu', es: 'Producto y descripción general', nl: 'Product en overzicht',
@@ -185,22 +245,38 @@ export default defineConfig({
 				g('产品与总览', [
 					t('专案介绍', 'mail/project'),
 					t('服务范围与支持', 'mail/service-scope'),
-				]),
-				g('使用指南', [
 					t('界面与路由总览', 'mail/interface'),
+				]),
+				g('邮箱使用', [
+					t('邮箱界面与邮件详情', 'mail/mailbox'),
 					t('功能指南', 'mail/features'),
 					t('搜索与规则参考', 'mail/search'),
+					t('标签与分类管理', 'mail/labels'),
+				]),
+				g('个人设置', [
 					t('设置指南', 'mail/settings'),
-					t('运行模式', 'mail/modes'),
+					t('个资与常规设置', 'mail/preferences'),
 					t('帐号安全设置指南', 'mail/security'),
+					t('数据导出与存储', 'mail/data'),
 					t('通知与转发指南', 'mail/notify'),
+				]),
+				g('管理控制台', [
+					t('分析页', 'mail/analysis'),
+					t('用户列表', 'mail/users'),
+					t('全库邮件审查', 'mail/review'),
+					t('权限控制', 'mail/roles'),
+					t('注册密钥', 'mail/regkeys'),
+					t('系统设置配置卡详解', 'mail/system'),
+					t('开放平台与 API 接入', 'mail/api'),
+					t('分类管理', 'mail/category'),
+					t('操作报告', 'mail/audit'),
 				]),
 				g('自部署与开发', [
 					t('部署指南', 'mail/deployment'),
 					t('开发指南', 'mail/development'),
-					t('开放平台与 API 接入', 'mail/api'),
 				]),
 				g('技术与信任', [
+					t('运行模式', 'mail/modes'),
 					t('技术架构', 'mail/architecture'),
 					t('防篡改与官方规范', 'mail/tamper-proof'),
 				]),

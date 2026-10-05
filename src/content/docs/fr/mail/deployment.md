@@ -3,7 +3,7 @@ title: Guide de déploiement
 description: Guide de déploiement d'EpoCanvas Mail — prérequis, déploiement en trois étapes, initialisation et chaîne d'amorçage, injection des secrets, configuration du courrier, choix de stockage, instance de démonstration et mises à niveau.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.14**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.15**
 
 La présente page s'adresse aux utilisateurs et aux administrateurs qui se préparent à déployer eux-mêmes EpoCanvas Mail ; elle couvre tout le chemin, de zéro à une instance fonctionnelle. Une fois déployée, l'intégralité des données de l'instance réside dans les propres ressources Cloudflare du déployeur, et le déployeur devient le responsable du traitement de ses utilisateurs — la position juridique est exposée dans [Open source et cadre juridique de l'auto-hébergement](/fr/mail/open-source/). L'utilisation de l'instance hébergée ([mail.epocanvas.com](https://mail.epocanvas.com)) ne requiert aucune de ces étapes.
 

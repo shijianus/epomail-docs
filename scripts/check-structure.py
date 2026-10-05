@@ -14,7 +14,9 @@ SYMMETRIC_LANGS = ["mail", "zh-tw", "en", "es", "fr", "nl"]
 DOCS = ["project", "features", "modes", "settings", "interface", "search", "deployment", "development",
         "architecture", "overview", "privacy-policy", "terms-of-service",
         "acceptable-use", "data-security", "sub-processors", "key-terms", "tamper-proof",
-        "service-scope", "open-source", "api", "security", "notify"]
+        "service-scope", "open-source", "api", "security", "notify",
+        "mailbox", "labels", "preferences", "data", "analysis", "users", "review", "roles", "regkeys",
+        "system", "category", "audit"]
 
 H = re.compile(r"^(#{2,3})\s+(.*)$", re.M)
 ROW = re.compile(r"^\|.*\|\s*$", re.M)

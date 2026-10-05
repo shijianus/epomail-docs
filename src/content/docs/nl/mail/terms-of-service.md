@@ -3,7 +3,7 @@ title: Servicevoorwaarden
 description: Servicevoorwaarden van EpoCanvas Mail — aanvaarding en lezing van de voorwaarden, accountregels, inhoud van gebruikers, beperking van aansprakelijkheid, toepasselijk recht en bevoegde rechter.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.15**
 
 Deze voorwaarden vormen de overeenkomst tussen u en de Exploitant van de instantie die u gebruikt, met betrekking tot het gebruik van de dienst EpoCanvas Mail (hierna «de Dienst»). Door de registratie te voltooien, u aan te melden of de Dienst anderszins te gebruiken, verklaart u dat u de volledige inhoud van deze voorwaarden heeft gelezen en aanvaard; indien u niet instemt, registreer de Dienst dan niet of gebruik deze niet.
 

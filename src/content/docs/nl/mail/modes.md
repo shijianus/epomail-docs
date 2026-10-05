@@ -3,7 +3,7 @@ title: Werkingsmodi
 description: Werkingsmodi van EpoCanvas Mail — implementatievormen, de drie privacy niveaus van de e-mailmodus, identiteitsgroepen en quota's, aanmelding en tweestapsverificatie, meerdere accounts en weergavemodi van de interface.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.15**
 
 Dezelfde codebasis van EpoCanvas Mail neemt bij verschillende configuraties verschillende werkingsvormen aan: een instantie kan gehost of zelf uitgerold worden; de beheerder kiest tussen privacy en controleerbaarheid in drie e-mailmodi; accounts krijgen quota's en rechten naar gelang hun identiteitsgroep; en aanmelding, meerdere accounts en de weergave bieden elk verschillende opties. Deze pagina beschrijft het gedrag van en de verschillen tussen elke modus. Voor de gegevensverwerking die erbij hoort, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/); voor het gebruik van de functies, zie de [Functiegids](/nl/mail/features/); voor de instellingen zelf, zie de [Instellingengids](/nl/mail/settings/).
 

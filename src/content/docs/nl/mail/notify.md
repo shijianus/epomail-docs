@@ -3,7 +3,7 @@ title: Gids voor meldingen en doorsturen
 description: De gids voor meldingen en doorsturen van EpoCanvas Mail — Telegram-push koppelen, pushvoorkeuren en de zichtbaarheid van velden, en de bestemmingen en triggertypes van automatisch doorsturen.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.15**
 
 Deze pagina loopt de twee mogelijkheden van het gebied «E-mail en berichten doorsturen» op de pagina «Instellingen → Gegevens» langs: Telegram-berichtpush en automatisch doorsturen. Of een account ze te zien krijgt, wordt beslist door de kaart «Gebruikersgegevensbeheer» van de beheerder; staan ze uit, dan zijn de bijbehorende blokken verborgen. Gegevensexport en opslag staan op dezelfde pagina, zie de [Instellingengids](/nl/mail/settings/), sectie 5.
 

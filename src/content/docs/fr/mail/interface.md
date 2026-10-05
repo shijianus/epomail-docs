@@ -3,7 +3,7 @@ title: Interface et plan des routes
 description: Interface et plan des routes d'EpoCanvas Mail — les huit vues de la boîte, la fenêtre de rédaction en surimpression, toutes les routes des paramètres et de l'administration, les flux de la surface de connexion, la page de consentement OAuth et les profils publics.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.14**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.15**
 
 La présente page parcourt une à une les interfaces d'EpoCanvas Mail et leur route. Un emplacement se compose de deux parties : le préfixe de chemin `/mail/u/N/` (N est l'indice de session multi-comptes ; toujours 0 pour un compte unique) et la route de vue après `#` (par exemple `#inbox`). Les anciens chemins directs tels que `/inbox` sont normalisés automatiquement. La surface de connexion est déployée séparément sous `/login/`. Ce que chaque route autorise est décidé par les permissions du groupe d'identité — voir [Modes de fonctionnement](/fr/mail/modes/) ; l'effet de chaque paramètre est décrit dans le [Guide des paramètres](/fr/mail/settings/).
 

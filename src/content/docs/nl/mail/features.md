@@ -3,7 +3,7 @@ title: Functiegids van EpoCanvas Mail
 description: Functiegids van EpoCanvas Mail — indeling van de postvak IN, opstellen en verzenden, zoeksyntaxis, labelregelengine, extractie van verificatiecodes, spamaanpak, doorsturen en pushmeldingen, AI-mogelijkheden en het open platform.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.14**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.15**
 
 Deze pagina beschrijft de daadwerkelijke functies van EpoCanvas Mail één voor één; alle inhoud is punt voor punt geverifieerd aan de hand van de open-sourcecode, en de interface-screenshots komen uit de echte werking van de officieel gehoste instantie. Voor de positionering van het project, de ontwikkelgeschiedenis en de implementatie, zie [Projectoverzicht](/nl/mail/project/); voor de gegevensverwerking en bewaartermijnen per functie, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 

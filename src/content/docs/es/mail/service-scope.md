@@ -3,7 +3,7 @@ title: Alcance del servicio y soporte
 description: Alcance del servicio y soporte de EpoCanvas Mail — qué proporciona la instancia alojada, los límites de ese servicio, los enlaces oficiales, los canales de soporte y las vías de apelación y recuperación.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.14**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.15**
 
 Esta página describe qué proporciona la instancia alojada ([mail.epocanvas.com](https://mail.epocanvas.com)), dónde termina ese servicio y cuáles son los canales de soporte. Las instancias autoalojadas quedan fuera del «servicio» aquí descrito: el software se proporciona bajo la licencia MIT y el proyecto ascendente no responde del funcionamiento de ninguna instancia — la posición legal figura en [Marco legal del código abierto y el autoalojamiento](/es/mail/open-source/); la división del responsable del tratamiento entre las dos formas está en la sección 2 de la [Descripción general de privacidad y condiciones](/es/mail/overview/).
 

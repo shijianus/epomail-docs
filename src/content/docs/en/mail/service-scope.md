@@ -3,7 +3,7 @@ title: Service Scope & Support
 description: EpoCanvas Mail service scope and support — what the hosted instance provides, the boundaries of that service, the official links, support channels and the appeal and recovery paths.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.14**
+**Effective date: 5 October 2026 | Version: 5.15**
 
 This page describes what the hosted instance ([mail.epocanvas.com](https://mail.epocanvas.com)) provides, where that service ends, and the support channels. Self-hosted instances are outside the "service" described here: the software is provided under the MIT licence and the upstream project bears no responsibility for any instance's operation — the legal position appears in [Open-Source & Self-Hosting Legal](/en/mail/open-source/); the data-controller split between the two forms is in the [Overview](/en/mail/overview/), Section 2.
 

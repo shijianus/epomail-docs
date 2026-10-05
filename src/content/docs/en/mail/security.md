@@ -3,7 +3,7 @@ title: Account Security Guide
 description: The EpoCanvas Mail account security guide — enabling two-step verification in three steps, managing recovery codes, registering passkeys, sign-in verification behaviour and account deletion.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.14**
+**Effective date: 5 October 2026 | Version: 5.15**
 
 This page walks through every action on the "Settings → Security" page. The overall behaviour of two-step verification (trusted devices, forced policies) is described in [Operating Modes](/en/mail/modes/), Section 4; this page only covers configuration. Entry: sidebar "Settings → Security" (`#settings/security`).
 

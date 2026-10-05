@@ -3,7 +3,7 @@ title: Referencia de búsqueda y reglas
 description: Referencia completa de búsqueda y reglas de EpoCanvas Mail — operadores de campos del correo, banderas de alcance, conmutadores de precisión, comportamiento del resaltado, búsqueda administrativa con `$`, búsqueda de configuración y todas las condiciones de las reglas de clasificación.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.14**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.15**
 
 EpoCanvas Mail dispone de dos sistemas de recuperación: la búsqueda de correo orientada al usuario (el cuadro de búsqueda de la barra superior) y la búsqueda de todo el almacén del administrador (la sección administrativa «Todo el correo»); las páginas de configuración tienen además su propia búsqueda de configuración. Esta página enumera cada operador, bandera y condición de regla, conforme a la implementación actual. Las reglas de clasificación comparten con la búsqueda la misma semántica de campos; el motor de reglas se describe a partir de la sección 7.
 
