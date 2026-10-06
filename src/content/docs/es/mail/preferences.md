@@ -3,9 +3,14 @@ title: Perfil y ajustes generales
 description: Perfil y ajustes generales de EpoCanvas Mail — avatar, apodo, contacto y direcciones, tema de apariencia y fondo de pantalla, preferencias de lectura e idioma de la interfaz, explicados entrada por entrada.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.15**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
 
 Esta página explica cada entrada de las secciones «Configuración → Perfil» y «Configuración → General». Los ajustes de seguridad y de datos figuran por separado en la [Guía de seguridad de la cuenta](/es/mail/security/) y en [Exportación de datos y almacenamiento](/es/mail/data/).
+
+![Figura: la interfaz de perfil y ajustes generales](/images/mail/es/ui/preferences.png)
+
+*Figura: la interfaz de perfil y ajustes generales*
+
 
 ## 1. Perfil (`#settings/profile`)
 
@@ -33,8 +38,6 @@ El fondo de pantalla temático global actúa sobre todas las vistas; el fondo pe
 
 <details>
 <summary>Guía visual: pasos de configuración de Perfil y General</summary>
-
-![Pasos de configuración de Perfil y General](/images/mail/es/ui/profile.png)
 
 1. «Configuración → Perfil»: suba el avatar y rellene apodo, género y cumpleaños.
 2. La tarjeta de información de contacto admite varios correos electrónicos adicionales y números de teléfono con prefijo de país; las tarjetas de dirección guardan por separado casa, empresa y otras.

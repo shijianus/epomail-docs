@@ -3,7 +3,7 @@ title: Export des données et stockage
 description: Export des données et stockage d'EpoCanvas Mail — sauvegarde intégrale, archive de l'historique des courriels, export des contacts et de la configuration, et branchement d'un stockage d'objets personnel.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
 
 La présente page décrit les deux volets, export et stockage, de la page « Paramètres → Données ». Les notifications et le transfert de la même page figurent dans le [Guide des notifications et du transfert](/fr/mail/notify/) ; la qualification juridique des données exportées figure dans [Traitement des données et sécurité](/fr/mail/data-security/).
 

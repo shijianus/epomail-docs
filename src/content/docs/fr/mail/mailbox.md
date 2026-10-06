@@ -3,7 +3,7 @@ title: Interface de la boîte et détail des courriels
 description: Interface de la boîte d'EpoCanvas Mail — les huit vues, toutes les actions de la page de détail des courriels, la fenêtre de rédaction en surimpression et les fils de conversation, expliqués pas à pas.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
 
 La présente page décrit une à une chaque vue de l'interface principale de la boîte et chaque action de la page de détail des courriels. Les routes de chaque vue et le squelette de l'interface figurent dans [Interface et plan des routes](/fr/mail/interface/) ; la recherche et les règles derrière ce rangement figurent dans la [Référence de la recherche et des règles](/fr/mail/search/).
 

@@ -3,9 +3,14 @@ title: Classification
 description: EpoCanvas Mail classification — send/receive switches, AI recognition settings, allow and block lists and hard-interception rules, the site-level governance layer.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 Classification is the admin area's site-level governance interface (`#manage/admin/rules`, permission key `setting:query`), layering site-wide inbound governance on top of users' personal rules. Personal label rules are in [Labels & Classification Management](/en/mail/labels/); the semantics of the condition fields are in Section 7 of the [Search & Rules Reference](/en/mail/search/).
+
+![Figure: the classification admin interface](/images/mail/en/ui/category.png)
+
+*Figure: the classification admin interface*
+
 
 ## 1. Send/receive and refresh switches
 
@@ -33,8 +38,6 @@ Site-level lists are maintained by administrators and apply to the whole instanc
 
 <details>
 <summary>Walkthrough: site-level governance</summary>
-
-![Site-level governance](/images/mail/en/ui/category.png)
 
 1. Open the admin area's Classification page (permission key `setting:query`).
 2. Configure the receiving / sending switches and auto-refresh, and the handling of mail without recipients.

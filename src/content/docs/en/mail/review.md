@@ -3,9 +3,14 @@ title: Full-Store Mail Review
 description: EpoCanvas Mail full-store mail review — administrator-side mail search, the detail drawer and physical deletion, including how the mail mode affects the entrance.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 Full-Store Mail Review is the admin area's mail-dimension interface (`#manage/admin/mail`, permission key `all-email:query`). The section's name and visible scope vary with the mail mode: All-Mail Mode (Level 1) shows "All Mail", Privacy Mail Mode (Level 2) shows "Spam", and Encrypted Mail Mode (Level 3) hides the section entirely (see Section 2 of [Operating Modes](/en/mail/modes/)).
+
+![Figure: the full-store mail review](/images/mail/en/ui/review.png)
+
+*Figure: the full-store mail review*
+
 
 ## 1. Search
 
@@ -24,8 +29,6 @@ Suspicious accounts found in review can be jumped to the [User List](/en/mail/us
 
 <details>
 <summary>Walkthrough: Full-Store Mail Review</summary>
-
-![Full-Store Mail Review](/images/mail/en/ui/review.png)
 
 1. Open the admin area's "All Mail" section (shown as "Spam" in Privacy Mail Mode, hidden in Encrypted Mail Mode).
 2. Search from the top bar with the `$` advanced syntax, e.g. `$user:<mailbox>`, `$subject:<keyword>`; status tokens filter sent / deleted / no-recipient mail.

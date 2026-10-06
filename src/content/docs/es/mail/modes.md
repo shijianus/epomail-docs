@@ -3,7 +3,7 @@ title: Modos de funcionamiento
 description: Modos de funcionamiento de EpoCanvas Mail — formas de despliegue, los tres niveles de privacidad del modo de correo, grupos de identidad y cuotas, inicio de sesión y verificación en dos pasos, multicuenta y modos de visualización de la interfaz.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.15**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.16**
 
 El mismo código de EpoCanvas Mail adopta formas de funcionamiento distintas según la configuración: una instancia puede estar alojada o autodesplegada; el administrador elige el equilibrio entre privacidad y revisabilidad entre tres modos de correo; las cuentas reciben cuotas y permisos según su grupo de identidad; y el inicio de sesión, la multicuenta y la visualización ofrecen cada uno varias opciones. Esta página describe el comportamiento y las diferencias de cada modo. El tratamiento de datos asociado figura en [Tratamiento de datos y seguridad](/es/mail/data-security/); el funcionamiento de las funciones, en la [Guía de funciones](/es/mail/features/); las entradas de configuración, en la [Guía de configuración](/es/mail/settings/).
 

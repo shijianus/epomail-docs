@@ -618,3 +618,10 @@
   overflow-wrap: normal;
   word-break: keep-all;
 }
+
+/* 内容图片统一精修：圆角 + 细描边 + 浅投影，观感与界面质感一致 */
+.sl-markdown-content img {
+  border-radius: 12px;
+  border: 1px solid var(--sl-color-hairline);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}

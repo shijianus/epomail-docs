@@ -3,7 +3,7 @@ title: Search & Rules Reference
 description: The complete EpoCanvas Mail search and rules reference — mail field operators, scope flags, precision switches, highlight behaviour, admin $ search, settings search and every classification rule condition.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.15**
+**Effective date: 5 October 2026 | Version: 5.16**
 
 EpoCanvas Mail has two retrieval systems: user-facing mail search (the top-bar search box) and the administrator's full-store search (the admin "All Mail" section); settings pages additionally have their own settings search. This page lists every operator, flag and rule condition, matching the current implementation. Classification rules share the same field semantics as search; the rule engine is described from Section 7 on.
 

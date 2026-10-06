@@ -3,9 +3,14 @@ title: 用户列表
 description: EpoCanvas Mail 用户列表——帐号检索、密码重置、身份分组调整、两步验证重置、封禁与恢复之管理员操作说明。
 ---
 
-**生效日期：2026 年 10 月 6 日｜版本：5.15**
+**生效日期：2026 年 10 月 6 日｜版本：5.16**
 
 用户列表是管理区的帐号管理界面（`#manage/admin/users`，权限键 `user:query`），供管理员检索与处置站内全部帐号。
+
+![图：用户列表](/images/mail/ui/users.png)
+
+*图：用户列表*
+
 
 ## 1. 列表与检索
 
@@ -27,8 +32,6 @@ description: EpoCanvas Mail 用户列表——帐号检索、密码重置、身�
 
 <details>
 <summary>图解：用户列表的操作步骤</summary>
-
-![用户列表的操作步骤](/images/mail/ui/users.png)
 
 1. 进入管理区「用户列表」（需 `user:query` 权限）。
 2. 顶部搜索框按邮箱定位帐号。

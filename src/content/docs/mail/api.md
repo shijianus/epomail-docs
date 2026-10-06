@@ -3,7 +3,7 @@ title: 开放平台与 API 接入
 description: EpoCanvas Mail 开放平台与 API 接入指南——OAuth 应用注册、授权端点、令牌置换、userinfo、scope 语义与用户授权撤销之完整开发者教程。
 ---
 
-**生效日期：2026 年 10 月 5 日｜版本：5.15**
+**生效日期：2026 年 10 月 5 日｜版本：5.16**
 
 EpoCanvas Mail 内建 OAuth 2.0／OIDC 认证中心：管理员于管理区「应用管理」（`#manage/admin/oauth-apps`）注册第三方应用，外部站点即可让用户「使用 Epomail 登录」。本页是面向开发者的完整接入教程；应用管理界面的位置见[界面与路由总览](/mail/interface/)第 4 节，用户授权数据的处理见[第三方处理者清单](/mail/sub-processors/)。
 

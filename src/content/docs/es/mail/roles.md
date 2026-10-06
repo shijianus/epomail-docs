@@ -3,7 +3,7 @@ title: Control de permisos
 description: Control de permisos de EpoCanvas Mail — los seis grupos de identidad, las claves de permiso una a una, el grupo por defecto y la protección de grupos, y la vinculación con el nivel del blog, a cargo del administrador.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.15**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
 
 El control de permisos es la interfaz de gestión de los grupos de identidad de la zona de administración (`#manage/admin/roles`, clave de permiso `role:query`); decide la cuota, las claves de permiso y la autorización de modelos de IA de cada grupo. El comportamiento en el lado del usuario de cada grupo figura en la sección 3 de [Modos de funcionamiento](/es/mail/modes/).
 

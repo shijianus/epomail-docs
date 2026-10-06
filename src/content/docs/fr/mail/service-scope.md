@@ -3,7 +3,7 @@ title: Périmètre du service et assistance
 description: Périmètre du service et assistance d'EpoCanvas Mail — ce que fournit l'instance hébergée, les limites de ce service, les liens officiels, les canaux d'assistance et les voies de recours et de récupération.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
 
 La présente page décrit ce que fournit l'instance hébergée ([mail.epocanvas.com](https://mail.epocanvas.com)), où ce service s'arrête, et les canaux d'assistance. Les instances auto-hébergées restent en dehors du « service » décrit ici : le logiciel est fourni sous licence MIT et le projet amont n'assume aucune responsabilité quant au fonctionnement d'une instance — la position juridique figure dans [Open source et cadre juridique de l'auto-hébergement](/fr/mail/open-source/) ; la répartition du responsable du traitement entre les deux formes se trouve à la section 2 de l'[Aperçu confidentialité et conditions](/fr/mail/overview/).
 

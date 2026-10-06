@@ -3,9 +3,14 @@ title: Label- en classificatiebeheer
 description: Label- en classificatiebeheer van EpoCanvas Mail — labels aanmaken met icoon en kleur, het onderhoud van de vier fabriekslabels via heuristiek, de bouwer van classificatieregels en de statistieken.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
 
 Labels en classificatieregels worden beheerd in «Instellingen → Labels» (`#settings/labels`). De volledige veldtabel van de regelvoorwaarden staat in sectie 7 van de [Zoek- en regelreferentie](/nl/mail/search/); deze pagina behandelt het beheer van de labels zelf en de statistieken.
+
+![Figuur: de label- en classificatie-interface](/images/mail/nl/ui/labels.png)
+
+*Figuur: de label- en classificatie-interface*
+
 
 ## 1. Labels aanmaken en hun uiterlijk
 
@@ -41,8 +46,6 @@ De vier fabriekslabels zijn te bewerken en te verwijderen; de heuristische class
 
 <details>
 <summary>Visuele handleiding: de labels en de bouwer van classificatieregels in stappen</summary>
-
-![De labels en de bouwer van classificatieregels in stappen](/images/mail/nl/ui/labels.png)
 
 1. Ga naar «Instellingen → Labels»; maak een label aan in het labelgebied van de zijbalk of op de labelpagina (de zijbalk toont er ten hoogste 7).
 2. Kies voor het label een pictogram uit de ingebouwde bibliotheek of upload een eigen SVG, en kies de labelkleur.

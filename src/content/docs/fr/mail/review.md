@@ -3,9 +3,14 @@ title: Revue du courriel à l'échelle du site
 description: Revue du courriel à l'échelle du site d'EpoCanvas Mail — recherche côté administration, tiroir de détail et suppression physique, avec l'effet du mode courriel sur l'entrée et l'étendue visible.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
 
 La revue du courriel à l'échelle du site est l'interface courrier de la zone d'administration (`#manage/admin/mail`, clé de permission `all-email:query`). Le nom de la section et l'étendue visible varient avec le mode courriel : le mode tous courriels (Level 1) affiche « Tous les courriels », le mode courriel privé (Level 2) affiche « Pourriels », et le mode courriel chiffré (Level 3) masque la section entière (voir la section 2 de [Modes de fonctionnement](/fr/mail/modes/)).
+
+![Figure : la revue du courriel à l'échelle du site](/images/mail/fr/ui/review.png)
+
+*Figure : la revue du courriel à l'échelle du site*
+
 
 ## 1. Recherche
 
@@ -24,8 +29,6 @@ Les comptes suspects découverts à la revue se traitent directement depuis la [
 
 <details>
 <summary>Guide visuel : la revue du courriel à l'échelle du site</summary>
-
-![La revue du courriel à l'échelle du site](/images/mail/fr/ui/review.png)
 
 1. Ouvrez la section « Tous les courriels » de la zone d'administration (elle s'affiche « Pourriels » en mode courriel privé et se masque en mode chiffré).
 2. Recherchez depuis la barre supérieure avec la syntaxe avancée `$`, par exemple `$user:<boîte>` ou `$subject:<mot-clé>` ; les jetons d'état filtrent les courriels envoyés／supprimés／sans destinataire.

@@ -3,7 +3,7 @@ title: Mailbox Interface & Message Detail
 description: EpoCanvas Mail mailbox interface guide — the eight views, every message-detail action, the compose overlay and conversation threading, step by step.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 This page walks through every view of the mailbox main interface and every action on the message-detail page. The routes of each view and the interface skeleton are in the [Interface & Route Map](/en/mail/interface/); the search and rules behind organising are in the [Search & Rules Reference](/en/mail/search/).
 

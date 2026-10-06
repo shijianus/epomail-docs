@@ -3,7 +3,7 @@ title: Permissions
 description: EpoCanvas Mail permissions — the six identity groups, item-by-item permission keys, the default group and group protection, and blog-level tier linkage, for administrators.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 Permissions is the admin area's identity-group management interface (`#manage/admin/roles`, permission key `role:query`), deciding each group's quotas, permission keys and AI model authorisation. The user-side behaviour of each group is in Section 3 of [Operating Modes](/en/mail/modes/).
 

@@ -3,9 +3,14 @@ title: De configuratiekaarten van de systeeminstellingen
 description: De configuratiekaarten van de systeeminstellingen van EpoCanvas Mail — elf kaarten één voor één, van website-instellingen en personalisatie via derdenauthenticatie, opslag, e-mail-push, AI-engine en gebruikersgegevensbeheer tot Turnstile, aankondigingen, operatierapporten en de kaart Over.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
 
 De pagina systeeminstellingen (`#manage/admin/system`, rechten-sleutels `setting:query`／`setting:set`) ordent alle configuratie op instantieniveau in kaarten. Deze pagina loopt elke kaart langs; de kaartnamen zijn identiek aan de interface.
+
+![Figuur: de systeeminstellingen met hun elf kaarten](/images/mail/nl/ui/system.png)
+
+*Figuur: de systeeminstellingen met hun elf kaarten*
+
 
 ## 1. Website-instellingen
 
@@ -53,8 +58,6 @@ Versie-informatie van de instantie en updatecontrole (tegenover GitHub Releases)
 
 <details>
 <summary>Visuele handleiding: de elf configuratiekaarten in één oogopslag (nummering volgens de interface)</summary>
-
-![De elf configuratiekaarten in één oogopslag (nummering volgens de interface)](/images/mail/nl/ui/system.png)
 
 1. ① Website-instellingen: open registratie, openbare profielen, e-mailmodus, tweestapsverificatie, registratiecodes, extra mailboxen, snel wisselen tussen accounts en het mailboxvoorvoegsel.
 2. ② Personalisatie: sitetitel, pop-upmeldingen en de dynamische／statische interface. ③ Opslag en kerndatabase: B2／S3, de kerndatabase en externe databases, de limiet voor één bijlage.

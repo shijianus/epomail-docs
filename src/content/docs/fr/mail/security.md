@@ -3,7 +3,7 @@ title: Guide de sécurité du compte
 description: Guide de sécurité du compte d'EpoCanvas Mail — activer la vérification en deux étapes en trois étapes, gérer les codes de récupération, enregistrer des clés d'accès, comportement de la vérification à la connexion et suppression du compte.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
 
 La présente page parcourt une à une les actions de la page « Paramètres → Sécurité ». Le comportement général de la vérification en deux étapes (appareils de confiance, politiques forcées) est décrit à la section 4 de [Modes de fonctionnement](/fr/mail/modes/) ; la présente page ne couvre que la configuration. Entrée : barre latérale « Paramètres → Sécurité » (`#settings/security`).
 

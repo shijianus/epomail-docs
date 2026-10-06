@@ -3,7 +3,7 @@ title: Interfaz del buzón y detalle del mensaje
 description: Interfaz del buzón de EpoCanvas Mail — recorrido paso a paso por las ocho vistas, por todas las acciones de la página de detalle del mensaje, por la capa de redacción y por los hilos de conversación.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.15**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
 
 Esta página explica una a una las vistas de la interfaz principal del buzón y cada acción de la página de detalle del mensaje. Las rutas y el esqueleto de interfaz de cada vista figuran en [Mapa de interfaz y rutas](/es/mail/interface/); la búsqueda y las reglas que hay detrás de la organización, en [Referencia de búsqueda y reglas](/es/mail/search/).
 

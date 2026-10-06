@@ -3,9 +3,14 @@ title: Gestion des étiquettes et du classement
 description: Gestion des étiquettes et du classement d'EpoCanvas Mail — création des étiquettes, icônes et couleurs, entretien heuristique des quatre étiquettes d'usine, constructeur de règles de classement et présentation des statistiques.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
 
 Les étiquettes et les règles de classement se gèrent dans « Paramètres → Étiquettes » (`#settings/labels`). La table complète des champs de conditions figure à la section 7 de la [Référence de la recherche et des règles](/fr/mail/search/) ; la présente page décrit la manipulation des étiquettes elles-mêmes et leurs statistiques.
+
+![Figure : l'interface des étiquettes et du classement](/images/mail/fr/ui/labels.png)
+
+*Figure : l'interface des étiquettes et du classement*
+
 
 ## 1. Création et apparence des étiquettes
 
@@ -41,8 +46,6 @@ Les quatre étiquettes d'usine peuvent être modifiées et supprimées ; le clas
 
 <details>
 <summary>Guide visuel : les étiquettes et le constructeur de règles</summary>
-
-![Les étiquettes et le constructeur de règles](/images/mail/fr/ui/labels.png)
 
 1. Ouvrez « Paramètres → Étiquettes » ; créez une nouvelle étiquette dans la zone d'étiquettes de la barre latérale ou dans la page des étiquettes (la barre latérale en affiche au plus 7).
 2. Choisissez pour l'étiquette une icône de la bibliothèque intégrée ou importez un SVG personnalisé, puis prenez sa couleur dans la palette d'étiquettes.

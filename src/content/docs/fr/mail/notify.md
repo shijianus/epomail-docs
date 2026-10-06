@@ -3,7 +3,7 @@ title: Guide des notifications et du transfert
 description: Guide des notifications et du transfert d'EpoCanvas Mail — liaison du push Telegram, préférences de push et visibilité des champs, destination et types de déclencheur du transfert automatique.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
 
 La présente page parcourt les deux capacités de la zone « Notifications et transfert » de la page « Paramètres → Données » : le push des messages Telegram et le transfert automatique. Un compte y accède ou non selon la carte « Contrôle des données utilisateurs » de l'administrateur ; lorsque l'interrupteur est désactivé, les blocs sont masqués. L'export des données et le stockage figurent sur la même page, voir la section 5 du [Guide des paramètres](/fr/mail/settings/).
 

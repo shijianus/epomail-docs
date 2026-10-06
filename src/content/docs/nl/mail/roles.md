@@ -3,7 +3,7 @@ title: Rechtenbeheer
 description: Rechtenbeheer van EpoCanvas Mail — de zes identiteitsgroepen, de rechten-sleutels per onderdeel, de standaardgroep met groepsbescherming en de koppeling met de blogniveaus.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
 
 Rechtenbeheer is de beheerinterface van de identiteitsgroepen in de beheerzone (`#manage/admin/roles`, rechten-sleutel `role:query`) en bepaalt de quota, de rechten-sleutels en de AI-modelautorisatie van elke groep. Het gedrag aan gebruikerskant van elke groep staat in sectie 3 van [Werkingsmodi](/nl/mail/modes/).
 

@@ -3,9 +3,14 @@ title: E-mailcontrole over de hele opslag
 description: De e-mailcontrole over de hele opslag van EpoCanvas Mail — zoeken in de beheerdimensie, de detail-lade en fysieke verwijdering, met de invloed van de e-mailmodus op de ingang.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
 
 De e-mailcontrole over de hele opslag is de e-mailinterface van de beheerzone (`#manage/admin/mail`, rechten-sleutel `all-email:query`). Naam en zichtbaar bereik van de sectie volgen de e-mailmodus: de Alle e-mail-modus (Level 1) toont «Alle e-mail», de privémodus (Level 2) toont «Spam», en de versleutelde modus (Level 3) verbergt de hele sectie (zie [Werkingsmodi](/nl/mail/modes/), sectie 2).
+
+![Figuur: de e-mailcontrole over de hele opslag](/images/mail/nl/ui/review.png)
+
+*Figuur: de e-mailcontrole over de hele opslag*
+
 
 ## 1. Zoeken
 
@@ -24,8 +29,6 @@ Verdachte accounts die de controle aan het licht brengt, kunnen meteen in de [Ge
 
 <details>
 <summary>Visuele handleiding: de e-mailcontrole over de hele opslag in stappen</summary>
-
-![De e-mailcontrole over de hele opslag in stappen](/images/mail/nl/ui/review.png)
 
 1. Ga in de beheerzone naar «Alle e-mail» (in de privémodus als «Spam» getoond, in de versleutelde modus verborgen).
 2. Zoek in de bovenbalk met de geavanceerde `$`-syntax, zoals `$user:<mailbox>` en `$subject:<trefwoord>`; statustokens filteren verzonden／verwijderd／zonder geadresseerde.

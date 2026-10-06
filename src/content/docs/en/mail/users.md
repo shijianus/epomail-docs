@@ -3,9 +3,14 @@ title: User List
 description: EpoCanvas Mail user list — account lookup, password reset, identity-group change, two-step verification reset, ban and restore, for administrators.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 The User List is the admin area's account-management interface (`#manage/admin/users`, permission key `user:query`), where administrators look up and handle every account on the instance.
+
+![Figure: the user list](/images/mail/en/ui/users.png)
+
+*Figure: the user list*
+
 
 ## 1. List and search
 
@@ -27,8 +32,6 @@ A ban enters [Operation Reports](/en/mail/audit/) as a warning ticket; the affec
 
 <details>
 <summary>Walkthrough: the User List</summary>
-
-![The User List](/images/mail/en/ui/users.png)
 
 1. Open the admin area's User List (permission key `user:query`).
 2. Use the top search box to locate an account by mailbox.

@@ -3,7 +3,7 @@ title: Mapa de interfaz y rutas
 description: Mapa de interfaz y rutas de EpoCanvas Mail — las ocho vistas del buzón, la capa de redacción, todas las rutas de configuración y de administración, los flujos de la superficie de inicio de sesión, la página de consentimiento OAuth y los perfiles públicos.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.15**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.16**
 
 Esta página recorre una a una las interfaces de EpoCanvas Mail y sus rutas. Una ubicación consta de dos partes: el prefijo de ruta `/mail/u/N/` (N es el índice de sesión multicuenta; siempre 0 con una sola cuenta) y la ruta de vista tras `#` (por ejemplo `#inbox`). Las rutas directas heredadas como `/inbox` se normalizan automáticamente. La superficie de inicio de sesión se despliega por separado bajo `/login/`. Lo que permite cada ruta lo deciden los permisos del grupo de identidad; véase [Modos de funcionamiento](/es/mail/modes/); el efecto de cada ajuste se describe en la [Guía de configuración](/es/mail/settings/).
 

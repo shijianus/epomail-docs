@@ -3,7 +3,7 @@ title: Auditrapport
 description: Het auditrapport van EpoCanvas Mail — de vier waarschuwingsklassen beoordelen, de afhandelknoppen, de arbitrage van beroepen en het strippen van tijdstempels in de versleutelde modus.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
 
 Het auditrapport is de risicoticket-interface van de beheerzone (`#manage/admin/audit`; opvragen vereist `setting:query`, afhandelen en arbitreren vereist `setting:set`). De tickets worden bewaard in een aparte auditlogtabel; de geschiedenis is per pagina doorzoekbaar.
 

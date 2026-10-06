@@ -3,7 +3,7 @@ title: Informe de auditoría
 description: Informe de auditoría de EpoCanvas Mail — estudio de los avisos de las cuatro clases, botones de tratamiento, adjudicación de apelaciones y supresión de las marcas de tiempo en el modo cifrado, a cargo del administrador.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.15**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
 
 El informe de auditoría es la interfaz de avisos de riesgo de la zona de administración (`#manage/admin/audit`; la consulta exige `setting:query`, y el tratamiento y la adjudicación, `setting:set`). Los avisos se persisten en una tabla de registro de auditoría independiente, con búsqueda histórica paginada.
 

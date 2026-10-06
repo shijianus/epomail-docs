@@ -3,7 +3,7 @@ title: "Open source en zelfhosting: juridisch kader"
 description: De juridische voorwaarden voor open source en zelfhosting van EpoCanvas Mail — de reikwijdte van de MIT-licentie, wat erbuiten valt, de positie van de zelf-uitroller als gegevensbeheerder, constructies met derden en bijdragen.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.16**
 
 Deze pagina zet de reikwijdte van de open-sourcelicentie van EpoCanvas Mail uiteen en de juridische positie van zelfhosting. Zij vormt geen gebruikerscontract voor enige instantie: gebruikers van de gehoste instantie vallen onder de [Servicevoorwaarden](/nl/mail/terms-of-service/) en het [Privacybeleid](/nl/mail/privacy-policy/); gebruikers van een zelf gehoste instantie vallen onder de voorwaarden die diens uitroller publiceert.
 

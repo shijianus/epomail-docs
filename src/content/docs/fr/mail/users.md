@@ -3,9 +3,14 @@ title: Liste des utilisateurs
 description: Liste des utilisateurs d'EpoCanvas Mail — recherche de comptes, réinitialisation du mot de passe, changement de groupe d'identité, réinitialisation de la double vérification, bannissement et restauration côté administration.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
 
 La liste des utilisateurs est l'interface de gestion des comptes de la zone d'administration (`#manage/admin/users`, clé de permission `user:query`) ; elle permet à l'administrateur de rechercher et de traiter tous les comptes du site.
+
+![Figure : la liste des utilisateurs](/images/mail/fr/ui/users.png)
+
+*Figure : la liste des utilisateurs*
+
 
 ## 1. Liste et recherche
 
@@ -27,8 +32,6 @@ Le bannissement génère un ticket d'alerte qui entre au [Rapport d'audit](/fr/m
 
 <details>
 <summary>Guide visuel : la liste des utilisateurs</summary>
-
-![La liste des utilisateurs](/images/mail/fr/ui/users.png)
 
 1. Ouvrez la « Liste des utilisateurs » de la zone d'administration (clé de permission `user:query`).
 2. Localisez un compte par son adresse depuis la barre de recherche supérieure.

@@ -3,7 +3,7 @@ title: Guide des fonctionnalités d'EpoCanvas Mail
 description: Guide des fonctionnalités d'EpoCanvas Mail — organisation de la boîte de réception, rédaction et envoi, syntaxe de recherche, moteur de règles d'étiquettes, extraction des codes de vérification, gestion des pourriels, réexpédition et notifications, capacités d'IA et plateforme ouverte.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
 
 La présente page décrit une à une les fonctionnalités réelles d'EpoCanvas Mail ; chaque point a été vérifié à partir du code open source, et les captures d'écran de l'interface proviennent de l'exécution réelle de l'instance hébergée officielle. Le positionnement du projet, son historique de développement et son déploiement sont présentés dans [Présentation du projet](/fr/mail/project/) ; le traitement des données et les durées de conservation propres à chaque fonctionnalité figurent dans [Traitement des données et sécurité](/fr/mail/data-security/).
 

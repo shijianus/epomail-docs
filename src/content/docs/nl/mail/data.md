@@ -3,7 +3,7 @@ title: Gegevensexport en opslag
 description: Gegevensexport en opslag van EpoCanvas Mail — de drie exporten (volledige back-up, e-mailarchief, contacten en configuratie) en het koppelen van persoonlijke objectopslag.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
 
 Deze pagina behandelt de twee delen van de pagina «Instellingen → Gegevens»: export en opslag. De meldingen en het doorsturen op dezelfde pagina staan in de [Gids voor meldingen en doorsturen](/nl/mail/notify/); de juridische status van geëxporteerde gegevens staat in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 

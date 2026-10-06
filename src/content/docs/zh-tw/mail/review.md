@@ -3,9 +3,14 @@ title: 全庫郵件審查
 description: EpoCanvas Mail 全庫郵件審查——管理員郵件維度的檢索、詳情抽屜與實體刪除之說明，含郵件模式對入口的影響。
 ---
 
-**生效日期：2026 年 10 月 6 日｜版本：5.15**
+**生效日期：2026 年 10 月 6 日｜版本：5.16**
 
 全庫郵件審查是管理區的郵件維度介面（`#manage/admin/mail`，權限鍵 `all-email:query`）。分區名稱與可見範圍隨郵件模式變化：全部郵件模式（Level 1）顯示「全部郵件」，隱私模式（Level 2）顯示「垃圾郵件」，加密模式（Level 3）整段隱藏（見[運行模式](/zh-tw/mail/modes/)第 2 節）。
+
+![圖：全庫郵件審查](/images/mail/zh-tw/ui/review.png)
+
+*圖：全庫郵件審查*
+
 
 ## 1. 檢索
 
@@ -24,8 +29,6 @@ description: EpoCanvas Mail 全庫郵件審查——管理員郵件維度的檢�
 
 <details>
 <summary>圖解：全庫郵件審查的操作步驟</summary>
-
-![全庫郵件審查的操作步驟](/images/mail/zh-tw/ui/review.png)
 
 1. 進入管理區「全部郵件」（隱私模式下顯示為「垃圾郵件」，加密模式下隱藏）。
 2. 頂欄以 `$` 進階語法檢索，如 `$user:<信箱>`、`$subject:<關鍵詞>`；狀態 token 過濾已傳送／已刪除／無收件人。

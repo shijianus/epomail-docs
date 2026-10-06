@@ -3,9 +3,14 @@ title: Analytics
 description: EpoCanvas Mail analytics page — dashboards of mail volume, interception rate, source distribution, growth curves and AI usage for administrators.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 The Analytics page is the admin area's data dashboard (`#manage/admin/analysis`, permission key `analysis:query`), aggregating the instance's mail, user and AI usage metrics. How each metric is measured varies with the mail mode: in encrypted mode (Level 3) the admin side does not read user mail content and the related counts are metadata-level.
+
+![Figure: the analytics page](/images/mail/en/ui/analysis.png)
+
+*Figure: the analytics page*
+
 
 ## 1. Metrics at a glance
 
@@ -26,8 +31,6 @@ The Analytics page is the admin area's data dashboard (`#manage/admin/analysis`,
 
 <details>
 <summary>Walkthrough: the Analytics page</summary>
-
-![The Analytics page](/images/mail/en/ui/analysis.png)
 
 1. Open the admin area's Analytics page (permission key `analysis:query`).
 2. Read the three groups of metric cards: mail totals, users and governance.

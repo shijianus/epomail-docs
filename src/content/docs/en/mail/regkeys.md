@@ -3,9 +3,14 @@ title: Registration Keys
 description: EpoCanvas Mail registration keys — issuing invitation codes, managing uses and expiry, and checking usage records, for administrators.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 Registration Keys is the admin area's invitation-code interface (`#manage/admin/reg-keys`, permission key `reg-key:query`), controlling who can register on this instance. The three site-wide registration-code modes (required / off / optional) are decided by the website-settings card of [System Settings Cards](/en/mail/system/).
+
+![Figure: the registration keys](/images/mail/en/ui/regkeys.png)
+
+*Figure: the registration keys*
+
 
 ## 1. Issuing
 
@@ -32,8 +37,6 @@ URLs carrying an invitation parameter (`?code=` / `?regKey=` / `?invite=`) prefi
 
 <details>
 <summary>Walkthrough: Registration Keys</summary>
-
-![Registration Keys](/images/mail/en/ui/regkeys.png)
 
 1. Open the admin area's Registration Keys page (permission key `reg-key:query`).
 2. Click "Add" to generate an 8-character random code (click refresh to regenerate).

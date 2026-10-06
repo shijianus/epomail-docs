@@ -3,7 +3,7 @@ title: Mailboxinterface en e-maildetails
 description: Mailboxinterface en e-maildetails van EpoCanvas Mail — een stap voor stap uiteenzetting van de acht weergaven, alle acties op de e-maildetailpagina, het schrijfvenster als overlay en de gespreksthreads.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
 
 Deze pagina loopt elke weergave van de hoofdinterface van de mailbox en elke actie op de e-maildetailpagina één voor één langs. De routes van de weergaven en de opbouw van de interface staan in de [Interface en routekaart](/nl/mail/interface/); het zoeken en de regels achter het ordenen staan in de [Zoek- en regelreferentie](/nl/mail/search/).
 

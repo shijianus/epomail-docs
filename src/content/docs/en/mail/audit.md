@@ -3,7 +3,7 @@ title: Operation Reports
 description: EpoCanvas Mail operation reports — triage of the four warning classes, handling buttons, appeal adjudication and timestamp stripping in encrypted mode, for administrators.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 Operation Reports is the admin area's risk-ticket interface (`#manage/admin/audit`; querying needs `setting:query`, handling and adjudication need `setting:set`). Tickets are persisted in a dedicated audit-log table, and history is searchable with paging.
 

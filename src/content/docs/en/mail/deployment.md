@@ -3,7 +3,7 @@ title: Deployment Guide
 description: The EpoCanvas Mail deployment guide — prerequisites, the three-step deployment, initialisation and the bootstrap chain, secret injection, mail configuration, storage choices, the demo instance and upgrades.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.15**
+**Effective date: 5 October 2026 | Version: 5.16**
 
 This page is for users and administrators preparing to deploy EpoCanvas Mail themselves; it covers the full path from zero to a working instance. Once deployed, all instance data lives in the deployer's own Cloudflare resources, and the deployer becomes the data controller for its users — the legal position is set out in [Open-Source & Self-Hosting Legal](/en/mail/open-source/). Using the hosted instance ([mail.epocanvas.com](https://mail.epocanvas.com)) requires none of these steps.
 

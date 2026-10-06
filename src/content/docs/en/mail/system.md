@@ -3,9 +3,14 @@ title: System Settings Cards
 description: EpoCanvas Mail system settings, card by card — the eleven configuration cards from website settings, customization and third-party authentication to storage, mail push, the AI engine, user data control, Turnstile, notices, operation-report thresholds and about.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 The system-settings page (`#manage/admin/system`, permission keys `setting:query` / `setting:set`) organises all instance-level configuration into cards. This page explains them card by card; card names match the application interface.
+
+![Figure: system settings and its eleven cards](/images/mail/en/ui/system.png)
+
+*Figure: system settings and its eleven cards*
+
 
 ## 1. Website settings
 
@@ -53,8 +58,6 @@ Instance version information and the update check (against GitHub Releases).
 
 <details>
 <summary>Walkthrough: the eleven configuration cards at a glance (numbering matches the interface)</summary>
-
-![The eleven configuration cards at a glance (numbering matches the interface)](/images/mail/en/ui/system.png)
 
 1. ① Website settings: open registration, public profiles, mail mode, two-step verification, registration codes, extra mailboxes, multi-account switching and mailbox prefixes.
 2. ② Customization: site title, pop-up notices and the dynamic / static interface. ③ Storage & core database: B2 / S3, the core and external database, and the single-attachment limit.

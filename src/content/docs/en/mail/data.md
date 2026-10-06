@@ -3,7 +3,7 @@ title: Data Export & Storage
 description: EpoCanvas Mail data export and storage — the full backup, mail-history archive and contacts-configuration exports, and connecting personal object storage.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 This page covers the export and storage halves of the "Settings → Data" page. Notifications and forwarding on the same page are in the [Notifications & Forwarding Guide](/en/mail/notify/); the legal status of exported data is in [Data Processing & Security Maintenance](/en/mail/data-security/).
 

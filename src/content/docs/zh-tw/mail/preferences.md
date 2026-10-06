@@ -3,9 +3,14 @@ title: 個資與常規設定
 description: EpoCanvas Mail 個資與常規設定——頭像暱稱聯絡方式地址、外觀主題桌布、閱讀偏好與介面語言之逐項說明。
 ---
 
-**生效日期：2026 年 10 月 6 日｜版本：5.15**
+**生效日期：2026 年 10 月 6 日｜版本：5.16**
 
 本頁說明「設定 → 個資」與「設定 → 常規」兩個分區的每一項。安全與資料類設定分見[帳號安全設定指南](/zh-tw/mail/security/)與[資料匯出與儲存](/zh-tw/mail/data/)。
+
+![圖：個資與常規設定介面](/images/mail/zh-tw/ui/preferences.png)
+
+*圖：個資與常規設定介面*
+
 
 ## 1. 個資（`#settings/profile`）
 
@@ -33,8 +38,6 @@ description: EpoCanvas Mail 個資與常規設定——頭像暱稱聯絡方式�
 
 <details>
 <summary>圖解：個資與常規的操作步驟</summary>
-
-![個資與常規的操作步驟](/images/mail/zh-tw/ui/profile.png)
 
 1. 「設定 → 個資」：上傳頭像，填寫暱稱、性別與生日。
 2. 聯絡資訊卡可新增多個額外電子信箱與含國碼的電話號碼；地址卡分別保存住家、公司與其他地址。

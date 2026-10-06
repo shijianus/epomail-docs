@@ -3,9 +3,14 @@ title: Labels & Classification Management
 description: EpoCanvas Mail labels and classification — creating labels, icons and colours, heuristic maintenance of the four factory labels, the classification rule builder and statistics.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 Labels and classification rules are managed under "Settings → Labels" (`#settings/labels`). The full field table of rule conditions is in Section 7 of the [Search & Rules Reference](/en/mail/search/); this page covers the operations and statistics of the labels themselves.
+
+![Figure: the labels & classification interface](/images/mail/en/ui/labels.png)
+
+*Figure: the labels & classification interface*
+
 
 ## 1. Creating labels and their appearance
 
@@ -41,8 +46,6 @@ The four factory labels can be edited and deleted; heuristic sorting applies onl
 
 <details>
 <summary>Walkthrough: labels and the rule builder</summary>
-
-![Labels and the rule builder](/images/mail/en/ui/labels.png)
 
 1. Go to "Settings → Labels"; create a new label in the sidebar label area or on the labels page (the sidebar shows at most 7).
 2. Pick a built-in icon for the label or upload a custom SVG, and choose the label colour.

@@ -3,9 +3,14 @@ title: Page d'analyse
 description: Page d'analyse d'EpoCanvas Mail — tableaux de bord du volume de courriels, du taux d'interception, de la distribution des sources, des courbes de croissance et de l'usage de l'IA côté administration.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
 
 La page d'analyse est le tableau de bord de données de la zone d'administration (`#manage/admin/analysis`, clé de permission `analysis:query`) ; elle agrège les indicateurs de courriels, d'utilisateurs et d'usage de l'IA de l'instance. Le périmètre de chaque indicateur varie avec le mode courriel : en mode chiffré (Level 3), l'administration ne lit pas le contenu des courriels des utilisateurs et les compteurs concernés restent au niveau des métadonnées.
+
+![Figure : la page d'analyse](/images/mail/fr/ui/analysis.png)
+
+*Figure : la page d'analyse*
+
 
 ## 1. Tour d'horizon des indicateurs
 
@@ -26,8 +31,6 @@ La page d'analyse est le tableau de bord de données de la zone d'administration
 
 <details>
 <summary>Guide visuel : la page d'analyse</summary>
-
-![La page d'analyse](/images/mail/fr/ui/analysis.png)
 
 1. Ouvrez la « Page d'analyse » de la zone d'administration (clé de permission `analysis:query`).
 2. Consultez les trois groupes de cartes d'indicateurs : volume de courriels, utilisateurs et gouvernance.

@@ -3,7 +3,7 @@ title: Development Guide
 description: The EpoCanvas Mail development guide — repository layout, local environment, test and inspection suites, the six-language discipline, migration discipline, the five-step workflow and how to contribute.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.15**
+**Effective date: 5 October 2026 | Version: 5.16**
 
 This page is for administrators and developers working on, auditing or building upon EpoCanvas Mail: the repository layout, the local environment, the quality-assurance system and the engineering workflow. The steps for running a deployment are in the [Deployment Guide](/en/mail/deployment/); they are not repeated here.
 

@@ -3,7 +3,7 @@ title: Exportación de datos y almacenamiento
 description: Exportación de datos y almacenamiento de EpoCanvas Mail — copia de seguridad integral, archivo del historial de correo y exportación de contactos y configuración, además de la conexión de un almacenamiento de objetos personal.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.15**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
 
 Esta página cubre las dos partes —exportación y almacenamiento— de la página «Configuración → Datos». Las notificaciones y el reenvío de la misma página figuran en la [Guía de notificaciones y reenvío](/es/mail/notify/); la posición jurídica de los datos exportados, en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 

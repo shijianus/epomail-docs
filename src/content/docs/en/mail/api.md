@@ -3,7 +3,7 @@ title: Open Platform & API Access
 description: The EpoCanvas Mail open platform and API access guide — registering OAuth apps, the authorize and token endpoints, userinfo, scope semantics and the user-side consent and revocation flow.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.15**
+**Effective date: 5 October 2026 | Version: 5.16**
 
 EpoCanvas Mail ships a built-in OAuth 2.0 / OIDC authorization center: the administrator registers third-party applications in the admin "App management" section (`#manage/admin/oauth-apps`), and external sites can then offer "Sign in with Epomail". This page is the complete developer tutorial; where the interface sits in the app appears in the [Interface & Route Map](/en/mail/interface/), Section 4, and the handling of authorization data is disclosed in the [Sub-processor List](/en/mail/sub-processors/).
 

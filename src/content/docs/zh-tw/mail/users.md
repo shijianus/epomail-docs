@@ -3,9 +3,14 @@ title: 使用者清單
 description: EpoCanvas Mail 使用者清單——帳號檢索、密碼重設、身分分組調整、兩步驗證重設、封禁與復原之管理員操作說明。
 ---
 
-**生效日期：2026 年 10 月 6 日｜版本：5.15**
+**生效日期：2026 年 10 月 6 日｜版本：5.16**
 
 使用者清單是管理區的帳號管理介面（`#manage/admin/users`，權限鍵 `user:query`），供管理員檢索與處置站內全部帳號。
+
+![圖：使用者清單](/images/mail/zh-tw/ui/users.png)
+
+*圖：使用者清單*
+
 
 ## 1. 清單與檢索
 
@@ -27,8 +32,6 @@ description: EpoCanvas Mail 使用者清單——帳號檢索、密碼重設、�
 
 <details>
 <summary>圖解：使用者清單的操作步驟</summary>
-
-![使用者清單的操作步驟](/images/mail/zh-tw/ui/users.png)
 
 1. 進入管理區「使用者清單」（需 `user:query` 權限）。
 2. 頂欄搜尋框按信箱定位帳號。

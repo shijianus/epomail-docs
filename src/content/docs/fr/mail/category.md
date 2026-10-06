@@ -3,9 +3,14 @@ title: Classement
 description: Classement d'EpoCanvas Mail — interrupteurs de réception et d'envoi, configuration de la reconnaissance par IA, listes blanche et noire et règles d'interception stricte à l'échelle du site.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.15**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
 
 Le classement est l'interface de gouvernance à l'échelle du site de la zone d'administration (`#manage/admin/rules`, clé de permission `setting:query`) ; il superpose aux règles personnelles des utilisateurs une gouvernance de la réception à l'échelle de toute l'instance. Les règles d'étiquettes personnelles figurent dans [Gestion des étiquettes et du classement](/fr/mail/labels/) ; la sémantique des champs de conditions, à la section 7 de la [Référence de la recherche et des règles](/fr/mail/search/).
+
+![Figure : l'interface de gestion du classement](/images/mail/fr/ui/category.png)
+
+*Figure : l'interface de gestion du classement*
+
 
 ## 1. Interrupteurs de réception, d'envoi et d'actualisation
 
@@ -33,8 +38,6 @@ Les listes à l'échelle du site s'entretiennent par l'administrateur et s'appli
 
 <details>
 <summary>Guide visuel : la gouvernance à l'échelle du site</summary>
-
-![La gouvernance à l'échelle du site](/images/mail/fr/ui/category.png)
 
 1. Ouvrez la page « Classement » de la zone d'administration (clé de permission `setting:query`).
 2. Configurez les interrupteurs de réception／d'envoi, l'actualisation automatique et le traitement des courriels sans destinataire.

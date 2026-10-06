@@ -3,9 +3,14 @@ title: Personal Data & General Settings
 description: EpoCanvas Mail personal data and general settings — avatar, nickname, contact details and addresses, appearance and theme wallpapers, reading preferences and interface language, item by item.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.15**
+**Effective date: 6 October 2026 | Version: 5.16**
 
 This page covers every item in the "Settings → Personal" and "Settings → General" sections. Security and data settings are covered separately in the [Account Security Guide](/en/mail/security/) and [Data Export & Storage](/en/mail/data/).
+
+![Figure: the personal data & general settings interface](/images/mail/en/ui/preferences.png)
+
+*Figure: the personal data & general settings interface*
+
 
 ## 1. Personal data (`#settings/profile`)
 
@@ -33,8 +38,6 @@ The global theme wallpaper applies to every view, while the personal background 
 
 <details>
 <summary>Walkthrough: Personal data and General</summary>
-
-![Personal data and General](/images/mail/en/ui/profile.png)
 
 1. "Settings → Personal": upload an avatar and fill in the nickname, gender and birthday.
 2. The contact-information card holds multiple additional e-mail addresses and phone numbers with country codes; the address cards store home, company and other addresses separately.

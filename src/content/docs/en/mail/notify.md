@@ -3,7 +3,7 @@ title: Notifications & Forwarding Guide
 description: The EpoCanvas Mail notifications and forwarding guide — binding Telegram push, push preferences and field visibility, and the destination and trigger types of auto-forwarding.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.15**
+**Effective date: 5 October 2026 | Version: 5.16**
 
 This page walks through the two capabilities of the "Mail & message forwarding" area on the "Settings → Data" page: Telegram message push and auto-forwarding. Whether an account sees them is decided by the admin's "User Data Control" card; when off, the blocks are hidden. Data export and storage live on the same page, see the [Settings Guide](/en/mail/settings/), Section 5.
 

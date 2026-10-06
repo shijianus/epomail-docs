@@ -3,9 +3,14 @@ title: Claves de registro
 description: Claves de registro de EpoCanvas Mail — emisión de códigos de invitación, gestión de los usos disponibles y de la vigencia, y comprobación del registro de uso, a cargo del administrador.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.15**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
 
 Las claves de registro son la interfaz de códigos de invitación de la zona de administración (`#manage/admin/reg-keys`, clave de permiso `reg-key:query`); deciden quién puede registrarse en la instancia. Los tres modos del código de registro a escala de todo el sitio (obligatorio, desactivado u opcional) los decide la tarjeta de configuración del sitio de la [Configuración del sistema](/es/mail/system/).
+
+![Figura: las claves de registro](/images/mail/es/ui/regkeys.png)
+
+*Figura: las claves de registro*
+
 
 ## 1. Emisión
 
@@ -32,8 +37,6 @@ Una URL que lleve el parámetro de invitación (`?code=`／`?regKey=`／`?invite
 
 <details>
 <summary>Guía visual: pasos de manejo de las claves de registro</summary>
-
-![Pasos de manejo de las claves de registro](/images/mail/es/ui/regkeys.png)
 
 1. Entre en las «Claves de registro» de la zona de administración (exige la clave de permiso `reg-key:query`).
 2. Pulse «Añadir» para generar un código aleatorio de 8 caracteres (pulse el botón de actualizar para regenerarlo).

@@ -3,9 +3,14 @@ title: Classificatiebeheer
 description: Classificatiebeheer van EpoCanvas Mail — de schakelaars voor ontvangen en verzenden, de configuratie van AI-herkenning en de witte en zwarte lijsten met harde onderschepping op siteniveau.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
 
 Classificatiebeheer is de governance-interface op siteniveau in de beheerzone (`#manage/admin/rules`, rechten-sleutel `setting:query`) en legt sitewijde regels voor inkomende e-mail bovenop de persoonlijke regels van gebruikers. De persoonlijke labelregels staan in [Label- en classificatiebeheer](/nl/mail/labels/); de betekenis van de voorwaardevelden in sectie 7 van de [Zoek- en regelreferentie](/nl/mail/search/).
+
+![Figuur: de classificatiebeheer-interface](/images/mail/nl/ui/category.png)
+
+*Figuur: de classificatiebeheer-interface*
+
 
 ## 1. Schakelaars voor ontvangst, verzending en verversen
 
@@ -33,8 +38,6 @@ De lijsten op siteniveau worden door de beheerder onderhouden en gelden voor de 
 
 <details>
 <summary>Visuele handleiding: de governance op siteniveau in stappen</summary>
-
-![De governance op siteniveau in stappen](/images/mail/nl/ui/category.png)
 
 1. Ga in de beheerzone naar «Classificatiebeheer» (vereist `setting:query`).
 2. Configureer de hoofdschakelaars voor ontvangst en verzending, het automatisch verversen en de afhandeling van e-mail zonder geadresseerde.

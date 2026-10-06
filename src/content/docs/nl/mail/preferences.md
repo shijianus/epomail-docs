@@ -3,9 +3,14 @@ title: Profiel en algemene instellingen
 description: Profiel en algemene instellingen van EpoCanvas Mail — avatar, bijnaam, contactgegevens en adressen, uiterlijk, themaachtergronden, leesvoorkeuren en interfacetaal, onderdeel voor onderdeel.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.15**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
 
 Deze pagina loopt elk onderdeel van de twee secties «Instellingen → Profiel» en «Instellingen → Algemeen» langs. De instellingen voor beveiliging en gegevens staan apart beschreven in de [Accountbeveiligingsgids](/nl/mail/security/) en bij [Gegevensexport en opslag](/nl/mail/data/).
+
+![Figuur: de profiel- en algemene instellingen-interface](/images/mail/nl/ui/preferences.png)
+
+*Figuur: de profiel- en algemene instellingen-interface*
+
 
 ## 1. Profiel (`#settings/profile`)
 
@@ -33,8 +38,6 @@ De globale themaachtergrond geldt voor alle weergaven; de persoonlijke achtergro
 
 <details>
 <summary>Visuele handleiding: Profiel en Algemeen in stappen</summary>
-
-![Profiel en Algemeen in stappen](/images/mail/nl/ui/profile.png)
 
 1. «Instellingen → Profiel»: upload een avatar en vul bijnaam, geslacht en verjaardag in.
 2. De kaart Contactgegevens kan meerdere extra e-mailadressen en telefoonnummers met landcode bevatten; de drie adreskaarten bewaren respectievelijk het adres thuis, op het bedrijf en overig.
