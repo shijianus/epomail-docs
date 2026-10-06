@@ -7,9 +7,10 @@ description: EpoCanvas Mail interface and route map — the eight mailbox views,
 
 This page walks through every EpoCanvas Mail interface and its route. A location consists of two parts: the path prefix `/mail/u/N/` (N is the multi-account session index; always 0 for a single account) and the view route after `#` (for example `#inbox`). Legacy direct paths such as `/inbox` are normalised automatically. The login surface is deployed separately under `/login/`. What each route allows is decided by identity-group permissions, see [Operating Modes](/en/mail/modes/); the effect of each setting is described in the [Settings Guide](/en/mail/settings/).
 
-![EpoCanvas Mail inbox panorama: compose entry and folder tree on the left, message list with verification-code badges and official markers on the right](/images/mail/ui/ui-inbox-zh.png)
+![EpoCanvas Mail inbox panorama: compose entry and folder tree on the left, message list with verification-code badges and official markers on the right](/images/mail/en/ui/views-guide.png)
 
 *Figure: the inbox (`#inbox`). The eight views share one list skeleton; counters and labels stay in sync.*
+*Annotations: 1. Compose　2. Starred　3. Snoozed1　4. Sent*
 
 ## 1. Mailbox main interface
 

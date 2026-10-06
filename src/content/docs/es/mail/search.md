@@ -7,9 +7,10 @@ description: Referencia completa de búsqueda y reglas de EpoCanvas Mail — ope
 
 EpoCanvas Mail dispone de dos sistemas de recuperación: la búsqueda de correo orientada al usuario (el cuadro de búsqueda de la barra superior) y la búsqueda de todo el almacén del administrador (la sección administrativa «Todo el correo»); las páginas de configuración tienen además su propia búsqueda de configuración. Esta página enumera cada operador, bandera y condición de regla, conforme a la implementación actual. Las reglas de clasificación comparten con la búsqueda la misma semántica de campos; el motor de reglas se describe a partir de la sección 7.
 
-![Búsqueda de EpoCanvas Mail: tras introducir from:github, la lista muestra solo el correo coincidente con la palabra clave resaltada (interfaz en chino simplificado)](/images/mail/ui/ui-search.png)
+![Búsqueda de EpoCanvas Mail: tras introducir from:github, la lista muestra solo el correo coincidente con la palabra clave resaltada (interfaz en chino simplificado)](/images/mail/es/ui/search-guide.png)
 
 *Figura: búsqueda de correo. Los operadores se combinan libremente con palabras clave simples; las coincidencias se iluminan al instante.*
+*Anotaciones: 1. Buscar correo...*
 
 ## 1. Fundamentos de la sintaxis
 

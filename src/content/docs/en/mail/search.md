@@ -7,9 +7,10 @@ description: The complete EpoCanvas Mail search and rules reference — mail fie
 
 EpoCanvas Mail has two retrieval systems: user-facing mail search (the top-bar search box) and the administrator's full-store search (the admin "All Mail" section); settings pages additionally have their own settings search. This page lists every operator, flag and rule condition, matching the current implementation. Classification rules share the same field semantics as search; the rule engine is described from Section 7 on.
 
-![EpoCanvas Mail search: after typing from:github the list shows only matching mail with the keyword highlighted](/images/mail/ui/ui-search.png)
+![EpoCanvas Mail search: after typing from:github the list shows only matching mail with the keyword highlighted](/images/mail/en/ui/search-guide.png)
 
 *Figure: mail search. Operators combine freely with plain keywords; hits light up immediately.*
+*Annotations: 1. Search mail...*
 
 ## 1. Syntax basics
 

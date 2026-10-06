@@ -20,9 +20,10 @@ The service is available in the following two forms; the definition of the data 
 
 The administrator selects the instance's mail mode on the website-settings card of the system settings. The mode determines the storage encryption policy and the scope in which the admin side can see user mail content:
 
-![EpoCanvas Mail system settings, website settings card: the mail-mode dropdown is open showing All-Mail Mode (Level 1), Privacy Mail Mode (Level 2 [Recommended]) and Encrypted Mail Mode (Level 3 [E2EE]); the current value is Privacy Mail Mode with a Level 2 enhanced-privacy badge (interface in Simplified Chinese)](/images/mail/ui/ui-mail-mode-select.png)
+![EpoCanvas Mail system settings, website settings card: the mail-mode dropdown is open showing All-Mail Mode (Level 1), Privacy Mail Mode (Level 2 [Recommended]) and Encrypted Mail Mode (Level 3 [E2EE]); the current value is Privacy Mail Mode with a Level 2 enhanced-privacy badge (interface in Simplified Chinese)](/images/mail/en/ui/mode-guide.png)
 
 *Figure: mail-mode selection. The instance shown runs in Privacy Mail Mode; the personalisation card on the right and the storage and push cards below are on the same page.*
+*Annotations: 1. WebsiteSign UpPu　2. Website*
 
 | Mode | Mail storage | Admin-side visibility | Two-step master switch | Global forwarding & bot push |
 | --- | --- | --- | --- | --- |
@@ -36,9 +37,10 @@ Mode changes take effect immediately. In encrypted mode the admin mail list is p
 
 Every account belongs to one identity group, which determines the sending quota, number of mailboxes, storage quota, and attachment permission:
 
-![EpoCanvas Mail permission page: a table lists the six identity groups — Regular User, Visitor, Regular User LV.0, Regular User LV.1, Moderator and Master — each with its positioning tag, storage quota, sending limit, attachment permission and AI model authorisation columns (interface in Simplified Chinese)](/images/mail/ui/ui-roles.png)
+![EpoCanvas Mail permission page: a table lists the six identity groups — Regular User, Visitor, Regular User LV.0, Regular User LV.1, Moderator and Master — each with its positioning tag, storage quota, sending limit, attachment permission and AI model authorisation columns (interface in Simplified Chinese)](/images/mail/en/ui/roles-guide.png)
 
 *Figure: the architecture and grading overview on the permission page. Storage quota, sending limit and attachment permission are set per group; the Master group has no sending or mailbox cap.*
+*Annotations: 1. 　2. Name　3. Storage Quota　4. Sending Limit　5. Attachment Permi*
 
 | Identity group | Positioning | Daily sending | Mailboxes | Storage quota | Attachments |
 | --- | --- | --- | --- | --- | --- |
@@ -53,18 +55,20 @@ New registrations land in the factory-default group, the Visitor; the operator c
 
 ## 4. Sign-in and two-step verification
 
-![EpoCanvas Mail login page: e-mail address and password fields, a "keep the orbit connected" checkbox and the sign-in button, with Google and GitHub quick sign-in buttons below, both greyed with a "coming soon" badge (interface in Simplified Chinese)](/images/mail/ui/ui-login-oauth.png)
+![EpoCanvas Mail login page: e-mail address and password fields, a "keep the orbit connected" checkbox and the sign-in button, with Google and GitHub quick sign-in buttons below, both greyed with a "coming soon" badge (interface in Simplified Chinese)](/images/mail/en/ui/login-guide.png)
 
 *Figure: the login page. Password sign-in is the baseline; third-party buttons enabled by the administrator without credentials are greyed out as "coming soon", and disabled ones are not shown.*
+*Annotations: 1. 　2. *
 
 - Password sign-in: the baseline method available on every instance; passphrases are stored as salted hashes, and repeated failures trigger brute-force lockout;
 - Two-step verification: switched on by the account holder in the two-step centre of the security settings; three second factors are available — an authenticator app (TOTP dynamic codes), backup recovery codes (10 one-time codes), and passkeys (hardware security keys or device biometrics);
 - Trusted devices: after ticking "Don't ask again on this device" during the two-step verification step, the device skips re-verification for 30 days; between 30 and 60 days verification is asked again, and after 60 days the trust lapses; automation or environment tampering is always refused the exemption;
 - Third-party quick sign-in: the administrator enables and configures providers one by one from GitHub, Google, Microsoft, Apple and custom SSO; an enabled provider without credentials shows greyed as "coming soon", a disabled one is not shown at all. The data involved in third-party sign-in is listed in the [Sub-processor List](/en/mail/sub-processors/).
 
-![EpoCanvas Mail security settings page: the upper card holds the username, mailbox and password change; below, the two-step centre lists the three second factors — authenticator app, backup recovery codes and passkeys — each with its configuration status and action buttons (interface in Simplified Chinese)](/images/mail/ui/ui-security-2fa.png)
+![EpoCanvas Mail security settings page: the upper card holds the username, mailbox and password change; below, the two-step centre lists the three second factors — authenticator app, backup recovery codes and passkeys — each with its configuration status and action buttons (interface in Simplified Chinese)](/images/mail/en/ui/twofa-guide.png)
 
 *Figure: the two-step centre on the security settings page. Each second factor is configured independently, and they can be combined.*
+*Annotations: 1. Authenticator Ap　2. Backup Recovery 　3. Passkeys & Secur　4. Back to Mail*
 
 ## 5. Multi-account mode
 

@@ -7,9 +7,10 @@ description: Interface en routekaart van EpoCanvas Mail — de acht mailboxweerg
 
 Deze pagina loopt elke interface van EpoCanvas Mail langs met de bijbehorende route. Een locatie bestaat uit twee delen: het padvoorvoegsel `/mail/u/N/` (N is de sessie-index voor meerdere accounts; bij één account altijd 0) en de weergaveroute na `#` (bijvoorbeeld `#inbox`). Oudere directe paden zoals `/inbox` worden automatisch genormaliseerd. De aanmeldpagina wordt apart uitgerold onder `/login/`. Wat elke route toestaat, wordt bepaald door de rechten van de identiteitsgroep, zie [Werkingsmodi](/nl/mail/modes/); het effect van elke instelling staat beschreven in de [Instellingengids](/nl/mail/settings/).
 
-![Panorama van de postvak IN van EpoCanvas Mail: links de toegang voor het schrijven van mail en de mappenboom, rechts de lijst met verificatiecodebadges en officiële markeringen (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-inbox-zh.png)
+![Panorama van de postvak IN van EpoCanvas Mail: links de toegang voor het schrijven van mail en de mappenboom, rechts de lijst met verificatiecodebadges en officiële markeringen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/views-guide.png)
 
 *Figuur: de postvak IN (`#inbox`). De acht weergaven delen één lijststructuur; tellers en labels blijven gesynchroniseerd.*
+*Aantekeningen: 1. Opstellen　2. Met ster　3. Uitgesteld1　4. Verzonden*
 
 ## 1. Hoofdinterface van de mailbox
 

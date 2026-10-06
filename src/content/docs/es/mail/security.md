@@ -7,9 +7,10 @@ description: Guía de seguridad de la cuenta de EpoCanvas Mail — activación d
 
 Esta página recorre una a una todas las acciones de la página «Configuración → Seguridad». El comportamiento general de la verificación en dos pasos (dispositivos de confianza, políticas obligatorias) se describe en la sección 4 de [Modos de funcionamiento](/es/mail/modes/); esta página cubre solo la configuración. Entrada: barra lateral «Configuración → Seguridad» (`#settings/security`).
 
-![Página de seguridad de EpoCanvas Mail: cambio de contraseña y el centro de verificación en dos pasos con los tres segundos factores](/images/mail/ui/ui-security-2fa.png)
+![Página de seguridad de EpoCanvas Mail: cambio de contraseña y el centro de verificación en dos pasos con los tres segundos factores](/images/mail/es/ui/twofa-guide.png)
 
 *Figura: la página de seguridad. Arriba, el nombre de usuario y la contraseña; abajo, el centro de verificación en dos pasos.*
+*Anotaciones: 1. Authenticator Ap　2. copia de segurid　3. Passkeys & segur　4. Back to Mail*
 
 ## 1. Recorrido por la página de seguridad
 

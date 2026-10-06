@@ -7,9 +7,10 @@ description: EpoCanvas Mail 搜尋與規則完整參考——郵件欄位算子�
 
 EpoCanvas Mail 的檢索分為兩套：面向使用者的郵件搜尋（頂欄搜尋框）與面向管理員的全庫檢索（管理區「全部郵件」）；設定頁另有獨立的設定項檢索。本頁逐項列出全部可用算子、旗標與規則條件，均與目前實作一致。分類規則與搜尋共用同一欄位語義，規則引擎之說明見第 7 節起。
 
-![EpoCanvas Mail 搜尋：輸入 from:github 後列表僅顯示命中郵件並加亮關鍵詞](/images/mail/ui/ui-search.png)
+![EpoCanvas Mail 搜尋：輸入 from:github 後列表僅顯示命中郵件並加亮關鍵詞](/images/mail/zh-tw/ui/search-guide.png)
 
 *圖：郵件搜尋。算子可與自由關鍵詞組合，命中處即時加亮。*
+*標註：1. 搜尋郵件...*
 
 ## 1. 語法總則
 

@@ -19,15 +19,16 @@ EpoCanvas Mail splits its settings into two areas: the "settings" area of the si
 
 ## 2. Profile: personal details
 
-![EpoCanvas Mail profile page: the basic-information card holds avatar upload, nickname, gender and birthday; the contact card shows the e-mail address with its primary-mailbox tag plus an add-e-mail button, and phone numbers; address cards for home, company and other follow below (interface in Simplified Chinese)](/images/mail/ui/ui-settings-profile.png)
+![EpoCanvas Mail profile page: the basic-information card holds avatar upload, nickname, gender and birthday; the contact card shows the e-mail address with its primary-mailbox tag plus an add-e-mail button, and phone numbers; address cards for home, company and other follow below (interface in Simplified Chinese)](/images/mail/en/ui/preferences-guide.png)
 
 *Figure: the profile page. The primary mailbox carries a "primary mailbox" tag; additional e-mail addresses can be added in number and removed at any time.*
+*Annotations: 1. Basic Informatio　2. Contact Informat　3. Addresses　4. Associated Setti*
 
 The basic-information card manages the avatar, nickname, gender and birthday. The contact card lists the sign-in primary mailbox and any additional e-mail addresses added by the account holder, plus telephone numbers with country codes. The address cards store home, company and other addresses separately. How much of this is public is governed by the operator's "public profile" switch.
 
 ## 3. General: appearance and language
 
-![EpoCanvas Mail general page: a bio text box; the appearance area offers dark, light and follow-system colour schemes; the global theme wallpaper offers eight presets plus a custom wallpaper, with the personal background and further settings below (interface in Simplified Chinese)](/images/mail/ui/ui-settings-general.png)
+![EpoCanvas Mail general page: a bio text box; the appearance area offers dark, light and follow-system colour schemes; the global theme wallpaper offers eight presets plus a custom wallpaper, with the personal background and further settings below (interface in Simplified Chinese)](/images/mail/en/ui/general-guide.png)
 
 *Figure: appearance and wallpaper selection on the general page, shown with follow-system and the default clean wallpaper.*
 
@@ -42,9 +43,10 @@ The security page changes the username and the password (showing when it last ch
 
 ## 5. Data: export, notifications and storage
 
-![EpoCanvas Mail data page: the export card offers the full-data JSON export, the mail archive (MBOX, JSON or CSV with a time range) and the contacts-and-configuration export; the storage card below shows the attachment-usage gauge and the personal object-storage entrance (interface in Simplified Chinese)](/images/mail/ui/ui-settings-data.png)
+![EpoCanvas Mail data page: the export card offers the full-data JSON export, the mail archive (MBOX, JSON or CSV with a time range) and the contacts-and-configuration export; the storage card below shows the attachment-usage gauge and the personal object-storage entrance (interface in Simplified Chinese)](/images/mail/en/ui/data-guide.png)
 
 *Figure: the data page. Export and storage management appear on one page; attachment usage counts against the identity group's quota.*
+*Annotations: 1. User Data & Mail　2. Email & Message 　3. Storage Space & 　4. Third-party apps*
 
 | Export | Format | Scope |
 | --- | --- | --- |
@@ -99,9 +101,10 @@ The audit-report page presents site-wide risk events as warning tickets, each ca
 | Ban warning | The account has been banned automatically by the system or manually by an administrator | Lift the warning or maintain the ban |
 | Appeal warning | The user has appealed against a handling decision | Release (lift the ban) or reject |
 
-![EpoCanvas Mail audit-report page: the table lists warning tickets of the four classes — appeal, ban, audit and risk — each with its priority, status tag, active-environment details and handling buttons such as release and lift-warning (interface in Simplified Chinese)](/images/mail/ui/ui-audit-report.png)
+![EpoCanvas Mail audit-report page: the table lists warning tickets of the four classes — appeal, ban, audit and risk — each with its priority, status tag, active-environment details and handling buttons such as release and lift-warning (interface in Simplified Chinese)](/images/mail/en/ui/audit-guide.png)
 
 *Figure: the audit report. All four warning classes are reviewed in one list, with handling buttons routed by class; in encrypted mode the record timestamps are stripped.*
+*Annotations: 1. Email　2. Security Audit L　3. Alert Context & 　4. Active Environme*
 
 ## 8. Related documents
 

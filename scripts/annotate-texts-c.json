@@ -1,0 +1,578 @@
+{
+ "zh": {
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "段落14px按Shitf+Ent"
+   },
+   {
+    "n": 2,
+    "label": "写邮件"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "搜索邮件..."
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "网站设置用户注册公开个人主页邮件"
+   },
+   {
+    "n": 2,
+    "label": "网站设置"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "身份验证器应用未配置使用 Goo"
+   },
+   {
+    "n": 2,
+    "label": "备用恢复码未配置10 组一次性安"
+   },
+   {
+    "n": 3,
+    "label": "通行密钥与安全密钥未配置使用硬件"
+   },
+   {
+    "n": 4,
+    "label": "返回邮件"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "GET/.well-known/"
+   },
+   {
+    "n": 2,
+    "label": "GET/oauth/author"
+   },
+   {
+    "n": 3,
+    "label": "POST/api/oauth/t"
+   },
+   {
+    "n": 4,
+    "label": "GET/api/oauth/us"
+   },
+   {
+    "n": 5,
+    "label": "shijianus-blog创建"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "汇出全量数据 (完整备份)JSO"
+   },
+   {
+    "n": 2,
+    "label": "邮件历史归档仅导出收发邮件数据，"
+   },
+   {
+    "n": 3,
+    "label": "通讯录与配置JSON导出联系人名"
+   },
+   {
+    "n": 4,
+    "label": "邮件与消息转发"
+   }
+  ]
+ },
+ "zh-Hant": {
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "段落14px按Shitf+Ent"
+   },
+   {
+    "n": 2,
+    "label": "寫郵件"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "搜尋郵件..."
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "網站設定使用者註冊公開個人主頁郵"
+   },
+   {
+    "n": 2,
+    "label": "網站設定"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "身份驗證器應用未配置使用 Goo"
+   },
+   {
+    "n": 2,
+    "label": "備用恢復碼未配置10 組一次性安"
+   },
+   {
+    "n": 3,
+    "label": "通行金鑰與安全金鑰未配置使用硬體"
+   },
+   {
+    "n": 4,
+    "label": "返回郵件"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "GET/.well-known/"
+   },
+   {
+    "n": 2,
+    "label": "GET/oauth/author"
+   },
+   {
+    "n": 3,
+    "label": "POST/api/oauth/t"
+   },
+   {
+    "n": 4,
+    "label": "GET/api/oauth/us"
+   },
+   {
+    "n": 5,
+    "label": "shijianus-blog建立"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "匯出全量資料 (完整備份)JSO"
+   },
+   {
+    "n": 2,
+    "label": "郵件歷史歸檔僅匯出收發郵件資料，"
+   },
+   {
+    "n": 3,
+    "label": "通訊錄與配置JSON匯出聯絡人名"
+   },
+   {
+    "n": 4,
+    "label": "郵件與訊息轉發"
+   }
+  ]
+ },
+ "en": {
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "Paragraph14pxTo "
+   },
+   {
+    "n": 2,
+    "label": "Compose"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "Search mail..."
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "WebsiteSign UpPu"
+   },
+   {
+    "n": 2,
+    "label": "Website"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "Authenticator Ap"
+   },
+   {
+    "n": 2,
+    "label": "Backup Recovery "
+   },
+   {
+    "n": 3,
+    "label": "Passkeys & Secur"
+   },
+   {
+    "n": 4,
+    "label": "Back to Mail"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "GET/.well-known/"
+   },
+   {
+    "n": 2,
+    "label": "GET/oauth/author"
+   },
+   {
+    "n": 3,
+    "label": "POST/api/oauth/t"
+   },
+   {
+    "n": 4,
+    "label": "GET/api/oauth/us"
+   },
+   {
+    "n": 5,
+    "label": "shijianus-blogCr"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "Export All Data "
+   },
+   {
+    "n": 2,
+    "label": "Email History Ar"
+   },
+   {
+    "n": 3,
+    "label": "Contacts & Prefe"
+   },
+   {
+    "n": 4,
+    "label": "Email & Message "
+   }
+  ]
+ },
+ "es": {
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "Paragraph14pxTo "
+   },
+   {
+    "n": 2,
+    "label": "Redactar"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "Buscar correo..."
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "WebsiteSign UpPu"
+   },
+   {
+    "n": 2,
+    "label": "Website"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "Authenticator Ap"
+   },
+   {
+    "n": 2,
+    "label": "copia de segurid"
+   },
+   {
+    "n": 3,
+    "label": "Passkeys & segur"
+   },
+   {
+    "n": 4,
+    "label": "Back to Mail"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "GET/.well-known/"
+   },
+   {
+    "n": 2,
+    "label": "GET/oauth/author"
+   },
+   {
+    "n": 3,
+    "label": "POST/api/oauth/t"
+   },
+   {
+    "n": 4,
+    "label": "GET/api/oauth/us"
+   },
+   {
+    "n": 5,
+    "label": "shijianus-blogCr"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "exportar All Dat"
+   },
+   {
+    "n": 2,
+    "label": "correo History A"
+   },
+   {
+    "n": 3,
+    "label": "Contacts & Prefe"
+   },
+   {
+    "n": 4,
+    "label": "correo & Message"
+   }
+  ]
+ },
+ "fr": {
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "Paragraph14pxTo "
+   },
+   {
+    "n": 2,
+    "label": "Rédiger"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "Rechercher des e"
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "WebsiteSign UpPu"
+   },
+   {
+    "n": 2,
+    "label": "Website"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "Authenticator Ap"
+   },
+   {
+    "n": 2,
+    "label": "sauvegarde Recov"
+   },
+   {
+    "n": 3,
+    "label": "Passkeys & sécur"
+   },
+   {
+    "n": 4,
+    "label": "Back to Mail"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "GET/.well-known/"
+   },
+   {
+    "n": 2,
+    "label": "GET/oauth/author"
+   },
+   {
+    "n": 3,
+    "label": "POST/api/oauth/t"
+   },
+   {
+    "n": 4,
+    "label": "GET/api/oauth/us"
+   },
+   {
+    "n": 5,
+    "label": "shijianus-blogCr"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "exporter All Dat"
+   },
+   {
+    "n": 2,
+    "label": "email History Ar"
+   },
+   {
+    "n": 3,
+    "label": "Contacts & Prefe"
+   },
+   {
+    "n": 4,
+    "label": "email & Message "
+   }
+  ]
+ },
+ "nl": {
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "Paragraph14pxTo "
+   },
+   {
+    "n": 2,
+    "label": "Opstellen"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "E-mail zoeken..."
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "WebsiteSign UpPu"
+   },
+   {
+    "n": 2,
+    "label": "Website"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "Authenticator Ap"
+   },
+   {
+    "n": 2,
+    "label": "back-up Recovery"
+   },
+   {
+    "n": 3,
+    "label": "Passkeys & bevei"
+   },
+   {
+    "n": 4,
+    "label": "Back to Mail"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "GET/.well-known/"
+   },
+   {
+    "n": 2,
+    "label": "GET/oauth/author"
+   },
+   {
+    "n": 3,
+    "label": "POST/api/oauth/t"
+   },
+   {
+    "n": 4,
+    "label": "GET/api/oauth/us"
+   },
+   {
+    "n": 5,
+    "label": "shijianus-blogAa"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "exporteren All D"
+   },
+   {
+    "n": 2,
+    "label": "e-mail History A"
+   },
+   {
+    "n": 3,
+    "label": "Contacts & Prefe"
+   },
+   {
+    "n": 4,
+    "label": "e-mail & Message"
+   }
+  ]
+ }
+}

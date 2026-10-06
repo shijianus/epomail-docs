@@ -20,9 +20,10 @@ El servicio se ofrece en las dos formas siguientes; la calificación del respons
 
 El administrador selecciona el modo de correo de la instancia en la tarjeta de configuración del sitio, dentro de la configuración del sistema. El modo determina la política de cifrado en reposo y el alcance con que el lado administrativo puede ver el contenido del correo de los usuarios:
 
-![Configuración del sistema de EpoCanvas Mail, tarjeta de configuración del sitio: el desplegable del modo de correo está abierto y muestra Modo de todo el correo (Level 1), Modo de correo privado (Level 2 [Recomendado]) y Modo de correo cifrado (Level 3 [E2EE]); el valor actual es el modo de correo privado con una insignia de privacidad reforzada Level 2 (interfaz en chino simplificado)](/images/mail/ui/ui-mail-mode-select.png)
+![Configuración del sistema de EpoCanvas Mail, tarjeta de configuración del sitio: el desplegable del modo de correo está abierto y muestra Modo de todo el correo (Level 1), Modo de correo privado (Level 2 [Recomendado]) y Modo de correo cifrado (Level 3 [E2EE]); el valor actual es el modo de correo privado con una insignia de privacidad reforzada Level 2 (interfaz en chino simplificado)](/images/mail/es/ui/mode-guide.png)
 
 *Figura: selección del modo de correo. La instancia mostrada funciona en modo de correo privado; la tarjeta de personalización a la derecha y las tarjetas de almacenamiento y de push más abajo están en la misma página.*
+*Anotaciones: 1. WebsiteSign UpPu　2. Website*
 
 | Modo | Almacenamiento del correo | Visibilidad administrativa | Interruptor general de dos pasos | Reenvío global y push del bot |
 | --- | --- | --- | --- | --- |
@@ -36,9 +37,10 @@ El cambio de modo surte efecto de inmediato. En el modo cifrado, la lista admini
 
 Cada cuenta pertenece a un grupo de identidad, que determina la cuota de envío, el número de buzones, la cuota de almacenamiento y el permiso de adjuntos:
 
-![Página de permisos de EpoCanvas Mail: la tabla enumera los seis grupos de identidad — Usuario normal, Visitante, Usuario normal LV.0, Usuario normal LV.1, Moderador y Maestro — con sus etiquetas de posicionamiento, cuotas de almacenamiento, límites de envío, permisos de adjuntos y columnas de autorización de modelos de IA (interfaz en chino simplificado)](/images/mail/ui/ui-roles.png)
+![Página de permisos de EpoCanvas Mail: la tabla enumera los seis grupos de identidad — Usuario normal, Visitante, Usuario normal LV.0, Usuario normal LV.1, Moderador y Maestro — con sus etiquetas de posicionamiento, cuotas de almacenamiento, límites de envío, permisos de adjuntos y columnas de autorización de modelos de IA (interfaz en chino simplificado)](/images/mail/es/ui/roles-guide.png)
 
 *Figura: vista general de la arquitectura y la graduación en la página de permisos. La cuota de almacenamiento, el límite de envío y los adjuntos se fijan grupo por grupo; el grupo Maestro no tiene techo de envío ni de buzones.*
+*Anotaciones: 1. 　2. Name　3. Cuota de almacen　4. Límite de envío　5. Permiso de adjun*
 
 | Grupo de identidad | Posicionamiento | Envío diario | Buzones | Cuota de almacenamiento | Adjuntos |
 | --- | --- | --- | --- | --- | --- |
@@ -53,18 +55,20 @@ Los registros nuevos entran en el grupo por defecto de fábrica, el Visitante; e
 
 ## 4. Inicio de sesión y verificación en dos pasos
 
-![Página de inicio de sesión de EpoCanvas Mail: campos de dirección de correo y contraseña, casilla de «mantener la conexión orbital» y botón de inicio de sesión, con los botones de acceso rápido de Google y GitHub debajo, ambos atenuados con la insignia de «próximamente» (interfaz en chino simplificado)](/images/mail/ui/ui-login-oauth.png)
+![Página de inicio de sesión de EpoCanvas Mail: campos de dirección de correo y contraseña, casilla de «mantener la conexión orbital» y botón de inicio de sesión, con los botones de acceso rápido de Google y GitHub debajo, ambos atenuados con la insignia de «próximamente» (interfaz en chino simplificado)](/images/mail/es/ui/login-guide.png)
 
 *Figura: la página de inicio de sesión. El acceso con contraseña es la vía básica; los botones de terceros activados por el administrador sin credenciales aparecen atenuados como «próximamente», y los desactivados no se muestran.*
+*Anotaciones: 1. 　2. *
 
 - Inicio de sesión con contraseña: la vía básica disponible en todas las instancias; la frase secreta se guarda como resumen con sal, y los fallos repetidos activan el bloqueo antifuerza bruta;
 - Verificación en dos pasos: se activa desde el centro de dos pasos de la configuración de seguridad; hay tres segundos factores disponibles: una aplicación de autenticación (códigos dinámicos TOTP), códigos de recuperación de respaldo (10 códigos de un solo uso) y llaves de acceso (Passkey, llaves de seguridad de hardware o biometría del dispositivo);
 - Dispositivos de confianza: tras marcar «No volver a preguntar en este dispositivo» durante el paso de verificación en dos pasos, el dispositivo queda exento de nueva verificación durante 30 días; entre los 30 y los 60 días se vuelve a pedir verificación, y pasados los 60 días la confianza caduca; la automatización o la manipulación del entorno siempre quedan sin la exención;
 - Acceso rápido de terceros: el administrador activa y configura uno a uno los proveedores entre GitHub, Google, Microsoft, Apple y un SSO personalizado; un proveedor activado sin credenciales se muestra atenuado como «próximamente», y uno desactivado no se muestra. Los datos implicados en el acceso de terceros figuran en la [Lista de encargados del tratamiento](/es/mail/sub-processors/).
 
-![Página de configuración de seguridad de EpoCanvas Mail: la tarjeta superior reúne el nombre de usuario, el buzón y el cambio de contraseña; debajo, el centro de dos pasos enumera los tres segundos factores — aplicación de autenticación, códigos de recuperación y llaves de acceso — con su estado de configuración y sus botones de acción (interfaz en chino simplificado)](/images/mail/ui/ui-security-2fa.png)
+![Página de configuración de seguridad de EpoCanvas Mail: la tarjeta superior reúne el nombre de usuario, el buzón y el cambio de contraseña; debajo, el centro de dos pasos enumera los tres segundos factores — aplicación de autenticación, códigos de recuperación y llaves de acceso — con su estado de configuración y sus botones de acción (interfaz en chino simplificado)](/images/mail/es/ui/twofa-guide.png)
 
 *Figura: el centro de verificación en dos pasos de la página de seguridad. Cada segundo factor se configura de forma independiente y pueden combinarse.*
+*Anotaciones: 1. Authenticator Ap　2. copia de segurid　3. Passkeys & segur　4. Back to Mail*
 
 ## 5. Modo multicuenta
 

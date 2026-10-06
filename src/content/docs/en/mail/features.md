@@ -25,9 +25,10 @@ The Traditional Chinese (Taiwan) version of the legal documents on this site is 
 
 ## 2. Composing and Sending
 
-![EpoCanvas Mail compose window: the sender is locked to the current mailbox, recipients offer a contact picker, and below the subject sits a rich-text toolbar (paragraph, size, bold, lists, quote, divider, link, image, table, emoji, translate, and source mode) with attachment and send buttons at the bottom](/images/mail/ui/ui-compose.png)
+![EpoCanvas Mail compose window: the sender is locked to the current mailbox, recipients offer a contact picker, and below the subject sits a rich-text toolbar (paragraph, size, bold, lists, quote, divider, link, image, table, emoji, translate, and source mode) with attachment and send buttons at the bottom](/images/mail/en/ui/compose-guide.png)
 
 *Caption: composing. The rich-text editor offers 17 formatting tools; mail to local recipients is delivered in-instance, mail off-site goes through the delivery channel.*
+*Annotations: 1. Paragraph14pxTo 　2. Compose*
 
 - **Rich text**: paragraph styles, size, bold/italic/underline/strikethrough, colour, alignment, ordered and unordered lists, quote, divider, link, image, table, emoji, translate, and source mode;
 - **Attachments**: attachment sending and receiving is enabled per account role; the per-attachment size limit follows the instance setting (25 MB by default; it applies only to users on the operator's shared storage, while users who bring their own storage are not subject to it); storage counts against the role quota;
@@ -36,9 +37,10 @@ The Traditional Chinese (Taiwan) version of the legal documents on this site is 
 
 ## 3. Search Syntax
 
-![EpoCanvas Mail search bar with from:github entered: the list shows only the matching GitHub notification, with sidebar counters in sync](/images/mail/ui/ui-search.png)
+![EpoCanvas Mail search bar with from:github entered: the list shows only the matching GitHub notification, with sidebar counters in sync](/images/mail/en/ui/search-guide.png)
 
 *Caption: search. Field operators combine freely with keywords; the hit list refreshes immediately.*
+*Annotations: 1. Search mail...*
 
 | Operator | Example | Meaning |
 | --- | --- | --- |
@@ -101,9 +103,10 @@ The operator never trains models on mail content; consented AI processing can be
 - Six interface languages (Simplified Chinese, Traditional Chinese, English, Français, Español, Nederlands) with fully symmetric front-end and back-end dictionaries;
 - Light and dark themes, 300+ offline vector icons (zero external requests), responsive layout, and PWA installation; an Android app (epomail) is also available.
 
-![EpoCanvas Mail inbox overview in the Simplified Chinese interface: the left pane holds the compose button, the folder tree (Main, Starred, Snoozed, Sent, Drafts, All Mail, Spam, Trash) and colour-coded labels (Social, Subscriptions, Promotions, Work); the message list on the right shows senders, subjects, snippets, verification-code badges, and the official-mail verified marker](/images/mail/ui/ui-inbox-zh.png)
+![EpoCanvas Mail inbox overview in the Simplified Chinese interface: the left pane holds the compose button, the folder tree (Main, Starred, Snoozed, Sent, Drafts, All Mail, Spam, Trash) and colour-coded labels (Social, Subscriptions, Promotions, Work); the message list on the right shows senders, subjects, snippets, verification-code badges, and the official-mail verified marker](/images/mail/en/ui/views-guide.png)
 
 *Caption: the inbox in the Simplified Chinese interface. Verification-code badges (green) and the verified marker for official mail (blue check) appear directly in the list; the interface language is switchable in Settings across six languages.*
+*Annotations: 1. Compose　2. Starred　3. Snoozed1　4. Sent*
 
 ![EpoCanvas Mail inbox on mobile: the responsive layout at 375 px width, with the sidebar collapsed into a drawer and the list fully readable](/images/mail/ui/ui-inbox-mobile.png)
 

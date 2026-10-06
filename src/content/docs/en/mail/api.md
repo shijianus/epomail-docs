@@ -7,9 +7,10 @@ description: The EpoCanvas Mail open platform and API access guide — registeri
 
 EpoCanvas Mail ships a built-in OAuth 2.0 / OIDC authorization center: the administrator registers third-party applications in the admin "App management" section (`#manage/admin/oauth-apps`), and external sites can then offer "Sign in with Epomail". This page is the complete developer tutorial; where the interface sits in the app appears in the [Interface & Route Map](/en/mail/interface/), Section 4, and the handling of authorization data is disclosed in the [Sub-processor List](/en/mail/sub-processors/).
 
-![EpoCanvas Mail app management page: four endpoint chips, the developer-tutorial button, the sample app card and the integration-code entry](/images/mail/ui/ui-oauth-apps.png)
+![EpoCanvas Mail app management page: four endpoint chips, the developer-tutorial button, the sample app card and the integration-code entry](/images/mail/en/ui/apps-guide.png)
 
 *Figure: app management. The four endpoints sit across the top; each app card carries its credentials, an enable toggle and the integration code.*
+*Annotations: 1. GET/.well-known/　2. GET/oauth/author　3. POST/api/oauth/t　4. GET/api/oauth/us　5. shijianus-blogCr*
 
 ## 1. Endpoints
 

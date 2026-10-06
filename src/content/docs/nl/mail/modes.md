@@ -20,9 +20,10 @@ De dienst bestaat in de volgende twee vormen; de aanwijzing van de gegevensbehee
 
 De beheerder kiest de e-mailmodus van de instantie op de website-instellingenkaart van de systeeminstellingen. De modus bepaalt het versleutelingsbeleid bij opslag en in welke mate de beheerkant de e-mailinhoud van gebruikers kan zien:
 
-![Systeeminstellingen van EpoCanvas Mail, kaart website-instellingen: het keuzemenu van de e-mailmodus is open en toont Alle e-mail-modus (Level 1), Privé-e-mailmodus (Level 2 [Aanbevolen]) en Versleutelde e-mailmodus (Level 3 [E2EE]); de huidige waarde is de privée-mail-modus met een Level 2-badge voor versterkte privacy (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-mail-mode-select.png)
+![Systeeminstellingen van EpoCanvas Mail, kaart website-instellingen: het keuzemenu van de e-mailmodus is open en toont Alle e-mail-modus (Level 1), Privé-e-mailmodus (Level 2 [Aanbevolen]) en Versleutelde e-mailmodus (Level 3 [E2EE]); de huidige waarde is de privée-mail-modus met een Level 2-badge voor versterkte privacy (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/mode-guide.png)
 
 *Figuur: keuze van de e-mailmodus. De getoonde instantie draait in de privée-mail-modus; de personalisatiekaart rechts en de opslag- en pushkaarten eronder staan op dezelfde pagina.*
+*Aantekeningen: 1. WebsiteSign UpPu　2. Website*
 
 | Modus | E-mailopslag | Zichtbaarheid beheerkant | Hoofdschakelaar tweestaps | Globaal doorsturen en bot-push |
 | --- | --- | --- | --- | --- |
@@ -36,9 +37,10 @@ Een moduswijziging werkt onmiddellijk door. In de versleutelde modus blijft de b
 
 Elk account hoort bij één identiteitsgroep, die het verzendquotum, het aantal mailboxen, de opslagquota en de bijlagerechten bepaalt:
 
-![Permissionspagina van EpoCanvas Mail: de tabel noemt de zes identiteitsgroepen — Gewone gebruiker, Bezoeker, Gewone gebruiker LV.0, Gewone gebruiker LV.1, Moderator en Meester — elk met positietag, opslagquota, verzendlimiet, bijlagerecht en AI-modelautorisatiekolommen (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-roles.png)
+![Permissionspagina van EpoCanvas Mail: de tabel noemt de zes identiteitsgroepen — Gewone gebruiker, Bezoeker, Gewone gebruiker LV.0, Gewone gebruiker LV.1, Moderator en Meester — elk met positietag, opslagquota, verzendlimiet, bijlagerecht en AI-modelautorisatiekolommen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/roles-guide.png)
 
 *Figuur: het architectuur- en gradatieoverzicht op de permissionspagina. Opslagquota, verzendlimiet en bijlagerecht worden per groep ingesteld; de groep Meester heeft geen verzend- of mailboxplafond.*
+*Aantekeningen: 1. 　2. Name　3. Opslagquotum　4. Verzendlimiet　5. Machtiging voor *
 
 | Identiteitsgroep | Positionering | Dagelijkse verzending | Mailboxen | Opslagquota | Bijlagen |
 | --- | --- | --- | --- | --- | --- |
@@ -53,18 +55,20 @@ Nieuwe registraties belanden in de fabrieksstandaardgroep, de Bezoeker; de explo
 
 ## 4. Aanmelding en tweestapsverificatie
 
-![Aanmeldpagina van EpoCanvas Mail: velden voor e-mailadres en wachtwoord, een selectievakje om de baanverbinding te houden en de aanmeldknop, met daaronder de snelle aanmeldknoppen van Google en GitHub, beide grijs met een «binnenkort»-badge (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-login-oauth.png)
+![Aanmeldpagina van EpoCanvas Mail: velden voor e-mailadres en wachtwoord, een selectievakje om de baanverbinding te houden en de aanmeldknop, met daaronder de snelle aanmeldknoppen van Google en GitHub, beide grijs met een «binnenkort»-badge (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/login-guide.png)
 
 *Figuur: de aanmeldpagina. Aanmelden met wachtwoord is de basisweg; snelle-aanmeldknoppen van derden die door de beheerder zijn ingeschakeld zonder sleutels staan grijs als «binnenkort», uitgeschakelde worden niet getoond.*
+*Aantekeningen: 1. 　2. *
 
 - Aanmelden met wachtwoord: de basisweg op elke instantie; de wachtzin wordt als gezouten hash opgeslagen, en herhaalde mislukkingen lokken een anti-bruteforce-blokkade uit;
 - Tweestapsverificatie: wordt door de accounthouder ingeschakeld in het tweestapscentrum van de beveiligingsinstellingen; er zijn drie tweede factoren: een authenticator-app (TOTP dynamische codes), back-upherstelcodes (10 eenmalige codes) en toegangssleutels (Passkey, hardwarebeveiligingssleutels of biometrie van het apparaat);
 - Vertrouwde apparaten: na het aanvinken van «Niet opnieuw vragen op dit apparaat» tijdens de tweestapsverificatie blijft het apparaat 30 dagen van herverificatie vrijgesteld; tussen 30 en 60 dagen wordt de verificatie opnieuw gevraagd, en na 60 dagen vervalt het vertrouwen; automatisering of manipulatie van de omgeving krijgt de vrijstelling altijd geweigerd;
 - Snelle aanmelding via derden: de beheerder schakelt en configureert aanbieders één voor één in uit GitHub, Google, Microsoft, Apple en een eigen SSO; een ingeschakelde aanbieder zonder sleutels staat grijs als «binnenkort», een uitgeschakelde wordt niet getoond. De gegevens die bij aanmelding via derden meekomen, staan in de [Verwerkerslijst](/nl/mail/sub-processors/).
 
-![Beveiligingsinstellingenpagina van EpoCanvas Mail: de bovenste kaart bevat gebruikersnaam, mailbox en wachtwoordwijziging; eronder somt het tweestapscentrum de drie tweede factoren op — authenticator-app, back-upherstelcodes en toegangssleutels — elk met configuratiestatus en actieknoppen (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-security-2fa.png)
+![Beveiligingsinstellingenpagina van EpoCanvas Mail: de bovenste kaart bevat gebruikersnaam, mailbox en wachtwoordwijziging; eronder somt het tweestapscentrum de drie tweede factoren op — authenticator-app, back-upherstelcodes en toegangssleutels — elk met configuratiestatus en actieknoppen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/twofa-guide.png)
 
 *Figuur: het tweestapscentrum op de beveiligingsinstellingenpagina. Elke tweede factor wordt onafhankelijk ingesteld en ze kunnen gecombineerd worden.*
+*Aantekeningen: 1. Authenticator Ap　2. back-up Recovery　3. Passkeys & bevei　4. Back to Mail*
 
 ## 5. Multi-accountmodus
 

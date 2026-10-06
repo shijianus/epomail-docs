@@ -7,9 +7,10 @@ description: De gids voor meldingen en doorsturen van EpoCanvas Mail — Telegra
 
 Deze pagina loopt de twee mogelijkheden van het gebied «E-mail en berichten doorsturen» op de pagina «Instellingen → Gegevens» langs: Telegram-berichtpush en automatisch doorsturen. Of een account ze te zien krijgt, wordt beslist door de kaart «Gebruikersgegevensbeheer» van de beheerder; staan ze uit, dan zijn de bijbehorende blokken verborgen. Gegevensexport en opslag staan op dezelfde pagina, zie de [Instellingengids](/nl/mail/settings/), sectie 5.
 
-![Gebied e-mail en berichtdoorsturen van EpoCanvas Mail: de Telegram-pushstatus en de instellingen voor automatisch doorsturen (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-notify-forward.png)
+![Gebied e-mail en berichtdoorsturen van EpoCanvas Mail: de Telegram-pushstatus en de instellingen voor automatisch doorsturen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/notify-guide.png)
 
 *Figuur: het gebied e-mail en berichtdoorsturen. Telegram-push toont de status en de instel-ingang; automatisch doorsturen toont bestemmingen en geavanceerde opties.*
+*Aantekeningen: 1. exporteren All D　2. e-mail History A　3. Contacts & Prefe　4. e-mail & Message*
 
 ## 1. Telegram-berichtpush
 

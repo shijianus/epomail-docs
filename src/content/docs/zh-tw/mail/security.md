@@ -7,9 +7,10 @@ description: EpoCanvas Mail 帳號安全設定指南——兩步驗證開啟三�
 
 本頁逐步說明「設定 → 安全」頁的每一項操作。兩步驗證的整體行為（信任裝置、強制策略）見[運行模式](/zh-tw/mail/modes/)第 4 節；本頁只講怎麼配置。頁面入口為側欄「設定 → 安全」（`#settings/security`）。
 
-![EpoCanvas Mail 安全設定頁：通關密語修改與兩步驗證中心的三種第二驗證方式](/images/mail/ui/ui-security-2fa.png)
+![EpoCanvas Mail 安全設定頁：通關密語修改與兩步驗證中心的三種第二驗證方式](/images/mail/zh-tw/ui/twofa-guide.png)
 
 *圖：安全頁。上半部為使用者名稱與通關密語，下半部為兩步驗證中心。*
+*標註：1. 身份驗證器應用未配置使用 Goo　2. 備用恢復碼未配置10 組一次性安　3. 通行金鑰與安全金鑰未配置使用硬體　4. 返回郵件*
 
 ## 1. 安全頁導覽
 

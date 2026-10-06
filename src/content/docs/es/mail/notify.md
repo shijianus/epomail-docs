@@ -7,9 +7,10 @@ description: Guía de notificaciones y reenvío de EpoCanvas Mail — vinculaci�
 
 Esta página recorre paso a paso las dos capacidades de la zona «Reenvío de correo y mensajes» de la página «Configuración → Datos»: el push de mensajes de Telegram y el reenvío automático. Que una cuenta disponga de ellas lo decide la tarjeta «Control de datos de usuario» del administrador; cuando está desactivada, los bloques correspondientes no se muestran. La exportación y el almacenamiento de datos viven en la misma página; véase la sección 5 de la [Guía de configuración](/es/mail/settings/).
 
-![Zona de reenvío de correo y mensajes de EpoCanvas Mail: estado del push de Telegram y ajustes del reenvío automático](/images/mail/ui/ui-notify-forward.png)
+![Zona de reenvío de correo y mensajes de EpoCanvas Mail: estado del push de Telegram y ajustes del reenvío automático](/images/mail/es/ui/notify-guide.png)
 
 *Figura: la zona de reenvío de correo y mensajes. El push de Telegram lleva su estado y su entrada de configuración; el reenvío automático muestra los destinos y las opciones avanzadas.*
+*Anotaciones: 1. exportar All Dat　2. correo History A　3. Contacts & Prefe　4. correo & Message*
 
 ## 1. Push de mensajes de Telegram
 

@@ -7,9 +7,10 @@ description: EpoCanvas Mail 通知与转发指南——Telegram 消息推送绑�
 
 本页逐步说明「设置 → 资料」页「邮件与消息转发」区的两项能力：Telegram 消息推送与自动转发。两项功能是否对帐号开放由管理员「用户资料控制」卡决定；关闭时对应区块不显示。数据导出与存储亦在同一页，见[设置指南](/mail/settings/)第 5 节。
 
-![EpoCanvas Mail 邮件与消息转发区：Telegram 消息推送状态与自动转发设置](/images/mail/ui/ui-notify-forward.png)
+![EpoCanvas Mail 邮件与消息转发区：Telegram 消息推送状态与自动转发设置](/images/mail/ui/notify-guide.png)
 
 *图：邮件与消息转发区。Telegram 推送带启停状态与设置入口，自动转发含目的地与高级选项。*
+*标注：1. 汇出全量数据 (完整备份)JSO　2. 邮件历史归档仅导出收发邮件数据，　3. 通讯录与配置JSON导出联系人名　4. 邮件与消息转发*
 
 ## 1. Telegram 消息推送
 

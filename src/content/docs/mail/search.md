@@ -7,9 +7,10 @@ description: EpoCanvas Mail 搜索与规则完整参考——邮件字段算子�
 
 EpoCanvas Mail 的检索分为两套：面向用户的邮件搜索（顶栏搜索框）与面向管理员的全库检索（管理区「全部邮件」）；设置页另有独立的配置项检索。本页逐项列出全部可用算子、旗标与规则条件，均与当前实现一致。分类规则与搜索共用同一字段语义，规则引擎之说明见第 7 节起。
 
-![EpoCanvas Mail 搜索：输入 from:github 后列表仅显示命中邮件并加亮关键词](/images/mail/ui/ui-search.png)
+![EpoCanvas Mail 搜索：输入 from:github 后列表仅显示命中邮件并加亮关键词](/images/mail/ui/search-guide.png)
 
 *图：邮件搜索。算子可与自由关键词组合，命中处即时加亮。*
+*标注：1. 搜索邮件...*
 
 ## 1. 语法总则
 

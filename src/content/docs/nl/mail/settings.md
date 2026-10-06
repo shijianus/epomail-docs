@@ -19,15 +19,16 @@ EpoCanvas Mail verdeelt zijn instellingen over twee zones: de zone «instellinge
 
 ## 2. Profiel: persoonlijke gegevens
 
-![Profielpagina van EpoCanvas Mail: de kaart basisinformatie bevat avatar-upload, bijnaam, geslacht en verjaardag; de contactkaart toont het e-mailadres met zijn hoofdmailbox-tag, de knop om e-mail toe te voegen en telefoonnummers; de adreskaarten voor thuis, bedrijf en overig volgen eronder (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-settings-profile.png)
+![Profielpagina van EpoCanvas Mail: de kaart basisinformatie bevat avatar-upload, bijnaam, geslacht en verjaardag; de contactkaart toont het e-mailadres met zijn hoofdmailbox-tag, de knop om e-mail toe te voegen en telefoonnummers; de adreskaarten voor thuis, bedrijf en overig volgen eronder (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/preferences-guide.png)
 
 *Figuur: de profielpagina. De hoofdmailbox draagt een «hoofdmailbox»-tag; extra e-mailadressen kunnen er meerdere zijn en zijn op elk moment te verwijderen.*
+*Aantekeningen: 1. Basic Informatio　2. Contact Informat　3. Addresses　4. Associated inste*
 
 De kaart basisinformatie beheert avatar, bijnaam, geslacht en verjaardag. De contactkaart somt de hoofdmailbox van aanmelding op en de extra e-mailadressen die de houder zelf toevoegt, plus telefoonnummers met landcode. De adreskaarten bewaren het thuisadres, het zakelijke adres en andere adressen apart. Hoeveel daarvan openbaar is, wordt bepaald door de schakelaar «openbaar profiel» van de exploitant.
 
 ## 3. Algemeen: uiterlijk en taal
 
-![Algemene pagina van EpoCanvas Mail: een bio-tekstvak; het uiterlijkgedeelte biedt de paletten donker, licht en systeem volgen; de globale themaachtergrond biedt acht presets plus een eigen achtergrond, met de persoonlijke achtergrond en verdere instellingen eronder (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-settings-general.png)
+![Algemene pagina van EpoCanvas Mail: een bio-tekstvak; het uiterlijkgedeelte biedt de paletten donker, licht en systeem volgen; de globale themaachtergrond biedt acht presets plus een eigen achtergrond, met de persoonlijke achtergrond en verdere instellingen eronder (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/general-guide.png)
 
 *Figuur: keuze van uiterlijkpalet en themaachtergrond op de algemene pagina, getoond met «systeem volgen» en de standaard egale achtergrond.*
 
@@ -42,9 +43,10 @@ De beveiligingspagina wijzigt de gebruikersnaam en het wachtwoord (met de datum 
 
 ## 5. Gegevens: export, meldingen en opslag
 
-![Gegevenspagina van EpoCanvas Mail: de exportkaart biedt de volledige JSON-export, het e-mailarchief (MBOX, JSON of CSV met periode) en de export van contacten en configuratie; de opslagkaart eronder toont de verbruiksmeter voor bijlagen en de ingang van persoonlijke objectopslag (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-settings-data.png)
+![Gegevenspagina van EpoCanvas Mail: de exportkaart biedt de volledige JSON-export, het e-mailarchief (MBOX, JSON of CSV met periode) en de export van contacten en configuratie; de opslagkaart eronder toont de verbruiksmeter voor bijlagen en de ingang van persoonlijke objectopslag (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/data-guide.png)
 
 *Figuur: de gegevenspagina. Export en opslagbeheer staan op één pagina; het bijlagenverbruik telt mee voor de quota van de identiteitsgroep.*
+*Aantekeningen: 1. gebruiker Data &　2. e-mail & Message　3. opslag Space & C　4. Third-party apps*
 
 | Export | Formaat | Bereik |
 | --- | --- | --- |
@@ -99,9 +101,10 @@ De pagina auditrapport toont de risicogebeurtenissen van de site als waarschuwin
 | Blokkeerwaarschuwing | Het account is automatisch door het systeem of handmatig door een beheerder geblokkeerd | Waarschuwing opheffen of de blokkade houden |
 | Beroepswaarschuwing | De gebruiker heeft beroep gedaan op een afhandelingsbeslissing | Vrijgeven (blokkade opheffen) of verwerpen |
 
-![Auditrapportpagina van EpoCanvas Mail: de tabel toont waarschuwingstickets van de vier klassen — beroep, blokkade, audit en risico — met prioriteit, statuslabel, details van de actieve omgeving en afhandelknoppen zoals vrijgeven en waarschuwing opheffen (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-audit-report.png)
+![Auditrapportpagina van EpoCanvas Mail: de tabel toont waarschuwingstickets van de vier klassen — beroep, blokkade, audit en risico — met prioriteit, statuslabel, details van de actieve omgeving en afhandelknoppen zoals vrijgeven en waarschuwing opheffen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/audit-guide.png)
 
 *Figuur: het auditrapport. De vier waarschuwingsklassen worden in één lijst beoordeeld, met afhandelknoppen per klasse; in de versleutelde modus worden de tijdstempels uit de records gehaald.*
+*Aantekeningen: 1. E-mail　2. Beveiligingsaudi　3. Waarschuwingstoe　4. Actieve omgeving*
 
 ## 8. Verwante documenten
 

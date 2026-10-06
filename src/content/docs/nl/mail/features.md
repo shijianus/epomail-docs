@@ -9,9 +9,10 @@ Deze pagina beschrijft de daadwerkelijke functies van EpoCanvas Mail één voor 
 
 De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend.
 
-![Panorama van de postvak IN van EpoCanvas Mail: links de toegang voor het schrijven van mail, de mappenboom (Primair, Met ster, Uitgesteld, Verzonden, Concepten, Alle e-mail, Spam, Prullenbak) en de gekleurde labels (Gemeenschap, Abonnementen, Promoties, Werk); rechts de lijst met afzender, onderwerp, samenvatting, verificatiecodebadge en officiële verificatiemarkering (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-inbox-zh.png)
+![Panorama van de postvak IN van EpoCanvas Mail: links de toegang voor het schrijven van mail, de mappenboom (Primair, Met ster, Uitgesteld, Verzonden, Concepten, Alle e-mail, Spam, Prullenbak) en de gekleurde labels (Gemeenschap, Abonnementen, Promoties, Werk); rechts de lijst met afzender, onderwerp, samenvatting, verificatiecodebadge en officiële verificatiemarkering (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/views-guide.png)
 
 *Figuur: postvak IN (screenshot in vereenvoudigd Chinees). De lijst toont direct de verificatiecodebadge (groene rand) en de verificatiemarkering van officiële e-mail (blauw vinkje); de tellers van mappen en labels synchroniseren in realtime.*
+*Aantekeningen: 1. Opstellen　2. Met ster　3. Uitgesteld1　4. Verzonden*
 
 ## 1. Postvak IN en indeling
 
@@ -25,9 +26,10 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 
 ## 2. Opstellen en verzenden
 
-![Schrijvenster van EpoCanvas Mail: de afzender is vastgezet op de huidige mailbox, geadresseerden kunnen uit de contacten worden gekozen; onder het onderwerpveld staat de werkbalk voor tekstopmaak (alinea, tekengrootte, vet, lijsten, citatie, scheidingslijn, koppeling, afbeelding, tabel, emoji, vertaling en broncodemodus), onderaan de bijlagen en de verzendknop](/images/mail/ui/ui-compose.png)
+![Schrijvenster van EpoCanvas Mail: de afzender is vastgezet op de huidige mailbox, geadresseerden kunnen uit de contacten worden gekozen; onder het onderwerpveld staat de werkbalk voor tekstopmaak (alinea, tekengrootte, vet, lijsten, citatie, scheidingslijn, koppeling, afbeelding, tabel, emoji, vertaling en broncodemodus), onderaan de bijlagen en de verzendknop](/images/mail/nl/ui/compose-guide.png)
 
 *Figuur: schrijven (screenshot in vereenvoudigd Chinees). De teksteditor biedt 17 opmaakhulpmiddelen; geadresseerden op de site krijgen de mail rechtstreeks afgeleverd, e-mail naar buiten gaat via het afleverkanaal.*
+*Aantekeningen: 1. Paragraph14pxTo 　2. Opstellen*
 
 - **Teksteditor met opmaak**: alinea's, tekengrootte, vet, cursief, onderstreept, doorgehaald, kleuren, uitlijning, geordende en ongeordende lijsten, citatie, scheidingslijn, koppeling, afbeelding, tabel, emoji, vertaling en broncodemodus;
 - **Bijlagen**: de mogelijkheid om bijlagen te versturen en te ontvangen wordt per accountrol ingeschakeld; de maximale grootte van één bijlage volgt de instelling van de instantie (standaard 25 MB; dit beperkt alleen gebruikers die de openbare opslag van de exploitant gebruiken, gebruikers met eigen opslag zijn niet beperkt); de opslagquota is per rol ingesteld;
@@ -36,9 +38,10 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 
 ## 3. Zoeksyntaxis
 
-![Resultaatweergave van EpoCanvas Mail na invoer van from:github in de zoekbalk: de lijst toont uitsluitend de overeenkomende GitHub-meldingen; de tellers in de zijbalk blijven gesynchroniseerd (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-search.png)
+![Resultaatweergave van EpoCanvas Mail na invoer van from:github in de zoekbalk: de lijst toont uitsluitend de overeenkomende GitHub-meldingen; de tellers in de zijbalk blijven gesynchroniseerd (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/search-guide.png)
 
 *Figuur: zoeken (screenshot in vereenvoudigd Chinees). Veldoperators kunnen met vrije trefwoorden worden gecombineerd; de trefferslijst wordt in realtime vernieuwd.*
+*Aantekeningen: 1. E-mail zoeken...*
 
 | Operator | Voorbeeld | Beschrijving |
 | --- | --- | --- |

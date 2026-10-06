@@ -7,9 +7,10 @@ description: The EpoCanvas Mail account security guide — enabling two-step ver
 
 This page walks through every action on the "Settings → Security" page. The overall behaviour of two-step verification (trusted devices, forced policies) is described in [Operating Modes](/en/mail/modes/), Section 4; this page only covers configuration. Entry: sidebar "Settings → Security" (`#settings/security`).
 
-![EpoCanvas Mail security settings page: password change and the two-step verification centre with three second factors](/images/mail/ui/ui-security-2fa.png)
+![EpoCanvas Mail security settings page: password change and the two-step verification centre with three second factors](/images/mail/en/ui/twofa-guide.png)
 
 *Figure: the security page. Username and password above, the two-step verification centre below.*
+*Annotations: 1. Authenticator Ap　2. Backup Recovery 　3. Passkeys & Secur　4. Back to Mail*
 
 ## 1. Security page tour
 

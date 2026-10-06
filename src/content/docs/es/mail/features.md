@@ -9,9 +9,10 @@ Esta página describe una a una las funciones reales de EpoCanvas Mail; todo el 
 
 Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
 
-![Panorama de la bandeja de entrada de EpoCanvas Mail: a la izquierda, el acceso de redacción, el árbol de carpetas (Principal, Destacados, Aplazados, Enviados, Borradores, Todo el correo, Correo no deseado, Papelera) y las etiquetas de colores (Comunidad, Suscripciones, Promociones, Trabajo); a la derecha, la lista muestra el remitente, el asunto, el extracto, la insignia de código de verificación y la marca de verificación oficial (interfaz en chino simplificado)](/images/mail/ui/ui-inbox-zh.png)
+![Panorama de la bandeja de entrada de EpoCanvas Mail: a la izquierda, el acceso de redacción, el árbol de carpetas (Principal, Destacados, Aplazados, Enviados, Borradores, Todo el correo, Correo no deseado, Papelera) y las etiquetas de colores (Comunidad, Suscripciones, Promociones, Trabajo); a la derecha, la lista muestra el remitente, el asunto, el extracto, la insignia de código de verificación y la marca de verificación oficial (interfaz en chino simplificado)](/images/mail/es/ui/views-guide.png)
 
 *Figura: bandeja de entrada (captura en chino simplificado). La lista muestra directamente la insignia del código de verificación (marco verde) y la marca de verificación del correo oficial (marca de verificación azul); los contadores de carpetas y etiquetas se sincronizan en tiempo real.*
+*Anotaciones: 1. Redactar　2. Destacados　3. Pospuestos1　4. Enviados*
 
 ## 1. Bandeja de entrada y organización
 
@@ -25,9 +26,10 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 
 ## 2. Redacción y envío
 
-![Ventana de redacción de EpoCanvas Mail: el remitente queda fijado al buzón actual, los destinatarios pueden seleccionarse entre los contactos; bajo el campo del asunto se encuentra la barra de herramientas de texto enriquecido (párrafo, tamaño de fuente, negrita, listas, cita, separador, enlace, imagen, tabla, emojis, traducción y modo de código fuente), con adjuntos y botón de envío en la parte inferior](/images/mail/ui/ui-compose.png)
+![Ventana de redacción de EpoCanvas Mail: el remitente queda fijado al buzón actual, los destinatarios pueden seleccionarse entre los contactos; bajo el campo del asunto se encuentra la barra de herramientas de texto enriquecido (párrafo, tamaño de fuente, negrita, listas, cita, separador, enlace, imagen, tabla, emojis, traducción y modo de código fuente), con adjuntos y botón de envío en la parte inferior](/images/mail/es/ui/compose-guide.png)
 
 *Figura: redacción (captura en chino simplificado). El editor de texto enriquecido ofrece 17 herramientas de formato; los destinatarios del sitio reciben el correo por entrega directa y los externos, por el canal de entrega.*
+*Anotaciones: 1. Paragraph14pxTo 　2. Redactar*
 
 - **Edición en texto enriquecido**: párrafos, tamaño de fuente, negrita, cursiva, subrayado, tachado, colores, alineación, listas ordenadas y no ordenadas, cita, separador, enlace, imagen, tabla, emojis, traducción y modo de código fuente;
 - **Adjuntos**: la capacidad de envío y recepción de adjuntos se activa según el rol de la cuenta; el límite de tamaño de cada adjunto depende de la configuración de la instancia (25 MB por defecto; solo restringe a los usuarios que emplean el almacenamiento público del Operador, sin límite para quienes disponen de almacenamiento propio); la cuota de almacenamiento se fija según el rol;
@@ -36,9 +38,10 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 
 ## 3. Sintaxis de búsqueda
 
-![Vista de resultados de EpoCanvas Mail tras introducir from:github en la barra de búsqueda: la lista muestra únicamente las notificaciones de GitHub coincidentes; los contadores de la barra lateral permanecen sincronizados (interfaz en chino simplificado)](/images/mail/ui/ui-search.png)
+![Vista de resultados de EpoCanvas Mail tras introducir from:github en la barra de búsqueda: la lista muestra únicamente las notificaciones de GitHub coincidentes; los contadores de la barra lateral permanecen sincronizados (interfaz en chino simplificado)](/images/mail/es/ui/search-guide.png)
 
 *Figura: búsqueda (captura en chino simplificado). Los operadores de campos se pueden combinar con palabras clave libres; la lista de coincidencias se actualiza en tiempo real.*
+*Anotaciones: 1. Buscar correo...*
 
 | Operador | Ejemplo | Descripción |
 | --- | --- | --- |

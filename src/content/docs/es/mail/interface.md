@@ -7,9 +7,10 @@ description: Mapa de interfaz y rutas de EpoCanvas Mail — las ocho vistas del 
 
 Esta página recorre una a una las interfaces de EpoCanvas Mail y sus rutas. Una ubicación consta de dos partes: el prefijo de ruta `/mail/u/N/` (N es el índice de sesión multicuenta; siempre 0 con una sola cuenta) y la ruta de vista tras `#` (por ejemplo `#inbox`). Las rutas directas heredadas como `/inbox` se normalizan automáticamente. La superficie de inicio de sesión se despliega por separado bajo `/login/`. Lo que permite cada ruta lo deciden los permisos del grupo de identidad; véase [Modos de funcionamiento](/es/mail/modes/); el efecto de cada ajuste se describe en la [Guía de configuración](/es/mail/settings/).
 
-![Panorama de la bandeja de entrada de EpoCanvas Mail: a la izquierda, el acceso de redacción y el árbol de carpetas; a la derecha, la lista de correo con insignias de código de verificación y marcas oficiales (interfaz en chino simplificado)](/images/mail/ui/ui-inbox-zh.png)
+![Panorama de la bandeja de entrada de EpoCanvas Mail: a la izquierda, el acceso de redacción y el árbol de carpetas; a la derecha, la lista de correo con insignias de código de verificación y marcas oficiales (interfaz en chino simplificado)](/images/mail/es/ui/views-guide.png)
 
 *Figura: la bandeja de entrada (`#inbox`). Las ocho vistas comparten un mismo esqueleto de lista; los contadores y las etiquetas se mantienen sincronizados.*
+*Anotaciones: 1. Redactar　2. Destacados　3. Pospuestos1　4. Enviados*
 
 ## 1. Interfaz principal del buzón
 

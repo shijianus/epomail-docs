@@ -7,9 +7,10 @@ description: Guide de la plateforme ouverte et de l'accès API d'EpoCanvas Mail 
 
 EpoCanvas Mail embarque un centre d'autorisation OAuth 2.0 / OIDC intégré : l'administrateur enregistre les applications tierces dans la section « Gestion des applications » de la console d'administration (`#manage/admin/oauth-apps`), et les sites externes peuvent alors proposer « Se connecter avec Epomail ». La présente page constitue le tutoriel développeur complet ; l'emplacement de l'interface dans l'application figure à la section 4 de l'[Interface et plan des routes](/fr/mail/interface/), et le traitement des données d'autorisation est exposé dans la [Liste des sous-traitants](/fr/mail/sub-processors/).
 
-![Page de gestion des applications d'EpoCanvas Mail : quatre pastilles de points de terminaison, le bouton du tutoriel développeur, la carte de l'application d'exemple et l'entrée du code d'intégration](/images/mail/ui/ui-oauth-apps.png)
+![Page de gestion des applications d'EpoCanvas Mail : quatre pastilles de points de terminaison, le bouton du tutoriel développeur, la carte de l'application d'exemple et l'entrée du code d'intégration](/images/mail/fr/ui/apps-guide.png)
 
 *Figure : la gestion des applications. Les quatre points de terminaison occupent le haut de la page ; chaque carte d'application porte ses identifiants, un interrupteur d'activation et le code d'intégration.*
+*Annotations: 1. GET/.well-known/　2. GET/oauth/author　3. POST/api/oauth/t　4. GET/api/oauth/us　5. shijianus-blogCr*
 
 ## 1. Points de terminaison
 

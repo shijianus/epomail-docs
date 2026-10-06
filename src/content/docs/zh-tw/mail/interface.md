@@ -7,9 +7,10 @@ description: EpoCanvas Mail 介面與路由總覽——郵箱主介面八視圖�
 
 本頁逐一導覽 EpoCanvas Mail 的每一處介面及其路由。介面路徑由兩部分組成：路徑前綴 `/mail/u/N/`（N 為多帳號工作階段序號，單一帳號恆為 0）與 `#` 後的視圖路由（如 `#inbox`）；舊式直達路徑（如 `/inbox`）會自動正規化為完整形態。登入面獨立部署於 `/login/`。各路由之存取能力由身分分組權限決定，見[運行模式](/zh-tw/mail/modes/)；逐項設定之作用見[設定指南](/zh-tw/mail/settings/)。
 
-![EpoCanvas Mail 收件箱全景：左側寫信入口與資料夾樹，右側郵件列表帶驗證碼徽標與官方認證標記](/images/mail/ui/ui-inbox-zh.png)
+![EpoCanvas Mail 收件箱全景：左側寫信入口與資料夾樹，右側郵件列表帶驗證碼徽標與官方認證標記](/images/mail/zh-tw/ui/views-guide.png)
 
 *圖：收件箱（`#inbox`）。八視圖共用同一列表骨架，計數與標籤即時同步。*
+*標註：1. 寫郵件　2. 星標郵件　3. 稍後處理1　4. 已傳送*
 
 ## 1. 郵箱主介面
 

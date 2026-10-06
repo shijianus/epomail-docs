@@ -7,9 +7,10 @@ description: De gids voor het open platform en de API-toegang van EpoCanvas Mail
 
 EpoCanvas Mail beschikt over een ingebouwd OAuth 2.0 / OIDC-autorisatiecentrum: de beheerder registreert applicaties van derden in de beheersectie «Appbeheer» (`#manage/admin/oauth-apps`), waarna externe sites «Aanmelden met Epomail» kunnen aanbieden. Deze pagina is de volledige ontwikkelaarshandleiding; waar het appbeheer in de app zit, staat in de [Interface en routekaart](/nl/mail/interface/), sectie 4, en de verwerking van autorisatiegegevens wordt openbaar gemaakt in de [Verwerkerslijst](/nl/mail/sub-processors/).
 
-![Appbeheerpagina van EpoCanvas Mail: vier eindpuntchips, de knop van de ontwikkelaarshandleiding, de kaart van de voorbeeldapp en de ingang van de integratiecode (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-oauth-apps.png)
+![Appbeheerpagina van EpoCanvas Mail: vier eindpuntchips, de knop van de ontwikkelaarshandleiding, de kaart van de voorbeeldapp en de ingang van de integratiecode (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/apps-guide.png)
 
 *Figuur: het appbeheer. De vier eindpunten staan bovenaan; elke appkaart draagt de referenties, een aan/uit-schakelaar en de integratiecode.*
+*Aantekeningen: 1. GET/.well-known/　2. GET/oauth/author　3. POST/api/oauth/t　4. GET/api/oauth/us　5. shijianus-blogAa*
 
 ## 1. Eindpunten
 

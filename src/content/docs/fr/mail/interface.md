@@ -7,9 +7,10 @@ description: Interface et plan des routes d'EpoCanvas Mail — les huit vues de 
 
 La présente page parcourt une à une les interfaces d'EpoCanvas Mail et leur route. Un emplacement se compose de deux parties : le préfixe de chemin `/mail/u/N/` (N est l'indice de session multi-comptes ; toujours 0 pour un compte unique) et la route de vue après `#` (par exemple `#inbox`). Les anciens chemins directs tels que `/inbox` sont normalisés automatiquement. La surface de connexion est déployée séparément sous `/login/`. Ce que chaque route autorise est décidé par les permissions du groupe d'identité — voir [Modes de fonctionnement](/fr/mail/modes/) ; l'effet de chaque paramètre est décrit dans le [Guide des paramètres](/fr/mail/settings/).
 
-![Panorama de la boîte de réception d'EpoCanvas Mail : à gauche l'entrée de rédaction et l'arborescence des dossiers, à droite la liste des messages avec badges de code de vérification et marques officielles (interface en chinois simplifié)](/images/mail/ui/ui-inbox-zh.png)
+![Panorama de la boîte de réception d'EpoCanvas Mail : à gauche l'entrée de rédaction et l'arborescence des dossiers, à droite la liste des messages avec badges de code de vérification et marques officielles (interface en chinois simplifié)](/images/mail/fr/ui/views-guide.png)
 
 *Figure : la boîte de réception (`#inbox`). Les huit vues partagent un même squelette de liste ; les compteurs et les étiquettes restent synchronisés.*
+*Annotations: 1. Rédiger　2. Favoris　3. En attente1　4. Envoyés*
 
 ## 1. Interface principale de la boîte
 

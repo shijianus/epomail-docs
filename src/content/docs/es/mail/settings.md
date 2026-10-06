@@ -19,15 +19,16 @@ EpoCanvas Mail divide su configuración en dos zonas: la zona «configuración»
 
 ## 2. Perfil: datos personales
 
-![Página de perfil de EpoCanvas Mail: la tarjeta de información básica reúne la subida de avatar, el apodo, el género y el cumpleaños; la tarjeta de contacto muestra la dirección de correo con su etiqueta de buzón principal, el botón de añadir correo y los números de teléfono; las tarjetas de dirección de casa, empresa y otras siguen más abajo (interfaz en chino simplificado)](/images/mail/ui/ui-settings-profile.png)
+![Página de perfil de EpoCanvas Mail: la tarjeta de información básica reúne la subida de avatar, el apodo, el género y el cumpleaños; la tarjeta de contacto muestra la dirección de correo con su etiqueta de buzón principal, el botón de añadir correo y los números de teléfono; las tarjetas de dirección de casa, empresa y otras siguen más abajo (interfaz en chino simplificado)](/images/mail/es/ui/preferences-guide.png)
 
 *Figura: la página de perfil. El buzón principal lleva una etiqueta de «buzón principal»; las direcciones de correo adicionales pueden ser varias y retirarse en cualquier momento.*
+*Anotaciones: 1. Basic Informatio　2. Contact Informat　3. Addresses　4. Associated ajust*
 
 La tarjeta de información básica gestiona el avatar, el apodo, el género y el cumpleaños. La tarjeta de contacto enumera el buzón principal de inicio de sesión y las direcciones de correo adicionales añadidas por el titular, además de los números de teléfono con prefijo de país. Las tarjetas de dirección guardan por separado las direcciones de casa, de empresa y otras. Cuánto de ello es público lo gobierna el interruptor de «perfil público» del operador.
 
 ## 3. General: apariencia e idioma
 
-![Página general de EpoCanvas Mail: un cuadro de biografía; la zona de apariencia ofrece las paletas oscura, clara y seguir el sistema; el fondo de pantalla temático global ofrece ocho preajustes más un fondo personalizado, con el fondo personal y otros ajustes más abajo (interfaz en chino simplificado)](/images/mail/ui/ui-settings-general.png)
+![Página general de EpoCanvas Mail: un cuadro de biografía; la zona de apariencia ofrece las paletas oscura, clara y seguir el sistema; el fondo de pantalla temático global ofrece ocho preajustes más un fondo personalizado, con el fondo personal y otros ajustes más abajo (interfaz en chino simplificado)](/images/mail/es/ui/general-guide.png)
 
 *Figura: selección de la paleta de apariencia y del fondo de pantalla en la página general, mostrada con «seguir el sistema» y el fondo liso por defecto.*
 
@@ -42,9 +43,10 @@ La página de seguridad modifica el nombre de usuario y la contraseña (mostrand
 
 ## 5. Datos: exportación, notificaciones y almacenamiento
 
-![Página de datos de EpoCanvas Mail: la tarjeta de exportación ofrece la exportación JSON integral, el archivo del correo (MBOX, JSON o CSV con rango de fechas) y la exportación de contactos y configuración; la tarjeta de almacenamiento de abajo muestra el indicador de uso de adjuntos y la entrada del almacenamiento de objetos personal (interfaz en chino simplificado)](/images/mail/ui/ui-settings-data.png)
+![Página de datos de EpoCanvas Mail: la tarjeta de exportación ofrece la exportación JSON integral, el archivo del correo (MBOX, JSON o CSV con rango de fechas) y la exportación de contactos y configuración; la tarjeta de almacenamiento de abajo muestra el indicador de uso de adjuntos y la entrada del almacenamiento de objetos personal (interfaz en chino simplificado)](/images/mail/es/ui/data-guide.png)
 
 *Figura: la página de datos. La exportación y la gestión del almacenamiento aparecen en la misma página; el uso de adjuntos computa contra la cuota del grupo de identidad.*
+*Anotaciones: 1. usuario Data & M　2. correo & Message　3. almacenamiento S　4. Third-party apps*
 
 | Exportación | Formato | Alcance |
 | --- | --- | --- |
@@ -99,9 +101,10 @@ La página de informes de auditoría presenta los eventos de riesgo del sitio co
 | Alerta de bloqueo | La cuenta ha sido bloqueada automáticamente por el sistema o manualmente por un administrador | Levantar la alerta o mantener el bloqueo |
 | Alerta de recurso | El usuario ha recurrido una decisión de tratamiento | Liberar (levantar el bloqueo) o rechazar |
 
-![Página de informes de auditoría de EpoCanvas Mail: la tabla enumera los avisos de las cuatro clases — recurso, bloqueo, auditoría y riesgo — con su prioridad, etiqueta de estado, detalles del entorno activo y botones de tratamiento como liberar y levantar alerta (interfaz en chino simplificado)](/images/mail/ui/ui-audit-report.png)
+![Página de informes de auditoría de EpoCanvas Mail: la tabla enumera los avisos de las cuatro clases — recurso, bloqueo, auditoría y riesgo — con su prioridad, etiqueta de estado, detalles del entorno activo y botones de tratamiento como liberar y levantar alerta (interfaz en chino simplificado)](/images/mail/es/ui/audit-guide.png)
 
 *Figura: el informe de auditoría. Las cuatro clases de alertas se revisan en una única lista, con los botones de tratamiento repartidos por clase; en el modo cifrado, las marcas de tiempo se suprimen.*
+*Anotaciones: 1. Correo　2. Nivel de auditor　3. Explicación de a　4. Grupo de entorno*
 
 ## 8. Documentos relacionados
 

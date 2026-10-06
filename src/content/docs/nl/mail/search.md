@@ -7,9 +7,10 @@ description: De complete zoek- en regelreferentie van EpoCanvas Mail — veldope
 
 EpoCanvas Mail heeft twee opzoeksystemen: het mailzoeken voor gebruikers (het zoekvak in de bovenbalk) en het zoeken over de hele opslag voor de beheerder (de beheersectie «Alle e-mail»); instellingenpagina's hebben daarnaast hun eigen instellingenzoeken. Deze pagina somt elke operator, vlag en regelvoorwaarde op, in overeenstemming met de huidige implementatie. Classificatieregels delen dezelfde veldsemantiek als zoeken; de regelengine wordt vanaf sectie 7 beschreven.
 
-![Zoeken in EpoCanvas Mail: na invoer van from:github toont de lijst uitsluitend de overeenkomende mail, met het trefwoord gemarkeerd](/images/mail/ui/ui-search.png)
+![Zoeken in EpoCanvas Mail: na invoer van from:github toont de lijst uitsluitend de overeenkomende mail, met het trefwoord gemarkeerd](/images/mail/nl/ui/search-guide.png)
 
 *Figuur: mailzoeken. Operators combineren vrij met gewone trefwoorden; treffers lichten onmiddellijk op.*
+*Aantekeningen: 1. E-mail zoeken...*
 
 ## 1. Grondbeginselen van de syntax
 

@@ -20,9 +20,10 @@ Le service est proposé sous les deux formes suivantes ; la qualification du res
 
 L'administrateur sélectionne le mode courriel de l'instance sur la carte des paramètres du site, dans les paramètres système. Le mode détermine la politique de chiffrement au stockage et l'étendue de visibilité du courriel des utilisateurs côté administration :
 
-![Paramètres système d'EpoCanvas Mail, carte des paramètres du site : le menu déroulant du mode courriel est ouvert et affiche Mode tous courriels (Level 1), Mode courriel privé (Level 2 [Recommandé]) et Mode courriel chiffré (Level 3 [E2EE]) ; la valeur actuelle est le mode courriel privé avec un badge de confidentialité renforcée Level 2 (interface en chinois simplifié)](/images/mail/ui/ui-mail-mode-select.png)
+![Paramètres système d'EpoCanvas Mail, carte des paramètres du site : le menu déroulant du mode courriel est ouvert et affiche Mode tous courriels (Level 1), Mode courriel privé (Level 2 [Recommandé]) et Mode courriel chiffré (Level 3 [E2EE]) ; la valeur actuelle est le mode courriel privé avec un badge de confidentialité renforcée Level 2 (interface en chinois simplifié)](/images/mail/fr/ui/mode-guide.png)
 
 *Figure : sélection du mode courriel. L'instance représentée fonctionne en mode courriel privé ; la carte de personnalisation à droite et les cartes de stockage et de push en dessous figurent sur la même page.*
+*Annotations: 1. WebsiteSign UpPu　2. Website*
 
 | Mode | Stockage du courriel | Visibilité côté administration | Interrupteur général de double étape | Transfert global et push du robot |
 | --- | --- | --- | --- | --- |
@@ -36,9 +37,10 @@ Le changement de mode prend effet immédiatement. En mode chiffré, la liste adm
 
 Chaque compte appartient à un groupe d'identité, qui détermine le quota d'envoi, le nombre de boîtes, le quota de stockage et la permission des pièces jointes :
 
-![Page des permissions d'EpoCanvas Mail : le tableau liste les six groupes d'identité — Utilisateur standard, Visiteur, Utilisateur standard LV.0, Utilisateur standard LV.1, Modérateur et Maître — avec leurs étiquettes de positionnement, quotas de stockage, limites d'envoi, permissions de pièces jointes et colonnes d'autorisation de modèles d'IA (interface en chinois simplifié)](/images/mail/ui/ui-roles.png)
+![Page des permissions d'EpoCanvas Mail : le tableau liste les six groupes d'identité — Utilisateur standard, Visiteur, Utilisateur standard LV.0, Utilisateur standard LV.1, Modérateur et Maître — avec leurs étiquettes de positionnement, quotas de stockage, limites d'envoi, permissions de pièces jointes et colonnes d'autorisation de modèles d'IA (interface en chinois simplifié)](/images/mail/fr/ui/roles-guide.png)
 
 *Figure : vue d'ensemble de l'architecture et de la graduation sur la page des permissions. Quota de stockage, limite d'envoi et pièces jointes sont réglés groupe par groupe ; le groupe Maître n'a ni plafond d'envoi ni plafond de boîtes.*
+*Annotations: 1. 　2. Name　3. Quota de stockag　4. Limite d'envoi　5. Permission de pi*
 
 | Groupe d'identité | Positionnement | Envoi quotidien | Boîtes | Quota de stockage | Pièces jointes |
 | --- | --- | --- | --- | --- | --- |
@@ -53,18 +55,20 @@ Les nouvelles inscriptions arrivent dans le groupe par défaut d'usine, le Visit
 
 ## 4. Connexion et vérification en deux étapes
 
-![Page de connexion d'EpoCanvas Mail : champs adresse électronique et mot de passe, case à cocher « maintenir le lien orbite » et bouton de connexion, avec en dessous les boutons de connexion rapide Google et GitHub, tous deux grisés avec un badge « bientôt disponible » (interface en chinois simplifié)](/images/mail/ui/ui-login-oauth.png)
+![Page de connexion d'EpoCanvas Mail : champs adresse électronique et mot de passe, case à cocher « maintenir le lien orbite » et bouton de connexion, avec en dessous les boutons de connexion rapide Google et GitHub, tous deux grisés avec un badge « bientôt disponible » (interface en chinois simplifié)](/images/mail/fr/ui/login-guide.png)
 
 *Figure : la page de connexion. La connexion par mot de passe est la voie de base ; les boutons tiers activés par l'administrateur sans identifiants sont grisés « bientôt disponible », les désactivés ne sont pas affichés.*
+*Annotations: 1. 　2. *
 
 - Connexion par mot de passe : la voie de base disponible sur toutes les instances ; la phrase secrète est stockée en empreinte salée, et les échecs répétés déclenchent un verrouillage anti-force brute ;
 - Vérification en deux étapes : activée par le titulaire du compte depuis le centre de double étape des paramètres de sécurité ; trois seconds facteurs sont proposés — une application d'authentification (codes dynamiques TOTP), des codes de récupération de secours (10 codes à usage unique) et des clés d'accès (Passkey, clés de sécurité matérielles ou biométrie de l'appareil) ;
 - Appareils de confiance : après avoir coché « Ne plus demander sur cet appareil » à l'étape de vérification en deux étapes, l'appareil est dispensé de nouvelle vérification pendant 30 jours ; entre 30 et 60 jours la vérification est redemandée, et au-delà de 60 jours la confiance expire ; toute automatisation ou manipulation de l'environnement se voit refuser la dispense ;
 - Connexion rapide tierce : l'administrateur active et configure un à un les fournisseurs parmi GitHub, Google, Microsoft, Apple et un SSO personnalisé ; un fournisseur activé sans identifiants s'affiche grisé « bientôt disponible », un fournisseur désactivé n'est pas affiché. Les données concernées par la connexion tierce figurent dans la [Liste des sous-traitants](/fr/mail/sub-processors/).
 
-![Page des paramètres de sécurité d'EpoCanvas Mail : la carte supérieure regroupe le nom d'utilisateur, la boîte et le changement de mot de passe ; en dessous, le centre de double étape liste les trois seconds facteurs — application d'authentification, codes de récupération et clés d'accès — avec leur état de configuration et leurs boutons d'action (interface en chinois simplifié)](/images/mail/ui/ui-security-2fa.png)
+![Page des paramètres de sécurité d'EpoCanvas Mail : la carte supérieure regroupe le nom d'utilisateur, la boîte et le changement de mot de passe ; en dessous, le centre de double étape liste les trois seconds facteurs — application d'authentification, codes de récupération et clés d'accès — avec leur état de configuration et leurs boutons d'action (interface en chinois simplifié)](/images/mail/fr/ui/twofa-guide.png)
 
 *Figure : le centre de vérification en deux étapes de la page de sécurité. Chaque second facteur se configure indépendamment et peut être combiné aux autres.*
+*Annotations: 1. Authenticator Ap　2. sauvegarde Recov　3. Passkeys & sécur　4. Back to Mail*
 
 ## 5. Mode multi-comptes
 

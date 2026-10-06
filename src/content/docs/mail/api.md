@@ -7,9 +7,10 @@ description: EpoCanvas Mail 开放平台与 API 接入指南——OAuth 应用�
 
 EpoCanvas Mail 内建 OAuth 2.0／OIDC 认证中心：管理员于管理区「应用管理」（`#manage/admin/oauth-apps`）注册第三方应用，外部站点即可让用户「使用 Epomail 登录」。本页是面向开发者的完整接入教程；应用管理界面的位置见[界面与路由总览](/mail/interface/)第 4 节，用户授权数据的处理见[第三方处理者清单](/mail/sub-processors/)。
 
-![EpoCanvas Mail 应用管理页：四个端点条、开发接入教程按钮、示例应用卡片与集成代码入口](/images/mail/ui/ui-oauth-apps.png)
+![EpoCanvas Mail 应用管理页：四个端点条、开发接入教程按钮、示例应用卡片与集成代码入口](/images/mail/ui/apps-guide.png)
 
 *图：应用管理页。页顶并列四个接入端点，应用卡片带凭据、启停开关与集成代码。*
+*标注：1. GET/.well-known/　2. GET/oauth/author　3. POST/api/oauth/t　4. GET/api/oauth/us　5. shijianus-blog创建*
 
 ## 1. 端点总览
 

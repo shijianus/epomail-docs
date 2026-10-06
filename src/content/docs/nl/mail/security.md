@@ -7,9 +7,10 @@ description: De gids voor accountbeveiliging van EpoCanvas Mail — tweestapsver
 
 Deze pagina loopt elke handeling op de pagina «Instellingen → Beveiliging» langs. Het algemene gedrag van tweestapsverificatie (vertrouwde apparaten, afgedwongen beleid) staat beschreven in [Werkingsmodi](/nl/mail/modes/), sectie 4; deze pagina behandelt alleen de configuratie. Ingang: zijbalk «Instellingen → Beveiliging» (`#settings/security`).
 
-![Beveiligingsinstellingenpagina van EpoCanvas Mail: de wachtwoordwijziging en het tweestapscentrum met de drie tweede factoren (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-security-2fa.png)
+![Beveiligingsinstellingenpagina van EpoCanvas Mail: de wachtwoordwijziging en het tweestapscentrum met de drie tweede factoren (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/twofa-guide.png)
 
 *Figuur: de beveiligingspagina. Bovenin gebruikersnaam en wachtwoord, onderin het tweestapsverificatiecentrum.*
+*Aantekeningen: 1. Authenticator Ap　2. back-up Recovery　3. Passkeys & bevei　4. Back to Mail*
 
 ## 1. Rondleiding langs de beveiligingspagina
 

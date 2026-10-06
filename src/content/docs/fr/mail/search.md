@@ -7,9 +7,10 @@ description: Référence complète de la recherche et des règles d'EpoCanvas Ma
 
 EpoCanvas Mail dispose de deux systèmes de recherche : la recherche de courriels côté utilisateur (la zone de recherche de la barre supérieure) et la recherche du courriel à l'échelle du site côté administrateur (la section administrative « Tous les courriels ») ; les pages de paramètres disposent en outre de leur propre recherche des paramètres. La présente page recense chaque opérateur, indicateur et condition de règle, en correspondance avec l'implémentation actuelle. Les règles de classement partagent la même sémantique de champs que la recherche ; le moteur de règles est décrit à partir de la section 7.
 
-![Recherche d'EpoCanvas Mail : après saisie de from:github, la liste n'affiche que les courriels correspondants, le mot-clé étant surligné (interface en chinois simplifié)](/images/mail/ui/ui-search.png)
+![Recherche d'EpoCanvas Mail : après saisie de from:github, la liste n'affiche que les courriels correspondants, le mot-clé étant surligné (interface en chinois simplifié)](/images/mail/fr/ui/search-guide.png)
 
 *Figure : recherche du courrier. Les opérateurs se combinent librement avec des mots-clés ordinaires ; les correspondances se surlignent aussitôt.*
+*Annotations: 1. Rechercher des e*
 
 ## 1. Bases de la syntaxe
 

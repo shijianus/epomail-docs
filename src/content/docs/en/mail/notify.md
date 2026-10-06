@@ -7,9 +7,10 @@ description: The EpoCanvas Mail notifications and forwarding guide — binding T
 
 This page walks through the two capabilities of the "Mail & message forwarding" area on the "Settings → Data" page: Telegram message push and auto-forwarding. Whether an account sees them is decided by the admin's "User Data Control" card; when off, the blocks are hidden. Data export and storage live on the same page, see the [Settings Guide](/en/mail/settings/), Section 5.
 
-![EpoCanvas Mail mail and message forwarding area: Telegram push status and auto-forwarding settings](/images/mail/ui/ui-notify-forward.png)
+![EpoCanvas Mail mail and message forwarding area: Telegram push status and auto-forwarding settings](/images/mail/en/ui/notify-guide.png)
 
 *Figure: the mail & message forwarding area. Telegram push carries its status and setup entry; auto-forwarding shows destinations and advanced options.*
+*Annotations: 1. Export All Data 　2. Email History Ar　3. Contacts & Prefe　4. Email & Message *
 
 ## 1. Telegram message push
 

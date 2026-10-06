@@ -7,9 +7,10 @@ description: Guide des notifications et du transfert d'EpoCanvas Mail — liaiso
 
 La présente page parcourt les deux capacités de la zone « Notifications et transfert » de la page « Paramètres → Données » : le push des messages Telegram et le transfert automatique. Un compte y accède ou non selon la carte « Contrôle des données utilisateurs » de l'administrateur ; lorsque l'interrupteur est désactivé, les blocs sont masqués. L'export des données et le stockage figurent sur la même page, voir la section 5 du [Guide des paramètres](/fr/mail/settings/).
 
-![Zone notifications et transfert d'EpoCanvas Mail : état du push Telegram et réglages du transfert automatique](/images/mail/ui/ui-notify-forward.png)
+![Zone notifications et transfert d'EpoCanvas Mail : état du push Telegram et réglages du transfert automatique](/images/mail/fr/ui/notify-guide.png)
 
 *Figure : la zone notifications et transfert. Le push Telegram porte son état et son entrée de configuration ; le transfert automatique affiche les destinations et les options avancées.*
+*Annotations: 1. exporter All Dat　2. email History Ar　3. Contacts & Prefe　4. email & Message *
 
 ## 1. Push des messages Telegram
 

@@ -9,9 +9,10 @@ La présente page décrit une à une les fonctionnalités réelles d'EpoCanvas M
 
 Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut.
 
-![Panorama de la boîte de réception EpoCanvas Mail : à gauche, l'entrée de rédaction, l'arborescence des dossiers (Principale, Étoilés, Reportés, Envoyés, Brouillons, Tous les courriels, Pourriels, Corbeille) et les étiquettes colorées (Communauté, Abonnements, Promotions, Travail) ; à droite, la liste affiche l'expéditeur, l'objet, l'extrait, le badge de code de vérification et la marque de certification officielle (interface en chinois simplifié)](/images/mail/ui/ui-inbox-zh.png)
+![Panorama de la boîte de réception EpoCanvas Mail : à gauche, l'entrée de rédaction, l'arborescence des dossiers (Principale, Étoilés, Reportés, Envoyés, Brouillons, Tous les courriels, Pourriels, Corbeille) et les étiquettes colorées (Communauté, Abonnements, Promotions, Travail) ; à droite, la liste affiche l'expéditeur, l'objet, l'extrait, le badge de code de vérification et la marque de certification officielle (interface en chinois simplifié)](/images/mail/fr/ui/views-guide.png)
 
 *Figure : boîte de réception (capture en chinois simplifié). La liste présente directement le badge de code de vérification (cadre vert) et la marque de certification des courriels officiels (coche sur fond bleu) ; les compteurs des dossiers et des étiquettes sont synchronisés en temps réel.*
+*Annotations: 1. Rédiger　2. Favoris　3. En attente1　4. Envoyés*
 
 ## 1. Boîte de réception et organisation
 
@@ -25,9 +26,10 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 
 ## 2. Rédaction et envoi
 
-![Fenêtre de rédaction d'EpoCanvas Mail : l'expéditeur est verrouillé sur la boîte actuelle, le choix des destinataires peut passer par les contacts ; sous le champ d'objet se trouve la barre d'outils de texte enrichi (paragraphe, taille de police, gras, listes, citation, séparateur, lien, image, tableau, émoji, traduction et mode source), avec pièces jointes et bouton d'envoi au bas](/images/mail/ui/ui-compose.png)
+![Fenêtre de rédaction d'EpoCanvas Mail : l'expéditeur est verrouillé sur la boîte actuelle, le choix des destinataires peut passer par les contacts ; sous le champ d'objet se trouve la barre d'outils de texte enrichi (paragraphe, taille de police, gras, listes, citation, séparateur, lien, image, tableau, émoji, traduction et mode source), avec pièces jointes et bouton d'envoi au bas](/images/mail/fr/ui/compose-guide.png)
 
 *Figure : rédaction (capture en chinois simplifié). L'éditeur de texte enrichi offre 17 outils de mise en forme ; les destinataires du site reçoivent en livraison directe, les autres passent par le canal de livraison.*
+*Annotations: 1. Paragraph14pxTo 　2. Rédiger*
 
 - **Édition en texte enrichi** : paragraphes, taille de police, gras, italique, souligné, barré, couleurs, alignement, listes ordonnées et non ordonnées, citation, séparateur, lien, image, tableau, émoji, traduction et mode code source ;
 - **Pièces jointes** : la capacité d'envoi et de réception des pièces jointes est activée selon le rôle du compte ; la taille maximale d'une pièce jointe dépend du réglage de l'instance (25 Mo par défaut, contraignant uniquement les utilisateurs du stockage public de l'Opérateur ; ceux qui apportent leur propre stockage ne sont pas limités) ; le quota de stockage est fixé selon le rôle ;
@@ -36,9 +38,10 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 
 ## 3. Syntaxe de recherche
 
-![Vue des résultats d'EpoCanvas Mail après saisie de from:github dans la barre de recherche : la liste n'affiche que les notifications GitHub correspondantes ; les compteurs de la barre latérale restent synchronisés (interface en chinois simplifié)](/images/mail/ui/ui-search.png)
+![Vue des résultats d'EpoCanvas Mail après saisie de from:github dans la barre de recherche : la liste n'affiche que les notifications GitHub correspondantes ; les compteurs de la barre latérale restent synchronisés (interface en chinois simplifié)](/images/mail/fr/ui/search-guide.png)
 
 *Figure : recherche (capture en chinois simplifié). Les opérateurs de champs se combinent avec des mots-clés libres ; la liste des correspondances s'actualise en temps réel.*
+*Annotations: 1. Rechercher des e*
 
 | Opérateur | Exemple | Description |
 | --- | --- | --- |
