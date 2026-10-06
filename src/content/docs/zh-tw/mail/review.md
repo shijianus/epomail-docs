@@ -7,9 +7,10 @@ description: EpoCanvas Mail 全庫郵件審查——管理員郵件維度的檢�
 
 全庫郵件審查是管理區的郵件維度介面（`#manage/admin/mail`，權限鍵 `all-email:query`）。分區名稱與可見範圍隨郵件模式變化：全部郵件模式（Level 1）顯示「全部郵件」，隱私模式（Level 2）顯示「垃圾郵件」，加密模式（Level 3）整段隱藏（見[運行模式](/zh-tw/mail/modes/)第 2 節）。
 
-![圖：全庫郵件審查](/images/mail/zh-tw/ui/review.png)
+![圖：全庫郵件審查](/images/mail/zh-tw/ui/review-guide.png)
 
 *圖：全庫郵件審查*
+*标注：1. *
 
 
 ## 1. 檢索

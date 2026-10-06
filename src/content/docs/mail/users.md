@@ -7,9 +7,10 @@ description: EpoCanvas Mail 用户列表——帐号检索、密码重置、身�
 
 用户列表是管理区的帐号管理界面（`#manage/admin/users`，权限键 `user:query`），供管理员检索与处置站内全部帐号。
 
-![图：用户列表](/images/mail/ui/users.png)
+![图：用户列表](/images/mail/ui/users-guide.png)
 
 *图：用户列表*
+*标注：1. 　2. 　3. 用户邮箱　4. 存储空间*
 
 
 ## 1. 列表与检索

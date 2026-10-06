@@ -7,9 +7,10 @@ description: Página de analítica de EpoCanvas Mail — guía del administrador
 
 La página de analítica es el panel de datos de la zona de administración (`#manage/admin/analysis`, clave de permiso `analysis:query`); agrega los indicadores de correo, de usuarios y de uso de la IA de la instancia. El alcance de cada indicador cambia con el modo de correo: en el modo cifrado (Level 3) el lado administrativo no lee el contenido del correo de los usuarios y los recuentos pertinentes quedan a nivel de metadatos.
 
-![Figura: la página de analítica](/images/mail/es/ui/analysis.png)
+![Figura: la página de analítica](/images/mail/es/ui/analysis-guide.png)
 
 *Figura: la página de analítica*
+*Anotaciones: 1. correo Source ｜ 2. usuario Growth ｜ 3. correo Growth*
 
 
 ## 1. Vista general de los indicadores

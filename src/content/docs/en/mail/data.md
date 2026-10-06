@@ -7,9 +7,10 @@ description: EpoCanvas Mail data export and storage — the full backup, mail-hi
 
 This page covers the export and storage halves of the "Settings → Data" page. Notifications and forwarding on the same page are in the [Notifications & Forwarding Guide](/en/mail/notify/); the legal status of exported data is in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
-![EpoCanvas Mail data page: the three export cards, the storage-usage gauge and the personal object storage entrance (interface in Simplified Chinese)](/images/mail/ui/ui-settings-data.png)
+![EpoCanvas Mail data page: the three export cards, the storage-usage gauge and the personal object storage entrance (interface in Simplified Chinese)](/images/mail/en/ui/data-guide.png)
 
 *Figure: the data page. Export and storage management appear on one page; attachment usage counts against the identity group's quota.*
+*Annotations: 1. User Data & Mail　2. Email & Message 　3. Storage Space & 　4. Third-party apps*
 
 ## 1. The three exports
 

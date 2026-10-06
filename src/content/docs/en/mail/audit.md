@@ -7,9 +7,10 @@ description: EpoCanvas Mail operation reports — triage of the four warning cla
 
 Operation Reports is the admin area's risk-ticket interface (`#manage/admin/audit`; querying needs `setting:query`, handling and adjudication need `setting:set`). Tickets are persisted in a dedicated audit-log table, and history is searchable with paging.
 
-![EpoCanvas Mail operation reports page: warning tickets of the four classes, plain-text environment details and handling buttons (interface in Simplified Chinese)](/images/mail/ui/ui-audit-report.png)
+![EpoCanvas Mail operation reports page: warning tickets of the four classes, plain-text environment details and handling buttons (interface in Simplified Chinese)](/images/mail/en/ui/audit-guide.png)
 
 *Figure: Operation Reports. Each ticket carries its class, priority, status and the active-environment pool shown as plain text.*
+*Annotations: 1. Email　2. Security Audit L　3. Alert Context & 　4. Active Environme*
 
 ## 1. The four warning classes
 

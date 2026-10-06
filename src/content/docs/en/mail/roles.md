@@ -7,9 +7,10 @@ description: EpoCanvas Mail permissions — the six identity groups, item-by-ite
 
 Permissions is the admin area's identity-group management interface (`#manage/admin/roles`, permission key `role:query`), deciding each group's quotas, permission keys and AI model authorisation. The user-side behaviour of each group is in Section 3 of [Operating Modes](/en/mail/modes/).
 
-![EpoCanvas Mail permissions page: the six-group table with quota, sending-limit, attachment-permission and AI model authorisation columns (interface in Simplified Chinese)](/images/mail/ui/ui-roles.png)
+![EpoCanvas Mail permissions page: the six-group table with quota, sending-limit, attachment-permission and AI model authorisation columns (interface in Simplified Chinese)](/images/mail/en/ui/roles-guide.png)
 
 *Figure: the architecture and grading overview on the permissions page. The interface labels the Master group's sending and storage as "unlimited".*
+*Annotations: 1. 　2. Name　3. Storage Quota　4. Sending Limit　5. Attachment Permi*
 
 ## 1. Groups and quotas
 

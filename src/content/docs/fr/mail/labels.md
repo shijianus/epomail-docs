@@ -7,7 +7,7 @@ description: Gestion des étiquettes et du classement d'EpoCanvas Mail — créa
 
 Les étiquettes et les règles de classement se gèrent dans « Paramètres → Étiquettes » (`#settings/labels`). La table complète des champs de conditions figure à la section 7 de la [Référence de la recherche et des règles](/fr/mail/search/) ; la présente page décrit la manipulation des étiquettes elles-mêmes et leurs statistiques.
 
-![Figure : l'interface des étiquettes et du classement](/images/mail/fr/ui/labels.png)
+![Figure : l'interface des étiquettes et du classement](/images/mail/fr/ui/labels-guide.png)
 
 *Figure : l'interface des étiquettes et du classement*
 

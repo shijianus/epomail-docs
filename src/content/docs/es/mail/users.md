@@ -7,9 +7,10 @@ description: Lista de usuarios de EpoCanvas Mail — búsqueda de cuentas, resta
 
 La lista de usuarios es la interfaz de gestión de cuentas de la zona de administración (`#manage/admin/users`, clave de permiso `user:query`); permite al administrador buscar y tratar todas las cuentas del sitio.
 
-![Figura: la lista de usuarios](/images/mail/es/ui/users.png)
+![Figura: la lista de usuarios](/images/mail/es/ui/users-guide.png)
 
 *Figura: la lista de usuarios*
+*Anotaciones: 1.  ｜ 2.  ｜ 3. Correo ｜ 4. Almacenamiento*
 
 
 ## 1. Lista y búsqueda

@@ -7,9 +7,10 @@ description: De gebruikerslijst van EpoCanvas Mail — accounts opzoeken, wachtw
 
 De gebruikerslijst is de accountbeheerinterface van de beheerzone (`#manage/admin/users`, rechten-sleutel `user:query`); daar zoekt de beheerder alle accounts op de instantie op en handelt ze af.
 
-![Figuur: de gebruikerslijst](/images/mail/nl/ui/users.png)
+![Figuur: de gebruikerslijst](/images/mail/nl/ui/users-guide.png)
 
 *Figuur: de gebruikerslijst*
+*Aantekeningen: 1.  ｜ 2.  ｜ 3. E-mail ｜ 4. Opslagruimte*
 
 
 ## 1. Lijst en zoekopdracht

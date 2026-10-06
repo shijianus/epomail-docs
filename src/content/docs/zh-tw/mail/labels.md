@@ -7,7 +7,7 @@ description: EpoCanvas Mail 標籤與分類管理——標籤的建立、圖示�
 
 標籤與分類規則在「設定 → 標籤」（`#settings/labels`）管理。規則條件的完整欄位表見[搜尋與規則參考](/zh-tw/mail/search/)第 7 節；本頁說明標籤本身的操作與統計。
 
-![圖：標籤與分類管理介面](/images/mail/zh-tw/ui/labels.png)
+![圖：標籤與分類管理介面](/images/mail/zh-tw/ui/labels-guide.png)
 
 *圖：標籤與分類管理介面*
 

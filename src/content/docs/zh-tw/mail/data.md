@@ -7,9 +7,10 @@ description: EpoCanvas Mail 資料匯出與儲存——全量備份、郵件歷�
 
 本頁說明「設定 → 資料」頁的匯出與儲存兩部分。同頁的通知與轉寄見[通知與轉寄指南](/zh-tw/mail/notify/)；匯出資料的法定地位見[資料處理與安全維護](/zh-tw/mail/data-security/)。
 
-![EpoCanvas Mail 資料頁：三類匯出卡與儲存用量儀表、個人物件儲存接入](/images/mail/ui/ui-settings-data.png)
+![EpoCanvas Mail 資料頁：三類匯出卡與儲存用量儀表、個人物件儲存接入](/images/mail/zh-tw/ui/data-guide.png)
 
 *圖：資料頁。匯出與儲存管理同頁呈現，附件用量以身分分組配額計算。*
+*標註：1. 使用者資料與資料匯出　2. 郵件與訊息轉發　3. 儲存空間與個人雲端儲存　4. 第三方應用和服務*
 
 ## 1. 三類匯出
 

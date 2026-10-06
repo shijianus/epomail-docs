@@ -7,9 +7,10 @@ description: Clés d'inscription d'EpoCanvas Mail — émission des codes d'invi
 
 La page des clés d'inscription est l'interface des codes d'invitation de la zone d'administration (`#manage/admin/reg-keys`, clé de permission `reg-key:query`) ; elle décide qui peut s'inscrire sur l'instance. Les trois modes à l'échelle du site du code d'inscription (obligatoire／désactivé／facultatif) se décident dans la carte des paramètres du site des [paramètres système](/fr/mail/system/).
 
-![Figure : les clés d'inscription](/images/mail/fr/ui/regkeys.png)
+![Figure : les clés d'inscription](/images/mail/fr/ui/regkeys-guide.png)
 
 *Figure : les clés d'inscription*
+*Annotations: 1. *
 
 
 ## 1. Émission

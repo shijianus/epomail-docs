@@ -7,7 +7,7 @@ description: Gestión de etiquetas y clasificación de EpoCanvas Mail — creaci
 
 Las etiquetas y las reglas de clasificación se gestionan en «Configuración → Etiquetas» (`#settings/labels`). La tabla completa de campos de condición de las reglas figura en la sección 7 de [Referencia de búsqueda y reglas](/es/mail/search/); esta página cubre las operaciones y estadísticas de las etiquetas propiamente dichas.
 
-![Figura: la interfaz de etiquetas y clasificación](/images/mail/es/ui/labels.png)
+![Figura: la interfaz de etiquetas y clasificación](/images/mail/es/ui/labels-guide.png)
 
 *Figura: la interfaz de etiquetas y clasificación*
 

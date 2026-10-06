@@ -7,9 +7,10 @@ description: EpoCanvas Mail 个资与常规设置——头像昵称联系方式�
 
 本页说明「设置 → 个资」与「设置 → 常规」两个分区的每一项。安全与数据类设置分见[帐号安全设置指南](/mail/security/)与[数据导出与存储](/mail/data/)。
 
-![图：个资与常规设置界面](/images/mail/ui/preferences.png)
+![图：个资与常规设置界面](/images/mail/ui/preferences-guide.png)
 
 *图：个资与常规设置界面*
+*标注：1. 基本信息　2. 联系信息　3. 地址　4. 关联设置与安全*
 
 
 ## 1. 个资（`#settings/profile`）

@@ -7,9 +7,10 @@ description: Classificatiebeheer van EpoCanvas Mail — de schakelaars voor ontv
 
 Classificatiebeheer is de governance-interface op siteniveau in de beheerzone (`#manage/admin/rules`, rechten-sleutel `setting:query`) en legt sitewijde regels voor inkomende e-mail bovenop de persoonlijke regels van gebruikers. De persoonlijke labelregels staan in [Label- en classificatiebeheer](/nl/mail/labels/); de betekenis van de voorwaardevelden in sectie 7 van de [Zoek- en regelreferentie](/nl/mail/search/).
 
-![Figuur: de classificatiebeheer-interface](/images/mail/nl/ui/category.png)
+![Figuur: de classificatiebeheer-interface](/images/mail/nl/ui/category-guide.png)
 
 *Figuur: de classificatiebeheer-interface*
+*Aantekeningen: 1. E-mail ｜ 2. AI model & API s ｜ 3. Basislijstregels ｜ 4. Definitieve afwi*
 
 
 ## 1. Schakelaars voor ontvangst, verzending en verversen

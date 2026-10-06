@@ -7,9 +7,10 @@ description: EpoCanvas Mail 注册密钥——邀请注册码的签发、可用�
 
 注册密钥是管理区的邀请码界面（`#manage/admin/reg-keys`，权限键 `reg-key:query`），控制谁能注册本实例。注册码的三种全站模式（必填／关闭／选填）由[系统设置](/mail/system/)的网站设置卡决定。
 
-![图：注册密钥](/images/mail/ui/regkeys.png)
+![图：注册密钥](/images/mail/ui/regkeys-guide.png)
 
 *图：注册密钥*
+*标注：1. *
 
 
 ## 1. 签发

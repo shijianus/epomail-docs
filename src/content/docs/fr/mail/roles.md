@@ -7,9 +7,10 @@ description: Permissions d'EpoCanvas Mail — les six groupes d'identité, les c
 
 La page des permissions est l'interface de gestion des groupes d'identité de la zone d'administration (`#manage/admin/roles`, clé de permission `role:query`) ; elle décide des quotas, des clés de permission et de l'autorisation des modèles IA de chaque groupe. Le comportement côté utilisateur de chaque groupe figure à la section 3 de [Modes de fonctionnement](/fr/mail/modes/).
 
-![Page des permissions d'EpoCanvas Mail : tableau des six groupes avec quotas, limites d'envoi, permissions de pièces jointes et colonne des modèles IA autorisés](/images/mail/ui/ui-roles.png)
+![Page des permissions d'EpoCanvas Mail : tableau des six groupes avec quotas, limites d'envoi, permissions de pièces jointes et colonne des modèles IA autorisés](/images/mail/fr/ui/roles-guide.png)
 
 *Figure : vue d'ensemble de l'architecture et de la graduation de la page des permissions. L'interface libelle « sans plafond » l'envoi et le stockage du groupe Maître.*
+*Annotations: 1. 　2. Name　3. Quota de stockag　4. Limite d'envoi　5. Permission de pi*
 
 ## 1. Groupes et quotas
 

@@ -7,9 +7,10 @@ description: Interfaz del buzón de EpoCanvas Mail — recorrido paso a paso por
 
 Esta página explica una a una las vistas de la interfaz principal del buzón y cada acción de la página de detalle del mensaje. Las rutas y el esqueleto de interfaz de cada vista figuran en [Mapa de interfaz y rutas](/es/mail/interface/); la búsqueda y las reglas que hay detrás de la organización, en [Referencia de búsqueda y reglas](/es/mail/search/).
 
-![Bandeja de entrada de EpoCanvas Mail: vista dividida de tres columnas, insignia de código de verificación y marca de verificación oficial](/images/mail/ui/ui-inbox-zh.png)
+![Bandeja de entrada de EpoCanvas Mail: vista dividida de tres columnas, insignia de código de verificación y marca de verificación oficial](/images/mail/es/ui/views-guide.png)
 
 *Figura: la bandeja de entrada. Lista, panel de lectura y barra lateral actúan concertados; los contadores se actualizan al instante.*
+*Anotaciones: 1. Redactar　2. Destacados　3. Pospuestos1　4. Enviados*
 
 ## 1. Las ocho vistas
 

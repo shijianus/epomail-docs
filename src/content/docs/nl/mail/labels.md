@@ -7,7 +7,7 @@ description: Label- en classificatiebeheer van EpoCanvas Mail — labels aanmake
 
 Labels en classificatieregels worden beheerd in «Instellingen → Labels» (`#settings/labels`). De volledige veldtabel van de regelvoorwaarden staat in sectie 7 van de [Zoek- en regelreferentie](/nl/mail/search/); deze pagina behandelt het beheer van de labels zelf en de statistieken.
 
-![Figuur: de label- en classificatie-interface](/images/mail/nl/ui/labels.png)
+![Figuur: de label- en classificatie-interface](/images/mail/nl/ui/labels-guide.png)
 
 *Figuur: de label- en classificatie-interface*
 

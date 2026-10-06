@@ -7,9 +7,10 @@ description: EpoCanvas Mail 系统设置配置卡详解——十一张配置卡�
 
 系统设置页（`#manage/admin/system`，权限键 `setting:query`／`setting:set`）以配置卡组织全部实例级配置。本页逐卡说明；卡名与应用界面一致。
 
-![图：系统设置的十一张配置卡](/images/mail/ui/system.png)
+![图：系统设置的十一张配置卡](/images/mail/ui/system-guide.png)
 
 *图：系统设置的十一张配置卡*
+*标注：1. 网站设置　2. 个性化设置　3. 存储与核心数据库　4. AI 智能引擎与大模型接入　5. 用户资料控制*
 
 
 ## 1. 网站设置

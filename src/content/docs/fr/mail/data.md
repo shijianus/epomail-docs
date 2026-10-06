@@ -7,9 +7,10 @@ description: Export des données et stockage d'EpoCanvas Mail — sauvegarde int
 
 La présente page décrit les deux volets, export et stockage, de la page « Paramètres → Données ». Les notifications et le transfert de la même page figurent dans le [Guide des notifications et du transfert](/fr/mail/notify/) ; la qualification juridique des données exportées figure dans [Traitement des données et sécurité](/fr/mail/data-security/).
 
-![Page des données d'EpoCanvas Mail : les trois cartes d'export, la jauge d'utilisation du stockage et le branchement du stockage d'objets personnel](/images/mail/ui/ui-settings-data.png)
+![Page des données d'EpoCanvas Mail : les trois cartes d'export, la jauge d'utilisation du stockage et le branchement du stockage d'objets personnel](/images/mail/fr/ui/data-guide.png)
 
 *Figure : la page des données. Export et gestion du stockage figurent sur une même page ; l'utilisation des pièces jointes compte contre le quota du groupe d'identité.*
+*Annotations: 1. utilisateur Data　2. email & Message 　3. stockage Space &　4. Third-party apps*
 
 ## 1. Les trois exports
 

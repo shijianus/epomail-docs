@@ -7,9 +7,10 @@ description: Rechtenbeheer van EpoCanvas Mail — de zes identiteitsgroepen, de 
 
 Rechtenbeheer is de beheerinterface van de identiteitsgroepen in de beheerzone (`#manage/admin/roles`, rechten-sleutel `role:query`) en bepaalt de quota, de rechten-sleutels en de AI-modelautorisatie van elke groep. Het gedrag aan gebruikerskant van elke groep staat in sectie 3 van [Werkingsmodi](/nl/mail/modes/).
 
-![Permissionspagina van EpoCanvas Mail: de tabel met de zes identiteitsgroepen en de kolommen voor quota, verzendlimiet, bijlagerecht en AI-modelautorisatie (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-roles.png)
+![Permissionspagina van EpoCanvas Mail: de tabel met de zes identiteitsgroepen en de kolommen voor quota, verzendlimiet, bijlagerecht en AI-modelautorisatie (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/roles-guide.png)
 
 *Figuur: het architectuur- en gradatieoverzicht van de rechtenpagina. De interface labelt verzending en opslag van de groep Meester als «onbeperkt».*
+*Aantekeningen: 1. 　2. Name　3. Opslagquotum　4. Verzendlimiet　5. Machtiging voor *
 
 ## 1. Groepen en quota's
 

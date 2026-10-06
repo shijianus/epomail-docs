@@ -7,9 +7,10 @@ description: EpoCanvas Mail 分类管理——收发开关、AI 识别配置、�
 
 分类管理是管理区的站点级治理界面（`#manage/admin/rules`，权限键 `setting:query`），在用户个人规则之上叠加全站收信治理。个人标签规则见[标签与分类管理](/mail/labels/)；条件字段语义见[搜索与规则参考](/mail/search/)第 7 节。
 
-![图：分类管理界面](/images/mail/ui/category.png)
+![图：分类管理界面](/images/mail/ui/category-guide.png)
 
 *图：分类管理界面*
+*标注：1. 邮件设置　2. AI 模型与 API 密钥集成　3. 基础名单规则　4. 硬拦截规则*
 
 
 ## 1. 收发与刷新开关

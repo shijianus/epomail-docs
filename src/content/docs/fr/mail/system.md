@@ -7,9 +7,10 @@ description: Les cartes des paramètres système d'EpoCanvas Mail — onze carte
 
 La page des paramètres système (`#manage/admin/system`, clés de permission `setting:query`／`setting:set`) organise toute la configuration au niveau de l'instance en cartes de configuration. La présente page les décrit carte par carte ; les noms de cartes correspondent à l'interface de l'application.
 
-![Figure : les paramètres système et leurs onze cartes](/images/mail/fr/ui/system.png)
+![Figure : les paramètres système et leurs onze cartes](/images/mail/fr/ui/system-guide.png)
 
 *Figure : les paramètres système et leurs onze cartes*
+*Annotations: 1. Website ｜ 2. Customization ｜ 3. stockage & base  ｜ 4. AI Engine & modè ｜ 5. utilisateur Data*
 
 
 ## 1. Paramètres du site

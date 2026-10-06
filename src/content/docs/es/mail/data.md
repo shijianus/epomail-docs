@@ -7,9 +7,10 @@ description: Exportación de datos y almacenamiento de EpoCanvas Mail — copia 
 
 Esta página cubre las dos partes —exportación y almacenamiento— de la página «Configuración → Datos». Las notificaciones y el reenvío de la misma página figuran en la [Guía de notificaciones y reenvío](/es/mail/notify/); la posición jurídica de los datos exportados, en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
-![Página de datos de EpoCanvas Mail: las tres tarjetas de exportación, el indicador de uso de almacenamiento y la conexión del almacenamiento de objetos personal](/images/mail/ui/ui-settings-data.png)
+![Página de datos de EpoCanvas Mail: las tres tarjetas de exportación, el indicador de uso de almacenamiento y la conexión del almacenamiento de objetos personal](/images/mail/es/ui/data-guide.png)
 
 *Figura: la página de Datos. La exportación y la gestión del almacenamiento aparecen en la misma página; el uso de adjuntos computa contra la cuota del grupo de identidad.*
+*Anotaciones: 1. usuario Data & M　2. correo & Message　3. almacenamiento S　4. Third-party apps*
 
 ## 1. Las tres exportaciones
 

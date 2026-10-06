@@ -7,9 +7,10 @@ description: Revisión del correo de todo el almacén de EpoCanvas Mail — bús
 
 La revisión del correo de todo el almacén es la interfaz de la dimensión de correo de la zona de administración (`#manage/admin/mail`, clave de permiso `all-email:query`). El nombre de la sección y su alcance visible cambian con el modo de correo: el modo de todo el correo (Level 1) muestra «Todo el correo», el modo privado (Level 2) muestra «Correo no deseado» y el modo cifrado (Level 3) oculta la sección entera (véase la sección 2 de [Modos de funcionamiento](/es/mail/modes/)).
 
-![Figura: la revisión del correo de todo el almacén](/images/mail/es/ui/review.png)
+![Figura: la revisión del correo de todo el almacén](/images/mail/es/ui/review-guide.png)
 
 *Figura: la revisión del correo de todo el almacén*
+*Anotaciones: 1. *
 
 
 ## 1. Búsqueda

@@ -7,9 +7,10 @@ description: EpoCanvas Mail 使用者清單——帳號檢索、密碼重設、�
 
 使用者清單是管理區的帳號管理介面（`#manage/admin/users`，權限鍵 `user:query`），供管理員檢索與處置站內全部帳號。
 
-![圖：使用者清單](/images/mail/zh-tw/ui/users.png)
+![圖：使用者清單](/images/mail/zh-tw/ui/users-guide.png)
 
 *圖：使用者清單*
+*标注：1. 　2. 　3. 使用者郵箱　4. 儲存空間*
 
 
 ## 1. 清單與檢索

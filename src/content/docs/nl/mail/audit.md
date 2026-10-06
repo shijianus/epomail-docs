@@ -7,9 +7,10 @@ description: Het auditrapport van EpoCanvas Mail — de vier waarschuwingsklasse
 
 Het auditrapport is de risicoticket-interface van de beheerzone (`#manage/admin/audit`; opvragen vereist `setting:query`, afhandelen en arbitreren vereist `setting:set`). De tickets worden bewaard in een aparte auditlogtabel; de geschiedenis is per pagina doorzoekbaar.
 
-![Auditrapportpagina van EpoCanvas Mail: waarschuwingstickets van de vier klassen, omgevingsdetails in platte tekst en afhandelknoppen (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-audit-report.png)
+![Auditrapportpagina van EpoCanvas Mail: waarschuwingstickets van de vier klassen, omgevingsdetails in platte tekst en afhandelknoppen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/audit-guide.png)
 
 *Figuur: het auditrapport. Elk ticket draagt klasse, prioriteit, status en de actieve omgevingen, getoond als platte tekst.*
+*Aantekeningen: 1. E-mail　2. Beveiligingsaudi　3. Waarschuwingstoe　4. Actieve omgeving*
 
 ## 1. De vier waarschuwingsklassen
 

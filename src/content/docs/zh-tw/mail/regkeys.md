@@ -7,9 +7,10 @@ description: EpoCanvas Mail 註冊密鑰——邀請註冊碼的簽發、可用�
 
 註冊密鑰是管理區的邀請碼介面（`#manage/admin/reg-keys`，權限鍵 `reg-key:query`），控制誰能註冊本實例。註冊碼的三種全站模式（必填／關閉／選填）由[系統設定](/zh-tw/mail/system/)的網站設定卡決定。
 
-![圖：註冊密鑰](/images/mail/zh-tw/ui/regkeys.png)
+![圖：註冊密鑰](/images/mail/zh-tw/ui/regkeys-guide.png)
 
 *圖：註冊密鑰*
+*标注：1. *
 
 
 ## 1. 簽發

@@ -7,9 +7,10 @@ description: EpoCanvas Mail 数据导出与存储——全量备份、邮件历�
 
 本页说明「设置 → 资料」页的导出与存储两部分。同页的通知与转发见[通知与转发指南](/mail/notify/)；导出数据的法定地位见[数据处理与安全维护](/mail/data-security/)。
 
-![EpoCanvas Mail 资料页：三类导出卡与存储用量仪表、个人对象存储接入](/images/mail/ui/ui-settings-data.png)
+![EpoCanvas Mail 资料页：三类导出卡与存储用量仪表、个人对象存储接入](/images/mail/ui/data-guide.png)
 
 *图：资料页。导出与存储管理同页呈现，附件用量按身份分组配额计算。*
+*标注：1. 用户资料与数据汇出　2. 邮件与消息转发　3. 存储空间与个人云存储　4. 第三方应用和服务*
 
 ## 1. 三类导出
 

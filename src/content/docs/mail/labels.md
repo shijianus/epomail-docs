@@ -7,7 +7,7 @@ description: EpoCanvas Mail 标签与分类管理——标签的创建、图标�
 
 标签与分类规则在「设置 → 标签」（`#settings/labels`）管理。规则条件的完整字段表见[搜索与规则参考](/mail/search/)第 7 节；本页说明标签本身的操作与统计。
 
-![图：标签与分类管理界面](/images/mail/ui/labels.png)
+![图：标签与分类管理界面](/images/mail/ui/labels-guide.png)
 
 *图：标签与分类管理界面*
 

@@ -7,9 +7,10 @@ description: EpoCanvas Mail user list — account lookup, password reset, identi
 
 The User List is the admin area's account-management interface (`#manage/admin/users`, permission key `user:query`), where administrators look up and handle every account on the instance.
 
-![Figure: the user list](/images/mail/en/ui/users.png)
+![Figure: the user list](/images/mail/en/ui/users-guide.png)
 
 *Figure: the user list*
+*Annotations: 1. 　2. 　3. Email　4. Storage*
 
 
 ## 1. List and search

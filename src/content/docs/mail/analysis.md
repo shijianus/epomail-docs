@@ -7,9 +7,10 @@ description: EpoCanvas Mail 分析页——收发量、拦截率、来源分布�
 
 分析页是管理区的数据仪表盘（`#manage/admin/analysis`，权限键 `analysis:query`），汇总实例的邮件、用户与 AI 用量指标。各指标的口径随邮件模式变化：加密模式（Level 3）下管理端不读取用户邮件内容，相关计数为元数据级。
 
-![图：分析页](/images/mail/ui/analysis.png)
+![图：分析页](/images/mail/ui/analysis-guide.png)
 
 *图：分析页*
+*标注：1. 邮件来源　2. 用户增长　3. 邮件增长*
 
 
 ## 1. 指标一览

@@ -7,9 +7,10 @@ description: Guía de las tarjetas de configuración del sistema de EpoCanvas Ma
 
 La página de configuración del sistema (`#manage/admin/system`, claves de permiso `setting:query`／`setting:set`) organiza toda la configuración al nivel de la instancia en tarjetas. Esta página explica tarjeta por tarjeta; los nombres de las tarjetas coinciden con la interfaz de la aplicación.
 
-![Figura: la configuración del sistema y sus once tarjetas](/images/mail/es/ui/system.png)
+![Figura: la configuración del sistema y sus once tarjetas](/images/mail/es/ui/system-guide.png)
 
 *Figura: la configuración del sistema y sus once tarjetas*
+*Anotaciones: 1. Website ｜ 2. Customization ｜ 3. almacenamiento & ｜ 4. AI Engine & mode ｜ 5. usuario Data Con*
 
 
 ## 1. Configuración del sitio

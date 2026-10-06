@@ -7,9 +7,10 @@ description: EpoCanvas Mail personal data and general settings — avatar, nickn
 
 This page covers every item in the "Settings → Personal" and "Settings → General" sections. Security and data settings are covered separately in the [Account Security Guide](/en/mail/security/) and [Data Export & Storage](/en/mail/data/).
 
-![Figure: the personal data & general settings interface](/images/mail/en/ui/preferences.png)
+![Figure: the personal data & general settings interface](/images/mail/en/ui/preferences-guide.png)
 
 *Figure: the personal data & general settings interface*
+*Annotations: 1. Basic Informatio　2. Contact Informat　3. Addresses　4. Associated Setti*
 
 
 ## 1. Personal data (`#settings/profile`)

@@ -7,9 +7,10 @@ description: EpoCanvas Mail classification — send/receive switches, AI recogni
 
 Classification is the admin area's site-level governance interface (`#manage/admin/rules`, permission key `setting:query`), layering site-wide inbound governance on top of users' personal rules. Personal label rules are in [Labels & Classification Management](/en/mail/labels/); the semantics of the condition fields are in Section 7 of the [Search & Rules Reference](/en/mail/search/).
 
-![Figure: the classification admin interface](/images/mail/en/ui/category.png)
+![Figure: the classification admin interface](/images/mail/en/ui/category-guide.png)
 
 *Figure: the classification admin interface*
+*Annotations: 1. Email　2. AI Model & API K　3. Basic List Rules　4. Hard Drop Rules*
 
 
 ## 1. Send/receive and refresh switches

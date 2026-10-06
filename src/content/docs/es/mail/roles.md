@@ -7,9 +7,10 @@ description: Control de permisos de EpoCanvas Mail — los seis grupos de identi
 
 El control de permisos es la interfaz de gestión de los grupos de identidad de la zona de administración (`#manage/admin/roles`, clave de permiso `role:query`); decide la cuota, las claves de permiso y la autorización de modelos de IA de cada grupo. El comportamiento en el lado del usuario de cada grupo figura en la sección 3 de [Modos de funcionamiento](/es/mail/modes/).
 
-![Página de control de permisos de EpoCanvas Mail: la tabla de los seis grupos con sus cuotas, límites de envío, permisos de adjuntos y columnas de modelos de IA autorizados](/images/mail/ui/ui-roles.png)
+![Página de control de permisos de EpoCanvas Mail: la tabla de los seis grupos con sus cuotas, límites de envío, permisos de adjuntos y columnas de modelos de IA autorizados](/images/mail/es/ui/roles-guide.png)
 
 *Figura: vista de conjunto de la arquitectura y la graduación de la página de control de permisos. La interfaz rotula como «sin límite» el envío y el almacenamiento del grupo Maestro.*
+*Anotaciones: 1. 　2. Name　3. Cuota de almacen　4. Límite de envío　5. Permiso de adjun*
 
 ## 1. Grupos y cuotas
 

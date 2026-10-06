@@ -7,9 +7,10 @@ description: Page d'analyse d'EpoCanvas Mail — tableaux de bord du volume de c
 
 La page d'analyse est le tableau de bord de données de la zone d'administration (`#manage/admin/analysis`, clé de permission `analysis:query`) ; elle agrège les indicateurs de courriels, d'utilisateurs et d'usage de l'IA de l'instance. Le périmètre de chaque indicateur varie avec le mode courriel : en mode chiffré (Level 3), l'administration ne lit pas le contenu des courriels des utilisateurs et les compteurs concernés restent au niveau des métadonnées.
 
-![Figure : la page d'analyse](/images/mail/fr/ui/analysis.png)
+![Figure : la page d'analyse](/images/mail/fr/ui/analysis-guide.png)
 
 *Figure : la page d'analyse*
+*Annotations: 1. email Source ｜ 2. utilisateur Grow ｜ 3. email Growth*
 
 
 ## 1. Tour d'horizon des indicateurs

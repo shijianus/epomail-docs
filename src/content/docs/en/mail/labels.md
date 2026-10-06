@@ -7,7 +7,7 @@ description: EpoCanvas Mail labels and classification — creating labels, icons
 
 Labels and classification rules are managed under "Settings → Labels" (`#settings/labels`). The full field table of rule conditions is in Section 7 of the [Search & Rules Reference](/en/mail/search/); this page covers the operations and statistics of the labels themselves.
 
-![Figure: the labels & classification interface](/images/mail/en/ui/labels.png)
+![Figure: the labels & classification interface](/images/mail/en/ui/labels-guide.png)
 
 *Figure: the labels & classification interface*
 

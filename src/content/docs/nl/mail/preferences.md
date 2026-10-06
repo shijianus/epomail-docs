@@ -7,9 +7,10 @@ description: Profiel en algemene instellingen van EpoCanvas Mail — avatar, bij
 
 Deze pagina loopt elk onderdeel van de twee secties «Instellingen → Profiel» en «Instellingen → Algemeen» langs. De instellingen voor beveiliging en gegevens staan apart beschreven in de [Accountbeveiligingsgids](/nl/mail/security/) en bij [Gegevensexport en opslag](/nl/mail/data/).
 
-![Figuur: de profiel- en algemene instellingen-interface](/images/mail/nl/ui/preferences.png)
+![Figuur: de profiel- en algemene instellingen-interface](/images/mail/nl/ui/preferences-guide.png)
 
 *Figuur: de profiel- en algemene instellingen-interface*
+*Aantekeningen: 1. Basic Informatio ｜ 2. Contact Informat ｜ 3. Addresses ｜ 4. Associated inste*
 
 
 ## 1. Profiel (`#settings/profile`)

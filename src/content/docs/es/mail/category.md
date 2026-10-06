@@ -7,9 +7,10 @@ description: Gestión de clasificación de EpoCanvas Mail — interruptores de r
 
 La gestión de clasificación es la interfaz de gobernanza a nivel de sitio de la zona de administración (`#manage/admin/rules`, clave de permiso `setting:query`); superpone la gobernanza de la recepción de todo el sitio sobre las reglas personales de cada usuario. Las reglas personales de etiquetas figuran en [Gestión de etiquetas y clasificación](/es/mail/labels/); la semántica de los campos de condición, en la sección 7 de [Referencia de búsqueda y reglas](/es/mail/search/).
 
-![Figura: la interfaz de gestión de clasificación](/images/mail/es/ui/category.png)
+![Figura: la interfaz de gestión de clasificación](/images/mail/es/ui/category-guide.png)
 
 *Figura: la interfaz de gestión de clasificación*
+*Anotaciones: 1. Correo ｜ 2. AI modelo & API  ｜ 3. Reglas de lista  ｜ 4. Reglas de descar*
 
 
 ## 1. Interruptores de recepción, envío y refresco

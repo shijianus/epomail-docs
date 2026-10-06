@@ -7,9 +7,10 @@ description: Informe de auditoría de EpoCanvas Mail — estudio de los avisos d
 
 El informe de auditoría es la interfaz de avisos de riesgo de la zona de administración (`#manage/admin/audit`; la consulta exige `setting:query`, y el tratamiento y la adjudicación, `setting:set`). Los avisos se persisten en una tabla de registro de auditoría independiente, con búsqueda histórica paginada.
 
-![Página de informe de auditoría de EpoCanvas Mail: los avisos de las cuatro clases, la información de entorno en texto plano y los botones de tratamiento](/images/mail/ui/ui-audit-report.png)
+![Página de informe de auditoría de EpoCanvas Mail: los avisos de las cuatro clases, la información de entorno en texto plano y los botones de tratamiento](/images/mail/es/ui/audit-guide.png)
 
 *Figura: el informe de auditoría. Cada aviso lleva su clase, su prioridad, su estado y el conjunto de entornos activos mostrado en texto plano.*
+*Anotaciones: 1. Correo　2. Nivel de auditor　3. Explicación de a　4. Grupo de entorno*
 
 ## 1. Las cuatro clases de alertas
 

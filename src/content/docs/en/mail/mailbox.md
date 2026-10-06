@@ -7,9 +7,10 @@ description: EpoCanvas Mail mailbox interface guide — the eight views, every m
 
 This page walks through every view of the mailbox main interface and every action on the message-detail page. The routes of each view and the interface skeleton are in the [Interface & Route Map](/en/mail/interface/); the search and rules behind organising are in the [Search & Rules Reference](/en/mail/search/).
 
-![EpoCanvas Mail inbox: three-pane split, verification-code badges and official-sender marks (interface in Simplified Chinese)](/images/mail/ui/ui-inbox-zh.png)
+![EpoCanvas Mail inbox: three-pane split, verification-code badges and official-sender marks (interface in Simplified Chinese)](/images/mail/en/ui/views-guide.png)
 
 *Figure: the inbox. List, reading pane and sidebar work in concert; counters refresh on the spot.*
+*Annotations: 1. Compose　2. Starred　3. Snoozed1　4. Sent*
 
 ## 1. The eight views
 

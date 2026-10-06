@@ -7,9 +7,10 @@ description: De configuratiekaarten van de systeeminstellingen van EpoCanvas Mai
 
 De pagina systeeminstellingen (`#manage/admin/system`, rechten-sleutels `setting:query`／`setting:set`) ordent alle configuratie op instantieniveau in kaarten. Deze pagina loopt elke kaart langs; de kaartnamen zijn identiek aan de interface.
 
-![Figuur: de systeeminstellingen met hun elf kaarten](/images/mail/nl/ui/system.png)
+![Figuur: de systeeminstellingen met hun elf kaarten](/images/mail/nl/ui/system-guide.png)
 
 *Figuur: de systeeminstellingen met hun elf kaarten*
+*Aantekeningen: 1. Website ｜ 2. Customization ｜ 3. opslag & databas ｜ 4. AI Engine & mode ｜ 5. gebruiker Data C*
 
 
 ## 1. Website-instellingen

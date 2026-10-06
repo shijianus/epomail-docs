@@ -7,9 +7,10 @@ description: Gegevensexport en opslag van EpoCanvas Mail — de drie exporten (v
 
 Deze pagina behandelt de twee delen van de pagina «Instellingen → Gegevens»: export en opslag. De meldingen en het doorsturen op dezelfde pagina staan in de [Gids voor meldingen en doorsturen](/nl/mail/notify/); de juridische status van geëxporteerde gegevens staat in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
-![Gegevenspagina van EpoCanvas Mail: de drie exportkaarten, de verbruiksmeter voor opslag en de koppeling van persoonlijke objectopslag (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-settings-data.png)
+![Gegevenspagina van EpoCanvas Mail: de drie exportkaarten, de verbruiksmeter voor opslag en de koppeling van persoonlijke objectopslag (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/data-guide.png)
 
 *Figuur: de gegevenspagina. Export en opslagbeheer staan op één pagina; het bijlagenverbruik telt mee voor de quota van de identiteitsgroep.*
+*Aantekeningen: 1. gebruiker Data &　2. e-mail & Message　3. opslag Space & C　4. Third-party apps*
 
 ## 1. De drie exporten
 

@@ -7,9 +7,10 @@ description: EpoCanvas Mail registration keys — issuing invitation codes, mana
 
 Registration Keys is the admin area's invitation-code interface (`#manage/admin/reg-keys`, permission key `reg-key:query`), controlling who can register on this instance. The three site-wide registration-code modes (required / off / optional) are decided by the website-settings card of [System Settings Cards](/en/mail/system/).
 
-![Figure: the registration keys](/images/mail/en/ui/regkeys.png)
+![Figure: the registration keys](/images/mail/en/ui/regkeys-guide.png)
 
 *Figure: the registration keys*
+*Annotations: 1. *
 
 
 ## 1. Issuing

@@ -7,9 +7,10 @@ description: EpoCanvas Mail 全库邮件审查——管理员邮件维度的检�
 
 全库邮件审查是管理区的邮件维度界面（`#manage/admin/mail`，权限键 `all-email:query`）。分区名称与可见范围随邮件模式变化：全部邮件模式（Level 1）显示「全部邮件」，隐私模式（Level 2）显示「垃圾邮件」，加密模式（Level 3）整段隐藏（见[运行模式](/mail/modes/)第 2 节）。
 
-![图：全库邮件审查](/images/mail/ui/review.png)
+![图：全库邮件审查](/images/mail/ui/review-guide.png)
 
 *图：全库邮件审查*
+*标注：1. *
 
 
 ## 1. 检索

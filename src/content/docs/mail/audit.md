@@ -7,9 +7,10 @@ description: EpoCanvas Mail 操作报告——四类预警工单的研判、处�
 
 操作报告是管理区的风险工单界面（`#manage/admin/audit`；查询需 `setting:query`，处置与裁决需 `setting:set`）。工单持久化于独立的审计日志表，可分页检索历史。
 
-![EpoCanvas Mail 操作报告页：四类预警工单、纯文本环境信息与处置按钮](/images/mail/ui/ui-audit-report.png)
+![EpoCanvas Mail 操作报告页：四类预警工单、纯文本环境信息与处置按钮](/images/mail/ui/audit-guide.png)
 
 *图：操作报告。每条工单带类别、优先级、状态与纯文本展示的活跃环境池。*
+*标注：1. 用户邮箱　2. 安全审计等级　3. 预警说明与触发特征　4. 活跃环境池*
 
 ## 1. 四类预警
 

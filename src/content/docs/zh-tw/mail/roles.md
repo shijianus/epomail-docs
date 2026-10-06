@@ -7,9 +7,10 @@ description: EpoCanvas Mail 權限控制——六身分分組、逐項權限鍵�
 
 權限控制是管理區的身分分組管理介面（`#manage/admin/roles`，權限鍵 `role:query`），決定每個分組的配額、權限鍵與 AI 模型授權。各分組的使用者側行為見[運行模式](/zh-tw/mail/modes/)第 3 節。
 
-![EpoCanvas Mail 權限控制頁：六分組表與配額、寄件上限、附件權限、AI 授權模型欄](/images/mail/ui/ui-roles.png)
+![EpoCanvas Mail 權限控制頁：六分組表與配額、寄件上限、附件權限、AI 授權模型欄](/images/mail/zh-tw/ui/roles-guide.png)
 
 *圖：權限控制頁的架構與分級一覽。介面將站長分組的寄信與儲存標示為「無限制」。*
+*標註：1. 　2. 許可權身份　3. 儲存配額　4. 發件上限　5. 附件權限*
 
 ## 1. 分組與配額
 

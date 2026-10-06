@@ -7,9 +7,10 @@ description: EpoCanvas Mail system settings, card by card — the eleven configu
 
 The system-settings page (`#manage/admin/system`, permission keys `setting:query` / `setting:set`) organises all instance-level configuration into cards. This page explains them card by card; card names match the application interface.
 
-![Figure: system settings and its eleven cards](/images/mail/en/ui/system.png)
+![Figure: system settings and its eleven cards](/images/mail/en/ui/system-guide.png)
 
 *Figure: system settings and its eleven cards*
+*Annotations: 1. Website　2. Customization　3. Storage & Databa　4. AI Engine & Mode　5. User Data Contro*
 
 
 ## 1. Website settings

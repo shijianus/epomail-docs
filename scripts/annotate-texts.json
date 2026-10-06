@@ -1,0 +1,1088 @@
+{
+ "zh": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "写邮件"
+   },
+   {
+    "n": 2,
+    "label": "星标邮件"
+   },
+   {
+    "n": 3,
+    "label": "稍后处理1"
+   },
+   {
+    "n": 4,
+    "label": "已发送"
+   }
+  ],
+  "labels-guide": [],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "基本信息"
+   },
+   {
+    "n": 2,
+    "label": "联系信息"
+   },
+   {
+    "n": 3,
+    "label": "地址"
+   },
+   {
+    "n": 4,
+    "label": "关联设置与安全"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "用户资料与数据汇出"
+   },
+   {
+    "n": 2,
+    "label": "邮件与消息转发"
+   },
+   {
+    "n": 3,
+    "label": "存储空间与个人云存储"
+   },
+   {
+    "n": 4,
+    "label": "第三方应用和服务"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "邮件来源"
+   },
+   {
+    "n": 2,
+    "label": "用户增长"
+   },
+   {
+    "n": 3,
+    "label": "邮件增长"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   },
+   {
+    "n": 3,
+    "label": "用户邮箱"
+   },
+   {
+    "n": 4,
+    "label": "存储空间"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": "权限身份"
+   },
+   {
+    "n": 3,
+    "label": "存储配额"
+   },
+   {
+    "n": 4,
+    "label": "发件上限"
+   },
+   {
+    "n": 5,
+    "label": "附件权限"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "网站设置"
+   },
+   {
+    "n": 2,
+    "label": "个性化设置"
+   },
+   {
+    "n": 3,
+    "label": "存储与核心数据库"
+   },
+   {
+    "n": 4,
+    "label": "AI 智能引擎与大模型接入"
+   },
+   {
+    "n": 5,
+    "label": "用户资料控制"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "邮件设置"
+   },
+   {
+    "n": 2,
+    "label": "AI 模型与 API 密钥集成"
+   },
+   {
+    "n": 3,
+    "label": "基础名单规则"
+   },
+   {
+    "n": 4,
+    "label": "硬拦截规则"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "用户邮箱"
+   },
+   {
+    "n": 2,
+    "label": "安全审计等级"
+   },
+   {
+    "n": 3,
+    "label": "预警说明与触发特征"
+   },
+   {
+    "n": 4,
+    "label": "活跃环境池"
+   }
+  ]
+ },
+ "zh-Hant": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "寫郵件"
+   },
+   {
+    "n": 2,
+    "label": "星標郵件"
+   },
+   {
+    "n": 3,
+    "label": "稍後處理1"
+   },
+   {
+    "n": 4,
+    "label": "已傳送"
+   }
+  ],
+  "labels-guide": [],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "基本資訊"
+   },
+   {
+    "n": 2,
+    "label": "聯絡資訊"
+   },
+   {
+    "n": 3,
+    "label": "地址"
+   },
+   {
+    "n": 4,
+    "label": "關聯設定與安全"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "使用者資料與資料匯出"
+   },
+   {
+    "n": 2,
+    "label": "郵件與訊息轉發"
+   },
+   {
+    "n": 3,
+    "label": "儲存空間與個人雲端儲存"
+   },
+   {
+    "n": 4,
+    "label": "第三方應用和服務"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "郵件來源"
+   },
+   {
+    "n": 2,
+    "label": "使用者增長"
+   },
+   {
+    "n": 3,
+    "label": "郵件增長"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   },
+   {
+    "n": 3,
+    "label": "使用者郵箱"
+   },
+   {
+    "n": 4,
+    "label": "儲存空間"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": "許可權身份"
+   },
+   {
+    "n": 3,
+    "label": "儲存配額"
+   },
+   {
+    "n": 4,
+    "label": "發件上限"
+   },
+   {
+    "n": 5,
+    "label": "附件權限"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "網站設定"
+   },
+   {
+    "n": 2,
+    "label": "個性化設定"
+   },
+   {
+    "n": 3,
+    "label": "儲存與核心資料庫"
+   },
+   {
+    "n": 4,
+    "label": "AI 智慧引擎與大模型接入"
+   },
+   {
+    "n": 5,
+    "label": "使用者資料控制"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "郵件設定"
+   },
+   {
+    "n": 2,
+    "label": "AI 模型與 API 金鑰整合"
+   },
+   {
+    "n": 3,
+    "label": "基礎名單規則"
+   },
+   {
+    "n": 4,
+    "label": "硬攔截規則"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "使用者郵箱"
+   },
+   {
+    "n": 2,
+    "label": "安全審計等級"
+   },
+   {
+    "n": 3,
+    "label": "預警說明與觸發特徵"
+   },
+   {
+    "n": 4,
+    "label": "活躍環境池"
+   }
+  ]
+ },
+ "en": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "Compose"
+   },
+   {
+    "n": 2,
+    "label": "Starred"
+   },
+   {
+    "n": 3,
+    "label": "Snoozed1"
+   },
+   {
+    "n": 4,
+    "label": "Sent"
+   }
+  ],
+  "labels-guide": [],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "Basic Informatio"
+   },
+   {
+    "n": 2,
+    "label": "Contact Informat"
+   },
+   {
+    "n": 3,
+    "label": "Addresses"
+   },
+   {
+    "n": 4,
+    "label": "Associated Setti"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "User Data & Mail"
+   },
+   {
+    "n": 2,
+    "label": "Email & Message "
+   },
+   {
+    "n": 3,
+    "label": "Storage Space & "
+   },
+   {
+    "n": 4,
+    "label": "Third-party apps"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "Email Source"
+   },
+   {
+    "n": 2,
+    "label": "User Growth"
+   },
+   {
+    "n": 3,
+    "label": "Email Growth"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   },
+   {
+    "n": 3,
+    "label": "Email"
+   },
+   {
+    "n": 4,
+    "label": "Storage"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": "Name"
+   },
+   {
+    "n": 3,
+    "label": "Storage Quota"
+   },
+   {
+    "n": 4,
+    "label": "Sending Limit"
+   },
+   {
+    "n": 5,
+    "label": "Attachment Permi"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "Website"
+   },
+   {
+    "n": 2,
+    "label": "Customization"
+   },
+   {
+    "n": 3,
+    "label": "Storage & Databa"
+   },
+   {
+    "n": 4,
+    "label": "AI Engine & Mode"
+   },
+   {
+    "n": 5,
+    "label": "User Data Contro"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "Email"
+   },
+   {
+    "n": 2,
+    "label": "AI Model & API K"
+   },
+   {
+    "n": 3,
+    "label": "Basic List Rules"
+   },
+   {
+    "n": 4,
+    "label": "Hard Drop Rules"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "Email"
+   },
+   {
+    "n": 2,
+    "label": "Security Audit L"
+   },
+   {
+    "n": 3,
+    "label": "Alert Context & "
+   },
+   {
+    "n": 4,
+    "label": "Active Environme"
+   }
+  ]
+ },
+ "es": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "Redactar"
+   },
+   {
+    "n": 2,
+    "label": "Destacados"
+   },
+   {
+    "n": 3,
+    "label": "Pospuestos1"
+   },
+   {
+    "n": 4,
+    "label": "Enviados"
+   }
+  ],
+  "labels-guide": [],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "Basic Informatio"
+   },
+   {
+    "n": 2,
+    "label": "Contact Informat"
+   },
+   {
+    "n": 3,
+    "label": "Addresses"
+   },
+   {
+    "n": 4,
+    "label": "Associated ajust"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "usuario Data & M"
+   },
+   {
+    "n": 2,
+    "label": "correo & Message"
+   },
+   {
+    "n": 3,
+    "label": "almacenamiento S"
+   },
+   {
+    "n": 4,
+    "label": "Third-party apps"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "correo Source"
+   },
+   {
+    "n": 2,
+    "label": "usuario Growth"
+   },
+   {
+    "n": 3,
+    "label": "correo Growth"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   },
+   {
+    "n": 3,
+    "label": "Correo"
+   },
+   {
+    "n": 4,
+    "label": "Almacenamiento"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": "Name"
+   },
+   {
+    "n": 3,
+    "label": "Cuota de almacen"
+   },
+   {
+    "n": 4,
+    "label": "Límite de envío"
+   },
+   {
+    "n": 5,
+    "label": "Permiso de adjun"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "Website"
+   },
+   {
+    "n": 2,
+    "label": "Customization"
+   },
+   {
+    "n": 3,
+    "label": "almacenamiento &"
+   },
+   {
+    "n": 4,
+    "label": "AI Engine & mode"
+   },
+   {
+    "n": 5,
+    "label": "usuario Data Con"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "Correo"
+   },
+   {
+    "n": 2,
+    "label": "AI modelo & API "
+   },
+   {
+    "n": 3,
+    "label": "Reglas de lista "
+   },
+   {
+    "n": 4,
+    "label": "Reglas de descar"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "Correo"
+   },
+   {
+    "n": 2,
+    "label": "Nivel de auditor"
+   },
+   {
+    "n": 3,
+    "label": "Explicación de a"
+   },
+   {
+    "n": 4,
+    "label": "Grupo de entorno"
+   }
+  ]
+ },
+ "fr": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "Rédiger"
+   },
+   {
+    "n": 2,
+    "label": "Favoris"
+   },
+   {
+    "n": 3,
+    "label": "En attente1"
+   },
+   {
+    "n": 4,
+    "label": "Envoyés"
+   }
+  ],
+  "labels-guide": [],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "Basic Informatio"
+   },
+   {
+    "n": 2,
+    "label": "Contact Informat"
+   },
+   {
+    "n": 3,
+    "label": "Addresses"
+   },
+   {
+    "n": 4,
+    "label": "Associated param"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "utilisateur Data"
+   },
+   {
+    "n": 2,
+    "label": "email & Message "
+   },
+   {
+    "n": 3,
+    "label": "stockage Space &"
+   },
+   {
+    "n": 4,
+    "label": "Third-party apps"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "email Source"
+   },
+   {
+    "n": 2,
+    "label": "utilisateur Grow"
+   },
+   {
+    "n": 3,
+    "label": "email Growth"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   },
+   {
+    "n": 3,
+    "label": "Email"
+   },
+   {
+    "n": 4,
+    "label": "Stockage"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": "Name"
+   },
+   {
+    "n": 3,
+    "label": "Quota de stockag"
+   },
+   {
+    "n": 4,
+    "label": "Limite d'envoi"
+   },
+   {
+    "n": 5,
+    "label": "Permission de pi"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "Website"
+   },
+   {
+    "n": 2,
+    "label": "Customization"
+   },
+   {
+    "n": 3,
+    "label": "stockage & base "
+   },
+   {
+    "n": 4,
+    "label": "AI Engine & modè"
+   },
+   {
+    "n": 5,
+    "label": "utilisateur Data"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "Email"
+   },
+   {
+    "n": 2,
+    "label": "AI modèle & API "
+   },
+   {
+    "n": 3,
+    "label": "Règles de liste "
+   },
+   {
+    "n": 4,
+    "label": "Règles de rejet "
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "Email"
+   },
+   {
+    "n": 2,
+    "label": "Niveau d’audit d"
+   },
+   {
+    "n": 3,
+    "label": "Contexte de l'al"
+   },
+   {
+    "n": 4,
+    "label": "Pool d’environne"
+   }
+  ]
+ },
+ "nl": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "Opstellen"
+   },
+   {
+    "n": 2,
+    "label": "Met ster"
+   },
+   {
+    "n": 3,
+    "label": "Uitgesteld1"
+   },
+   {
+    "n": 4,
+    "label": "Verzonden"
+   }
+  ],
+  "labels-guide": [],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "Basic Informatio"
+   },
+   {
+    "n": 2,
+    "label": "Contact Informat"
+   },
+   {
+    "n": 3,
+    "label": "Addresses"
+   },
+   {
+    "n": 4,
+    "label": "Associated inste"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "gebruiker Data &"
+   },
+   {
+    "n": 2,
+    "label": "e-mail & Message"
+   },
+   {
+    "n": 3,
+    "label": "opslag Space & C"
+   },
+   {
+    "n": 4,
+    "label": "Third-party apps"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "e-mail Source"
+   },
+   {
+    "n": 2,
+    "label": "gebruiker Growth"
+   },
+   {
+    "n": 3,
+    "label": "e-mail Growth"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": ""
+   },
+   {
+    "n": 3,
+    "label": "E-mail"
+   },
+   {
+    "n": 4,
+    "label": "Opslagruimte"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": ""
+   },
+   {
+    "n": 2,
+    "label": "Name"
+   },
+   {
+    "n": 3,
+    "label": "Opslagquotum"
+   },
+   {
+    "n": 4,
+    "label": "Verzendlimiet"
+   },
+   {
+    "n": 5,
+    "label": "Machtiging voor "
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": ""
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "Website"
+   },
+   {
+    "n": 2,
+    "label": "Customization"
+   },
+   {
+    "n": 3,
+    "label": "opslag & databas"
+   },
+   {
+    "n": 4,
+    "label": "AI Engine & mode"
+   },
+   {
+    "n": 5,
+    "label": "gebruiker Data C"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "E-mail"
+   },
+   {
+    "n": 2,
+    "label": "AI model & API s"
+   },
+   {
+    "n": 3,
+    "label": "Basislijstregels"
+   },
+   {
+    "n": 4,
+    "label": "Definitieve afwi"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "E-mail"
+   },
+   {
+    "n": 2,
+    "label": "Beveiligingsaudi"
+   },
+   {
+    "n": 3,
+    "label": "Waarschuwingstoe"
+   },
+   {
+    "n": 4,
+    "label": "Actieve omgeving"
+   }
+  ]
+ }
+}

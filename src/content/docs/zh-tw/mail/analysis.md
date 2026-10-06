@@ -7,9 +7,10 @@ description: EpoCanvas Mail 分析頁——收發量、攔截率、來源分布�
 
 分析頁是管理區的資料儀表板（`#manage/admin/analysis`，權限鍵 `analysis:query`），彙總實例的郵件、使用者與 AI 用量指標。各指標的統計口徑隨郵件模式變化：加密模式（Level 3）下管理端不讀取使用者郵件內容，相關計數為中繼資料層級。
 
-![圖：分析頁](/images/mail/zh-tw/ui/analysis.png)
+![圖：分析頁](/images/mail/zh-tw/ui/analysis-guide.png)
 
 *圖：分析頁*
+*标注：1. 郵件來源　2. 使用者增長　3. 郵件增長*
 
 
 ## 1. 指標一覽

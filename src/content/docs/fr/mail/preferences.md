@@ -7,9 +7,10 @@ description: Profil et réglages généraux d'EpoCanvas Mail — avatar, pseudon
 
 La présente page détaille chaque entrée des deux sections « Paramètres → Profil » et « Paramètres → Général ». Les réglages de sécurité et de données figurent séparément dans le [Guide de sécurité du compte](/fr/mail/security/) et dans [Export des données et stockage](/fr/mail/data/).
 
-![Figure : l'interface de profil et des réglages généraux](/images/mail/fr/ui/preferences.png)
+![Figure : l'interface de profil et des réglages généraux](/images/mail/fr/ui/preferences-guide.png)
 
 *Figure : l'interface de profil et des réglages généraux*
+*Annotations: 1. Basic Informatio ｜ 2. Contact Informat ｜ 3. Addresses ｜ 4. Associated param*
 
 
 ## 1. Profil (`#settings/profile`)

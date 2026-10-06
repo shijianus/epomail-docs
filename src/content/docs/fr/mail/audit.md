@@ -7,9 +7,10 @@ description: Rapport d'audit d'EpoCanvas Mail — appréciation des tickets d'al
 
 Le rapport d'audit est l'interface des tickets de risque de la zone d'administration (`#manage/admin/audit` ; la consultation exige `setting:query`, le traitement et l'arbitrage exigent `setting:set`). Les tickets persistent dans une table de journal d'audit indépendante, avec recherche de l'historique paginée.
 
-![Page du rapport d'audit d'EpoCanvas Mail : tickets d'alerte des quatre classes, informations d'environnement en texte brut et boutons de traitement](/images/mail/ui/ui-audit-report.png)
+![Page du rapport d'audit d'EpoCanvas Mail : tickets d'alerte des quatre classes, informations d'environnement en texte brut et boutons de traitement](/images/mail/fr/ui/audit-guide.png)
 
 *Figure : le rapport d'audit. Chaque ticket porte sa classe, sa priorité, son état et son pool d'environnements actifs présenté en texte brut.*
+*Annotations: 1. Email　2. Niveau d’audit d　3. Contexte de l'al　4. Pool d’environne*
 
 ## 1. Les quatre classes d'alertes
 

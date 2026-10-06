@@ -7,9 +7,10 @@ description: EpoCanvas Mail 操作報告——四類預警工單的研判、處�
 
 操作報告是管理區的風險工單介面（`#manage/admin/audit`；查詢需 `setting:query`，處置與裁決需 `setting:set`）。工單持久化於獨立的稽核日誌表，可分頁檢索歷史。
 
-![EpoCanvas Mail 操作報告頁：四類預警工單、純文字環境資訊與處置按鈕](/images/mail/ui/ui-audit-report.png)
+![EpoCanvas Mail 操作報告頁：四類預警工單、純文字環境資訊與處置按鈕](/images/mail/zh-tw/ui/audit-guide.png)
 
 *圖：操作報告。每條工單帶類別、優先級、狀態與純文字展示的活躍環境池。*
+*標註：1. 使用者郵箱　2. 安全審計等級　3. 預警說明與觸發特徵　4. 活躍環境池*
 
 ## 1. 四類預警
 

@@ -7,9 +7,10 @@ description: Perfil y ajustes generales de EpoCanvas Mail — avatar, apodo, con
 
 Esta página explica cada entrada de las secciones «Configuración → Perfil» y «Configuración → General». Los ajustes de seguridad y de datos figuran por separado en la [Guía de seguridad de la cuenta](/es/mail/security/) y en [Exportación de datos y almacenamiento](/es/mail/data/).
 
-![Figura: la interfaz de perfil y ajustes generales](/images/mail/es/ui/preferences.png)
+![Figura: la interfaz de perfil y ajustes generales](/images/mail/es/ui/preferences-guide.png)
 
 *Figura: la interfaz de perfil y ajustes generales*
+*Anotaciones: 1. Basic Informatio ｜ 2. Contact Informat ｜ 3. Addresses ｜ 4. Associated ajust*
 
 
 ## 1. Perfil (`#settings/profile`)

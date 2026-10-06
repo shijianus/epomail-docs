@@ -7,9 +7,10 @@ description: EpoCanvas Mail full-store mail review — administrator-side mail s
 
 Full-Store Mail Review is the admin area's mail-dimension interface (`#manage/admin/mail`, permission key `all-email:query`). The section's name and visible scope vary with the mail mode: All-Mail Mode (Level 1) shows "All Mail", Privacy Mail Mode (Level 2) shows "Spam", and Encrypted Mail Mode (Level 3) hides the section entirely (see Section 2 of [Operating Modes](/en/mail/modes/)).
 
-![Figure: the full-store mail review](/images/mail/en/ui/review.png)
+![Figure: the full-store mail review](/images/mail/en/ui/review-guide.png)
 
 *Figure: the full-store mail review*
+*Annotations: 1. *
 
 
 ## 1. Search

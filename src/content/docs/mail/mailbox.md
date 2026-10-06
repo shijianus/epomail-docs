@@ -7,9 +7,10 @@ description: EpoCanvas Mail 邮箱界面详解——八视图、邮件详情页�
 
 本页逐一说明邮箱主界面的每个视图与邮件详情页的每项动作。各视图的路由与界面骨架见[界面与路由总览](/mail/interface/)；整理背后的搜索与规则见[搜索与规则参考](/mail/search/)。
 
-![EpoCanvas Mail 收件箱：三栏分屏、验证码徽标与官方认证标记](/images/mail/ui/ui-inbox-zh.png)
+![EpoCanvas Mail 收件箱：三栏分屏、验证码徽标与官方认证标记](/images/mail/ui/views-guide.png)
 
 *图：收件箱。列表、阅读窗格与侧栏联动，计数即时刷新。*
+*标注：1. 写邮件　2. 星标邮件　3. 稍后处理1　4. 已发送*
 
 ## 1. 八个视图
 

@@ -7,9 +7,10 @@ description: Interface de la boîte d'EpoCanvas Mail — les huit vues, toutes l
 
 La présente page décrit une à une chaque vue de l'interface principale de la boîte et chaque action de la page de détail des courriels. Les routes de chaque vue et le squelette de l'interface figurent dans [Interface et plan des routes](/fr/mail/interface/) ; la recherche et les règles derrière ce rangement figurent dans la [Référence de la recherche et des règles](/fr/mail/search/).
 
-![Boîte de réception d'EpoCanvas Mail : vue fractionnée à trois colonnes, badges de code de vérification et marques de certification officielles](/images/mail/ui/ui-inbox-zh.png)
+![Boîte de réception d'EpoCanvas Mail : vue fractionnée à trois colonnes, badges de code de vérification et marques de certification officielles](/images/mail/fr/ui/views-guide.png)
 
 *Figure : la boîte de réception. La liste, le volet de lecture et la barre latérale sont interconnectés, avec des compteurs actualisés en temps réel.*
+*Annotations: 1. Rédiger　2. Favoris　3. En attente1　4. Envoyés*
 
 ## 1. Les huit vues
 

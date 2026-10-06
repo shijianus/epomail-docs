@@ -7,9 +7,10 @@ description: EpoCanvas Mail 個資與常規設定——頭像暱稱聯絡方式�
 
 本頁說明「設定 → 個資」與「設定 → 常規」兩個分區的每一項。安全與資料類設定分見[帳號安全設定指南](/zh-tw/mail/security/)與[資料匯出與儲存](/zh-tw/mail/data/)。
 
-![圖：個資與常規設定介面](/images/mail/zh-tw/ui/preferences.png)
+![圖：個資與常規設定介面](/images/mail/zh-tw/ui/preferences-guide.png)
 
 *圖：個資與常規設定介面*
+*标注：1. 基本資訊　2. 聯絡資訊　3. 地址　4. 關聯設定與安全*
 
 
 ## 1. 個資（`#settings/profile`）

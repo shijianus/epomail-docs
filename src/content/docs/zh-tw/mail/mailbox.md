@@ -7,9 +7,10 @@ description: EpoCanvas Mail 信箱介面詳解——八檢視、郵件詳情頁�
 
 本頁逐一說明信箱主介面的每個檢視與郵件詳情頁的每項動作。各檢視的路由與介面骨架見[介面與路由總覽](/zh-tw/mail/interface/)；整理背後的搜尋與規則見[搜尋與規則參考](/zh-tw/mail/search/)。
 
-![EpoCanvas Mail 收件匣：三欄分割畫面、驗證碼徽標與官方認證標記](/images/mail/ui/ui-inbox-zh.png)
+![EpoCanvas Mail 收件匣：三欄分割畫面、驗證碼徽標與官方認證標記](/images/mail/zh-tw/ui/views-guide.png)
 
 *圖：收件匣。清單、閱讀窗格與側欄連動，計數即時同步。*
+*標註：1. 寫郵件　2. 星標郵件　3. 稍後處理1　4. 已傳送*
 
 ## 1. 八個檢視
 
