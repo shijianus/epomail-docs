@@ -1,0 +1,2036 @@
+{
+ "zh": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "写信：新建邮件入口"
+   },
+   {
+    "n": 2,
+    "label": "星标：重要邮件集合"
+   },
+   {
+    "n": 3,
+    "label": "稍后处理：延后跟进"
+   },
+   {
+    "n": 4,
+    "label": "已发送：寄出存底"
+   }
+  ],
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "富文本工具栏：17 项排版"
+   },
+   {
+    "n": 2,
+    "label": "收件人：可选联系人"
+   },
+   {
+    "n": 3,
+    "label": "主题"
+   },
+   {
+    "n": 4,
+    "label": "发送：站内直投·站外走通道"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "检索框：算子与关键词"
+   },
+   {
+    "n": 2,
+    "label": "命中列表：关键词即时高亮"
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "邮件模式：三档隐私切换"
+   },
+   {
+    "n": 2,
+    "label": "当前等级徽标"
+   },
+   {
+    "n": 3,
+    "label": "下拉选项：L1 全部邮件 / L2 隐私 / L3 加密"
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": "权限身份：分组与定位标签"
+   },
+   {
+    "n": 2,
+    "label": "存储配额：按分组设定"
+   },
+   {
+    "n": 3,
+    "label": "发件上限：每日重置"
+   },
+   {
+    "n": 4,
+    "label": "附件权限：按分组开放"
+   },
+   {
+    "n": 5,
+    "label": "AI 授权模型：按分组分级"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": "邮箱输入：帐号即邮箱"
+   },
+   {
+    "n": 2,
+    "label": "密码输入：加盐哈希存储"
+   },
+   {
+    "n": 3,
+    "label": "登录：连续失败触发防爆破锁定"
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "用户名与密码：修改入口"
+   },
+   {
+    "n": 2,
+    "label": "验证器应用：TOTP 动态码"
+   },
+   {
+    "n": 3,
+    "label": "备用恢复码：10 组一次性"
+   },
+   {
+    "n": 4,
+    "label": "通行密钥：Passkey 与硬件密钥"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "Discovery：OIDC 元数据自述"
+   },
+   {
+    "n": 2,
+    "label": "authorize：引导用户授权"
+   },
+   {
+    "n": 3,
+    "label": "token：授权码置换令牌"
+   },
+   {
+    "n": 4,
+    "label": "userinfo：读取已授权资料"
+   },
+   {
+    "n": 5,
+    "label": "应用卡：凭据·启停·集成代码"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "全量导出：JSON 完整备份"
+   },
+   {
+    "n": 2,
+    "label": "邮件归档：MBOX/JSON/CSV"
+   },
+   {
+    "n": 3,
+    "label": "通讯录与配置导出"
+   },
+   {
+    "n": 4,
+    "label": "邮件与消息转发：Telegram 推送+自动转发"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "邮件来源：入站构成分布"
+   },
+   {
+    "n": 2,
+    "label": "用户增长曲线"
+   },
+   {
+    "n": 3,
+    "label": "邮件增长曲线"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": "按邮箱检索帐号"
+   },
+   {
+    "n": 2,
+    "label": "用户邮箱：帐号标识"
+   },
+   {
+    "n": 3,
+    "label": "存储空间：用量对照配额"
+   },
+   {
+    "n": 4,
+    "label": "设置列：行内管理操作"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": "检索框：$ 语法全库检索"
+   },
+   {
+    "n": 2,
+    "label": "分区名随邮件模式变化：隐私模式显示为垃圾邮件",
+    "missing": true
+   },
+   {
+    "n": 2,
+    "label": "空状态：当前无隔离邮件"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": "添加注册码：签发邀请码"
+   },
+   {
+    "n": 2,
+    "label": "搜索：按注册码筛选"
+   },
+   {
+    "n": 3,
+    "label": "空状态：尚未签发任何注册码"
+   }
+  ],
+  "labels-guide": [
+   {
+    "n": 1,
+    "label": "新建标签：侧栏至多显示 7 个"
+   },
+   {
+    "n": 2,
+    "label": "标签行：图标颜色与计数"
+   },
+   {
+    "n": 3,
+    "label": "显示开关：控制侧栏可见性"
+   }
+  ],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "基本信息：头像·昵称·性别·生日"
+   },
+   {
+    "n": 2,
+    "label": "联系信息：主邮箱·额外邮箱·电话"
+   },
+   {
+    "n": 3,
+    "label": "地址：住家·公司·其他"
+   },
+   {
+    "n": 4,
+    "label": "关联设置与安全"
+   }
+  ],
+  "general-guide": [
+   {
+    "n": 1,
+    "label": "个人简介：展示于公开主页"
+   },
+   {
+    "n": 2,
+    "label": "个性装扮：外观色调与主题壁纸"
+   },
+   {
+    "n": 3,
+    "label": "偏好：阅读设置·语言·翻译目标"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "导出卡：全量备份与邮件归档"
+   },
+   {
+    "n": 2,
+    "label": "转发区：Telegram 推送与自动转发"
+   },
+   {
+    "n": 3,
+    "label": "存储：用量仪表与个人云接入"
+   },
+   {
+    "n": 4,
+    "label": "第三方应用：授权查看与撤销"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "用户邮箱：被处置或申诉帐号"
+   },
+   {
+    "n": 2,
+    "label": "安全审计等级：风险分级"
+   },
+   {
+    "n": 3,
+    "label": "预警说明：触发特征描述"
+   },
+   {
+    "n": 4,
+    "label": "活跃环境池：IP·地理·设备·指纹"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "收发开关：关收信即拒收"
+   },
+   {
+    "n": 2,
+    "label": "AI 识别：验证码提取配置"
+   },
+   {
+    "n": 3,
+    "label": "基础名单：黑白名单与关键词"
+   },
+   {
+    "n": 4,
+    "label": "硬拦截：直接拒收并计数"
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "网站设置：注册·模式·注册码等实例开关"
+   },
+   {
+    "n": 2,
+    "label": "个性化设置：标题与弹窗提示"
+   },
+   {
+    "n": 3,
+    "label": "存储与核心数据库：对象存储与附件上限"
+   },
+   {
+    "n": 4,
+    "label": "AI 引擎：提供商·配额·模型授权"
+   },
+   {
+    "n": 5,
+    "label": "用户资料控制：用户侧能力开关"
+   }
+  ]
+ },
+ "zh-tw": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "寫信：新增郵件入口"
+   },
+   {
+    "n": 2,
+    "label": "星標：重要郵件集合"
+   },
+   {
+    "n": 3,
+    "label": "稍後處理：延後跟進"
+   },
+   {
+    "n": 4,
+    "label": "已傳送：寄出存底"
+   }
+  ],
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "富文本工具列：17 項排版"
+   },
+   {
+    "n": 2,
+    "label": "收件人：可選聯絡人"
+   },
+   {
+    "n": 3,
+    "label": "主旨"
+   },
+   {
+    "n": 4,
+    "label": "傳送：站內直投·站外走通道"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "檢索框：運算子與關鍵詞"
+   },
+   {
+    "n": 2,
+    "label": "命中列表：關鍵詞即時高亮"
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "郵件模式：三檔隱私切換"
+   },
+   {
+    "n": 2,
+    "label": "目前等級徽章"
+   },
+   {
+    "n": 3,
+    "label": "下拉選項：L1 全部郵件 / L2 隱私 / L3 加密"
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": "權限身分：分組與定位標籤"
+   },
+   {
+    "n": 2,
+    "label": "儲存配額：按分組設定"
+   },
+   {
+    "n": 3,
+    "label": "發件上限：每日重設"
+   },
+   {
+    "n": 4,
+    "label": "附件權限：按分組開放"
+   },
+   {
+    "n": 5,
+    "label": "AI 授權模型：按分組分級"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": "郵箱輸入：帳號即郵箱"
+   },
+   {
+    "n": 2,
+    "label": "密碼輸入：加鹽雜湊儲存"
+   },
+   {
+    "n": 3,
+    "label": "登入：連續失敗觸發防爆破鎖定"
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "使用者名稱與密碼：修改入口"
+   },
+   {
+    "n": 2,
+    "label": "驗證器應用：TOTP 動態碼"
+   },
+   {
+    "n": 3,
+    "label": "備用恢復碼：10 組一次性"
+   },
+   {
+    "n": 4,
+    "label": "通行金鑰：Passkey 與硬體金鑰"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "Discovery：OIDC 中繼資料"
+   },
+   {
+    "n": 2,
+    "label": "authorize：引導使用者授權"
+   },
+   {
+    "n": 3,
+    "label": "token：授權碼置換權杖"
+   },
+   {
+    "n": 4,
+    "label": "userinfo：讀取已授權資料"
+   },
+   {
+    "n": 5,
+    "label": "應用卡：憑證·啟停·整合程式碼"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "全量匯出：JSON 完整備份"
+   },
+   {
+    "n": 2,
+    "label": "郵件歸檔：MBOX/JSON/CSV"
+   },
+   {
+    "n": 3,
+    "label": "通訊錄與設定匯出"
+   },
+   {
+    "n": 4,
+    "label": "郵件與訊息轉發：Telegram 推送＋自動轉發"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "郵件來源：入站構成分佈"
+   },
+   {
+    "n": 2,
+    "label": "使用者增長曲線"
+   },
+   {
+    "n": 3,
+    "label": "郵件增長曲線"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": "按郵箱檢索帳號"
+   },
+   {
+    "n": 2,
+    "label": "使用者郵箱：帳號標識"
+   },
+   {
+    "n": 3,
+    "label": "儲存空間：用量對照配額"
+   },
+   {
+    "n": 4,
+    "label": "設定欄：行內管理操作"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": "檢索框：$ 語法全庫檢索"
+   },
+   {
+    "n": 2,
+    "label": "分區名隨郵件模式變化：隱私模式顯示為垃圾郵件",
+    "missing": true
+   },
+   {
+    "n": 2,
+    "label": "空狀態：目前無隔離郵件"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": "新增註冊碼：簽發邀請碼"
+   },
+   {
+    "n": 2,
+    "label": "搜尋：按註冊碼篩選"
+   },
+   {
+    "n": 3,
+    "label": "空狀態：尚未簽發任何註冊碼"
+   }
+  ],
+  "labels-guide": [
+   {
+    "n": 1,
+    "label": "新增標籤：側欄至多顯示 7 個"
+   },
+   {
+    "n": 2,
+    "label": "標籤列：圖示顏色與計數"
+   },
+   {
+    "n": 3,
+    "label": "顯示開關：控制側欄可見性"
+   }
+  ],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "基本資訊：頭像·暱稱·性別·生日"
+   },
+   {
+    "n": 2,
+    "label": "聯絡資訊：主信箱·額外信箱·電話"
+   },
+   {
+    "n": 3,
+    "label": "地址：住家·公司·其他"
+   },
+   {
+    "n": 4,
+    "label": "關聯設定與安全"
+   }
+  ],
+  "general-guide": [
+   {
+    "n": 1,
+    "label": "個人簡介：展示於公開主頁"
+   },
+   {
+    "n": 2,
+    "label": "個性装扮：外觀色調與主題壁紙"
+   },
+   {
+    "n": 3,
+    "label": "偏好：閱讀設定·語言·翻譯目標"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "匯出卡：全量備份與郵件歸檔"
+   },
+   {
+    "n": 2,
+    "label": "轉發區：Telegram 推送與自動轉發"
+   },
+   {
+    "n": 3,
+    "label": "儲存：用量儀表與個人雲接入"
+   },
+   {
+    "n": 4,
+    "label": "第三方應用：授權查看與撤銷"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "使用者郵箱：被處置或申訴帳號"
+   },
+   {
+    "n": 2,
+    "label": "安全審計等級：風險分級"
+   },
+   {
+    "n": 3,
+    "label": "預警說明：觸發特徵描述"
+   },
+   {
+    "n": 4,
+    "label": "活躍環境池：IP·地理·設備·指紋"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "收發開關：關收信即拒收"
+   },
+   {
+    "n": 2,
+    "label": "AI 識別：驗證碼提取設定"
+   },
+   {
+    "n": 3,
+    "label": "基礎名單：黑白名單與關鍵詞"
+   },
+   {
+    "n": 4,
+    "label": "硬攔截：直接拒收並計數"
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "網站設定：註冊·模式·註冊碼等實例開關"
+   },
+   {
+    "n": 2,
+    "label": "個性化設定：標題與彈窗提示"
+   },
+   {
+    "n": 3,
+    "label": "儲存與核心資料庫：物件儲存與附件上限"
+   },
+   {
+    "n": 4,
+    "label": "AI 引擎：提供商·配額·模型授權"
+   },
+   {
+    "n": 5,
+    "label": "使用者資料控制：使用者側能力開關"
+   }
+  ]
+ },
+ "en": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "Compose: start a new message"
+   },
+   {
+    "n": 2,
+    "label": "Starred: your key messages"
+   },
+   {
+    "n": 3,
+    "label": "Snoozed: follow up later"
+   },
+   {
+    "n": 4,
+    "label": "Sent: outgoing archive"
+   }
+  ],
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "Formatting toolbar: 17 tools"
+   },
+   {
+    "n": 2,
+    "label": "Recipients: pick contacts"
+   },
+   {
+    "n": 3,
+    "label": "Subject"
+   },
+   {
+    "n": 4,
+    "label": "Send: direct in-site, off-site via channel"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "Search box: operators + keywords"
+   },
+   {
+    "n": 2,
+    "label": "Hits with instant highlighting"
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "Mail mode: three privacy tiers"
+   },
+   {
+    "n": 2,
+    "label": "Current tier badge"
+   },
+   {
+    "n": 3,
+    "label": "Options: L1 all / L2 private / L3 encrypted"
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": "Role identity and positioning"
+   },
+   {
+    "n": 2,
+    "label": "Storage quota per role"
+   },
+   {
+    "n": 3,
+    "label": "Daily sending limit"
+   },
+   {
+    "n": 4,
+    "label": "Attachment permission"
+   },
+   {
+    "n": 5,
+    "label": "Authorized AI models"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": "Email input: your address is the account"
+   },
+   {
+    "n": 2,
+    "label": "Password input: salted hash storage"
+   },
+   {
+    "n": 3,
+    "label": "Sign in: lockout after repeated failures"
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "Username and password: change here"
+   },
+   {
+    "n": 2,
+    "label": "Authenticator app: TOTP codes"
+   },
+   {
+    "n": 3,
+    "label": "Backup codes: 10 one-time"
+   },
+   {
+    "n": 4,
+    "label": "Passkeys and security keys"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "Discovery: OIDC metadata"
+   },
+   {
+    "n": 2,
+    "label": "authorize: user consent"
+   },
+   {
+    "n": 3,
+    "label": "token: code-for-token exchange"
+   },
+   {
+    "n": 4,
+    "label": "userinfo: read granted profile"
+   },
+   {
+    "n": 5,
+    "label": "App card: credentials, toggle, snippets"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "Full export: JSON backup"
+   },
+   {
+    "n": 2,
+    "label": "Mail archive: MBOX/JSON/CSV"
+   },
+   {
+    "n": 3,
+    "label": "Contacts and preferences export"
+   },
+   {
+    "n": 4,
+    "label": "Forwarding: Telegram push + auto-forward"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "Mail sources: inbound mix"
+   },
+   {
+    "n": 2,
+    "label": "User growth curve"
+   },
+   {
+    "n": 3,
+    "label": "Mail growth curve"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": "Find accounts by email"
+   },
+   {
+    "n": 2,
+    "label": "Email: account identity"
+   },
+   {
+    "n": 3,
+    "label": "Storage: usage vs quota"
+   },
+   {
+    "n": 4,
+    "label": "Actions: per-account operations"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": "Search: $ syntax across all mail"
+   },
+   {
+    "n": 2,
+    "label": "Section follows mail mode: shown as Spam in private mode",
+    "missing": true
+   },
+   {
+    "n": 2,
+    "label": "Empty state: nothing quarantined now"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": "Add key: issue an invite code"
+   },
+   {
+    "n": 2,
+    "label": "Search: filter by key"
+   },
+   {
+    "n": 3,
+    "label": "Empty state: no keys issued yet"
+   }
+  ],
+  "labels-guide": [
+   {
+    "n": 1,
+    "label": "New label: sidebar shows up to 7"
+   },
+   {
+    "n": 2,
+    "label": "Label row: icon, colour, counts"
+   },
+   {
+    "n": 3,
+    "label": "Visibility toggle for the sidebar"
+   }
+  ],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "Basics: avatar, name, gender, birthday"
+   },
+   {
+    "n": 2,
+    "label": "Contact: main and extra emails, phone"
+   },
+   {
+    "n": 3,
+    "label": "Addresses: home, work, other"
+   },
+   {
+    "n": 4,
+    "label": "Linked settings and security"
+   }
+  ],
+  "general-guide": [
+   {
+    "n": 1,
+    "label": "Bio: shown on your public page"
+   },
+   {
+    "n": 2,
+    "label": "Personalisation: theme and wallpaper"
+   },
+   {
+    "n": 3,
+    "label": "Preferences: reading, language, translation"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "Export cards: full backup and archive"
+   },
+   {
+    "n": 2,
+    "label": "Forwarding: Telegram push and auto-forward"
+   },
+   {
+    "n": 3,
+    "label": "Storage: usage gauge and BYO cloud"
+   },
+   {
+    "n": 4,
+    "label": "Third-party apps: view and revoke"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "Email: the account in question"
+   },
+   {
+    "n": 2,
+    "label": "Audit level: risk grading"
+   },
+   {
+    "n": 3,
+    "label": "Alert notes: what triggered it"
+   },
+   {
+    "n": 4,
+    "label": "Environment pool: IP, geo, device, fingerprint"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "Mail switches: off = reject inbound"
+   },
+   {
+    "n": 2,
+    "label": "AI: code-extraction settings"
+   },
+   {
+    "n": 3,
+    "label": "Lists: block/allow and keywords"
+   },
+   {
+    "n": 4,
+    "label": "Hard block: reject and count"
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "Site settings: sign-up, mode, reg-keys"
+   },
+   {
+    "n": 2,
+    "label": "Personalisation: title and prompts"
+   },
+   {
+    "n": 3,
+    "label": "Storage and databases: buckets and limits"
+   },
+   {
+    "n": 4,
+    "label": "AI engine: provider, quota, models"
+   },
+   {
+    "n": 5,
+    "label": "User data control: per-user switches"
+   }
+  ]
+ },
+ "es": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "Redactar: nuevo correo"
+   },
+   {
+    "n": 2,
+    "label": "Destacados: correos clave"
+   },
+   {
+    "n": 3,
+    "label": "Pospuestos: seguimiento"
+   },
+   {
+    "n": 4,
+    "label": "Enviados: correo saliente"
+   }
+  ],
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "Barra de formato: 17 herramientas"
+   },
+   {
+    "n": 2,
+    "label": "Destinatarios: elige contactos"
+   },
+   {
+    "n": 3,
+    "label": "Asunto"
+   },
+   {
+    "n": 4,
+    "label": "Enviar: interno directo, exterior por canal"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "Buscador: operadores y palabras"
+   },
+   {
+    "n": 2,
+    "label": "Aciertos resaltados al instante"
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "Modo de correo: tres niveles"
+   },
+   {
+    "n": 2,
+    "label": "Insignia del nivel actual"
+   },
+   {
+    "n": 3,
+    "label": "Opciones: L1 todo / L2 privado / L3 cifrado"
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": "Identidad del grupo y función"
+   },
+   {
+    "n": 2,
+    "label": "Cuota de almacenamiento"
+   },
+   {
+    "n": 3,
+    "label": "Límite de envío diario"
+   },
+   {
+    "n": 4,
+    "label": "Permiso de adjuntos"
+   },
+   {
+    "n": 5,
+    "label": "Modelos de IA autorizados"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": "Correo: la cuenta es tu email"
+   },
+   {
+    "n": 2,
+    "label": "Contraseña: hash con sal"
+   },
+   {
+    "n": 3,
+    "label": "Acceso: bloqueo tras fallos repetidos"
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "Usuario y contraseña: cambio aquí"
+   },
+   {
+    "n": 2,
+    "label": "App de autenticación: TOTP"
+   },
+   {
+    "n": 3,
+    "label": "Códigos de respaldo: 10 de un uso"
+   },
+   {
+    "n": 4,
+    "label": "Llaves de acceso y seguridad"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "Discovery: metadatos OIDC"
+   },
+   {
+    "n": 2,
+    "label": "authorize: consentimiento"
+   },
+   {
+    "n": 3,
+    "label": "token: canje de código"
+   },
+   {
+    "n": 4,
+    "label": "userinfo: perfil autorizado"
+   },
+   {
+    "n": 5,
+    "label": "Tarjeta: credenciales y código"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "Exportación total: JSON"
+   },
+   {
+    "n": 2,
+    "label": "Archivo: MBOX/JSON/CSV"
+   },
+   {
+    "n": 3,
+    "label": "Contactos y preferencias"
+   },
+   {
+    "n": 4,
+    "label": "Reenvío: push de Telegram y automático"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "Fuentes: composición de entrada"
+   },
+   {
+    "n": 2,
+    "label": "Curva de crecimiento de usuarios"
+   },
+   {
+    "n": 3,
+    "label": "Curva de crecimiento de correos"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": "Buscar cuentas por email"
+   },
+   {
+    "n": 2,
+    "label": "Email: identidad de cuenta"
+   },
+   {
+    "n": 3,
+    "label": "Almacenamiento: uso y cuota"
+   },
+   {
+    "n": 4,
+    "label": "Acciones: gestión por fila"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": "Búsqueda: sintaxis $ global"
+   },
+   {
+    "n": 2,
+    "label": "La sección cambia con el modo: se muestra como Spam",
+    "missing": true
+   },
+   {
+    "n": 2,
+    "label": "Vacío: nada en cuarentena"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": "Añadir código: emitir invitación"
+   },
+   {
+    "n": 2,
+    "label": "Buscar: filtrar por código"
+   },
+   {
+    "n": 3,
+    "label": "Vacío: aún sin códigos"
+   }
+  ],
+  "labels-guide": [
+   {
+    "n": 1,
+    "label": "Nueva etiqueta: hasta 7 en lateral"
+   },
+   {
+    "n": 2,
+    "label": "Fila: icono, color y conteos"
+   },
+   {
+    "n": 3,
+    "label": "Interruptor de visibilidad"
+   }
+  ],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "Básicos: avatar, nombre, género, fecha"
+   },
+   {
+    "n": 2,
+    "label": "Contacto: correos y teléfono"
+   },
+   {
+    "n": 3,
+    "label": "Direcciones: casa, trabajo, otra"
+   },
+   {
+    "n": 4,
+    "label": "Ajustes vinculados y seguridad"
+   }
+  ],
+  "general-guide": [
+   {
+    "n": 1,
+    "label": "Bio: se muestra en tu página"
+   },
+   {
+    "n": 2,
+    "label": "Personalización: tema y fondo"
+   },
+   {
+    "n": 3,
+    "label": "Preferencias: lectura, idioma, traducción"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "Tarjetas de exportación"
+   },
+   {
+    "n": 2,
+    "label": "Reenvío: push y automático"
+   },
+   {
+    "n": 3,
+    "label": "Almacenamiento: medidor y nube"
+   },
+   {
+    "n": 4,
+    "label": "Apps de terceros: revocar"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "Email: cuenta en cuestión"
+   },
+   {
+    "n": 2,
+    "label": "Nivel de auditoría: riesgo"
+   },
+   {
+    "n": 3,
+    "label": "Notas: qué lo disparó"
+   },
+   {
+    "n": 4,
+    "label": "Entorno: IP, geo, equipo, huella"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "Interruptores: apagado = rechazo"
+   },
+   {
+    "n": 2,
+    "label": "IA: extracción de códigos"
+   },
+   {
+    "n": 3,
+    "label": "Listas: bloqueo y palabras"
+   },
+   {
+    "n": 4,
+    "label": "Bloqueo duro: rechaza y cuenta"
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "Ajustes del sitio: registro y modo"
+   },
+   {
+    "n": 2,
+    "label": "Personalización: título y avisos"
+   },
+   {
+    "n": 3,
+    "label": "Almacenamiento y bases de datos"
+   },
+   {
+    "n": 4,
+    "label": "Motor IA: proveedor y cuota"
+   },
+   {
+    "n": 5,
+    "label": "Control de datos: interruptores"
+   }
+  ]
+ },
+ "fr": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "Rédiger : nouveau message"
+   },
+   {
+    "n": 2,
+    "label": "Favoris : messages clés"
+   },
+   {
+    "n": 3,
+    "label": "En attente : suivi différé"
+   },
+   {
+    "n": 4,
+    "label": "Envoyés : messages partis"
+   }
+  ],
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "Barre de mise en forme : 17 outils"
+   },
+   {
+    "n": 2,
+    "label": "Destinataires : contacts au choix"
+   },
+   {
+    "n": 3,
+    "label": "Objet"
+   },
+   {
+    "n": 4,
+    "label": "Envoyer : interne direct, externe via canal"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "Recherche : opérateurs et mots-clés"
+   },
+   {
+    "n": 2,
+    "label": "Résultats surlignés aussitôt"
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "Mode de messagerie : trois niveaux"
+   },
+   {
+    "n": 2,
+    "label": "Badge du niveau actuel"
+   },
+   {
+    "n": 3,
+    "label": "Options : L1 tout / L2 privé / L3 chiffré"
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": "Identité du groupe et rôle"
+   },
+   {
+    "n": 2,
+    "label": "Quota de stockage par groupe"
+   },
+   {
+    "n": 3,
+    "label": "Limite d'envoi quotidienne"
+   },
+   {
+    "n": 4,
+    "label": "Droit aux pièces jointes"
+   },
+   {
+    "n": 5,
+    "label": "Modèles d'IA autorisés"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": "E-mail : le compte est votre adresse"
+   },
+   {
+    "n": 2,
+    "label": "Mot de passe : hachage salé"
+   },
+   {
+    "n": 3,
+    "label": "Connexion : verrouillage après échecs"
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "Identifiant et mot de passe"
+   },
+   {
+    "n": 2,
+    "label": "Application d'authentification : TOTP"
+   },
+   {
+    "n": 3,
+    "label": "Codes de secours : 10 usage unique"
+   },
+   {
+    "n": 4,
+    "label": "Clés d'accès et clés matérielles"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "Discovery : métadonnées OIDC"
+   },
+   {
+    "n": 2,
+    "label": "authorize : consentement"
+   },
+   {
+    "n": 3,
+    "label": "token : échange contre jeton"
+   },
+   {
+    "n": 4,
+    "label": "userinfo : profil autorisé"
+   },
+   {
+    "n": 5,
+    "label": "Carte : identifiants et code"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "Export complet : JSON"
+   },
+   {
+    "n": 2,
+    "label": "Archive : MBOX/JSON/CSV"
+   },
+   {
+    "n": 3,
+    "label": "Contacts et préférences"
+   },
+   {
+    "n": 4,
+    "label": "Transfert : push Telegram et auto"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "Sources : origine du courrier"
+   },
+   {
+    "n": 2,
+    "label": "Courbe de croissance utilisateurs"
+   },
+   {
+    "n": 3,
+    "label": "Courbe de croissance du courrier"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": "Retrouver un compte par e-mail"
+   },
+   {
+    "n": 2,
+    "label": "E-mail : identité du compte"
+   },
+   {
+    "n": 3,
+    "label": "Stockage : usage et quota"
+   },
+   {
+    "n": 4,
+    "label": "Actions : gestion par ligne"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": "Recherche : syntaxe $ globale"
+   },
+   {
+    "n": 2,
+    "label": "La section suit le mode : affichée comme Spam",
+    "missing": true
+   },
+   {
+    "n": 2,
+    "label": "Vide : rien de mis en quarantaine"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": "Ajouter un code : émettre une invitation"
+   },
+   {
+    "n": 2,
+    "label": "Recherche : filtrer par code"
+   },
+   {
+    "n": 3,
+    "label": "Vide : aucun code émis"
+   }
+  ],
+  "labels-guide": [
+   {
+    "n": 1,
+    "label": "Nouveau libellé : 7 max. en latéral"
+   },
+   {
+    "n": 2,
+    "label": "Ligne : icône, couleur, compteurs"
+   },
+   {
+    "n": 3,
+    "label": "Commutateur de visibilité"
+   }
+  ],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "Basiques : avatar, nom, genre, date"
+   },
+   {
+    "n": 2,
+    "label": "Contact : e-mails et téléphone"
+   },
+   {
+    "n": 3,
+    "label": "Adresses : domicile, travail, autre"
+   },
+   {
+    "n": 4,
+    "label": "Réglages liés et sécurité"
+   }
+  ],
+  "general-guide": [
+   {
+    "n": 1,
+    "label": "Bio : affichée sur la page publique"
+   },
+   {
+    "n": 2,
+    "label": "Personnalisation : thème et fond"
+   },
+   {
+    "n": 3,
+    "label": "Préférences : lecture, langue, traduction"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "Cartes d'export"
+   },
+   {
+    "n": 2,
+    "label": "Transfert : push et auto"
+   },
+   {
+    "n": 3,
+    "label": "Stockage : jauge et cloud perso"
+   },
+   {
+    "n": 4,
+    "label": "Apps tierces : voir et révoquer"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "E-mail : compte concerné"
+   },
+   {
+    "n": 2,
+    "label": "Niveau d'audit : risque"
+   },
+   {
+    "n": 3,
+    "label": "Notes : ce qui a déclenché"
+   },
+   {
+    "n": 4,
+    "label": "Environnement : IP, geo, appareil"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "Interrupteurs : coupé = rejet"
+   },
+   {
+    "n": 2,
+    "label": "IA : extraction de codes"
+   },
+   {
+    "n": 3,
+    "label": "Listes : blocage et mots-clés"
+   },
+   {
+    "n": 4,
+    "label": "Blocage dur : rejet et comptage"
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "Réglages : inscription, mode, codes"
+   },
+   {
+    "n": 2,
+    "label": "Personnalisation : titre et messages"
+   },
+   {
+    "n": 3,
+    "label": "Stockage et bases de données"
+   },
+   {
+    "n": 4,
+    "label": "Moteur IA : fournisseur et quota"
+   },
+   {
+    "n": 5,
+    "label": "Contrôle des données : interrupteurs"
+   }
+  ]
+ },
+ "nl": {
+  "views-guide": [
+   {
+    "n": 1,
+    "label": "Opstellen: nieuwe mail"
+   },
+   {
+    "n": 2,
+    "label": "Met ster: belangrijke mail"
+   },
+   {
+    "n": 3,
+    "label": "Uitgesteld: later oppakken"
+   },
+   {
+    "n": 4,
+    "label": "Verzonden: verzonden post"
+   }
+  ],
+  "compose-guide": [
+   {
+    "n": 1,
+    "label": "Opmaakwerkbalk: 17 tools"
+   },
+   {
+    "n": 2,
+    "label": "Geadresseerden: contacten"
+   },
+   {
+    "n": 3,
+    "label": "Onderwerp"
+   },
+   {
+    "n": 4,
+    "label": "Verzenden: intern direct, extern via kanaal"
+   }
+  ],
+  "search-guide": [
+   {
+    "n": 1,
+    "label": "Zoekvak: operatoren en woorden"
+   },
+   {
+    "n": 2,
+    "label": "Hits direct gemarkeerd"
+   }
+  ],
+  "mode-guide": [
+   {
+    "n": 1,
+    "label": "Mailmodus: drie privacyniveaus"
+   },
+   {
+    "n": 2,
+    "label": "Huidige niveau-badge"
+   },
+   {
+    "n": 3,
+    "label": "Opties: L1 alles / L2 privé / L3 versleuteld"
+   }
+  ],
+  "roles-guide": [
+   {
+    "n": 1,
+    "label": "Rol en positionering"
+   },
+   {
+    "n": 2,
+    "label": "Opslagquotum per rol"
+   },
+   {
+    "n": 3,
+    "label": "Dagelijkse verzendlimiet"
+   },
+   {
+    "n": 4,
+    "label": "Bijlagerecht"
+   },
+   {
+    "n": 5,
+    "label": "Geautoriseerde AI-modellen"
+   }
+  ],
+  "login-guide": [
+   {
+    "n": 1,
+    "label": "E-mail: account = adres"
+   },
+   {
+    "n": 2,
+    "label": "Wachtwoord: gezouten hash"
+   },
+   {
+    "n": 3,
+    "label": "Aanmelden: blokkering bij herhaald falen"
+   }
+  ],
+  "twofa-guide": [
+   {
+    "n": 1,
+    "label": "Gebruikersnaam en wachtwoord"
+   },
+   {
+    "n": 2,
+    "label": "Authenticator-app: TOTP"
+   },
+   {
+    "n": 3,
+    "label": "Herstelcodes: 10 eenmalig"
+   },
+   {
+    "n": 4,
+    "label": "Passkeys en beveiligingssleutels"
+   }
+  ],
+  "apps-guide": [
+   {
+    "n": 1,
+    "label": "Discovery: OIDC-metadata"
+   },
+   {
+    "n": 2,
+    "label": "authorize: toestemming"
+   },
+   {
+    "n": 3,
+    "label": "token: ruilen voor token"
+   },
+   {
+    "n": 4,
+    "label": "userinfo: profiel lezen"
+   },
+   {
+    "n": 5,
+    "label": "App-kaart: sleutels en code"
+   }
+  ],
+  "notify-guide": [
+   {
+    "n": 1,
+    "label": "Volledige export: JSON"
+   },
+   {
+    "n": 2,
+    "label": "Mailarchief: MBOX/JSON/CSV"
+   },
+   {
+    "n": 3,
+    "label": "Contacten en voorkeuren"
+   },
+   {
+    "n": 4,
+    "label": "Doorsturen: Telegram-push en auto"
+   }
+  ],
+  "analysis-guide": [
+   {
+    "n": 1,
+    "label": "Bronnen: inkomende mix"
+   },
+   {
+    "n": 2,
+    "label": "Gebruikersgroeicurve"
+   },
+   {
+    "n": 3,
+    "label": "Mailgroeicurve"
+   }
+  ],
+  "users-guide": [
+   {
+    "n": 1,
+    "label": "Accounts zoeken op e-mail"
+   },
+   {
+    "n": 2,
+    "label": "E-mail: accountidentiteit"
+   },
+   {
+    "n": 3,
+    "label": "Opslag: gebruik en quotum"
+   },
+   {
+    "n": 4,
+    "label": "Acties: beheer per rij"
+   }
+  ],
+  "review-guide": [
+   {
+    "n": 1,
+    "label": "Zoekvak: $-syntaxis voor alles"
+   },
+   {
+    "n": 2,
+    "label": "Sectie volgt de modus: getoond als Spam",
+    "missing": true
+   },
+   {
+    "n": 2,
+    "label": "Leeg: niets in quarantaine"
+   }
+  ],
+  "regkeys-guide": [
+   {
+    "n": 1,
+    "label": "Code toevoegen: invite uitgeven"
+   },
+   {
+    "n": 2,
+    "label": "Zoeken: filter op code"
+   },
+   {
+    "n": 3,
+    "label": "Leeg: nog geen codes"
+   }
+  ],
+  "labels-guide": [
+   {
+    "n": 1,
+    "label": "Nieuw label: max. 7 in zijbalk"
+   },
+   {
+    "n": 2,
+    "label": "Labelrij: icoon, kleur, aantallen"
+   },
+   {
+    "n": 3,
+    "label": "Zichtbaarheidsschakelaar"
+   }
+  ],
+  "preferences-guide": [
+   {
+    "n": 1,
+    "label": "Basis: avatar, naam, geslacht, geboorte"
+   },
+   {
+    "n": 2,
+    "label": "Contact: e-mails en telefoon"
+   },
+   {
+    "n": 3,
+    "label": "Adressen: thuis, werk, overig"
+   },
+   {
+    "n": 4,
+    "label": "Gekoppelde instellingen"
+   }
+  ],
+  "general-guide": [
+   {
+    "n": 1,
+    "label": "Bio: op je openbare pagina"
+   },
+   {
+    "n": 2,
+    "label": "Personalisatie: thema en achtergrond"
+   },
+   {
+    "n": 3,
+    "label": "Voorkeuren: lezen, taal, vertaling"
+   }
+  ],
+  "data-guide": [
+   {
+    "n": 1,
+    "label": "Exportkaarten"
+   },
+   {
+    "n": 2,
+    "label": "Doorsturen: push en auto"
+   },
+   {
+    "n": 3,
+    "label": "Opslag: meter en eigen cloud"
+   },
+   {
+    "n": 4,
+    "label": "Apps van derden: intrekken"
+   }
+  ],
+  "audit-guide": [
+   {
+    "n": 1,
+    "label": "E-mail: betreffende account"
+   },
+   {
+    "n": 2,
+    "label": "Auditniveau: risicograad"
+   },
+   {
+    "n": 3,
+    "label": "Melding: wat het opwekte"
+   },
+   {
+    "n": 4,
+    "label": "Omgeving: IP, geo, apparaat"
+   }
+  ],
+  "category-guide": [
+   {
+    "n": 1,
+    "label": "Schakelaars: uit = weigeren"
+   },
+   {
+    "n": 2,
+    "label": "AI: code-extractie"
+   },
+   {
+    "n": 3,
+    "label": "Lijsten: blokkeren en woorden"
+   },
+   {
+    "n": 4,
+    "label": "Harde blokkade: weigeren"
+   }
+  ],
+  "system-guide": [
+   {
+    "n": 1,
+    "label": "Site-instellingen: registratie e.d."
+   },
+   {
+    "n": 2,
+    "label": "Personalisatie: titel en meldingen"
+   },
+   {
+    "n": 3,
+    "label": "Opslag en databases"
+   },
+   {
+    "n": 4,
+    "label": "AI-engine: provider en quota"
+   },
+   {
+    "n": 5,
+    "label": "Gebruikersbeheer: schakelaars"
+   }
+  ]
+ }
+}

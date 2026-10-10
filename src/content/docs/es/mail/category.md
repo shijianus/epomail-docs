@@ -3,15 +3,25 @@ title: Gestión de clasificación
 description: Gestión de clasificación de EpoCanvas Mail — interruptores de recepción y envío, configuración del reconocimiento por IA, listas blancas y negras y reglas de bloqueo duro, a escala del sitio.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 La gestión de clasificación es la interfaz de gobernanza a nivel de sitio de la zona de administración (`#manage/admin/rules`, clave de permiso `setting:query`); superpone la gobernanza de la recepción de todo el sitio sobre las reglas personales de cada usuario. Las reglas personales de etiquetas figuran en [Gestión de etiquetas y clasificación](/es/mail/labels/); la semántica de los campos de condición, en la sección 7 de [Referencia de búsqueda y reglas](/es/mail/search/).
 
 ![Figura: la interfaz de gestión de clasificación](/images/mail/es/ui/category-guide.png)
 
 *Figura: la interfaz de gestión de clasificación*
-*Anotaciones: 1. Correo ｜ 2. AI modelo & API  ｜ 3. Reglas de lista  ｜ 4. Reglas de descar*
 
+<details>
+<summary>Guía visual: Clasificación —  las cuatro líneas de defensa del correo entrante</summary>
+
+Las cuatro tarjetas de gobernanza de la página de gestión de clasificación: del interruptor general de recepción y envío al reconocimiento por IA, y de las listas al bloqueo duro —las cuatro capas de defensa de la recepción a escala del sitio.
+
+1. **Tarjeta de ajustes de correo (interruptores de recepción y envío)**: Los interruptores generales de recepción, envío y refresco automático, más el interruptor de tratamiento del correo sin destinatario. Con la recepción cerrada, el correo entrante se rechaza de plano.
+2. **Tarjeta de modelo de IA e integración de claves de API**: La extracción de códigos de verificación por Workers AI y sus reglas, y la clave, la URL y el modelo de la API de IA —comparten origen con el AI Hub de la configuración del sistema; lo que aquí se controla es el comportamiento de reconocimiento entrante (la insignia del código de verificación, entre otros).
+3. **Tarjeta de reglas de listas básicas**: Lista negra de remitentes (configurable como modo de etiqueta o como interceptación directa), modo de lista blanca (solo los remitentes incluidos en ella pueden entregar), lista negra de palabras clave de asunto y de contenido, interceptación de remitentes vacíos, interceptación de no destinatarios e interceptación de adjuntos ejecutables.
+4. **Tarjeta de reglas de bloqueo duro**: El recurso final: rechazo directo y acumulación del contador de interceptaciones. La coincidencia en las listas aplica automáticamente la etiqueta correspondiente, y el efecto de la interceptación puede revisarse después en la página de analítica.
+
+</details>
 
 ## 1. Interruptores de recepción, envío y refresco
 

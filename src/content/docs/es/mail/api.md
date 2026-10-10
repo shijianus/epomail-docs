@@ -3,14 +3,26 @@ title: Plataforma abierta y acceso a la API
 description: Plataforma abierta y acceso a la API de EpoCanvas Mail — registro de aplicaciones OAuth, los puntos de conexión authorize y token, userinfo, la semántica de los ámbitos y el flujo de consentimiento y revocación en el lado del usuario.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.17**
 
 EpoCanvas Mail incorpora de serie un centro de autorización OAuth 2.0 / OIDC: el administrador registra aplicaciones de terceros en la sección «Gestión de aplicaciones» de la administración (`#manage/admin/oauth-apps`), y los sitios externos pueden ofrecer entonces «Iniciar sesión con Epomail». Esta página es el tutorial completo para desarrolladores; dónde se sitúa la interfaz dentro de la aplicación figura en la sección 4 del [Mapa de interfaz y rutas](/es/mail/interface/), y el tratamiento de los datos de autorización se divulga en la [Lista de encargados del tratamiento](/es/mail/sub-processors/).
 
 ![Página de gestión de aplicaciones de EpoCanvas Mail: cuatro pastillas de puntos de conexión, el botón del tutorial para desarrolladores, la tarjeta de la aplicación de ejemplo y la entrada del código de integración](/images/mail/es/ui/apps-guide.png)
 
 *Figura: la gestión de aplicaciones. Los cuatro puntos de conexión ocupan la parte superior; cada tarjeta de aplicación lleva sus credenciales, un interruptor de activación y el código de integración.*
-*Anotaciones: 1. GET/.well-known/　2. GET/oauth/author　3. POST/api/oauth/t　4. GET/api/oauth/us　5. shijianus-blogCr*
+
+<details>
+<summary>Guía visual: Gestión de aplicaciones —  los cinco puntos que cierran una integración externa</summary>
+
+Cinco regiones anotadas de la página de gestión de aplicaciones: cuatro puntos de conexión en la parte superior y una tarjeta de aplicación de ejemplo, que cierran el círculo «buscar el punto de conexión — obtener credenciales — copiar el código».
+
+1. **`/.well-known/openid-configuration`**: El punto de conexión de metadatos de OIDC Discovery: el emisor, cada punto de conexión y las capacidades se describen a sí mismos, de modo que frameworks de terceros como NextAuth descubren la configuración automáticamente.
+2. **`/oauth/authorize`**: El punto de conexión de autorización del usuario: le guía para iniciar sesión y otorgar el consentimiento. En los escenarios con ventana emergente el resultado vuelve por `postMessage`; si el usuario cancela, se redirige de vuelta con `error=access_denied`.
+3. **`/api/oauth/token`**: El punto de conexión de intercambio de tokens: un código de autorización de un solo uso (válido 5 minutos) se canjea por un token de acceso y un ID Token válidos 2 horas. Admite JSON, formulario y HTTP Basic; con PKCE configurado verifica el `code_verifier` (S256).
+4. **`/api/oauth/userinfo`**: El punto de conexión del perfil de usuario: con un token de acceso Bearer se leen los campos ya autorizados (`sub`, `email`, `name`, `picture`, etc.). Si el token caduca o se revoca, devuelve 401.
+5. **Tarjeta de aplicación (shijianus-blog)**: Una tarjeta por aplicación: Client ID y Client Secret (el secret solo se muestra completo una vez, al crearlo o al restablecerlo), interruptor de activación, edición y borrado, y cinco ejemplos de integración listos para copiar: NextAuth, Node, Python, cURL y OIDC genérico.
+
+</details>
 
 ## 1. Puntos de conexión
 

@@ -3,15 +3,24 @@ title: Clés d'inscription
 description: Clés d'inscription d'EpoCanvas Mail — émission des codes d'invitation, gestion des usages disponibles et de la validité, consultation du journal d'usage côté administration.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 La page des clés d'inscription est l'interface des codes d'invitation de la zone d'administration (`#manage/admin/reg-keys`, clé de permission `reg-key:query`) ; elle décide qui peut s'inscrire sur l'instance. Les trois modes à l'échelle du site du code d'inscription (obligatoire／désactivé／facultatif) se décident dans la carte des paramètres du site des [paramètres système](/fr/mail/system/).
 
 ![Figure : les clés d'inscription](/images/mail/fr/ui/regkeys-guide.png)
 
 *Figure : les clés d'inscription*
-*Annotations: 1. *
 
+<details>
+<summary>Guide visuel : La page vide des clés d'inscription  —  l'entrée d'émission et le champ de recherche</summary>
+
+L'état vide de la page des clés d'inscription tant qu'aucun code d'invitation n'a été émis : un bouton d'émission et une barre de recherche composent toute la page.
+
+1. **Bouton d'ajout de code d'inscription** : L'entrée d'émission : la boîte de dialogue génère un code aléatoire à 8 caractères (régénérable d'un clic) et le lie au groupe d'identité rejoint après l'inscription, à une date de validité et à un nombre d'usages (1–99999, un usage décompté par inscription réussie).
+2. **Barre de recherche de codes d'inscription** : Après émission, filtrer et localiser les codes par leur valeur, pour consulter les usages restants, le groupe lié et la validité ; les champs sensibles sont automatiquement masqués du point de vue des Visiteurs.
+3. **Carte d'état vide** : Le repère explicatif affiché tant que l'instance n'a émis aucun code. Après émission, cette zone devient la liste des codes, avec copie en un clic, consultation du journal d'usage, suppression d'une ligne et « Nettoyage des codes inutilisés » en lot.
+
+</details>
 
 ## 1. Émission
 

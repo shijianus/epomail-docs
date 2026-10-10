@@ -1,0 +1,170 @@
+{
+  "views-guide.png": {
+    "zh-tw": "收件箱全景：四個最先用到的入口",
+    "es": "La bandeja de entrada de un vistazo: las cuatro entradas que más se usan",
+    "fr": "La boîte de réception en un coup d'œil : les quatre entrées les plus utilisées",
+    "nl": "De inbox in één oogopslag: de vier meestgebruikte ingangen"
+  },
+  "compose-guide.png": {
+    "zh-tw": "寫信彈層：一封信從排版到寄出的四個落點",
+    "es": "La ventana de redacción: cuatro paradas, del formato al envío",
+    "fr": "La fenêtre de rédaction : quatre étapes, de la mise en forme à l'envoi",
+    "nl": "Het venster voor een nieuw bericht: vier haltes, van opmaak tot verzending"
+  },
+  "search-guide.png": {
+    "zh-tw": "檢索：一次搜尋的兩個關鍵位置",
+    "es": "La búsqueda: dos posiciones clave en una consulta",
+    "fr": "La recherche : les deux positions qui comptent dans une requête",
+    "nl": "Zoeken: de twee plekken die tellen in één zoekopdracht"
+  },
+  "mode-guide.png": {
+    "zh-tw": "郵件模式：一個下拉如何決定全實例隱私",
+    "es": "El modo de correo: cómo un desplegable decide la privacidad de toda la instancia",
+    "fr": "Le mode de messagerie : comment un menu déroulant décide de la confidentialité de toute l'instance",
+    "nl": "De mailmodus: hoe één dropdown de privacy van de hele instantie bepaalt"
+  },
+  "roles-guide.png": {
+    "zh-tw": "權限控制：五列決定一個分組能做什麼",
+    "es": "Los roles: cinco columnas deciden qué puede hacer un grupo",
+    "fr": "Les rôles : cinq colonnes décident de ce qu'un groupe peut faire",
+    "nl": "Rollen: vijf kolommen bepalen wat een rol mag doen"
+  },
+  "login-guide.png": {
+    "zh-tw": "登入頁：一條密碼登入路徑的三步",
+    "es": "El acceso: tres pasos de un inicio de sesión con contraseña",
+    "fr": "La connexion : trois étapes d'une ouverture de session par mot de passe",
+    "nl": "Aanmelden: drie stappen van één wachtwoordlogin"
+  },
+  "twofa-guide.png": {
+    "zh-tw": "兩步驗證中心：四張卡與三種第二驗證",
+    "es": "El centro de verificación en dos pasos: cuatro tarjetas, tres segundos factores",
+    "fr": "Le centre de vérification en deux étapes : quatre cartes, trois seconds facteurs",
+    "nl": "Het tweestapscentrum: vier kaarten, drie tweede factoren"
+  },
+  "apps-guide.png": {
+    "zh-tw": "應用管理：第三方接入閉環的五個點",
+    "es": "Gestión de aplicaciones: los cinco puntos que cierran una integración externa",
+    "fr": "Gestion des applications : les cinq points qui bouclent une intégration tierce",
+    "nl": "Appbeheer: de vijf punten die een koppeling met derden afronden"
+  },
+  "notify-guide.png": {
+    "zh-tw": "匯出與轉發：資料怎麼帶走、新信怎麼觸達",
+    "es": "Exportación y reenvío: cómo se llevan los datos y cómo llegan los mensajes nuevos",
+    "fr": "Export et transfert : comment emporter ses données et rester averti des nouveaux messages",
+    "nl": "Exporteren en doorsturen: hoe je data meeneemt en nieuwe mail je bereikt"
+  },
+  "analysis-guide.png": {
+    "zh-tw": "分析頁首屏：三張儀表各回答一個問題",
+    "es": "La cabecera de análisis: tres indicadores, tres preguntas",
+    "fr": "L'en-tête des statistiques : trois jauges, trois questions",
+    "nl": "De statistiekentop: drie meters, drie vragen"
+  },
+  "users-guide.png": {
+    "zh-tw": "使用者清單：從定位帳號到行內處置",
+    "es": "La lista de usuarios: de localizar una cuenta a actuar en la fila",
+    "fr": "La liste des utilisateurs : de la localisation d'un compte à l'action en ligne",
+    "nl": "De gebruikerslijst: van account vinden tot ingrijpen in de rij"
+  },
+  "review-guide.png": {
+    "zh-tw": "全庫審查在隱私模式下的三個可見點",
+    "es": "La revisión del correo en modo privado: tres puntos visibles",
+    "fr": "La revue du courrier en mode privé : trois points visibles",
+    "nl": "Mailcontrole in de privacymodus: drie zichtbare punten"
+  },
+  "regkeys-guide.png": {
+    "zh-tw": "註冊金鑰空白頁：簽發入口與檢索框",
+    "es": "La página vacía de claves de registro: la entrada de emisión y el cuadro de búsqueda",
+    "fr": "La page vide des clés d'inscription : l'entrée d'émission et le champ de recherche",
+    "nl": "De lege registratiesleutelpagina: de uitgifte-ingang en het zoekvak"
+  },
+  "labels-guide.png": {
+    "zh-tw": "標籤頁：一個新建入口與行內三件事",
+    "es": "Las etiquetas: una entrada de creación y tres acciones por fila",
+    "fr": "Les étiquettes : une entrée de création et trois gestes par ligne",
+    "nl": "Labels: één aanmaakingang en drie handelingen per rij"
+  },
+  "preferences-guide.png": {
+    "zh-tw": "個資頁：個人資料被拆成的四個維度",
+    "es": "El perfil: los datos personales divididos en cuatro dimensiones",
+    "fr": "Le profil : les données personnelles réparties en quatre dimensions",
+    "nl": "Het profiel: persoonsgegevens in vier dimensies"
+  },
+  "general-guide.png": {
+    "zh-tw": "常規頁：外觀與閱讀習慣的三張卡",
+    "es": "General: tres tarjetas para el aspecto y los hábitos de lectura",
+    "fr": "Général : trois cartes pour l'apparence et les habitudes de lecture",
+    "nl": "Algemeen: drie kaarten voor uiterlijk en leesgewoonten"
+  },
+  "data-guide.png": {
+    "zh-tw": "資料頁：個人資料自主的四個分區",
+    "es": "Datos: las cuatro regiones de la autonomía sobre tus datos",
+    "fr": "Données : les quatre régions de l'autonomie sur vos données",
+    "nl": "Gegevens: vier regio's van zeggenschap over je eigen data"
+  },
+  "audit-guide.png": {
+    "zh-tw": "操作報告：一條預警工單的完整資訊鏈",
+    "es": "El informe de operaciones: la cadena completa de un ticket de alerta",
+    "fr": "Le rapport d'opérations : la chaîne d'information complète d'un ticket d'alerte",
+    "nl": "Het rapport: de volledige informatieketen van één waarschuwingsticket"
+  },
+  "system-guide.png": {
+    "zh-tw": "系統設定：使用頻率最高的五張配置卡",
+    "es": "Ajustes del sistema: las cinco tarjetas de configuración más usadas",
+    "fr": "Réglages système : les cinq cartes de configuration les plus utilisées",
+    "nl": "Systeeminstellingen: de vijf meestgebruikte configuratiekaarten"
+  },
+  "category-guide.png": {
+    "zh-tw": "分類管理：站點收信治理的四層防線",
+    "es": "Clasificación: las cuatro líneas de defensa del correo entrante",
+    "fr": "Classification : les quatre lignes de défense du courrier entrant",
+    "nl": "Classificatie: vier verdedigingslinies voor inkomende mail"
+  },
+  "ui-compose.png": {
+    "zh-tw": "寫信彈層自上而下的分區構成",
+    "es": "La ventana de redacción, región por región, de arriba abajo",
+    "fr": "La fenêtre de rédaction région par région, de haut en bas",
+    "nl": "Het schrijfvenster regio voor regio, van boven naar beneden"
+  },
+  "ui-settings-general.png": {
+    "zh-tw": "設定區的外殼：左欄導覽與右區內容",
+    "es": "El armazón de los ajustes: la columna izquierda y el panel derecho",
+    "fr": "La coque des réglages : la colonne de gauche et le panneau de droite",
+    "nl": "De instellingenomlijsting: de linkerkolom en het rechterpaneel"
+  },
+  "ui-audit-report.png": {
+    "zh-tw": "操作報告在管理端的表格化樣貌",
+    "es": "El informe de operaciones como tabla en la gestión",
+    "fr": "Le rapport d'opérations sous forme de tableau côté administration",
+    "nl": "Het rapport als tabel aan de beheerkant"
+  },
+  "ui-login-oauth.png": {
+    "zh-tw": "登入頁承載的全部流程",
+    "es": "Todos los flujos que carga la página de acceso",
+    "fr": "Tous les flux que porte la page de connexion",
+    "nl": "Alle trajecten die de aanmeldpagina draagt"
+  },
+  "ui-detail-verification.png": {
+    "zh-tw": "驗證碼提取在詳情頁的呈現",
+    "es": "La extracción del código de verificación en el panel de lectura",
+    "fr": "L'extraction du code de vérification dans le volet de lecture",
+    "nl": "Hoe de verificatiecode-extractie in het leesvenster verschijnt"
+  },
+  "ui-inbox-en.png": {
+    "zh-tw": "英文介面收件箱與中文版的同構關係",
+    "es": "La bandeja en inglés y su paralelismo con la versión china",
+    "fr": "La boîte de réception en anglais et son parallélisme avec la version chinoise",
+    "nl": "De inbox in het Engels en hoe die de Chinese build weerspiegelt"
+  },
+  "ui-inbox-mobile.png": {
+    "zh-tw": "行動端收件箱的響應式取捨",
+    "es": "La bandeja móvil y sus concesiones de diseño adaptable",
+    "fr": "La boîte de réception mobile et ses compromis adaptatifs",
+    "nl": "De mobiele inbox en de responsieve afwegingen"
+  },
+  "ui-account-menu.png": {
+    "zh-tw": "頭像選單：多帳戶與帳戶詳情的出入口",
+    "es": "El menú del avatar: el centro de cuentas y detalles de cuenta",
+    "fr": "Le menu de l'avatar : le carrefour des comptes et des détails de compte",
+    "nl": "Het avatarmenu: het knooppunt van accounts en accountdetails"
+  }
+}

@@ -3,14 +3,25 @@ title: Accountbeveiligingsgids
 description: De gids voor accountbeveiliging van EpoCanvas Mail — tweestapsverificatie in drie stappen inschakelen, herstelcodes beheren, toegangssleutels registreren en activeren, het verificatiegedrag bij aanmelding en het verwijderen van het account.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.17**
 
 Deze pagina loopt elke handeling op de pagina «Instellingen → Beveiliging» langs. Het algemene gedrag van tweestapsverificatie (vertrouwde apparaten, afgedwongen beleid) staat beschreven in [Werkingsmodi](/nl/mail/modes/), sectie 4; deze pagina behandelt alleen de configuratie. Ingang: zijbalk «Instellingen → Beveiliging» (`#settings/security`).
 
 ![Beveiligingsinstellingenpagina van EpoCanvas Mail: de wachtwoordwijziging en het tweestapscentrum met de drie tweede factoren (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/twofa-guide.png)
 
 *Figuur: de beveiligingspagina. Bovenin gebruikersnaam en wachtwoord, onderin het tweestapsverificatiecentrum.*
-*Aantekeningen: 1. Authenticator Ap　2. back-up Recovery　3. Passkeys & bevei　4. Back to Mail*
+
+<details>
+<summary>Visuele handleiding: Het tweestapscentrum —  vier kaarten, drie tweede factoren</summary>
+
+Vier gebieden van de beveiligingspagina: bovenaan de ingangen om de accountgegevens te wijzigen, onderaan het tweestapscentrum met drie tweede factoren die gecombineerd kunnen worden.
+
+1. **Kaart gebruikersnaam en wachtwoord**: Wijzig de gebruikersnaam en het wachtwoord, met de datum van de laatste wijziging erbij. Ook het uitzetten van tweestapsverificatie vereist hier het wachtwoord plus een dynamische code.
+2. **Authenticator-app (TOTP)**: Na het scannen van de QR-code geeft de app elke 30 seconden een code van 6 cijfers. Zodra de koppeling klaar is, verschijnen onmiddellijk 10 back-upherstelcodes, elk eenmalig bruikbaar om aan te melden wanneer de authenticator niet beschikbaar is.
+3. **Back-upherstelcodes**: De terugvaloptie wanneer de authenticator weg is. De kaart toont hoeveel codes er nog zijn; het bekijken van de volledige codes of het opnieuw genereren vereist het wachtwoord van het account, en na een herstel vervallen alle oude codes.
+4. **Toegangssleutels (Passkey)**: Hardwarebeveiligingssleutels of biometrie van het apparaat. Een nieuw geregistreerde sleutel wordt actief zodra de gekoppelde authenticator goedkeurt (of automatisch na een tijdslimiet van 30 dagen); met «Testen» controleer je daarna het ontgrendeltraject.
+
+</details>
 
 ## 1. Rondleiding langs de beveiligingspagina
 

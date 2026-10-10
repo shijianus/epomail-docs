@@ -3,14 +3,25 @@ title: Gids voor meldingen en doorsturen
 description: De gids voor meldingen en doorsturen van EpoCanvas Mail — Telegram-push koppelen, pushvoorkeuren en de zichtbaarheid van velden, en de bestemmingen en triggertypes van automatisch doorsturen.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.17**
 
 Deze pagina loopt de twee mogelijkheden van het gebied «E-mail en berichten doorsturen» op de pagina «Instellingen → Gegevens» langs: Telegram-berichtpush en automatisch doorsturen. Of een account ze te zien krijgt, wordt beslist door de kaart «Gebruikersgegevensbeheer» van de beheerder; staan ze uit, dan zijn de bijbehorende blokken verborgen. Gegevensexport en opslag staan op dezelfde pagina, zie de [Instellingengids](/nl/mail/settings/), sectie 5.
 
 ![Gebied e-mail en berichtdoorsturen van EpoCanvas Mail: de Telegram-pushstatus en de instellingen voor automatisch doorsturen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/notify-guide.png)
 
 *Figuur: het gebied e-mail en berichtdoorsturen. Telegram-push toont de status en de instel-ingang; automatisch doorsturen toont bestemmingen en geavanceerde opties.*
-*Aantekeningen: 1. exporteren All D　2. e-mail History A　3. Contacts & Prefe　4. e-mail & Message*
+
+<details>
+<summary>Visuele handleiding: Exporteren en doorsturen —  hoe je data meeneemt en nieuwe mail je bereikt</summary>
+
+Drie exportkaarten en het kopgebied «E-mail en berichten doorsturen» op de pagina Gegevens: het bovenste deel bepaalt hoe gegevens naar buiten gaan, het onderste hoe nieuwe mail je in realtime bereikt.
+
+1. **Kaart voor volledige data-export**: Een volledige back-up in JSON — accountgegevens, de volledige tekst van de e-mailgeschiedenis, contacten, classificatie- en labelregels en beveiligingsinstellingen in één pakket; de belangrijkste ingang om je recht op gegevensoverdraagbaarheid uit te oefenen.
+2. **Kaart voor het archief van de e-mailgeschiedenis**: Exporteert alleen mail, in MBOX (het universele formaat dat de meeste mailclients importeren), JSON of CSV, desgewenst beperkt tot een bepaalde periode.
+3. **Kaart voor contacten en configuratie**: De derde export: het contactenboek, eigen aliasregels en personalisatievoorkeuren. Van de drie bestanden de kleinste, maar degene die bepaalt of je gewoontes een verhuizing overleven — aliasregels en het labelstelsel reizen mee, zodat niets opnieuw hoeft te worden benoemd of ingedeeld.
+4. **Kopgebied E-mail en berichten doorsturen**: Twee realtime kanalen: Telegram-berichtpush (koppel je eigen bot; alles of alleen belangrijke mail en verificatiecodes, met een leeslink op de site die 7 dagen geldig blijft) en automatisch doorsturen (bestemmingen, triggertype en de markering `[Fwd]`).
+
+</details>
 
 ## 1. Telegram-berichtpush
 

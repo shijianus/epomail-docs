@@ -3,15 +3,26 @@ title: Guía de las tarjetas de configuración del sistema
 description: Guía de las tarjetas de configuración del sistema de EpoCanvas Mail — once tarjetas explicadas una a una, de la configuración del sitio a la personalización, la autenticación de terceros, el almacenamiento, el push de correo, el motor de IA, el control de datos de usuario, Turnstile, los avisos, los informes de operaciones y el acerca de.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 La página de configuración del sistema (`#manage/admin/system`, claves de permiso `setting:query`／`setting:set`) organiza toda la configuración al nivel de la instancia en tarjetas. Esta página explica tarjeta por tarjeta; los nombres de las tarjetas coinciden con la interfaz de la aplicación.
 
 ![Figura: la configuración del sistema y sus once tarjetas](/images/mail/es/ui/system-guide.png)
 
 *Figura: la configuración del sistema y sus once tarjetas*
-*Anotaciones: 1. Website ｜ 2. Customization ｜ 3. almacenamiento & ｜ 4. AI Engine & mode ｜ 5. usuario Data Con*
 
+<details>
+<summary>Guía visual: Ajustes del sistema —  las cinco tarjetas de configuración más usadas</summary>
+
+Cinco de las once tarjetas de configuración de la página de configuración del sistema: la configuración al nivel de la instancia se agrupa por temas, y en esta figura se anotan las cinco más usadas.
+
+1. **Tarjeta de configuración del sitio**: El grupo de interruptores generales de la instancia: registro abierto, perfil público, modo de correo (tres niveles), verificación en dos pasos, dominio de inicio oculto, códigos de registro, añadir buzones, cambio rápido multicuenta y reglas de prefijo de buzón.
+2. **Tarjeta de personalización**: La fachada pública de la instancia: el título del sitio da marca tanto a la página de inicio de sesión como a la pestaña del navegador, el texto de las ventanas emergentes sustituye los avisos incorporados y el interruptor de interfaz dinámica o estática decide si la superficie de inicio de sesión reproduce animaciones —el modo estático conviene más a los dispositivos de bajo rendimiento y a las capturas como prueba—. Los cambios afectan a todos los usuarios al mismo tiempo.
+3. **Tarjeta de almacenamiento y base de datos central**: Almacenamiento de objetos (B2/S3, con repliegue a R2/KV por defecto), arquitectura de la base de datos central y externa, límite de adjunto único con borrado en cascada y control de salud de la caché KV.
+4. **Tarjeta de motor de IA**: El proveedor de IA a elegir entre dos (punto de conexión compatible con OpenAI personalizado o Cloudflare Workers AI), el interruptor de activación, la cuota diaria y el límite de tasa, y la autorización de modelos por grupo de identidad.
+5. **Tarjeta de control de datos de usuario**: Los interruptores de capacidad de los usuarios normales en la página «Datos»: push de Telegram, reenvío de correo, soporte de API de terceros, almacenamiento propio y cuota de almacenamiento por defecto. La exportación de datos permanece siempre abierta y no depende de esta tarjeta.
+
+</details>
 
 ## 1. Configuración del sitio
 

@@ -1,0 +1,538 @@
+{
+  "views-guide.png": {
+    "summary": "De vier gemarkeerde gebieden van deze panoramafoto van het postvak IN komen overeen met de vier ingangen die dagelijks het meest worden gebruikt: een nieuw bericht schrijven, belangrijke mail terugvinden, uitgestelde zaken nakijken en controleren wat er verzonden is.",
+    "items": [
+      {
+        "h": "Schrijven (hoofdknop boven in de zijbalk)",
+        "d": "De enige ingang voor nieuwe mail: een klik opent het schrijfvenster als overlay (geen eigen route). Op mobiel wordt het een zwevende knop, en de diepe link `?composeTo=<address>` vult de geadresseerde alvast in. Vanuit elke weergave te gebruiken."
+      },
+      {
+        "h": "Met ster (map in de zijbalk)",
+        "d": "Alle mail met een ster komt hier ongeacht de map samen: klik op het sterpictogram in een lijstrij om een bericht toe te voegen. Gebruik het voor mail die je bij de hand wilt houden; de teller in de zijbalk werkt realtime bij."
+      },
+      {
+        "h": "Uitgesteld (map in de zijbalk)",
+        "d": "Een wachtruimte voor uitgestelde opvolging, met twee niveaus («dringend» en «wachtend»). Kies bij een bericht «Uitstellen» met een tijdstip; zodra die tijd aanbreekt, keert het automatisch terug bovenaan het postvak IN, zodat belangrijke zaken niet wegzakken."
+      },
+      {
+        "h": "Verzonden (map in de zijbalk)",
+        "d": "Het archief van alles wat dit account heeft verzonden. Het uitgaande volume is begrensd door het dagelijkse quotum van de rol; mail binnen de site wordt rechtstreeks afgeleverd, mail naar buiten gaat via het afleverkanaal."
+      }
+    ]
+  },
+  "compose-guide.png": {
+    "summary": "Vier gebieden van het schrijfvenster, van opmaak tot aflevering: de werkbalk bepaalt hoe het bericht eruitziet, geadresseerden en onderwerp bepalen waar het heen gaat, en de verzendknop brengt het weg.",
+    "items": [
+      {
+        "h": "Werkbalk voor tekstopmaak (boven de body)",
+        "d": "17 opmaakhulpmiddelen: alinea en tekengrootte, vet/cursief/onderstreept/doorgehaald, kleur, uitlijning, geordende en ongeordende lijsten, citatie, scheidingslijn, koppeling, afbeelding, tabel, emoji, vertaling en broncodemodus — alles meteen zichtbaar terwijl je schrijft."
+      },
+      {
+        "h": "Regel met geadresseerden",
+        "d": "Kies contacten of typ zelf adressen. Mailboxen op de site worden rechtstreeks afgeleverd (geen extern transport); adressen buiten de site gaan via het kanaal dat de exploitant heeft geconfigureerd (Resend/Mailjet en dergelijke)."
+      },
+      {
+        "h": "Onderwerpregel",
+        "d": "Het eerste wat de ontvanger ziet, samen met de samenvatting van de eerste regel in de lijst en in pushmeldingen. Een duidelijk onderwerp loont later bij het zoeken met de operator `subject:`."
+      },
+      {
+        "h": "Verzendknop (rechtsonder)",
+        "d": "Eén klik en het bericht is weg: binnen de site direct en ogenblikkelijk, naar buiten via het afleverkanaal; achteraf controleer je het in de weergave «Verzonden». Het recht op bijlagen hangt van de rol af, met een limiet per bestand die per instantie is ingesteld (fabrieksstandaard 25 MB)."
+      }
+    ]
+  },
+  "search-guide.png": {
+    "summary": "Twee gebieden tonen één volledige zoekopdracht: typ een operator of trefwoord in het zoekvak, en de trefferslijst filtert onmiddellijk met de treffers gemarkeerd.",
+    "items": [
+      {
+        "h": "Zoekvak in de bovenbalk",
+        "d": "Zoekt mail op mailpagina's en instellingen op instellingenpagina's. Tien veldoperators (`from:`, `to:`, `subject:`, `body:`, …) plus vlaggen zoals `is:` en `global:`; met spaties gescheiden voorwaarden combineren als EN, en Tab vult operators aan."
+      },
+      {
+        "h": "Trefferslijst",
+        "d": "Alleen berichten die aan alle voorwaarden voldoen worden getoond, met de treffers native door de browser gemarkeerd (`hl:off` zet dit uit). Een rij openen schuift het fragmentvenster naar de treffer, zodat de context bewaard blijft."
+      }
+    ]
+  },
+  "mode-guide.png": {
+    "summary": "Het gebied e-mailmodus op de kaart Website-instellingen in de systeeminstellingen: één keuzemenu bepaalt hoe mail versleuteld wordt opgeslagen en hoeveel de beheerkant kan zien; de wijziging werkt onmiddellijk door.",
+    "items": [
+      {
+        "h": "Keuzemenu voor de e-mailmodus",
+        "d": "De beheerder kiest de balans uit drie niveaus: Level 1 alles in platte tekst (de beheerder ziet alle mail), Level 2 privémodus (fabrieksstandaard; correspondentie van gebruikers versleuteld in rust met AES-256-GCM), Level 3 volledige E2EE (de beheerkant krijgt helemaal geen emaillijsten van gebruikers)."
+      },
+      {
+        "h": "Badge voor versterkte privacy op Level 2",
+        "d": "Deze instantie draait in de privé-e-mailmodus: de beheerder ziet alleen spam, de prullenbak en mail zonder eigenaar, en de hoofdschakelaar van tweestapsverificatie staat vergrendeld op aan."
+      },
+      {
+        "h": "De drie uitgeklapte opties",
+        "d": "L1 alles-modus, L2 privé-e-mailmodus (aanbevolen) en L3 versleutelde e-mailmodus (E2EE) in één oogopslag. In de versleutelde modus verdwijnt de ingang voor e-mailcontrole over de hele opslag, worden tijdstempels uit operatierapporten gehaald en staat globaal doorsturen vergrendeld op uit."
+      }
+    ]
+  },
+  "roles-guide.png": {
+    "summary": "De tabel met de zes identiteitsgroepen op de pagina Rechtenbeheer: vijf gemarkeerde kolommen voor de vijf dimensies die per groep instelbaar zijn.",
+    "items": [
+      {
+        "h": "Kolom identiteitsgroep",
+        "d": "Zes groepen — Gewone gebruiker, Bezoeker, Gewone gebruiker LV.0, LV.1, Moderator en Meester — elk met een positietag. De groep bepaalt de standaardwaarden van de andere vier kolommen; Bezoeker en Meester zijn beschermd en kunnen niet worden verwijderd."
+      },
+      {
+        "h": "Kolom opslagquota",
+        "d": "Eén opslagquota voor bijlagen per groep (Bezoeker 0 MB tot Meester 1024 MB, in de interface als «onbeperkt» gelabeld). Met gekoppelde persoonlijke objectopslag tellen nieuwe bijlagen niet meer mee voor deze quota."
+      },
+      {
+        "h": "Kolom verzendlimiet",
+        "d": "Het dagelijkse verzendquotum (Gewone gebruiker 5 tot Moderator 100; Meester zonder plafond), dat elke dag opnieuw begint. Groepen die niet mogen verzenden — de Bezoeker — krijgen hier de markering «verzenden verboden»."
+      },
+      {
+        "h": "Kolom bijlagerecht",
+        "d": "Of bijlagen verzonden en ontvangen mogen worden. Groepen met «alleen platte tekst» versturen zonder bijlagen; bij open groepen blijven de opslagquota en de limiet per bestand van kracht."
+      },
+      {
+        "h": "Kolom geautoriseerde AI-modellen",
+        "d": "Welke AI-modellen de groep mag aanroepen, in samenspel met het dagquotum en de ratelimiet van de AI Hub in de systeeminstellingen — AI-capaciteit getrapt per identiteit."
+      }
+    ]
+  },
+  "login-guide.png": {
+    "summary": "De drie kerngebieden van het aanmeldscherm: één volledig traject voor aanmelden met wachtwoord; de knoppen voor snelle aanmelding via derden staan onder de kaart.",
+    "items": [
+      {
+        "h": "Veld voor het e-mailadres",
+        "d": "Het account is het e-mailadres zelf. In de registratiesleutelmodus accepteert deze pagina ook een uitnodigingsparameter `?code=` die het registratieformulier alvast invult."
+      },
+      {
+        "h": "Veld voor het wachtwoord",
+        "d": "Wachtwoorden worden als gezouten hash opgeslagen — de server ziet nooit platte tekst. «Wachtwoord vergeten» springt naar het externe beroepsportaal en draagt het beroepstype, de interfacetaal en het e-mailadres mee."
+      },
+      {
+        "h": "Aanmeldknop",
+        "d": "Na verzending gaan accounts met tweestapsverificatie door naar de tweede factor; herhaalde mislukkingen lokken een anti-bruteforce-blokkade uit. Vink «Niet opnieuw vragen op dit apparaat» aan om 30 dagen van herverificatie vrijgesteld te zijn."
+      }
+    ]
+  },
+  "twofa-guide.png": {
+    "summary": "Vier gebieden van de beveiligingspagina: bovenaan de ingangen om de accountgegevens te wijzigen, onderaan het tweestapscentrum met drie tweede factoren die gecombineerd kunnen worden.",
+    "items": [
+      {
+        "h": "Kaart gebruikersnaam en wachtwoord",
+        "d": "Wijzig de gebruikersnaam en het wachtwoord, met de datum van de laatste wijziging erbij. Ook het uitzetten van tweestapsverificatie vereist hier het wachtwoord plus een dynamische code."
+      },
+      {
+        "h": "Authenticator-app (TOTP)",
+        "d": "Na het scannen van de QR-code geeft de app elke 30 seconden een code van 6 cijfers. Zodra de koppeling klaar is, verschijnen onmiddellijk 10 back-upherstelcodes, elk eenmalig bruikbaar om aan te melden wanneer de authenticator niet beschikbaar is."
+      },
+      {
+        "h": "Back-upherstelcodes",
+        "d": "De terugvaloptie wanneer de authenticator weg is. De kaart toont hoeveel codes er nog zijn; het bekijken van de volledige codes of het opnieuw genereren vereist het wachtwoord van het account, en na een herstel vervallen alle oude codes."
+      },
+      {
+        "h": "Toegangssleutels (Passkey)",
+        "d": "Hardwarebeveiligingssleutels of biometrie van het apparaat. Een nieuw geregistreerde sleutel wordt actief zodra de gekoppelde authenticator goedkeurt (of automatisch na een tijdslimiet van 30 dagen); met «Testen» controleer je daarna het ontgrendeltraject."
+      }
+    ]
+  },
+  "apps-guide.png": {
+    "summary": "Vijf gebieden van de pagina Appbeheer: vier eindpunten bovenaan en één voorbeeldappkaart, samen de kringloop van integratie door derden — «eindpunt vinden, referenties ophalen, code overnemen».",
+    "items": [
+      {
+        "h": "`/.well-known/openid-configuration`",
+        "d": "Het eindpunt met OIDC Discovery-metadata: issuer, de eindpunten en de mogelijkheden, zelfbeschreven zodat frameworks zoals NextAuth zich automatisch kunnen configureren."
+      },
+      {
+        "h": "`/oauth/authorize`",
+        "d": "Het eindpunt voor gebruikersautorisatie: het loodst de gebruiker door aanmelden en het verlenen van toestemming. Pop-ups krijgen het resultaat terug via `postMessage`; bij annulering keert de gebruiker terug met `error=access_denied`."
+      },
+      {
+        "h": "`/api/oauth/token`",
+        "d": "Het eindpunt voor tokenuitwisseling: een eenmalig gebruikbare autorisatiecode (5 minuten geldig) wordt geruild voor een access token en een ID Token die 2 uur geldig zijn. JSON, formulier en HTTP Basic worden alle drie geaccepteerd; met PKCE wordt de `code_verifier` (S256) gecontroleerd."
+      },
+      {
+        "h": "`/api/oauth/userinfo`",
+        "d": "Het eindpunt voor het gebruikersprofiel: met een Bearer access token lees je de verleende velden (`sub`, `email`, `name`, `picture`, …). Een verlopen of ingetrokken token geeft 401 terug."
+      },
+      {
+        "h": "Appkaart (shijianus-blog)",
+        "d": "Eén kaart per app: Client ID en Client Secret (het secret wordt alleen bij aanmaak of herstel één keer volledig getoond), een aan/uit-schakelaar, bewerken/verwijderen, en vijf kant-en-klare integratiefragmenten — NextAuth, Node, Python, cURL en generieke OIDC."
+      }
+    ]
+  },
+  "notify-guide.png": {
+    "summary": "Drie exportkaarten en het kopgebied «E-mail en berichten doorsturen» op de pagina Gegevens: het bovenste deel bepaalt hoe gegevens naar buiten gaan, het onderste hoe nieuwe mail je in realtime bereikt.",
+    "items": [
+      {
+        "h": "Kaart voor volledige data-export",
+        "d": "Een volledige back-up in JSON — accountgegevens, de volledige tekst van de e-mailgeschiedenis, contacten, classificatie- en labelregels en beveiligingsinstellingen in één pakket; de belangrijkste ingang om je recht op gegevensoverdraagbaarheid uit te oefenen."
+      },
+      {
+        "h": "Kaart voor het archief van de e-mailgeschiedenis",
+        "d": "Exporteert alleen mail, in MBOX (het universele formaat dat de meeste mailclients importeren), JSON of CSV, desgewenst beperkt tot een bepaalde periode."
+      },
+      {
+        "h": "Kaart voor contacten en configuratie",
+        "d": "De derde export: het contactenboek, eigen aliasregels en personalisatievoorkeuren. Van de drie bestanden de kleinste, maar degene die bepaalt of je gewoontes een verhuizing overleven — aliasregels en het labelstelsel reizen mee, zodat niets opnieuw hoeft te worden benoemd of ingedeeld."
+      },
+      {
+        "h": "Kopgebied E-mail en berichten doorsturen",
+        "d": "Twee realtime kanalen: Telegram-berichtpush (koppel je eigen bot; alles of alleen belangrijke mail en verificatiecodes, met een leeslink op de site die 7 dagen geldig blijft) en automatisch doorsturen (bestemmingen, triggertype en de markering `[Fwd]`)."
+      }
+    ]
+  },
+  "analysis-guide.png": {
+    "summary": "De drie meters op de eerste schermhelft van de analysepagina: de bronverdeling antwoordt waar de mail vandaan komt, de twee groeicurves hoe actief de instantie is.",
+    "items": [
+      {
+        "h": "Verdeling van de e-mailbronnen",
+        "d": "De samenstelling van inkomende mail uit directe aflevering op de site en uit externe kanalen — een gezondheidscheck van het afleverkanaal; het effect van de governance (onderscheppingspercentage en spamhoeveelheid) controleer je terug in Classificatiebeheer."
+      },
+      {
+        "h": "Gebruikersgroeicurve",
+        "d": "Het verloop van het aantal geregistreerde en actieve gebruikers; afgezet tegen de groepsquota op de pagina Rechtenbeheer bepaal je wanneer je moet opschalen of de standaardgroep moet aanpassen."
+      },
+      {
+        "h": "E-mailgroeicurve",
+        "d": "Het verloop van het totale verzonden en ontvangen volume; samen met de AI-aanroeptrend op dezelfde pagina toetst het of het dagquotum en de ratelimiet van de AI Hub in de systeeminstellingen nog passen."
+      }
+    ]
+  },
+  "users-guide.png": {
+    "summary": "Vier gebieden van de gebruikerslijst: van opzoeken tot handelen per rij — het accountbeheer van de beheerder op één scherm.",
+    "items": [
+      {
+        "h": "Zoekvak op e-mailadres",
+        "d": "Bovenaan zoek je accounts op mailbox, met paginering en sortering die meteen antwoorden; samen met de tellers per rij voor verzonden/ontvangen, opslagverbruik en spam/meldingen heb je afwijkende accounts snel in het vizier."
+      },
+      {
+        "h": "Kolom e-mailadres",
+        "d": "De unieke identiteit van het account: het e-mailadres is de accountnaam en leidt alles — aanmelden, post ontvangen, elke toewijzing. Rijacties (wachtwoord resetten, groep wijzigen, blokkeren) gelden voor het account dat deze kolom noemt; de buurkolommen — verzonden/ontvangen, opslag, spam en meldingen — verraden of een account afwijkend doet."
+      },
+      {
+        "h": "Kolom opslagruimte",
+        "d": "Het actuele verbruik van de bijlagenopslag van het account; afgezet tegen de quota van de identiteitsgroep (zie de pagina Rechtenbeheer) bepaal je of opschalen of opruimen nodig is."
+      },
+      {
+        "h": "Kolom instellingen (acties)",
+        "d": "Handelingen per rij: wachtwoord herstellen (geeft een eenmalig wachtwoord uit), identiteitsgroep wijzigen, tweestapsverificatie herstellen, blokkeren en herstellen, en de mailbox van de gebruiker legen (onomkeerbaar — met beleid gebruiken)."
+      }
+    ]
+  },
+  "review-guide.png": {
+    "summary": "Zo ziet de e-mailcontrole over de hele opslag eruit in de privémodus (Level 2): het gebied heet «Spam», en het zoekvak plus de lege staat zijn de twee gemarkeerde punten.",
+    "items": [
+      {
+        "h": "Zoekvak",
+        "d": "Accepteert de `$`-syntax over de hele opslag: `$sender`/`$user`/`$to`/`$subject` plus statustokens. Met een rechtermuisklik op een treffer start je rechtstreeks een nieuwe zoekronde op diens afzender, het ontvangende account of de bezittende gebruiker."
+      },
+      {
+        "h": "Naam van het gebied in de zijbalk",
+        "d": "Naam en zichtbaar bereik volgen de e-mailmodus: Level 1 toont «Alle e-mail», Level 2 toont «Spam», en Level 3 verbergt de ingang volledig."
+      },
+      {
+        "h": "Lege staat",
+        "d": "De plaatsvervangende tekst wanneer er geen mail in quarantaine staat. Met geïsoleerde mail wordt dit gebied een lijst; een rij openen schuift de detail-lade in, waarin fysieke verwijdering mogelijk is (anders dan de prullenbak aan gebruikerskant laat dit sporen na)."
+      }
+    ]
+  },
+  "regkeys-guide.png": {
+    "summary": "De pagina Registratiesleutels in de lege staat, voordat er uitnodigingscodes zijn uitgegeven: één uitgifteknop en één zoekvak vormen de hele pagina.",
+    "items": [
+      {
+        "h": "Knop Registratiecode toevoegen",
+        "d": "De ingang voor uitgifte: het venster genereert per keer één willekeurige code van 8 tekens (met vernieuwen opnieuw te genereren), gebonden aan een identiteitsgroep, een geldigheid en een aantal gebruik (1–99999, met één vermindering per geslaagde registratie)."
+      },
+      {
+        "h": "Zoekvak voor registratiecodes",
+        "d": "Na uitgifte filter en lokaliseer je hier codes en controleer je het resterende gebruik, de gebonden groep en de geldigheid; gevoelige velden worden voor bezoekers automatisch gemaskeerd."
+      },
+      {
+        "h": "Kaart in lege staat",
+        "d": "De begeleidende plaatshouder zolang er nog geen registratiecode is uitgegeven. Daarna wordt dit gebied de codelijst, met kopiëren met één klik, de gebruikslog, het verwijderen van één code en «Ongebruikte opschonen» om in bulk ongeldig te maken."
+      }
+    ]
+  },
+  "labels-guide.png": {
+    "summary": "Drie gebieden van de pagina Labels: één ingang om labels aan te maken plus de tellers en schakelaars per rij — alles wat labels dagelijks nodig hebben.",
+    "items": [
+      {
+        "h": "Knop Nieuw label",
+        "d": "Maakt een aangepast label aan en geeft het een naam; het labelgebied in de zijbalk toont er ten hoogste 7, en vier staan fabrieksstandaard klaar: Gemeenschap, Abonnementen, Promoties en Werk."
+      },
+      {
+        "h": "Labelrij",
+        "d": "Eén kaart per label: een gekleurde labelbadge (pictogram naar keuze uit de ingebouwde bibliotheek of een eigen SVG, kleur vrij te kiezen) plus drie tellers die realtime bijwerken — totaal, huidig en onbehandeld."
+      },
+      {
+        "h": "Zichtbaarheidsschakelaar en handelingen per rij",
+        "d": "De schakelaar bepaalt of het label in de zijbalk verschijnt; bij bewerken wijzig je uiterlijk en regels, en bij verwijderen wordt het label ook uit de classificatieregels gehaald."
+      }
+    ]
+  },
+  "preferences-guide.png": {
+    "summary": "De vier kaarten van de profielpagina: van identiteit en uiterlijk via contactgegevens tot adressen — vier dimensies van je persoonlijke gegevens, kaart voor kaart.",
+    "items": [
+      {
+        "h": "Kaart basisinformatie",
+        "d": "Avatar-upload, persoonlijke bijnaam, geslacht en verjaardag. Of bijnaam en avatar openbaar te zien zijn, hangt af van de schakelaar «openbaar profiel» van de beheerder."
+      },
+      {
+        "h": "Kaart contactgegevens",
+        "d": "De hoofdmailbox van aanmelding draagt de tag «hoofdmailbox» en kan niet worden verwijderd; extra e-mailadressen kun je naar believen toevoegen en verwijderen, en er is ook ruimte voor een telefoonnummer met landcode."
+      },
+      {
+        "h": "Adreskaarten",
+        "d": "Thuis-, bedrijfs- en overige adressen worden apart bewaard, elk afzonderlijk toegevoegd, bewerkt en verwijderd. Het zijn persoonsgegevens in strikte zin: nooit gebruikt voor aflevering, zonder invloed op facturatie of rol. Of ze nodig zijn — en openbaar verschijnen — hangt af van de schakelaar \"openbaar profiel\" van de exploitant."
+      },
+      {
+        "h": "Kaart gekoppelde instellingen en beveiliging",
+        "d": "De springplank van de profielpagina naar de andere instellingenpagina's: accountbeveiliging (gebruikersnaam en wachtwoord, tweestapsverificatie) en machtigingen van derden (geautoriseerde apps) — de twee meestgebruikte ingangen — liggen hier bij elkaar, zodat je niet heen en weer hoeft te zoeken tussen profiel en beveiliging. Elke ingang springt naar de bijbehorende sectie in plaats van een nieuwe pagina te openen."
+      }
+    ]
+  },
+  "general-guide.png": {
+    "summary": "De drie kaarten van de pagina Algemeen — persoonlijke bio, persoonlijke aankleding en voorkeuren — dekken elke vorm van personalisatie van uiterlijk en leesgewoonten.",
+    "items": [
+      {
+        "h": "Kaart persoonlijke bio",
+        "d": "Een korte tekst die op je openbare profielpagina verschijnt; of die pagina bereikbaar is, bepaalt de schakelaar «openbaar profiel» van de beheerder."
+      },
+      {
+        "h": "Kaart persoonlijke aankleding",
+        "d": "Drie standen voor het uiterlijkpalet (donker/licht/systeem volgen, ook snel te wisselen in de bovenbalk) en de globale themaachtergrond (acht presets plus een eigen achtergrond of URL); daarnaast een persoonlijke achtergrond (alleen over de mailboxzone) en de interfacedichtheid."
+      },
+      {
+        "h": "Kaart voorkeuren",
+        "d": "Leesvoorkeuren (type postvak IN, positie van het leesvenster, gespreksweergave) en taal (interfacetaal uit zes, doeltaal van de AI-vertaling uit 16). De groep gegevensprivacy bundelt de ingangen voor persoonlijke gegevens en AI-verwerking."
+      }
+    ]
+  },
+  "data-guide.png": {
+    "summary": "De vier kaarten van de pagina Gegevens: drie exportformaten, een doorstuurgebied, een opslaggebied en een gebied voor autorisaties van derden — persoonlijke data-autonomie op één scherm.",
+    "items": [
+      {
+        "h": "Kaart gebruikersgegevens en data-export",
+        "d": "Drie exporten naast elkaar: de volledige back-up in JSON, het archief van de e-mailgeschiedenis (MBOX/JSON/CSV met periode) en contacten en configuratie; een los bericht is daarnaast in het leesvenster als .eml te downloaden."
+      },
+      {
+        "h": "Kaart E-mail en berichten doorsturen",
+        "d": "De instellingen van Telegram-push en automatisch doorsturen, punt voor punt; of een account ze mag gebruiken, bepaalt de schakelaar «Gebruikersgegevensbeheer» van de beheerder."
+      },
+      {
+        "h": "Kaart opslagruimte",
+        "d": "De verbruiksmeter voor bijlagen naast de quota, realtime. Je kunt je eigen Backblaze B2-/S3-bucket koppelen: nieuwe bijlagen gaan dan rechtstreeks naar je eigen cloud, buiten de quota van de instantie, en bij ontkoppelen valt het terug."
+      },
+      {
+        "h": "Kaart apps en diensten van derden",
+        "d": "Alle OAuth-autorisaties op het account: per app de toegang intrekken, of met één klik alles via het detailvenster. Intrekking werkt onmiddellijk — de bestaande tokens van de app vervallen ter plekke."
+      }
+    ]
+  },
+  "audit-guide.png": {
+    "summary": "De tabel met vier kolommen op de pagina Operatierapporten: de volledige informatielijn van één waarschuwingsticket, van «wie» via «waarom het afging» tot «waar het bewijs staat».",
+    "items": [
+      {
+        "h": "Kolom e-mailadres",
+        "d": "Het account waar dit ticket naar verwijst: het object van een maatregel (risico- of blokkeerwaarschuwing), de gemelde partij (auditwaarschuwing) of de beroepdoener (beroepswaarschuwing). Deze pagina beoordeelt alleen — het werkelijke optreden (blokkeren, herstellen, resetten) gebeurt vanaf de gebruikerslijst, dus een oordeel hier gebruik je samen met die pagina."
+      },
+      {
+        "h": "Kolom beveiligingsauditniveau",
+        "d": "De risicogradering (P0/P1-prioriteit met categorielabel): de vier klassen audit/risico/blokkade/beroep hebben elk hun eigen gebruikelijke afhandelingsroute."
+      },
+      {
+        "h": "Kolom waarschuwingstekst en triggers",
+        "d": "De beschrijving van wat het ticket heeft uitgelokt (bijvoorbeeld gelijktijdige aanmeldingen vanaf meerdere IP's of een gegronde melding) — de basis om vrij te geven of te verwerpen."
+      },
+      {
+        "h": "Kolom actieve omgevingen",
+        "d": "De volledige omgevingsinformatie in platte tekst: IP, geolocatie, apparaat en vingerafdruk. In de versleutelde modus (Level 3) worden tijdstempels weggehaald en blijven de tickets beoordeelbaar."
+      }
+    ]
+  },
+  "system-guide.png": {
+    "summary": "Vijf van de elf configuratiekaarten op de pagina Systeeminstellingen: configuratie op instantieniveau, per thema in kaarten gegroepeerd — hier de vijf meest gebruikte.",
+    "items": [
+      {
+        "h": "Kaart website-instellingen",
+        "d": "De hoofdschakelaars van de instantie: open registratie, openbare profielen, de e-mailmodus (drie niveaus), tweestapsverificatie, het verborgen aanmelddomein, registratiecodes, extra mailboxen, snel wisselen tussen accounts en de regels voor het mailboxvoorvoegsel."
+      },
+      {
+        "h": "Kaart personalisatie",
+        "d": "Het uithangbord van de instantie: de sitetitel geeft het merk aan zowel de aanmeldpagina als het browsertabblad, de dialogustekst vervangt de ingebouwde prompts, en de schakelaar dynamisch/statisch bepaalt of de aanmeldpagina animeert — statisch past beter bij zwakke apparaten en screenshots als bewijs. Wijzigingen gelden onmiddellijk voor iedereen."
+      },
+      {
+        "h": "Kaart opslag en kerndatabase",
+        "d": "Objectopslag (B2/S3, standaard met terugval op R2/KV), de architectuur van de kern- en externe databases, de limiet voor één bijlage met trapsgewijs wissen, en de gezondheidscheck van de KV-cache."
+      },
+      {
+        "h": "Kaart AI-engine",
+        "d": "De AI-aanbieder (een eigen OpenAI-compatibel eindpunt of Cloudflare Workers AI), de inschakelaar, het dagquotum en de ratelimiet, en de modelautorisatie per identiteitsgroep."
+      },
+      {
+        "h": "Kaart gebruikersgegevensbeheer",
+        "d": "Wat gewone gebruikers op de pagina Gegevens mogen: Telegram-push, e-mail doorsturen, ondersteuning voor API's van derden, eigen opslag en de standaard opslagquota. Data-export blijft altijd open en valt niet onder deze kaart."
+      }
+    ]
+  },
+  "category-guide.png": {
+    "summary": "De vier governance-kaarten van de pagina Classificatiebeheer: van de hoofdschakelaars voor ontvangst en verzending via AI-herkenning tot lijsten en harde onderschepping — vier verdedigingslinies voor inkomende mail.",
+    "items": [
+      {
+        "h": "Kaart e-mailinstellingen (schakelaars ontvangen/verzenden)",
+        "d": "De hoofdschakelaars voor ontvangst, verzending en automatisch verversen, plus de afhandeling van mail zonder geadresseerde; met ontvangst uit wordt inkomende mail ronduit geweigerd."
+      },
+      {
+        "h": "Kaart AI-model en API-sleutelintegratie",
+        "d": "De extractie van verificatiecodes door Workers AI met haar regelconfiguratie, en de configuratie van AI API Key/URL/model — van dezelfde bron als de AI Hub in de systeeminstellingen; hier wordt het herkenningsgedrag van inkomende mail gestuurd (de verificatiecodebadge en dergelijke)."
+      },
+      {
+        "h": "Kaart basislijstregels",
+        "d": "Zwarte lijst van afzenders (te configureren als labelmodus of als directe onderschepping), witte-lijstmodus (alleen afzenders op de witte lijst worden afgeleverd), zwarte lijst van trefwoorden in onderwerp en inhoud, onderschepping van afzenders zonder naam, onderschepping van niet-geadresseerden en onderschepping van uitvoerbare bijlagen."
+      },
+      {
+        "h": "Kaart harde onderscheppingsregels",
+        "d": "Het sluitstuk: ronduit weigeren en elke onderschepping meetellen. Een treffer op een lijst krijgt automatisch het bijbehorende label; het effect controleer je terug op de analysepagina."
+      }
+    ]
+  },
+  "ui-compose.png": {
+    "summary": "Het schrijfvenster van boven naar beneden: de vastgezette afzender, geadresseerden en onderwerp, de werkbalk voor tekstopmaak, het gebied om de body te bewerken en de actiebalk onderaan.",
+    "items": [
+      {
+        "h": "Afzenderregel",
+        "d": "De afzender is vergrendeld op de mailbox waarmee je bent aangemeld en is tijdens het schrijven niet te bewerken, dus mail vanaf dit platform kan geen vervalste From dragen. Accounts met meerdere mailboxen wisselen hier van verzendidentiteit; de ontvanger ziet de gekozen mailbox. Het afzenderadres bepaalt ook via welk afleverkanaal de uitgaande mail gaat."
+      },
+      {
+        "h": "Regels voor geadresseerden en onderwerp",
+        "d": "Geadresseerden accepteren contactselectie en de diepe link `?composeTo=`; het onderwerp verschijnt in de lijst en is doorzoekbaar met `subject:`."
+      },
+      {
+        "h": "Werkbalk en body",
+        "d": "17 opmaakhulpmiddelen: alinea, tekengrootte, tekststijlen, kleur, uitlijning, lijsten, citatie, koppeling, afbeelding, tabel, emoji, vertaling en broncodemodus."
+      },
+      {
+        "h": "Actiebalk onderaan",
+        "d": "De knop voor bijlagen (per rol ingeschakeld, met een limiet per bestand die per instantie is ingesteld) en de verzendknop; aflevering binnen de site is direct, naar buiten gaat het via het kanaal van de exploitant."
+      }
+    ]
+  },
+  "ui-settings-general.png": {
+    "summary": "Zo ziet de sectie Algemeen in de instellingen eruit: de linkerkolom navigeert de vijf instellingssecties, het rechterpaneel bevat de algemene items (uiterlijkpalet, themaachtergrond, …).",
+    "items": [
+      {
+        "h": "Sectienavigatie links",
+        "d": "Wisselt tussen de vijf secties Profiel/Algemeen/Beveiliging/Gegevens/Labels; zodra je de instellingen binnengaat, verdwijnt de mailzijbalk, tot je met «Terug naar mail» terugkeert."
+      },
+      {
+        "h": "Gebied persoonlijke aankleding",
+        "d": "Drie themamodi (donker, licht, systeem) en de globale achtergrond (acht presets plus een eigen afbeelding of URL). De reikwijdte is elke weergave in de app — anders dan de \"persoonlijke achtergrond\", die alleen het mailboxgebied bestrijkt. De bovenbalk heeft bovendien een snelle themaknop, dus je hoeft niet terug naar deze pagina."
+      },
+      {
+        "h": "Overige groepen",
+        "d": "De drie overige groepen op deze pagina: leesvoorkeuren (inboxtype, positie van het leesvenster, gespreksweergave), taal (één van zes interfacetalen, één van zestien AI-vertaaldoelen) en gegevensprivacy (het centrale loket voor voorkeuren over persoonsgegevens en AI-verwerking). Deze afbeelding toont alleen de kolom en het aanzien; sectie 3 van de instellingengids legt elk item uit."
+      }
+    ]
+  },
+  "ui-audit-report.png": {
+    "summary": "De pagina Operatierapporten zoals de beheerder die ziet: waarschuwingstickets in tabelvorm, met afhandelknoppen die per ticketklasse vertakken.",
+    "items": [
+      {
+        "h": "Ticketstabel",
+        "d": "Eén waarschuwing per rij, met kolommen voor categorie (audit, risicobeheersing, blokkade, beroep), prioriteit (P0/P1), huidige status en de actieve omgevingspool in platte tekst — IP, geografie, apparaat en vingerafdruk. De pool aggregeert op verzoekgedrag: de afwijking wordt pas zichtbaar als één account zich gelijktijdig vanaf vele IP's aanmeldt."
+      },
+      {
+        "h": "Afhandelknoppen",
+        "d": "De knoppen splitsen per ticketcategorie: beroepswaarschuwingen zetten \"na beoordeling vrijgeven\" het meest in het oog (vrijgeven herstelt het account), blokkeerwaarschuwingen benadrukken \"waarschuwing opheffen\", en de rest gebruikt het standaardactiemenu. De knop legt alleen het oordeel vast; de feitelijke blokkade of het herstel gebeurt vanaf de gebruikerslijst, en beide pagina's blijven gesynchroniseerd."
+      },
+      {
+        "h": "Koppeling met de modus",
+        "d": "Dezelfde tabel verandert van gedaante per mailmodus: in de alles-mailmodus (L1) is de informatie het volledigst; in de privacymodus (L2) ziet de pagina eruit als op deze afbeelding; in de versleutelde modus (L3) worden tijdstempels ontkoppeld en verdwijnt de tijdskolom — de beheerder oordeelt dan alleen op categorie en omgevingspool, zonder de volgorde van gebeurtenissen te kunnen reconstrueren."
+      }
+    ]
+  },
+  "ui-login-oauth.png": {
+    "summary": "Het aanmeldscherm in zijn geheel: één aanmeldkaart draagt aanmelden met wachtwoord, tweestapsverificatie, snelle aanmelding via derden, registratie en wachtwoord vergeten.",
+    "items": [
+      {
+        "h": "Invoergebied",
+        "d": "Het meest gevolgde pad van de pagina: het e-mailadres is het account en het wachtwoord wordt als gezouten hash bewaard — de server ziet nooit platte tekst. Herhaalde mislukkingen lokken een blokkade tegen brute force uit, waarvan de granulariteit en duur door de backend worden bepaald; met \"dit apparaat vertrouwd houden\" blijft herhaalde verificatie 30 dagen achterwege."
+      },
+      {
+        "h": "Gebied met knoppen van derden",
+        "d": "Aanbieders die de beheerder heeft ingeschakeld en van sleutels voorzien, verschijnen als knoppen; ingeschakelde aanbieders zonder sleutels staan grijs als «binnenkort»; uitgeschakelde worden niet getoond."
+      },
+      {
+        "h": "Overige trajecten",
+        "d": "Dezelfde kaart draagt nog drie paden: een account met tweestapsverificatie gaat door naar een tweede factor (TOTP, een herstelcode of een passkey); in registratiesleutelmodus pre-vult een code-parameter het registratieformulier; en \"wachtwoord vergeten\" springt naar het externe beroepsportaal met het beroepstype, de interfacetaal en het e-mailadres. Sectie 4 van de modi-pagina bevat de regels."
+      }
+    ]
+  },
+  "ui-detail-verification.png": {
+    "summary": "Het effect van de verificatiecode-extractie in de e-maildetails: de code van 6 cijfers in groot lettertype, met een groene badge in zowel de lijst als de details.",
+    "items": [
+      {
+        "h": "Gebied met de code in groot lettertype",
+        "d": "De code die Workers AI uit het onderwerp en de eerste 6,000 tekens van de body haalt, wordt direct groot weergegeven zodat je hem makkelijk kunt overnemen."
+      },
+      {
+        "h": "Groene badge",
+        "d": "Het groene merkteken op zowel de lijstrij als de detailpagina betekent \"dit bericht bevat een geëxtraheerde verificatiecode\", zodat je het al in de lijst herkent zonder elk bericht te openen. De badge verschijnt alleen bij een geslaagde extractie; zonder match of met uitgeschakelde extractie blijft hij weg — zijn afwezigheid bewijst dus niet dat de mail veilig is, alleen dat er geen code te kopiëren valt."
+      },
+      {
+        "h": "Grens",
+        "d": "Dit is de enige AI-verwerking die niet handmatig wordt getriggerd; je kunt haar in de algemene instellingen uitzetten. De reikwijdte en de manier om je eraan te onttrekken staan in sectie 6 van het Privacybeleid."
+      }
+    ]
+  },
+  "ui-inbox-en.png": {
+    "summary": "Het postvak IN in de Engelse interface: volledig gelijk van structuur aan de Chinese versie; de symmetrie van het woordenboek in zes talen wordt door statische auditscripts gewaarborgd.",
+    "items": [
+      {
+        "h": "Zijbalk",
+        "d": "Weergaven als Compose, Starred, Snoozed en Sent en de labels Social/Subscriptions/Promotions/Work corresponderen één op één."
+      },
+      {
+        "h": "Lijst",
+        "d": "Afzender, onderwerp, samenvatting en verificatiecodebadge staan exact op dezelfde plek, in dezelfde grootte en kleur als in de Chinese build: lokalisatie wisselt alleen teksten uit, nooit de opmaak — daarom blijven schermafbeeldingen en instructies tussen talen herbruikbaar. Data, getallen en tellers worden ook opgemaakt volgens de interfacetaal."
+      },
+      {
+        "h": "Wisselen",
+        "d": "Hier stel je de interfacetaal in: een keuze uit zes (vereenvoudigd Chinees, traditioneel Chinees, English, Español, Français, Nederlands) in de groep \"Taal\" van de algemene instellingen, met onmiddellijke werking en zonder opnieuw in te loggen. Weergave en bezorging zijn gescheiden — systeemmeldingen en welkomstmail worden opgemaakt in de eigen taal van elke ontvanger, niet in de interfacetaal van de afzender."
+      }
+    ]
+  },
+  "ui-inbox-mobile.png": {
+    "summary": "Het postvak IN op mobiel bij een breedte van 375: de zijbalk klapt in tot een lade en de lijst blijft volledig leesbaar.",
+    "items": [
+      {
+        "h": "Zijbalk als lade",
+        "d": "Onder 1025 pixels breed klapt de linkerkolom in tot een lade: de hamburgerknop opent hem over een afschermvlak heen en zodra je een weergave kiest sluit hij weer, zodat het leesvenster vrij blijft. Desktop en mobiel delen dezelfde zijbalkstructuur, dus tellers en labels zijn in beide vormen exact gelijk."
+      },
+      {
+        "h": "Zwevende knop Schrijven",
+        "d": "De mobiele tegenhanger van de knop Schrijven op het bureaublad: vastgezet rechtsonder, blijft zichtbaar tijdens scrollen en opent bij een tik het volledige schrijfvenster. Hij verschijnt alleen bij accounts met verzendrecht — een Bezoeker of een groep met verzenden uit ziet hem nooit en kan het opstelscherm dus niet bereiken."
+      },
+      {
+        "h": "Lijst",
+        "d": "Dezelfde gevirtualiseerde lijst als op het bureaublad: een lange mailbox rendert alleen de zichtbare rijen, zodat het eerste beeld niet vertraagt naarmate de mailbox groeit. Raakdoelen zijn vergroot voor mobiel bereik, terwijl informatiedichtheid en kolomstructuur identiek blijven — mobiele schermafbeeldingen blijven dus geldig om velden te controleren."
+      }
+    ]
+  },
+  "ui-account-menu.png": {
+    "summary": "Het avatarmenu dat rechtsboven in het postvak IN wordt uitgeklapt: het verzamelpunt voor het wisselen tussen meerdere accounts en de accountgegevens.",
+    "items": [
+      {
+        "h": "Accountrij",
+        "d": "Het huidige account (admin · Meester) met een wisselpijl; in de multi-accountmodus worden alle aangemelde sessies opgesomd, geïsoleerd achter het voorvoegsel `/mail/u/N/`."
+      },
+      {
+        "h": "Knop «uw Epomail-accounts beheren»",
+        "d": "De ingang om een account toe te voegen: de klik meldt het nieuwe account aan via de speciale diepe koppeling van de aanmeldpagina en je komt terug met één sessie meer. Het punt is het \"niet-overschrijven\" — het nieuwe account verdringt de huidige sessie niet; elke werkruimte zit achter een /mail/u/N/-padprefix geïsoleerd, dus wisselen is alleen het prefix veranderen, opnieuw inloggen is niet nodig."
+      },
+      {
+        "h": "Opslagverbruikbalk",
+        "d": "De voortgangsbalk voor de bijlagenopslag van dit account: de teller is de gebruikte ruimte, de noemer het quotum van de rol (per-rol fabriekswaarden op de rollenpagina). Nadat persoonlijke objectopslag is gekoppeld, tellen nieuwe bijlagen hier niet meer mee — een balk die stopt met groeien betekent dus niet dat er geen bijlagen meer aankomen."
+      }
+    ]
+  }
+}

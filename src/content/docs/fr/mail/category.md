@@ -3,15 +3,25 @@ title: Classement
 description: Classement d'EpoCanvas Mail — interrupteurs de réception et d'envoi, configuration de la reconnaissance par IA, listes blanche et noire et règles d'interception stricte à l'échelle du site.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 Le classement est l'interface de gouvernance à l'échelle du site de la zone d'administration (`#manage/admin/rules`, clé de permission `setting:query`) ; il superpose aux règles personnelles des utilisateurs une gouvernance de la réception à l'échelle de toute l'instance. Les règles d'étiquettes personnelles figurent dans [Gestion des étiquettes et du classement](/fr/mail/labels/) ; la sémantique des champs de conditions, à la section 7 de la [Référence de la recherche et des règles](/fr/mail/search/).
 
 ![Figure : l'interface de gestion du classement](/images/mail/fr/ui/category-guide.png)
 
 *Figure : l'interface de gestion du classement*
-*Annotations: 1. Email ｜ 2. AI modèle & API  ｜ 3. Règles de liste  ｜ 4. Règles de rejet *
 
+<details>
+<summary>Guide visuel : Classification  —  les quatre lignes de défense du courrier entrant</summary>
+
+Les quatre cartes de gouvernance de la page Classement : des interrupteurs généraux à la reconnaissance par IA, puis aux listes et au blocage dur — les quatre lignes de défense de la gouvernance de la réception à l'échelle du site.
+
+1. **Carte paramètres du courrier (interrupteurs de réception et d'envoi)** : Les interrupteurs généraux de la réception, de l'envoi et de l'actualisation automatique, ainsi que l'interrupteur de traitement des courriels sans destinataire ; une fois la réception désactivée, les courriels entrants sont rejetés d'emblée.
+2. **Carte modèle IA et intégration de clé d'API** : L'extraction des codes de vérification par Workers AI et ses règles, ainsi que la configuration de la clé d'API IA/URL/modèle — de même source que l'AI Hub des paramètres système ; ce qui se règle ici commande le comportement de reconnaissance à l'arrivée (badge de code de vérification, etc.).
+3. **Carte règles de listes de base** : Liste noire d'expéditeurs (configurable en mode étiquette ou en interception directe), mode liste blanche (seuls les expéditeurs de la liste blanche sont remis), liste noire de mots-clés d'objet et de contenu, interception des expéditeurs sans nom, interception des non-destinataires et interception des pièces jointes exécutables.
+4. **Carte règles de blocage dur** : Le moyen terminal : rejeter net et comptabiliser chaque interception. Une correspondance dans les listes applique automatiquement l'étiquette correspondante ; l'effet des interceptions se revérifie sur la page d'analyse.
+
+</details>
 
 ## 1. Interrupteurs de réception, d'envoi et d'actualisation
 

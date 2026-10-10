@@ -3,14 +3,25 @@ title: Mailboxinterface en e-maildetails
 description: Mailboxinterface en e-maildetails van EpoCanvas Mail — een stap voor stap uiteenzetting van de acht weergaven, alle acties op de e-maildetailpagina, het schrijfvenster als overlay en de gespreksthreads.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 Deze pagina loopt elke weergave van de hoofdinterface van de mailbox en elke actie op de e-maildetailpagina één voor één langs. De routes van de weergaven en de opbouw van de interface staan in de [Interface en routekaart](/nl/mail/interface/); het zoeken en de regels achter het ordenen staan in de [Zoek- en regelreferentie](/nl/mail/search/).
 
 ![Postvak IN van EpoCanvas Mail: driedelig gesplitst aanzicht, verificatiecodebadge en officiële verificatiemarkering (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/views-guide.png)
 
 *Figuur: de postvak IN. Lijst, leesvenster en zijbalk werken samen; de tellers worden onmiddellijk vernieuwd.*
-*Aantekeningen: 1. Opstellen　2. Met ster　3. Uitgesteld1　4. Verzonden*
+
+<details>
+<summary>Visuele handleiding: De inbox in één oogopslag —  de vier meestgebruikte ingangen</summary>
+
+De vier gemarkeerde gebieden van deze panoramafoto van het postvak IN komen overeen met de vier ingangen die dagelijks het meest worden gebruikt: een nieuw bericht schrijven, belangrijke mail terugvinden, uitgestelde zaken nakijken en controleren wat er verzonden is.
+
+1. **Schrijven (hoofdknop boven in de zijbalk)**: De enige ingang voor nieuwe mail: een klik opent het schrijfvenster als overlay (geen eigen route). Op mobiel wordt het een zwevende knop, en de diepe link `?composeTo=<address>` vult de geadresseerde alvast in. Vanuit elke weergave te gebruiken.
+2. **Met ster (map in de zijbalk)**: Alle mail met een ster komt hier ongeacht de map samen: klik op het sterpictogram in een lijstrij om een bericht toe te voegen. Gebruik het voor mail die je bij de hand wilt houden; de teller in de zijbalk werkt realtime bij.
+3. **Uitgesteld (map in de zijbalk)**: Een wachtruimte voor uitgestelde opvolging, met twee niveaus («dringend» en «wachtend»). Kies bij een bericht «Uitstellen» met een tijdstip; zodra die tijd aanbreekt, keert het automatisch terug bovenaan het postvak IN, zodat belangrijke zaken niet wegzakken.
+4. **Verzonden (map in de zijbalk)**: Het archief van alles wat dit account heeft verzonden. Het uitgaande volume is begrensd door het dagelijkse quotum van de rol; mail binnen de site wordt rechtstreeks afgeleverd, mail naar buiten gaat via het afleverkanaal.
+
+</details>
 
 ## 1. De acht weergaven
 

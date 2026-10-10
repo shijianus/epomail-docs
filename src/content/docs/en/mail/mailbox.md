@@ -3,14 +3,25 @@ title: Mailbox Interface & Message Detail
 description: EpoCanvas Mail mailbox interface guide — the eight views, every message-detail action, the compose overlay and conversation threading, step by step.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 This page walks through every view of the mailbox main interface and every action on the message-detail page. The routes of each view and the interface skeleton are in the [Interface & Route Map](/en/mail/interface/); the search and rules behind organising are in the [Search & Rules Reference](/en/mail/search/).
 
 ![EpoCanvas Mail inbox: three-pane split, verification-code badges and official-sender marks (interface in Simplified Chinese)](/images/mail/en/ui/views-guide.png)
 
 *Figure: the inbox. List, reading pane and sidebar work in concert; counters refresh on the spot.*
-*Annotations: 1. Compose　2. Starred　3. Snoozed1　4. Sent*
+
+<details>
+<summary>Walkthrough: The inbox at a glance —  the four entries you reach for first</summary>
+
+Four annotated regions of the inbox, matching the four most-used entries: writing a new message, revisiting starred mail, checking deferred items and auditing what was sent.
+
+1. **Compose (top sidebar button)**: The single entry point for new mail: it opens the compose overlay (not a route). On mobile it becomes a floating button, and the `?composeTo=<address>` deep link pre-fills the recipient. Available from any view.
+2. **Starred (sidebar folder)**: Every starred message gathers here across folders: tap the star on a list row to add one. Use it for mail you must keep at hand; the sidebar count updates in real time.
+3. **Snoozed (sidebar folder)**: A holding area for deferred follow-ups in two tiers (urgent and waiting). Choose "Snooze" on a message with a time; it returns to the top of the inbox automatically when due.
+4. **Sent (sidebar folder)**: The archive of everything this account sent. Outbound volume is capped by the role's daily quota; in-site mail is delivered directly, off-site mail goes through the delivery channel.
+
+</details>
 
 ## 1. The eight views
 

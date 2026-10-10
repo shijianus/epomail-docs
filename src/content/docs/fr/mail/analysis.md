@@ -3,15 +3,24 @@ title: Page d'analyse
 description: Page d'analyse d'EpoCanvas Mail — tableaux de bord du volume de courriels, du taux d'interception, de la distribution des sources, des courbes de croissance et de l'usage de l'IA côté administration.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 La page d'analyse est le tableau de bord de données de la zone d'administration (`#manage/admin/analysis`, clé de permission `analysis:query`) ; elle agrège les indicateurs de courriels, d'utilisateurs et d'usage de l'IA de l'instance. Le périmètre de chaque indicateur varie avec le mode courriel : en mode chiffré (Level 3), l'administration ne lit pas le contenu des courriels des utilisateurs et les compteurs concernés restent au niveau des métadonnées.
 
 ![Figure : la page d'analyse](/images/mail/fr/ui/analysis-guide.png)
 
 *Figure : la page d'analyse*
-*Annotations: 1. email Source ｜ 2. utilisateur Grow ｜ 3. email Growth*
 
+<details>
+<summary>Guide visuel : L'en-tête des statistiques  —  trois jauges, trois questions</summary>
+
+Les trois indicateurs en tête de la page d'analyse : la distribution des sources répond à « d'où viennent les courriels », les deux courbes de croissance à « quelle est la tendance d'activité de l'instance ».
+
+1. **Distribution des sources des courriels** : La part des différentes provenances entrantes — livraison directe sur le site, canaux externes — sert à évaluer la santé du canal de livraison ; pour l'effet de la gouvernance (taux d'interception et volume de pourriels), retournez au Classement.
+2. **Courbe de croissance des utilisateurs** : L'évolution dans le temps des comptes inscrits et des comptes actifs. À lire en regard des quotas de chaque groupe d'identité sur la page des permissions, pour juger quand agrandir ou changer le groupe par défaut.
+3. **Courbe de croissance des courriels** : L'évolution dans le temps du volume total envoyé et reçu. Avec la tendance des appels IA de la même page, elle sert à vérifier si le quota quotidien et la limite de débit de l'AI Hub dans les paramètres système restent pertinents.
+
+</details>
 
 ## 1. Tour d'horizon des indicateurs
 

@@ -3,7 +3,7 @@ title: Data Processing & Security Maintenance
 description: EpoCanvas Mail data security and personal-data protection — security measures, dual-track operating boundaries, exercise of your rights, and security-incident response.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.16**
+**Effective Date: October 5, 2026 | Version: 5.17**
 
 This document describes the measures with which the official hosted instance (mail.epocanvas.com) protects data, the boundaries of responsibility between the hosted service and the open-source project, and how you can query, export, and delete your own data. It is established under the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/); the technical facts stated here follow the actual implementation in the open-source code.
 

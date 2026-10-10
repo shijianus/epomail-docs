@@ -3,14 +3,26 @@ title: Permissions
 description: EpoCanvas Mail permissions — the six identity groups, item-by-item permission keys, the default group and group protection, and blog-level tier linkage, for administrators.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 Permissions is the admin area's identity-group management interface (`#manage/admin/roles`, permission key `role:query`), deciding each group's quotas, permission keys and AI model authorisation. The user-side behaviour of each group is in Section 3 of [Operating Modes](/en/mail/modes/).
 
 ![EpoCanvas Mail permissions page: the six-group table with quota, sending-limit, attachment-permission and AI model authorisation columns (interface in Simplified Chinese)](/images/mail/en/ui/roles-guide.png)
 
 *Figure: the architecture and grading overview on the permissions page. The interface labels the Master group's sending and storage as "unlimited".*
-*Annotations: 1. 　2. Name　3. Storage Quota　4. Sending Limit　5. Attachment Permi*
+
+<details>
+<summary>Walkthrough: Roles —  five columns deciding what a role may do</summary>
+
+The six-role table on the roles page: five annotated columns for the five dimensions adjustable per role.
+
+1. **Role identity column**: Six roles — Regular, Visitor, Regular LV.0, LV.1, Moderator and Owner — each with a positioning tag. The role determines the defaults of the other four columns; Visitor and Owner are protected and cannot be deleted.
+2. **Storage quota column**: One attachment-storage quota per role (Visitor 0 MB up to Owner 1024 MB, shown as "unlimited"). With personal object storage connected, new attachments stop consuming this quota.
+3. **Sending limit column**: The daily sending quota (Regular 5 up to Moderator 100; Owner unlimited), reset every day. Roles barred from sending — the Visitor — are flagged here.
+4. **Attachment column**: Whether attachments may be sent and received. "Text-only" roles mail without attachments; enabled roles are still bounded by the storage quota and the per-file cap.
+5. **Authorized AI models column**: Which AI models the role may call, together with the AI Hub's daily quota and rate limits — AI capacity tiered by role.
+
+</details>
 
 ## 1. Groups and quotas
 

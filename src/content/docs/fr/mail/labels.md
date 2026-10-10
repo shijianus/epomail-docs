@@ -3,7 +3,7 @@ title: Gestion des étiquettes et du classement
 description: Gestion des étiquettes et du classement d'EpoCanvas Mail — création des étiquettes, icônes et couleurs, entretien heuristique des quatre étiquettes d'usine, constructeur de règles de classement et présentation des statistiques.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 Les étiquettes et les règles de classement se gèrent dans « Paramètres → Étiquettes » (`#settings/labels`). La table complète des champs de conditions figure à la section 7 de la [Référence de la recherche et des règles](/fr/mail/search/) ; la présente page décrit la manipulation des étiquettes elles-mêmes et leurs statistiques.
 
@@ -11,6 +11,16 @@ Les étiquettes et les règles de classement se gèrent dans « Paramètres → 
 
 *Figure : l'interface des étiquettes et du classement*
 
+<details>
+<summary>Guide visuel : Les étiquettes  —  une entrée de création et trois gestes par ligne</summary>
+
+Trois régions de la page des étiquettes : une entrée de création, puis les compteurs et l'interrupteur de chaque ligne — tout ce que la gestion des étiquettes demande au quotidien.
+
+1. **Bouton de nouvelle étiquette** : Crée une étiquette personnalisée et la nomme ; la zone d'étiquettes de la barre latérale en affiche au plus 7, et quatre sont livrées d'usine : Communauté, Abonnements, Promotions et Travail.
+2. **Ligne d'étiquette** : Une carte par ligne : une pastille colorée (icône au choix dans la bibliothèque intégrée ou SVG personnalisé, palette de couleurs personnalisable) et trois compteurs en temps réel — total, actuels et non traités.
+3. **Interrupteur d'affichage et actions de ligne** : L'interrupteur décide si l'étiquette apparaît dans la barre latérale ; Modifier change l'apparence et les règles ; supprimer une étiquette lève aussi ses références dans les règles de classement.
+
+</details>
 
 ## 1. Création et apparence des étiquettes
 

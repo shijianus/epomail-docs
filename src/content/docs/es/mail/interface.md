@@ -3,14 +3,25 @@ title: Mapa de interfaz y rutas
 description: Mapa de interfaz y rutas de EpoCanvas Mail — las ocho vistas del buzón, la capa de redacción, todas las rutas de configuración y de administración, los flujos de la superficie de inicio de sesión, la página de consentimiento OAuth y los perfiles públicos.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.17**
 
 Esta página recorre una a una las interfaces de EpoCanvas Mail y sus rutas. Una ubicación consta de dos partes: el prefijo de ruta `/mail/u/N/` (N es el índice de sesión multicuenta; siempre 0 con una sola cuenta) y la ruta de vista tras `#` (por ejemplo `#inbox`). Las rutas directas heredadas como `/inbox` se normalizan automáticamente. La superficie de inicio de sesión se despliega por separado bajo `/login/`. Lo que permite cada ruta lo deciden los permisos del grupo de identidad; véase [Modos de funcionamiento](/es/mail/modes/); el efecto de cada ajuste se describe en la [Guía de configuración](/es/mail/settings/).
 
 ![Panorama de la bandeja de entrada de EpoCanvas Mail: a la izquierda, el acceso de redacción y el árbol de carpetas; a la derecha, la lista de correo con insignias de código de verificación y marcas oficiales (interfaz en chino simplificado)](/images/mail/es/ui/views-guide.png)
 
 *Figura: la bandeja de entrada (`#inbox`). Las ocho vistas comparten un mismo esqueleto de lista; los contadores y las etiquetas se mantienen sincronizados.*
-*Anotaciones: 1. Redactar　2. Destacados　3. Pospuestos1　4. Enviados*
+
+<details>
+<summary>Guía visual: La bandeja de entrada de un vistazo —  las cuatro entradas que más se usan</summary>
+
+Cuatro regiones anotadas de la bandeja de entrada, correspondientes a los cuatro accesos más usados: redactar un mensaje nuevo, releer el correo destacado, revisar lo aplazado y cotejar lo ya enviado.
+
+1. **Redactar (botón principal en la parte superior de la barra lateral)**: Es el único punto de entrada para crear correo nuevo: abre la capa de redacción superpuesta (no es una ruta independiente). En el móvil pasa a ser un botón flotante en la esquina inferior derecha, y el enlace profundo `?composeTo=<address>` permite prellenar el destinatario. Desde cualquier vista se puede empezar a escribir con un solo clic.
+2. **Destacados (carpeta de la barra lateral)**: Aquí se reúne el correo destacado de todas las carpetas: basta pulsar la estrella en una fila de la lista para añadirlo. Sirve para conservar a mano el correo que hay que guardar largo tiempo o releer con frecuencia; el contador de la barra lateral refleja la cantidad en tiempo real.
+3. **Aplazados (carpeta de la barra lateral)**: Zona de espera para los seguimientos aplazados, en dos niveles: urgente y en espera. Al elegir «Aplazar» en la página de detalle y fijar una hora, el mensaje vuelve solo a la parte superior de la bandeja de entrada cuando llega el momento, de modo que lo importante no se hunde en la lista.
+4. **Enviados (carpeta de la barra lateral)**: Copia de todo el correo que ha salido de esta cuenta, útil para comprobar qué se ha entregado realmente. El volumen saliente está sujeto a la cuota diaria de envío del rol de la cuenta; el correo dentro del sitio se entrega directamente y el dirigido fuera de él pasa por el canal de entrega.
+
+</details>
 
 ## 1. Interfaz principal del buzón
 
@@ -33,6 +44,18 @@ La redacción es una capa superpuesta y no una ruta; se abre desde tres lugares:
 ![Ventana de redacción de EpoCanvas Mail: el remitente queda fijado al buzón actual, barra de herramientas de texto enriquecido con adjuntos y botón de envío](/images/mail/ui/ui-compose.png)
 
 *Figura: la capa de redacción. El correo hacia los buzones del sitio se entrega directamente; el correo fuera del sitio pasa por el canal de entrega del operador.*
+
+<details>
+<summary>Guía visual: La ventana de redacción, región por región, de arriba abajo</summary>
+
+Las regiones de la capa de redacción, de arriba abajo: remitente fijado, destinatarios y asunto, barra de herramientas de texto enriquecido, área de edición del cuerpo y barra de acciones inferior.
+
+- **Línea del remitente**: El remitente queda fijado al buzón con el que se ha iniciado sesión y no puede modificarse mientras se escribe, de modo que el correo salido de esta plataforma no admite un From falsificado. Las cuentas con varios buzones cambian de identidad de envío en esta misma línea, y el destinatario ve el buzón que se haya elegido. La dirección del remitente decide además por qué canal de entrega sale el correo.
+- **Líneas de destinatarios y asunto**: Los destinatarios admiten la selección de contactos y el enlace profundo `?composeTo=`; el asunto aparece en la lista y puede buscarse con `subject:`.
+- **Barra de herramientas y área del cuerpo**: 17 herramientas de formato: párrafo, tamaño de fuente, estilos de letra, color, alineación, listas, cita, enlace, imagen, tabla, emojis, traducción y modo de código fuente.
+- **Barra de acciones inferior**: El botón de adjuntos (capacidad habilitada según el rol, límite por archivo según la configuración de la instancia) y el botón de envío; la entrega dentro del sitio es directa y la externa va por el canal configurado por el Operador.
+
+</details>
 
 ## 2. Esqueleto de la interfaz
 
@@ -63,6 +86,17 @@ Al entrar en la configuración, el área principal se sustituye por los paneles 
 
 *Figura: la sección General. Las cinco secciones de configuración comparten un mismo esqueleto; la columna izquierda es la navegación de secciones.*
 
+<details>
+<summary>Guía visual: El armazón de los ajustes —  la columna izquierda y el panel derecho</summary>
+
+El aspecto de la sección de configuración general: la columna izquierda navega por las cinco secciones de ajustes y el panel derecho contiene los elementos generales (paleta de apariencia, fondo de pantalla temático, etc.).
+
+- **Navegación de secciones de la columna izquierda**: Conmuta entre las cinco secciones Perfil, General, Seguridad, Datos y Etiquetas; al entrar en la configuración, la barra lateral del correo se oculta y se vuelve a la interfaz principal con «Volver al correo».
+- **Zona de personalización de la apariencia**: Los tres estados de la paleta (oscura, clara y seguir el sistema) y el fondo de pantalla temático global (ocho preajustes más una imagen o URL personalizada). Su alcance son todas las vistas de la aplicación, a diferencia del fondo personal, que solo cubre la zona del buzón. La barra superior incorpora además un conmutador rápido de paleta, para no tener que volver a esta página.
+- **Resto de grupos**: Los tres grupos restantes de esta página: preferencias de lectura (tipo de bandeja de entrada, posición del panel de lectura y vista por conversaciones), idioma (un idioma de interfaz entre seis y un destino de traducción por IA entre 16) y privacidad de datos (el punto de encuentro de las preferencias sobre información personal y tratamiento por IA). La figura solo muestra la columna de navegación y el aspecto; la sección 3 de la guía de configuración explica cada punto.
+
+</details>
+
 ## 4. Zona de administración
 
 Las rutas de administración adoptan la forma `#manage/admin/<section>`; el segmento del grupo de la ruta debe coincidir con la identidad de la cuenta (`admin` para el Maestro, `moderator` para los moderadores) y, en caso contrario, se normaliza a una sección disponible. Cada sección está vinculada a una clave de permiso independiente, concedida grupo por grupo en la página de permisos:
@@ -83,6 +117,17 @@ Las rutas de administración adoptan la forma `#manage/admin/<section>`; el segm
 
 *Figura: el informe de auditoría (`#manage/admin/audit`). La revisión ocurre en una única lista; los botones de tratamiento se reparten por clase de alerta.*
 
+<details>
+<summary>Guía visual: El informe de operaciones como tabla en la gestión</summary>
+
+La página de informes de operaciones tal como la ve el lado administrativo: los avisos se estudian en una tabla y los botones de tratamiento se reparten según la clase de aviso.
+
+- **Tabla de avisos**: Un aviso por fila, con columnas de categoría (auditoría, riesgo, bloqueo y recurso), prioridad (P0/P1), estado actual y la información del grupo de entornos activos en texto claro: IP, geolocalización, dispositivo y huella. El grupo se agrega según el comportamiento de las solicitudes, de modo que la anomalía solo se vuelve visible cuando una misma cuenta inicia sesión simultáneamente desde varias IP.
+- **Botones de tratamiento**: Los botones se reparten según la categoría del aviso: en la alerta de recurso destaca «Liberar tras el estudio» (liberar restaura la cuenta), en la de bloqueo destaca «Levantar la alerta» y el resto pasa al menú de operaciones estándar. El botón solo registra el veredicto; el bloqueo o la restauración se ejecutan desde la página de la lista de usuarios, y ambas páginas mantienen el estado sincronizado.
+- **Efecto del modo**: Una misma tabla con tres formas: en el modo de todo el correo (L1) es la que más información ofrece; en el modo privado (L2) luce como en esta figura; y en el modo cifrado (L3) las marcas de tiempo se suprimen y la columna de tiempo se oculta, de modo que el administrador solo puede juzgar por la categoría y el grupo de entornos, sin forma de reconstruir el orden de los hechos.
+
+</details>
+
 ## 5. Superficie de inicio de sesión
 
 `/login/` es una aplicación de inicio de sesión independiente, desplegada aparte de la interfaz principal. Una única tarjeta de inicio de sesión acoge todos los flujos:
@@ -99,6 +144,17 @@ Las rutas de administración adoptan la forma `#manage/admin/<section>`; el segm
 ![Página de inicio de sesión de EpoCanvas Mail: campos de correo y contraseña, casilla de «mantener la conexión orbital» y botones de acceso rápido de terceros (interfaz en chino simplificado)](/images/mail/ui/ui-login-oauth.png)
 
 *Figura: la página de inicio de sesión. La regla de visualización de tres estados de los botones de terceros figura en la sección 4 de [Modos de funcionamiento](/es/mail/modes/).*
+
+<details>
+<summary>Guía visual: Todos los flujos que carga la página de acceso</summary>
+
+El conjunto de la página de inicio de sesión: una misma tarjeta alberga el acceso con contraseña, la verificación en dos pasos, el acceso rápido de terceros, el registro y la recuperación de contraseña.
+
+- **Zona de entrada**: El camino que siguen casi todos los usuarios: el correo es la cuenta y la contraseña se almacena como resumen con sal, sin que el servidor entre en contacto con el texto claro. Los fallos consecutivos activan el bloqueo antifuerza bruta, cuya granularidad y duración decide el back-end; si se marca «mantener la conexión orbital», este dispositivo queda exento de volver a verificarse durante 30 días.
+- **Zona de botones de terceros**: Los proveedores que el administrador ha activado y dotado de credenciales aparecen como botones; los activados sin credenciales se muestran atenuados como «próximamente» y los desactivados no se muestran.
+- **Resto de flujos**: La misma tarjeta alberga otras tres rutas: las cuentas con verificación en dos pasos pasan, tras el envío, a un segundo factor (TOTP, un código de recuperación o una llave de acceso); en el modo de código de registro, un parámetro de código prellena directamente el formulario de registro; y «he olvidado mi contraseña» salta al portal externo de apelaciones con el tipo de apelación, el idioma de la interfaz y el correo. Las reglas una a una están en la sección 4 de la página de modos de funcionamiento.
+
+</details>
 
 ## 6. Páginas independientes y capacidades globales
 

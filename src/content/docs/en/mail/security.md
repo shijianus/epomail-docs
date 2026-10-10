@@ -3,14 +3,25 @@ title: Account Security Guide
 description: The EpoCanvas Mail account security guide — enabling two-step verification in three steps, managing recovery codes, registering passkeys, sign-in verification behaviour and account deletion.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.16**
+**Effective date: 5 October 2026 | Version: 5.17**
 
 This page walks through every action on the "Settings → Security" page. The overall behaviour of two-step verification (trusted devices, forced policies) is described in [Operating Modes](/en/mail/modes/), Section 4; this page only covers configuration. Entry: sidebar "Settings → Security" (`#settings/security`).
 
 ![EpoCanvas Mail security settings page: password change and the two-step verification centre with three second factors](/images/mail/en/ui/twofa-guide.png)
 
 *Figure: the security page. Username and password above, the two-step verification centre below.*
-*Annotations: 1. Authenticator Ap　2. Backup Recovery 　3. Passkeys & Secur　4. Back to Mail*
+
+<details>
+<summary>Walkthrough: The two-step centre —  four cards, three second factors</summary>
+
+Four regions of the security page: the credential change entry on top, and the two-step-verification centre listing three second factors that can be combined.
+
+1. **Username and password card**: Change the username and password, with the last change shown. Disabling two-step verification also requires the password plus a dynamic code here.
+2. **Authenticator app (TOTP)**: After scanning the QR code it yields a 6-digit code every 30 seconds. Completing binding immediately reveals 10 recovery codes, each single-use, for moments when the app is unavailable.
+3. **Backup recovery codes**: The fallback when the app is gone. The card shows how many remain; revealing the full codes or regenerating requires the account password, and a reset voids all old codes.
+4. **Passkeys**: Hardware security keys or device biometrics. A newly registered passkey activates once approved by the bound authenticator (or automatically after a 30-day time lock); "Test" then verifies the unlock flow.
+
+</details>
 
 ## 1. Security page tour
 

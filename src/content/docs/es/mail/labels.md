@@ -3,7 +3,7 @@ title: Gestión de etiquetas y clasificación
 description: Gestión de etiquetas y clasificación de EpoCanvas Mail — creación de etiquetas, iconos y colores, mantenimiento heurístico de las cuatro etiquetas de fábrica, constructor de reglas de clasificación y presentación de estadísticas.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 Las etiquetas y las reglas de clasificación se gestionan en «Configuración → Etiquetas» (`#settings/labels`). La tabla completa de campos de condición de las reglas figura en la sección 7 de [Referencia de búsqueda y reglas](/es/mail/search/); esta página cubre las operaciones y estadísticas de las etiquetas propiamente dichas.
 
@@ -11,6 +11,16 @@ Las etiquetas y las reglas de clasificación se gestionan en «Configuración �
 
 *Figura: la interfaz de etiquetas y clasificación*
 
+<details>
+<summary>Guía visual: Las etiquetas —  una entrada de creación y tres acciones por fila</summary>
+
+Tres regiones anotadas de la página de etiquetas: un acceso de creación y, dentro de cada fila de etiqueta, los contadores y el interruptor que cubren todo el manejo diario de las etiquetas.
+
+1. **Botón de etiqueta nueva**: Crea y nombra una etiqueta personalizada. La zona de etiquetas de la barra lateral muestra como máximo 7, y cuatro vienen de fábrica: Comunidad, Suscripciones, Promociones y Trabajo.
+2. **Fila de etiqueta**: Una tarjeta por fila: la insignia de color de la etiqueta (icono a elegir del catálogo incorporado o SVG personalizado, con color de la paleta a medida) y tres contadores en tiempo real —total, cantidad actual y sin tratar.
+3. **Interruptor de visualización y operaciones de fila**: El interruptor decide si la etiqueta se muestra en la barra lateral; editar cambia su aspecto y sus reglas, y eliminar una etiqueta deshace también sus referencias en las reglas de clasificación.
+
+</details>
 
 ## 1. Creación y aspecto de las etiquetas
 

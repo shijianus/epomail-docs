@@ -3,7 +3,7 @@ title: Guía de configuración
 description: Guía de configuración de EpoCanvas Mail — las cinco secciones de la configuración personal (perfil, general, seguridad, datos, etiquetas) y el recorrido completo por las nueve secciones de la consola de administración y las tarjetas de configuración del sistema.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.17**
 
 EpoCanvas Mail divide su configuración en dos zonas: la zona «configuración» de la barra lateral reúne los ajustes personales que cada cuenta puede modificar por sí misma, en cinco secciones — perfil, general, seguridad, datos y etiquetas; la zona «administración» solo aparece para los grupos de identidad con permisos administrativos y alberga la configuración al nivel de la instancia. Esta página recorre cada zona y las relaciones entre los ajustes. Para el comportamiento a nivel de funcionamiento — multicuenta, modos de correo, inicio de sesión —, véase [Modos de funcionamiento](/es/mail/modes/).
 
@@ -22,7 +22,18 @@ EpoCanvas Mail divide su configuración en dos zonas: la zona «configuración»
 ![Página de perfil de EpoCanvas Mail: la tarjeta de información básica reúne la subida de avatar, el apodo, el género y el cumpleaños; la tarjeta de contacto muestra la dirección de correo con su etiqueta de buzón principal, el botón de añadir correo y los números de teléfono; las tarjetas de dirección de casa, empresa y otras siguen más abajo (interfaz en chino simplificado)](/images/mail/es/ui/preferences-guide.png)
 
 *Figura: la página de perfil. El buzón principal lleva una etiqueta de «buzón principal»; las direcciones de correo adicionales pueden ser varias y retirarse en cualquier momento.*
-*Anotaciones: 1. Basic Informatio　2. Contact Informat　3. Addresses　4. Associated ajust*
+
+<details>
+<summary>Guía visual: El perfil —  los datos personales divididos en cuatro dimensiones</summary>
+
+Las cuatro tarjetas de la página de perfil: de la imagen de identidad a los datos de contacto y de ahí a las direcciones, los cuatro planos de los datos personales se gestionan tarjeta a tarjeta.
+
+1. **Tarjeta de información básica**: Subida de avatar, apodo personal, género y cumpleaños. Que el apodo y el avatar se muestren al exterior está regido por el interruptor de «perfil público» del administrador.
+2. **Tarjeta de información de contacto**: El buzón principal de inicio de sesión lleva la etiqueta «buzón principal» y no puede retirarse; pueden añadirse varios correos electrónicos adicionales y retirarlos en cualquier momento, además de registrar un número de teléfono con prefijo de país.
+3. **Tarjetas de dirección**: Las direcciones de casa, empresa y otras se guardan por separado, y cada una se añade, edita y retira de forma independiente. Son datos de perfil en sentido estricto: no intervienen en la entrega del correo ni afectan a la facturación ni al grupo de identidad. Que sea necesario rellenarlas, y que se muestren al exterior, depende de si el Operador activa el interruptor de «perfil público».
+4. **Tarjeta de ajustes asociados y seguridad**: La plataforma de salto de la página de perfil hacia las demás páginas de configuración: la seguridad de la cuenta (nombre de usuario y contraseña, verificación en dos pasos) y las autorizaciones de terceros (aplicaciones autorizadas), las dos entradas más usadas, se reúnen aquí para no tener que ir y venir entre la página de perfil y la de seguridad. Al pulsar cada entrada se salta a la sección correspondiente, sin abrir una página nueva.
+
+</details>
 
 La tarjeta de información básica gestiona el avatar, el apodo, el género y el cumpleaños. La tarjeta de contacto enumera el buzón principal de inicio de sesión y las direcciones de correo adicionales añadidas por el titular, además de los números de teléfono con prefijo de país. Las tarjetas de dirección guardan por separado las direcciones de casa, de empresa y otras. Cuánto de ello es público lo gobierna el interruptor de «perfil público» del operador.
 
@@ -31,6 +42,17 @@ La tarjeta de información básica gestiona el avatar, el apodo, el género y el
 ![Página general de EpoCanvas Mail: un cuadro de biografía; la zona de apariencia ofrece las paletas oscura, clara y seguir el sistema; el fondo de pantalla temático global ofrece ocho preajustes más un fondo personalizado, con el fondo personal y otros ajustes más abajo (interfaz en chino simplificado)](/images/mail/es/ui/general-guide.png)
 
 *Figura: selección de la paleta de apariencia y del fondo de pantalla en la página general, mostrada con «seguir el sistema» y el fondo liso por defecto.*
+
+<details>
+<summary>Guía visual: General —  tres tarjetas para el aspecto y los hábitos de lectura</summary>
+
+Las tres tarjetas de la página general —biografía, personalización de la apariencia y preferencias— cubren toda la personalización del aspecto de la interfaz y de los hábitos de lectura.
+
+1. **Tarjeta de biografía**: Un texto de presentación que se muestra en el perfil público; que esa página sea accesible lo decide el interruptor de «perfil público» del administrador.
+2. **Tarjeta de personalización de la apariencia**: Los tres estados de la paleta (oscura, clara y seguir el sistema, también conmutables desde la barra superior) y el fondo de pantalla temático global (ocho preajustes más fondo personalizado o por URL); además, un fondo personal (que cubre solo la zona del buzón) y la densidad de la interfaz.
+3. **Tarjeta de preferencias**: Preferencias de lectura (tipo de bandeja de entrada, posición del panel de lectura e interruptor de vista por conversaciones) e idioma (la interfaz, entre seis; el idioma de destino de la traducción por IA, entre 16). La zona de privacidad de datos concentra las entradas de información personal y de tratamiento por IA.
+
+</details>
 
 - Apariencia: paletas oscura, clara y seguir el sistema; ocho preajustes de fondo de pantalla más los fondos personalizados; el fondo personal y la densidad de la interfaz se ajustan por separado;
 - Preferencias de lectura: tipo de bandeja de entrada, posición del panel de lectura e interruptor de vista por conversaciones;
@@ -46,7 +68,18 @@ La página de seguridad modifica el nombre de usuario y la contraseña (mostrand
 ![Página de datos de EpoCanvas Mail: la tarjeta de exportación ofrece la exportación JSON integral, el archivo del correo (MBOX, JSON o CSV con rango de fechas) y la exportación de contactos y configuración; la tarjeta de almacenamiento de abajo muestra el indicador de uso de adjuntos y la entrada del almacenamiento de objetos personal (interfaz en chino simplificado)](/images/mail/es/ui/data-guide.png)
 
 *Figura: la página de datos. La exportación y la gestión del almacenamiento aparecen en la misma página; el uso de adjuntos computa contra la cuota del grupo de identidad.*
-*Anotaciones: 1. usuario Data & M　2. correo & Message　3. almacenamiento S　4. Third-party apps*
+
+<details>
+<summary>Guía visual: Datos —  las cuatro regiones de la autonomía sobre tus datos</summary>
+
+Las cuatro tarjetas de la página de datos: tres formatos para llevarse los datos, una zona de reenvío, una de almacenamiento y otra de autorizaciones de terceros —la interfaz completa de la autonomía sobre los datos personales.
+
+1. **Tarjeta de exportación de datos y perfil del usuario**: Tres exportaciones en paralelo: la copia de seguridad integral en JSON, el archivo del historial de correo (MBOX/JSON/CSV con rango de fechas) y los contactos y la configuración. Un mensaje suelto también puede descargarse como .eml desde el panel de lectura.
+2. **Tarjeta de reenvío de correo y mensajes**: Configuración detallada del push de mensajes de Telegram y del reenvío automático; que estas dos funciones estén disponibles para la cuenta lo decide el interruptor de «Control de datos de usuario» del administrador.
+3. **Tarjeta de espacio de almacenamiento**: El indicador de uso del almacenamiento de adjuntos se coteja con la cuota en tiempo real. Puede conectarse un cubo de Backblaze B2/S3 propio: a partir de entonces los adjuntos nuevos se guardan directamente en la nube personal, fuera de la cuota de la instancia, y al retirar la conexión se vuelve al almacenamiento de la instancia.
+4. **Tarjeta de aplicaciones y servicios de terceros**: Lista de todas las aplicaciones con autorización OAuth de la cuenta: puede retirarse el acceso aplicación por aplicación, o revocarlas todas de una vez desde la ventana de detalle. La revocación surte efecto de inmediato y los tokens existentes de la aplicación dejan de valer en el acto.
+
+</details>
 
 | Exportación | Formato | Alcance |
 | --- | --- | --- |
@@ -104,7 +137,18 @@ La página de informes de auditoría presenta los eventos de riesgo del sitio co
 ![Página de informes de auditoría de EpoCanvas Mail: la tabla enumera los avisos de las cuatro clases — recurso, bloqueo, auditoría y riesgo — con su prioridad, etiqueta de estado, detalles del entorno activo y botones de tratamiento como liberar y levantar alerta (interfaz en chino simplificado)](/images/mail/es/ui/audit-guide.png)
 
 *Figura: el informe de auditoría. Las cuatro clases de alertas se revisan en una única lista, con los botones de tratamiento repartidos por clase; en el modo cifrado, las marcas de tiempo se suprimen.*
-*Anotaciones: 1. Correo　2. Nivel de auditor　3. Explicación de a　4. Grupo de entorno*
+
+<details>
+<summary>Guía visual: El informe de operaciones —  la cadena completa de un ticket de alerta</summary>
+
+La tabla de cuatro columnas de la página de informes de operaciones: la cadena completa de información de un aviso, de «quién» a «por qué se disparó» y de ahí a «dónde está la prueba».
+
+1. **Columna de correo del usuario**: La cuenta a la que apunta el aviso: puede ser el objeto tratado (alerta de riesgo o de bloqueo), la parte denunciada (alerta de auditoría) o el apelante (alerta de recurso). Esta página solo estudia el caso; las acciones reales —bloquear, restaurar, restablecer— se ejecutan desde la página de la lista de usuarios, de modo que el veredicto se usa en combinación con aquella página.
+2. **Columna de nivel de auditoría de seguridad**: La graduación del riesgo (prioridad P0/P1 con etiqueta de categoría): los cuatro tipos de aviso —auditoría, riesgo, bloqueo y recurso— tienen cada uno su vía de tratamiento habitual.
+3. **Columna de explicación del aviso y rasgos del disparador**: Descripción de la situación que disparó el aviso (por ejemplo, inicios de sesión simultáneos desde varias ubicaciones y varias IP, o una denuncia acreditada); es la base para decidir si el aviso se libera o se rechaza.
+4. **Columna del grupo de entornos activos**: La información completa del entorno en texto claro: IP, geolocalización, dispositivo y huella. En el modo cifrado (Level 3) las marcas de tiempo se suprimen y el aviso sigue pudiendo estudiarse.
+
+</details>
 
 ## 8. Documentos relacionados
 

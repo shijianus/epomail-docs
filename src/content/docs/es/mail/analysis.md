@@ -3,15 +3,24 @@ title: Analítica
 description: Página de analítica de EpoCanvas Mail — guía del administrador por los paneles de volumen de envío y recepción, tasa de interceptación, distribución de fuentes, curvas de crecimiento y uso de la IA.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 La página de analítica es el panel de datos de la zona de administración (`#manage/admin/analysis`, clave de permiso `analysis:query`); agrega los indicadores de correo, de usuarios y de uso de la IA de la instancia. El alcance de cada indicador cambia con el modo de correo: en el modo cifrado (Level 3) el lado administrativo no lee el contenido del correo de los usuarios y los recuentos pertinentes quedan a nivel de metadatos.
 
 ![Figura: la página de analítica](/images/mail/es/ui/analysis-guide.png)
 
 *Figura: la página de analítica*
-*Anotaciones: 1. correo Source ｜ 2. usuario Growth ｜ 3. correo Growth*
 
+<details>
+<summary>Guía visual: La cabecera de análisis —  tres indicadores, tres preguntas</summary>
+
+Los tres paneles de la primera pantalla de la página de analítica: la distribución de fuentes responde de dónde viene el correo y las dos curvas de crecimiento, cuál es la tendencia de actividad de la instancia.
+
+1. **Distribución de fuentes del correo**: Proporción de la composición entrante entre la entrega directa dentro del sitio y los canales externos, con la que se evalúa la salud del canal de entrega. El efecto de la gobernanza —tasa de interceptación y volumen de correo no deseado— se revisa en la gestión de clasificación.
+2. **Curva de crecimiento de usuarios**: Evolución temporal del número de usuarios registrados y de usuarios activos. Cotejándola con las cuotas por grupo del control de permisos se decide cuándo conviene ampliar o ajustar el grupo por defecto.
+3. **Curva de crecimiento del correo**: Evolución temporal del volumen total enviado y recibido. Junto con la tendencia de llamadas a la IA de la misma página, permite comprobar si la cuota diaria y el límite de tasa del AI Hub de la configuración del sistema siguen siendo razonables.
+
+</details>
 
 ## 1. Vista general de los indicadores
 

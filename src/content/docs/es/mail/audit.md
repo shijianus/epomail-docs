@@ -3,14 +3,25 @@ title: Informe de auditoría
 description: Informe de auditoría de EpoCanvas Mail — estudio de los avisos de las cuatro clases, botones de tratamiento, adjudicación de apelaciones y supresión de las marcas de tiempo en el modo cifrado, a cargo del administrador.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 El informe de auditoría es la interfaz de avisos de riesgo de la zona de administración (`#manage/admin/audit`; la consulta exige `setting:query`, y el tratamiento y la adjudicación, `setting:set`). Los avisos se persisten en una tabla de registro de auditoría independiente, con búsqueda histórica paginada.
 
 ![Página de informe de auditoría de EpoCanvas Mail: los avisos de las cuatro clases, la información de entorno en texto plano y los botones de tratamiento](/images/mail/es/ui/audit-guide.png)
 
 *Figura: el informe de auditoría. Cada aviso lleva su clase, su prioridad, su estado y el conjunto de entornos activos mostrado en texto plano.*
-*Anotaciones: 1. Correo　2. Nivel de auditor　3. Explicación de a　4. Grupo de entorno*
+
+<details>
+<summary>Guía visual: El informe de operaciones —  la cadena completa de un ticket de alerta</summary>
+
+La tabla de cuatro columnas de la página de informes de operaciones: la cadena completa de información de un aviso, de «quién» a «por qué se disparó» y de ahí a «dónde está la prueba».
+
+1. **Columna de correo del usuario**: La cuenta a la que apunta el aviso: puede ser el objeto tratado (alerta de riesgo o de bloqueo), la parte denunciada (alerta de auditoría) o el apelante (alerta de recurso). Esta página solo estudia el caso; las acciones reales —bloquear, restaurar, restablecer— se ejecutan desde la página de la lista de usuarios, de modo que el veredicto se usa en combinación con aquella página.
+2. **Columna de nivel de auditoría de seguridad**: La graduación del riesgo (prioridad P0/P1 con etiqueta de categoría): los cuatro tipos de aviso —auditoría, riesgo, bloqueo y recurso— tienen cada uno su vía de tratamiento habitual.
+3. **Columna de explicación del aviso y rasgos del disparador**: Descripción de la situación que disparó el aviso (por ejemplo, inicios de sesión simultáneos desde varias ubicaciones y varias IP, o una denuncia acreditada); es la base para decidir si el aviso se libera o se rechaza.
+4. **Columna del grupo de entornos activos**: La información completa del entorno en texto claro: IP, geolocalización, dispositivo y huella. En el modo cifrado (Level 3) las marcas de tiempo se suprimen y el aviso sigue pudiendo estudiarse.
+
+</details>
 
 ## 1. Las cuatro clases de alertas
 

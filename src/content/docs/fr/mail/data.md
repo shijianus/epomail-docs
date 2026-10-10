@@ -3,14 +3,25 @@ title: Export des données et stockage
 description: Export des données et stockage d'EpoCanvas Mail — sauvegarde intégrale, archive de l'historique des courriels, export des contacts et de la configuration, et branchement d'un stockage d'objets personnel.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 La présente page décrit les deux volets, export et stockage, de la page « Paramètres → Données ». Les notifications et le transfert de la même page figurent dans le [Guide des notifications et du transfert](/fr/mail/notify/) ; la qualification juridique des données exportées figure dans [Traitement des données et sécurité](/fr/mail/data-security/).
 
 ![Page des données d'EpoCanvas Mail : les trois cartes d'export, la jauge d'utilisation du stockage et le branchement du stockage d'objets personnel](/images/mail/fr/ui/data-guide.png)
 
 *Figure : la page des données. Export et gestion du stockage figurent sur une même page ; l'utilisation des pièces jointes compte contre le quota du groupe d'identité.*
-*Annotations: 1. utilisateur Data　2. email & Message 　3. stockage Space &　4. Third-party apps*
+
+<details>
+<summary>Guide visuel : Données  —  les quatre régions de l'autonomie sur vos données</summary>
+
+Les quatre cartes de la page Données : trois formats pour emporter ses données, une zone de transfert, une zone de stockage et une zone d'autorisations tierces — l'autonomie complète sur ses données personnelles en un écran.
+
+1. **Carte export des données du compte** : Trois exports côte à côte : la sauvegarde JSON intégrale, l'archive de l'historique des courriels (MBOX/JSON/CSV avec plage de dates) et les contacts et la configuration ; un courriel isolé se télécharge en .eml depuis le volet de lecture.
+2. **Carte transfert de courriels et de messages** : Le réglage détaillé du push de messages Telegram et du transfert automatique ; l'ouverture de ces deux fonctions au compte dépend des interrupteurs « Contrôle des données utilisateurs » de l'administrateur.
+3. **Carte espace de stockage** : Une jauge d'utilisation des pièces jointes constamment comparée au quota. En branchant son propre compartiment Backblaze B2/S3, les nouvelles pièces jointes vont directement dans votre cloud, hors du quota de l'instance ; délier le branchement fait revenir au stockage de l'instance.
+4. **Carte applications et services tiers** : La liste de toutes les autorisations OAuth du compte : retirer l'accès application par application, ou tout révoquer d'un coup depuis la boîte de dialogue de détail. La révocation prend effet immédiatement et les jetons existants de l'application meurent sur-le-champ.
+
+</details>
 
 ## 1. Les trois exports
 

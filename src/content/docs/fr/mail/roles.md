@@ -3,14 +3,26 @@ title: Permissions
 description: Permissions d'EpoCanvas Mail — les six groupes d'identité, les clés de permission attribuées une à une, le groupe par défaut et la protection des groupes, la synchronisation par le niveau de blog.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 La page des permissions est l'interface de gestion des groupes d'identité de la zone d'administration (`#manage/admin/roles`, clé de permission `role:query`) ; elle décide des quotas, des clés de permission et de l'autorisation des modèles IA de chaque groupe. Le comportement côté utilisateur de chaque groupe figure à la section 3 de [Modes de fonctionnement](/fr/mail/modes/).
 
 ![Page des permissions d'EpoCanvas Mail : tableau des six groupes avec quotas, limites d'envoi, permissions de pièces jointes et colonne des modèles IA autorisés](/images/mail/fr/ui/roles-guide.png)
 
 *Figure : vue d'ensemble de l'architecture et de la graduation de la page des permissions. L'interface libelle « sans plafond » l'envoi et le stockage du groupe Maître.*
-*Annotations: 1. 　2. Name　3. Quota de stockag　4. Limite d'envoi　5. Permission de pi*
+
+<details>
+<summary>Guide visuel : Les rôles  —  cinq colonnes décident de ce qu'un groupe peut faire</summary>
+
+Le tableau des six groupes d'identité de la page des permissions : cinq colonnes annotées pour les cinq dimensions ajustables groupe par groupe.
+
+1. **Colonne des groupes d'identité** : Six groupes — Utilisateur standard, Visiteur, Utilisateur standard LV.0, LV.1, Modérateur et Maître — chacun avec son étiquette de positionnement. Le groupe détermine les valeurs par défaut des quatre autres colonnes ; les groupes Visiteur et Maître sont protégés et ne peuvent pas être supprimés.
+2. **Colonne du quota de stockage** : Un quota de stockage des pièces jointes par groupe (de 0 Mo pour le Visiteur à 1024 Mo pour le Maître, l'interface affichant « sans plafond »). Une fois un stockage d'objets personnel branché, les nouvelles pièces jointes ne consomment plus ce quota.
+3. **Colonne de la limite d'envoi** : Le quota d'envoi quotidien (de 5 courriels pour l'Utilisateur standard à 100 pour le Modérateur ; le Maître n'a pas de plafond), remis à zéro chaque jour. Les groupes dont l'envoi est interdit — le Visiteur — portent ici la mention « envoi interdit ».
+4. **Colonne des permissions de pièces jointes** : Indique si l'envoi et la réception de pièces jointes sont autorisés : les groupes « texte brut uniquement » envoient sans pièce jointe, tandis que les groupes ouverts restent bornés à la fois par le quota de stockage et par la limite de taille par fichier.
+5. **Colonne des modèles IA autorisés** : L'étendue des modèles IA que le groupe peut appeler ; combinée au quota quotidien et à la limite de débit de l'AI Hub dans les paramètres système, elle met en œuvre une fourniture d'IA graduée selon l'identité.
+
+</details>
 
 ## 1. Groupes et quotas
 

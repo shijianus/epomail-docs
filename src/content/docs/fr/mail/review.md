@@ -3,15 +3,24 @@ title: Revue du courriel à l'échelle du site
 description: Revue du courriel à l'échelle du site d'EpoCanvas Mail — recherche côté administration, tiroir de détail et suppression physique, avec l'effet du mode courriel sur l'entrée et l'étendue visible.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 La revue du courriel à l'échelle du site est l'interface courrier de la zone d'administration (`#manage/admin/mail`, clé de permission `all-email:query`). Le nom de la section et l'étendue visible varient avec le mode courriel : le mode tous courriels (Level 1) affiche « Tous les courriels », le mode courriel privé (Level 2) affiche « Pourriels », et le mode courriel chiffré (Level 3) masque la section entière (voir la section 2 de [Modes de fonctionnement](/fr/mail/modes/)).
 
 ![Figure : la revue du courriel à l'échelle du site](/images/mail/fr/ui/review-guide.png)
 
 *Figure : la revue du courriel à l'échelle du site*
-*Annotations: 1. *
 
+<details>
+<summary>Guide visuel : La revue du courrier en mode privé  —  trois points visibles</summary>
+
+L'aspect de la revue du courriel à l'échelle du site en mode privé (Level 2) : la section s'affiche « Pourriels », et la barre de recherche ainsi que l'état vide sont les deux régions annotées.
+
+1. **Barre de recherche** : Elle accepte la syntaxe avancée `$` sur toute la base : `$sender`/`$user`/`$to`/`$subject` complétés de jetons d'état. Un clic droit sur n'importe quel courriel des résultats lance directement une nouvelle recherche par son expéditeur, son compte destinataire ou son utilisateur propriétaire.
+2. **Nom de la section dans la barre latérale** : Le nom et l'étendue visible suivent le mode courriel : Level 1 affiche « Tous les courriels », Level 2 affiche « Pourriels », Level 3 masque entièrement l'entrée.
+3. **État vide** : Le message qui s'affiche tant qu'aucun courriel n'est mis en quarantaine. Dès qu'il y en a, cette zone devient une liste ; ouvrir une ligne fait glisser le tiroir de détail, d'où la suppression physique est possible (à distinguer de la corbeille côté utilisateur : l'opération laisse une trace).
+
+</details>
 
 ## 1. Recherche
 

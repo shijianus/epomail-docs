@@ -3,7 +3,7 @@ title: Instellingengids
 description: Instellingengids van EpoCanvas Mail — de vijf secties van de persoonlijke instellingen (profiel, algemeen, beveiliging, gegevens, labels) en een volledige rondleiding langs de negen secties van de beheerconsole en de kaarten van de systeeminstellingen.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.17**
 
 EpoCanvas Mail verdeelt zijn instellingen over twee zones: de zone «instellingen» van de zijbalk bevat de persoonlijke instellingen die elk account zelf kan aanpassen, in vijf secties — profiel, algemeen, beveiliging, gegevens en labels; de zone «beheer» verschijnt alleen voor identiteitsgroepen met beheerrechten en draagt de configuratie op instantieniveau. Deze pagina loopt elke zone langs en laat zien hoe de instellingen samenhangen. Voor het gedrag op werkingsniveau — multi-account, e-mailmodi, aanmelding — zie [Werkingsmodi](/nl/mail/modes/).
 
@@ -22,7 +22,18 @@ EpoCanvas Mail verdeelt zijn instellingen over twee zones: de zone «instellinge
 ![Profielpagina van EpoCanvas Mail: de kaart basisinformatie bevat avatar-upload, bijnaam, geslacht en verjaardag; de contactkaart toont het e-mailadres met zijn hoofdmailbox-tag, de knop om e-mail toe te voegen en telefoonnummers; de adreskaarten voor thuis, bedrijf en overig volgen eronder (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/preferences-guide.png)
 
 *Figuur: de profielpagina. De hoofdmailbox draagt een «hoofdmailbox»-tag; extra e-mailadressen kunnen er meerdere zijn en zijn op elk moment te verwijderen.*
-*Aantekeningen: 1. Basic Informatio　2. Contact Informat　3. Addresses　4. Associated inste*
+
+<details>
+<summary>Visuele handleiding: Het profiel —  persoonsgegevens in vier dimensies</summary>
+
+De vier kaarten van de profielpagina: van identiteit en uiterlijk via contactgegevens tot adressen — vier dimensies van je persoonlijke gegevens, kaart voor kaart.
+
+1. **Kaart basisinformatie**: Avatar-upload, persoonlijke bijnaam, geslacht en verjaardag. Of bijnaam en avatar openbaar te zien zijn, hangt af van de schakelaar «openbaar profiel» van de beheerder.
+2. **Kaart contactgegevens**: De hoofdmailbox van aanmelding draagt de tag «hoofdmailbox» en kan niet worden verwijderd; extra e-mailadressen kun je naar believen toevoegen en verwijderen, en er is ook ruimte voor een telefoonnummer met landcode.
+3. **Adreskaarten**: Thuis-, bedrijfs- en overige adressen worden apart bewaard, elk afzonderlijk toegevoegd, bewerkt en verwijderd. Het zijn persoonsgegevens in strikte zin: nooit gebruikt voor aflevering, zonder invloed op facturatie of rol. Of ze nodig zijn — en openbaar verschijnen — hangt af van de schakelaar "openbaar profiel" van de exploitant.
+4. **Kaart gekoppelde instellingen en beveiliging**: De springplank van de profielpagina naar de andere instellingenpagina's: accountbeveiliging (gebruikersnaam en wachtwoord, tweestapsverificatie) en machtigingen van derden (geautoriseerde apps) — de twee meestgebruikte ingangen — liggen hier bij elkaar, zodat je niet heen en weer hoeft te zoeken tussen profiel en beveiliging. Elke ingang springt naar de bijbehorende sectie in plaats van een nieuwe pagina te openen.
+
+</details>
 
 De kaart basisinformatie beheert avatar, bijnaam, geslacht en verjaardag. De contactkaart somt de hoofdmailbox van aanmelding op en de extra e-mailadressen die de houder zelf toevoegt, plus telefoonnummers met landcode. De adreskaarten bewaren het thuisadres, het zakelijke adres en andere adressen apart. Hoeveel daarvan openbaar is, wordt bepaald door de schakelaar «openbaar profiel» van de exploitant.
 
@@ -31,6 +42,17 @@ De kaart basisinformatie beheert avatar, bijnaam, geslacht en verjaardag. De con
 ![Algemene pagina van EpoCanvas Mail: een bio-tekstvak; het uiterlijkgedeelte biedt de paletten donker, licht en systeem volgen; de globale themaachtergrond biedt acht presets plus een eigen achtergrond, met de persoonlijke achtergrond en verdere instellingen eronder (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/general-guide.png)
 
 *Figuur: keuze van uiterlijkpalet en themaachtergrond op de algemene pagina, getoond met «systeem volgen» en de standaard egale achtergrond.*
+
+<details>
+<summary>Visuele handleiding: Algemeen —  drie kaarten voor uiterlijk en leesgewoonten</summary>
+
+De drie kaarten van de pagina Algemeen — persoonlijke bio, persoonlijke aankleding en voorkeuren — dekken elke vorm van personalisatie van uiterlijk en leesgewoonten.
+
+1. **Kaart persoonlijke bio**: Een korte tekst die op je openbare profielpagina verschijnt; of die pagina bereikbaar is, bepaalt de schakelaar «openbaar profiel» van de beheerder.
+2. **Kaart persoonlijke aankleding**: Drie standen voor het uiterlijkpalet (donker/licht/systeem volgen, ook snel te wisselen in de bovenbalk) en de globale themaachtergrond (acht presets plus een eigen achtergrond of URL); daarnaast een persoonlijke achtergrond (alleen over de mailboxzone) en de interfacedichtheid.
+3. **Kaart voorkeuren**: Leesvoorkeuren (type postvak IN, positie van het leesvenster, gespreksweergave) en taal (interfacetaal uit zes, doeltaal van de AI-vertaling uit 16). De groep gegevensprivacy bundelt de ingangen voor persoonlijke gegevens en AI-verwerking.
+
+</details>
 
 - Uiterlijk: donker, licht en systeem volgen als paletten; acht achtergrondpresets plus eigen achtergronden; de persoonlijke achtergrond en de interfacedichtheid worden apart ingesteld;
 - Leesvoorkeuren: type postvak IN, positie van het leesvenster en de schakelaar voor gespreksweergave;
@@ -46,7 +68,18 @@ De beveiligingspagina wijzigt de gebruikersnaam en het wachtwoord (met de datum 
 ![Gegevenspagina van EpoCanvas Mail: de exportkaart biedt de volledige JSON-export, het e-mailarchief (MBOX, JSON of CSV met periode) en de export van contacten en configuratie; de opslagkaart eronder toont de verbruiksmeter voor bijlagen en de ingang van persoonlijke objectopslag (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/data-guide.png)
 
 *Figuur: de gegevenspagina. Export en opslagbeheer staan op één pagina; het bijlagenverbruik telt mee voor de quota van de identiteitsgroep.*
-*Aantekeningen: 1. gebruiker Data &　2. e-mail & Message　3. opslag Space & C　4. Third-party apps*
+
+<details>
+<summary>Visuele handleiding: Gegevens —  vier regio's van zeggenschap over je eigen data</summary>
+
+De vier kaarten van de pagina Gegevens: drie exportformaten, een doorstuurgebied, een opslaggebied en een gebied voor autorisaties van derden — persoonlijke data-autonomie op één scherm.
+
+1. **Kaart gebruikersgegevens en data-export**: Drie exporten naast elkaar: de volledige back-up in JSON, het archief van de e-mailgeschiedenis (MBOX/JSON/CSV met periode) en contacten en configuratie; een los bericht is daarnaast in het leesvenster als .eml te downloaden.
+2. **Kaart E-mail en berichten doorsturen**: De instellingen van Telegram-push en automatisch doorsturen, punt voor punt; of een account ze mag gebruiken, bepaalt de schakelaar «Gebruikersgegevensbeheer» van de beheerder.
+3. **Kaart opslagruimte**: De verbruiksmeter voor bijlagen naast de quota, realtime. Je kunt je eigen Backblaze B2-/S3-bucket koppelen: nieuwe bijlagen gaan dan rechtstreeks naar je eigen cloud, buiten de quota van de instantie, en bij ontkoppelen valt het terug.
+4. **Kaart apps en diensten van derden**: Alle OAuth-autorisaties op het account: per app de toegang intrekken, of met één klik alles via het detailvenster. Intrekking werkt onmiddellijk — de bestaande tokens van de app vervallen ter plekke.
+
+</details>
 
 | Export | Formaat | Bereik |
 | --- | --- | --- |
@@ -104,7 +137,18 @@ De pagina auditrapport toont de risicogebeurtenissen van de site als waarschuwin
 ![Auditrapportpagina van EpoCanvas Mail: de tabel toont waarschuwingstickets van de vier klassen — beroep, blokkade, audit en risico — met prioriteit, statuslabel, details van de actieve omgeving en afhandelknoppen zoals vrijgeven en waarschuwing opheffen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/audit-guide.png)
 
 *Figuur: het auditrapport. De vier waarschuwingsklassen worden in één lijst beoordeeld, met afhandelknoppen per klasse; in de versleutelde modus worden de tijdstempels uit de records gehaald.*
-*Aantekeningen: 1. E-mail　2. Beveiligingsaudi　3. Waarschuwingstoe　4. Actieve omgeving*
+
+<details>
+<summary>Visuele handleiding: Het rapport —  de volledige informatieketen van één waarschuwingsticket</summary>
+
+De tabel met vier kolommen op de pagina Operatierapporten: de volledige informatielijn van één waarschuwingsticket, van «wie» via «waarom het afging» tot «waar het bewijs staat».
+
+1. **Kolom e-mailadres**: Het account waar dit ticket naar verwijst: het object van een maatregel (risico- of blokkeerwaarschuwing), de gemelde partij (auditwaarschuwing) of de beroepdoener (beroepswaarschuwing). Deze pagina beoordeelt alleen — het werkelijke optreden (blokkeren, herstellen, resetten) gebeurt vanaf de gebruikerslijst, dus een oordeel hier gebruik je samen met die pagina.
+2. **Kolom beveiligingsauditniveau**: De risicogradering (P0/P1-prioriteit met categorielabel): de vier klassen audit/risico/blokkade/beroep hebben elk hun eigen gebruikelijke afhandelingsroute.
+3. **Kolom waarschuwingstekst en triggers**: De beschrijving van wat het ticket heeft uitgelokt (bijvoorbeeld gelijktijdige aanmeldingen vanaf meerdere IP's of een gegronde melding) — de basis om vrij te geven of te verwerpen.
+4. **Kolom actieve omgevingen**: De volledige omgevingsinformatie in platte tekst: IP, geolocatie, apparaat en vingerafdruk. In de versleutelde modus (Level 3) worden tijdstempels weggehaald en blijven de tickets beoordeelbaar.
+
+</details>
 
 ## 8. Verwante documenten
 

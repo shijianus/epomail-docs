@@ -3,15 +3,25 @@ title: Classification
 description: EpoCanvas Mail classification — send/receive switches, AI recognition settings, allow and block lists and hard-interception rules, the site-level governance layer.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 Classification is the admin area's site-level governance interface (`#manage/admin/rules`, permission key `setting:query`), layering site-wide inbound governance on top of users' personal rules. Personal label rules are in [Labels & Classification Management](/en/mail/labels/); the semantics of the condition fields are in Section 7 of the [Search & Rules Reference](/en/mail/search/).
 
 ![Figure: the classification admin interface](/images/mail/en/ui/category-guide.png)
 
 *Figure: the classification admin interface*
-*Annotations: 1. Email　2. AI Model & API K　3. Basic List Rules　4. Hard Drop Rules*
 
+<details>
+<summary>Walkthrough: Classification —  four defensive layers for inbound mail</summary>
+
+The four governance cards of the classification page: master switches, AI recognition, lists and hard blocks — four defensive layers for inbound mail.
+
+1. **Mail switches card**: Master switches for receiving, sending and auto-refresh, plus the ownerless-mail policy. With receiving off, inbound mail is rejected outright.
+2. **AI model and API-key card**: Workers AI verification-code extraction and its rules, plus the AI API key/URL/model — same source as the AI Hub; here it governs inbound recognition (code badges, etc.).
+3. **Base lists card**: Sender blocklist (tag mode or outright rejection), allowlist mode (only allowlisted senders get through), subject/content keyword blocklists, empty-sender and non-recipient rejection, and executable-attachment blocking.
+4. **Hard-block card**: The terminal measure: reject outright and count every attempt. List hits auto-tag the mail; verify the effect on the analysis page.
+
+</details>
 
 ## 1. Send/receive and refresh switches
 

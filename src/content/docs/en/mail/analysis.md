@@ -3,15 +3,24 @@ title: Analytics
 description: EpoCanvas Mail analytics page — dashboards of mail volume, interception rate, source distribution, growth curves and AI usage for administrators.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 The Analytics page is the admin area's data dashboard (`#manage/admin/analysis`, permission key `analysis:query`), aggregating the instance's mail, user and AI usage metrics. How each metric is measured varies with the mail mode: in encrypted mode (Level 3) the admin side does not read user mail content and the related counts are metadata-level.
 
 ![Figure: the analytics page](/images/mail/en/ui/analysis-guide.png)
 
 *Figure: the analytics page*
-*Annotations: 1. Email Source　2. User Growth　3. Email Growth*
 
+<details>
+<summary>Walkthrough: The analytics headline —  three gauges, three questions</summary>
+
+The three headline gauges of the analysis page: the source mix answers where mail comes from, the two growth curves answer how active the instance is.
+
+1. **Mail source mix**: The inbound mix across direct in-site delivery and external channels, a health check for the delivery channel; revisit the classification rules to verify filtering results.
+2. **User growth curve**: Registered versus active users over time; read it against the role quotas to decide when to expand or change the default role.
+3. **Mail growth curve**: Sent and received volume over time; together with the AI-usage trend on the same page, it tells you whether the AI Hub's daily quota and rate limits still fit.
+
+</details>
 
 ## 1. Metrics at a glance
 

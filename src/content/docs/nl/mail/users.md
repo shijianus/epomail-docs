@@ -3,15 +3,25 @@ title: Gebruikerslijst
 description: De gebruikerslijst van EpoCanvas Mail — accounts opzoeken, wachtwoorden herstellen, identiteitsgroepen wijzigen, tweestaps herstellen, blokkeren en herstellen.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 De gebruikerslijst is de accountbeheerinterface van de beheerzone (`#manage/admin/users`, rechten-sleutel `user:query`); daar zoekt de beheerder alle accounts op de instantie op en handelt ze af.
 
 ![Figuur: de gebruikerslijst](/images/mail/nl/ui/users-guide.png)
 
 *Figuur: de gebruikerslijst*
-*Aantekeningen: 1.  ｜ 2.  ｜ 3. E-mail ｜ 4. Opslagruimte*
 
+<details>
+<summary>Visuele handleiding: De gebruikerslijst —  van account vinden tot ingrijpen in de rij</summary>
+
+Vier gebieden van de gebruikerslijst: van opzoeken tot handelen per rij — het accountbeheer van de beheerder op één scherm.
+
+1. **Zoekvak op e-mailadres**: Bovenaan zoek je accounts op mailbox, met paginering en sortering die meteen antwoorden; samen met de tellers per rij voor verzonden/ontvangen, opslagverbruik en spam/meldingen heb je afwijkende accounts snel in het vizier.
+2. **Kolom e-mailadres**: De unieke identiteit van het account: het e-mailadres is de accountnaam en leidt alles — aanmelden, post ontvangen, elke toewijzing. Rijacties (wachtwoord resetten, groep wijzigen, blokkeren) gelden voor het account dat deze kolom noemt; de buurkolommen — verzonden/ontvangen, opslag, spam en meldingen — verraden of een account afwijkend doet.
+3. **Kolom opslagruimte**: Het actuele verbruik van de bijlagenopslag van het account; afgezet tegen de quota van de identiteitsgroep (zie de pagina Rechtenbeheer) bepaal je of opschalen of opruimen nodig is.
+4. **Kolom instellingen (acties)**: Handelingen per rij: wachtwoord herstellen (geeft een eenmalig wachtwoord uit), identiteitsgroep wijzigen, tweestapsverificatie herstellen, blokkeren en herstellen, en de mailbox van de gebruiker legen (onomkeerbaar — met beleid gebruiken).
+
+</details>
 
 ## 1. Lijst en zoekopdracht
 

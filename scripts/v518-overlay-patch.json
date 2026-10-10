@@ -1,0 +1,71 @@
+{
+  "notify-guide.png#3": {
+    "zh-tw": "第三類匯出：聯絡人名錄、自訂別名規則與系統個人化偏好。它是三張卡裡最小的一份，卻決定換實例後能否延續既有收發習慣——別名規則與標籤體系一併帶走，免去重新命名與重新分類。"
+  },
+  "users-guide.png#2": {
+    "zh-tw": "帳號的唯一識別：信箱即帳號名稱，登入、收信與一切授權都以它為準。列內操作（重設密碼、調整分組、封鎖）作用於本欄所指的帳號；同頁另有收發量、儲存佔用與垃圾／被檢舉計數三欄，用於判斷某帳號是否異常。"
+  },
+  "preferences-guide.png#3": {
+    "zh-tw": "住家、公司與其他三組地址分別儲存，各自獨立增刪與編輯。它們是純粹的個資留存欄位：不參與郵件投遞、不影響計費與身分分組；是否需要填寫、以及是否對外顯示，取決於營運者是否開啟「公開個人主頁」。"
+  },
+  "preferences-guide.png#4": {
+    "zh-tw": "個資頁通往其他設定頁的跳板：帳號安全（使用者名稱與密碼、兩步驗證）與第三方授權（已授權應用程式）兩處最常用的入口集中在此，避免在個資頁與安全頁之間反覆翻找；點擊即跳至對應分區，而非另開新頁。"
+  },
+  "audit-guide.png#1": {
+    "zh-tw": "這張工單所指的帳號：可能是被處置對象（風控／封鎖預警）、被檢舉方（稽核預警）或申訴人（申訴警告）。本頁只做研判，真正的處置動作——封鎖、復原、重設——在使用者清單頁執行，因此研判結論需與那一頁搭配使用。"
+  },
+  "system-guide.png#2": {
+    "zh-tw": "實例的對外門面：網站標題決定登入頁與瀏覽器分頁的品牌名稱，彈窗提示自訂全站提示文案，動態／靜態介面則決定登入面是否播放動效——靜態模式對低效能裝置與截圖存證更友善。改動即時對全部使用者生效。"
+  },
+  "ui-compose.png#1": {
+    "zh-tw": "寄件人鎖定為目前登入信箱，寫信時不可手動改寫，因此本平台寄出的郵件不存在 From 偽造。多信箱帳號可在此下拉切換寄件身分，寄出後收件人看到的是所選信箱；寄件人地址亦決定寄出郵件走哪條投遞通道。"
+  },
+  "ui-settings-general.png#2": {
+    "zh-tw": "外觀色調三態（暗色／亮色／跟隨系統）與全域主題桌布（八種預設 + 自訂圖片或 URL）。範圍是全站所有檢視，與僅涵蓋信箱區的「個人背景」不同；頂欄另有色調快捷切換，不必回到本頁。"
+  },
+  "ui-settings-general.png#3": {
+    "zh-tw": "本頁剩餘三組設定：閱讀偏好（收件匣類型、閱讀窗格位置、會話檢視）、語言（介面語言六選一、AI 翻譯目標語言 16 選一）與資料隱私（個人資料處理與 AI 處理偏好的集中入口）。此圖僅示左欄與面貌，逐項含義見設定指南第 3 節。"
+  },
+  "ui-audit-report.png#1": {
+    "zh-tw": "每列一條預警工單，欄含類別（稽核／風控／封鎖／申訴）、優先級（P0／P1）、目前狀態，以及活躍環境池的純文字資訊——IP、地理、裝置與指紋。環境池依請求行為聚合，同一帳號在多 IP 並行登入時才會累積出可見的異常特徵。"
+  },
+  "ui-audit-report.png#2": {
+    "zh-tw": "按鈕隨工單類別分流：申訴警告把「研判放行」提到最顯眼處（放行即復原帳號），封鎖警告突出「解除預警」，其餘類別走標準操作選單。按鈕只提交研判結論，真正的封鎖與復原仍由使用者清單頁落地，兩頁狀態同步。"
+  },
+  "ui-audit-report.png#3": {
+    "zh-tw": "同一張表在三種郵件模式下形態不同：全部郵件模式（L1）資訊最全；隱私模式（L2）下本頁即圖中樣貌；加密模式（L3）記錄時間戳記被剝離、時間欄隱藏，管理員只能憑類別與環境池研判，無法還原事件發生次序。"
+  },
+  "ui-login-oauth.png#1": {
+    "zh-tw": "本頁最常走的路徑：信箱即帳號，密碼經加鹽雜湊儲存、伺服器端不接觸明文。連續失敗會觸發防暴力破解鎖定，鎖定粒度與時長由後端策略決定；勾選「保持軌道連線」後本裝置 30 天內免重複驗證。"
+  },
+  "ui-login-oauth.png#3": {
+    "zh-tw": "同一張卡還承載另外三條路徑：已開啟兩步驗證的帳號提交後進入第二驗證（TOTP、備用碼或通行密鑰）；註冊碼模式下可攜帶 code 參數直接預填註冊表單；「忘記密碼」跳轉外部申訴入口並帶上申訴類型、介面語言與信箱。逐條規則見運行模式第 4 節。"
+  },
+  "ui-detail-verification.png#2": {
+    "zh-tw": "清單列與詳情頁同步出現的綠色標記，含義是「此郵件含已提取的驗證碼」，讓您不必逐封開啟即可從清單直接辨認。徽標只在提取成功時出現；未命中或已關閉驗證碼提取時不顯示，因此它的缺失不代表安全，只代表沒有可抄的碼。"
+  },
+  "ui-inbox-en.png#2": {
+    "zh-tw": "寄件人、主旨、摘要與驗證碼徽標的位置、字級與配色與中文版逐項一致——在地化只替換詞條，不改版式，因此截圖與操作指引可跨語言重用。日期、數字與計數同樣依介面語言格式化。"
+  },
+  "ui-inbox-en.png#3": {
+    "zh-tw": "介面語言的切換點：一般設定的「語言」區六選一（簡體中文、繁體中文、English、Español、Français、Nederlands），改後即刻生效、無需重新登入。投遞與顯示分開——系統通知與歡迎郵件依每位收件人自己的語言設定產生，不隨寄件人的介面語言走。"
+  },
+  "ui-inbox-mobile.png#1": {
+    "zh-tw": "視窗寬度低於 1025 像素時，左欄自動收合為抽屜：點漢堡按鈕以遮罩形式喚出，選中任一檢視後自動收起，不遮擋閱讀區。桌面端與行動裝置共用同一套側欄結構，因此計數與標籤在兩種形態下完全一致。"
+  },
+  "ui-inbox-mobile.png#2": {
+    "zh-tw": "桌面端「寫信」按鈕在行動裝置的對應物，固定於右下角、隨捲動常駐，點開即喚出全螢幕寫信。它只在帳號具備寄件權限時出現；訪客或已被關閉寄件權限的分組看不到此按鈕，也就無從進入寫信流程。",
+    "fr": "Le pendant mobile du bouton « Rédiger » du bureau : fixé en bas à droite, il reste visible au défilement et ouvre la rédaction en plein écran. Il n'apparaît que pour les comptes disposant du droit d'envoi ; un Visiteur ou un groupe dont l'envoi est désactivé ne le voit jamais et ne peut donc pas accéder à la rédaction.",
+    "nl": "De mobiele tegenhanger van de knop Schrijven op het bureaublad: vastgezet rechtsonder, blijft zichtbaar tijdens scrollen en opent bij een tik het volledige schrijfvenster. Hij verschijnt alleen bij accounts met verzendrecht — een Bezoeker of een groep met verzenden uit ziet hem nooit en kan het opstelscherm dus niet bereiken."
+  },
+  "ui-inbox-mobile.png#3": {
+    "zh-tw": "與桌面端共用同一份虛擬捲動清單：長清單只渲染視窗內的可見列，首屏開啟速度不隨郵件總量成長。觸控目標依行動裝置可及性放大，但資訊密度與欄位構成與桌面一致，因此行動裝置截圖同樣可用於核對欄位。",
+    "nl": "Dezelfde gevirtualiseerde lijst als op het bureaublad: een lange mailbox rendert alleen de zichtbare rijen, zodat het eerste beeld niet vertraagt naarmate de mailbox groeit. Raakdoelen zijn vergroot voor mobiel bereik, terwijl informatiedichtheid en kolomstructuur identiek blijven — mobiele schermafbeeldingen blijven dus geldig om velden te controleren."
+  },
+  "ui-account-menu.png#2": {
+    "zh-tw": "新增帳號的入口：點擊後經登入頁專用深鏈完成新帳號登入，回來即多出一個工作階段。關鍵在「不覆蓋」——新帳號不擠掉目前工作階段，各帳號的工作區以 /mail/u/N/ 路徑前綴彼此隔離，切換只是改前綴，不重新登入。"
+  },
+  "ui-account-menu.png#3": {
+    "zh-tw": "目前帳號的附件儲存進度條：分子是本帳號已佔用的附件空間，分母是其身分分組的配額（逐分組出廠值見權限控制頁）。接入個人物件儲存後新附件不再計入此條，因此進度條停漲並不代表附件沒有送達。"
+  }
+}

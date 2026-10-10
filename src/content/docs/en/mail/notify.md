@@ -3,14 +3,25 @@ title: Notifications & Forwarding Guide
 description: The EpoCanvas Mail notifications and forwarding guide — binding Telegram push, push preferences and field visibility, and the destination and trigger types of auto-forwarding.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.16**
+**Effective date: 5 October 2026 | Version: 5.17**
 
 This page walks through the two capabilities of the "Mail & message forwarding" area on the "Settings → Data" page: Telegram message push and auto-forwarding. Whether an account sees them is decided by the admin's "User Data Control" card; when off, the blocks are hidden. Data export and storage live on the same page, see the [Settings Guide](/en/mail/settings/), Section 5.
 
 ![EpoCanvas Mail mail and message forwarding area: Telegram push status and auto-forwarding settings](/images/mail/en/ui/notify-guide.png)
 
 *Figure: the mail & message forwarding area. Telegram push carries its status and setup entry; auto-forwarding shows destinations and advanced options.*
-*Annotations: 1. Export All Data 　2. Email History Ar　3. Contacts & Prefe　4. Email & Message *
+
+<details>
+<summary>Walkthrough: Export and forwarding —  how data leaves, how new mail reaches you</summary>
+
+Three export cards and the forwarding header on the data page: the top half governs how data leaves, the bottom half how incoming mail reaches you in real time.
+
+1. **Full-data export card**: A complete JSON backup — profile, full mail history, contacts, label rules and security settings in one package; the primary entry for data-portability requests.
+2. **Mail archive card**: Exports mail only, in MBOX (the universal format most clients import), JSON or CSV, optionally bounded by a time range.
+3. **Contacts and preferences card**: The third export: the contact book, custom alias rules and personalisation preferences. The smallest of the three, yet it decides whether your habits survive a move — alias rules and the label taxonomy travel with it, so nothing has to be renamed or reclassified.
+4. **Forwarding header region**: Two real-time channels: Telegram push (bind your own bot; all mail or important + verification codes only, with a 7-day in-site read link) and auto-forwarding (destinations, trigger type and the `[Fwd]` tag).
+
+</details>
 
 ## 1. Telegram message push
 

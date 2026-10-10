@@ -3,14 +3,25 @@ title: Interfaz del buzón y detalle del mensaje
 description: Interfaz del buzón de EpoCanvas Mail — recorrido paso a paso por las ocho vistas, por todas las acciones de la página de detalle del mensaje, por la capa de redacción y por los hilos de conversación.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 Esta página explica una a una las vistas de la interfaz principal del buzón y cada acción de la página de detalle del mensaje. Las rutas y el esqueleto de interfaz de cada vista figuran en [Mapa de interfaz y rutas](/es/mail/interface/); la búsqueda y las reglas que hay detrás de la organización, en [Referencia de búsqueda y reglas](/es/mail/search/).
 
 ![Bandeja de entrada de EpoCanvas Mail: vista dividida de tres columnas, insignia de código de verificación y marca de verificación oficial](/images/mail/es/ui/views-guide.png)
 
 *Figura: la bandeja de entrada. Lista, panel de lectura y barra lateral actúan concertados; los contadores se actualizan al instante.*
-*Anotaciones: 1. Redactar　2. Destacados　3. Pospuestos1　4. Enviados*
+
+<details>
+<summary>Guía visual: La bandeja de entrada de un vistazo —  las cuatro entradas que más se usan</summary>
+
+Cuatro regiones anotadas de la bandeja de entrada, correspondientes a los cuatro accesos más usados: redactar un mensaje nuevo, releer el correo destacado, revisar lo aplazado y cotejar lo ya enviado.
+
+1. **Redactar (botón principal en la parte superior de la barra lateral)**: Es el único punto de entrada para crear correo nuevo: abre la capa de redacción superpuesta (no es una ruta independiente). En el móvil pasa a ser un botón flotante en la esquina inferior derecha, y el enlace profundo `?composeTo=<address>` permite prellenar el destinatario. Desde cualquier vista se puede empezar a escribir con un solo clic.
+2. **Destacados (carpeta de la barra lateral)**: Aquí se reúne el correo destacado de todas las carpetas: basta pulsar la estrella en una fila de la lista para añadirlo. Sirve para conservar a mano el correo que hay que guardar largo tiempo o releer con frecuencia; el contador de la barra lateral refleja la cantidad en tiempo real.
+3. **Aplazados (carpeta de la barra lateral)**: Zona de espera para los seguimientos aplazados, en dos niveles: urgente y en espera. Al elegir «Aplazar» en la página de detalle y fijar una hora, el mensaje vuelve solo a la parte superior de la bandeja de entrada cuando llega el momento, de modo que lo importante no se hunde en la lista.
+4. **Enviados (carpeta de la barra lateral)**: Copia de todo el correo que ha salido de esta cuenta, útil para comprobar qué se ha entregado realmente. El volumen saliente está sujeto a la cuota diaria de envío del rol de la cuenta; el correo dentro del sitio se entrega directamente y el dirigido fuera de él pasa por el canal de entrega.
+
+</details>
 
 ## 1. Las ocho vistas
 

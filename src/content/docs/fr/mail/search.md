@@ -3,14 +3,23 @@ title: Référence de la recherche et des règles
 description: Référence complète de la recherche et des règles d'EpoCanvas Mail — opérateurs de champs du courriel, indicateurs de portée, commutateurs de précision, comportement du surlignage, recherche `$` d'administration, recherche des paramètres et toutes les conditions des règles de classement.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.17**
 
 EpoCanvas Mail dispose de deux systèmes de recherche : la recherche de courriels côté utilisateur (la zone de recherche de la barre supérieure) et la recherche du courriel à l'échelle du site côté administrateur (la section administrative « Tous les courriels ») ; les pages de paramètres disposent en outre de leur propre recherche des paramètres. La présente page recense chaque opérateur, indicateur et condition de règle, en correspondance avec l'implémentation actuelle. Les règles de classement partagent la même sémantique de champs que la recherche ; le moteur de règles est décrit à partir de la section 7.
 
 ![Recherche d'EpoCanvas Mail : après saisie de from:github, la liste n'affiche que les courriels correspondants, le mot-clé étant surligné (interface en chinois simplifié)](/images/mail/fr/ui/search-guide.png)
 
 *Figure : recherche du courrier. Les opérateurs se combinent librement avec des mots-clés ordinaires ; les correspondances se surlignent aussitôt.*
-*Annotations: 1. Rechercher des e*
+
+<details>
+<summary>Guide visuel : La recherche  —  les deux positions qui comptent dans une requête</summary>
+
+Deux régions qui illustrent une recherche complète : saisissez un opérateur ou un mot-clé dans la barre de recherche, et la liste des résultats se filtre instantanément, correspondances surlignées.
+
+1. **Barre de recherche supérieure** : Sur les pages courriel, elle cherche des courriels ; sur les pages de paramètres, des entrées de configuration. Elle gère dix opérateurs de champs (`from:`, `to:`, `subject:`, `body:`, …) et des indicateurs comme `is:` ou `global:` ; plusieurs conditions séparées par des espaces se combinent en ET, et Tab complète les opérateurs.
+2. **Liste des correspondances** : Seuls les courriels satisfaisant toutes les conditions sont affichés, les termes trouvés étant surlignés nativement par le navigateur (`hl:off` le désactive). Un clic sur une ligne ouvre le détail et la fenêtre d'extrait glisse d'elle-même vers la correspondance, pour en conserver le contexte.
+
+</details>
 
 ## 1. Bases de la syntaxe
 

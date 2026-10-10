@@ -3,15 +3,26 @@ title: De configuratiekaarten van de systeeminstellingen
 description: De configuratiekaarten van de systeeminstellingen van EpoCanvas Mail — elf kaarten één voor één, van website-instellingen en personalisatie via derdenauthenticatie, opslag, e-mail-push, AI-engine en gebruikersgegevensbeheer tot Turnstile, aankondigingen, operatierapporten en de kaart Over.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 De pagina systeeminstellingen (`#manage/admin/system`, rechten-sleutels `setting:query`／`setting:set`) ordent alle configuratie op instantieniveau in kaarten. Deze pagina loopt elke kaart langs; de kaartnamen zijn identiek aan de interface.
 
 ![Figuur: de systeeminstellingen met hun elf kaarten](/images/mail/nl/ui/system-guide.png)
 
 *Figuur: de systeeminstellingen met hun elf kaarten*
-*Aantekeningen: 1. Website ｜ 2. Customization ｜ 3. opslag & databas ｜ 4. AI Engine & mode ｜ 5. gebruiker Data C*
 
+<details>
+<summary>Visuele handleiding: Systeeminstellingen —  de vijf meestgebruikte configuratiekaarten</summary>
+
+Vijf van de elf configuratiekaarten op de pagina Systeeminstellingen: configuratie op instantieniveau, per thema in kaarten gegroepeerd — hier de vijf meest gebruikte.
+
+1. **Kaart website-instellingen**: De hoofdschakelaars van de instantie: open registratie, openbare profielen, de e-mailmodus (drie niveaus), tweestapsverificatie, het verborgen aanmelddomein, registratiecodes, extra mailboxen, snel wisselen tussen accounts en de regels voor het mailboxvoorvoegsel.
+2. **Kaart personalisatie**: Het uithangbord van de instantie: de sitetitel geeft het merk aan zowel de aanmeldpagina als het browsertabblad, de dialogustekst vervangt de ingebouwde prompts, en de schakelaar dynamisch/statisch bepaalt of de aanmeldpagina animeert — statisch past beter bij zwakke apparaten en screenshots als bewijs. Wijzigingen gelden onmiddellijk voor iedereen.
+3. **Kaart opslag en kerndatabase**: Objectopslag (B2/S3, standaard met terugval op R2/KV), de architectuur van de kern- en externe databases, de limiet voor één bijlage met trapsgewijs wissen, en de gezondheidscheck van de KV-cache.
+4. **Kaart AI-engine**: De AI-aanbieder (een eigen OpenAI-compatibel eindpunt of Cloudflare Workers AI), de inschakelaar, het dagquotum en de ratelimiet, en de modelautorisatie per identiteitsgroep.
+5. **Kaart gebruikersgegevensbeheer**: Wat gewone gebruikers op de pagina Gegevens mogen: Telegram-push, e-mail doorsturen, ondersteuning voor API's van derden, eigen opslag en de standaard opslagquota. Data-export blijft altijd open en valt niet onder deze kaart.
+
+</details>
 
 ## 1. Website-instellingen
 

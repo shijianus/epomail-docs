@@ -3,14 +3,25 @@ title: Interface et plan des routes
 description: Interface et plan des routes d'EpoCanvas Mail — les huit vues de la boîte, la fenêtre de rédaction en surimpression, toutes les routes des paramètres et de l'administration, les flux de la surface de connexion, la page de consentement OAuth et les profils publics.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.17**
 
 La présente page parcourt une à une les interfaces d'EpoCanvas Mail et leur route. Un emplacement se compose de deux parties : le préfixe de chemin `/mail/u/N/` (N est l'indice de session multi-comptes ; toujours 0 pour un compte unique) et la route de vue après `#` (par exemple `#inbox`). Les anciens chemins directs tels que `/inbox` sont normalisés automatiquement. La surface de connexion est déployée séparément sous `/login/`. Ce que chaque route autorise est décidé par les permissions du groupe d'identité — voir [Modes de fonctionnement](/fr/mail/modes/) ; l'effet de chaque paramètre est décrit dans le [Guide des paramètres](/fr/mail/settings/).
 
 ![Panorama de la boîte de réception d'EpoCanvas Mail : à gauche l'entrée de rédaction et l'arborescence des dossiers, à droite la liste des messages avec badges de code de vérification et marques officielles (interface en chinois simplifié)](/images/mail/fr/ui/views-guide.png)
 
 *Figure : la boîte de réception (`#inbox`). Les huit vues partagent un même squelette de liste ; les compteurs et les étiquettes restent synchronisés.*
-*Annotations: 1. Rédiger　2. Favoris　3. En attente1　4. Envoyés*
+
+<details>
+<summary>Guide visuel : La boîte de réception en un coup d'œil  —  les quatre entrées les plus utilisées</summary>
+
+Quatre régions annotées de la boîte de réception, correspondant aux quatre entrées les plus utilisées au quotidien : rédiger un nouveau message, revenir aux courriels marqués d'une étoile, consulter les éléments reportés et vérifier ce qui est réellement parti.
+
+1. **Rédiger (bouton principal de la barre latérale)** : L'unique point d'entrée pour créer un courriel : il ouvre la fenêtre de rédaction en surimpression (et non une route indépendante). Sur mobile, il devient un bouton flottant en bas à droite, et le lien profond `?composeTo=<address>` préremplit le destinataire. Rédiger un message ne demande qu'un clic, depuis n'importe quelle vue.
+2. **Étoilés (dossier de la barre latérale)** : Tous les courriels marqués d'une étoile s'y rassemblent, quel que soit leur dossier : un clic sur l'étoile d'une ligne de liste les y ajoute. À réserver aux messages à garder à portée de main ou à consulter souvent ; le compteur de la barre latérale se met à jour en temps réel.
+3. **Reportés (dossier de la barre latérale)** : La zone d'attente des suivis différés, à deux paliers (urgent et en attente). Dans la vue de détail, choisissez « Reporter » en précisant l'heure ; à l'échéance, le courriel revient automatiquement en haut de la boîte de réception et les sujets importants ne sombrent plus au fond de la pile.
+4. **Envoyés (dossier de la barre latérale)** : Conserve la trace de tous les courriels émis par ce compte, où vérifier ce qui est effectivement parti. Le volume sortant est borné par le quota d'envoi quotidien du rôle ; les courriels adressés aux boîtes du site sont livrés en direct, ceux destinés à l'extérieur passent par le canal de livraison.
+
+</details>
 
 ## 1. Interface principale de la boîte
 
@@ -33,6 +44,18 @@ La rédaction est une surimpression plutôt qu'une route, déclenchée depuis tr
 ![Fenêtre de rédaction d'EpoCanvas Mail : l'expéditeur est verrouillé sur la boîte actuelle, barre d'outils de texte enrichi avec pièces jointes et bouton d'envoi (interface en chinois simplifié)](/images/mail/ui/ui-compose.png)
 
 *Figure : la fenêtre de rédaction en surimpression. Les boîtes du site sont livrées en direct ; le courrier hors site passe par le canal de livraison de l'Opérateur.*
+
+<details>
+<summary>Guide visuel : La fenêtre de rédaction région par région, de haut en bas</summary>
+
+La fenêtre de rédaction, de haut en bas : expéditeur verrouillé, destinataires et objet, barre d'outils de texte enrichi, zone de saisie du corps et barre d'actions en bas.
+
+- **Ligne de l'expéditeur** : L'expéditeur est verrouillé sur la boîte avec laquelle vous êtes connecté et n'est pas modifiable pendant la rédaction : un courriel envoyé depuis cette plateforme ne peut donc pas porter un From forgé. Les comptes à plusieurs boîtes changent d'identité d'envoi dans cette ligne ; le destinataire voit la boîte choisie. L'adresse d'expédition détermine aussi le canal de distribution du courriel sortant.
+- **Lignes des destinataires et de l'objet** : Les destinataires se choisissent parmi les contacts et acceptent le lien profond `?composeTo=` ; l'objet s'affiche dans les listes et reste interrogeable via `subject:`.
+- **Barre d'outils et zone du corps** : 17 outils de mise en forme : paragraphe, taille de police, styles de caractère, couleur, alignement, listes, citation, lien, image, tableau, émoji, traduction et mode code source.
+- **Barre d'actions en bas** : Le bouton de pièces jointes (capacité activée selon le rôle, plafond par fichier selon le réglage de l'instance) et le bouton d'envoi ; livraison directe sur le site, acheminement hors site par le canal configuré par l'Opérateur.
+
+</details>
 
 ## 2. Squelette de l'interface
 
@@ -63,6 +86,17 @@ Entrer dans les paramètres remplace la zone principale par les panneaux de para
 
 *Figure : la section Général. Les cinq sections de paramètres partagent un même squelette ; la colonne de gauche est la navigation entre sections.*
 
+<details>
+<summary>Guide visuel : La coque des réglages  —  la colonne de gauche et le panneau de droite</summary>
+
+L'aspect de la section des paramètres généraux : la colonne de gauche navigue entre les cinq sections de paramètres, la zone de droite porte les entrées générales (palette d'apparence, fond d'écran thématique, etc.).
+
+- **Navigation entre sections (colonne de gauche)** : Bascule entre les cinq sections Profil/Général/Sécurité/Données/Étiquettes ; entrer dans les paramètres masque la barre latérale du courrier, et « Retour au courrier » ramène à l'interface principale.
+- **Zone de personnalisation** : Trois modes de thème (sombre, clair, système) et le fond d'écran global (huit préréglages plus une image ou une URL personnalisée). La portée couvre toutes les vues de l'application — à la différence de l'« arrière-plan personnel », limité à la zone de la boîte de réception. La barre supérieure offre en outre un commutateur de thème rapide : inutile de revenir ici.
+- **Les autres groupes** : Les trois autres groupes de réglages de la page : préférences de lecture (type de boîte, position du volet de lecture, vue par conversation), langue (une interface parmi six, une cible de traduction IA parmi seize) et confidentialité des données (le guichet central des préférences de traitement des données personnelles et de l'IA). Cette figure ne montre que la colonne et l'allure ; la section 3 du guide des réglages détaille chaque élément.
+
+</details>
+
 ## 4. Zone d'administration
 
 Les routes d'administration prennent la forme `#manage/admin/<section>` ; le segment de groupe de rôle du chemin doit correspondre à l'identité du compte (`admin` pour le Maître, `moderator` pour les modérateurs) et est sinon normalisé vers une section disponible. Chaque section est liée à une clé de permission indépendante, accordée groupe par groupe sur la page des permissions :
@@ -83,6 +117,17 @@ Les routes d'administration prennent la forme `#manage/admin/<section>` ; le seg
 
 *Figure : le rapport d'audit (`#manage/admin/audit`). Le triage s'effectue dans une liste unique ; les boutons de traitement se répartissent par classe d'alerte.*
 
+<details>
+<summary>Guide visuel : Le rapport d'opérations sous forme de tableau côté administration</summary>
+
+La page du rapport d'audit telle que la voit l'administration : les tickets d'alerte s'apprécient sous forme de tableau, et les boutons de traitement se répartissent selon la classe d'alerte.
+
+- **Tableau des tickets** : Une alerte par ligne, avec colonnes pour la catégorie (audit, contrôle des risques, bannissement, appel), la priorité (P0/P1), l'état actuel et le pool d'environnements actifs en texte brut — IP, géographie, appareil et empreinte. Le pool s'agrège par comportement de requête : l'anomalie ne devient visible que lorsqu'un même compte se connecte simultanément depuis plusieurs IP.
+- **Boutons de traitement** : Les boutons se répartissent selon la catégorie du ticket : les alertes d'appel mettent « lever après examen » en évidence (lever, c'est restaurer le compte), les alertes de bannissement mettent en avant « retirer l'alerte », et les autres passent par le menu d'actions standard. Le bouton n'enregistre que le verdict ; le bannissement et la restauration effectifs restent exécutés depuis la liste des utilisateurs, les deux pages restant synchronisées.
+- **Couplage avec le mode** : La même table change de forme selon le mode de messagerie : en mode tout-courriel (L1) l'information est la plus complète ; en mode privé (L2) la page ressemble à cette figure ; en mode chiffré (L3) les horodatages sont dépouillés et la colonne temporelle disparaît — l'administrateur juge alors sur la seule catégorie et le pool d'environnements, sans pouvoir reconstituer l'ordre des événements.
+
+</details>
+
 ## 5. Surface de connexion
 
 `/login/` est une application de connexion séparée, déployée à part de l'interface principale. Une seule carte de connexion porte tous les flux :
@@ -99,6 +144,17 @@ Les routes d'administration prennent la forme `#manage/admin/<section>` ; le seg
 ![Page de connexion d'EpoCanvas Mail : champs adresse électronique et mot de passe, case à cocher « maintenir le lien orbite » et boutons de connexion rapide tierce (interface en chinois simplifié)](/images/mail/ui/ui-login-oauth.png)
 
 *Figure : la page de connexion. La règle d'affichage à trois états des boutons tiers figure à la section 4 de [Modes de fonctionnement](/fr/mail/modes/).*
+
+<details>
+<summary>Guide visuel : Tous les flux que porte la page de connexion</summary>
+
+La surface de connexion dans son ensemble : une même carte de connexion porte tous les flux — connexion par mot de passe, vérification en deux étapes, connexion rapide tierce, inscription et mot de passe oublié.
+
+- **Zone de saisie** : Le chemin le plus fréquenté de la page : l'adresse électronique tient lieu de compte, et le mot de passe est stocké en empreinte salée — le serveur ne voit jamais le clair. Des échecs répétés déclenchent un verrouillage anti-force brute, dont la granularité et la durée relèvent de la politique du serveur ; cocher « garder cet appareil de confiance » dispense de toute re-vérification pendant 30 jours.
+- **Zone des boutons tiers** : Les fournisseurs que l'administrateur a activés et dotés d'identifiants apparaissent en boutons ; ceux activés mais sans identifiants s'affichent grisés « bientôt disponible » ; les fournisseurs désactivés ne s'affichent pas du tout.
+- **Les autres flux** : La même carte porte trois chemins de plus : un compte avec vérification en deux étapes poursuit vers un second facteur (TOTP, code de récupération ou clé d'accès) ; en mode code d'inscription, un paramètre code préremplit le formulaire d'inscription ; « mot de passe oublié » rejoint le portail de recours externe en emportant le type de recours, la langue d'interface et l'adresse électronique. La section 4 de la page des modes énonce les règles.
+
+</details>
 
 ## 6. Pages autonomes et capacités globales
 

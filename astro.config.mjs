@@ -32,6 +32,10 @@ function rehypePrefixBase() {
 
 // 侧边栏条目的多语言文案：label 为默认语言（简体中文），其余语言从 translations 取。
 const SIDEBAR_I18N = {
+	'文档站介绍': {
+		'zh-tw': '文件站介紹', en: 'Documentation Site Introduction',
+		fr: 'Introduction au site de documentation', es: 'Introducción al sitio de documentación', nl: 'Inleiding documentatiesite',
+	},
 	'专案介绍': {
 		'zh-tw': '專案介紹', en: 'Project Overview',
 		fr: 'Présentation du projet', es: 'Presentación del proyecto', nl: 'Projectoverzicht',
@@ -243,6 +247,7 @@ export default defineConfig({
 			customCss: ['./src/styles/custom.css'],
 			sidebar: [
 				g('产品与总览', [
+					t('文档站介绍', 'mail/introduction'),
 					t('专案介绍', 'mail/project'),
 					t('服务范围与支持', 'mail/service-scope'),
 					t('界面与路由总览', 'mail/interface'),

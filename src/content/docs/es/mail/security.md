@@ -3,14 +3,25 @@ title: Guía de seguridad de la cuenta
 description: Guía de seguridad de la cuenta de EpoCanvas Mail — activación de la verificación en dos pasos en tres pasos, gestión de los códigos de recuperación, registro de llaves de acceso, comportamiento de la verificación al iniciar sesión y eliminación de la cuenta.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.17**
 
 Esta página recorre una a una todas las acciones de la página «Configuración → Seguridad». El comportamiento general de la verificación en dos pasos (dispositivos de confianza, políticas obligatorias) se describe en la sección 4 de [Modos de funcionamiento](/es/mail/modes/); esta página cubre solo la configuración. Entrada: barra lateral «Configuración → Seguridad» (`#settings/security`).
 
 ![Página de seguridad de EpoCanvas Mail: cambio de contraseña y el centro de verificación en dos pasos con los tres segundos factores](/images/mail/es/ui/twofa-guide.png)
 
 *Figura: la página de seguridad. Arriba, el nombre de usuario y la contraseña; abajo, el centro de verificación en dos pasos.*
-*Anotaciones: 1. Authenticator Ap　2. copia de segurid　3. Passkeys & segur　4. Back to Mail*
+
+<details>
+<summary>Guía visual: El centro de verificación en dos pasos —  cuatro tarjetas, tres segundos factores</summary>
+
+Cuatro regiones anotadas de la página de seguridad: arriba, el acceso para modificar las credenciales de la cuenta; abajo, el centro de verificación en dos pasos, que presenta en paralelo tres segundos factores que pueden combinarse.
+
+1. **Tarjeta de nombre de usuario y contraseña**: Permite cambiar el nombre de usuario y la contraseña de acceso y muestra la fecha del último cambio. Para desactivar la verificación en dos pasos también hay que introducir aquí la contraseña y un código dinámico como confirmación.
+2. **Aplicación de autenticación (TOTP)**: Tras vincularla escaneando el código QR, genera un código dinámico de 6 dígitos cada 30 segundos. Al terminar la vinculación se muestran de inmediato 10 códigos de recuperación, cada uno de un solo uso, para iniciar sesión cuando la aplicación de autenticación no esté disponible.
+3. **Códigos de recuperación de respaldo**: El recurso de respaldo para iniciar sesión cuando falla la aplicación de autenticación: la tarjeta muestra en tiempo real cuántos quedan disponibles. Ver los códigos completos o regenerarlos exige la contraseña de la cuenta, y un restablecimiento anula todos los códigos antiguos.
+4. **Llaves de acceso (Passkey)**: Llaves de seguridad de hardware o biometría del dispositivo. Una llave recién registrada se activa en cuanto la aprueba la aplicación de autenticación ya vinculada (o de forma automática al vencer el bloqueo temporal de 30 días); una vez activa, «Probar» verifica el flujo de desbloqueo.
+
+</details>
 
 ## 1. Recorrido por la página de seguridad
 

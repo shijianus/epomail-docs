@@ -3,7 +3,7 @@ title: Label- en classificatiebeheer
 description: Label- en classificatiebeheer van EpoCanvas Mail — labels aanmaken met icoon en kleur, het onderhoud van de vier fabriekslabels via heuristiek, de bouwer van classificatieregels en de statistieken.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 Labels en classificatieregels worden beheerd in «Instellingen → Labels» (`#settings/labels`). De volledige veldtabel van de regelvoorwaarden staat in sectie 7 van de [Zoek- en regelreferentie](/nl/mail/search/); deze pagina behandelt het beheer van de labels zelf en de statistieken.
 
@@ -11,6 +11,16 @@ Labels en classificatieregels worden beheerd in «Instellingen → Labels» (`#s
 
 *Figuur: de label- en classificatie-interface*
 
+<details>
+<summary>Visuele handleiding: Labels —  één aanmaakingang en drie handelingen per rij</summary>
+
+Drie gebieden van de pagina Labels: één ingang om labels aan te maken plus de tellers en schakelaars per rij — alles wat labels dagelijks nodig hebben.
+
+1. **Knop Nieuw label**: Maakt een aangepast label aan en geeft het een naam; het labelgebied in de zijbalk toont er ten hoogste 7, en vier staan fabrieksstandaard klaar: Gemeenschap, Abonnementen, Promoties en Werk.
+2. **Labelrij**: Eén kaart per label: een gekleurde labelbadge (pictogram naar keuze uit de ingebouwde bibliotheek of een eigen SVG, kleur vrij te kiezen) plus drie tellers die realtime bijwerken — totaal, huidig en onbehandeld.
+3. **Zichtbaarheidsschakelaar en handelingen per rij**: De schakelaar bepaalt of het label in de zijbalk verschijnt; bij bewerken wijzig je uiterlijk en regels, en bij verwijderen wordt het label ook uit de classificatieregels gehaald.
+
+</details>
 
 ## 1. Labels aanmaken en hun uiterlijk
 

@@ -3,7 +3,7 @@ title: Settings Guide
 description: EpoCanvas Mail settings guide — the five personal-settings sections (profile, general, security, data, labels) and a complete tour of the nine admin-console sections and the system-settings cards.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.16**
+**Effective Date: October 5, 2026 | Version: 5.17**
 
 EpoCanvas Mail splits its settings into two areas: the "settings" area of the sidebar holds the personal settings every account can adjust itself, in five sections — profile, general, security, data and labels; the "admin" area appears only for identity groups with administrative permissions and carries the instance-level configuration. This page walks through each area and how the settings relate. For behaviour at the operating level — multi-account, mail modes, sign-in — see [Operating Modes](/en/mail/modes/).
 
@@ -22,7 +22,18 @@ EpoCanvas Mail splits its settings into two areas: the "settings" area of the si
 ![EpoCanvas Mail profile page: the basic-information card holds avatar upload, nickname, gender and birthday; the contact card shows the e-mail address with its primary-mailbox tag plus an add-e-mail button, and phone numbers; address cards for home, company and other follow below (interface in Simplified Chinese)](/images/mail/en/ui/preferences-guide.png)
 
 *Figure: the profile page. The primary mailbox carries a "primary mailbox" tag; additional e-mail addresses can be added in number and removed at any time.*
-*Annotations: 1. Basic Informatio　2. Contact Informat　3. Addresses　4. Associated Setti*
+
+<details>
+<summary>Walkthrough: Profile —  personal data split across four dimensions</summary>
+
+The four cards of the profile page: identity, contact, addresses and linked settings — four dimensions of your personal data, card by card.
+
+1. **Basics card**: Avatar upload, display name, gender and birthday. Whether name and avatar appear publicly is gated by the operator's "public profile" switch.
+2. **Contact card**: The sign-in mailbox carries a "primary" tag and cannot be removed; extra mailboxes can be added and dropped at will, plus a phone number with area code.
+3. **Address cards**: Home, company and other addresses are stored separately, each added, edited and removed on its own. They are profile data in the strict sense: never used for delivery, never affecting billing or the role. Whether they are needed at all — and whether they show publicly — depends on the operator public-profile switch.
+4. **Linked settings and security card**: The springboard from the profile page into the other settings pages: account security (username, password, two-step verification) and third-party grants (authorised apps) sit together here, so you need not hunt back and forth between the profile and security pages. Each entry jumps to the matching section rather than opening a new page.
+
+</details>
 
 The basic-information card manages the avatar, nickname, gender and birthday. The contact card lists the sign-in primary mailbox and any additional e-mail addresses added by the account holder, plus telephone numbers with country codes. The address cards store home, company and other addresses separately. How much of this is public is governed by the operator's "public profile" switch.
 
@@ -31,6 +42,17 @@ The basic-information card manages the avatar, nickname, gender and birthday. Th
 ![EpoCanvas Mail general page: a bio text box; the appearance area offers dark, light and follow-system colour schemes; the global theme wallpaper offers eight presets plus a custom wallpaper, with the personal background and further settings below (interface in Simplified Chinese)](/images/mail/en/ui/general-guide.png)
 
 *Figure: appearance and wallpaper selection on the general page, shown with follow-system and the default clean wallpaper.*
+
+<details>
+<summary>Walkthrough: General —  three cards for look and reading habits</summary>
+
+The three cards of the general page — bio, personalisation and preferences — covering every aspect of look and reading habits.
+
+1. **Bio card**: A short text shown on your public profile page; whether that page is reachable is decided by the operator's "public profile" switch.
+2. **Personalisation card**: Three theme modes (dark/light/system, also switchable from the top bar) and the global wallpaper (eight presets plus custom image or URL); a personal background (mailbox area only) and UI density are here too.
+3. **Preferences card**: Reading preferences (inbox type, reading-pane position, conversation view) and language (UI in one of six; AI translation target in one of 16). The data-privacy group gathers personal-info and AI-processing preferences.
+
+</details>
 
 - Appearance: dark, light and follow-system colour schemes; eight wallpaper presets plus custom wallpapers; the personal background and interface density are set separately;
 - Reading preferences: inbox type, reading-pane position and the conversation-view switch;
@@ -46,7 +68,18 @@ The security page changes the username and the password (showing when it last ch
 ![EpoCanvas Mail data page: the export card offers the full-data JSON export, the mail archive (MBOX, JSON or CSV with a time range) and the contacts-and-configuration export; the storage card below shows the attachment-usage gauge and the personal object-storage entrance (interface in Simplified Chinese)](/images/mail/en/ui/data-guide.png)
 
 *Figure: the data page. Export and storage management appear on one page; attachment usage counts against the identity group's quota.*
-*Annotations: 1. User Data & Mail　2. Email & Message 　3. Storage Space & 　4. Third-party apps*
+
+<details>
+<summary>Walkthrough: Data —  four regions of personal-data autonomy</summary>
+
+The four cards of the data page: three export formats, a forwarding region, a storage region and a third-party grants region — personal data autonomy in one screen.
+
+1. **Export card**: Three exports side by side: the full JSON backup, the mail archive (MBOX/JSON/CSV with time range) and contacts & preferences; individual messages can also be downloaded as .eml from the reading pane.
+2. **Forwarding card**: Item-by-item settings for Telegram push and auto-forwarding; whether the account may use them is decided by the operator's "user data control" switches.
+3. **Storage card**: A live usage gauge against the quota. Connect your own Backblaze B2/S3 bucket and new attachments land in your cloud, outside the instance quota; disconnecting falls back to instance storage.
+4. **Third-party apps card**: Every OAuth grant on the account: revoke per app or all at once from the detail dialog. Revocation is immediate — the app's existing tokens die at once.
+
+</details>
 
 | Export | Format | Scope |
 | --- | --- | --- |
@@ -104,7 +137,18 @@ The audit-report page presents site-wide risk events as warning tickets, each ca
 ![EpoCanvas Mail audit-report page: the table lists warning tickets of the four classes — appeal, ban, audit and risk — each with its priority, status tag, active-environment details and handling buttons such as release and lift-warning (interface in Simplified Chinese)](/images/mail/en/ui/audit-guide.png)
 
 *Figure: the audit report. All four warning classes are reviewed in one list, with handling buttons routed by class; in encrypted mode the record timestamps are stripped.*
-*Annotations: 1. Email　2. Security Audit L　3. Alert Context & 　4. Active Environme*
+
+<details>
+<summary>Walkthrough: Audit —  the full information chain of one ticket</summary>
+
+The four-column table of the audit page: the full information chain of one ticket, from "who" through "why it fired" to "where the evidence is".
+
+1. **Email column**: The account this ticket points at: the subject of a risk-control or ban alert, the reported party in an audit alert, or the appellant in an appeal ticket. This page adjudicates only — the actual actions (ban, restore, reset) are executed from the users page, so a verdict here is used together with that page.
+2. **Audit-level column**: The risk grading (P0/P1 priority with category tags): audit, risk-control, ban and appeal tickets each carry their own handling path.
+3. **Alert-notes column**: What triggered the ticket — concurrent logins from many IPs, an upheld report, etc. This is the basis for approving or rejecting.
+4. **Environment-pool column**: The full environment in plain text: IP, geo, device and fingerprint. In encrypted mode (Level 3) timestamps are stripped, yet tickets stay reviewable.
+
+</details>
 
 ## 8. Related documents
 

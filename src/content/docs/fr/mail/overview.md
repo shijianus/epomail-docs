@@ -3,7 +3,7 @@ title: Confidentialité et conditions — Vue d'ensemble
 description: Vue d'ensemble des documents juridiques d'EpoCanvas Mail — identité de la plateforme, rôles de traitement des données, architecture documentaire, ordre de priorité et points de contact.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.17**
 
 La présente page constitue le guide de l'ensemble des documents juridiques du service EpoCanvas Mail (le « Service ») ; elle explique le rôle des parties, l'architecture documentaire et l'ordre d'application. Avant de vous inscrire ou d'utiliser le Service, vous devez lire la présente page, ainsi que la [Politique de confidentialité](/fr/mail/privacy-policy/) et les [Conditions d'utilisation](/fr/mail/terms-of-service/).
 

@@ -3,7 +3,7 @@ title: Official Mail Specification & Tamper-Proof Verification
 description: How EpoCanvas Mail official system mail is issued and identified — the official flag, immutable delivery, client-side rendering isolation, and document tamper-proof verification.
 ---
 
-**Effective Date: October 5, 2026 | Version: 5.16**
+**Effective Date: October 5, 2026 | Version: 5.17**
 
 This document explains how official system mail is issued and how to identify it, and describes the tamper-proof verification mechanism for the legal documents on this site, so you can confirm the authenticity of official communications and documents. It is established under the [Privacy & Terms Overview](/en/mail/overview/) and [Data Processing & Security Maintenance](/en/mail/data-security/).
 

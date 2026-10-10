@@ -3,14 +3,26 @@ title: Rechtenbeheer
 description: Rechtenbeheer van EpoCanvas Mail — de zes identiteitsgroepen, de rechten-sleutels per onderdeel, de standaardgroep met groepsbescherming en de koppeling met de blogniveaus.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 Rechtenbeheer is de beheerinterface van de identiteitsgroepen in de beheerzone (`#manage/admin/roles`, rechten-sleutel `role:query`) en bepaalt de quota, de rechten-sleutels en de AI-modelautorisatie van elke groep. Het gedrag aan gebruikerskant van elke groep staat in sectie 3 van [Werkingsmodi](/nl/mail/modes/).
 
 ![Permissionspagina van EpoCanvas Mail: de tabel met de zes identiteitsgroepen en de kolommen voor quota, verzendlimiet, bijlagerecht en AI-modelautorisatie (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/roles-guide.png)
 
 *Figuur: het architectuur- en gradatieoverzicht van de rechtenpagina. De interface labelt verzending en opslag van de groep Meester als «onbeperkt».*
-*Aantekeningen: 1. 　2. Name　3. Opslagquotum　4. Verzendlimiet　5. Machtiging voor *
+
+<details>
+<summary>Visuele handleiding: Rollen —  vijf kolommen bepalen wat een rol mag doen</summary>
+
+De tabel met de zes identiteitsgroepen op de pagina Rechtenbeheer: vijf gemarkeerde kolommen voor de vijf dimensies die per groep instelbaar zijn.
+
+1. **Kolom identiteitsgroep**: Zes groepen — Gewone gebruiker, Bezoeker, Gewone gebruiker LV.0, LV.1, Moderator en Meester — elk met een positietag. De groep bepaalt de standaardwaarden van de andere vier kolommen; Bezoeker en Meester zijn beschermd en kunnen niet worden verwijderd.
+2. **Kolom opslagquota**: Eén opslagquota voor bijlagen per groep (Bezoeker 0 MB tot Meester 1024 MB, in de interface als «onbeperkt» gelabeld). Met gekoppelde persoonlijke objectopslag tellen nieuwe bijlagen niet meer mee voor deze quota.
+3. **Kolom verzendlimiet**: Het dagelijkse verzendquotum (Gewone gebruiker 5 tot Moderator 100; Meester zonder plafond), dat elke dag opnieuw begint. Groepen die niet mogen verzenden — de Bezoeker — krijgen hier de markering «verzenden verboden».
+4. **Kolom bijlagerecht**: Of bijlagen verzonden en ontvangen mogen worden. Groepen met «alleen platte tekst» versturen zonder bijlagen; bij open groepen blijven de opslagquota en de limiet per bestand van kracht.
+5. **Kolom geautoriseerde AI-modellen**: Welke AI-modellen de groep mag aanroepen, in samenspel met het dagquotum en de ratelimiet van de AI Hub in de systeeminstellingen — AI-capaciteit getrapt per identiteit.
+
+</details>
 
 ## 1. Groepen en quota's
 

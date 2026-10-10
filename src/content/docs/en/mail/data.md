@@ -3,14 +3,25 @@ title: Data Export & Storage
 description: EpoCanvas Mail data export and storage — the full backup, mail-history archive and contacts-configuration exports, and connecting personal object storage.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 This page covers the export and storage halves of the "Settings → Data" page. Notifications and forwarding on the same page are in the [Notifications & Forwarding Guide](/en/mail/notify/); the legal status of exported data is in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
 ![EpoCanvas Mail data page: the three export cards, the storage-usage gauge and the personal object storage entrance (interface in Simplified Chinese)](/images/mail/en/ui/data-guide.png)
 
 *Figure: the data page. Export and storage management appear on one page; attachment usage counts against the identity group's quota.*
-*Annotations: 1. User Data & Mail　2. Email & Message 　3. Storage Space & 　4. Third-party apps*
+
+<details>
+<summary>Walkthrough: Data —  four regions of personal-data autonomy</summary>
+
+The four cards of the data page: three export formats, a forwarding region, a storage region and a third-party grants region — personal data autonomy in one screen.
+
+1. **Export card**: Three exports side by side: the full JSON backup, the mail archive (MBOX/JSON/CSV with time range) and contacts & preferences; individual messages can also be downloaded as .eml from the reading pane.
+2. **Forwarding card**: Item-by-item settings for Telegram push and auto-forwarding; whether the account may use them is decided by the operator's "user data control" switches.
+3. **Storage card**: A live usage gauge against the quota. Connect your own Backblaze B2/S3 bucket and new attachments land in your cloud, outside the instance quota; disconnecting falls back to instance storage.
+4. **Third-party apps card**: Every OAuth grant on the account: revoke per app or all at once from the detail dialog. Revocation is immediate — the app's existing tokens die at once.
+
+</details>
 
 ## 1. The three exports
 

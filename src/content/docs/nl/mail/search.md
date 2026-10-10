@@ -3,14 +3,23 @@ title: Zoek- en regelreferentie
 description: De complete zoek- en regelreferentie van EpoCanvas Mail — veldoperators voor mail, bereikvlaggen, precisieschakelaars, markeringsgedrag, geavanceerd beheerderszoeken met $, instellingenzoeken en elke voorwaarde van de classificatieregels.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.17**
 
 EpoCanvas Mail heeft twee opzoeksystemen: het mailzoeken voor gebruikers (het zoekvak in de bovenbalk) en het zoeken over de hele opslag voor de beheerder (de beheersectie «Alle e-mail»); instellingenpagina's hebben daarnaast hun eigen instellingenzoeken. Deze pagina somt elke operator, vlag en regelvoorwaarde op, in overeenstemming met de huidige implementatie. Classificatieregels delen dezelfde veldsemantiek als zoeken; de regelengine wordt vanaf sectie 7 beschreven.
 
 ![Zoeken in EpoCanvas Mail: na invoer van from:github toont de lijst uitsluitend de overeenkomende mail, met het trefwoord gemarkeerd](/images/mail/nl/ui/search-guide.png)
 
 *Figuur: mailzoeken. Operators combineren vrij met gewone trefwoorden; treffers lichten onmiddellijk op.*
-*Aantekeningen: 1. E-mail zoeken...*
+
+<details>
+<summary>Visuele handleiding: Zoeken —  de twee plekken die tellen in één zoekopdracht</summary>
+
+Twee gebieden tonen één volledige zoekopdracht: typ een operator of trefwoord in het zoekvak, en de trefferslijst filtert onmiddellijk met de treffers gemarkeerd.
+
+1. **Zoekvak in de bovenbalk**: Zoekt mail op mailpagina's en instellingen op instellingenpagina's. Tien veldoperators (`from:`, `to:`, `subject:`, `body:`, …) plus vlaggen zoals `is:` en `global:`; met spaties gescheiden voorwaarden combineren als EN, en Tab vult operators aan.
+2. **Trefferslijst**: Alleen berichten die aan alle voorwaarden voldoen worden getoond, met de treffers native door de browser gemarkeerd (`hl:off` zet dit uit). Een rij openen schuift het fragmentvenster naar de treffer, zodat de context bewaard blijft.
+
+</details>
 
 ## 1. Grondbeginselen van de syntax
 

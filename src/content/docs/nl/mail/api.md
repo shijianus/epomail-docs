@@ -3,14 +3,26 @@ title: Open platform en API-toegang
 description: De gids voor het open platform en de API-toegang van EpoCanvas Mail — OAuth-apps registreren, de authorize- en token-eindpunten, userinfo, de semantiek van scopes en de toestemmings- en intrekkingsstroom aan gebruikerskant.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.17**
 
 EpoCanvas Mail beschikt over een ingebouwd OAuth 2.0 / OIDC-autorisatiecentrum: de beheerder registreert applicaties van derden in de beheersectie «Appbeheer» (`#manage/admin/oauth-apps`), waarna externe sites «Aanmelden met Epomail» kunnen aanbieden. Deze pagina is de volledige ontwikkelaarshandleiding; waar het appbeheer in de app zit, staat in de [Interface en routekaart](/nl/mail/interface/), sectie 4, en de verwerking van autorisatiegegevens wordt openbaar gemaakt in de [Verwerkerslijst](/nl/mail/sub-processors/).
 
 ![Appbeheerpagina van EpoCanvas Mail: vier eindpuntchips, de knop van de ontwikkelaarshandleiding, de kaart van de voorbeeldapp en de ingang van de integratiecode (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/apps-guide.png)
 
 *Figuur: het appbeheer. De vier eindpunten staan bovenaan; elke appkaart draagt de referenties, een aan/uit-schakelaar en de integratiecode.*
-*Aantekeningen: 1. GET/.well-known/　2. GET/oauth/author　3. POST/api/oauth/t　4. GET/api/oauth/us　5. shijianus-blogAa*
+
+<details>
+<summary>Visuele handleiding: Appbeheer —  de vijf punten die een koppeling met derden afronden</summary>
+
+Vijf gebieden van de pagina Appbeheer: vier eindpunten bovenaan en één voorbeeldappkaart, samen de kringloop van integratie door derden — «eindpunt vinden, referenties ophalen, code overnemen».
+
+1. **`/.well-known/openid-configuration`**: Het eindpunt met OIDC Discovery-metadata: issuer, de eindpunten en de mogelijkheden, zelfbeschreven zodat frameworks zoals NextAuth zich automatisch kunnen configureren.
+2. **`/oauth/authorize`**: Het eindpunt voor gebruikersautorisatie: het loodst de gebruiker door aanmelden en het verlenen van toestemming. Pop-ups krijgen het resultaat terug via `postMessage`; bij annulering keert de gebruiker terug met `error=access_denied`.
+3. **`/api/oauth/token`**: Het eindpunt voor tokenuitwisseling: een eenmalig gebruikbare autorisatiecode (5 minuten geldig) wordt geruild voor een access token en een ID Token die 2 uur geldig zijn. JSON, formulier en HTTP Basic worden alle drie geaccepteerd; met PKCE wordt de `code_verifier` (S256) gecontroleerd.
+4. **`/api/oauth/userinfo`**: Het eindpunt voor het gebruikersprofiel: met een Bearer access token lees je de verleende velden (`sub`, `email`, `name`, `picture`, …). Een verlopen of ingetrokken token geeft 401 terug.
+5. **Appkaart (shijianus-blog)**: Eén kaart per app: Client ID en Client Secret (het secret wordt alleen bij aanmaak of herstel één keer volledig getoond), een aan/uit-schakelaar, bewerken/verwijderen, en vijf kant-en-klare integratiefragmenten — NextAuth, Node, Python, cURL en generieke OIDC.
+
+</details>
 
 ## 1. Eindpunten
 

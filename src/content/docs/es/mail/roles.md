@@ -3,14 +3,26 @@ title: Control de permisos
 description: Control de permisos de EpoCanvas Mail — los seis grupos de identidad, las claves de permiso una a una, el grupo por defecto y la protección de grupos, y la vinculación con el nivel del blog, a cargo del administrador.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 El control de permisos es la interfaz de gestión de los grupos de identidad de la zona de administración (`#manage/admin/roles`, clave de permiso `role:query`); decide la cuota, las claves de permiso y la autorización de modelos de IA de cada grupo. El comportamiento en el lado del usuario de cada grupo figura en la sección 3 de [Modos de funcionamiento](/es/mail/modes/).
 
 ![Página de control de permisos de EpoCanvas Mail: la tabla de los seis grupos con sus cuotas, límites de envío, permisos de adjuntos y columnas de modelos de IA autorizados](/images/mail/es/ui/roles-guide.png)
 
 *Figura: vista de conjunto de la arquitectura y la graduación de la página de control de permisos. La interfaz rotula como «sin límite» el envío y el almacenamiento del grupo Maestro.*
-*Anotaciones: 1. 　2. Name　3. Cuota de almacen　4. Límite de envío　5. Permiso de adjun*
+
+<details>
+<summary>Guía visual: Los roles —  cinco columnas deciden qué puede hacer un grupo</summary>
+
+La tabla de los seis grupos de identidad de la página de control de permisos: cinco columnas anotadas, una por cada una de las cinco dimensiones ajustables por grupo.
+
+1. **Columna de identidad**: Los seis grupos —Usuario normal, Visitante, Usuario normal LV.0, LV.1, Moderador y Maestro— con su etiqueta de posicionamiento. El grupo decide los valores por defecto de las otras cuatro columnas; Visitante y Maestro están protegidos y no pueden eliminarse.
+2. **Columna de cuota de almacenamiento**: Una cuota de almacenamiento de adjuntos por grupo (de 0 MB en el Visitante a 1024 MB en el Maestro, que la interfaz rotula «sin límite»). Al conectar un almacenamiento de objetos personal, los adjuntos nuevos dejan de consumir esta cuota.
+3. **Columna de límite de envío**: La cuota diaria de envío (5 correos en el Usuario normal hasta 100 en el Moderador; el Maestro no tiene techo), con un contador que se restablece cada día. Los grupos a los que se prohíbe enviar —el Visitante— quedan señalados aquí.
+4. **Columna de permisos de adjuntos**: Indica si se permite enviar y recibir adjuntos. Los grupos de «solo texto» envían correo sin adjuntos; los grupos que los tienen habilitados siguen sujetos a la cuota de almacenamiento y al límite por archivo.
+5. **Columna de modelos de IA autorizados**: El conjunto de modelos de IA que puede invocar el grupo, en combinación con la cuota diaria y el límite de tasa del AI Hub de la configuración del sistema: la capacidad de IA se gradúa según la identidad.
+
+</details>
 
 ## 1. Grupos y cuotas
 

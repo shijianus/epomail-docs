@@ -3,15 +3,25 @@ title: Perfil y ajustes generales
 description: Perfil y ajustes generales de EpoCanvas Mail — avatar, apodo, contacto y direcciones, tema de apariencia y fondo de pantalla, preferencias de lectura e idioma de la interfaz, explicados entrada por entrada.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 Esta página explica cada entrada de las secciones «Configuración → Perfil» y «Configuración → General». Los ajustes de seguridad y de datos figuran por separado en la [Guía de seguridad de la cuenta](/es/mail/security/) y en [Exportación de datos y almacenamiento](/es/mail/data/).
 
 ![Figura: la interfaz de perfil y ajustes generales](/images/mail/es/ui/preferences-guide.png)
 
 *Figura: la interfaz de perfil y ajustes generales*
-*Anotaciones: 1. Basic Informatio ｜ 2. Contact Informat ｜ 3. Addresses ｜ 4. Associated ajust*
 
+<details>
+<summary>Guía visual: El perfil —  los datos personales divididos en cuatro dimensiones</summary>
+
+Las cuatro tarjetas de la página de perfil: de la imagen de identidad a los datos de contacto y de ahí a las direcciones, los cuatro planos de los datos personales se gestionan tarjeta a tarjeta.
+
+1. **Tarjeta de información básica**: Subida de avatar, apodo personal, género y cumpleaños. Que el apodo y el avatar se muestren al exterior está regido por el interruptor de «perfil público» del administrador.
+2. **Tarjeta de información de contacto**: El buzón principal de inicio de sesión lleva la etiqueta «buzón principal» y no puede retirarse; pueden añadirse varios correos electrónicos adicionales y retirarlos en cualquier momento, además de registrar un número de teléfono con prefijo de país.
+3. **Tarjetas de dirección**: Las direcciones de casa, empresa y otras se guardan por separado, y cada una se añade, edita y retira de forma independiente. Son datos de perfil en sentido estricto: no intervienen en la entrega del correo ni afectan a la facturación ni al grupo de identidad. Que sea necesario rellenarlas, y que se muestren al exterior, depende de si el Operador activa el interruptor de «perfil público».
+4. **Tarjeta de ajustes asociados y seguridad**: La plataforma de salto de la página de perfil hacia las demás páginas de configuración: la seguridad de la cuenta (nombre de usuario y contraseña, verificación en dos pasos) y las autorizaciones de terceros (aplicaciones autorizadas), las dos entradas más usadas, se reúnen aquí para no tener que ir y venir entre la página de perfil y la de seguridad. Al pulsar cada entrada se salta a la sección correspondiente, sin abrir una página nueva.
+
+</details>
 
 ## 1. Perfil (`#settings/profile`)
 

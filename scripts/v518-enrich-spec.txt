@@ -1,0 +1,88 @@
+{ h: { zh: '通讯录与配置卡', en: 'Contacts and preferences card' }, d: { zh: '导出联系人名录、自定义别名规则与系统个性化偏好，用于迁移或备份个人配置。', en: 'Exports the contact book, custom alias rules and personalisation preferences — for migrating or backing up your setup.' } }
+@@@
+{ h: { zh: '通讯录与配置卡', en: 'Contacts and preferences card' }, d: { zh: '第三类导出：联系人名录、自定义别名规则与系统个性化偏好。它是三张卡里最小的一份，却决定换实例后能否延续既有收发习惯——别名规则与标签体系一并带走，免去重新命名与重新分类。', en: 'The third export: the contact book, custom alias rules and personalisation preferences. The smallest of the three, yet it decides whether your habits survive a move — alias rules and the label taxonomy travel with it, so nothing has to be renamed or reclassified.' } }
+@@@
+{ h: { zh: '用户邮箱列', en: 'Email column' }, d: { zh: '帐号的唯一标识：邮箱即帐号名，重置密码、调整分组等一切操作的结果都以此为准。', en: 'The account identity — the email is the account. Every operation (password reset, role change) applies to it.' } }
+@@@
+{ h: { zh: '用户邮箱列', en: 'Email column' }, d: { zh: '帐号的唯一标识：邮箱即帐号名，登录、收信与一切授权都以它为准。行内操作（重置密码、调整分组、封禁）作用于本列所指的帐号；同页另有收发量、存储占用与垃圾／被举报计数三列，用于判断某帐号是否异常。', en: 'The account identity — the email is the account, the key for signing in, receiving mail and every grant. Row actions (reset password, change role, ban) apply to the account this column names; the other counters on the page — sent/received, storage, spam and reports — are what tell you whether an account looks abnormal.' } }
+@@@
+{ h: { zh: '地址卡', en: 'Address cards' }, d: { zh: '住家、公司与其他三组地址分别保存；仅作个人资料留存，不参与邮件投递。', en: 'Home, company and other addresses are stored separately — kept as profile data only, never used for delivery.' } }
+@@@
+{ h: { zh: '地址卡', en: 'Address cards' }, d: { zh: '住家、公司与其他三组地址分别保存，各自独立增删与编辑。它们是纯粹的个资留存字段：不参与邮件投递、不影响计费与身份分组；是否需要填写、以及是否对外展示，取决于营运者是否开启「公开个人主页」。', en: 'Home, company and other addresses are stored separately, each added, edited and removed on its own. They are profile data in the strict sense: never used for delivery, never affecting billing or the role. Whether they are needed at all — and whether they show publicly — depends on the operator public-profile switch.' } }
+@@@
+{ h: { zh: '关联设置与安全卡', en: 'Linked settings and security card' }, d: { zh: '与帐号安全、第三方授权等关联设置的聚合入口，跳转安全页与资料页的对应分区。', en: 'A hub linking to account security and third-party grants, jumping to the matching sections of the security and data pages.' } }
+@@@
+{ h: { zh: '关联设置与安全卡', en: 'Linked settings and security card' }, d: { zh: '个资页通往其他设置页的跳板：帐号安全（用户名与密码、两步验证）与第三方授权（已授权应用）两处最常用的入口集中在此，避免在个资页与安全页之间反复翻找；点击即跳至对应分区，而非另开新页。', en: 'The springboard from the profile page into the other settings pages: account security (username, password, two-step verification) and third-party grants (authorised apps) sit together here, so you need not hunt back and forth between the profile and security pages. Each entry jumps to the matching section rather than opening a new page.' } }
+@@@
+{ h: { zh: '用户邮箱列', en: 'Email column' }, d: { zh: '被处置、被检举或提交申诉的帐号；封禁与恢复的执行入口在用户列表页。', en: 'The account being actioned, reported, or appealing; the ban and restore controls live on the users page.' } }
+@@@
+{ h: { zh: '用户邮箱列', en: 'Email column' }, d: { zh: '这张工单所指向的帐号：可能是被处置对象（风控／封禁预警）、被检举方（审计预警）或申诉人（申诉警告）。本页只做研判，真正的处置动作——封禁、恢复、重置——在用户列表页执行，因此研判结论需与那一页配合使用。', en: 'The account this ticket points at: the subject of a risk-control or ban alert, the reported party in an audit alert, or the appellant in an appeal ticket. This page adjudicates only — the actual actions (ban, restore, reset) are executed from the users page, so a verdict here is used together with that page.' } }
+@@@
+{ h: { zh: '个性化设置卡', en: 'Personalisation card' }, d: { zh: '网站标题、弹窗提示与动态/静态界面，控制登录面与界面的品牌呈现。', en: 'Site title, dialog prompts and dynamic/static UI — the branding of the login page and interface.' } }
+@@@
+{ h: { zh: '个性化设置卡', en: 'Personalisation card' }, d: { zh: '实例的对外门面：网站标题决定登录页与浏览器标签的品牌名，弹窗提示自定义全站提示文案，动态／静态界面则决定登录面是否播放动效——静态模式对低性能设备与截图留证更友好。改动即时对全部用户生效。', en: 'The public face of the instance: the site title brands both the sign-in page and the browser tab, the dialog text overrides the built-in prompt copy, and the dynamic/static switch decides whether the sign-in page animates — static suits low-powered devices and screenshot evidence better. Changes apply to everyone at once.' } }
+@@@
+{ h: { zh: '发件人行', en: 'Sender row' }, d: { zh: '锁定为当前登录信箱（多信箱帐号可切换发件身份），不响应伪称其他地址。', en: 'Locked to the signed-in mailbox (multi-mailbox accounts can switch sending identity); spoofing another address is impossible.' } }
+@@@
+{ h: { zh: '发件人行', en: 'Sender row' }, d: { zh: '发件人锁定为当前登录信箱，写信时不可手工改写，因此本平台发出的邮件不存在 From 伪造。多信箱帐号可在此下拉切换发件身份，寄出后收件人看到的是所选信箱；发件人地址亦决定出站邮件走哪条投递通道。', en: 'The sender is locked to the signed-in mailbox and cannot be edited while composing, so mail from this platform cannot carry a forged From. Multi-mailbox accounts switch sending identity in this row; recipients see whichever mailbox was chosen. The sender address also decides which delivery channel the outbound mail takes.' } }
+@@@
+{ h: { zh: '个性装扮区', en: 'Personalisation group' }, d: { zh: '外观色调三态与全局主题壁纸（八种预设 + 自定义），对所有视图生效。', en: 'Theme modes and the global wallpaper (eight presets plus custom), applied to every view.' } }
+@@@
+{ h: { zh: '个性装扮区', en: 'Personalisation group' }, d: { zh: '外观色调三态（暗色／亮色／跟随系统）与全局主题壁纸（八种预设 + 自定义图片或 URL）。范围是全站所有视图，与仅覆盖信箱区的「个人背景」不同；顶栏另有色调快捷切换，不必回到本页。', en: 'Three theme modes (dark/light/system) and the global wallpaper (eight presets plus a custom image or URL). Its scope is every view in the app — unlike the personal background, which covers the mailbox area only. The top bar also carries a quick theme toggle, so you need not return here.' } }
+@@@
+{ h: { zh: '其余分组', en: 'Remaining groups' }, d: { zh: '阅读偏好、语言与翻译目标、数据隐私入口，逐项见设置指南第 3 节。', en: 'Reading preferences, language and translation target, data-privacy entry — item by item in Section 3 of the settings guide.' } }
+@@@
+{ h: { zh: '其余分组', en: 'Remaining groups' }, d: { zh: '本页剩余三组设置：阅读偏好（收件箱类型、阅读窗格位置、会话视图）、语言（界面语言六选一、AI 翻译目标语言 16 选一）与数据隐私（个人信息处理与 AI 处理偏好的集中入口）。此图仅示左栏与面貌，逐项含义见设置指南第 3 节。', en: 'The three remaining groups on this page: reading preferences (inbox type, reading-pane position, conversation view), language (one of six UI languages, one of sixteen AI translation targets) and data privacy (the hub for personal-info and AI-processing preferences). This figure shows only the rail and the look; Section 3 of the settings guide explains each item.' } }
+@@@
+{ h: { zh: '工单表格', en: 'Ticket table' }, d: { zh: '每行一条预警：类别、优先级、状态与活跃环境池信息（IP、地理、设备、指纹）。', en: 'One alert per row: category, priority, status and the environment pool (IP, geo, device, fingerprint).' } }
+@@@
+{ h: { zh: '工单表格', en: 'Ticket table' }, d: { zh: '每行一条预警工单，列含类别（审计／风控／封禁／申诉）、优先级（P0／P1）、当前状态，以及活跃环境池的纯文本信息——IP、地理、设备与指纹。环境池按请求行为聚合，同一帐号在多 IP 并发登录时才会累积出可见的异常特征。', en: 'One alert per row, with columns for category (audit, risk control, ban, appeal), priority (P0/P1), current status and the environment pool in plain text — IP, geo, device and fingerprint. The pool aggregates by request behaviour, so the anomaly only becomes visible once one account logs in concurrently from many IPs.' } }
+@@@
+{ h: { zh: '处置按钮', en: 'Action buttons' }, d: { zh: '申诉警告突出「研判放行」、封禁警告突出「解除预警」、常规警告走标准操作菜单。', en: 'Appeal tickets foreground release-after-review, ban tickets lift-the-alert, the rest use the standard action menu.' } }
+@@@
+{ h: { zh: '处置按钮', en: 'Action buttons' }, d: { zh: '按钮随工单类别分流：申诉警告把「研判放行」提到最显眼处（放行即恢复帐号），封禁警告突出「解除预警」，其余类别走标准操作菜单。按钮只提交研判结论，真正的封禁与恢复仍由用户列表页落地，两页状态同步。', en: 'The buttons branch by ticket category: appeal tickets foreground release after review (releasing restores the account), ban tickets foreground lift the alert, and the rest fall back to the standard action menu. The button records only the verdict; the ban or restore itself is executed from the users page, and the two pages stay in sync.' } }
+@@@
+{ h: { zh: '模式联动', en: 'Mode coupling' }, d: { zh: '加密模式（Level 3）下记录时间戳被剥离、时间列隐藏，工单仍可研判。', en: 'In encrypted mode (Level 3) timestamps are stripped and the time column hides, yet review continues.' } }
+@@@
+{ h: { zh: '模式联动', en: 'Mode coupling' }, d: { zh: '同一张表在三种邮件模式下形态不同：全部邮件模式（L1）信息最全；隐私模式（L2）下本页即图中样貌；加密模式（L3）记录时间戳被剥离、时间列隐藏，管理员只能凭类别与环境池研判，无法还原事件发生次序。', en: 'One table, three shapes: under all-mail mode (L1) it carries the most information; under private mode (L2) it looks as in this figure; under encrypted mode (L3) timestamps are stripped and the time column hides, leaving the admin to adjudicate from category and environment pool alone, without any way to reconstruct the order of events.' } }
+@@@
+{ h: { zh: '输入区', en: 'Input area' }, d: { zh: '邮箱与密码两输入框，口令经加盐哈希存储，连续失败触发防爆破锁定。', en: 'Email and password fields; the password is stored as a salted hash and repeated failures lock the account out.' } }
+@@@
+{ h: { zh: '输入区', en: 'Input area' }, d: { zh: '本页最常走的路径：邮箱即帐号，密码经加盐哈希存储、服务端不接触明文。连续失败会触发防爆破锁定，锁定粒度与时长由后端策略决定；勾选「保持轨道连接」后本设备 30 天内免重复验证。', en: 'The path most visitors take: the email is the account, and the password is stored as a salted hash — the server never sees plaintext. Repeated failures trigger brute-force lockout, whose granularity and duration the backend decides; ticking keep-this-device-trusted skips re-verification for 30 days.' } }
+@@@
+{ h: { zh: '其余流程', en: 'Other flows' }, d: { zh: '两步验证三方式、注册码注册与忘记密码申诉门户跳转，规则见运行模式第 4 节。', en: 'The three second factors, reg-key registration and the recovery portal hop — rules in Section 4 of the modes page.' } }
+@@@
+{ h: { zh: '其余流程', en: 'Other flows' }, d: { zh: '同一张卡还承载另外三条路径：已开启两步验证的帐号提交后进入第二验证（TOTP、恢复码或通行密钥）；注册码模式下可携带 code 参数直接预填注册表单；「忘记密码」跳转外部申诉门户并带上申诉类型、界面语言与邮箱。逐条规则见运行模式第 4 节。', en: 'The same card carries three further paths: accounts with two-step verification continue to a second factor (TOTP, a recovery code or a passkey); in reg-key mode a code parameter pre-fills the registration form; and forgot-password hops to the external appeal portal carrying the appeal type, UI language and email. Section 4 of the modes page has the rules.' } }
+@@@
+{ h: { zh: '绿色徽标', en: 'Green badge' }, d: { zh: '列表行与详情页同步显示，表示此邮件含已提取验证码。', en: 'Shown on the list row and the detail alike, marking a message whose code was extracted.' } }
+@@@
+{ h: { zh: '绿色徽标', en: 'Green badge' }, d: { zh: '列表行与详情页同步出现的绿色标记，含义是「此邮件含已提取的验证码」，让您不必逐封打开即可从列表直接辨认。徽标只在提取成功时出现；未命中或已关闭验证码提取时不显示，因此它的缺失不代表安全，只代表没有可抄的码。', en: 'The green mark that appears on both the list row and the detail: it means this message carries an extracted verification code, so you can spot such mail straight from the list without opening each one. It appears only on a successful extraction — absence does not mean the mail is safe, merely that there is no code to copy.' } }
+@@@
+{ h: { zh: '列表', en: 'List' }, d: { zh: '发件人、主题、摘要与验证码徽标的排版与中文版一致。', en: 'Sender, subject, preview and code badges laid out exactly as in Chinese.' } }
+@@@
+{ h: { zh: '列表', en: 'List' }, d: { zh: '发件人、主题、摘要与验证码徽标的位置、字号与配色与中文版逐项一致——本地化只替换词条，不改版式，因此截图与操作指引可跨语言复用。日期、数字与计数同样按界面语言格式化。', en: 'Sender, subject, preview and verification-code badges sit in exactly the same positions, sizes and colours as in the Chinese build: localisation swaps strings only, never layout, which is why screenshots and instructions carry across languages. Dates, numbers and counters are formatted per UI language too.' } }
+@@@
+{ h: { zh: '切换方式', en: 'Switching' }, d: { zh: '常规设置中六选一；系统邮件与欢迎邮件按收件人语言投递。', en: 'Pick one of six in general settings; system and welcome mail follows each recipient language.' } }
+@@@
+{ h: { zh: '切换方式', en: 'Switching' }, d: { zh: '界面语言的切换点：常规设置的「语言」区六选一（简体中文、繁體中文、English、Español、Français、Nederlands），改后即刻生效、无需重登。投递与显示分开——系统通知与欢迎邮件按每位收件人自己的语言设置生成，不随发信人的界面语言走。', en: 'Where the UI language is set: one of six (simplified Chinese, traditional Chinese, English, Espanol, Francais, Nederlands) in the Language group of general settings, applied at once with no sign-out. Display and delivery are separate — system notices and welcome mail are generated in each recipient own language, not the sender UI language.' } }
+@@@
+{ h: { zh: '抽屉式侧栏', en: 'Drawer sidebar' }, d: { zh: '宽度低于 1025 像素自动收合，以遮罩唤出，路由切换自动收起。', en: 'Below 1025 px it collapses automatically, opens over a scrim, and closes on navigation.' } }
+@@@
+{ h: { zh: '抽屉式侧栏', en: 'Drawer sidebar' }, d: { zh: '视窗宽度低于 1025 像素时，左栏自动收合为抽屉：点汉堡按钮以遮罩形式唤出，选中任一视图后自动收起，不遮挡阅读区。桌面端与移动端共用同一套侧栏结构，因此计数与标签在两种形态下完全一致。', en: 'Below 1025 px wide the left rail collapses into a drawer: the hamburger opens it over a scrim, and picking any view closes it again so the reading pane stays unobstructed. Desktop and mobile share one sidebar structure, so counters and labels read identically in both forms.' } }
+@@@
+{ h: { zh: '悬浮写信按钮', en: 'Floating compose button' }, d: { zh: '移动端写信入口，需发信权限。', en: 'The mobile compose entry; sending rights required.' } }
+@@@
+{ h: { zh: '悬浮写信按钮', en: 'Floating compose button' }, d: { zh: '桌面端「写信」按钮在移动端的对应物，固定于右下角、随滚动常驻，点开即唤出全屏写信。它只在帐号具备发信权限时出现；参观者或已被关闭发信权限的分组看不到此按钮，也就无从进入写信流程。', en: 'The mobile counterpart of the desktop Compose button: pinned bottom-right, persistent while scrolling, and opening a full-screen composer on tap. It appears only for accounts with sending rights — a Visitor or a role with sending turned off never sees it, and so cannot reach the composer at all.' } }
+@@@
+{ h: { zh: '列表', en: 'List' }, d: { zh: '同一虚拟滚动列表，触控目标与桌面一致。', en: 'The same virtualised list with touch targets matching desktop.' } }
+@@@
+{ h: { zh: '列表', en: 'List' }, d: { zh: '与桌面端共用同一份虚拟滚动列表：长列表只渲染视口内的行，首屏打开速度不随邮件总量增长。触控目标按移动端可达性放大，但信息密度与列构成与桌面一致，因此移动端截图同样可用于核对字段。', en: 'The same virtualised list as on desktop: a long mailbox renders only the rows in view, so first paint does not slow down as the mailbox grows. Touch targets are enlarged for mobile reachability, while information density and column structure stay identical — mobile screenshots remain valid for checking fields.' } }
+@@@
+{ h: { zh: '「管理您的 Epomail 账户」按钮', en: 'Manage your Epomail account button' }, d: { zh: '进入添加账户流程：经登录页专用深链完成新帐号登录，各会话互不覆盖。', en: 'Starts the add-account flow through the login page dedicated deep link; sessions never overwrite each other.' } }
+@@@
+{ h: { zh: '「管理您的 Epomail 账户」按钮', en: 'Manage your Epomail account button' }, d: { zh: '添加账户的入口：点击后经登录页专用深链完成新帐号登录，回来即多出一个会话。关键在「不覆盖」——新帐号不挤掉当前会话，各帐号的工作区以 /mail/u/N/ 路径前缀彼此隔离，切换只是改前缀，不重新登录。', en: 'The add-account entry: it completes a new sign-in through the login page dedicated deep link and returns with one more session. The point is that nothing is overwritten — the new account does not evict the current session, and each workspace is isolated behind a /mail/u/N/ path prefix, so switching merely changes the prefix rather than signing in again.' } }
+@@@
+{ h: { zh: '存储用量条', en: 'Storage bar' }, d: { zh: '当前帐号附件存储用量对照其分组配额。', en: 'The account attachment storage against its role quota.' } }
+@@@
+{ h: { zh: '存储用量条', en: 'Storage bar' }, d: { zh: '当前帐号的附件存储进度条：分子是本帐号已占用的附件空间，分母是其身份分组的配额（逐分组出厂值见权限控制页）。接入个人对象存储后新附件不再计入此条，因此进度条停涨并不代表附件没有送达。', en: 'The progress bar for this account attachment storage: the numerator is the space used, the denominator the quota attached to its role (per-role factory values on the roles page). Once personal object storage is connected, new attachments stop counting here — so a bar that stops growing does not mean attachments stopped arriving.' } }
+@@@

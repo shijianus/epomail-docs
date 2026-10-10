@@ -3,14 +3,25 @@ title: Exportación de datos y almacenamiento
 description: Exportación de datos y almacenamiento de EpoCanvas Mail — copia de seguridad integral, archivo del historial de correo y exportación de contactos y configuración, además de la conexión de un almacenamiento de objetos personal.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 Esta página cubre las dos partes —exportación y almacenamiento— de la página «Configuración → Datos». Las notificaciones y el reenvío de la misma página figuran en la [Guía de notificaciones y reenvío](/es/mail/notify/); la posición jurídica de los datos exportados, en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
 ![Página de datos de EpoCanvas Mail: las tres tarjetas de exportación, el indicador de uso de almacenamiento y la conexión del almacenamiento de objetos personal](/images/mail/es/ui/data-guide.png)
 
 *Figura: la página de Datos. La exportación y la gestión del almacenamiento aparecen en la misma página; el uso de adjuntos computa contra la cuota del grupo de identidad.*
-*Anotaciones: 1. usuario Data & M　2. correo & Message　3. almacenamiento S　4. Third-party apps*
+
+<details>
+<summary>Guía visual: Datos —  las cuatro regiones de la autonomía sobre tus datos</summary>
+
+Las cuatro tarjetas de la página de datos: tres formatos para llevarse los datos, una zona de reenvío, una de almacenamiento y otra de autorizaciones de terceros —la interfaz completa de la autonomía sobre los datos personales.
+
+1. **Tarjeta de exportación de datos y perfil del usuario**: Tres exportaciones en paralelo: la copia de seguridad integral en JSON, el archivo del historial de correo (MBOX/JSON/CSV con rango de fechas) y los contactos y la configuración. Un mensaje suelto también puede descargarse como .eml desde el panel de lectura.
+2. **Tarjeta de reenvío de correo y mensajes**: Configuración detallada del push de mensajes de Telegram y del reenvío automático; que estas dos funciones estén disponibles para la cuenta lo decide el interruptor de «Control de datos de usuario» del administrador.
+3. **Tarjeta de espacio de almacenamiento**: El indicador de uso del almacenamiento de adjuntos se coteja con la cuota en tiempo real. Puede conectarse un cubo de Backblaze B2/S3 propio: a partir de entonces los adjuntos nuevos se guardan directamente en la nube personal, fuera de la cuota de la instancia, y al retirar la conexión se vuelve al almacenamiento de la instancia.
+4. **Tarjeta de aplicaciones y servicios de terceros**: Lista de todas las aplicaciones con autorización OAuth de la cuenta: puede retirarse el acceso aplicación por aplicación, o revocarlas todas de una vez desde la ventana de detalle. La revocación surte efecto de inmediato y los tokens existentes de la aplicación dejan de valer en el acto.
+
+</details>
 
 ## 1. Las tres exportaciones
 

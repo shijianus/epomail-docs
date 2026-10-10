@@ -3,15 +3,25 @@ title: Profil et réglages généraux
 description: Profil et réglages généraux d'EpoCanvas Mail — avatar, pseudonyme, coordonnées et adresses, palette d'apparence et fonds d'écran, préférences de lecture et langue d'interface, expliqués entrée par entrée.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 La présente page détaille chaque entrée des deux sections « Paramètres → Profil » et « Paramètres → Général ». Les réglages de sécurité et de données figurent séparément dans le [Guide de sécurité du compte](/fr/mail/security/) et dans [Export des données et stockage](/fr/mail/data/).
 
 ![Figure : l'interface de profil et des réglages généraux](/images/mail/fr/ui/preferences-guide.png)
 
 *Figure : l'interface de profil et des réglages généraux*
-*Annotations: 1. Basic Informatio ｜ 2. Contact Informat ｜ 3. Addresses ｜ 4. Associated param*
 
+<details>
+<summary>Guide visuel : Le profil  —  les données personnelles réparties en quatre dimensions</summary>
+
+Les quatre cartes de la page Profil : de l'identité et de l'image aux coordonnées puis au carnet d'adresses, les quatre dimensions des données personnelles se gèrent carte par carte.
+
+1. **Carte informations de base** : Import d'avatar, pseudonyme, genre et anniversaire. Le fait que le pseudonyme et l'avatar soient visibles de l'extérieur dépend de l'interrupteur « profils publics » de l'administrateur.
+2. **Carte coordonnées** : La boîte principale de connexion porte l'étiquette « boîte principale » et ne peut pas être retirée ; plusieurs adresses électroniques supplémentaires peuvent être ajoutées et retirées à tout moment, et un numéro de téléphone avec indicatif pays peut y être enregistré.
+3. **Cartes d'adresse** : Les adresses du domicile, de l'entreprise et « autre » sont conservées séparément, chacune ajoutée, modifiée ou supprimée à part. Ce sont des données personnelles au sens strict : jamais utilisées pour la remise du courrier, sans effet sur la facturation ni sur le rôle. Qu'elles soient nécessaires — et qu'elles paraissent publiquement — dépend de l'interrupteur « profil public » de l'opérateur.
+4. **Carte paramètres associés et sécurité** : Le tremplin de la page de profil vers les autres pages de réglages : sécurité du compte (nom d'utilisateur et mot de passe, vérification en deux étapes) et autorisations de tiers (applications autorisées), les deux entrées les plus fréquentées, sont réunies ici pour éviter les allers-retours entre profil et sécurité. Chaque entrée saute à la section correspondante au lieu d'ouvrir une nouvelle page.
+
+</details>
 
 ## 1. Profil (`#settings/profile`)
 

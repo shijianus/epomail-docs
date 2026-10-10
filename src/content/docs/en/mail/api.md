@@ -3,14 +3,26 @@ title: Open Platform & API Access
 description: The EpoCanvas Mail open platform and API access guide — registering OAuth apps, the authorize and token endpoints, userinfo, scope semantics and the user-side consent and revocation flow.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.16**
+**Effective date: 5 October 2026 | Version: 5.17**
 
 EpoCanvas Mail ships a built-in OAuth 2.0 / OIDC authorization center: the administrator registers third-party applications in the admin "App management" section (`#manage/admin/oauth-apps`), and external sites can then offer "Sign in with Epomail". This page is the complete developer tutorial; where the interface sits in the app appears in the [Interface & Route Map](/en/mail/interface/), Section 4, and the handling of authorization data is disclosed in the [Sub-processor List](/en/mail/sub-processors/).
 
 ![EpoCanvas Mail app management page: four endpoint chips, the developer-tutorial button, the sample app card and the integration-code entry](/images/mail/en/ui/apps-guide.png)
 
 *Figure: app management. The four endpoints sit across the top; each app card carries its credentials, an enable toggle and the integration code.*
-*Annotations: 1. GET/.well-known/　2. GET/oauth/author　3. POST/api/oauth/t　4. GET/api/oauth/us　5. shijianus-blogCr*
+
+<details>
+<summary>Walkthrough: Apps —  the five points that close a third-party integration</summary>
+
+Five regions of the apps page: four endpoints on top and one sample-app card, closing the loop of "find the endpoint — get credentials — copy the snippet".
+
+1. **`/.well-known/openid-configuration`**: The OIDC Discovery metadata endpoint: issuer, endpoints and capabilities, self-described so frameworks like NextAuth can auto-configure.
+2. **`/oauth/authorize`**: The user-consent endpoint: it walks the user through signing in and granting scope. Popups get the result via `postMessage`; a cancellation redirects back with `error=access_denied`.
+3. **`/api/oauth/token`**: The token endpoint: a one-time code (valid 5 minutes) exchanges for a 2-hour access token and ID Token. Accepts JSON, form and HTTP Basic; with PKCE configured it verifies `code_verifier` (S256).
+4. **`/api/oauth/userinfo`**: The userinfo endpoint: a Bearer access token reads the granted fields (`sub`, `email`, `name`, `picture`, …). Expired or revoked tokens get a 401.
+5. **App card (shijianus-blog)**: One card per app: Client ID and Client Secret (the secret is shown in full only once, at creation or reset), an enable toggle, edit/delete, and five copy-ready integration snippets — NextAuth, Node, Python, cURL and generic OIDC.
+
+</details>
 
 ## 1. Endpoints
 

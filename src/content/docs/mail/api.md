@@ -3,14 +3,26 @@ title: 开放平台与 API 接入
 description: EpoCanvas Mail 开放平台与 API 接入指南——OAuth 应用注册、授权端点、令牌置换、userinfo、scope 语义与用户授权撤销之完整开发者教程。
 ---
 
-**生效日期：2026 年 10 月 5 日｜版本：5.16**
+**生效日期：2026 年 10 月 5 日｜版本：5.17**
 
 EpoCanvas Mail 内建 OAuth 2.0／OIDC 认证中心：管理员于管理区「应用管理」（`#manage/admin/oauth-apps`）注册第三方应用，外部站点即可让用户「使用 Epomail 登录」。本页是面向开发者的完整接入教程；应用管理界面的位置见[界面与路由总览](/mail/interface/)第 4 节，用户授权数据的处理见[第三方处理者清单](/mail/sub-processors/)。
 
 ![EpoCanvas Mail 应用管理页：四个端点条、开发接入教程按钮、示例应用卡片与集成代码入口](/images/mail/ui/apps-guide.png)
 
 *图：应用管理页。页顶并列四个接入端点，应用卡片带凭据、启停开关与集成代码。*
-*标注：1. GET/.well-known/　2. GET/oauth/author　3. POST/api/oauth/t　4. GET/api/oauth/us　5. shijianus-blog创建*
+
+<details>
+<summary>图解：应用管理——第三方接入闭环的五个点</summary>
+
+应用管理页的五个标注分区：页顶四个接入端点与一张示例应用卡，构成第三方接入「查端点—领凭据—抄代码」的闭环。
+
+1. **`/.well-known/openid-configuration`**：OIDC Discovery 元数据端点：issuer、各端点与支持项自述，第三方框架（如 NextAuth）据此自动发现配置。
+2. **`/oauth/authorize`**：用户授权端点：引导用户登录并同意授权；弹窗场景经 `postMessage` 回传结果，用户取消则回跳携带 `error=access_denied`。
+3. **`/api/oauth/token`**：令牌置换端点：以一次性授权码（5 分钟有效）换取 2 小时有效的访问令牌与 ID Token；支持 JSON、表单与 HTTP Basic 三种传参，配置 PKCE 时校验 `code_verifier`（S256）。
+4. **`/api/oauth/userinfo`**：用户资料端点：以 Bearer 访问令牌读取 `sub`、`email`、`name`、`picture` 等已授权字段；令牌过期或被撤销时返回 401。
+5. **应用卡片（shijianus-blog）**：每应用一张卡：Client ID 与 Client Secret（Secret 仅在创建或重置时完整显示一次）、启停开关、编辑/删除，以及内置 NextAuth、Node、Python、cURL 与通用 OIDC 五套可复制的集成代码。
+
+</details>
 
 ## 1. 端点总览
 

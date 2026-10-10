@@ -3,14 +3,25 @@ title: Gegevensexport en opslag
 description: Gegevensexport en opslag van EpoCanvas Mail — de drie exporten (volledige back-up, e-mailarchief, contacten en configuratie) en het koppelen van persoonlijke objectopslag.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 Deze pagina behandelt de twee delen van de pagina «Instellingen → Gegevens»: export en opslag. De meldingen en het doorsturen op dezelfde pagina staan in de [Gids voor meldingen en doorsturen](/nl/mail/notify/); de juridische status van geëxporteerde gegevens staat in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
 ![Gegevenspagina van EpoCanvas Mail: de drie exportkaarten, de verbruiksmeter voor opslag en de koppeling van persoonlijke objectopslag (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/data-guide.png)
 
 *Figuur: de gegevenspagina. Export en opslagbeheer staan op één pagina; het bijlagenverbruik telt mee voor de quota van de identiteitsgroep.*
-*Aantekeningen: 1. gebruiker Data &　2. e-mail & Message　3. opslag Space & C　4. Third-party apps*
+
+<details>
+<summary>Visuele handleiding: Gegevens —  vier regio's van zeggenschap over je eigen data</summary>
+
+De vier kaarten van de pagina Gegevens: drie exportformaten, een doorstuurgebied, een opslaggebied en een gebied voor autorisaties van derden — persoonlijke data-autonomie op één scherm.
+
+1. **Kaart gebruikersgegevens en data-export**: Drie exporten naast elkaar: de volledige back-up in JSON, het archief van de e-mailgeschiedenis (MBOX/JSON/CSV met periode) en contacten en configuratie; een los bericht is daarnaast in het leesvenster als .eml te downloaden.
+2. **Kaart E-mail en berichten doorsturen**: De instellingen van Telegram-push en automatisch doorsturen, punt voor punt; of een account ze mag gebruiken, bepaalt de schakelaar «Gebruikersgegevensbeheer» van de beheerder.
+3. **Kaart opslagruimte**: De verbruiksmeter voor bijlagen naast de quota, realtime. Je kunt je eigen Backblaze B2-/S3-bucket koppelen: nieuwe bijlagen gaan dan rechtstreeks naar je eigen cloud, buiten de quota van de instantie, en bij ontkoppelen valt het terug.
+4. **Kaart apps en diensten van derden**: Alle OAuth-autorisaties op het account: per app de toegang intrekken, of met één klik alles via het detailvenster. Intrekking werkt onmiddellijk — de bestaande tokens van de app vervallen ter plekke.
+
+</details>
 
 ## 1. De drie exporten
 

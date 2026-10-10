@@ -3,14 +3,25 @@ title: Guía de notificaciones y reenvío
 description: Guía de notificaciones y reenvío de EpoCanvas Mail — vinculación del push de Telegram, preferencias de push y visibilidad de campos, y los destinos y tipos de disparador del reenvío automático.
 ---
 
-**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 5 de octubre de 2026 | Versión: 5.17**
 
 Esta página recorre paso a paso las dos capacidades de la zona «Reenvío de correo y mensajes» de la página «Configuración → Datos»: el push de mensajes de Telegram y el reenvío automático. Que una cuenta disponga de ellas lo decide la tarjeta «Control de datos de usuario» del administrador; cuando está desactivada, los bloques correspondientes no se muestran. La exportación y el almacenamiento de datos viven en la misma página; véase la sección 5 de la [Guía de configuración](/es/mail/settings/).
 
 ![Zona de reenvío de correo y mensajes de EpoCanvas Mail: estado del push de Telegram y ajustes del reenvío automático](/images/mail/es/ui/notify-guide.png)
 
 *Figura: la zona de reenvío de correo y mensajes. El push de Telegram lleva su estado y su entrada de configuración; el reenvío automático muestra los destinos y las opciones avanzadas.*
-*Anotaciones: 1. exportar All Dat　2. correo History A　3. Contacts & Prefe　4. correo & Message*
+
+<details>
+<summary>Guía visual: Exportación y reenvío —  cómo se llevan los datos y cómo llegan los mensajes nuevos</summary>
+
+Las tres tarjetas de exportación y la zona de título del reenvío de correo y mensajes, en la página «Datos»: lo de arriba gobierna en qué formato salen los datos, y lo de abajo, cómo llega el correo entrante en tiempo real.
+
+1. **Tarjeta de exportación integral de datos**: Copia de seguridad completa en JSON: los datos de la cuenta, el texto íntegro del historial de correo, los contactos, las reglas de clasificación y etiquetas y los ajustes de seguridad en un solo paquete descargable; es la vía principal para ejercer el derecho a la portabilidad de los datos.
+2. **Tarjeta del archivo del historial de correo**: Exporta únicamente el correo enviado y recibido, en tres formatos —MBOX (formato universal que casi todos los clientes de correo importan), JSON o CSV— y permite acotar un rango de fechas.
+3. **Tarjeta de contactos y configuración**: La tercera exportación: el directorio de contactos, las reglas de alias personalizadas y las preferencias de personalización del sistema. Es la más pequeña de las tres, pero decide si sus hábitos sobreviven a un cambio de instancia: las reglas de alias y el sistema de etiquetas viajan con ella, de modo que nada hay que renombrar ni reclasificar.
+4. **Zona de título del reenvío de correo y mensajes**: Dos capacidades de alcance en tiempo real: el push de mensajes de Telegram (se vincula un bot privado y se elige enviar todo el correo o solo el importante y el de códigos de verificación, con un enlace de lectura interna válido 7 días) y el reenvío automático (destinos, tipo de disparador y cabecera `[Fwd]`).
+
+</details>
 
 ## 1. Push de mensajes de Telegram
 

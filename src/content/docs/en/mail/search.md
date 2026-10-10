@@ -3,14 +3,23 @@ title: Search & Rules Reference
 description: The complete EpoCanvas Mail search and rules reference — mail field operators, scope flags, precision switches, highlight behaviour, admin $ search, settings search and every classification rule condition.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.16**
+**Effective date: 5 October 2026 | Version: 5.17**
 
 EpoCanvas Mail has two retrieval systems: user-facing mail search (the top-bar search box) and the administrator's full-store search (the admin "All Mail" section); settings pages additionally have their own settings search. This page lists every operator, flag and rule condition, matching the current implementation. Classification rules share the same field semantics as search; the rule engine is described from Section 7 on.
 
 ![EpoCanvas Mail search: after typing from:github the list shows only matching mail with the keyword highlighted](/images/mail/en/ui/search-guide.png)
 
 *Figure: mail search. Operators combine freely with plain keywords; hits light up immediately.*
-*Annotations: 1. Search mail...*
+
+<details>
+<summary>Walkthrough: Search —  the two positions that matter in one query</summary>
+
+Two regions demonstrating one full search: type an operator or keyword in the search box, and the hit list filters instantly with the matches highlighted.
+
+1. **Top search box**: Searches mail on mail pages and settings entries on settings pages. Ten field operators (`from:`, `to:`, `subject:`, `body:`, …) plus flags like `is:` and `global:`; space-separated conditions combine as AND, and Tab completes operators.
+2. **Hit list**: Only messages satisfying every condition are listed, with hits highlighted natively by the browser (`hl:off` disables it). Opening a row scrolls the excerpt to the match, keeping context.
+
+</details>
 
 ## 1. Syntax basics
 

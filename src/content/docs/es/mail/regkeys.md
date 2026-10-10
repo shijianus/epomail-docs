@@ -3,15 +3,24 @@ title: Claves de registro
 description: Claves de registro de EpoCanvas Mail — emisión de códigos de invitación, gestión de los usos disponibles y de la vigencia, y comprobación del registro de uso, a cargo del administrador.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.16**
+**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
 
 Las claves de registro son la interfaz de códigos de invitación de la zona de administración (`#manage/admin/reg-keys`, clave de permiso `reg-key:query`); deciden quién puede registrarse en la instancia. Los tres modos del código de registro a escala de todo el sitio (obligatorio, desactivado u opcional) los decide la tarjeta de configuración del sitio de la [Configuración del sistema](/es/mail/system/).
 
 ![Figura: las claves de registro](/images/mail/es/ui/regkeys-guide.png)
 
 *Figura: las claves de registro*
-*Anotaciones: 1. *
 
+<details>
+<summary>Guía visual: La página vacía de claves de registro —  la entrada de emisión y el cuadro de búsqueda</summary>
+
+El estado vacío de la página de claves de registro cuando aún no se ha emitido ningún código de invitación: un botón de emisión y un cuadro de búsqueda componen toda la página.
+
+1. **Botón de añadir código de registro**: El acceso de emisión: la ventana genera un código aleatorio de 8 caracteres (puede regenerarse pulsando actualizar) y lo vincula al grupo de identidad al que se entrará tras el registro, a una vigencia y a un número de usos (1–99999, que se descuenta con cada registro correcto).
+2. **Cuadro de búsqueda de códigos de registro**: Una vez emitidos, permite filtrar y localizar por código de registro y consultar los usos restantes, el grupo vinculado y la vigencia; los campos sensibles se enmascaran automáticamente desde la perspectiva del Visitante.
+3. **Tarjeta de estado vacío**: El marcador de guía mientras la instancia no ha emitido ningún código de registro. Tras la emisión, esta zona pasa a ser la lista de códigos, con copia en un clic, consulta del registro de uso, borrado individual y «limpiar los no usados» para invalidarlos en bloque.
+
+</details>
 
 ## 1. Emisión
 

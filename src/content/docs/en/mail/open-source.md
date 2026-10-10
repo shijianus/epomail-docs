@@ -3,7 +3,7 @@ title: Open-Source & Self-Hosting Legal
 description: EpoCanvas Mail open-source and self-hosting legal terms — the scope of the MIT licence, what lies outside it, the self-deployer's position as data controller, third-party arrangements and contributions.
 ---
 
-**Effective date: 5 October 2026 | Version: 5.16**
+**Effective date: 5 October 2026 | Version: 5.17**
 
 This page sets out the scope of EpoCanvas Mail's open-source licence and the legal position of self-hosting. It is not a user contract for any instance: users of the hosted instance are governed by the [Terms of Service](/en/mail/terms-of-service/) and the [Privacy Policy](/en/mail/privacy-policy/); users of a self-hosted instance are governed by whatever terms its deployer publishes.
 

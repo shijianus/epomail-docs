@@ -3,14 +3,25 @@ title: Interface en routekaart
 description: Interface en routekaart van EpoCanvas Mail — de acht mailboxweergaven, het schrijfvenster als overlay, elke instellings- en beheerroute, de aanmeldflows, de OAuth-toestemmingspagina en openbare profielen.
 ---
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.17**
 
 Deze pagina loopt elke interface van EpoCanvas Mail langs met de bijbehorende route. Een locatie bestaat uit twee delen: het padvoorvoegsel `/mail/u/N/` (N is de sessie-index voor meerdere accounts; bij één account altijd 0) en de weergaveroute na `#` (bijvoorbeeld `#inbox`). Oudere directe paden zoals `/inbox` worden automatisch genormaliseerd. De aanmeldpagina wordt apart uitgerold onder `/login/`. Wat elke route toestaat, wordt bepaald door de rechten van de identiteitsgroep, zie [Werkingsmodi](/nl/mail/modes/); het effect van elke instelling staat beschreven in de [Instellingengids](/nl/mail/settings/).
 
 ![Panorama van de postvak IN van EpoCanvas Mail: links de toegang voor het schrijven van mail en de mappenboom, rechts de lijst met verificatiecodebadges en officiële markeringen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/views-guide.png)
 
 *Figuur: de postvak IN (`#inbox`). De acht weergaven delen één lijststructuur; tellers en labels blijven gesynchroniseerd.*
-*Aantekeningen: 1. Opstellen　2. Met ster　3. Uitgesteld1　4. Verzonden*
+
+<details>
+<summary>Visuele handleiding: De inbox in één oogopslag —  de vier meestgebruikte ingangen</summary>
+
+De vier gemarkeerde gebieden van deze panoramafoto van het postvak IN komen overeen met de vier ingangen die dagelijks het meest worden gebruikt: een nieuw bericht schrijven, belangrijke mail terugvinden, uitgestelde zaken nakijken en controleren wat er verzonden is.
+
+1. **Schrijven (hoofdknop boven in de zijbalk)**: De enige ingang voor nieuwe mail: een klik opent het schrijfvenster als overlay (geen eigen route). Op mobiel wordt het een zwevende knop, en de diepe link `?composeTo=<address>` vult de geadresseerde alvast in. Vanuit elke weergave te gebruiken.
+2. **Met ster (map in de zijbalk)**: Alle mail met een ster komt hier ongeacht de map samen: klik op het sterpictogram in een lijstrij om een bericht toe te voegen. Gebruik het voor mail die je bij de hand wilt houden; de teller in de zijbalk werkt realtime bij.
+3. **Uitgesteld (map in de zijbalk)**: Een wachtruimte voor uitgestelde opvolging, met twee niveaus («dringend» en «wachtend»). Kies bij een bericht «Uitstellen» met een tijdstip; zodra die tijd aanbreekt, keert het automatisch terug bovenaan het postvak IN, zodat belangrijke zaken niet wegzakken.
+4. **Verzonden (map in de zijbalk)**: Het archief van alles wat dit account heeft verzonden. Het uitgaande volume is begrensd door het dagelijkse quotum van de rol; mail binnen de site wordt rechtstreeks afgeleverd, mail naar buiten gaat via het afleverkanaal.
+
+</details>
 
 ## 1. Hoofdinterface van de mailbox
 
@@ -33,6 +44,18 @@ Schrijven is een overlay in plaats van een route, getriggerd vanaf drie plaatsen
 ![Schrijfvenster van EpoCanvas Mail: de afzender is vastgezet op de huidige mailbox, de werkbalk voor tekstopmaak met bijlagen en de verzendknop](/images/mail/ui/ui-compose.png)
 
 *Figuur: het schrijfvenster als overlay. Mailboxen op de instantie krijgen de mail rechtstreeks afgeleverd; e-mail naar buiten gaat via het afleverkanaal van de exploitant.*
+
+<details>
+<summary>Visuele handleiding: Het schrijfvenster regio voor regio, van boven naar beneden</summary>
+
+Het schrijfvenster van boven naar beneden: de vastgezette afzender, geadresseerden en onderwerp, de werkbalk voor tekstopmaak, het gebied om de body te bewerken en de actiebalk onderaan.
+
+- **Afzenderregel**: De afzender is vergrendeld op de mailbox waarmee je bent aangemeld en is tijdens het schrijven niet te bewerken, dus mail vanaf dit platform kan geen vervalste From dragen. Accounts met meerdere mailboxen wisselen hier van verzendidentiteit; de ontvanger ziet de gekozen mailbox. Het afzenderadres bepaalt ook via welk afleverkanaal de uitgaande mail gaat.
+- **Regels voor geadresseerden en onderwerp**: Geadresseerden accepteren contactselectie en de diepe link `?composeTo=`; het onderwerp verschijnt in de lijst en is doorzoekbaar met `subject:`.
+- **Werkbalk en body**: 17 opmaakhulpmiddelen: alinea, tekengrootte, tekststijlen, kleur, uitlijning, lijsten, citatie, koppeling, afbeelding, tabel, emoji, vertaling en broncodemodus.
+- **Actiebalk onderaan**: De knop voor bijlagen (per rol ingeschakeld, met een limiet per bestand die per instantie is ingesteld) en de verzendknop; aflevering binnen de site is direct, naar buiten gaat het via het kanaal van de exploitant.
+
+</details>
 
 ## 2. Opbouw van de interface
 
@@ -63,6 +86,17 @@ Bij het binnengaan van de instellingen wisselt het hoofdgebied naar instellingsp
 
 *Figuur: de sectie Algemeen. De vijf instellingssecties delen één structuur; de linkerkolom is de sectienavigatie.*
 
+<details>
+<summary>Visuele handleiding: De instellingenomlijsting —  de linkerkolom en het rechterpaneel</summary>
+
+Zo ziet de sectie Algemeen in de instellingen eruit: de linkerkolom navigeert de vijf instellingssecties, het rechterpaneel bevat de algemene items (uiterlijkpalet, themaachtergrond, …).
+
+- **Sectienavigatie links**: Wisselt tussen de vijf secties Profiel/Algemeen/Beveiliging/Gegevens/Labels; zodra je de instellingen binnengaat, verdwijnt de mailzijbalk, tot je met «Terug naar mail» terugkeert.
+- **Gebied persoonlijke aankleding**: Drie themamodi (donker, licht, systeem) en de globale achtergrond (acht presets plus een eigen afbeelding of URL). De reikwijdte is elke weergave in de app — anders dan de "persoonlijke achtergrond", die alleen het mailboxgebied bestrijkt. De bovenbalk heeft bovendien een snelle themaknop, dus je hoeft niet terug naar deze pagina.
+- **Overige groepen**: De drie overige groepen op deze pagina: leesvoorkeuren (inboxtype, positie van het leesvenster, gespreksweergave), taal (één van zes interfacetalen, één van zestien AI-vertaaldoelen) en gegevensprivacy (het centrale loket voor voorkeuren over persoonsgegevens en AI-verwerking). Deze afbeelding toont alleen de kolom en het aanzien; sectie 3 van de instellingengids legt elk item uit.
+
+</details>
+
 ## 4. Beheerzone
 
 Beheerroutes hebben de vorm `#manage/admin/<sectie>`; het rolgroepsegment van het pad moet overeenkomen met de identiteit van het account (`admin` voor de meester, `moderator` voor moderators) en wordt anders genormaliseerd naar een beschikbare sectie. Elke sectie is gebonden aan een onafhankelijke permissiesleutel, verleend per groep op de permissionspagina:
@@ -83,6 +117,17 @@ Beheerroutes hebben de vorm `#manage/admin/<sectie>`; het rolgroepsegment van he
 
 *Figuur: het auditrapport (`#manage/admin/audit`). De triage gebeurt in één lijst; de afhandelknoppen zijn gesplitst per waarschuwingsklasse.*
 
+<details>
+<summary>Visuele handleiding: Het rapport als tabel aan de beheerkant</summary>
+
+De pagina Operatierapporten zoals de beheerder die ziet: waarschuwingstickets in tabelvorm, met afhandelknoppen die per ticketklasse vertakken.
+
+- **Ticketstabel**: Eén waarschuwing per rij, met kolommen voor categorie (audit, risicobeheersing, blokkade, beroep), prioriteit (P0/P1), huidige status en de actieve omgevingspool in platte tekst — IP, geografie, apparaat en vingerafdruk. De pool aggregeert op verzoekgedrag: de afwijking wordt pas zichtbaar als één account zich gelijktijdig vanaf vele IP's aanmeldt.
+- **Afhandelknoppen**: De knoppen splitsen per ticketcategorie: beroepswaarschuwingen zetten "na beoordeling vrijgeven" het meest in het oog (vrijgeven herstelt het account), blokkeerwaarschuwingen benadrukken "waarschuwing opheffen", en de rest gebruikt het standaardactiemenu. De knop legt alleen het oordeel vast; de feitelijke blokkade of het herstel gebeurt vanaf de gebruikerslijst, en beide pagina's blijven gesynchroniseerd.
+- **Koppeling met de modus**: Dezelfde tabel verandert van gedaante per mailmodus: in de alles-mailmodus (L1) is de informatie het volledigst; in de privacymodus (L2) ziet de pagina eruit als op deze afbeelding; in de versleutelde modus (L3) worden tijdstempels ontkoppeld en verdwijnt de tijdskolom — de beheerder oordeelt dan alleen op categorie en omgevingspool, zonder de volgorde van gebeurtenissen te kunnen reconstrueren.
+
+</details>
+
 ## 5. Aanmeldscherm
 
 `/login/` is een aparte aanmeldapplicatie, uitgerold los van de hoofdinterface. Eén aanmeldkaart draagt alle trajecten:
@@ -99,6 +144,17 @@ Beheerroutes hebben de vorm `#manage/admin/<sectie>`; het rolgroepsegment van he
 ![Aanmeldpagina van EpoCanvas Mail: velden voor e-mailadres en wachtwoord, het selectievakje om in een baan te blijven en de snelle aanmeldknoppen van derden](/images/mail/ui/ui-login-oauth.png)
 
 *Figuur: de aanmeldpagina. De driedelige toonregel voor knoppen van derden staat in [Werkingsmodi](/nl/mail/modes/), sectie 4.*
+
+<details>
+<summary>Visuele handleiding: Alle trajecten die de aanmeldpagina draagt</summary>
+
+Het aanmeldscherm in zijn geheel: één aanmeldkaart draagt aanmelden met wachtwoord, tweestapsverificatie, snelle aanmelding via derden, registratie en wachtwoord vergeten.
+
+- **Invoergebied**: Het meest gevolgde pad van de pagina: het e-mailadres is het account en het wachtwoord wordt als gezouten hash bewaard — de server ziet nooit platte tekst. Herhaalde mislukkingen lokken een blokkade tegen brute force uit, waarvan de granulariteit en duur door de backend worden bepaald; met "dit apparaat vertrouwd houden" blijft herhaalde verificatie 30 dagen achterwege.
+- **Gebied met knoppen van derden**: Aanbieders die de beheerder heeft ingeschakeld en van sleutels voorzien, verschijnen als knoppen; ingeschakelde aanbieders zonder sleutels staan grijs als «binnenkort»; uitgeschakelde worden niet getoond.
+- **Overige trajecten**: Dezelfde kaart draagt nog drie paden: een account met tweestapsverificatie gaat door naar een tweede factor (TOTP, een herstelcode of een passkey); in registratiesleutelmodus pre-vult een code-parameter het registratieformulier; en "wachtwoord vergeten" springt naar het externe beroepsportaal met het beroepstype, de interfacetaal en het e-mailadres. Sectie 4 van de modi-pagina bevat de regels.
+
+</details>
 
 ## 6. Zelfstandige pagina's en globale mogelijkheden
 

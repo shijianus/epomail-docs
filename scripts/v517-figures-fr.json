@@ -1,0 +1,538 @@
+{
+  "views-guide.png": {
+    "summary": "Quatre régions annotées de la boîte de réception, correspondant aux quatre entrées les plus utilisées au quotidien : rédiger un nouveau message, revenir aux courriels marqués d'une étoile, consulter les éléments reportés et vérifier ce qui est réellement parti.",
+    "items": [
+      {
+        "h": "Rédiger (bouton principal de la barre latérale)",
+        "d": "L'unique point d'entrée pour créer un courriel : il ouvre la fenêtre de rédaction en surimpression (et non une route indépendante). Sur mobile, il devient un bouton flottant en bas à droite, et le lien profond `?composeTo=<address>` préremplit le destinataire. Rédiger un message ne demande qu'un clic, depuis n'importe quelle vue."
+      },
+      {
+        "h": "Étoilés (dossier de la barre latérale)",
+        "d": "Tous les courriels marqués d'une étoile s'y rassemblent, quel que soit leur dossier : un clic sur l'étoile d'une ligne de liste les y ajoute. À réserver aux messages à garder à portée de main ou à consulter souvent ; le compteur de la barre latérale se met à jour en temps réel."
+      },
+      {
+        "h": "Reportés (dossier de la barre latérale)",
+        "d": "La zone d'attente des suivis différés, à deux paliers (urgent et en attente). Dans la vue de détail, choisissez « Reporter » en précisant l'heure ; à l'échéance, le courriel revient automatiquement en haut de la boîte de réception et les sujets importants ne sombrent plus au fond de la pile."
+      },
+      {
+        "h": "Envoyés (dossier de la barre latérale)",
+        "d": "Conserve la trace de tous les courriels émis par ce compte, où vérifier ce qui est effectivement parti. Le volume sortant est borné par le quota d'envoi quotidien du rôle ; les courriels adressés aux boîtes du site sont livrés en direct, ceux destinés à l'extérieur passent par le canal de livraison."
+      }
+    ]
+  },
+  "compose-guide.png": {
+    "summary": "Quatre régions de la fenêtre de rédaction, qui couvrent le trajet complet d'un message, de la mise en forme à l'envoi : la barre d'outils décide de l'aspect, les destinataires et l'objet décident de la destination, et le bouton d'envoi déclenche la remise.",
+    "items": [
+      {
+        "h": "Barre d'outils de texte enrichi (au-dessus du corps)",
+        "d": "17 outils de mise en forme : paragraphes et taille de police, gras/italique/souligné/barré, couleur, alignement, listes ordonnées et non ordonnées, citation, séparateur, lien, image, tableau, émoji, traduction et mode code source — rendus au fil de la frappe."
+      },
+      {
+        "h": "Ligne des destinataires",
+        "d": "Choisissez des contacts ou saisissez directement des adresses. Les boîtes du site reçoivent en livraison directe (aucune transmission externe) ; les adresses hors site passent par le canal configuré par l'Opérateur (Resend/Mailjet, etc.)."
+      },
+      {
+        "h": "Ligne d'objet",
+        "d": "La première chose que voit le destinataire : elle s'affiche dans les listes et les notifications push avec l'aperçu des premières lignes du corps. Un objet explicite paie plus tard, à l'usage de l'opérateur `subject:`."
+      },
+      {
+        "h": "Bouton d'envoi (en bas à droite)",
+        "d": "Un clic et le message part : livraison directe et instantanée sur le site, acheminement par le canal de livraison hors site ; vérifiez ensuite dans la vue « Envoyés ». Les droits de pièces jointes dépendent du rôle, et le plafond par fichier suit le réglage de l'instance (25 Mo par défaut)."
+      }
+    ]
+  },
+  "search-guide.png": {
+    "summary": "Deux régions qui illustrent une recherche complète : saisissez un opérateur ou un mot-clé dans la barre de recherche, et la liste des résultats se filtre instantanément, correspondances surlignées.",
+    "items": [
+      {
+        "h": "Barre de recherche supérieure",
+        "d": "Sur les pages courriel, elle cherche des courriels ; sur les pages de paramètres, des entrées de configuration. Elle gère dix opérateurs de champs (`from:`, `to:`, `subject:`, `body:`, …) et des indicateurs comme `is:` ou `global:` ; plusieurs conditions séparées par des espaces se combinent en ET, et Tab complète les opérateurs."
+      },
+      {
+        "h": "Liste des correspondances",
+        "d": "Seuls les courriels satisfaisant toutes les conditions sont affichés, les termes trouvés étant surlignés nativement par le navigateur (`hl:off` le désactive). Un clic sur une ligne ouvre le détail et la fenêtre d'extrait glisse d'elle-même vers la correspondance, pour en conserver le contexte."
+      }
+    ]
+  },
+  "mode-guide.png": {
+    "summary": "La zone du mode courriel dans la carte « Paramètres du site » des paramètres système : un menu déroulant décide du chiffrement au stockage de tous les courriels de l'instance et de l'étendue visible côté administration, avec effet immédiat.",
+    "items": [
+      {
+        "h": "Menu déroulant du mode courriel",
+        "d": "L'administrateur choisit l'équilibre entre trois niveaux : Level 1 tout en clair (l'administration voit tous les courriels), Level 2 mode privé (valeur d'usine ; les courriers échangés par les utilisateurs sont chiffrés au repos en AES-256-GCM), Level 3 E2EE intégral (l'API d'administration ne renvoie aucune liste de courriels utilisateurs)."
+      },
+      {
+        "h": "Badge Confidentialité renforcée Level 2",
+        "d": "L'instance tourne en mode courriel privé : l'administration ne voit que les pourriels, la corbeille et les courriels sans propriétaire, et l'interrupteur général de la vérification en deux étapes est verrouillé sur activé."
+      },
+      {
+        "h": "Les trois options déroulées",
+        "d": "Les différences entre L1 mode tous courriels, L2 mode courriel privé (recommandé) et L3 mode courriel chiffré (E2EE) sautent aux yeux. En mode chiffré, l'entrée de revue du courriel disparaît, les horodatages sont dépouillés des rapports d'audit et le transfert global est verrouillé sur désactivé."
+      }
+    ]
+  },
+  "roles-guide.png": {
+    "summary": "Le tableau des six groupes d'identité de la page des permissions : cinq colonnes annotées pour les cinq dimensions ajustables groupe par groupe.",
+    "items": [
+      {
+        "h": "Colonne des groupes d'identité",
+        "d": "Six groupes — Utilisateur standard, Visiteur, Utilisateur standard LV.0, LV.1, Modérateur et Maître — chacun avec son étiquette de positionnement. Le groupe détermine les valeurs par défaut des quatre autres colonnes ; les groupes Visiteur et Maître sont protégés et ne peuvent pas être supprimés."
+      },
+      {
+        "h": "Colonne du quota de stockage",
+        "d": "Un quota de stockage des pièces jointes par groupe (de 0 Mo pour le Visiteur à 1024 Mo pour le Maître, l'interface affichant « sans plafond »). Une fois un stockage d'objets personnel branché, les nouvelles pièces jointes ne consomment plus ce quota."
+      },
+      {
+        "h": "Colonne de la limite d'envoi",
+        "d": "Le quota d'envoi quotidien (de 5 courriels pour l'Utilisateur standard à 100 pour le Modérateur ; le Maître n'a pas de plafond), remis à zéro chaque jour. Les groupes dont l'envoi est interdit — le Visiteur — portent ici la mention « envoi interdit »."
+      },
+      {
+        "h": "Colonne des permissions de pièces jointes",
+        "d": "Indique si l'envoi et la réception de pièces jointes sont autorisés : les groupes « texte brut uniquement » envoient sans pièce jointe, tandis que les groupes ouverts restent bornés à la fois par le quota de stockage et par la limite de taille par fichier."
+      },
+      {
+        "h": "Colonne des modèles IA autorisés",
+        "d": "L'étendue des modèles IA que le groupe peut appeler ; combinée au quota quotidien et à la limite de débit de l'AI Hub dans les paramètres système, elle met en œuvre une fourniture d'IA graduée selon l'identité."
+      }
+    ]
+  },
+  "login-guide.png": {
+    "summary": "Les trois régions centrales de la surface de connexion : le parcours complet de saisie et de validation d'une connexion par mot de passe ; les boutons de connexion rapide tierce se trouvent sous la carte.",
+    "items": [
+      {
+        "h": "Champ adresse électronique",
+        "d": "Le compte, c'est l'adresse électronique elle-même. En mode code d'inscription, cette page accepte aussi un paramètre d'invitation `?code=` qui préremplit directement le formulaire d'inscription."
+      },
+      {
+        "h": "Champ mot de passe",
+        "d": "La phrase secrète est stockée en empreinte salée, le serveur ne voit jamais le texte en clair. « Mot de passe oublié » ouvre par une boîte de dialogue le portail de recours externe, en transmettant le type de recours, la langue de l'interface et l'adresse électronique."
+      },
+      {
+        "h": "Bouton de connexion",
+        "d": "Après validation, les comptes ayant activé la vérification en deux étapes passent au second facteur ; des échecs répétés déclenchent un verrouillage anti-force brute. Cochez « Ne plus demander sur cet appareil » pour dispenser ce dernier de vérification pendant 30 jours."
+      }
+    ]
+  },
+  "twofa-guide.png": {
+    "summary": "Quatre régions de la page de sécurité : en haut l'entrée de modification des identifiants du compte, en bas le centre de vérification en deux étapes, qui aligne trois seconds facteurs combinables entre eux.",
+    "items": [
+      {
+        "h": "Carte nom d'utilisateur et mot de passe",
+        "d": "Modifier le nom d'utilisateur et le mot de passe de connexion, en affichant la date du dernier changement. Désactiver la vérification en deux étapes exige aussi de saisir ici le mot de passe accompagné d'un code dynamique."
+      },
+      {
+        "h": "Application d'authentification (TOTP)",
+        "d": "Après la liaison par lecture du code QR, elle produit un code à 6 chiffres toutes les 30 secondes. La liaison terminée affiche aussitôt 10 codes de récupération, chacun utilisable une seule fois, pour se connecter lorsque l'application est indisponible."
+      },
+      {
+        "h": "Codes de récupération de secours",
+        "d": "Le recours de connexion quand l'application d'authentification fait défaut : la carte affiche en temps réel le nombre de codes encore utilisables. Consulter la liste complète ou régénérer les codes exige le mot de passe du compte, et une réinitialisation annule tous les anciens codes."
+      },
+      {
+        "h": "Clés d'accès (Passkey)",
+        "d": "Clé de sécurité matérielle ou biométrie de l'appareil : une clé fraîchement enregistrée s'active aussitôt après approbation par l'application d'authentification liée (ou automatiquement à l'expiration du verrou temporel de 30 jours) ; une fois active, « Tester » vérifie le flux de déverrouillage."
+      }
+    ]
+  },
+  "apps-guide.png": {
+    "summary": "Cinq régions de la page de gestion des applications : quatre points de terminaison en haut et une carte d'application d'exemple, qui bouclent le parcours d'intégration tierce « trouver le point de terminaison — obtenir les identifiants — copier le code ».",
+    "items": [
+      {
+        "h": "`/.well-known/openid-configuration`",
+        "d": "Le point de terminaison des métadonnées OIDC Discovery : émetteur, points de terminaison et capacités s'y décrivent d'eux-mêmes, ce qui permet aux frameworks tiers (NextAuth, par exemple) de se configurer automatiquement."
+      },
+      {
+        "h": "`/oauth/authorize`",
+        "d": "Le point de terminaison d'autorisation utilisateur : il guide l'utilisateur à travers la connexion et le consentement. Dans une fenêtre surgissante, le résultat revient via `postMessage` ; une annulation redirige en retour avec `error=access_denied`."
+      },
+      {
+        "h": "`/api/oauth/token`",
+        "d": "Le point de terminaison d'échange de jetons : un code d'autorisation à usage unique (valable 5 minutes) s'échange contre un jeton d'accès et un ID Token valables 2 heures. Il accepte JSON, formulaire et HTTP Basic ; avec PKCE configuré, il vérifie `code_verifier` (S256)."
+      },
+      {
+        "h": "`/api/oauth/userinfo`",
+        "d": "Le point de terminaison du profil utilisateur : un jeton d'accès Bearer lit les champs autorisés (`sub`, `email`, `name`, `picture`, …). Un jeton expiré ou révoqué renvoie 401."
+      },
+      {
+        "h": "Carte d'application (shijianus-blog)",
+        "d": "Une carte par application : Client ID et Client Secret (le secret n'est affiché intégralement qu'une seule fois, à la création ou à la réinitialisation), interrupteur d'activation, modification et suppression, plus cinq extraits d'intégration prêts à copier — NextAuth, Node, Python, cURL et OIDC générique."
+      }
+    ]
+  },
+  "notify-guide.png": {
+    "summary": "Trois cartes d'export et la zone d'en-tête « Transfert de courriels et de messages » de la page Données : le haut régit les formats sous lesquels les données s'en vont, le bas la façon dont le courrier entrant vous atteint en temps réel.",
+    "items": [
+      {
+        "h": "Carte d'export intégral des données",
+        "d": "Sauvegarde JSON complète : informations du compte, texte intégral de l'historique des courriels, répertoire, règles de classement et d'étiquettes et paramètres de sécurité, téléchargés en un seul paquet — l'entrée principale pour exercer le droit à la portabilité des données."
+      },
+      {
+        "h": "Carte d'archive de l'historique des courriels",
+        "d": "Exporte uniquement les courriels envoyés et reçus : en MBOX (format universel, importable directement par la plupart des clients de messagerie), JSON ou CSV, avec possibilité de borner une plage de dates."
+      },
+      {
+        "h": "Carte contacts et configuration",
+        "d": "Troisième export : le carnet d'adresses, les règles d'alias personnalisées et les préférences de personnalisation. C'est le plus petit des trois fichiers, mais c'est lui qui décide si vos habitudes survivent à un changement d'instance — les règles d'alias et la nomenclature des étiquettes partent avec lui, si bien que rien n'a à être renommé ni reclassé."
+      },
+      {
+        "h": "Zone d'en-tête « Transfert de courriels et de messages »",
+        "d": "Deux capacités d'atteinte en temps réel : le push de messages Telegram (lier votre propre robot privé ; push de tout le courrier, ou seulement des messages importants et des codes de vérification, avec un lien de lecture interne valable 7 jours) et le transfert automatique (destinations, type de déclencheur et en-tête `[Fwd]`)."
+      }
+    ]
+  },
+  "analysis-guide.png": {
+    "summary": "Les trois indicateurs en tête de la page d'analyse : la distribution des sources répond à « d'où viennent les courriels », les deux courbes de croissance à « quelle est la tendance d'activité de l'instance ».",
+    "items": [
+      {
+        "h": "Distribution des sources des courriels",
+        "d": "La part des différentes provenances entrantes — livraison directe sur le site, canaux externes — sert à évaluer la santé du canal de livraison ; pour l'effet de la gouvernance (taux d'interception et volume de pourriels), retournez au Classement."
+      },
+      {
+        "h": "Courbe de croissance des utilisateurs",
+        "d": "L'évolution dans le temps des comptes inscrits et des comptes actifs. À lire en regard des quotas de chaque groupe d'identité sur la page des permissions, pour juger quand agrandir ou changer le groupe par défaut."
+      },
+      {
+        "h": "Courbe de croissance des courriels",
+        "d": "L'évolution dans le temps du volume total envoyé et reçu. Avec la tendance des appels IA de la même page, elle sert à vérifier si le quota quotidien et la limite de débit de l'AI Hub dans les paramètres système restent pertinents."
+      }
+    ]
+  },
+  "users-guide.png": {
+    "summary": "Quatre régions de la liste des utilisateurs : de la recherche à l'action en ligne, le parcours de gestion des comptes tient sur un seul écran.",
+    "items": [
+      {
+        "h": "Barre de recherche par adresse",
+        "d": "En haut, rechercher par adresse électronique pour localiser un compte, avec pagination et tri immédiats. Combinée aux compteurs d'envoi et de réception, d'occupation de stockage et de pourriels/signalements de chaque ligne, elle fait vite ressortir les comptes anormaux."
+      },
+      {
+        "h": "Colonne adresse électronique",
+        "d": "L'identité unique du compte : l'adresse tient lieu de nom de compte et sert au login, à la réception et à toute attribution. Les actions en ligne (réinitialiser le mot de passe, changer de groupe, bannir) s'appliquent au compte que cette colonne désigne ; les colonnes voisines — envoi/réception, stockage, spam et signalements — servent à repérer un compte anormal."
+      },
+      {
+        "h": "Colonne espace de stockage",
+        "d": "L'utilisation en temps réel du stockage des pièces jointes du compte ; à comparer au quota de son groupe d'identité (voir la page des permissions) pour décider d'un agrandissement ou d'un nettoyage."
+      },
+      {
+        "h": "Colonne des opérations",
+        "d": "Les actions de gestion en ligne : réinitialisation du mot de passe (émission d'un mot de passe à usage unique), changement de groupe d'identité, réinitialisation de la vérification en deux étapes, bannissement et restauration, et purge des courriels du compte (irréversible, à manier avec précaution)."
+      }
+    ]
+  },
+  "review-guide.png": {
+    "summary": "L'aspect de la revue du courriel à l'échelle du site en mode privé (Level 2) : la section s'affiche « Pourriels », et la barre de recherche ainsi que l'état vide sont les deux régions annotées.",
+    "items": [
+      {
+        "h": "Barre de recherche",
+        "d": "Elle accepte la syntaxe avancée `$` sur toute la base : `$sender`/`$user`/`$to`/`$subject` complétés de jetons d'état. Un clic droit sur n'importe quel courriel des résultats lance directement une nouvelle recherche par son expéditeur, son compte destinataire ou son utilisateur propriétaire."
+      },
+      {
+        "h": "Nom de la section dans la barre latérale",
+        "d": "Le nom et l'étendue visible suivent le mode courriel : Level 1 affiche « Tous les courriels », Level 2 affiche « Pourriels », Level 3 masque entièrement l'entrée."
+      },
+      {
+        "h": "État vide",
+        "d": "Le message qui s'affiche tant qu'aucun courriel n'est mis en quarantaine. Dès qu'il y en a, cette zone devient une liste ; ouvrir une ligne fait glisser le tiroir de détail, d'où la suppression physique est possible (à distinguer de la corbeille côté utilisateur : l'opération laisse une trace)."
+      }
+    ]
+  },
+  "regkeys-guide.png": {
+    "summary": "L'état vide de la page des clés d'inscription tant qu'aucun code d'invitation n'a été émis : un bouton d'émission et une barre de recherche composent toute la page.",
+    "items": [
+      {
+        "h": "Bouton d'ajout de code d'inscription",
+        "d": "L'entrée d'émission : la boîte de dialogue génère un code aléatoire à 8 caractères (régénérable d'un clic) et le lie au groupe d'identité rejoint après l'inscription, à une date de validité et à un nombre d'usages (1–99999, un usage décompté par inscription réussie)."
+      },
+      {
+        "h": "Barre de recherche de codes d'inscription",
+        "d": "Après émission, filtrer et localiser les codes par leur valeur, pour consulter les usages restants, le groupe lié et la validité ; les champs sensibles sont automatiquement masqués du point de vue des Visiteurs."
+      },
+      {
+        "h": "Carte d'état vide",
+        "d": "Le repère explicatif affiché tant que l'instance n'a émis aucun code. Après émission, cette zone devient la liste des codes, avec copie en un clic, consultation du journal d'usage, suppression d'une ligne et « Nettoyage des codes inutilisés » en lot."
+      }
+    ]
+  },
+  "labels-guide.png": {
+    "summary": "Trois régions de la page des étiquettes : une entrée de création, puis les compteurs et l'interrupteur de chaque ligne — tout ce que la gestion des étiquettes demande au quotidien.",
+    "items": [
+      {
+        "h": "Bouton de nouvelle étiquette",
+        "d": "Crée une étiquette personnalisée et la nomme ; la zone d'étiquettes de la barre latérale en affiche au plus 7, et quatre sont livrées d'usine : Communauté, Abonnements, Promotions et Travail."
+      },
+      {
+        "h": "Ligne d'étiquette",
+        "d": "Une carte par ligne : une pastille colorée (icône au choix dans la bibliothèque intégrée ou SVG personnalisé, palette de couleurs personnalisable) et trois compteurs en temps réel — total, actuels et non traités."
+      },
+      {
+        "h": "Interrupteur d'affichage et actions de ligne",
+        "d": "L'interrupteur décide si l'étiquette apparaît dans la barre latérale ; Modifier change l'apparence et les règles ; supprimer une étiquette lève aussi ses références dans les règles de classement."
+      }
+    ]
+  },
+  "preferences-guide.png": {
+    "summary": "Les quatre cartes de la page Profil : de l'identité et de l'image aux coordonnées puis au carnet d'adresses, les quatre dimensions des données personnelles se gèrent carte par carte.",
+    "items": [
+      {
+        "h": "Carte informations de base",
+        "d": "Import d'avatar, pseudonyme, genre et anniversaire. Le fait que le pseudonyme et l'avatar soient visibles de l'extérieur dépend de l'interrupteur « profils publics » de l'administrateur."
+      },
+      {
+        "h": "Carte coordonnées",
+        "d": "La boîte principale de connexion porte l'étiquette « boîte principale » et ne peut pas être retirée ; plusieurs adresses électroniques supplémentaires peuvent être ajoutées et retirées à tout moment, et un numéro de téléphone avec indicatif pays peut y être enregistré."
+      },
+      {
+        "h": "Cartes d'adresse",
+        "d": "Les adresses du domicile, de l'entreprise et « autre » sont conservées séparément, chacune ajoutée, modifiée ou supprimée à part. Ce sont des données personnelles au sens strict : jamais utilisées pour la remise du courrier, sans effet sur la facturation ni sur le rôle. Qu'elles soient nécessaires — et qu'elles paraissent publiquement — dépend de l'interrupteur « profil public » de l'opérateur."
+      },
+      {
+        "h": "Carte paramètres associés et sécurité",
+        "d": "Le tremplin de la page de profil vers les autres pages de réglages : sécurité du compte (nom d'utilisateur et mot de passe, vérification en deux étapes) et autorisations de tiers (applications autorisées), les deux entrées les plus fréquentées, sont réunies ici pour éviter les allers-retours entre profil et sécurité. Chaque entrée saute à la section correspondante au lieu d'ouvrir une nouvelle page."
+      }
+    ]
+  },
+  "general-guide.png": {
+    "summary": "Les trois cartes de la page Général — biographie, personnalisation et préférences — couvrent toute l'individualisation de l'apparence et des habitudes de lecture.",
+    "items": [
+      {
+        "h": "Carte biographie",
+        "d": "Un texte de présentation affiché sur votre profil public ; l'ouverture de ce profil public est décidée par l'interrupteur « profils publics » de l'administrateur."
+      },
+      {
+        "h": "Carte personnalisation",
+        "d": "Trois états de palette d'apparence (sombre/clair/suivre le système, aussi basculables depuis la barre supérieure) et le fond d'écran thématique global (huit préréglages plus un fond personnalisé ou une URL) ; s'y trouvent encore l'arrière-plan personnel (qui ne couvre que la zone de la boîte) et la densité d'interface."
+      },
+      {
+        "h": "Carte préférences",
+        "d": "Préférences de lecture (type de boîte de réception, position du volet de lecture, vue par conversations) et langue (interface au choix parmi six, langue cible de traduction par IA parmi 16) ; la zone de confidentialité des données regroupe les entrées des préférences relatives aux informations personnelles et au traitement par IA."
+      }
+    ]
+  },
+  "data-guide.png": {
+    "summary": "Les quatre cartes de la page Données : trois formats pour emporter ses données, une zone de transfert, une zone de stockage et une zone d'autorisations tierces — l'autonomie complète sur ses données personnelles en un écran.",
+    "items": [
+      {
+        "h": "Carte export des données du compte",
+        "d": "Trois exports côte à côte : la sauvegarde JSON intégrale, l'archive de l'historique des courriels (MBOX/JSON/CSV avec plage de dates) et les contacts et la configuration ; un courriel isolé se télécharge en .eml depuis le volet de lecture."
+      },
+      {
+        "h": "Carte transfert de courriels et de messages",
+        "d": "Le réglage détaillé du push de messages Telegram et du transfert automatique ; l'ouverture de ces deux fonctions au compte dépend des interrupteurs « Contrôle des données utilisateurs » de l'administrateur."
+      },
+      {
+        "h": "Carte espace de stockage",
+        "d": "Une jauge d'utilisation des pièces jointes constamment comparée au quota. En branchant son propre compartiment Backblaze B2/S3, les nouvelles pièces jointes vont directement dans votre cloud, hors du quota de l'instance ; délier le branchement fait revenir au stockage de l'instance."
+      },
+      {
+        "h": "Carte applications et services tiers",
+        "d": "La liste de toutes les autorisations OAuth du compte : retirer l'accès application par application, ou tout révoquer d'un coup depuis la boîte de dialogue de détail. La révocation prend effet immédiatement et les jetons existants de l'application meurent sur-le-champ."
+      }
+    ]
+  },
+  "audit-guide.png": {
+    "summary": "Le tableau à quatre colonnes de la page du rapport d'audit : la chaîne d'information complète d'un ticket, du « qui » au « pourquoi le déclenchement » puis au « où sont les preuves ».",
+    "items": [
+      {
+        "h": "Colonne adresse électronique",
+        "d": "Le compte auquel ce ticket se rapporte : peut-être l'objet d'une mesure (alerte de contrôle des risques ou de bannissement), la partie signalée (alerte d'audit) ou l'appelant (alerte d'appel). Cette page ne fait qu'apprécier — les véritables mesures (bannissement, restauration, réinitialisation) s'exécutent depuis la liste des utilisateurs ; une conclusion posée ici se lit donc avec cette page."
+      },
+      {
+        "h": "Colonne niveau d'audit de sécurité",
+        "d": "La gradation du risque (priorité P0/P1 avec étiquette de catégorie) : les quatre classes d'alertes — audit, contrôle des risques, bannissement et appel — ont chacune leur voie de traitement habituelle."
+      },
+      {
+        "h": "Colonne contexte de l'alerte et déclencheur",
+        "d": "La description de ce qui a déclenché le ticket (connexions simultanées depuis plusieurs IP et plusieurs sites, signalement établi, etc.) ; c'est sur elle que repose la décision de lever ou de rejeter."
+      },
+      {
+        "h": "Colonne pool d'environnements actifs",
+        "d": "L'information d'environnement complète présentée en texte brut : IP, géolocalisation, appareil et empreinte. En mode courriel chiffré (Level 3), les horodatages sont dépouillés mais le ticket reste appréciable."
+      }
+    ]
+  },
+  "system-guide.png": {
+    "summary": "Cinq des onze cartes de configuration de la page des paramètres système : la configuration au niveau de l'instance, regroupée par thème — ici les cinq plus utilisées.",
+    "items": [
+      {
+        "h": "Carte paramètres du site",
+        "d": "Le groupe des interrupteurs généraux de l'instance : inscription ouverte, profils publics, mode courriel (trois niveaux), vérification en deux étapes, domaine de connexion masqué, codes d'inscription, ajout de boîtes, changement rapide multi-comptes et règles de préfixe de boîte."
+      },
+      {
+        "h": "Carte personnalisation",
+        "d": "La façade de l'instance : le titre du site donne sa marque à la page de connexion et à l'onglet du navigateur, le texte des dialogues remplace les messages intégrés, et le commutateur dynamique/statique décide si la page de connexion s'anime — le mode statique convient mieux aux appareils peu puissants et aux captures de preuve. Tout changement s'applique aussitôt à tout le monde."
+      },
+      {
+        "h": "Carte stockage et base de données centrale",
+        "d": "Stockage d'objets (B2/S3, repli R2/KV par défaut), architecture de la base de données centrale et tierce, limite de pièce jointe unique avec suppression en cascade, et contrôle de santé du cache KV."
+      },
+      {
+        "h": "Carte moteur IA",
+        "d": "Le fournisseur d'IA au choix entre deux (point de terminaison compatible OpenAI personnalisé ou Cloudflare Workers AI), l'interrupteur d'activation, le quota quotidien et la limite de débit, et l'autorisation des modèles par groupe d'identité."
+      },
+      {
+        "h": "Carte contrôle des données utilisateurs",
+        "d": "Ce que les utilisateurs ordinaires peuvent faire sur la page « Données » : push Telegram, transfert de courriels, prise en charge des API tierces, stockage apporté et quota de stockage par défaut. L'export des données reste toujours ouvert, hors de portée de cette carte."
+      }
+    ]
+  },
+  "category-guide.png": {
+    "summary": "Les quatre cartes de gouvernance de la page Classement : des interrupteurs généraux à la reconnaissance par IA, puis aux listes et au blocage dur — les quatre lignes de défense de la gouvernance de la réception à l'échelle du site.",
+    "items": [
+      {
+        "h": "Carte paramètres du courrier (interrupteurs de réception et d'envoi)",
+        "d": "Les interrupteurs généraux de la réception, de l'envoi et de l'actualisation automatique, ainsi que l'interrupteur de traitement des courriels sans destinataire ; une fois la réception désactivée, les courriels entrants sont rejetés d'emblée."
+      },
+      {
+        "h": "Carte modèle IA et intégration de clé d'API",
+        "d": "L'extraction des codes de vérification par Workers AI et ses règles, ainsi que la configuration de la clé d'API IA/URL/modèle — de même source que l'AI Hub des paramètres système ; ce qui se règle ici commande le comportement de reconnaissance à l'arrivée (badge de code de vérification, etc.)."
+      },
+      {
+        "h": "Carte règles de listes de base",
+        "d": "Liste noire d'expéditeurs (configurable en mode étiquette ou en interception directe), mode liste blanche (seuls les expéditeurs de la liste blanche sont remis), liste noire de mots-clés d'objet et de contenu, interception des expéditeurs sans nom, interception des non-destinataires et interception des pièces jointes exécutables."
+      },
+      {
+        "h": "Carte règles de blocage dur",
+        "d": "Le moyen terminal : rejeter net et comptabiliser chaque interception. Une correspondance dans les listes applique automatiquement l'étiquette correspondante ; l'effet des interceptions se revérifie sur la page d'analyse."
+      }
+    ]
+  },
+  "ui-compose.png": {
+    "summary": "La fenêtre de rédaction, de haut en bas : expéditeur verrouillé, destinataires et objet, barre d'outils de texte enrichi, zone de saisie du corps et barre d'actions en bas.",
+    "items": [
+      {
+        "h": "Ligne de l'expéditeur",
+        "d": "L'expéditeur est verrouillé sur la boîte avec laquelle vous êtes connecté et n'est pas modifiable pendant la rédaction : un courriel envoyé depuis cette plateforme ne peut donc pas porter un From forgé. Les comptes à plusieurs boîtes changent d'identité d'envoi dans cette ligne ; le destinataire voit la boîte choisie. L'adresse d'expédition détermine aussi le canal de distribution du courriel sortant."
+      },
+      {
+        "h": "Lignes des destinataires et de l'objet",
+        "d": "Les destinataires se choisissent parmi les contacts et acceptent le lien profond `?composeTo=` ; l'objet s'affiche dans les listes et reste interrogeable via `subject:`."
+      },
+      {
+        "h": "Barre d'outils et zone du corps",
+        "d": "17 outils de mise en forme : paragraphe, taille de police, styles de caractère, couleur, alignement, listes, citation, lien, image, tableau, émoji, traduction et mode code source."
+      },
+      {
+        "h": "Barre d'actions en bas",
+        "d": "Le bouton de pièces jointes (capacité activée selon le rôle, plafond par fichier selon le réglage de l'instance) et le bouton d'envoi ; livraison directe sur le site, acheminement hors site par le canal configuré par l'Opérateur."
+      }
+    ]
+  },
+  "ui-settings-general.png": {
+    "summary": "L'aspect de la section des paramètres généraux : la colonne de gauche navigue entre les cinq sections de paramètres, la zone de droite porte les entrées générales (palette d'apparence, fond d'écran thématique, etc.).",
+    "items": [
+      {
+        "h": "Navigation entre sections (colonne de gauche)",
+        "d": "Bascule entre les cinq sections Profil/Général/Sécurité/Données/Étiquettes ; entrer dans les paramètres masque la barre latérale du courrier, et « Retour au courrier » ramène à l'interface principale."
+      },
+      {
+        "h": "Zone de personnalisation",
+        "d": "Trois modes de thème (sombre, clair, système) et le fond d'écran global (huit préréglages plus une image ou une URL personnalisée). La portée couvre toutes les vues de l'application — à la différence de l'« arrière-plan personnel », limité à la zone de la boîte de réception. La barre supérieure offre en outre un commutateur de thème rapide : inutile de revenir ici."
+      },
+      {
+        "h": "Les autres groupes",
+        "d": "Les trois autres groupes de réglages de la page : préférences de lecture (type de boîte, position du volet de lecture, vue par conversation), langue (une interface parmi six, une cible de traduction IA parmi seize) et confidentialité des données (le guichet central des préférences de traitement des données personnelles et de l'IA). Cette figure ne montre que la colonne et l'allure ; la section 3 du guide des réglages détaille chaque élément."
+      }
+    ]
+  },
+  "ui-audit-report.png": {
+    "summary": "La page du rapport d'audit telle que la voit l'administration : les tickets d'alerte s'apprécient sous forme de tableau, et les boutons de traitement se répartissent selon la classe d'alerte.",
+    "items": [
+      {
+        "h": "Tableau des tickets",
+        "d": "Une alerte par ligne, avec colonnes pour la catégorie (audit, contrôle des risques, bannissement, appel), la priorité (P0/P1), l'état actuel et le pool d'environnements actifs en texte brut — IP, géographie, appareil et empreinte. Le pool s'agrège par comportement de requête : l'anomalie ne devient visible que lorsqu'un même compte se connecte simultanément depuis plusieurs IP."
+      },
+      {
+        "h": "Boutons de traitement",
+        "d": "Les boutons se répartissent selon la catégorie du ticket : les alertes d'appel mettent « lever après examen » en évidence (lever, c'est restaurer le compte), les alertes de bannissement mettent en avant « retirer l'alerte », et les autres passent par le menu d'actions standard. Le bouton n'enregistre que le verdict ; le bannissement et la restauration effectifs restent exécutés depuis la liste des utilisateurs, les deux pages restant synchronisées."
+      },
+      {
+        "h": "Couplage avec le mode",
+        "d": "La même table change de forme selon le mode de messagerie : en mode tout-courriel (L1) l'information est la plus complète ; en mode privé (L2) la page ressemble à cette figure ; en mode chiffré (L3) les horodatages sont dépouillés et la colonne temporelle disparaît — l'administrateur juge alors sur la seule catégorie et le pool d'environnements, sans pouvoir reconstituer l'ordre des événements."
+      }
+    ]
+  },
+  "ui-login-oauth.png": {
+    "summary": "La surface de connexion dans son ensemble : une même carte de connexion porte tous les flux — connexion par mot de passe, vérification en deux étapes, connexion rapide tierce, inscription et mot de passe oublié.",
+    "items": [
+      {
+        "h": "Zone de saisie",
+        "d": "Le chemin le plus fréquenté de la page : l'adresse électronique tient lieu de compte, et le mot de passe est stocké en empreinte salée — le serveur ne voit jamais le clair. Des échecs répétés déclenchent un verrouillage anti-force brute, dont la granularité et la durée relèvent de la politique du serveur ; cocher « garder cet appareil de confiance » dispense de toute re-vérification pendant 30 jours."
+      },
+      {
+        "h": "Zone des boutons tiers",
+        "d": "Les fournisseurs que l'administrateur a activés et dotés d'identifiants apparaissent en boutons ; ceux activés mais sans identifiants s'affichent grisés « bientôt disponible » ; les fournisseurs désactivés ne s'affichent pas du tout."
+      },
+      {
+        "h": "Les autres flux",
+        "d": "La même carte porte trois chemins de plus : un compte avec vérification en deux étapes poursuit vers un second facteur (TOTP, code de récupération ou clé d'accès) ; en mode code d'inscription, un paramètre code préremplit le formulaire d'inscription ; « mot de passe oublié » rejoint le portail de recours externe en emportant le type de recours, la langue d'interface et l'adresse électronique. La section 4 de la page des modes énonce les règles."
+      }
+    ]
+  },
+  "ui-detail-verification.png": {
+    "summary": "L'extraction des codes de vérification dans le détail d'un courriel : le code à 6 chiffres est présenté en grands caractères, avec un badge vert dans la liste comme dans le détail.",
+    "items": [
+      {
+        "h": "Zone du code en grands caractères",
+        "d": "Le code extrait par Workers AI depuis l'objet et les 6,000 premiers caractères du corps, affiché en grands caractères pour le recopier facilement."
+      },
+      {
+        "h": "Badge vert",
+        "d": "Le marqueur vert qui apparaît à la fois sur la ligne de liste et sur la page de détail signifie « ce courriel contient un code de vérification extrait » : vous le repérez dès la liste, sans ouvrir chaque message. Le badge ne paraît qu'en cas d'extraction réussie ; sans correspondance ou extraction désactivée, il reste absent — son absence ne prouve pas que le courriel est sûr, seulement qu'il n'y a pas de code à recopier."
+      },
+      {
+        "h": "Limites",
+        "d": "C'est le seul traitement par IA qui n'est pas déclenché manuellement ; il se désactive dans les paramètres généraux. Étendue du traitement et modalités de retrait : section 6 de la politique de confidentialité."
+      }
+    ]
+  },
+  "ui-inbox-en.png": {
+    "summary": "La boîte de réception en interface English : strictement isomorphe à la version chinoise, la symétrie des dictionnaires dans les six langues étant garantie par des scripts d'audit statiques.",
+    "items": [
+      {
+        "h": "Barre latérale",
+        "d": "Les vues Compose, Starred, Snoozed et Sent, entre autres, et les étiquettes Social/Subscriptions/Promotions/Work reproduisent la taxonomie chinoise à l'identique."
+      },
+      {
+        "h": "Liste",
+        "d": "Expéditeur, objet, aperçu et badge de code de vérification occupent exactement les mêmes positions, tailles et couleurs que dans la version chinoise : la localisation ne remplace que les chaînes, jamais la mise en page — c'est pourquoi captures et instructions se réutilisent d'une langue à l'autre. Dates, nombres et compteurs sont formatés selon la langue de l'interface."
+      },
+      {
+        "h": "Changement de langue",
+        "d": "L'endroit où se règle la langue de l'interface : un choix parmi six (chinois simplifié, chinois traditionnel, anglais, espagnol, français, néerlandais) dans le groupe « Langue » des réglages généraux, appliqué à l'instant et sans reconnexion. Affichage et distribution restent séparés — les avis système et les courriels de bienvenue sont générés dans la langue propre de chaque destinataire, indépendamment de la langue d'interface de l'expéditeur."
+      }
+    ]
+  },
+  "ui-inbox-mobile.png": {
+    "summary": "La boîte de réception mobile sur 375 pixels de large : la barre latérale se replie en tiroir et la liste reste entièrement lisible.",
+    "items": [
+      {
+        "h": "Barre latérale en tiroir",
+        "d": "En dessous de 1025 pixels de large, la colonne de gauche se replie en tiroir : le bouton hamburger l'ouvre par-dessus un voile, et le choix d'une vue la referme aussitôt pour ne pas gêner la lecture. Bureau et mobile partagent la même structure de barre latérale ; compteurs et étiquettes sont donc identiques dans les deux formes."
+      },
+      {
+        "h": "Bouton de rédaction flottant",
+        "d": "Le pendant mobile du bouton « Rédiger » du bureau : fixé en bas à droite, il reste visible au défilement et ouvre la rédaction en plein écran. Il n'apparaît que pour les comptes disposant du droit d'envoi ; un Visiteur ou un groupe dont l'envoi est désactivé ne le voit jamais et ne peut donc pas accéder à la rédaction."
+      },
+      {
+        "h": "Liste",
+        "d": "La même liste virtualisée que sur le bureau : une boîte bien remplie ne rend que les lignes visibles, si bien que le premier écran ne ralentit pas à mesure que le courrier s'accumule. Les cibles tactiles sont agrandies pour l'accessibilité mobile, mais la densité d'information et la structure des colonnes restent identiques — les captures mobiles servent donc aussi à vérifier les champs."
+      }
+    ]
+  },
+  "ui-account-menu.png": {
+    "summary": "Le menu d'avatar déplié dans le coin supérieur droit de la boîte de réception : le point d'entrée qui rassemble le changement de compte et les détails du compte.",
+    "items": [
+      {
+        "h": "Ligne du compte",
+        "d": "Le compte actuel (admin · Maître) avec sa flèche déroulante de bascule ; en mode multi-comptes, toutes les sessions connectées sont listées et isolées par le préfixe `/mail/u/N/`."
+      },
+      {
+        "h": "Bouton « Gérer vos comptes Epomail »",
+        "d": "L'entrée d'ajout de compte : le clic déclenche la connexion du nouveau compte par le lien profond dédié de la page de connexion, et l'on revient avec une session de plus. L'essentiel est le « non-écrasement » — le nouveau compte ne chasse pas la session en cours ; chaque espace de travail est isolé derrière un préfixe de chemin /mail/u/N/, de sorte que changer de compte revient à changer de préfixe, sans se reconnecter."
+      },
+      {
+        "h": "Barre d'utilisation du stockage",
+        "d": "La barre de progression du stockage des pièces jointes de ce compte : le numérateur est l'espace occupé, le dénominateur le quota attaché à son rôle (valeurs d'usine par rôle sur la page des rôles). Une fois le stockage d'objets personnel raccordé, les nouvelles pièces jointes ne comptent plus ici — une barre qui cesse de progresser ne signifie donc pas que les pièces jointes n'arrivent plus."
+      }
+    ]
+  }
+}

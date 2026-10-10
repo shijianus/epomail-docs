@@ -3,14 +3,25 @@ title: Operation Reports
 description: EpoCanvas Mail operation reports — triage of the four warning classes, handling buttons, appeal adjudication and timestamp stripping in encrypted mode, for administrators.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 Operation Reports is the admin area's risk-ticket interface (`#manage/admin/audit`; querying needs `setting:query`, handling and adjudication need `setting:set`). Tickets are persisted in a dedicated audit-log table, and history is searchable with paging.
 
 ![EpoCanvas Mail operation reports page: warning tickets of the four classes, plain-text environment details and handling buttons (interface in Simplified Chinese)](/images/mail/en/ui/audit-guide.png)
 
 *Figure: Operation Reports. Each ticket carries its class, priority, status and the active-environment pool shown as plain text.*
-*Annotations: 1. Email　2. Security Audit L　3. Alert Context & 　4. Active Environme*
+
+<details>
+<summary>Walkthrough: Audit —  the full information chain of one ticket</summary>
+
+The four-column table of the audit page: the full information chain of one ticket, from "who" through "why it fired" to "where the evidence is".
+
+1. **Email column**: The account this ticket points at: the subject of a risk-control or ban alert, the reported party in an audit alert, or the appellant in an appeal ticket. This page adjudicates only — the actual actions (ban, restore, reset) are executed from the users page, so a verdict here is used together with that page.
+2. **Audit-level column**: The risk grading (P0/P1 priority with category tags): audit, risk-control, ban and appeal tickets each carry their own handling path.
+3. **Alert-notes column**: What triggered the ticket — concurrent logins from many IPs, an upheld report, etc. This is the basis for approving or rejecting.
+4. **Environment-pool column**: The full environment in plain text: IP, geo, device and fingerprint. In encrypted mode (Level 3) timestamps are stripped, yet tickets stay reviewable.
+
+</details>
 
 ## 1. The four warning classes
 

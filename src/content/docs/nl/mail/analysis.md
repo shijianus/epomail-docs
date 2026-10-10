@@ -3,15 +3,24 @@ title: Analysepagina
 description: De analysepagina van EpoCanvas Mail — een beheerdersronde langs het e-mailvolume, het onderscheppingspercentage, de bronverdeling, de groeicurves en de AI-verbruikmeters.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 De analysepagina is het gegevensdashboard van de beheerzone (`#manage/admin/analysis`, rechten-sleutel `analysis:query`) en bundelt de e-mail-, gebruikers- en AI-verbruiksindicatoren van de instantie. De maatstaf van elke indicator volgt de e-mailmodus: in de versleutelde modus (Level 3) leest de beheerkant de e-mailinhoud van gebruikers niet; de betreffende tellingen zijn van metadataniveau.
 
 ![Figuur: de analysepagina](/images/mail/nl/ui/analysis-guide.png)
 
 *Figuur: de analysepagina*
-*Aantekeningen: 1. e-mail Source ｜ 2. gebruiker Growth ｜ 3. e-mail Growth*
 
+<details>
+<summary>Visuele handleiding: De statistiekentop —  drie meters, drie vragen</summary>
+
+De drie meters op de eerste schermhelft van de analysepagina: de bronverdeling antwoordt waar de mail vandaan komt, de twee groeicurves hoe actief de instantie is.
+
+1. **Verdeling van de e-mailbronnen**: De samenstelling van inkomende mail uit directe aflevering op de site en uit externe kanalen — een gezondheidscheck van het afleverkanaal; het effect van de governance (onderscheppingspercentage en spamhoeveelheid) controleer je terug in Classificatiebeheer.
+2. **Gebruikersgroeicurve**: Het verloop van het aantal geregistreerde en actieve gebruikers; afgezet tegen de groepsquota op de pagina Rechtenbeheer bepaal je wanneer je moet opschalen of de standaardgroep moet aanpassen.
+3. **E-mailgroeicurve**: Het verloop van het totale verzonden en ontvangen volume; samen met de AI-aanroeptrend op dezelfde pagina toetst het of het dagquotum en de ratelimiet van de AI Hub in de systeeminstellingen nog passen.
+
+</details>
 
 ## 1. De indicatoren in één oogopslag
 

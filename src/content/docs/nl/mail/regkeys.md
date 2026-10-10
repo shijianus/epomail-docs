@@ -3,15 +3,24 @@ title: Registratiesleutels
 description: Registratiesleutels van EpoCanvas Mail — uitnodigingscodes uitgeven, het aantal gebruik en de geldigheid beheren en de gebruikslog controleren.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 Registratiesleutels is de uitnodigingscode-interface van de beheerzone (`#manage/admin/reg-keys`, rechten-sleutel `reg-key:query`) en bepaalt wie zich op deze instantie kan registreren. De drie sitewijde codemodi (verplicht／uit／optioneel) worden bepaald door de kaart website-instellingen van de [systeeminstellingen](/nl/mail/system/).
 
 ![Figuur: de registratiesleutels](/images/mail/nl/ui/regkeys-guide.png)
 
 *Figuur: de registratiesleutels*
-*Aantekeningen: 1. *
 
+<details>
+<summary>Visuele handleiding: De lege registratiesleutelpagina —  de uitgifte-ingang en het zoekvak</summary>
+
+De pagina Registratiesleutels in de lege staat, voordat er uitnodigingscodes zijn uitgegeven: één uitgifteknop en één zoekvak vormen de hele pagina.
+
+1. **Knop Registratiecode toevoegen**: De ingang voor uitgifte: het venster genereert per keer één willekeurige code van 8 tekens (met vernieuwen opnieuw te genereren), gebonden aan een identiteitsgroep, een geldigheid en een aantal gebruik (1–99999, met één vermindering per geslaagde registratie).
+2. **Zoekvak voor registratiecodes**: Na uitgifte filter en lokaliseer je hier codes en controleer je het resterende gebruik, de gebonden groep en de geldigheid; gevoelige velden worden voor bezoekers automatisch gemaskeerd.
+3. **Kaart in lege staat**: De begeleidende plaatshouder zolang er nog geen registratiecode is uitgegeven. Daarna wordt dit gebied de codelijst, met kopiëren met één klik, de gebruikslog, het verwijderen van één code en «Ongebruikte opschonen» om in bulk ongeldig te maken.
+
+</details>
 
 ## 1. Uitgeven
 

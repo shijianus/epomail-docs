@@ -3,15 +3,25 @@ title: User List
 description: EpoCanvas Mail user list — account lookup, password reset, identity-group change, two-step verification reset, ban and restore, for administrators.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 The User List is the admin area's account-management interface (`#manage/admin/users`, permission key `user:query`), where administrators look up and handle every account on the instance.
 
 ![Figure: the user list](/images/mail/en/ui/users-guide.png)
 
 *Figure: the user list*
-*Annotations: 1. 　2. 　3. Email　4. Storage*
 
+<details>
+<summary>Walkthrough: The user list —  from locating an account to acting on it</summary>
+
+Four regions of the user list: from lookup to per-row actions, an account-management flow on a single screen.
+
+1. **Email search box**: Locate accounts by email at the top, with instant paging and sorting; combined with the per-row sent/received, storage and spam/report counters, anomalies surface fast.
+2. **Email column**: The account's unique identity — the email is the account, the key for signing in, receiving mail and every grant. Row actions (reset password, change role, ban) apply to the account this column names; the other counters on the page — sent/received, storage, spam and reports — are what tell you whether an account looks abnormal.
+3. **Storage column**: Live attachment-storage usage for the account; read it against the role quota to decide on expansion or clean-up.
+4. **Actions column**: Per-row operations: reset password (issues a one-time password), change role, reset two-step verification, ban and restore, and purge the account's mail (irreversible — use with care).
+
+</details>
 
 ## 1. List and search
 

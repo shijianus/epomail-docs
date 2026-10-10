@@ -3,15 +3,25 @@ title: Liste des utilisateurs
 description: Liste des utilisateurs d'EpoCanvas Mail — recherche de comptes, réinitialisation du mot de passe, changement de groupe d'identité, réinitialisation de la double vérification, bannissement et restauration côté administration.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 La liste des utilisateurs est l'interface de gestion des comptes de la zone d'administration (`#manage/admin/users`, clé de permission `user:query`) ; elle permet à l'administrateur de rechercher et de traiter tous les comptes du site.
 
 ![Figure : la liste des utilisateurs](/images/mail/fr/ui/users-guide.png)
 
 *Figure : la liste des utilisateurs*
-*Annotations: 1.  ｜ 2.  ｜ 3. Email ｜ 4. Stockage*
 
+<details>
+<summary>Guide visuel : La liste des utilisateurs  —  de la localisation d'un compte à l'action en ligne</summary>
+
+Quatre régions de la liste des utilisateurs : de la recherche à l'action en ligne, le parcours de gestion des comptes tient sur un seul écran.
+
+1. **Barre de recherche par adresse** : En haut, rechercher par adresse électronique pour localiser un compte, avec pagination et tri immédiats. Combinée aux compteurs d'envoi et de réception, d'occupation de stockage et de pourriels/signalements de chaque ligne, elle fait vite ressortir les comptes anormaux.
+2. **Colonne adresse électronique** : L'identité unique du compte : l'adresse tient lieu de nom de compte et sert au login, à la réception et à toute attribution. Les actions en ligne (réinitialiser le mot de passe, changer de groupe, bannir) s'appliquent au compte que cette colonne désigne ; les colonnes voisines — envoi/réception, stockage, spam et signalements — servent à repérer un compte anormal.
+3. **Colonne espace de stockage** : L'utilisation en temps réel du stockage des pièces jointes du compte ; à comparer au quota de son groupe d'identité (voir la page des permissions) pour décider d'un agrandissement ou d'un nettoyage.
+4. **Colonne des opérations** : Les actions de gestion en ligne : réinitialisation du mot de passe (émission d'un mot de passe à usage unique), changement de groupe d'identité, réinitialisation de la vérification en deux étapes, bannissement et restauration, et purge des courriels du compte (irréversible, à manier avec précaution).
+
+</details>
 
 ## 1. Liste et recherche
 

@@ -1,0 +1,32 @@
+{ h: { zh: '用户邮箱列', en: 'Email column' }, d: { zh: '帐号的唯一标识：邮箱即帐号名，重置密码、调整分组等一切操作的结果都以此为准。', en: 'The account\'s unique identity — the email is the account. Every operation (password reset, role change) applies to it.' } }
+@@@
+{ h: { zh: '用户邮箱列', en: 'Email column' }, d: { zh: '帐号的唯一标识：邮箱即帐号名，登录、收信与一切授权都以它为准。行内操作（重置密码、调整分组、封禁）作用于本列所指的帐号；同页另有收发量、存储占用与垃圾／被举报计数三列，用于判断某帐号是否异常。', en: 'The account\'s unique identity — the email is the account, the key for signing in, receiving mail and every grant. Row actions (reset password, change role, ban) apply to the account this column names; the other counters on the page — sent/received, storage, spam and reports — are what tell you whether an account looks abnormal.' } }
+@@@
+{ h: { zh: '关联设置与安全卡', en: 'Linked settings and security card' }, d: { zh: '与帐号安全、第三方授权等关联设置的聚合入口，跳转安全页与资料页的对应分区。', en: 'A hub linking to account security, third-party grants and related settings — it jumps to the matching sections of the security and data pages.' } }
+@@@
+{ h: { zh: '关联设置与安全卡', en: 'Linked settings and security card' }, d: { zh: '个资页通往其他设置页的跳板：帐号安全（用户名与密码、两步验证）与第三方授权（已授权应用）两处最常用的入口集中在此，避免在个资页与安全页之间反复翻找；点击即跳至对应分区，而非另开新页。', en: 'The springboard from the profile page into the other settings pages: account security (username, password, two-step verification) and third-party grants (authorised apps) sit together here, so you need not hunt back and forth between the profile and security pages. Each entry jumps to the matching section rather than opening a new page.' } }
+@@@
+{ h: { zh: '用户邮箱列', en: 'Email column' }, d: { zh: '被处置、被检举或提交申诉的帐号；封禁与恢复的执行入口在用户列表页。', en: 'The account being actioned, reported, or appealing; the ban/restore controls live on the users page.' } }
+@@@
+{ h: { zh: '用户邮箱列', en: 'Email column' }, d: { zh: '这张工单所指向的帐号：可能是被处置对象（风控／封禁预警）、被检举方（审计预警）或申诉人（申诉警告）。本页只做研判，真正的处置动作——封禁、恢复、重置——在用户列表页执行，因此研判结论需与那一页配合使用。', en: 'The account this ticket points at: the subject of a risk-control or ban alert, the reported party in an audit alert, or the appellant in an appeal ticket. This page adjudicates only — the actual actions (ban, restore, reset) are executed from the users page, so a verdict here is used together with that page.' } }
+@@@
+{ h: { zh: '个性装扮区', en: 'Personalisation group' }, d: { zh: '外观色调三态与全局主题壁纸（八种预设 + 自定义），对所有视图生效。', en: 'Theme modes and the global wallpaper (eight presets + custom), applied to every view.' } }
+@@@
+{ h: { zh: '个性装扮区', en: 'Personalisation group' }, d: { zh: '外观色调三态（暗色／亮色／跟随系统）与全局主题壁纸（八种预设 + 自定义图片或 URL）。范围是全站所有视图，与仅覆盖信箱区的「个人背景」不同；顶栏另有色调快捷切换，不必回到本页。', en: 'Three theme modes (dark/light/system) and the global wallpaper (eight presets plus a custom image or URL). Its scope is every view in the app — unlike the personal background, which covers the mailbox area only. The top bar also carries a quick theme toggle, so you need not return here.' } }
+@@@
+{ h: { zh: '处置按钮', en: 'Action buttons' }, d: { zh: '申诉警告突出「研判放行」、封禁警告突出「解除预警」、常规警告走标准操作菜单。', en: 'Appeal tickets foreground "release after review", ban tickets "lift the alert", the rest use the standard action menu.' } }
+@@@
+{ h: { zh: '处置按钮', en: 'Action buttons' }, d: { zh: '按钮随工单类别分流：申诉警告把「研判放行」提到最显眼处（放行即恢复帐号），封禁警告突出「解除预警」，其余类别走标准操作菜单。按钮只提交研判结论，真正的封禁与恢复仍由用户列表页落地，两页状态同步。', en: 'The buttons branch by ticket category: appeal tickets foreground "release after review" (releasing restores the account), ban tickets foreground "lift the alert", and the rest fall back to the standard action menu. The button records only the verdict; the ban or restore itself is executed from the users page, and the two pages stay in sync.' } }
+@@@
+{ h: { zh: '切换方式', en: 'Switching' }, d: { zh: '常规设置中六选一；系统邮件与欢迎邮件按收件人语言投递。', en: 'Pick one of six in general settings; system and welcome mail follows each recipient\'s language.' } }
+@@@
+{ h: { zh: '切换方式', en: 'Switching' }, d: { zh: '界面语言的切换点：常规设置的「语言」区六选一（简体中文、繁體中文、English、Español、Français、Nederlands），改后即刻生效、无需重登。投递与显示分开——系统通知与欢迎邮件按每位收件人自己的语言设置生成，不随发信人的界面语言走。', en: 'Where the UI language is set: one of six (simplified Chinese, traditional Chinese, English, Espanol, Francais, Nederlands) in the Language group of general settings, applied at once with no sign-out. Display and delivery are separate — system notices and welcome mail are generated in each recipient\'s own language, not the sender\'s UI language.' } }
+@@@
+{ h: { zh: '「管理您的 Epomail 账户」按钮', en: '"Manage your Epomail account" button' }, d: { zh: '进入添加账户流程：经登录页专用深链完成新帐号登录，各会话互不覆盖。', en: 'Starts the add-account flow through the login page\'s dedicated deep link; sessions never overwrite each other.' } }
+@@@
+{ h: { zh: '「管理您的 Epomail 账户」按钮', en: '"Manage your Epomail account" button' }, d: { zh: '添加账户的入口：点击后经登录页专用深链完成新帐号登录，回来即多出一个会话。关键在「不覆盖」——新帐号不挤掉当前会话，各帐号的工作区以 /mail/u/N/ 路径前缀彼此隔离，切换只是改前缀，不重新登录。', en: 'The add-account entry: it completes a new sign-in through the login page\'s dedicated deep link and returns with one more session. The point is that nothing is overwritten — the new account does not evict the current session, and each workspace is isolated behind a /mail/u/N/ path prefix, so switching merely changes the prefix rather than signing in again.' } }
+@@@
+{ h: { zh: '存储用量条', en: 'Storage bar' }, d: { zh: '当前帐号附件存储用量对照其分组配额。', en: 'The account\'s attachment storage against its role quota.' } }
+@@@
+{ h: { zh: '存储用量条', en: 'Storage bar' }, d: { zh: '当前帐号的附件存储进度条：分子是本帐号已占用的附件空间，分母是其身份分组的配额（逐分组出厂值见权限控制页）。接入个人对象存储后新附件不再计入此条，因此进度条停涨并不代表附件没有送达。', en: 'The progress bar for this account\'s attachment storage: the numerator is the space used, the denominator the quota attached to its role (per-role factory values on the roles page). Once personal object storage is connected, new attachments stop counting here — so a bar that stops growing does not mean attachments stopped arriving.' } }
+@@@

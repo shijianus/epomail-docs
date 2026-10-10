@@ -3,15 +3,25 @@ title: Personal Data & General Settings
 description: EpoCanvas Mail personal data and general settings — avatar, nickname, contact details and addresses, appearance and theme wallpapers, reading preferences and interface language, item by item.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 This page covers every item in the "Settings → Personal" and "Settings → General" sections. Security and data settings are covered separately in the [Account Security Guide](/en/mail/security/) and [Data Export & Storage](/en/mail/data/).
 
 ![Figure: the personal data & general settings interface](/images/mail/en/ui/preferences-guide.png)
 
 *Figure: the personal data & general settings interface*
-*Annotations: 1. Basic Informatio　2. Contact Informat　3. Addresses　4. Associated Setti*
 
+<details>
+<summary>Walkthrough: Profile —  personal data split across four dimensions</summary>
+
+The four cards of the profile page: identity, contact, addresses and linked settings — four dimensions of your personal data, card by card.
+
+1. **Basics card**: Avatar upload, display name, gender and birthday. Whether name and avatar appear publicly is gated by the operator's "public profile" switch.
+2. **Contact card**: The sign-in mailbox carries a "primary" tag and cannot be removed; extra mailboxes can be added and dropped at will, plus a phone number with area code.
+3. **Address cards**: Home, company and other addresses are stored separately, each added, edited and removed on its own. They are profile data in the strict sense: never used for delivery, never affecting billing or the role. Whether they are needed at all — and whether they show publicly — depends on the operator public-profile switch.
+4. **Linked settings and security card**: The springboard from the profile page into the other settings pages: account security (username, password, two-step verification) and third-party grants (authorised apps) sit together here, so you need not hunt back and forth between the profile and security pages. Each entry jumps to the matching section rather than opening a new page.
+
+</details>
 
 ## 1. Personal data (`#settings/profile`)
 

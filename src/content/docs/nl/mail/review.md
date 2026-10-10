@@ -3,15 +3,24 @@ title: E-mailcontrole over de hele opslag
 description: De e-mailcontrole over de hele opslag van EpoCanvas Mail — zoeken in de beheerdimensie, de detail-lade en fysieke verwijdering, met de invloed van de e-mailmodus op de ingang.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 De e-mailcontrole over de hele opslag is de e-mailinterface van de beheerzone (`#manage/admin/mail`, rechten-sleutel `all-email:query`). Naam en zichtbaar bereik van de sectie volgen de e-mailmodus: de Alle e-mail-modus (Level 1) toont «Alle e-mail», de privémodus (Level 2) toont «Spam», en de versleutelde modus (Level 3) verbergt de hele sectie (zie [Werkingsmodi](/nl/mail/modes/), sectie 2).
 
 ![Figuur: de e-mailcontrole over de hele opslag](/images/mail/nl/ui/review-guide.png)
 
 *Figuur: de e-mailcontrole over de hele opslag*
-*Aantekeningen: 1. *
 
+<details>
+<summary>Visuele handleiding: Mailcontrole in de privacymodus —  drie zichtbare punten</summary>
+
+Zo ziet de e-mailcontrole over de hele opslag eruit in de privémodus (Level 2): het gebied heet «Spam», en het zoekvak plus de lege staat zijn de twee gemarkeerde punten.
+
+1. **Zoekvak**: Accepteert de `$`-syntax over de hele opslag: `$sender`/`$user`/`$to`/`$subject` plus statustokens. Met een rechtermuisklik op een treffer start je rechtstreeks een nieuwe zoekronde op diens afzender, het ontvangende account of de bezittende gebruiker.
+2. **Naam van het gebied in de zijbalk**: Naam en zichtbaar bereik volgen de e-mailmodus: Level 1 toont «Alle e-mail», Level 2 toont «Spam», en Level 3 verbergt de ingang volledig.
+3. **Lege staat**: De plaatsvervangende tekst wanneer er geen mail in quarantaine staat. Met geïsoleerde mail wordt dit gebied een lijst; een rij openen schuift de detail-lade in, waarin fysieke verwijdering mogelijk is (anders dan de prullenbak aan gebruikerskant laat dit sporen na).
+
+</details>
 
 ## 1. Zoeken
 

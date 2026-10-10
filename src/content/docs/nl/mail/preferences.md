@@ -3,15 +3,25 @@ title: Profiel en algemene instellingen
 description: Profiel en algemene instellingen van EpoCanvas Mail — avatar, bijnaam, contactgegevens en adressen, uiterlijk, themaachtergronden, leesvoorkeuren en interfacetaal, onderdeel voor onderdeel.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 Deze pagina loopt elk onderdeel van de twee secties «Instellingen → Profiel» en «Instellingen → Algemeen» langs. De instellingen voor beveiliging en gegevens staan apart beschreven in de [Accountbeveiligingsgids](/nl/mail/security/) en bij [Gegevensexport en opslag](/nl/mail/data/).
 
 ![Figuur: de profiel- en algemene instellingen-interface](/images/mail/nl/ui/preferences-guide.png)
 
 *Figuur: de profiel- en algemene instellingen-interface*
-*Aantekeningen: 1. Basic Informatio ｜ 2. Contact Informat ｜ 3. Addresses ｜ 4. Associated inste*
 
+<details>
+<summary>Visuele handleiding: Het profiel —  persoonsgegevens in vier dimensies</summary>
+
+De vier kaarten van de profielpagina: van identiteit en uiterlijk via contactgegevens tot adressen — vier dimensies van je persoonlijke gegevens, kaart voor kaart.
+
+1. **Kaart basisinformatie**: Avatar-upload, persoonlijke bijnaam, geslacht en verjaardag. Of bijnaam en avatar openbaar te zien zijn, hangt af van de schakelaar «openbaar profiel» van de beheerder.
+2. **Kaart contactgegevens**: De hoofdmailbox van aanmelding draagt de tag «hoofdmailbox» en kan niet worden verwijderd; extra e-mailadressen kun je naar believen toevoegen en verwijderen, en er is ook ruimte voor een telefoonnummer met landcode.
+3. **Adreskaarten**: Thuis-, bedrijfs- en overige adressen worden apart bewaard, elk afzonderlijk toegevoegd, bewerkt en verwijderd. Het zijn persoonsgegevens in strikte zin: nooit gebruikt voor aflevering, zonder invloed op facturatie of rol. Of ze nodig zijn — en openbaar verschijnen — hangt af van de schakelaar "openbaar profiel" van de exploitant.
+4. **Kaart gekoppelde instellingen en beveiliging**: De springplank van de profielpagina naar de andere instellingenpagina's: accountbeveiliging (gebruikersnaam en wachtwoord, tweestapsverificatie) en machtigingen van derden (geautoriseerde apps) — de twee meestgebruikte ingangen — liggen hier bij elkaar, zodat je niet heen en weer hoeft te zoeken tussen profiel en beveiliging. Elke ingang springt naar de bijbehorende sectie in plaats van een nieuwe pagina te openen.
+
+</details>
 
 ## 1. Profiel (`#settings/profile`)
 

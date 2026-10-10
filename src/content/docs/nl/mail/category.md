@@ -3,15 +3,25 @@ title: Classificatiebeheer
 description: Classificatiebeheer van EpoCanvas Mail — de schakelaars voor ontvangen en verzenden, de configuratie van AI-herkenning en de witte en zwarte lijsten met harde onderschepping op siteniveau.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 Classificatiebeheer is de governance-interface op siteniveau in de beheerzone (`#manage/admin/rules`, rechten-sleutel `setting:query`) en legt sitewijde regels voor inkomende e-mail bovenop de persoonlijke regels van gebruikers. De persoonlijke labelregels staan in [Label- en classificatiebeheer](/nl/mail/labels/); de betekenis van de voorwaardevelden in sectie 7 van de [Zoek- en regelreferentie](/nl/mail/search/).
 
 ![Figuur: de classificatiebeheer-interface](/images/mail/nl/ui/category-guide.png)
 
 *Figuur: de classificatiebeheer-interface*
-*Aantekeningen: 1. E-mail ｜ 2. AI model & API s ｜ 3. Basislijstregels ｜ 4. Definitieve afwi*
 
+<details>
+<summary>Visuele handleiding: Classificatie —  vier verdedigingslinies voor inkomende mail</summary>
+
+De vier governance-kaarten van de pagina Classificatiebeheer: van de hoofdschakelaars voor ontvangst en verzending via AI-herkenning tot lijsten en harde onderschepping — vier verdedigingslinies voor inkomende mail.
+
+1. **Kaart e-mailinstellingen (schakelaars ontvangen/verzenden)**: De hoofdschakelaars voor ontvangst, verzending en automatisch verversen, plus de afhandeling van mail zonder geadresseerde; met ontvangst uit wordt inkomende mail ronduit geweigerd.
+2. **Kaart AI-model en API-sleutelintegratie**: De extractie van verificatiecodes door Workers AI met haar regelconfiguratie, en de configuratie van AI API Key/URL/model — van dezelfde bron als de AI Hub in de systeeminstellingen; hier wordt het herkenningsgedrag van inkomende mail gestuurd (de verificatiecodebadge en dergelijke).
+3. **Kaart basislijstregels**: Zwarte lijst van afzenders (te configureren als labelmodus of als directe onderschepping), witte-lijstmodus (alleen afzenders op de witte lijst worden afgeleverd), zwarte lijst van trefwoorden in onderwerp en inhoud, onderschepping van afzenders zonder naam, onderschepping van niet-geadresseerden en onderschepping van uitvoerbare bijlagen.
+4. **Kaart harde onderscheppingsregels**: Het sluitstuk: ronduit weigeren en elke onderschepping meetellen. Een treffer op een lijst krijgt automatisch het bijbehorende label; het effect controleer je terug op de analysepagina.
+
+</details>
 
 ## 1. Schakelaars voor ontvangst, verzending en verversen
 

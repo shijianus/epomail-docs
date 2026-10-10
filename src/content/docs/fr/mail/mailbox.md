@@ -3,14 +3,25 @@ title: Interface de la boîte et détail des courriels
 description: Interface de la boîte d'EpoCanvas Mail — les huit vues, toutes les actions de la page de détail des courriels, la fenêtre de rédaction en surimpression et les fils de conversation, expliqués pas à pas.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 La présente page décrit une à une chaque vue de l'interface principale de la boîte et chaque action de la page de détail des courriels. Les routes de chaque vue et le squelette de l'interface figurent dans [Interface et plan des routes](/fr/mail/interface/) ; la recherche et les règles derrière ce rangement figurent dans la [Référence de la recherche et des règles](/fr/mail/search/).
 
 ![Boîte de réception d'EpoCanvas Mail : vue fractionnée à trois colonnes, badges de code de vérification et marques de certification officielles](/images/mail/fr/ui/views-guide.png)
 
 *Figure : la boîte de réception. La liste, le volet de lecture et la barre latérale sont interconnectés, avec des compteurs actualisés en temps réel.*
-*Annotations: 1. Rédiger　2. Favoris　3. En attente1　4. Envoyés*
+
+<details>
+<summary>Guide visuel : La boîte de réception en un coup d'œil  —  les quatre entrées les plus utilisées</summary>
+
+Quatre régions annotées de la boîte de réception, correspondant aux quatre entrées les plus utilisées au quotidien : rédiger un nouveau message, revenir aux courriels marqués d'une étoile, consulter les éléments reportés et vérifier ce qui est réellement parti.
+
+1. **Rédiger (bouton principal de la barre latérale)** : L'unique point d'entrée pour créer un courriel : il ouvre la fenêtre de rédaction en surimpression (et non une route indépendante). Sur mobile, il devient un bouton flottant en bas à droite, et le lien profond `?composeTo=<address>` préremplit le destinataire. Rédiger un message ne demande qu'un clic, depuis n'importe quelle vue.
+2. **Étoilés (dossier de la barre latérale)** : Tous les courriels marqués d'une étoile s'y rassemblent, quel que soit leur dossier : un clic sur l'étoile d'une ligne de liste les y ajoute. À réserver aux messages à garder à portée de main ou à consulter souvent ; le compteur de la barre latérale se met à jour en temps réel.
+3. **Reportés (dossier de la barre latérale)** : La zone d'attente des suivis différés, à deux paliers (urgent et en attente). Dans la vue de détail, choisissez « Reporter » en précisant l'heure ; à l'échéance, le courriel revient automatiquement en haut de la boîte de réception et les sujets importants ne sombrent plus au fond de la pile.
+4. **Envoyés (dossier de la barre latérale)** : Conserve la trace de tous les courriels émis par ce compte, où vérifier ce qui est effectivement parti. Le volume sortant est borné par le quota d'envoi quotidien du rôle ; les courriels adressés aux boîtes du site sont livrés en direct, ceux destinés à l'extérieur passent par le canal de livraison.
+
+</details>
 
 ## 1. Les huit vues
 

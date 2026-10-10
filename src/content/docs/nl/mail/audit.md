@@ -3,14 +3,25 @@ title: Auditrapport
 description: Het auditrapport van EpoCanvas Mail — de vier waarschuwingsklassen beoordelen, de afhandelknoppen, de arbitrage van beroepen en het strippen van tijdstempels in de versleutelde modus.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.16**
+**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
 
 Het auditrapport is de risicoticket-interface van de beheerzone (`#manage/admin/audit`; opvragen vereist `setting:query`, afhandelen en arbitreren vereist `setting:set`). De tickets worden bewaard in een aparte auditlogtabel; de geschiedenis is per pagina doorzoekbaar.
 
 ![Auditrapportpagina van EpoCanvas Mail: waarschuwingstickets van de vier klassen, omgevingsdetails in platte tekst en afhandelknoppen (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/audit-guide.png)
 
 *Figuur: het auditrapport. Elk ticket draagt klasse, prioriteit, status en de actieve omgevingen, getoond als platte tekst.*
-*Aantekeningen: 1. E-mail　2. Beveiligingsaudi　3. Waarschuwingstoe　4. Actieve omgeving*
+
+<details>
+<summary>Visuele handleiding: Het rapport —  de volledige informatieketen van één waarschuwingsticket</summary>
+
+De tabel met vier kolommen op de pagina Operatierapporten: de volledige informatielijn van één waarschuwingsticket, van «wie» via «waarom het afging» tot «waar het bewijs staat».
+
+1. **Kolom e-mailadres**: Het account waar dit ticket naar verwijst: het object van een maatregel (risico- of blokkeerwaarschuwing), de gemelde partij (auditwaarschuwing) of de beroepdoener (beroepswaarschuwing). Deze pagina beoordeelt alleen — het werkelijke optreden (blokkeren, herstellen, resetten) gebeurt vanaf de gebruikerslijst, dus een oordeel hier gebruik je samen met die pagina.
+2. **Kolom beveiligingsauditniveau**: De risicogradering (P0/P1-prioriteit met categorielabel): de vier klassen audit/risico/blokkade/beroep hebben elk hun eigen gebruikelijke afhandelingsroute.
+3. **Kolom waarschuwingstekst en triggers**: De beschrijving van wat het ticket heeft uitgelokt (bijvoorbeeld gelijktijdige aanmeldingen vanaf meerdere IP's of een gegronde melding) — de basis om vrij te geven of te verwerpen.
+4. **Kolom actieve omgevingen**: De volledige omgevingsinformatie in platte tekst: IP, geolocatie, apparaat en vingerafdruk. In de versleutelde modus (Level 3) worden tijdstempels weggehaald en blijven de tickets beoordeelbaar.
+
+</details>
 
 ## 1. De vier waarschuwingsklassen
 

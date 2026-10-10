@@ -3,7 +3,7 @@ title: Labels & Classification Management
 description: EpoCanvas Mail labels and classification — creating labels, icons and colours, heuristic maintenance of the four factory labels, the classification rule builder and statistics.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 Labels and classification rules are managed under "Settings → Labels" (`#settings/labels`). The full field table of rule conditions is in Section 7 of the [Search & Rules Reference](/en/mail/search/); this page covers the operations and statistics of the labels themselves.
 
@@ -11,6 +11,16 @@ Labels and classification rules are managed under "Settings → Labels" (`#setti
 
 *Figure: the labels & classification interface*
 
+<details>
+<summary>Walkthrough: Labels —  one creation entry and three things per row</summary>
+
+Three regions of the labels page: one creation entry plus the per-row counters and toggles — everything labels need day to day.
+
+1. **New-label button**: Creates a custom label. The sidebar shows at most 7; four ship by default — Social, Subscriptions, Promotions and Work.
+2. **Label row**: One card per label: a coloured chip (icon from the built-in library or custom SVG, custom colour) plus three live counters — total, current and unhandled.
+3. **Visibility toggle and row actions**: The toggle controls sidebar visibility; Edit changes look and rules; deleting a label also unbinds it from any classification rules.
+
+</details>
 
 ## 1. Creating labels and their appearance
 

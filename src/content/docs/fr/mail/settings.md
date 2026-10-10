@@ -3,7 +3,7 @@ title: Guide des paramètres
 description: Guide des paramètres d'EpoCanvas Mail — les cinq sections des paramètres personnels (profil, général, sécurité, données, étiquettes) et la visite complète des neuf sections de la console d'administration et des cartes de paramètres système.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.17**
 
 EpoCanvas Mail partage ses paramètres en deux zones : la zone « paramètres » de la barre latérale regroupe les paramètres personnels que chaque compte peut ajuster lui-même, en cinq sections — profil, général, sécurité, données et étiquettes ; la zone « administration » n'apparaît que pour les groupes d'identité dotés de permissions administratives et porte la configuration au niveau de l'instance. La présente page parcourt chaque zone et les relations entre les paramètres. Pour le comportement au niveau du fonctionnement — multi-comptes, modes courriel, connexion — voir [Modes de fonctionnement](/fr/mail/modes/).
 
@@ -22,7 +22,18 @@ EpoCanvas Mail partage ses paramètres en deux zones : la zone « paramètres »
 ![Page de profil d'EpoCanvas Mail : la carte d'informations de base regroupe l'import d'avatar, le pseudonyme, le genre et l'anniversaire ; la carte de contact affiche l'adresse électronique avec son étiquette de boîte principale, le bouton d'ajout d'adresse et les numéros de téléphone ; les cartes d'adresse domicile, entreprise et autre suivent en dessous (interface en chinois simplifié)](/images/mail/fr/ui/preferences-guide.png)
 
 *Figure : la page de profil. La boîte principale porte une étiquette « boîte principale » ; les adresses électroniques supplémentaires peuvent être nombreuses et retirées à tout moment.*
-*Annotations: 1. Basic Informatio　2. Contact Informat　3. Addresses　4. Associated param*
+
+<details>
+<summary>Guide visuel : Le profil  —  les données personnelles réparties en quatre dimensions</summary>
+
+Les quatre cartes de la page Profil : de l'identité et de l'image aux coordonnées puis au carnet d'adresses, les quatre dimensions des données personnelles se gèrent carte par carte.
+
+1. **Carte informations de base** : Import d'avatar, pseudonyme, genre et anniversaire. Le fait que le pseudonyme et l'avatar soient visibles de l'extérieur dépend de l'interrupteur « profils publics » de l'administrateur.
+2. **Carte coordonnées** : La boîte principale de connexion porte l'étiquette « boîte principale » et ne peut pas être retirée ; plusieurs adresses électroniques supplémentaires peuvent être ajoutées et retirées à tout moment, et un numéro de téléphone avec indicatif pays peut y être enregistré.
+3. **Cartes d'adresse** : Les adresses du domicile, de l'entreprise et « autre » sont conservées séparément, chacune ajoutée, modifiée ou supprimée à part. Ce sont des données personnelles au sens strict : jamais utilisées pour la remise du courrier, sans effet sur la facturation ni sur le rôle. Qu'elles soient nécessaires — et qu'elles paraissent publiquement — dépend de l'interrupteur « profil public » de l'opérateur.
+4. **Carte paramètres associés et sécurité** : Le tremplin de la page de profil vers les autres pages de réglages : sécurité du compte (nom d'utilisateur et mot de passe, vérification en deux étapes) et autorisations de tiers (applications autorisées), les deux entrées les plus fréquentées, sont réunies ici pour éviter les allers-retours entre profil et sécurité. Chaque entrée saute à la section correspondante au lieu d'ouvrir une nouvelle page.
+
+</details>
 
 La carte d'informations de base gère l'avatar, le pseudonyme, le genre et l'anniversaire. La carte de contact liste la boîte principale de connexion et les adresses électroniques supplémentaires ajoutées par le titulaire, ainsi que les numéros de téléphone avec indicatif pays. Les cartes d'adresse conservent séparément les adresses de domicile, d'entreprise et autres. L'étendue de publication de ces informations dépend de l'interrupteur « profil public » de l'opérateur.
 
@@ -31,6 +42,17 @@ La carte d'informations de base gère l'avatar, le pseudonyme, le genre et l'ann
 ![Page générale d'EpoCanvas Mail : une zone de biographie ; la zone d'apparence propose les palettes sombre, claire et suivre le système ; le fond d'écran thématique global propose huit préréglages plus un fond personnalisé, avec l'arrière-plan personnel et d'autres réglages en dessous (interface en chinois simplifié)](/images/mail/fr/ui/general-guide.png)
 
 *Figure : sélection de la palette d'apparence et du fond d'écran sur la page générale, présentée avec « suivre le système » et le fond uni par défaut.*
+
+<details>
+<summary>Guide visuel : Général  —  trois cartes pour l'apparence et les habitudes de lecture</summary>
+
+Les trois cartes de la page Général — biographie, personnalisation et préférences — couvrent toute l'individualisation de l'apparence et des habitudes de lecture.
+
+1. **Carte biographie** : Un texte de présentation affiché sur votre profil public ; l'ouverture de ce profil public est décidée par l'interrupteur « profils publics » de l'administrateur.
+2. **Carte personnalisation** : Trois états de palette d'apparence (sombre/clair/suivre le système, aussi basculables depuis la barre supérieure) et le fond d'écran thématique global (huit préréglages plus un fond personnalisé ou une URL) ; s'y trouvent encore l'arrière-plan personnel (qui ne couvre que la zone de la boîte) et la densité d'interface.
+3. **Carte préférences** : Préférences de lecture (type de boîte de réception, position du volet de lecture, vue par conversations) et langue (interface au choix parmi six, langue cible de traduction par IA parmi 16) ; la zone de confidentialité des données regroupe les entrées des préférences relatives aux informations personnelles et au traitement par IA.
+
+</details>
 
 - Apparence : palettes sombre, claire et suivre le système ; huit préréglages de fond d'écran plus les fonds personnalisés ; l'arrière-plan personnel et la densité d'interface se règlent séparément ;
 - Préférences de lecture : type de boîte de réception, position du volet de lecture et interrupteur de vue par conversations ;
@@ -46,7 +68,18 @@ La page de sécurité modifie le nom d'utilisateur et le mot de passe (en affich
 ![Page des données d'EpoCanvas Mail : la carte d'export propose l'export JSON intégral, l'archive des courriels (MBOX, JSON ou CSV avec plage de dates) et l'export des contacts et de la configuration ; la carte de stockage en dessous affiche la jauge d'utilisation des pièces jointes et l'entrée du stockage d'objets personnel (interface en chinois simplifié)](/images/mail/fr/ui/data-guide.png)
 
 *Figure : la page des données. Export et gestion du stockage figurent sur une même page ; l'utilisation des pièces jointes compte contre le quota du groupe d'identité.*
-*Annotations: 1. utilisateur Data　2. email & Message 　3. stockage Space &　4. Third-party apps*
+
+<details>
+<summary>Guide visuel : Données  —  les quatre régions de l'autonomie sur vos données</summary>
+
+Les quatre cartes de la page Données : trois formats pour emporter ses données, une zone de transfert, une zone de stockage et une zone d'autorisations tierces — l'autonomie complète sur ses données personnelles en un écran.
+
+1. **Carte export des données du compte** : Trois exports côte à côte : la sauvegarde JSON intégrale, l'archive de l'historique des courriels (MBOX/JSON/CSV avec plage de dates) et les contacts et la configuration ; un courriel isolé se télécharge en .eml depuis le volet de lecture.
+2. **Carte transfert de courriels et de messages** : Le réglage détaillé du push de messages Telegram et du transfert automatique ; l'ouverture de ces deux fonctions au compte dépend des interrupteurs « Contrôle des données utilisateurs » de l'administrateur.
+3. **Carte espace de stockage** : Une jauge d'utilisation des pièces jointes constamment comparée au quota. En branchant son propre compartiment Backblaze B2/S3, les nouvelles pièces jointes vont directement dans votre cloud, hors du quota de l'instance ; délier le branchement fait revenir au stockage de l'instance.
+4. **Carte applications et services tiers** : La liste de toutes les autorisations OAuth du compte : retirer l'accès application par application, ou tout révoquer d'un coup depuis la boîte de dialogue de détail. La révocation prend effet immédiatement et les jetons existants de l'application meurent sur-le-champ.
+
+</details>
 
 | Export | Format | Portée |
 | --- | --- | --- |
@@ -104,7 +137,18 @@ La page des rapports d'audit présente les événements de risque du site sous f
 ![Page des rapports d'audit d'EpoCanvas Mail : le tableau liste les tickets d'alerte des quatre classes — appel, bannissement, audit et risque — avec priorité, étiquette d'état, détails de l'environnement actif et boutons de traitement comme lever et lever l'alerte (interface en chinois simplifié)](/images/mail/fr/ui/audit-guide.png)
 
 *Figure : le rapport d'audit. Les quatre classes d'alertes s'examinent dans une liste unique, les boutons de traitement étant répartis par classe ; en mode chiffré, les horodatages sont dépouillés.*
-*Annotations: 1. Email　2. Niveau d’audit d　3. Contexte de l'al　4. Pool d’environne*
+
+<details>
+<summary>Guide visuel : Le rapport d'opérations  —  la chaîne d'information complète d'un ticket d'alerte</summary>
+
+Le tableau à quatre colonnes de la page du rapport d'audit : la chaîne d'information complète d'un ticket, du « qui » au « pourquoi le déclenchement » puis au « où sont les preuves ».
+
+1. **Colonne adresse électronique** : Le compte auquel ce ticket se rapporte : peut-être l'objet d'une mesure (alerte de contrôle des risques ou de bannissement), la partie signalée (alerte d'audit) ou l'appelant (alerte d'appel). Cette page ne fait qu'apprécier — les véritables mesures (bannissement, restauration, réinitialisation) s'exécutent depuis la liste des utilisateurs ; une conclusion posée ici se lit donc avec cette page.
+2. **Colonne niveau d'audit de sécurité** : La gradation du risque (priorité P0/P1 avec étiquette de catégorie) : les quatre classes d'alertes — audit, contrôle des risques, bannissement et appel — ont chacune leur voie de traitement habituelle.
+3. **Colonne contexte de l'alerte et déclencheur** : La description de ce qui a déclenché le ticket (connexions simultanées depuis plusieurs IP et plusieurs sites, signalement établi, etc.) ; c'est sur elle que repose la décision de lever ou de rejeter.
+4. **Colonne pool d'environnements actifs** : L'information d'environnement complète présentée en texte brut : IP, géolocalisation, appareil et empreinte. En mode courriel chiffré (Level 3), les horodatages sont dépouillés mais le ticket reste appréciable.
+
+</details>
 
 ## 8. Documents connexes
 

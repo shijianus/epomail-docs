@@ -3,14 +3,26 @@ title: Plateforme ouverte et accès API
 description: Guide de la plateforme ouverte et de l'accès API d'EpoCanvas Mail — enregistrement des applications OAuth, points de terminaison authorize et token, userinfo, sémantique des périmètres et flux de consentement et de révocation côté utilisateur.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.17**
 
 EpoCanvas Mail embarque un centre d'autorisation OAuth 2.0 / OIDC intégré : l'administrateur enregistre les applications tierces dans la section « Gestion des applications » de la console d'administration (`#manage/admin/oauth-apps`), et les sites externes peuvent alors proposer « Se connecter avec Epomail ». La présente page constitue le tutoriel développeur complet ; l'emplacement de l'interface dans l'application figure à la section 4 de l'[Interface et plan des routes](/fr/mail/interface/), et le traitement des données d'autorisation est exposé dans la [Liste des sous-traitants](/fr/mail/sub-processors/).
 
 ![Page de gestion des applications d'EpoCanvas Mail : quatre pastilles de points de terminaison, le bouton du tutoriel développeur, la carte de l'application d'exemple et l'entrée du code d'intégration](/images/mail/fr/ui/apps-guide.png)
 
 *Figure : la gestion des applications. Les quatre points de terminaison occupent le haut de la page ; chaque carte d'application porte ses identifiants, un interrupteur d'activation et le code d'intégration.*
-*Annotations: 1. GET/.well-known/　2. GET/oauth/author　3. POST/api/oauth/t　4. GET/api/oauth/us　5. shijianus-blogCr*
+
+<details>
+<summary>Guide visuel : Gestion des applications  —  les cinq points qui bouclent une intégration tierce</summary>
+
+Cinq régions de la page de gestion des applications : quatre points de terminaison en haut et une carte d'application d'exemple, qui bouclent le parcours d'intégration tierce « trouver le point de terminaison — obtenir les identifiants — copier le code ».
+
+1. **`/.well-known/openid-configuration`** : Le point de terminaison des métadonnées OIDC Discovery : émetteur, points de terminaison et capacités s'y décrivent d'eux-mêmes, ce qui permet aux frameworks tiers (NextAuth, par exemple) de se configurer automatiquement.
+2. **`/oauth/authorize`** : Le point de terminaison d'autorisation utilisateur : il guide l'utilisateur à travers la connexion et le consentement. Dans une fenêtre surgissante, le résultat revient via `postMessage` ; une annulation redirige en retour avec `error=access_denied`.
+3. **`/api/oauth/token`** : Le point de terminaison d'échange de jetons : un code d'autorisation à usage unique (valable 5 minutes) s'échange contre un jeton d'accès et un ID Token valables 2 heures. Il accepte JSON, formulaire et HTTP Basic ; avec PKCE configuré, il vérifie `code_verifier` (S256).
+4. **`/api/oauth/userinfo`** : Le point de terminaison du profil utilisateur : un jeton d'accès Bearer lit les champs autorisés (`sub`, `email`, `name`, `picture`, …). Un jeton expiré ou révoqué renvoie 401.
+5. **Carte d'application (shijianus-blog)** : Une carte par application : Client ID et Client Secret (le secret n'est affiché intégralement qu'une seule fois, à la création ou à la réinitialisation), interrupteur d'activation, modification et suppression, plus cinq extraits d'intégration prêts à copier — NextAuth, Node, Python, cURL et OIDC générique.
+
+</details>
 
 ## 1. Points de terminaison
 

@@ -1,0 +1,538 @@
+{
+  "views-guide.png": {
+    "summary": "Cuatro regiones anotadas de la bandeja de entrada, correspondientes a los cuatro accesos más usados: redactar un mensaje nuevo, releer el correo destacado, revisar lo aplazado y cotejar lo ya enviado.",
+    "items": [
+      {
+        "h": "Redactar (botón principal en la parte superior de la barra lateral)",
+        "d": "Es el único punto de entrada para crear correo nuevo: abre la capa de redacción superpuesta (no es una ruta independiente). En el móvil pasa a ser un botón flotante en la esquina inferior derecha, y el enlace profundo `?composeTo=<address>` permite prellenar el destinatario. Desde cualquier vista se puede empezar a escribir con un solo clic."
+      },
+      {
+        "h": "Destacados (carpeta de la barra lateral)",
+        "d": "Aquí se reúne el correo destacado de todas las carpetas: basta pulsar la estrella en una fila de la lista para añadirlo. Sirve para conservar a mano el correo que hay que guardar largo tiempo o releer con frecuencia; el contador de la barra lateral refleja la cantidad en tiempo real."
+      },
+      {
+        "h": "Aplazados (carpeta de la barra lateral)",
+        "d": "Zona de espera para los seguimientos aplazados, en dos niveles: urgente y en espera. Al elegir «Aplazar» en la página de detalle y fijar una hora, el mensaje vuelve solo a la parte superior de la bandeja de entrada cuando llega el momento, de modo que lo importante no se hunde en la lista."
+      },
+      {
+        "h": "Enviados (carpeta de la barra lateral)",
+        "d": "Copia de todo el correo que ha salido de esta cuenta, útil para comprobar qué se ha entregado realmente. El volumen saliente está sujeto a la cuota diaria de envío del rol de la cuenta; el correo dentro del sitio se entrega directamente y el dirigido fuera de él pasa por el canal de entrega."
+      }
+    ]
+  },
+  "compose-guide.png": {
+    "summary": "Cuatro regiones anotadas de la capa de redacción que cubren el recorrido completo de un mensaje, del formato a la salida: la barra de herramientas decide el aspecto, los destinatarios y el asunto deciden el destino, y el botón de envío consuma la entrega.",
+    "items": [
+      {
+        "h": "Barra de herramientas de texto enriquecido (sobre el cuerpo)",
+        "d": "17 capacidades de formato: párrafo y tamaño de fuente, negrita, cursiva, subrayado y tachado, color, alineación, listas ordenadas y no ordenadas, cita, línea separadora, enlace, imagen, tabla, emojis, traducción y modo de código fuente; todo se ve mientras se escribe."
+      },
+      {
+        "h": "Línea de destinatarios",
+        "d": "Permite elegir contactos o escribir las direcciones directamente. El correo dirigido a buzones del sitio se entrega por vía directa (sin transmisión externa); el dirigido fuera del sitio sale por el canal configurado por el Operador (Resend/Mailjet, etc.)."
+      },
+      {
+        "h": "Línea de asunto",
+        "d": "Es lo primero que ve el destinatario: aparece en las listas y en las notificaciones push junto con el extracto de la primera línea del cuerpo. Un asunto que explique el motivo se agradece después al buscar con el operador `subject:`."
+      },
+      {
+        "h": "Botón de envío (abajo a la derecha)",
+        "d": "Con un clic sale el mensaje: entrega directa e instantánea dentro del sitio y canal de entrega fuera de él; después puede cotejarse en la vista «Enviados». La capacidad de adjuntos depende del rol de la cuenta y el límite por archivo se fija en cada instancia (25 MB de fábrica)."
+      }
+    ]
+  },
+  "search-guide.png": {
+    "summary": "Dos regiones anotadas que muestran una búsqueda completa: se introduce un operador o una palabra clave en el cuadro de búsqueda y la lista de coincidencias se filtra al instante con los términos resaltados.",
+    "items": [
+      {
+        "h": "Cuadro de búsqueda de la barra superior",
+        "d": "Busca correo en las páginas de correo y entradas de configuración en las páginas de ajustes; admite diez operadores de campo (`from:`, `to:`, `subject:`, `body:`, etc.) y banderas como `is:` y `global:`. Varias condiciones separadas por espacios se combinan como «y», y Tab completa los operadores."
+      },
+      {
+        "h": "Lista de coincidencias",
+        "d": "Solo muestra los mensajes que cumplen todas las condiciones, con los términos coincidentes resaltados de forma nativa por el navegador (`hl:off` lo desactiva). Al pulsar una fila se abre el detalle y la ventana del extracto se desplaza automáticamente hasta la coincidencia para conservar el contexto."
+      }
+    ]
+  },
+  "mode-guide.png": {
+    "summary": "La región del modo de correo dentro de la tarjeta de configuración del sitio, en la configuración del sistema: un solo desplegable decide el cifrado con que se almacena el correo de toda la instancia y cuánto alcanza a ver el lado administrativo, con efecto inmediato.",
+    "items": [
+      {
+        "h": "Desplegable del modo de correo",
+        "d": "El administrador elige el equilibrio entre tres niveles: Level 1 todo en texto claro (el lado administrativo ve todo el correo), Level 2 modo privado (valor de fábrica; la correspondencia de los usuarios se cifra en reposo con AES-256-GCM) y Level 3 E2EE integral (la interfaz administrativa no devuelve ninguna lista de correo de usuarios)."
+      },
+      {
+        "h": "Insignia de privacidad reforzada Level 2",
+        "d": "La instancia funciona en modo de correo privado: el lado administrativo solo ve correo no deseado, papelera y correo sin propietario, y el interruptor general de la verificación en dos pasos queda bloqueado en encendido."
+      },
+      {
+        "h": "Las tres opciones al desplegar",
+        "d": "De un vistazo se aprecian las diferencias entre L1 modo de todo el correo, L2 modo de correo privado (recomendado) y L3 modo de correo cifrado (E2EE). En el modo cifrado desaparece la entrada de revisión de todo el almacén, los informes de operaciones pierden sus marcas de tiempo y el reenvío global queda bloqueado en apagado."
+      }
+    ]
+  },
+  "roles-guide.png": {
+    "summary": "La tabla de los seis grupos de identidad de la página de control de permisos: cinco columnas anotadas, una por cada una de las cinco dimensiones ajustables por grupo.",
+    "items": [
+      {
+        "h": "Columna de identidad",
+        "d": "Los seis grupos —Usuario normal, Visitante, Usuario normal LV.0, LV.1, Moderador y Maestro— con su etiqueta de posicionamiento. El grupo decide los valores por defecto de las otras cuatro columnas; Visitante y Maestro están protegidos y no pueden eliminarse."
+      },
+      {
+        "h": "Columna de cuota de almacenamiento",
+        "d": "Una cuota de almacenamiento de adjuntos por grupo (de 0 MB en el Visitante a 1024 MB en el Maestro, que la interfaz rotula «sin límite»). Al conectar un almacenamiento de objetos personal, los adjuntos nuevos dejan de consumir esta cuota."
+      },
+      {
+        "h": "Columna de límite de envío",
+        "d": "La cuota diaria de envío (5 correos en el Usuario normal hasta 100 en el Moderador; el Maestro no tiene techo), con un contador que se restablece cada día. Los grupos a los que se prohíbe enviar —el Visitante— quedan señalados aquí."
+      },
+      {
+        "h": "Columna de permisos de adjuntos",
+        "d": "Indica si se permite enviar y recibir adjuntos. Los grupos de «solo texto» envían correo sin adjuntos; los grupos que los tienen habilitados siguen sujetos a la cuota de almacenamiento y al límite por archivo."
+      },
+      {
+        "h": "Columna de modelos de IA autorizados",
+        "d": "El conjunto de modelos de IA que puede invocar el grupo, en combinación con la cuota diaria y el límite de tasa del AI Hub de la configuración del sistema: la capacidad de IA se gradúa según la identidad."
+      }
+    ]
+  },
+  "login-guide.png": {
+    "summary": "Las tres regiones principales de la página de inicio de sesión: el recorrido completo de introducción y envío del acceso con contraseña; los botones de acceso rápido de terceros quedan debajo de la tarjeta.",
+    "items": [
+      {
+        "h": "Campo de correo",
+        "d": "La cuenta es la propia dirección de correo. En el modo de código de registro, esta página también admite el parámetro de código de invitación `?code=`, que prellena directamente el formulario de registro."
+      },
+      {
+        "h": "Campo de contraseña",
+        "d": "La frase secreta se almacena como resumen con sal y el servidor nunca entra en contacto con el texto claro. «He olvidado mi contraseña» abre en una ventana emergente el portal externo de apelaciones, con el tipo de apelación, el idioma de la interfaz y el correo como parámetros."
+      },
+      {
+        "h": "Botón de inicio de sesión",
+        "d": "Al enviarlo, las cuentas con verificación en dos pasos pasan a la segunda verificación; los fallos consecutivos activan el bloqueo antifuerza bruta. Si se marca «mantener la conexión orbital», este dispositivo queda exento de volver a verificarse durante 30 días."
+      }
+    ]
+  },
+  "twofa-guide.png": {
+    "summary": "Cuatro regiones anotadas de la página de seguridad: arriba, el acceso para modificar las credenciales de la cuenta; abajo, el centro de verificación en dos pasos, que presenta en paralelo tres segundos factores que pueden combinarse.",
+    "items": [
+      {
+        "h": "Tarjeta de nombre de usuario y contraseña",
+        "d": "Permite cambiar el nombre de usuario y la contraseña de acceso y muestra la fecha del último cambio. Para desactivar la verificación en dos pasos también hay que introducir aquí la contraseña y un código dinámico como confirmación."
+      },
+      {
+        "h": "Aplicación de autenticación (TOTP)",
+        "d": "Tras vincularla escaneando el código QR, genera un código dinámico de 6 dígitos cada 30 segundos. Al terminar la vinculación se muestran de inmediato 10 códigos de recuperación, cada uno de un solo uso, para iniciar sesión cuando la aplicación de autenticación no esté disponible."
+      },
+      {
+        "h": "Códigos de recuperación de respaldo",
+        "d": "El recurso de respaldo para iniciar sesión cuando falla la aplicación de autenticación: la tarjeta muestra en tiempo real cuántos quedan disponibles. Ver los códigos completos o regenerarlos exige la contraseña de la cuenta, y un restablecimiento anula todos los códigos antiguos."
+      },
+      {
+        "h": "Llaves de acceso (Passkey)",
+        "d": "Llaves de seguridad de hardware o biometría del dispositivo. Una llave recién registrada se activa en cuanto la aprueba la aplicación de autenticación ya vinculada (o de forma automática al vencer el bloqueo temporal de 30 días); una vez activa, «Probar» verifica el flujo de desbloqueo."
+      }
+    ]
+  },
+  "apps-guide.png": {
+    "summary": "Cinco regiones anotadas de la página de gestión de aplicaciones: cuatro puntos de conexión en la parte superior y una tarjeta de aplicación de ejemplo, que cierran el círculo «buscar el punto de conexión — obtener credenciales — copiar el código».",
+    "items": [
+      {
+        "h": "`/.well-known/openid-configuration`",
+        "d": "El punto de conexión de metadatos de OIDC Discovery: el emisor, cada punto de conexión y las capacidades se describen a sí mismos, de modo que frameworks de terceros como NextAuth descubren la configuración automáticamente."
+      },
+      {
+        "h": "`/oauth/authorize`",
+        "d": "El punto de conexión de autorización del usuario: le guía para iniciar sesión y otorgar el consentimiento. En los escenarios con ventana emergente el resultado vuelve por `postMessage`; si el usuario cancela, se redirige de vuelta con `error=access_denied`."
+      },
+      {
+        "h": "`/api/oauth/token`",
+        "d": "El punto de conexión de intercambio de tokens: un código de autorización de un solo uso (válido 5 minutos) se canjea por un token de acceso y un ID Token válidos 2 horas. Admite JSON, formulario y HTTP Basic; con PKCE configurado verifica el `code_verifier` (S256)."
+      },
+      {
+        "h": "`/api/oauth/userinfo`",
+        "d": "El punto de conexión del perfil de usuario: con un token de acceso Bearer se leen los campos ya autorizados (`sub`, `email`, `name`, `picture`, etc.). Si el token caduca o se revoca, devuelve 401."
+      },
+      {
+        "h": "Tarjeta de aplicación (shijianus-blog)",
+        "d": "Una tarjeta por aplicación: Client ID y Client Secret (el secret solo se muestra completo una vez, al crearlo o al restablecerlo), interruptor de activación, edición y borrado, y cinco ejemplos de integración listos para copiar: NextAuth, Node, Python, cURL y OIDC genérico."
+      }
+    ]
+  },
+  "notify-guide.png": {
+    "summary": "Las tres tarjetas de exportación y la zona de título del reenvío de correo y mensajes, en la página «Datos»: lo de arriba gobierna en qué formato salen los datos, y lo de abajo, cómo llega el correo entrante en tiempo real.",
+    "items": [
+      {
+        "h": "Tarjeta de exportación integral de datos",
+        "d": "Copia de seguridad completa en JSON: los datos de la cuenta, el texto íntegro del historial de correo, los contactos, las reglas de clasificación y etiquetas y los ajustes de seguridad en un solo paquete descargable; es la vía principal para ejercer el derecho a la portabilidad de los datos."
+      },
+      {
+        "h": "Tarjeta del archivo del historial de correo",
+        "d": "Exporta únicamente el correo enviado y recibido, en tres formatos —MBOX (formato universal que casi todos los clientes de correo importan), JSON o CSV— y permite acotar un rango de fechas."
+      },
+      {
+        "h": "Tarjeta de contactos y configuración",
+        "d": "La tercera exportación: el directorio de contactos, las reglas de alias personalizadas y las preferencias de personalización del sistema. Es la más pequeña de las tres, pero decide si sus hábitos sobreviven a un cambio de instancia: las reglas de alias y el sistema de etiquetas viajan con ella, de modo que nada hay que renombrar ni reclasificar."
+      },
+      {
+        "h": "Zona de título del reenvío de correo y mensajes",
+        "d": "Dos capacidades de alcance en tiempo real: el push de mensajes de Telegram (se vincula un bot privado y se elige enviar todo el correo o solo el importante y el de códigos de verificación, con un enlace de lectura interna válido 7 días) y el reenvío automático (destinos, tipo de disparador y cabecera `[Fwd]`)."
+      }
+    ]
+  },
+  "analysis-guide.png": {
+    "summary": "Los tres paneles de la primera pantalla de la página de analítica: la distribución de fuentes responde de dónde viene el correo y las dos curvas de crecimiento, cuál es la tendencia de actividad de la instancia.",
+    "items": [
+      {
+        "h": "Distribución de fuentes del correo",
+        "d": "Proporción de la composición entrante entre la entrega directa dentro del sitio y los canales externos, con la que se evalúa la salud del canal de entrega. El efecto de la gobernanza —tasa de interceptación y volumen de correo no deseado— se revisa en la gestión de clasificación."
+      },
+      {
+        "h": "Curva de crecimiento de usuarios",
+        "d": "Evolución temporal del número de usuarios registrados y de usuarios activos. Cotejándola con las cuotas por grupo del control de permisos se decide cuándo conviene ampliar o ajustar el grupo por defecto."
+      },
+      {
+        "h": "Curva de crecimiento del correo",
+        "d": "Evolución temporal del volumen total enviado y recibido. Junto con la tendencia de llamadas a la IA de la misma página, permite comprobar si la cuota diaria y el límite de tasa del AI Hub de la configuración del sistema siguen siendo razonables."
+      }
+    ]
+  },
+  "users-guide.png": {
+    "summary": "Cuatro regiones anotadas de la lista de usuarios: de la búsqueda al tratamiento en la propia fila, el recorrido de gestión de cuentas del administrador se completa en una sola pantalla.",
+    "items": [
+      {
+        "h": "Cuadro de búsqueda por correo",
+        "d": "En la parte superior se localizan las cuentas por correo, con paginación y ordenación inmediatas. Junto con los contadores de envío y recepción, de ocupación de almacenamiento y de correo no deseado o denuncias de cada fila, permite detectar con rapidez las cuentas anómalas."
+      },
+      {
+        "h": "Columna de correo del usuario",
+        "d": "El identificador único de la cuenta: el correo es el nombre de la cuenta y la referencia para iniciar sesión, recibir correo y cualquier autorización. Las operaciones de la fila (restablecer la contraseña, cambiar el grupo, bloquear) actúan sobre la cuenta que señala esta columna; los demás contadores de la página —envío y recepción, almacenamiento, y correo no deseado o denuncias— son los que permiten juzgar si una cuenta resulta anómala."
+      },
+      {
+        "h": "Columna de espacio de almacenamiento",
+        "d": "El uso en tiempo real del almacenamiento de adjuntos de esa cuenta; cotejándolo con la cuota de su grupo de identidad (véase el control de permisos) se decide si conviene ampliarlo o limpiarlo."
+      },
+      {
+        "h": "Columna de ajustes (operaciones)",
+        "d": "Operaciones de gestión en la fila: restablecer la contraseña (emite una contraseña de un solo uso), cambiar el grupo de identidad, restablecer la verificación en dos pasos, bloquear y restaurar, y vaciar el correo del usuario (irreversible; úsese con cautela)."
+      }
+    ]
+  },
+  "review-guide.png": {
+    "summary": "El aspecto de la revisión de todo el almacén en el modo privado (Level 2): la sección se muestra como «Correo no deseado», y el cuadro de búsqueda y el estado vacío son las dos regiones anotadas.",
+    "items": [
+      {
+        "h": "Cuadro de búsqueda",
+        "d": "Admite la sintaxis avanzada con `$` sobre todo el almacén: `$sender`/`$user`/`$to`/`$subject` más tokens de estado. Pulsando con el botón derecho sobre cualquier correo de la lista de resultados se lanza directamente una nueva búsqueda por su remitente, su cuenta destinataria o su usuario propietario."
+      },
+      {
+        "h": "Nombre de la sección en la barra lateral",
+        "d": "El nombre y el alcance visible cambian con el modo de correo: Level 1 muestra «Todo el correo», Level 2 muestra «Correo no deseado» y Level 3 oculta la entrada por completo."
+      },
+      {
+        "h": "Zona de estado vacío",
+        "d": "El aviso de marcador cuando no hay correo en cuarentena. Cuando lo hay, esta zona pasa a ser una lista; al abrir un mensaje se entra en el panel deslizante de detalle, donde puede ejecutarse el borrado físico (a diferencia de la papelera del lado del usuario, la operación queda registrada)."
+      }
+    ]
+  },
+  "regkeys-guide.png": {
+    "summary": "El estado vacío de la página de claves de registro cuando aún no se ha emitido ningún código de invitación: un botón de emisión y un cuadro de búsqueda componen toda la página.",
+    "items": [
+      {
+        "h": "Botón de añadir código de registro",
+        "d": "El acceso de emisión: la ventana genera un código aleatorio de 8 caracteres (puede regenerarse pulsando actualizar) y lo vincula al grupo de identidad al que se entrará tras el registro, a una vigencia y a un número de usos (1–99999, que se descuenta con cada registro correcto)."
+      },
+      {
+        "h": "Cuadro de búsqueda de códigos de registro",
+        "d": "Una vez emitidos, permite filtrar y localizar por código de registro y consultar los usos restantes, el grupo vinculado y la vigencia; los campos sensibles se enmascaran automáticamente desde la perspectiva del Visitante."
+      },
+      {
+        "h": "Tarjeta de estado vacío",
+        "d": "El marcador de guía mientras la instancia no ha emitido ningún código de registro. Tras la emisión, esta zona pasa a ser la lista de códigos, con copia en un clic, consulta del registro de uso, borrado individual y «limpiar los no usados» para invalidarlos en bloque."
+      }
+    ]
+  },
+  "labels-guide.png": {
+    "summary": "Tres regiones anotadas de la página de etiquetas: un acceso de creación y, dentro de cada fila de etiqueta, los contadores y el interruptor que cubren todo el manejo diario de las etiquetas.",
+    "items": [
+      {
+        "h": "Botón de etiqueta nueva",
+        "d": "Crea y nombra una etiqueta personalizada. La zona de etiquetas de la barra lateral muestra como máximo 7, y cuatro vienen de fábrica: Comunidad, Suscripciones, Promociones y Trabajo."
+      },
+      {
+        "h": "Fila de etiqueta",
+        "d": "Una tarjeta por fila: la insignia de color de la etiqueta (icono a elegir del catálogo incorporado o SVG personalizado, con color de la paleta a medida) y tres contadores en tiempo real —total, cantidad actual y sin tratar."
+      },
+      {
+        "h": "Interruptor de visualización y operaciones de fila",
+        "d": "El interruptor decide si la etiqueta se muestra en la barra lateral; editar cambia su aspecto y sus reglas, y eliminar una etiqueta deshace también sus referencias en las reglas de clasificación."
+      }
+    ]
+  },
+  "preferences-guide.png": {
+    "summary": "Las cuatro tarjetas de la página de perfil: de la imagen de identidad a los datos de contacto y de ahí a las direcciones, los cuatro planos de los datos personales se gestionan tarjeta a tarjeta.",
+    "items": [
+      {
+        "h": "Tarjeta de información básica",
+        "d": "Subida de avatar, apodo personal, género y cumpleaños. Que el apodo y el avatar se muestren al exterior está regido por el interruptor de «perfil público» del administrador."
+      },
+      {
+        "h": "Tarjeta de información de contacto",
+        "d": "El buzón principal de inicio de sesión lleva la etiqueta «buzón principal» y no puede retirarse; pueden añadirse varios correos electrónicos adicionales y retirarlos en cualquier momento, además de registrar un número de teléfono con prefijo de país."
+      },
+      {
+        "h": "Tarjetas de dirección",
+        "d": "Las direcciones de casa, empresa y otras se guardan por separado, y cada una se añade, edita y retira de forma independiente. Son datos de perfil en sentido estricto: no intervienen en la entrega del correo ni afectan a la facturación ni al grupo de identidad. Que sea necesario rellenarlas, y que se muestren al exterior, depende de si el Operador activa el interruptor de «perfil público»."
+      },
+      {
+        "h": "Tarjeta de ajustes asociados y seguridad",
+        "d": "La plataforma de salto de la página de perfil hacia las demás páginas de configuración: la seguridad de la cuenta (nombre de usuario y contraseña, verificación en dos pasos) y las autorizaciones de terceros (aplicaciones autorizadas), las dos entradas más usadas, se reúnen aquí para no tener que ir y venir entre la página de perfil y la de seguridad. Al pulsar cada entrada se salta a la sección correspondiente, sin abrir una página nueva."
+      }
+    ]
+  },
+  "general-guide.png": {
+    "summary": "Las tres tarjetas de la página general —biografía, personalización de la apariencia y preferencias— cubren toda la personalización del aspecto de la interfaz y de los hábitos de lectura.",
+    "items": [
+      {
+        "h": "Tarjeta de biografía",
+        "d": "Un texto de presentación que se muestra en el perfil público; que esa página sea accesible lo decide el interruptor de «perfil público» del administrador."
+      },
+      {
+        "h": "Tarjeta de personalización de la apariencia",
+        "d": "Los tres estados de la paleta (oscura, clara y seguir el sistema, también conmutables desde la barra superior) y el fondo de pantalla temático global (ocho preajustes más fondo personalizado o por URL); además, un fondo personal (que cubre solo la zona del buzón) y la densidad de la interfaz."
+      },
+      {
+        "h": "Tarjeta de preferencias",
+        "d": "Preferencias de lectura (tipo de bandeja de entrada, posición del panel de lectura e interruptor de vista por conversaciones) e idioma (la interfaz, entre seis; el idioma de destino de la traducción por IA, entre 16). La zona de privacidad de datos concentra las entradas de información personal y de tratamiento por IA."
+      }
+    ]
+  },
+  "data-guide.png": {
+    "summary": "Las cuatro tarjetas de la página de datos: tres formatos para llevarse los datos, una zona de reenvío, una de almacenamiento y otra de autorizaciones de terceros —la interfaz completa de la autonomía sobre los datos personales.",
+    "items": [
+      {
+        "h": "Tarjeta de exportación de datos y perfil del usuario",
+        "d": "Tres exportaciones en paralelo: la copia de seguridad integral en JSON, el archivo del historial de correo (MBOX/JSON/CSV con rango de fechas) y los contactos y la configuración. Un mensaje suelto también puede descargarse como .eml desde el panel de lectura."
+      },
+      {
+        "h": "Tarjeta de reenvío de correo y mensajes",
+        "d": "Configuración detallada del push de mensajes de Telegram y del reenvío automático; que estas dos funciones estén disponibles para la cuenta lo decide el interruptor de «Control de datos de usuario» del administrador."
+      },
+      {
+        "h": "Tarjeta de espacio de almacenamiento",
+        "d": "El indicador de uso del almacenamiento de adjuntos se coteja con la cuota en tiempo real. Puede conectarse un cubo de Backblaze B2/S3 propio: a partir de entonces los adjuntos nuevos se guardan directamente en la nube personal, fuera de la cuota de la instancia, y al retirar la conexión se vuelve al almacenamiento de la instancia."
+      },
+      {
+        "h": "Tarjeta de aplicaciones y servicios de terceros",
+        "d": "Lista de todas las aplicaciones con autorización OAuth de la cuenta: puede retirarse el acceso aplicación por aplicación, o revocarlas todas de una vez desde la ventana de detalle. La revocación surte efecto de inmediato y los tokens existentes de la aplicación dejan de valer en el acto."
+      }
+    ]
+  },
+  "audit-guide.png": {
+    "summary": "La tabla de cuatro columnas de la página de informes de operaciones: la cadena completa de información de un aviso, de «quién» a «por qué se disparó» y de ahí a «dónde está la prueba».",
+    "items": [
+      {
+        "h": "Columna de correo del usuario",
+        "d": "La cuenta a la que apunta el aviso: puede ser el objeto tratado (alerta de riesgo o de bloqueo), la parte denunciada (alerta de auditoría) o el apelante (alerta de recurso). Esta página solo estudia el caso; las acciones reales —bloquear, restaurar, restablecer— se ejecutan desde la página de la lista de usuarios, de modo que el veredicto se usa en combinación con aquella página."
+      },
+      {
+        "h": "Columna de nivel de auditoría de seguridad",
+        "d": "La graduación del riesgo (prioridad P0/P1 con etiqueta de categoría): los cuatro tipos de aviso —auditoría, riesgo, bloqueo y recurso— tienen cada uno su vía de tratamiento habitual."
+      },
+      {
+        "h": "Columna de explicación del aviso y rasgos del disparador",
+        "d": "Descripción de la situación que disparó el aviso (por ejemplo, inicios de sesión simultáneos desde varias ubicaciones y varias IP, o una denuncia acreditada); es la base para decidir si el aviso se libera o se rechaza."
+      },
+      {
+        "h": "Columna del grupo de entornos activos",
+        "d": "La información completa del entorno en texto claro: IP, geolocalización, dispositivo y huella. En el modo cifrado (Level 3) las marcas de tiempo se suprimen y el aviso sigue pudiendo estudiarse."
+      }
+    ]
+  },
+  "system-guide.png": {
+    "summary": "Cinco de las once tarjetas de configuración de la página de configuración del sistema: la configuración al nivel de la instancia se agrupa por temas, y en esta figura se anotan las cinco más usadas.",
+    "items": [
+      {
+        "h": "Tarjeta de configuración del sitio",
+        "d": "El grupo de interruptores generales de la instancia: registro abierto, perfil público, modo de correo (tres niveles), verificación en dos pasos, dominio de inicio oculto, códigos de registro, añadir buzones, cambio rápido multicuenta y reglas de prefijo de buzón."
+      },
+      {
+        "h": "Tarjeta de personalización",
+        "d": "La fachada pública de la instancia: el título del sitio da marca tanto a la página de inicio de sesión como a la pestaña del navegador, el texto de las ventanas emergentes sustituye los avisos incorporados y el interruptor de interfaz dinámica o estática decide si la superficie de inicio de sesión reproduce animaciones —el modo estático conviene más a los dispositivos de bajo rendimiento y a las capturas como prueba—. Los cambios afectan a todos los usuarios al mismo tiempo."
+      },
+      {
+        "h": "Tarjeta de almacenamiento y base de datos central",
+        "d": "Almacenamiento de objetos (B2/S3, con repliegue a R2/KV por defecto), arquitectura de la base de datos central y externa, límite de adjunto único con borrado en cascada y control de salud de la caché KV."
+      },
+      {
+        "h": "Tarjeta de motor de IA",
+        "d": "El proveedor de IA a elegir entre dos (punto de conexión compatible con OpenAI personalizado o Cloudflare Workers AI), el interruptor de activación, la cuota diaria y el límite de tasa, y la autorización de modelos por grupo de identidad."
+      },
+      {
+        "h": "Tarjeta de control de datos de usuario",
+        "d": "Los interruptores de capacidad de los usuarios normales en la página «Datos»: push de Telegram, reenvío de correo, soporte de API de terceros, almacenamiento propio y cuota de almacenamiento por defecto. La exportación de datos permanece siempre abierta y no depende de esta tarjeta."
+      }
+    ]
+  },
+  "category-guide.png": {
+    "summary": "Las cuatro tarjetas de gobernanza de la página de gestión de clasificación: del interruptor general de recepción y envío al reconocimiento por IA, y de las listas al bloqueo duro —las cuatro capas de defensa de la recepción a escala del sitio.",
+    "items": [
+      {
+        "h": "Tarjeta de ajustes de correo (interruptores de recepción y envío)",
+        "d": "Los interruptores generales de recepción, envío y refresco automático, más el interruptor de tratamiento del correo sin destinatario. Con la recepción cerrada, el correo entrante se rechaza de plano."
+      },
+      {
+        "h": "Tarjeta de modelo de IA e integración de claves de API",
+        "d": "La extracción de códigos de verificación por Workers AI y sus reglas, y la clave, la URL y el modelo de la API de IA —comparten origen con el AI Hub de la configuración del sistema; lo que aquí se controla es el comportamiento de reconocimiento entrante (la insignia del código de verificación, entre otros)."
+      },
+      {
+        "h": "Tarjeta de reglas de listas básicas",
+        "d": "Lista negra de remitentes (configurable como modo de etiqueta o como interceptación directa), modo de lista blanca (solo los remitentes incluidos en ella pueden entregar), lista negra de palabras clave de asunto y de contenido, interceptación de remitentes vacíos, interceptación de no destinatarios e interceptación de adjuntos ejecutables."
+      },
+      {
+        "h": "Tarjeta de reglas de bloqueo duro",
+        "d": "El recurso final: rechazo directo y acumulación del contador de interceptaciones. La coincidencia en las listas aplica automáticamente la etiqueta correspondiente, y el efecto de la interceptación puede revisarse después en la página de analítica."
+      }
+    ]
+  },
+  "ui-compose.png": {
+    "summary": "Las regiones de la capa de redacción, de arriba abajo: remitente fijado, destinatarios y asunto, barra de herramientas de texto enriquecido, área de edición del cuerpo y barra de acciones inferior.",
+    "items": [
+      {
+        "h": "Línea del remitente",
+        "d": "El remitente queda fijado al buzón con el que se ha iniciado sesión y no puede modificarse mientras se escribe, de modo que el correo salido de esta plataforma no admite un From falsificado. Las cuentas con varios buzones cambian de identidad de envío en esta misma línea, y el destinatario ve el buzón que se haya elegido. La dirección del remitente decide además por qué canal de entrega sale el correo."
+      },
+      {
+        "h": "Líneas de destinatarios y asunto",
+        "d": "Los destinatarios admiten la selección de contactos y el enlace profundo `?composeTo=`; el asunto aparece en la lista y puede buscarse con `subject:`."
+      },
+      {
+        "h": "Barra de herramientas y área del cuerpo",
+        "d": "17 herramientas de formato: párrafo, tamaño de fuente, estilos de letra, color, alineación, listas, cita, enlace, imagen, tabla, emojis, traducción y modo de código fuente."
+      },
+      {
+        "h": "Barra de acciones inferior",
+        "d": "El botón de adjuntos (capacidad habilitada según el rol, límite por archivo según la configuración de la instancia) y el botón de envío; la entrega dentro del sitio es directa y la externa va por el canal configurado por el Operador."
+      }
+    ]
+  },
+  "ui-settings-general.png": {
+    "summary": "El aspecto de la sección de configuración general: la columna izquierda navega por las cinco secciones de ajustes y el panel derecho contiene los elementos generales (paleta de apariencia, fondo de pantalla temático, etc.).",
+    "items": [
+      {
+        "h": "Navegación de secciones de la columna izquierda",
+        "d": "Conmuta entre las cinco secciones Perfil, General, Seguridad, Datos y Etiquetas; al entrar en la configuración, la barra lateral del correo se oculta y se vuelve a la interfaz principal con «Volver al correo»."
+      },
+      {
+        "h": "Zona de personalización de la apariencia",
+        "d": "Los tres estados de la paleta (oscura, clara y seguir el sistema) y el fondo de pantalla temático global (ocho preajustes más una imagen o URL personalizada). Su alcance son todas las vistas de la aplicación, a diferencia del fondo personal, que solo cubre la zona del buzón. La barra superior incorpora además un conmutador rápido de paleta, para no tener que volver a esta página."
+      },
+      {
+        "h": "Resto de grupos",
+        "d": "Los tres grupos restantes de esta página: preferencias de lectura (tipo de bandeja de entrada, posición del panel de lectura y vista por conversaciones), idioma (un idioma de interfaz entre seis y un destino de traducción por IA entre 16) y privacidad de datos (el punto de encuentro de las preferencias sobre información personal y tratamiento por IA). La figura solo muestra la columna de navegación y el aspecto; la sección 3 de la guía de configuración explica cada punto."
+      }
+    ]
+  },
+  "ui-audit-report.png": {
+    "summary": "La página de informes de operaciones tal como la ve el lado administrativo: los avisos se estudian en una tabla y los botones de tratamiento se reparten según la clase de aviso.",
+    "items": [
+      {
+        "h": "Tabla de avisos",
+        "d": "Un aviso por fila, con columnas de categoría (auditoría, riesgo, bloqueo y recurso), prioridad (P0/P1), estado actual y la información del grupo de entornos activos en texto claro: IP, geolocalización, dispositivo y huella. El grupo se agrega según el comportamiento de las solicitudes, de modo que la anomalía solo se vuelve visible cuando una misma cuenta inicia sesión simultáneamente desde varias IP."
+      },
+      {
+        "h": "Botones de tratamiento",
+        "d": "Los botones se reparten según la categoría del aviso: en la alerta de recurso destaca «Liberar tras el estudio» (liberar restaura la cuenta), en la de bloqueo destaca «Levantar la alerta» y el resto pasa al menú de operaciones estándar. El botón solo registra el veredicto; el bloqueo o la restauración se ejecutan desde la página de la lista de usuarios, y ambas páginas mantienen el estado sincronizado."
+      },
+      {
+        "h": "Efecto del modo",
+        "d": "Una misma tabla con tres formas: en el modo de todo el correo (L1) es la que más información ofrece; en el modo privado (L2) luce como en esta figura; y en el modo cifrado (L3) las marcas de tiempo se suprimen y la columna de tiempo se oculta, de modo que el administrador solo puede juzgar por la categoría y el grupo de entornos, sin forma de reconstruir el orden de los hechos."
+      }
+    ]
+  },
+  "ui-login-oauth.png": {
+    "summary": "El conjunto de la página de inicio de sesión: una misma tarjeta alberga el acceso con contraseña, la verificación en dos pasos, el acceso rápido de terceros, el registro y la recuperación de contraseña.",
+    "items": [
+      {
+        "h": "Zona de entrada",
+        "d": "El camino que siguen casi todos los usuarios: el correo es la cuenta y la contraseña se almacena como resumen con sal, sin que el servidor entre en contacto con el texto claro. Los fallos consecutivos activan el bloqueo antifuerza bruta, cuya granularidad y duración decide el back-end; si se marca «mantener la conexión orbital», este dispositivo queda exento de volver a verificarse durante 30 días."
+      },
+      {
+        "h": "Zona de botones de terceros",
+        "d": "Los proveedores que el administrador ha activado y dotado de credenciales aparecen como botones; los activados sin credenciales se muestran atenuados como «próximamente» y los desactivados no se muestran."
+      },
+      {
+        "h": "Resto de flujos",
+        "d": "La misma tarjeta alberga otras tres rutas: las cuentas con verificación en dos pasos pasan, tras el envío, a un segundo factor (TOTP, un código de recuperación o una llave de acceso); en el modo de código de registro, un parámetro de código prellena directamente el formulario de registro; y «he olvidado mi contraseña» salta al portal externo de apelaciones con el tipo de apelación, el idioma de la interfaz y el correo. Las reglas una a una están en la sección 4 de la página de modos de funcionamiento."
+      }
+    ]
+  },
+  "ui-detail-verification.png": {
+    "summary": "El efecto de la extracción de códigos de verificación en el detalle del correo: el código de 6 dígitos se presenta en tamaño grande y tanto la lista como el detalle llevan una insignia verde.",
+    "items": [
+      {
+        "h": "Zona del código en tamaño grande",
+        "d": "El código que Workers AI extrae del asunto y de los primeros 6,000 caracteres del cuerpo se presenta directamente en tamaño grande, para copiarlo con facilidad."
+      },
+      {
+        "h": "Insignia verde",
+        "d": "La marca verde que aparece de forma sincronizada en la fila de la lista y en la página de detalle: significa que este correo lleva un código de verificación ya extraído, de modo que se reconoce directamente desde la lista sin abrir cada mensaje. La insignia solo aparece cuando la extracción tiene éxito; su ausencia no significa que el correo sea seguro, solo que no hay ningún código que copiar."
+      },
+      {
+        "h": "Límites",
+        "d": "Es el único tratamiento de IA que no se desencadena manualmente y puede desactivarse en la configuración general; el alcance del tratamiento y la forma de retirarlo figuran en la sección 6 de la política de privacidad."
+      }
+    ]
+  },
+  "ui-inbox-en.png": {
+    "summary": "La bandeja de entrada con la interfaz en English: idéntica en estructura a la versión en chino, con la simetría de los diccionarios en seis lenguas garantizada por scripts de auditoría estáticos.",
+    "items": [
+      {
+        "h": "Barra lateral",
+        "d": "Las vistas Compose, Starred, Snoozed y Sent, entre otras, y las etiquetas Social, Subscriptions, Promotions y Work se corresponden punto por punto con la taxonomía china."
+      },
+      {
+        "h": "Lista",
+        "d": "El remitente, el asunto, el extracto y las insignias de código de verificación ocupan exactamente las mismas posiciones, tamaños y colores que en la versión en chino: la localización solo sustituye los textos, nunca el diseño, y por eso las capturas y las instrucciones sirven en cualquier idioma. Las fechas, los números y los contadores también se formatean según el idioma de la interfaz."
+      },
+      {
+        "h": "Cómo cambiar de idioma",
+        "d": "El punto donde se cambia el idioma de la interfaz: uno entre seis (chino simplificado, chino tradicional, English, Español, Français y Nederlands) en el grupo «Idioma» de la configuración general, con efecto inmediato y sin volver a iniciar sesión. La visualización y la entrega van por separado: los avisos del sistema y el correo de bienvenida se generan en el idioma de cada destinatario, no en el de la interfaz del remitente."
+      }
+    ]
+  },
+  "ui-inbox-mobile.png": {
+    "summary": "La bandeja de entrada móvil a 375 píxeles de ancho: la barra lateral se pliega en un cajón y la lista se mantiene legible por completo.",
+    "items": [
+      {
+        "h": "Barra lateral en cajón",
+        "d": "Por debajo de 1025 píxeles de ancho, la columna izquierda se pliega automáticamente en un cajón: el botón de hamburguesa lo despliega sobre una capa de oscurecimiento y, al elegir cualquier vista, se recoge de nuevo para no tapar la zona de lectura. El escritorio y el móvil comparten una misma estructura de barra lateral, de modo que los contadores y las etiquetas se leen igual en ambos formatos."
+      },
+      {
+        "h": "Botón flotante de redacción",
+        "d": "La versión móvil del botón «Redactar» de escritorio: fijo en la esquina inferior derecha, permanece visible al desplazarse y al pulsarlo abre la redacción a pantalla completa. Solo aparece en las cuentas con permiso de envío; un Visitante o un grupo con el envío desactivado nunca lo ve, y por tanto no puede acceder a la redacción."
+      },
+      {
+        "h": "Lista",
+        "d": "La misma lista virtualizada que en el escritorio: un buzón largo solo renderiza las filas visibles en la pantalla, de modo que la primera carga no se ralentiza a medida que crece el buzón. Los objetivos táctiles se amplían por accesibilidad móvil, mientras que la densidad informativa y la estructura de columnas siguen siendo idénticas, así que las capturas del móvil siguen sirviendo para cotejar campos."
+      }
+    ]
+  },
+  "ui-account-menu.png": {
+    "summary": "El menú del avatar desplegado en la esquina superior derecha de la bandeja de entrada: el punto de encuentro del cambio de cuenta y del detalle de la cuenta.",
+    "items": [
+      {
+        "h": "Línea de cuenta",
+        "d": "La cuenta actual (admin · Maestro) con su flecha desplegable; en el modo multicuenta se enumeran todas las sesiones ya iniciadas, aisladas con el prefijo de ruta `/mail/u/N/`."
+      },
+      {
+        "h": "Botón «gestionar sus cuentas de Epomail»",
+        "d": "La entrada para añadir una cuenta: al pulsarla se completa el inicio de sesión de la nueva cuenta por el enlace profundo dedicado de la página de inicio de sesión, y al volver aparece una sesión más. La clave es que no sobrescribe nada: la nueva cuenta no desplaza a la sesión actual, y el espacio de trabajo de cada cuenta queda aislado tras un prefijo de ruta /mail/u/N/, de modo que cambiar de cuenta solo cambia el prefijo, sin volver a iniciar sesión."
+      },
+      {
+        "h": "Barra de uso de almacenamiento",
+        "d": "La barra de progreso del almacenamiento de adjuntos de la cuenta actual: el numerador es el espacio ya ocupado y el denominador, la cuota de su grupo de identidad (los valores de fábrica por grupo están en la página de control de permisos). Una vez conectado un almacenamiento de objetos personal, los adjuntos nuevos dejan de computar aquí, así que una barra que deja de crecer no significa que los adjuntos hayan dejado de llegar."
+      }
+    ]
+  }
+}

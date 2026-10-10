@@ -3,15 +3,24 @@ title: Full-Store Mail Review
 description: EpoCanvas Mail full-store mail review — administrator-side mail search, the detail drawer and physical deletion, including how the mail mode affects the entrance.
 ---
 
-**Effective date: 6 October 2026 | Version: 5.16**
+**Effective date: 6 October 2026 | Version: 5.17**
 
 Full-Store Mail Review is the admin area's mail-dimension interface (`#manage/admin/mail`, permission key `all-email:query`). The section's name and visible scope vary with the mail mode: All-Mail Mode (Level 1) shows "All Mail", Privacy Mail Mode (Level 2) shows "Spam", and Encrypted Mail Mode (Level 3) hides the section entirely (see Section 2 of [Operating Modes](/en/mail/modes/)).
 
 ![Figure: the full-store mail review](/images/mail/en/ui/review-guide.png)
 
 *Figure: the full-store mail review*
-*Annotations: 1. *
 
+<details>
+<summary>Walkthrough: Mail review under private mode —  three visible points</summary>
+
+The mail-review section under private mode (Level 2): the section reads "Spam", and the search box plus the empty state are the two annotated regions.
+
+1. **Search box**: Accepts the `$` syntax across all mail: `$sender`/`$user`/`$to`/`$subject` plus status tokens. Right-click any result to start a new search by its sender, recipient account or owning user.
+2. **Section name in the sidebar**: The name and scope follow the mail mode: Level 1 shows "All mail", Level 2 shows "Spam", and Level 3 hides the entry entirely.
+3. **Empty state**: The placeholder when nothing is quarantined. With quarantined mail it becomes a list; opening a row slides in the detail drawer, where physical deletion (unlike the user trash bin, it is logged) is available.
+
+</details>
 
 ## 1. Search
 

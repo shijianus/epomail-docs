@@ -3,14 +3,25 @@ title: Guide de sécurité du compte
 description: Guide de sécurité du compte d'EpoCanvas Mail — activer la vérification en deux étapes en trois étapes, gérer les codes de récupération, enregistrer des clés d'accès, comportement de la vérification à la connexion et suppression du compte.
 ---
 
-**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 5 octobre 2026 | Version : 5.17**
 
 La présente page parcourt une à une les actions de la page « Paramètres → Sécurité ». Le comportement général de la vérification en deux étapes (appareils de confiance, politiques forcées) est décrit à la section 4 de [Modes de fonctionnement](/fr/mail/modes/) ; la présente page ne couvre que la configuration. Entrée : barre latérale « Paramètres → Sécurité » (`#settings/security`).
 
 ![Page de sécurité d'EpoCanvas Mail : changement de mot de passe et centre de vérification en deux étapes avec trois seconds facteurs](/images/mail/fr/ui/twofa-guide.png)
 
 *Figure : la page de sécurité. Nom d'utilisateur et mot de passe en haut, centre de vérification en deux étapes en dessous.*
-*Annotations: 1. Authenticator Ap　2. sauvegarde Recov　3. Passkeys & sécur　4. Back to Mail*
+
+<details>
+<summary>Guide visuel : Le centre de vérification en deux étapes  —  quatre cartes, trois seconds facteurs</summary>
+
+Quatre régions de la page de sécurité : en haut l'entrée de modification des identifiants du compte, en bas le centre de vérification en deux étapes, qui aligne trois seconds facteurs combinables entre eux.
+
+1. **Carte nom d'utilisateur et mot de passe** : Modifier le nom d'utilisateur et le mot de passe de connexion, en affichant la date du dernier changement. Désactiver la vérification en deux étapes exige aussi de saisir ici le mot de passe accompagné d'un code dynamique.
+2. **Application d'authentification (TOTP)** : Après la liaison par lecture du code QR, elle produit un code à 6 chiffres toutes les 30 secondes. La liaison terminée affiche aussitôt 10 codes de récupération, chacun utilisable une seule fois, pour se connecter lorsque l'application est indisponible.
+3. **Codes de récupération de secours** : Le recours de connexion quand l'application d'authentification fait défaut : la carte affiche en temps réel le nombre de codes encore utilisables. Consulter la liste complète ou régénérer les codes exige le mot de passe du compte, et une réinitialisation annule tous les anciens codes.
+4. **Clés d'accès (Passkey)** : Clé de sécurité matérielle ou biométrie de l'appareil : une clé fraîchement enregistrée s'active aussitôt après approbation par l'application d'authentification liée (ou automatiquement à l'expiration du verrou temporel de 30 jours) ; une fois active, « Tester » vérifie le flux de déverrouillage.
+
+</details>
 
 ## 1. Visite de la page de sécurité
 

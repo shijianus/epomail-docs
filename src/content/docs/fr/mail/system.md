@@ -3,15 +3,26 @@ title: Les cartes des paramètres système en détail
 description: Les cartes des paramètres système d'EpoCanvas Mail — onze cartes passées en revue une à une, des paramètres du site à l'entrée À propos, en passant par la personnalisation, le stockage, le push des courriels et le moteur IA.
 ---
 
-**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.16**
+**Date d'entrée en vigueur : 6 octobre 2026 | Version : 5.17**
 
 La page des paramètres système (`#manage/admin/system`, clés de permission `setting:query`／`setting:set`) organise toute la configuration au niveau de l'instance en cartes de configuration. La présente page les décrit carte par carte ; les noms de cartes correspondent à l'interface de l'application.
 
 ![Figure : les paramètres système et leurs onze cartes](/images/mail/fr/ui/system-guide.png)
 
 *Figure : les paramètres système et leurs onze cartes*
-*Annotations: 1. Website ｜ 2. Customization ｜ 3. stockage & base  ｜ 4. AI Engine & modè ｜ 5. utilisateur Data*
 
+<details>
+<summary>Guide visuel : Réglages système  —  les cinq cartes de configuration les plus utilisées</summary>
+
+Cinq des onze cartes de configuration de la page des paramètres système : la configuration au niveau de l'instance, regroupée par thème — ici les cinq plus utilisées.
+
+1. **Carte paramètres du site** : Le groupe des interrupteurs généraux de l'instance : inscription ouverte, profils publics, mode courriel (trois niveaux), vérification en deux étapes, domaine de connexion masqué, codes d'inscription, ajout de boîtes, changement rapide multi-comptes et règles de préfixe de boîte.
+2. **Carte personnalisation** : La façade de l'instance : le titre du site donne sa marque à la page de connexion et à l'onglet du navigateur, le texte des dialogues remplace les messages intégrés, et le commutateur dynamique/statique décide si la page de connexion s'anime — le mode statique convient mieux aux appareils peu puissants et aux captures de preuve. Tout changement s'applique aussitôt à tout le monde.
+3. **Carte stockage et base de données centrale** : Stockage d'objets (B2/S3, repli R2/KV par défaut), architecture de la base de données centrale et tierce, limite de pièce jointe unique avec suppression en cascade, et contrôle de santé du cache KV.
+4. **Carte moteur IA** : Le fournisseur d'IA au choix entre deux (point de terminaison compatible OpenAI personnalisé ou Cloudflare Workers AI), l'interrupteur d'activation, le quota quotidien et la limite de débit, et l'autorisation des modèles par groupe d'identité.
+5. **Carte contrôle des données utilisateurs** : Ce que les utilisateurs ordinaires peuvent faire sur la page « Données » : push Telegram, transfert de courriels, prise en charge des API tierces, stockage apporté et quota de stockage par défaut. L'export des données reste toujours ouvert, hors de portée de cette carte.
+
+</details>
 
 ## 1. Paramètres du site
 
