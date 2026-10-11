@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent / "src" / "content" / "docs"
 SYMMETRIC_LANGS = ["mail", "zh-tw", "en", "es", "fr", "nl"]
-DOCS = ["project", "features", "modes", "settings", "interface", "search", "deployment", "development",
+DOCS = ["introduction", "project", "quickstart", "features", "modes", "settings", "interface", "search", "deployment", "development",
         "architecture", "overview", "privacy-policy", "terms-of-service",
         "acceptable-use", "data-security", "sub-processors", "key-terms", "tamper-proof",
         "service-scope", "open-source", "api", "security", "notify",

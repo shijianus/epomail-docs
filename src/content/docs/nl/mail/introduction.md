@@ -3,9 +3,9 @@ title: Inleiding EpoCanvas Mail documentatiesite
 description: Inleiding EpoCanvas Mail documentatiesite — positionering van de site, documentatiearchitectuur, leesroutes, meertalige structuur en volledige navigatie.
 ---
 
-**Site-lancering: 28 september 2026 | Huidige versie: v5.17 | Site-URL: docs.epocanvas.com/epomail**
+**Site-lancering: 28 september 2026 | Huidige versie: v5.19 | Site-URL: docs.epocanvas.com/epomail**
 
-**Datum van kracht: 5 oktober 2026 | Versie: 5.17**
+**Datum van kracht: 11 oktober 2026 | Versie: 5.19**
 
 De EpoCanvas Mail documentatiesite (hierna "deze site") is het officiële documentatiecentrum voor de open-source e-maildienst EpoCanvas Mail, met juridische voorwaarden, technische specificaties, gebruikershandleidingen en ontwikkelingsdocumentatie. Gebouwd met Astro 5 + Starlight, behoudt de site volledige structurele symmetrie over zes talen (vereenvoudigd Chinees, traditioneel Chinees, English, Français, Español, Nederlands), waarbij elk document woord voor woord is geverifieerd tegen de code-implementatie, wat gebruikers van gehoste instanties, zelf-hosters en auditdeelnemers een enkele bron van waarheid biedt. Deze pagina legt de positionering van de site, documentatiearchitectuur, leesroutes en navigatie-ingangspunten uit.
 
@@ -34,6 +34,7 @@ Deze site is georganiseerd in drie groepen documenten, die naar elkaar verwijzen
 | Document | Inhoud |
 | --- | --- |
 | [Projectoverzicht](/nl/mail/project/) | Positionering, kernfuncties, technische architectuuroverzicht, ontwikkelingsgeschiedenis en volledig commit-spoor |
+| [Snelstart](/nl/mail/quickstart/) | De kortste reeksen handelingen voor de gehoste en de zelfuitgerolde paden, met verzend- en ontvangstcontrole |
 | [Servicebereik en ondersteuning](/nl/mail/service-scope/) | Servicegrenzen, disclaimer en contactkanalen voor de gehoste instantie |
 | [Interface- en routekaart](/nl/mail/interface/) | Volledige interfacenavigatie en routemapping voor inbox, opstellen, instellingen en beheerconsole |
 
@@ -99,7 +100,7 @@ Deze site is georganiseerd rond twee complementaire routes:
 
 **Route 1: Het project begrijpen, voorbereiden op implementatie of leren gebruiken**
 
-[Projectoverzicht](/nl/mail/project/) → [Functiegids](/nl/mail/features/) → [Operationele modi](/nl/mail/modes/) → [Interface- en routekaart](/nl/mail/interface/) → [Zoek- en regelsreferentie](/nl/mail/search/) → [Instellingengids](/nl/mail/settings/) → [Implementatiegids](/nl/mail/deployment/) → [Ontwikkelingsgids](/nl/mail/development/)
+[Projectoverzicht](/nl/mail/project/) → [Snelstart](/nl/mail/quickstart/) → [Functiegids](/nl/mail/features/) → [Operationele modi](/nl/mail/modes/) → [Interface- en routekaart](/nl/mail/interface/) → [Zoek- en regelsreferentie](/nl/mail/search/) → [Instellingengids](/nl/mail/settings/) → [Implementatiegids](/nl/mail/deployment/) → [Ontwikkelingsgids](/nl/mail/development/)
 
 **Route 2: Privacy-juridische overeenkomsten en servicegrenzen begrijpen**
 

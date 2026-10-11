@@ -3,7 +3,7 @@ title: Analítica
 description: Página de analítica de EpoCanvas Mail — guía del administrador por los paneles de volumen de envío y recepción, tasa de interceptación, distribución de fuentes, curvas de crecimiento y uso de la IA.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
+**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
 
 La página de analítica es el panel de datos de la zona de administración (`#manage/admin/analysis`, clave de permiso `analysis:query`); agrega los indicadores de correo, de usuarios y de uso de la IA de la instancia. El alcance de cada indicador cambia con el modo de correo: en el modo cifrado (Level 3) el lado administrativo no lee el contenido del correo de los usuarios y los recuentos pertinentes quedan a nivel de metadatos.
 

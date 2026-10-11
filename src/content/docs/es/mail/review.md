@@ -3,7 +3,7 @@ title: Revisión del correo de todo el almacén
 description: Revisión del correo de todo el almacén de EpoCanvas Mail — búsqueda en la dimensión del correo, panel deslizante de detalle y eliminación física a cargo del administrador, con el efecto del modo de correo sobre la entrada.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
+**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
 
 La revisión del correo de todo el almacén es la interfaz de la dimensión de correo de la zona de administración (`#manage/admin/mail`, clave de permiso `all-email:query`). El nombre de la sección y su alcance visible cambian con el modo de correo: el modo de todo el correo (Level 1) muestra «Todo el correo», el modo privado (Level 2) muestra «Correo no deseado» y el modo cifrado (Level 3) oculta la sección entera (véase la sección 2 de [Modos de funcionamiento](/es/mail/modes/)).
 

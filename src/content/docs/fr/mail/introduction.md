@@ -3,9 +3,9 @@ title: Introduction au site de documentation EpoCanvas Mail
 description: Introduction au site de documentation EpoCanvas Mail — positionnement du site, architecture documentaire, parcours de lecture, structure multilingue et navigation complète.
 ---
 
-**Lancement du site : 28 septembre 2026 | Version actuelle : v5.17 | URL du site : docs.epocanvas.com/epomail**
+**Lancement du site : 28 septembre 2026 | Version actuelle : v5.19 | URL du site : docs.epocanvas.com/epomail**
 
-**Date d'effet : 5 octobre 2026 | Version : 5.17**
+**Date d'effet : 11 octobre 2026 | Version : 5.19**
 
 Le site de documentation EpoCanvas Mail (ci-après « ce site ») est le centre de documentation officiel du service de messagerie électronique open source EpoCanvas Mail, couvrant les conditions juridiques, les spécifications techniques, les guides d'utilisation et la documentation de développement. Construit avec Astro 5 + Starlight, le site maintient une symétrie structurelle complète sur six langues (chinois simplifié, chinois traditionnel, English, Français, Español, Nederlands), chaque document étant vérifié mot à mot par rapport à l'implémentation du code, offrant aux utilisateurs de l'instance hébergée, aux auto-hébergeurs et aux participants à l'audit une source unique de vérité. Cette page explique le positionnement du site, l'architecture documentaire, les parcours de lecture et les points d'entrée de navigation.
 
@@ -34,6 +34,7 @@ Ce site est organisé en trois groupes de documents, qui se référencent mutuel
 | Document | Contenu |
 | --- | --- |
 | [Présentation du projet](/fr/mail/project/) | Positionnement, fonctionnalités principales, aperçu de l'architecture technique, historique de développement et piste complète des commits |
+| [Prise en main](/fr/mail/quickstart/) | Les séquences d'actions les plus courtes des voies hébergée et auto-déployée, avec vérification d'envoi et de réception |
 | [Portée du service et assistance](/fr/mail/service-scope/) | Limites du service, clause de non-responsabilité et canaux de contact pour l'instance hébergée |
 | [Carte d'interface et de routage](/fr/mail/interface/) | Navigation complète de l'interface et cartographie des routes pour boîte de réception, composition, paramètres et console d'administration |
 
@@ -99,7 +100,7 @@ Ce site est organisé autour de deux parcours complémentaires :
 
 **Parcours 1 : Comprendre le projet, se préparer au déploiement ou apprendre à utiliser**
 
-[Présentation du projet](/fr/mail/project/) → [Guide des fonctionnalités](/fr/mail/features/) → [Modes de fonctionnement](/fr/mail/modes/) → [Carte d'interface et de routage](/fr/mail/interface/) → [Référence recherche et règles](/fr/mail/search/) → [Guide des paramètres](/fr/mail/settings/) → [Guide de déploiement](/fr/mail/deployment/) → [Guide de développement](/fr/mail/development/)
+[Présentation du projet](/fr/mail/project/) → [Prise en main](/fr/mail/quickstart/) → [Guide des fonctionnalités](/fr/mail/features/) → [Modes de fonctionnement](/fr/mail/modes/) → [Carte d'interface et de routage](/fr/mail/interface/) → [Référence recherche et règles](/fr/mail/search/) → [Guide des paramètres](/fr/mail/settings/) → [Guide de déploiement](/fr/mail/deployment/) → [Guide de développement](/fr/mail/development/)
 
 **Parcours 2 : Comprendre les accords juridiques de confidentialité et les limites du service**
 

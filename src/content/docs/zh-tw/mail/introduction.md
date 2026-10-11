@@ -3,9 +3,9 @@ title: EpoCanvas Mail 文件站介紹
 description: EpoCanvas Mail 文件站介紹——站點定位、文件架構、閱讀路線、多語言結構與完整導覽。
 ---
 
-**站點啟用：2026 年 9 月 28 日｜當前版本：v5.17｜站點地址：docs.epocanvas.com/epomail**
+**站點啟用：2026 年 9 月 28 日｜當前版本：v5.19｜站點地址：docs.epocanvas.com/epomail**
 
-**生效日期：2026 年 10 月 5 日｜版本：5.17**
+**生效日期：2026 年 10 月 11 日｜版本：5.19**
 
 EpoCanvas Mail 文件站（下稱「本站」）是 EpoCanvas Mail 開放原始碼電子郵件服務的官方文件中心，涵蓋法律條款、技術規範、使用指南與開發文件。本站以 Astro 5 + Starlight 構建，六語言完全對稱（簡體中文、繁體中文、English、Français、Español、Nederlands），全部文件經程式碼實作逐字核驗，為託管實例使用者、自行部署者與稽核參與者提供單一可信文件源。本頁說明本站的定位、文件架構、閱讀路線與導覽入口。
 
@@ -34,6 +34,7 @@ EpoCanvas Mail 文件站（下稱「本站」）是 EpoCanvas Mail 開放原始�
 | 文件 | 內容 |
 | --- | --- |
 | [專案介紹](/zh-tw/mail/project/) | 定位、核心功能、技術架構概覽、開發歷程與完整提交鏈路 |
+| [快速上手](/zh-tw/mail/quickstart/) | 託管實例與自部署兩條路徑的最短操作序列與收發核驗 |
 | [服務範圍與支援](/zh-tw/mail/service-scope/) | 託管實例的服務邊界、免責聲明與聯絡管道 |
 | [介面與路由總覽](/zh-tw/mail/interface/) | 收件匣、寫信、設定與管理控制台的完整介面導覽與路由映射 |
 
@@ -99,7 +100,7 @@ EpoCanvas Mail 文件站（下稱「本站」）是 EpoCanvas Mail 開放原始�
 
 **路線一：了解專案、準備部署或學習使用**
 
-[專案介紹](/zh-tw/mail/project/) → [功能指南](/zh-tw/mail/features/) → [運行模式](/zh-tw/mail/modes/) → [介面與路由總覽](/zh-tw/mail/interface/) → [搜尋與規則參考](/zh-tw/mail/search/) → [設定指南](/zh-tw/mail/settings/) → [部署指南](/zh-tw/mail/deployment/) → [開發指南](/zh-tw/mail/development/)
+[專案介紹](/zh-tw/mail/project/) → [快速上手](/zh-tw/mail/quickstart/) → [功能指南](/zh-tw/mail/features/) → [運行模式](/zh-tw/mail/modes/) → [介面與路由總覽](/zh-tw/mail/interface/) → [搜尋與規則參考](/zh-tw/mail/search/) → [設定指南](/zh-tw/mail/settings/) → [部署指南](/zh-tw/mail/deployment/) → [開發指南](/zh-tw/mail/development/)
 
 **路線二：了解隱私法律約定與服務邊界**
 

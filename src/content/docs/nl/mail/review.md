@@ -3,7 +3,7 @@ title: E-mailcontrole over de hele opslag
 description: De e-mailcontrole over de hele opslag van EpoCanvas Mail — zoeken in de beheerdimensie, de detail-lade en fysieke verwijdering, met de invloed van de e-mailmodus op de ingang.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
+**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
 
 De e-mailcontrole over de hele opslag is de e-mailinterface van de beheerzone (`#manage/admin/mail`, rechten-sleutel `all-email:query`). Naam en zichtbaar bereik van de sectie volgen de e-mailmodus: de Alle e-mail-modus (Level 1) toont «Alle e-mail», de privémodus (Level 2) toont «Spam», en de versleutelde modus (Level 3) verbergt de hele sectie (zie [Werkingsmodi](/nl/mail/modes/), sectie 2).
 

@@ -3,7 +3,7 @@ title: Label- en classificatiebeheer
 description: Label- en classificatiebeheer van EpoCanvas Mail — labels aanmaken met icoon en kleur, het onderhoud van de vier fabriekslabels via heuristiek, de bouwer van classificatieregels en de statistieken.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
+**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
 
 Labels en classificatieregels worden beheerd in «Instellingen → Labels» (`#settings/labels`). De volledige veldtabel van de regelvoorwaarden staat in sectie 7 van de [Zoek- en regelreferentie](/nl/mail/search/); deze pagina behandelt het beheer van de labels zelf en de statistieken.
 

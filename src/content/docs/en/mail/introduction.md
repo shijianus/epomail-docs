@@ -3,9 +3,9 @@ title: EpoCanvas Mail Documentation Site Introduction
 description: EpoCanvas Mail documentation site introduction — site positioning, documentation architecture, reading paths, multilingual structure and complete navigation.
 ---
 
-**Site Launch: September 28, 2026 | Current Version: v5.17 | Site URL: docs.epocanvas.com/epomail**
+**Site Launch: September 28, 2026 | Current Version: v5.19 | Site URL: docs.epocanvas.com/epomail**
 
-**Effective Date: October 5, 2026 | Version: 5.17**
+**Effective Date: October 11, 2026 | Version: 5.19**
 
 The EpoCanvas Mail documentation site (hereinafter "this site") is the official documentation hub for the EpoCanvas Mail open-source email service, covering legal terms, technical specifications, usage guides and development documentation. Built with Astro 5 + Starlight, the site maintains complete structural symmetry across six languages (Simplified Chinese, Traditional Chinese, English, Français, Español, Nederlands), with every document verified word by word against the code implementation, providing hosted-instance users, self-hosters and audit participants with a single source of truth. This page explains the site's positioning, documentation architecture, reading paths and navigation entry points.
 
@@ -34,6 +34,7 @@ This site is organized into three groups of documents, which cross-reference eac
 | Document | Contents |
 | --- | --- |
 | [Project Overview](/en/mail/project/) | Positioning, core features, technical architecture overview, development history and complete commit trail |
+| [Quick Start](/en/mail/quickstart/) | The shortest action sequences for the hosted and self-deployed paths, with send/receive verification |
 | [Service Scope & Support](/en/mail/service-scope/) | Service boundaries, disclaimer and contact channels for the hosted instance |
 | [Interface & Route Map](/en/mail/interface/) | Complete interface navigation and route mapping for inbox, compose, settings and admin console |
 
@@ -99,7 +100,7 @@ This site is organized around two complementary paths:
 
 **Path 1: Understanding the project, preparing for deployment or learning to use**
 
-[Project Overview](/en/mail/project/) → [Feature Guide](/en/mail/features/) → [Operating Modes](/en/mail/modes/) → [Interface & Route Map](/en/mail/interface/) → [Search & Rules Reference](/en/mail/search/) → [Settings Guide](/en/mail/settings/) → [Deployment Guide](/en/mail/deployment/) → [Development Guide](/en/mail/development/)
+[Project Overview](/en/mail/project/) → [Quick Start](/en/mail/quickstart/) → [Feature Guide](/en/mail/features/) → [Operating Modes](/en/mail/modes/) → [Interface & Route Map](/en/mail/interface/) → [Search & Rules Reference](/en/mail/search/) → [Settings Guide](/en/mail/settings/) → [Deployment Guide](/en/mail/deployment/) → [Development Guide](/en/mail/development/)
 
 **Path 2: Understanding privacy-legal agreements and service boundaries**
 

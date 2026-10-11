@@ -3,9 +3,9 @@ title: Introducción al sitio de documentación de EpoCanvas Mail
 description: Introducción al sitio de documentación de EpoCanvas Mail — posicionamiento del sitio, arquitectura documental, rutas de lectura, estructura multilingüe y navegación completa.
 ---
 
-**Lanzamiento del sitio: 28 de septiembre de 2026 | Versión actual: v5.17 | URL del sitio: docs.epocanvas.com/epomail**
+**Lanzamiento del sitio: 28 de septiembre de 2026 | Versión actual: v5.19 | URL del sitio: docs.epocanvas.com/epomail**
 
-**Fecha de vigencia: 5 de octubre de 2026 | Versión: 5.17**
+**Fecha de vigencia: 11 de octubre de 2026 | Versión: 5.19**
 
 El sitio de documentación de EpoCanvas Mail (en adelante "este sitio") es el centro de documentación oficial del servicio de correo electrónico de código abierto EpoCanvas Mail, que cubre términos legales, especificaciones técnicas, guías de uso y documentación de desarrollo. Construido con Astro 5 + Starlight, el sitio mantiene simetría estructural completa en seis idiomas (chino simplificado, chino tradicional, English, Français, Español, Nederlands), con cada documento verificado palabra por palabra contra la implementación del código, proporcionando a los usuarios de la instancia alojada, autohospedadores y participantes de auditoría una única fuente de verdad. Esta página explica el posicionamiento del sitio, la arquitectura documental, las rutas de lectura y los puntos de entrada de navegación.
 
@@ -34,6 +34,7 @@ Este sitio está organizado en tres grupos de documentos, que se referencian mut
 | Documento | Contenidos |
 | --- | --- |
 | [Resumen del proyecto](/es/mail/project/) | Posicionamiento, funciones principales, resumen de arquitectura técnica, historial de desarrollo y rastro completo de commits |
+| [Primeros pasos](/es/mail/quickstart/) | Las secuencias de acciones más cortas de las vías alojada y autoalojada, con verificación de envío y recepción |
 | [Alcance del servicio y soporte](/es/mail/service-scope/) | Límites del servicio, descargo de responsabilidad y canales de contacto para la instancia alojada |
 | [Mapa de interfaz y enrutamiento](/es/mail/interface/) | Navegación completa de interfaz y mapeo de rutas para bandeja de entrada, redactar, configuración y consola de administración |
 
@@ -99,7 +100,7 @@ Este sitio está organizado en torno a dos rutas complementarias:
 
 **Ruta 1: Comprender el proyecto, prepararse para el despliegue o aprender a usar**
 
-[Resumen del proyecto](/es/mail/project/) → [Guía de funciones](/es/mail/features/) → [Modos operativos](/es/mail/modes/) → [Mapa de interfaz y enrutamiento](/es/mail/interface/) → [Referencia de búsqueda y reglas](/es/mail/search/) → [Guía de configuración](/es/mail/settings/) → [Guía de despliegue](/es/mail/deployment/) → [Guía de desarrollo](/es/mail/development/)
+[Resumen del proyecto](/es/mail/project/) → [Primeros pasos](/es/mail/quickstart/) → [Guía de funciones](/es/mail/features/) → [Modos operativos](/es/mail/modes/) → [Mapa de interfaz y enrutamiento](/es/mail/interface/) → [Referencia de búsqueda y reglas](/es/mail/search/) → [Guía de configuración](/es/mail/settings/) → [Guía de despliegue](/es/mail/deployment/) → [Guía de desarrollo](/es/mail/development/)
 
 **Ruta 2: Comprender acuerdos legales de privacidad y límites del servicio**
 

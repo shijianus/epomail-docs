@@ -3,7 +3,7 @@ title: Analysepagina
 description: De analysepagina van EpoCanvas Mail — een beheerdersronde langs het e-mailvolume, het onderscheppingspercentage, de bronverdeling, de groeicurves en de AI-verbruikmeters.
 ---
 
-**Datum van inwerkingtreding: 6 oktober 2026 | Versie: 5.17**
+**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
 
 De analysepagina is het gegevensdashboard van de beheerzone (`#manage/admin/analysis`, rechten-sleutel `analysis:query`) en bundelt de e-mail-, gebruikers- en AI-verbruiksindicatoren van de instantie. De maatstaf van elke indicator volgt de e-mailmodus: in de versleutelde modus (Level 3) leest de beheerkant de e-mailinhoud van gebruikers niet; de betreffende tellingen zijn van metadataniveau.
 

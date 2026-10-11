@@ -3,7 +3,7 @@ title: Lista de usuarios
 description: Lista de usuarios de EpoCanvas Mail — búsqueda de cuentas, restablecimiento de contraseña, cambio de grupo de identidad, restablecimiento de la verificación en dos pasos, bloqueo y restauración, a cargo del administrador.
 ---
 
-**Fecha de entrada en vigor: 6 de octubre de 2026 | Versión: 5.17**
+**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
 
 La lista de usuarios es la interfaz de gestión de cuentas de la zona de administración (`#manage/admin/users`, clave de permiso `user:query`); permite al administrador buscar y tratar todas las cuentas del sitio.
 

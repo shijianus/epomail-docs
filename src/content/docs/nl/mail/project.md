@@ -5,7 +5,7 @@ description: Een complete introductie van het EpoCanvas Mail-project—positione
 
 **Eerste commit: 21 juli 2026 | Huidige versie: v1.1.0 | Licentie: MIT**
 
-**Datum van inwerkingtreding: 5 oktober 2026 | Versie: 5.17**
+**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
 
 EpoCanvas Mail is een open source e-mailservice die draait op het Cloudflare-edge-netwerk. Met één domein en één Cloudflare-account richt u een eigen mailboxdienst op met verzending en ontvangst van e-mail, bijlagen en toegang vanaf meerdere apparaten. Het project wordt geëxploiteerd als gehoste instantie op [mail.epocanvas.com](https://mail.epocanvas.com), publiceert zijn volledige broncode voor zelf-hosting en levert een bijbehorende Android-app (epomail). Deze pagina beschrijft de positionering, de functies, de technische architectuur, het beveiligingsontwerp en de ontwikkelgeschiedenis van het project; de juridische voorwaarden van de dienst en de privacypraktijken staan in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/).
 
@@ -187,6 +187,7 @@ Een domein en een Cloudflare-account; de uitrolstappen en het injecteren van de 
 
 | Bron | Link |
 | --- | --- |
+| De kortste snelstartreeksen en de verzend- en ontvangstcontrole van beide paden | [Snelstart](/nl/mail/quickstart/) |
 | De route en elementen van elke interface | [Interface en routekaart](/nl/mail/interface/) |
 | Zoekoperators en classificatieregelvoorwaarden | [Zoek- en regelreferentie](/nl/mail/search/) |
 | Volledige stappen voor zelfhosting | [Uitrolgids](/nl/mail/deployment/) |
