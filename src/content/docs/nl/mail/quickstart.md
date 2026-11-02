@@ -3,13 +3,13 @@ title: Snelstart
 description: Snelstart van EpoCanvas Mail — het kortste pad van registratie naar uw eerste verzonden e-mail op de gehoste instantie, en de volledige reeks van het klonen van de repository tot de verzend- en ontvangstcontrole op een zelfgehoste instantie.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Deze pagina geeft de kortste reeksen handelingen voor twee paden: pad A registreert op de gehoste instantie en loopt van aanmelding tot een eerste verzonden e-mail in zo'n tien minuten; pad B zet de hele dienst uit op uw eigen domein en Cloudflare-account, van het klonen van de repository tot de verzend- en ontvangstcontrole in zo'n dertig minuten. Beide paden draaien dezelfde code met dezelfde interface; deze pagina noemt alleen acties en resultaten, met links naar de speciale pagina's voor functiesemantiek en configuratie, en alles volgt de open-sourceimplementatie.
 
 De Traditioneel Chinese (Taiwan) versie van de juridische documenten van deze site is de officiële versie; de andere talen zijn referentievertalingen en bij twijfel geldt de officiële versie.
 
-![Schema van dubbele besturing van EpoCanvas Mail: één open-sourcecodebasis; de gehoste instantie wordt geëxploiteerd door het team, terwijl op een zelfuitgerolde instantie alle gegevens binnen de eigen Cloudflare-middelen van de uitroller blijven](/images/mail/nl/dual-nature-scale.svg)
+![Twee EpoCanvas Mail-paden: dezelfde open code, met middelen en externe diensten gekozen door de werkelijke beheerder van elke instantie](/images/mail/nl/dual-nature-scale.svg)
 
 *Figuur: beide paden draaien dezelfde code. Voor de gehoste instantie kiest u haar [Privacybeleid](/nl/mail/privacy-policy/) en [Servicevoorwaarden](/nl/mail/terms-of-service/); vanaf het moment van zelfuitrol wordt de uitroller de verwerkingsverantwoordelijke voor zijn gebruikers (zie [Overzicht van privacy en voorwaarden](/nl/mail/overview/), sectie 2).*
 
@@ -32,7 +32,7 @@ De Traditioneel Chinese (Taiwan) versie van de juridische documenten van deze si
 5. **Zet automatisch sorteren aan**: vier labels staan fabrieksstandaard klaar — Gemeenschap, Abonnementen, Promoties en Werk — en nieuwe post wordt door ingebouwde heuristiek gesorteerd; eigen regels, uitzonderingen en prioriteiten staan in [Label- en classificatiebeheer](/nl/mail/labels/).
 6. **Zet tweestapsverificatie aan**: onder «Instellingen → Beveiliging» koppelt u in drie stappen een authenticator-app (TOTP); na afloop verschijnen 10 eenmalige herstelcodes, die u offline bewaart. Stappen in de [Accountbeveiligingsgids](/nl/mail/security/).
 7. **Koppel Telegram-push (optioneel)**: ontvang nieuwe mail in realtime via uw eigen bot, met een 7 dagen geldige leeslink op de site. Stappen in de [Gids voor meldingen en doorsturen](/nl/mail/notify/).
-8. **Exporteer een back-up (optioneel)**: één klik op «Instellingen → Gegevens» exporteert een complete JSON-kopie; e-mail in de prullenbak wordt 7 dagen na ontvangst fysiek verwijderd, dus exporteer eerst wat u wilt bewaren (zie [Gegevensexport en opslag](/nl/mail/data/)).
+8. **Gegevens exporteren (optioneel)**: download onder «Instellingen → Gegevens» geselecteerde profiel- en niet-verwijderde mailvelden als JSON, zonder bijlagen, volledige oorspronkelijke MIME of alle beveiligingsinstellingen. Prullenbakopschoning gebruikt een aanmaaktijd ouder dan 7 dagen; bewaar bijlagen apart vóór verwijdering. Zie [Export](/nl/mail/data/), [Privacy](/nl/mail/privacy-policy/), [Beveiliging](/nl/mail/data-security/) en de [Verwerkerslijst](/nl/mail/sub-processors/).
 
 ## 3. Pad B: zelf uitrollen
 

@@ -5,7 +5,7 @@ description: Présentation complète du projet EpoCanvas Mail—positionnement, 
 
 **Premier commit : 21 juillet 2026 | Version actuelle : v1.1.0 | Licence : MIT**
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 EpoCanvas Mail est un service de messagerie open source qui fonctionne sur le réseau edge de Cloudflare. Avec un seul domaine et un compte Cloudflare, vous pouvez mettre en place un service de messagerie personnel prenant en charge l'envoi et la réception d'e-mails, les pièces jointes et l'accès multi-appareils. Le projet est exploité en tant qu'instance hébergée à l'adresse [mail.epocanvas.com](https://mail.epocanvas.com), publie l'intégralité de son code source pour l'auto-hébergement et propose une application Android compagnon (epomail). Cette page présente le positionnement du projet, ses fonctions, son architecture technique, sa conception de la sécurité et son historique de développement ; les conditions juridiques du service et les pratiques de confidentialité sont énoncées dans l'[Aperçu des mentions légales](/fr/mail/overview/).
 
@@ -13,14 +13,14 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 
 ![Architecture système d'EpoCanvas Mail : la couche client (application web, application Android, applications tierces OAuth) se connecte via le edge Cloudflare ; les Workers portent l'API, l'analyse des e-mails entrants et les fonctions d'IA, l'envoi sortant passant par Resend et Telegram ; les données sont stockées dans deux bases D1, KV et un stockage d'objets](/images/mail/fr/project-architecture.svg)
 
-*Figure : Architecture du système. Les clients se connectent par le edge, sans serveur d'origine unique ; les e-mails entrants sont reçus et analysés par Email Routing, l'envoi sortant passe par le canal Resend ; l'ensemble de l'état est conservé dans les ressources Cloudflare du déployeur.*
+*Figure : Email Routing analyse les messages entrants et les canaux configurés assurent l'envoi. Des données peuvent aussi atteindre le stockage, les identités, les notifications ou l'IA externes ; voir la [Liste des sous-traitants](/fr/mail/sub-processors/).*
 
 ## 1. Positionnement
 
 Exploiter son propre système de messagerie exige un serveur entretenu dans la durée, une IP fixe et une gestion anti-spam ; les services de messagerie commerciaux concentrent quant à eux les données entre les mains du fournisseur, sans que l'utilisateur puisse vérifier comment elles sont traitées. EpoCanvas Mail emprunte une troisième voie : l'ensemble du service tient dans le quota modéré de Cloudflare (calcul Workers, bases de données D1, cache KV, stockage d'objets R2), livré de manière serverless, sans coût de serveur fixe et avec un code entièrement open source.
 
 - Aucune charge d'exploitation : après le déploiement, ni maintenance du système ni des certificats ; la montée en charge et l'accélération mondiale sont gérées par Cloudflare ;
-- Maîtrise des données : toutes les données d'une instance auto-hébergée résident dans la base D1 et le stockage d'objets du déployeur lui-même ; le code n'intègre aucune télémétrie ;
+- Maîtrise des données : le déployeur choisit ressources et services externes. Le code traite des signaux de sécurité et conserve des traces. Aucun canal dédié de télémétrie d'usage vers l'auteur amont n'a été trouvé ; journaux et requêtes tierces existent. Voir la [Politique de confidentialité](/fr/mail/privacy-policy/) ;
 - Double usage : s'inscrire sur l'instance hébergée, ou prendre le code source et le déployer sur son propre domaine. La répartition du rôle de responsable du traitement dans chaque scénario figure à la section 2 de l'[Aperçu](/fr/mail/overview/).
 
 ## 2. Aperçu des fonctionnalités
@@ -37,19 +37,19 @@ Le serveur fonctionne sur Cloudflare Workers (sandbox V8 Isolate sans état) ; l
 Le projet convient aux situations suivantes :
 
 - particuliers ou petites équipes disposant déjà d'un domaine et d'un compte Cloudflare et souhaitant une boîte aux lettres sans coût de serveur fixe ;
-- utilisateurs auto-hébergés souhaitant un code source auditable et des données restant intégralement dans leur propre compte ;
+- utilisateurs auto-hébergés souhaitant un code auditable et le choix de leurs stockages et services tiers ;
 - utilisateurs individuels ayant besoin de boîtes isolées, d'un classement automatique et de l'extraction instantanée des codes de vérification pour les courriels d'inscription.
 
 Évaluez une alternative dans les situations suivantes :
 
-- scénarios d'entreprise exigeant un engagement de disponibilité, un support formel ou une conservation d'archives à long terme : le service ne garantit aucun SLA et les courriels de la corbeille sont supprimés physiquement 7 jours après réception (voir [Conditions d'utilisation](/fr/mail/terms-of-service/), Section 8) ;
+- usages exigeant disponibilité garantie, support formel ou archivage durable : aucun SLA n'est promis ; la corbeille utilise la création du message depuis plus de 7 jours, sans garantir 7 jours après déplacement. Voir la [Politique de confidentialité](/fr/mail/privacy-policy/) ;
 - usages centrés sur l'envoi massif de marketing : la politique d'utilisation acceptable interdit les courriels commerciaux massifs non sollicités (voir [Politique d'utilisation acceptable](/fr/mail/acceptable-use/), Section 3) ;
 - communications nécessitant un chiffrement de bout en bout : le chiffrement du service est un chiffrement statique côté serveur et ne couvre pas les pièces jointes (voir [Traitement des données et sécurité](/fr/mail/data-security/), Section 3) ;
 - utilisateurs ne souhaitant pas maintenir les ressources Cloudflare, le domaine et la configuration des clés : l'auto-hébergement requiert l'injection des secrets et l'initialisation (voir Section 8).
 
 ## 5. Aperçu de la conception de sécurité
 
-Les mots de passe sont hachés par PBKDF2-HMAC-SHA256 (100 000 itérations) avec sel ; les clés TOTP sont chiffrées au repos par AES-256-GCM ; les URL des courriels utilisent un hachage aléatoire de 20 caractères signé HMAC-SHA256 contre l'escalade de privilèges et l'énumération ; triple défense XSS et blocage SSRF ; remise des courriels officiels sous forme d'instantanés immuables. Ces mesures ont été bouclées lors du durcissement de sécurité complet du 22 septembre 2026 (43 assertions automatisées au vert) ; la liste complète figure dans [Architecture technique](/fr/mail/architecture/), section 7, et les informations et durées de conservation dues aux personnes dans [Traitement des données et maintien de la sécurité](/fr/mail/data-security/).
+Les nouveaux mots de passe utilisent par défaut PBKDF2-HMAC-SHA256 avec sel (210 000 itérations, configurables), avec migration des anciens hachés à la connexion ; les secrets TOTP activés utilisent AES-256-GCM. Autres mécanismes : liens signés, filtrage XSS, validation d'adresses sortantes et instantanés officiels. Les 43 assertions du 22 septembre 2026 sont un résultat historique, pas une certification de la version actuelle ou de la production. Voir [Architecture technique](/fr/mail/architecture/) et [Traitement des données et sécurité](/fr/mail/data-security/).
 
 ## 6. Historique de développement et chaîne des commits
 
@@ -144,9 +144,9 @@ Le tableau et la chaîne d'ancrage ci-dessus sont à l'échelle des jalons ; cha
 ## 7. Assurance qualité
 
 - Le répertoire `tests/` contient plus d'une centaine de scripts de test, d'audit et d'inspection automatisés, couvrant la régression navigateur sur pile complète Playwright, les assertions bout-en-bout publiques contre la production et les analyses statiques de tout le dépôt ;
-- Vérifications quantifiées représentatives : durcissement de sécurité 43／43 assertions, routage public bout-en-bout 32／32, surface de connexion en six langues 62／62, inspection sensorielle 33／33, et 369 comparaisons d'intégrité de production octet par octet ;
+- Résultats historiques : durcissement 43/43 assertions, routage public 32/32, connexion en six langues 62/62, inspection visuelle 33/33 et 369 comparaisons d'intégrité ; ils concernent les versions et environnements alors testés, sans valider la version actuelle ni la production ;
 - Triple audit statique i18n : `i18n-symmetry` (jeux de clés strictement symétriques entre les six langues), `i18n-audit` (zéro référence littérale manquante) et `i18n-hardcoded` (zéro texte visible codé en dur non enveloppé) ;
-- Zéro résidu de données de test : chaque cas de test nettoie physiquement dans un bloc `finally` ; la base de données et le KV ne contiennent aucune donnée fictive ;
+- Les règles de test imposent un nettoyage dans `finally` ; les résidus réels doivent être vérifiés dans les comptes rendus. Cette règle ne garantit pas une base et un KV toujours exempts de données de test ;
 - Le développement suit un SOP en cinq étapes (confirmation du périmètre, codage discipliné, tests sur pile complète, commits disciplinés, compte rendu en tête de réponse), avec une production ventilée dans `CHECKLIST.log` et `REPORTS.md`.
 
 ## 8. Obtenir le projet et le déployer
@@ -175,13 +175,13 @@ Les prérequis complets, la chaîne d'amorçage d'initialisation et l'injection 
 Le logiciel est gratuit sous licence MIT ; le coût de l'auto-hébergement correspond à votre propre consommation Cloudflare. L'instance hébergée n'a actuellement aucune fonction payante ; le nombre de boîtes, le volume d'envoi et les quotas de stockage dépendent du rôle du compte.
 
 **L'administrateur peut-il lire mes courriels ?**
-Cela dépend du mode de messagerie de l'instance : en mode « Tout », l'administrateur peut lire tous les courriels ; en mode « Privé », uniquement les indésirables, les courriels supprimés et sans propriétaire ; en mode « Chiffré », l'interface d'administration ne renvoie aucun courriel utilisateur. Voir la portée du chiffrement dans la [Politique de confidentialité](/fr/mail/privacy-policy/), Section 10.
+La visibilité administrateur dépend du mode : Tout permet tous les messages, Privé seulement les indésirables, supprimés et sans propriétaire, Chiffré bloque cette lecture dans l'interface. Le serveur garde la capacité de déchiffrement ; ce n'est pas du bout en bout. Voir la [Politique de confidentialité](/fr/mail/privacy-policy/) et [Traitement des données et sécurité](/fr/mail/data-security/).
 
 **Un courriel supprimé peut-il être récupéré ?**
-Les courriels de la corbeille sont supprimés physiquement par le système 7 jours après réception, sans possibilité de récupération ; conservez d'abord une copie via « Paramètres → Export des données » (voir la [Politique de confidentialité](/fr/mail/privacy-policy/), Section 8).
+La corbeille utilise la création du message depuis plus de 7 jours ; un déplacement ne remet pas le compteur à zéro. L'export contient des champs sélectionnés du profil et des messages non supprimés, sans pièces jointes ni MIME original complet. Gardez les pièces jointes séparément avant suppression et vérifiez l'export ; voir la [Politique de confidentialité](/fr/mail/privacy-policy/).
 
 **Que faut-il pour l'auto-hébergement ?**
-Un domaine et un compte Cloudflare ; les étapes de déploiement et l'injection des secrets figurent en Section 8. Toutes les données restent dans les ressources Cloudflare du déployeur, et le code ne contient aucune télémétrie.
+Il faut un domaine, un compte Cloudflare et les configurations utiles ; voir la section 8. Les services externes de délivrance, stockage, identité, notification et IA peuvent traiter des données : leur maintien intégral dans Cloudflare n'est pas garanti. Voir la [Liste des sous-traitants](/fr/mail/sub-processors/).
 
 ## 10. Documents associés
 

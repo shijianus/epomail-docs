@@ -3,7 +3,7 @@ title: Open Platform & API Access
 description: The EpoCanvas Mail open platform and API access guide — registering OAuth apps, the authorize and token endpoints, userinfo, scope semantics and the user-side consent and revocation flow.
 ---
 
-**Effective date: 11 October 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
 EpoCanvas Mail ships a built-in OAuth 2.0 / OIDC authorization center: the administrator registers third-party applications in the admin "App management" section (`#manage/admin/oauth-apps`), and external sites can then offer "Sign in with Epomail". This page is the complete developer tutorial; where the interface sits in the app appears in the [Interface & Route Map](/en/mail/interface/), Section 4, and the handling of authorization data is disclosed in the [Sub-processor List](/en/mail/sub-processors/).
 
@@ -19,7 +19,7 @@ Five regions of the apps page: four endpoints on top and one sample-app card, cl
 1. **`/.well-known/openid-configuration`**: The OIDC Discovery metadata endpoint: issuer, endpoints and capabilities, self-described so frameworks like NextAuth can auto-configure.
 2. **`/oauth/authorize`**: The user-consent endpoint: it walks the user through signing in and granting scope. Popups get the result via `postMessage`; a cancellation redirects back with `error=access_denied`.
 3. **`/api/oauth/token`**: The token endpoint: a one-time code (valid 5 minutes) exchanges for a 2-hour access token and ID Token. Accepts JSON, form and HTTP Basic; with PKCE configured it verifies `code_verifier` (S256).
-4. **`/api/oauth/userinfo`**: The userinfo endpoint: a Bearer access token reads the granted fields (`sub`, `email`, `name`, `picture`, …). Expired or revoked tokens get a 401.
+4. **`/api/oauth/userinfo`**: userinfo returns identity and role fields and may not filter them by each requested scope. Consult the recipient list for fields and revocation limits; scopes are not a guarantee of strict field filtering.
 5. **App card (shijianus-blog)**: One card per app: Client ID and Client Secret (the secret is shown in full only once, at creation or reset), an enable toggle, edit/delete, and five copy-ready integration snippets — NextAuth, Node, Python, cURL and generic OIDC.
 
 </details>
@@ -79,13 +79,13 @@ curl -X POST https://<instance-domain>/api/oauth/token \
 | `comments` | Blog comment and interaction management (used by the sample app; an interaction permission) |
 | `offline_access` | Long-lived sign-in; no refresh token is issued today, so granting this scope produces no offline token |
 
-userinfo returns: `sub`, `email`, `email_verified`, `name`, `preferred_username`, `picture`, `is_admin` and `role`.
+userinfo returns: `sub`, `email`, `email_verified`, `name`, `preferred_username`, `picture`, `is_admin` and `role`. userinfo returns identity and role fields and may not filter them by each requested scope. Consult the recipient list for fields and revocation limits; scopes are not a guarantee of strict field filtering.
 
 ## 5. User side: consent and revocation
 
 - The consent page shows the app's information, its official badge and the full scope list; authorizing never reveals the user's password or mail content;
 - Users can remove an app's access at any time under "Settings → Data" in the "Third-party apps and services" list, or revoke everything at once from the detail dialog;
-- Revocation is immediate: the app's existing tokens die on the spot (userinfo returns 401) and the grant is removed from the user's account.
+- Revocation blocks subsequent retrieval through this service's userinfo endpoint. It does not ensure immediate invalidity of issued ID tokens at third parties or recall data already obtained.
 
 ## 6. Personal API tokens (current status)
 

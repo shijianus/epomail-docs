@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="Chaîne des courriels officiels : verrou de l’expéditeur et marque officielle à l’émission, instantané immuable et repli de traduction à la livraison, sandbox client et manifeste d’intégrité pour la vérification">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="Libellés système, traduction et contrôles de registres : les libellés ne sont pas des signatures, la traduction peut utiliser une IA, et comparer métadonnées et empreintes ne vérifie pas le texte intégral affiché.">
   <style>
     .bg { fill: #f8fafc; }
     .band { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -36,42 +36,42 @@
   </defs>
   <rect class="bg" width="1000" height="480" rx="16"/>
   <rect class="band" x="40" y="35" width="920" height="110" rx="14"/>
-  <text class="lbl-blue" x="60" y="58">COUCHE 1 · IDENTITÉ OFFICIELLE DE L’EXPÉDITEUR (ÉMISSION)</text>
+  <text class="lbl-blue" x="60" y="58">TIER 1 · SYSTEM MAIL LABELS</text>
   <rect class="box-blue" x="60" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="78" y="93" font-size="13">Verrou de l’expéditeur officiel</text>
+  <text class="t" x="78" y="93" font-size="13">Configured sender</text>
   <text class="mono" x="78" y="112">announcement@epocanvas.com</text>
   <rect class="box" x="355" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="373" y="93" font-size="13">Marque officielle (isOfficial)</text>
-  <text class="b" x="373" y="112">adresses et étiquette officiels</text>
+  <text class="t" x="373" y="93" font-size="13">Official flag</text>
+  <text class="b" x="373" y="112">UI marker · not a signature</text>
   <rect class="box-green" x="650" y="70" width="290" height="60" rx="10"/>
-  <text class="t" x="668" y="93" font-size="13">Badge et bannière en lecture</text>
-  <text class="b" x="668" y="112">courriel officiel marqué dans le client</text>
+  <text class="t" x="668" y="93" font-size="13">Reader badge</text>
+  <text class="b" x="668" y="112">Display label · check the context</text>
   <path class="arrow" d="M195,145 L195,185"/>
   <path class="arrow" d="M490,145 L490,185"/>
   <path class="arrow" d="M795,145 L795,185"/>
   <rect class="band" x="40" y="190" width="920" height="115" rx="14"/>
-  <text class="lbl-amber" x="60" y="213">COUCHE 2 · LIVRAISON IMMUABLE (STOCKAGE)</text>
+  <text class="lbl-amber" x="60" y="213">TIER 2 · DELIVERY &amp; TRANSLATION</text>
   <rect class="box" x="60" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="78" y="249" font-size="13">Instantané immuable</text>
-  <text class="b" x="78" y="268">rendu une fois à l’envoi</text>
+  <text class="t" x="78" y="249" font-size="13">Rendered content</text>
+  <text class="b" x="78" y="268">Stored output · scope depends on path</text>
   <rect class="box-amber" x="355" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="373" y="249" font-size="13">Repli de traduction prédéfinie</text>
-  <text class="b" x="373" y="268">non modifié : local ; modifié : IA</text>
+  <text class="t" x="373" y="249" font-size="13">Translation routes</text>
+  <text class="b" x="373" y="268">Templates or AI by content &amp; settings</text>
   <rect class="box" x="650" y="225" width="290" height="64" rx="10"/>
-  <text class="t" x="668" y="249" font-size="13">Cycle de vie et chiffrement</text>
-  <text class="b" x="668" y="268">expire après N jours (7 par défaut)</text>
+  <text class="t" x="668" y="249" font-size="13">Retention &amp; cleanup</text>
+  <text class="b" x="668" y="268">Expiry marks · scheduled cleanup</text>
   <path class="arrow" d="M195,305 L195,345"/>
   <path class="arrow" d="M490,305 L490,345"/>
   <path class="arrow" d="M795,305 L795,345"/>
   <rect class="band" x="40" y="350" width="920" height="105" rx="14"/>
-  <text class="lbl-green" x="60" y="373">COUCHE 3 · SANDBOX CLIENT ET INTÉGRITÉ (VÉRIFICATION)</text>
+  <text class="lbl-green" x="60" y="373">TIER 3 · RENDERING &amp; RECORD CHECKS</text>
   <rect class="box-green" x="60" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="78" y="405" font-size="13">Isolation Shadow DOM</text>
-  <text class="b" x="78" y="423">styles et scripts de page sans effet</text>
+  <text class="t" x="78" y="405" font-size="13">Shadow DOM</text>
+  <text class="b" x="78" y="423">Style scope · no security guarantee</text>
   <rect class="box" x="355" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="373" y="405" font-size="13">Liste blanche DOMPurify</text>
-  <text class="b" x="373" y="423">script · iframe · embed · form supprimés</text>
+  <text class="t" x="373" y="405" font-size="13">DOMPurify</text>
+  <text class="b" x="373" y="423">Sanitize HTML · review allowed content</text>
   <rect class="box-blue" x="650" y="383" width="290" height="58" rx="10"/>
-  <text class="t" x="668" y="405" font-size="13">Manifeste d’intégrité</text>
-  <text class="b" x="668" y="423">tamper-proof.json · SHA-256 · commit figé</text>
+  <text class="t" x="668" y="405" font-size="13">Metadata &amp; hash records</text>
+  <text class="b" x="668" y="423">Record check · not a content signature</text>
 </svg>

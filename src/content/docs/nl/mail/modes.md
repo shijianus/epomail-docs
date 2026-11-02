@@ -3,7 +3,7 @@ title: Werkingsmodi
 description: Werkingsmodi van EpoCanvas Mail — implementatievormen, de drie privacy niveaus van de e-mailmodus, identiteitsgroepen en quota's, aanmelding en tweestapsverificatie, meerdere accounts en weergavemodi van de interface.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Dezelfde codebasis van EpoCanvas Mail neemt bij verschillende configuraties verschillende werkingsvormen aan: een instantie kan gehost of zelf uitgerold worden; de beheerder kiest tussen privacy en controleerbaarheid in drie e-mailmodi; accounts krijgen quota's en rechten naar gelang hun identiteitsgroep; en aanmelding, meerdere accounts en de weergave bieden elk verschillende opties. Deze pagina beschrijft het gedrag van en de verschillen tussen elke modus. Voor de gegevensverwerking die erbij hoort, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/); voor het gebruik van de functies, zie de [Functiegids](/nl/mail/features/); voor de instellingen zelf, zie de [Instellingengids](/nl/mail/settings/).
 
@@ -14,7 +14,7 @@ De dienst bestaat in de volgende twee vormen; de aanwijzing van de gegevensbehee
 | Vorm | Exploitant | Geschikt voor |
 | --- | --- | --- |
 | Gehoste instantie | Het EpoCanvas-exploitatieteam ([mail.epocanvas.com](https://mail.epocanvas.com)) | Registreren en gebruiken, zonder eigen domein of Cloudflare-account |
-| Zelf uitgerolde instantie | De persoon of organisatie die uitrolt | Alle gegevens blijven binnen de eigen Cloudflare-bronnen van de uitrolder, met controleerbare broncode |
+| Zelf uitgerolde instantie | De persoon of organisatie die uitrolt | De uitrolder kiest infrastructuur en externe diensten. Bezorgen, opslag, AI, vertaling, meldingen en externe bronnen kunnen derden inschakelen; niet alle gegevens blijven noodzakelijk bij Cloudflare. |
 
 ## 2. E-mailmodus: drie privacy niveaus
 
@@ -29,9 +29,9 @@ De beheerder kiest de e-mailmodus van de instantie op de website-instellingenkaa
 
 Het gebied e-mailmodus op de kaart Website-instellingen in de systeeminstellingen: één keuzemenu bepaalt hoe mail versleuteld wordt opgeslagen en hoeveel de beheerkant kan zien; de wijziging werkt onmiddellijk door.
 
-1. **Keuzemenu voor de e-mailmodus**: De beheerder kiest de balans uit drie niveaus: Level 1 alles in platte tekst (de beheerder ziet alle mail), Level 2 privémodus (fabrieksstandaard; correspondentie van gebruikers versleuteld in rust met AES-256-GCM), Level 3 volledige E2EE (de beheerkant krijgt helemaal geen emaillijsten van gebruikers).
+1. **Keuzemenu voor de e-mailmodus**: Onderwerp en inhoud worden volgens de modus aan serverzijde in rust versleuteld, niet end-to-end. Bijlagen en metadata zijn niet automatisch gedekt; sleutelhouders kunnen ontsleutelen.
 2. **Badge voor versterkte privacy op Level 2**: Deze instantie draait in de privé-e-mailmodus: de beheerder ziet alleen spam, de prullenbak en mail zonder eigenaar, en de hoofdschakelaar van tweestapsverificatie staat vergrendeld op aan.
-3. **De drie uitgeklapte opties**: L1 alles-modus, L2 privé-e-mailmodus (aanbevolen) en L3 versleutelde e-mailmodus (E2EE) in één oogopslag. In de versleutelde modus verdwijnt de ingang voor e-mailcontrole over de hele opslag, worden tijdstempels uit operatierapporten gehaald en staat globaal doorsturen vergrendeld op uit.
+3. **De drie uitgeklapte opties**: Onderwerp en inhoud worden volgens de modus aan serverzijde in rust versleuteld, niet end-to-end. Bijlagen en metadata zijn niet automatisch gedekt; sleutelhouders kunnen ontsleutelen.
 
 </details>
 
@@ -39,7 +39,7 @@ Het gebied e-mailmodus op de kaart Website-instellingen in de systeeminstellinge
 | --- | --- | --- | --- | --- |
 | Alle e-mail-modus (Level 1) | Alles in platte tekst | Alle e-mail | Kan uit | Kan aan |
 | Privé-e-mailmodus (Level 2, fabrieksinstelling) | Correspondentie van gebruikers versleuteld in rust met AES-256-GCM; prullenbak blijft in platte tekst voor herstel | Alleen spam, prullenbak en email zonder eigenaar | Vergrendeld op aan | Kan aan |
-| Versleutelde e-mailmodus (Level 3 [E2EE]) | Alle e-mail (prullenbak meegerekend) volledig versleuteld | Levert helemaal geen emaillijsten van gebruikers | Vergrendeld op aan | Vergrendeld op uit |
+| Serverversleutelde modus (Level 3) | Onderwerp en inhoud versleuteld in rust; bijlagen en metadata niet automatisch gedekt | Levert helemaal geen emaillijsten van gebruikers | Vergrendeld op aan | Vergrendeld op uit |
 
 Een moduswijziging werkt onmiddellijk door. In de versleutelde modus blijft de beheerlijst van e-mail permanent leeg, worden tijdstempels uit de auditrapporten gehaald en verdwijnt de e-mailcontrole-ingang uit de beheerzijbalk. Individueel doorsturen en Telegram-push die gebruikers zelf instellen volgen de sitewijde modus niet; die vallen onder de schakelaars voor gebruikersgegevensbeheer van de exploitant en de eigen instellingen van de gebruiker. In de privémodus wordt een bericht dat uit de prullenbak teruggehaald wordt eerst ontsleuteld voordat het terug in de mailbox belandt, en daarna opnieuw versleuteld.
 
@@ -87,7 +87,7 @@ Nieuwe registraties belanden in de fabrieksstandaardgroep, de Bezoeker; de explo
 De drie kerngebieden van het aanmeldscherm: één volledig traject voor aanmelden met wachtwoord; de knoppen voor snelle aanmelding via derden staan onder de kaart.
 
 1. **Veld voor het e-mailadres**: Het account is het e-mailadres zelf. In de registratiesleutelmodus accepteert deze pagina ook een uitnodigingsparameter `?code=` die het registratieformulier alvast invult.
-2. **Veld voor het wachtwoord**: Wachtwoorden worden als gezouten hash opgeslagen — de server ziet nooit platte tekst. «Wachtwoord vergeten» springt naar het externe beroepsportaal en draagt het beroepstype, de interfacetaal en het e-mailadres mee.
+2. **Veld voor het wachtwoord**: Nieuwe wachtwoordverificaties gebruiken gezouten PBKDF2. Historische migratie en MFA kunnen tijdelijk platte tekst in KV bewaren; de server verwerkt dus platte tekst. Zie gegevensverwerking en beveiliging.
 3. **Aanmeldknop**: Na verzending gaan accounts met tweestapsverificatie door naar de tweede factor; herhaalde mislukkingen lokken een anti-bruteforce-blokkade uit. Vink «Niet opnieuw vragen op dit apparaat» aan om 30 dagen van herverificatie vrijgesteld te zijn.
 
 </details>

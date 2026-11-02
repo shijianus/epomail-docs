@@ -3,9 +3,9 @@ title: EpoCanvas Mail Documentation Site Introduction
 description: EpoCanvas Mail documentation site introduction — site positioning, documentation architecture, reading paths, multilingual structure and complete navigation.
 ---
 
-**Site Launch: September 28, 2026 | Current Version: v5.19 | Site URL: docs.epocanvas.com/epomail**
+**Site Launch: September 28, 2026 | Current Version: v5.21 | Site URL: docs.epocanvas.com/epomail**
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
 The EpoCanvas Mail documentation site (hereinafter "this site") is the official documentation hub for the EpoCanvas Mail open-source email service, covering legal terms, technical specifications, usage guides and development documentation. Built with Astro 5 + Starlight, the site maintains complete structural symmetry across six languages (Simplified Chinese, Traditional Chinese, English, Français, Español, Nederlands), with every document verified word by word against the code implementation, providing hosted-instance users, self-hosters and audit participants with a single source of truth. This page explains the site's positioning, documentation architecture, reading paths and navigation entry points.
 
@@ -49,7 +49,7 @@ This site is organized into three groups of documents, which cross-reference eac
 | [Mailbox Interface & Message Detail](/en/mail/mailbox/) | Inbox views, three-column split, conversation threads and message-detail page item by item |
 | [Labels & Classification Management](/en/mail/labels/) | Label taxonomy, classification rule engine, black/white lists and global governance tools |
 | [Personal Data & General Settings](/en/mail/preferences/) | Profile cards, address cards, interface language, theme wallpaper and reading preferences |
-| [Data Export & Storage](/en/mail/data/) | JSON full-copy export, .eml single-message download and storage-usage management |
+| [Data Export & Storage](/en/mail/data/) | Selected-data JSON export, .eml downloads and storage management; scope limits are in the data security document |
 | [Account Security Guide](/en/mail/security/) | Username and password, two-step verification center (TOTP, backup recovery codes, passkeys) and trusted devices |
 | [Notifications & Forwarding Guide](/en/mail/notify/) | Personal forwarding, Telegram push and global forwarding rules configuration and behavior |
 | [Analytics](/en/mail/analysis/) | Data visualization dashboards, user growth and mail classification statistics |

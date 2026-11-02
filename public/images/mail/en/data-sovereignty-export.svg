@@ -1,4 +1,4 @@
-<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data sovereignty: self-service export, deletion with a recycle buffer, and enforceable rights">
+<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data rights: self-service export has limits; deletion requires checking copies and lawful retention; requests follow applicable legal deadlines.">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; }
@@ -22,32 +22,32 @@
     }
   </style>
   <rect class="bg" width="416" height="276" rx="16"/>
-  <text class="tag" x="26" y="26">YOUR DATA, YOUR CONTROL</text>
-  <text class="b" x="390" y="26" text-anchor="end">storage stays inside the instance</text>
+  <text class="tag" x="26" y="26">DATA RIGHTS</text>
+  <text class="b" x="390" y="26" text-anchor="end">Scope &amp; limits apply</text>
   <rect class="card" x="26" y="40" width="112" height="128" rx="10"/>
   <rect class="ico" x="42" y="54" width="26" height="26" rx="8"/>
   <path class="icod" d="M55 60 V72 M51 68.5 L55 72.5 L59 68.5"/>
   <path class="icod" d="M49 76 H61"/>
   <text class="t" x="42" y="96">Export</text>
-  <text class="b" x="42" y="110">self-service copy</text>
-  <text class="b" x="42" y="122">in JSON format,</text>
-  <text class="b" x="42" y="134">any time, in the app</text>
+  <text class="b" x="42" y="110">Selected data</text>
+  <text class="b" x="42" y="122">JSON copy</text>
+  <text class="b" x="42" y="134">Ask for missing data</text>
   <rect class="card" x="152" y="40" width="112" height="128" rx="10"/>
   <rect class="ico" x="168" y="54" width="26" height="26" rx="8"/>
   <path class="icod" d="M176 61 H186 M179 61 V59 H183 V61 M178 61 L179 74 H183 L184 61"/>
-  <text class="t" x="168" y="96">Delete</text>
-  <text class="b" x="168" y="110">recycle bin buffer,</text>
-  <text class="b" x="168" y="122">then hard delete;</text>
-  <text class="b" x="168" y="134">account deletion is final</text>
+  <text class="t" x="168" y="96">Deletion</text>
+  <text class="b" x="168" y="110">Request &amp; track</text>
+  <text class="b" x="168" y="122">Copies &amp; backups</text>
+  <text class="b" x="168" y="134">Lawful retention</text>
   <rect class="card" x="278" y="40" width="112" height="128" rx="10"/>
   <rect class="ico" x="294" y="54" width="26" height="26" rx="8"/>
   <path class="icod" d="M301 60 H315 L312 64 L315 68 H301 Z M303 68 V74"/>
   <text class="t" x="294" y="96">Rights</text>
-  <text class="b" x="294" y="110">access, copy, correct,</text>
-  <text class="b" x="294" y="122">stop processing, erase;</text>
-  <text class="b" x="294" y="134">answer within 30 days</text>
+  <text class="b" x="294" y="110">Access · correction</text>
+  <text class="b" x="294" y="122">Erasure · objection</text>
+  <text class="b" x="294" y="134">Legal time limits</text>
   <rect class="base" x="26" y="184" width="364" height="42" rx="10"/>
-  <text class="bt" x="44" y="202">Where your data lives:</text>
-  <text class="b" x="44" y="216">the operator's Cloudflare resources (D1 / KV / objects) · applicable law follows the operator's jurisdiction</text>
-  <text class="b" x="26" y="248">Self-hosting? You become the data controller — publish your own notice and channels.</text>
+  <text class="bt" x="44" y="202">Storage &amp; recipients</text>
+  <text class="b" x="44" y="216">Configured cloud &amp; external services · assess each data flow</text>
+  <text class="b" x="26" y="248">Requests: privacy@epocanvas.com · GDPR timing: see Privacy Policy 9</text>
 </svg>

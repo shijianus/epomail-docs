@@ -504,6 +504,9 @@
 }
 
 .tamper-copy-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+  word-break: normal;
   background: transparent;
   border: 1px solid var(--sl-color-hairline);
   border-radius: 4px;

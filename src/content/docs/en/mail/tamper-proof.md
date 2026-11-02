@@ -1,68 +1,80 @@
 ---
-title: Official Mail Specification & Tamper-Proof Verification
-description: How EpoCanvas Mail official system mail is issued and identified — the official flag, immutable delivery, client-side rendering isolation, and document tamper-proof verification.
+title: Official Mail Specification and Release Manifest Consistency Check
+description: Identifying EpoCanvas Mail system messages, notification types, delivery snapshots, template translation and rendering limits, and the scope of comparing two release manifest records.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
-This document explains how official system mail is issued and how to identify it, and describes the tamper-proof verification mechanism for the legal documents on this site, so you can confirm the authenticity of official communications and documents. It is established under the [Privacy & Terms Overview](/en/mail/overview/) and [Data Processing & Security Maintenance](/en/mail/data-security/).
 
-The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
+<!-- legal-review-draft -->
+:::caution[Legal review draft: not the current notice]
+This draft records proposed terms and matters still requiring verification. It does not replace the current live notice or certify compliance. It must not be used to enable processing before the operator identity and legally required contact information, actual legal bases, recipients and transfer safeguards, retention and deletion arrangements have been verified and the required notice provided. References to an authoritative version mean the Traditional Chinese drafting baseline, not entry into force. Existing statutory duties and user rights remain unaffected.
+:::
 
-![EpoCanvas Mail three-layer official mail pipeline: the issuance layer locks the official sender address and injects the official flag; the delivery layer fixes an immutable snapshot with preset-translation fallback; the client layer isolates rendering with Shadow DOM and content sanitizing](/images/mail/en/anti-tamper-architecture.svg)
+This document explains how system messages are identified and their processing limits, together with this site's release manifest consistency check. The check is not authentication of mail or documents, digital signature verification or legal compliance certification. Related rules appear in the [Privacy & Terms Overview](/en/mail/overview/) and [Data Processing & Security Maintenance](/en/mail/data-security/).
 
-*Figure: the three layers of official-mail processing. The issuance layer locks the official sender address and injects the official flag; the delivery layer fixes an immutable snapshot with preset-translation fallback; the client layer isolates rendering and supports document verification.*
+Traditional Chinese (Taiwan) is this site's authoritative version; other languages are reference translations. The authoritative version prevails in case of ambiguity, subject to applicable requirements for clear information, interpretation favourable to consumers, and non-excludable data protection and consumer rights. The open-source implementation describes technical behaviour; it does not replace the actual operator's statutory duties.
 
-## 1. Official Sender Identity and the Official Flag
+![Relationship between system-mail sender flags, delivery snapshots and template translation, client rendering, and release manifest records](/images/mail/en/anti-tamper-architecture.svg)
 
-Official system communications are distinguished from ordinary user mail as follows:
+*Figure: sender flags, body snapshots, style encapsulation and manifest records each have purposes and limits. Together they do not establish identity authentication, a script security sandbox or a tamper-proof guarantee for documents.*
 
-1. **A single official sender address**: welcome mail and global announcements are issued by the system from `announcement@epocanvas.com`. The address is built into the program; official mail is generated only through the privileged system pipeline.
-2. **The official flag (isOfficial)**: mail whose sender is `announcement@epocanvas.com` or `admin@epocanvas.com`, or that carries the "official" label, is marked by the system; the reading pane shows an official badge and banner so you can tell it apart from ordinary mail.
-3. **Lifecycle**: welcome mail and global announcements expire after a configurable number of days (7 by default) counted from delivery and are cleaned up by a scheduled task.
+## 1. System Sender Identity and Display Flags
 
-## 2. Catalogue of Official Mail
+Distinguish application display rules from identity authentication when identifying system communications:
 
-The official system mail of the service is limited to the following types, all generated from built-in templates:
+1. Welcome mail and global announcements are normally generated by the system using the built-in address `announcement@epocanvas.com`. This does not exclude other security or administrative notices, or make every message displaying that address authentic.
+2. `isOfficial` is an application display flag: mail from `announcement@epocanvas.com` or `admin@epocanvas.com`, or carrying the "official" label, may show a badge and banner. The flag is not a digital signature or independent authentication of the sender.
+3. Some system mail is lazily marked for deletion when the mail list is read, using a configurable expiry period (7 days by default), and subsequently cleaned up by the daily scheduled task. It is not immediately and completely erased on expiry. See Section 1.5 of [Data Processing & Security Maintenance](/en/mail/data-security/) for actual retention and cleanup limits.
+
+## 2. Catalogue of System Mail and Notices
+
+System communications include the following types. Whether and how they are sent depends on implementation, configuration and events; they are not limited to welcome mail and announcements:
 
 | Type | Trigger | Description |
 | --- | --- | --- |
-| Welcome mail | a new mailbox is created | built-in six-language template; expires after the configured days (7 by default) |
-| Global announcement | an administrator publishes a system announcement | built-in six-language template; same lifetime as welcome mail |
+| Welcome mail | A new mailbox is created | May use built-in six-language templates; retention and cleanup follow Section 1 |
+| Global announcement | An administrator publishes a system announcement | May use built-in six-language templates or modified content; retention and cleanup follow Section 1 |
+| Security notice | Login or security events, or incidents requiring notification by law | May be sent depending on events and applicable rules; a message about account security is not necessarily forged |
+| Administrative decision and appeal notice | Administrative action, a decision or an appeal review | May communicate action and review outcomes; retention of related records is addressed in the data security document |
 
-Beyond this table, the system never sends mail of the kind "account abnormal", "you have won", or "verification overdue" from any address. If you receive mail claiming to be official from a different sender address, report it through the channel in Section 6.
+A sender address, display flag or link in a message alone does not establish authenticity. Check notices through a known, trusted service entry point. When in doubt, use the channels in Section 6 and do not submit credentials through suspicious links.
 
-## 3. Immutable Delivery and Preset Translation
+## 3. Delivery Snapshots and Template Translation
 
-1. **Immutable snapshot delivery**: official mail has its placeholders substituted and its content fixed into a snapshot at send time; it is not regenerated when a recipient later changes the interface language, keeping official communications objectively unique;
-2. **Preset-translation fallback**: when you use "Translate" on an unmodified official mail, the preset official template in your language is rendered locally and no mail content is sent to any AI service; only mail whose body an administrator has modified goes through full-text AI translation (see Section 6 of the [Privacy Policy](/en/mail/privacy-policy/)).
+1. Template messages substitute variables and save a body snapshot at send time. Changing the interface language does not itself rewrite the saved body. This is not unalterable storage and provides no digital signature or identity authentication.
+2. When you use "Translate", a matching, available template in the target language can be rendered locally. An unrecognised or missing template, modified body or other non-match enters the general translation flow, which may use configured models, Workers AI or public translation fallbacks. There is no blanket guarantee that official mail never leaves the service. Recipients, processing chains and required safeguards are described in Sections 6 and 7 of the [Privacy Policy](/en/mail/privacy-policy/).
 
-## 4. Client-Side Rendering Isolation
+## 4. Client-Side Rendering Limits
 
-Mail content (official and inbound alike) is rendered in the browser under the following isolation measures:
+Mail rendering uses style encapsulation and content sanitisation. Neither is independent identity or security certification:
 
-1. **Shadow DOM isolation**: the body is rendered inside its own Shadow DOM; page-wide styles and scripts cannot affect the mail content, and styles inside the mail cannot leak into the page;
-2. **Whitelist sanitizing**: the body is sanitized with DOMPurify; `<script>`, `<iframe>`, `<object>`, `<embed>`, `<form>`, and `<style>` tags and inline event handlers are removed, blocking script injection and interface spoofing.
+1. Shadow DOM encapsulates DOM and style scopes to reduce interference between mail and page styles. It is not a script security boundary: it does not prevent page scripts from accessing or manipulating content and is not a separate-origin sandbox.
+2. DOMPurify removes dangerous tags and inline event handlers according to its configuration to reduce content injection risks. Its effectiveness depends on version, configuration and subsequent processing; it cannot guarantee prevention of all script injection, interface spoofing or remote resource requests.
 
-## 5. Document Tamper-Proof Verification
+## 5. Release Manifest Consistency Check
 
-The legal documents on this site are sealed cryptographically when published, so anyone can verify that what they read matches the released version in the open-source repository:
+`tamper-proof.json` is the existing filename of the release manifest, not a claim that it is signed or unalterable. The online panel only compares this page's entry in two manifest responses from the current site. It does not hash page content.
 
-| Verification route | Mechanism | Description |
+| Check route | Mechanism | Scope and limits |
 | --- | --- | --- |
-| Integrity manifest | `tamper-proof.json` | generated by the build pipeline from the git repository; records each document's SHA-256 hash, byte size, and pinned commit |
-| Embedded page panel | "Official Tamper-Proof & Integrity Verification" at the bottom of every page | shows this document's official hash and pinned commit; clicking "Verify this page now" re-fetches the manifest and compares it with the hash embedded in the page |
-| Offline verification | `sha256sum` / OpenSSL | hash the Markdown sources in the open-source repository and compare them against the manifest item by item |
-| Authoritative origin | `docs.epocanvas.com/epomail` | served over HTTPS; content read from another domain or a mirror should be checked against the manifest hashes |
+| Release manifest | `tamper-proof.json` | At build time, records working-tree source SHA-256 and byte counts after CRLF-to-LF normalisation, and the then-current Git HEAD; a commit identifier does not prove a clean working tree |
+| Panel on this page | "Release manifest consistency check" | Appears only on this page, after the introduction and figure and before Section 1; compares the entry's SHA-256 and full `gitCommit` across the initial and subsequent reads |
+| Manual source-file comparison | Node / `sha256sum` / OpenSSL | Independently check the source and version of the manifest and files, and hash local Markdown using the same line-ending rules; the panel does not perform this operation |
+| Request source | Same-origin manifest URL on the current site | Only reads that site's manifest; makes no GitHub request for independent verification. HTTPS alone does not prove publisher identity or a document's legal effect |
 
-:::tip[How to verify online]
-Click "Verify this page now" at the bottom of any document page: the panel re-fetches the official manifest and compares it with the hash embedded in the page. You can also run `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json` in a terminal to obtain the manifest and run `sha256sum` on the repository's Markdown files for an item-by-item check.
+Success means only that this page's entry hash and `gitCommit` match in both manifest reads. It does not verify page content, publisher identity, digital signatures or legal compliance. The manifest and script come from the same site; replacing both can still produce a consistent result, so this is not an independent basis of trust.
+
+:::tip[How to check manifest consistency]
+Click "Check manifest consistency" in the panel on this page. The first valid read only establishes a baseline and does not show success. A subsequent differing hash or commit shows "Verification failed"; a release update can also cause a difference. Network or HTTP errors, invalid JSON or structure, a missing page entry, an invalid 64-character hexadecimal SHA-256 or an invalid full Git commit show "Unable to verify", never success. After an initial failure, a successful reload only establishes a baseline and another check is required. Expand the panel's separate instructions for manual source-file comparison.
 :::
 
 ## 6. Responsibility Boundaries and Reporting Channels
 
-1. **Hosted instance**: the issuance of official mail, the sender identity, and the document seals are maintained by the official operations team;
-2. **Self-hosted instances**: self-hosters configure their own delivery channels and keys and should protect their instance as described in [Data Processing & Security Maintenance](/en/mail/data-security/); official communications of a self-hosted instance are the responsibility of that instance's operator;
-3. **Reporting channels**: to report mail impersonating the official identity, verification anomalies, or security vulnerabilities, contact:
-   - Official sending & security channel: `announcement@epocanvas.com`
-   - Privacy & data protection channel: `privacy@epocanvas.com`
+1. The actual operator of the hosted instance maintains its system notices and release manifest. EpoCanvas is a project name, not proof of a separate legal entity or certified security team. Operator identity and legally required disclosures are addressed in Section 2 of the [Privacy Policy](/en/mail/privacy-policy/).
+2. The actual operator of a self-hosted instance configures delivery, templates, keys and data maintenance, and implements applicable measures under [Data Processing & Security Maintenance](/en/mail/data-security/). Merely publishing source code does not make someone the operator of another instance; those actually operating it or determining processing remain responsible according to the facts.
+3. To report suspected impersonation, manifest differences or security issues, contact:
+   - System sending and security channel: `announcement@epocanvas.com`
+   - Privacy and data protection channel: `privacy@epocanvas.com`
+
+These allocations of roles, the project's nature and language precedence do not exclude liabilities that cannot lawfully be limited, data protection or consumer rights, or direct recourse to competent authorities and courts.

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Mapa del glosario: términos jurídicos y técnicos definidos una vez y usados en todos los documentos">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Términos jurídicos y técnicos: las funciones dependen de la actividad real; los mecanismos se entienden con su alcance y límites.">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -30,35 +30,35 @@
     }
   </style>
   <rect class="bg" width="1000" height="400" rx="16"/>
-  <text class="tag" x="60" y="46">MAPA DEL GLOSARIO — DEFINICIONES</text>
+  <text class="tag" x="60" y="46">LEGAL &amp; TECHNICAL TERMS</text>
   <rect class="c1" x="60" y="66" width="330" height="230" rx="12"/>
-  <text class="bt" x="84" y="96">Términos jurídicos</text>
+  <text class="bt" x="84" y="96">Legal terms</text>
   <rect class="row" x="80" y="112" width="290" height="36" rx="8"/>
-  <text class="t" x="94" y="135" font-size="12">Responsable · Encargado</text>
+  <text class="t" x="94" y="135" font-size="12">Controller · Processor</text>
   <rect class="row" x="80" y="156" width="290" height="36" rx="8"/>
-  <text class="t" x="94" y="179" font-size="12">Interesado · Finalidad</text>
+  <text class="t" x="94" y="179" font-size="12">Data subject · Purpose</text>
   <rect class="row" x="80" y="200" width="290" height="36" rx="8"/>
-  <text class="t" x="94" y="223" font-size="12">Transferencia internacional</text>
+  <text class="t" x="94" y="223" font-size="12">Transfer · Safeguards</text>
   <rect class="row" x="80" y="244" width="290" height="36" rx="8"/>
-  <text class="t" x="94" y="267" font-size="12">Deber de información · Negativa al marketing</text>
+  <text class="t" x="94" y="267" font-size="12">Notice · Rights · Remedies</text>
   <rect class="c2" x="610" y="66" width="330" height="230" rx="12"/>
-  <text class="bt" x="634" y="96">Términos técnicos</text>
+  <text class="bt" x="634" y="96">Technical terms</text>
   <rect class="row" x="630" y="112" width="290" height="36" rx="8"/>
-  <text class="t" x="644" y="135" font-size="12">Instancia · Operador</text>
+  <text class="t" x="644" y="135" font-size="12">Instance · Operator</text>
   <rect class="row" x="630" y="156" width="290" height="36" rx="8"/>
   <text class="t" x="644" y="179" font-size="12">D1 · KV · R2 · BYOS</text>
   <rect class="row" x="630" y="200" width="290" height="36" rx="8"/>
-  <text class="t" x="644" y="223" font-size="12">Cifrado en reposo · JWT · RBAC</text>
+  <text class="t" x="644" y="223" font-size="12">Scoped encryption · JWT · RBAC</text>
   <rect class="row" x="630" y="244" width="290" height="36" rx="8"/>
-  <text class="t" x="644" y="267" font-size="12">Cero telemetría · Borrado lógico / físico</text>
+  <text class="t" x="644" y="267" font-size="12">Telemetry · Deletion limits</text>
   <circle class="hub" cx="500" cy="181" r="86"/>
-  <text class="hub-t" x="500" y="172" text-anchor="middle">DEFINIDO AQUÍ</text>
-  <text class="hub-b" x="500" y="192" text-anchor="middle">usado de forma</text>
-  <text class="hub-b" x="500" y="208" text-anchor="middle">coherente en todo el sitio</text>
+  <text class="hub-t" x="500" y="172" text-anchor="middle">DEFINITIONS</text>
+  <text class="hub-b" x="500" y="192" text-anchor="middle">Read in context</text>
+  <text class="hub-b" x="500" y="208" text-anchor="middle">Assess actual facts</text>
   <path class="link" d="M392,181 L414,181"/>
   <path class="link" d="M586,181 L608,181"/>
-  <text class="tag" x="60" y="330">INTERPRETACIÓN</text>
+  <text class="tag" x="60" y="330">SCOPE &amp; LIMITS</text>
   <rect class="card" x="60" y="342" width="880" height="40" rx="10"/>
-  <text class="b" x="84" y="360">Términos jurídicos: uso general de protección de datos ; técnicos: la implementación de código abierto real.</text>
-  <text class="b" x="84" y="376">Los términos no listados se leen en el contexto de la Política de Privacidad y los Términos del Servicio.</text>
+  <text class="b" x="84" y="360">Legal roles follow actual purposes and means; technical scope follows the deployed implementation.</text>
+  <text class="b" x="84" y="376">Definitions do not create a lawful basis, certification or service guarantee.</text>
 </svg>

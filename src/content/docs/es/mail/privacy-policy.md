@@ -1,177 +1,182 @@
 ---
-title: Política de Privacidad
-description: Política de Privacidad de EpoCanvas Mail—los estándares y compromisos en materia de recopilación y utilización de datos, naturaleza del tratamiento, derechos de los interesados, transferencias internacionales y medidas de mantenimiento de la seguridad.
+title: Política de privacidad
+description: Fuentes, finalidades y bases jurídicas del tratamiento de datos del servicio de correo de prueba sin fines de lucro, tratamiento mediante IA, transferencias a terceros, límites de conservación y derechos aplicables, incluido el RGPD cuando corresponda.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
-Esta Política explica cómo el servicio EpoCanvas Mail (el «Servicio») recopila, trata, utiliza y transmite sus datos personales, así como los estándares y compromisos que el Operador sigue en materia de protección de datos. Debe leer esta Política antes de registrarse en el Servicio o utilizarlo; si no está de acuerdo con alguna parte de esta Política, no utilice el Servicio.
 
-Los hechos técnicos descritos en esta Política se rigen por la implementación real del código abierto del Servicio. Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional. La ley aplicable a la instancia que usted utiliza se determina por la ubicación de su operador (véase la Sección 12). Los documentos jurídicos y técnicos de este sitio siguen la implementación de código abierto del servicio y buscan establecer normas de comunicación comunitarias transparentes, rigurosas y no comerciales.
-
-![Los cinco pilares de la Política de Privacidad de EpoCanvas Mail: recopilación, utilización, transferencia, seguridad y derechos de los interesados, con contenidos respectivamente en el contrato y el consentimiento, la limitación de la finalidad, las garantías de transferencia, el mantenimiento de la seguridad y los recursos de los derechos, todos ellos sobre la base de la supervisión de la autoridad](/images/mail/es/privacy-pillars.svg)
-
-*Figura: Los cinco ejes principales de esta Política. La recopilación y la utilización se limitan a la medida necesaria para el fin específico; las transferencias internacionales siguen los requisitos de la ley aplicable y los mecanismos de garantía estándar; el mantenimiento de la seguridad mejora continuamente; los derechos del interesado se ejercen conforme a la Sección 9; y los cinco se apoyan en la supervisión de la autoridad.*
-
-## 1. Ámbito de aplicación
-
-Esta Política se aplica a los datos personales derivados de cualquier uso del Servicio por su parte, incluidos:
-
-1. la visita al sitio web del Servicio (`mail.epocanvas.com` o el dominio de una instancia autoalojada);
-2. el uso de la aplicación móvil (epomail);
-3. la conexión al Servicio a través de la API abierta.
-
-Las direcciones de correo que emite la instancia alojada pertenecen a los dominios `epomail.bond` y `epomail.cyou`; los correos oficiales del sistema (correos de bienvenida, anuncios globales) se envían desde `announcement@epocanvas.com`.
-
-Esta Política no se aplica a los sitios web y servicios de terceros enlazados o incrustados en el Servicio; esos terceros cuentan con sus propias políticas de privacidad, de las cuales son responsables.
-
-Un operador que autoaloje EpoCanvas Mail se convierte en responsable del tratamiento respecto de sus usuarios desde el momento del despliegue y debe cumplir por sí mismo, hacia sus usuarios, la obligación de notificación conforme a la ley aplicable en su lugar de ubicación; esta Política puede servir como texto base para dicha notificación.
-
-## 2. Responsable del Tratamiento y Encargados del Tratamiento
-
-| La instancia que usted utiliza | Responsable del tratamiento | Descripción |
-| --- | --- | --- |
-| Instancia alojada `mail.epocanvas.com` | El equipo de operaciones de EpoCanvas | Con respecto a los datos de cuenta, los registros de autenticación y los registros de auditoría de seguridad, el equipo de operaciones es el responsable del tratamiento; en cuanto al contenido del correo que usted envía y recibe, el equipo de operaciones lo trata en la medida necesaria para la prestación del servicio de comunicaciones |
-| Instancia autoalojada | La entidad que desplegó dicha instancia |el código abierto no contiene ningún mecanismo de telemetría; salvo los servicios externos configurados por el propio Operador, no devuelve datos de la instancia a los autores ascendentes ni a terceros |
-
-Los encargados del tratamiento tratan los datos siguiendo las instrucciones del responsable; véase [Subencargados del Tratamiento](/es/mail/sub-processors/) para la lista completa.
-
-## 3. Notificación en el momento de la recopilación
-
-El Servicio le notifica expresamente lo siguiente en el momento de recopilar datos personales de usted:
-
-| Elementos de notificación | Lo que el Servicio notifica |
-| --- | --- |
-| 1. La identidad del recopilador | El Operador (véase la Sección 2; para una instancia autoalojada, su entidad desplegadora) |
-| 2. Los fines de la recopilación | Prestación del servicio de comunicación por correo electrónico; gestión de la seguridad de la cuenta y de la información; prevención del abuso y del fraude; entrega de anuncios del sistema; cumplimiento de obligaciones legales (véase la tabla de mapeo de actividades de tratamiento de la Sección 5) |
-| 3. Las categorías de datos personales de que se trate | Datos de identificación (dirección de correo electrónico, nombre de usuario); datos de seguridad de la cuenta (hash de contraseña, credenciales de verificación en dos pasos); datos de preferencias de interfaz (idioma, modos claro y oscuro); datos de actividad de red (registros de correo, etiquetas, estrellas, estado de lectura); y cualquier otro dato mediante el cual una persona pueda identificarse directa o indirectamente (IP de inicio de sesión, y el sistema operativo, el navegador y el tipo de dispositivo analizados a partir del User-Agent)—véase la Sección 4 |
-| 4. El período, la región, los destinatarios y los medios de utilización | Período: durante la vida de la cuenta, con plazos de conservación fijos para algunos elementos (véase la matriz de tratamiento en [Procesamiento de Datos y Seguridad](/es/mail/data-security/)); Región: el Servicio está construido sobre la red perimetral global de Cloudflare y los datos pueden tratarse en cualquier nodo perimetral del mundo (véase la Sección 7); Destinatarios: el Operador y sus encargados del tratamiento, las aplicaciones de terceros que usted autorice y las autoridades facultadas por la ley (véase la Sección 7); Medios: almacenamiento, transmisión, recuperación, entrega push e inferencia en el perímetro automatizados, sin revisión manual salvo cuando lo exijan la ley o procedimientos judiciales |
-| 5. Los derechos ejercitables por el interesado y la forma de ejercerlos | Los derechos de consulta e inspección, de obtención de una copia, de complementación y rectificación, de cese de la recopilación, del tratamiento y de la utilización, y de supresión; véase la Sección 9 para saber cómo ejercerlos |
-| 6. Las consecuencias de no proporcionar los datos personales | La dirección de correo electrónico y la contraseña son necesarias para el registro y el inicio de sesión; sin ellas no puede crearse una cuenta. Todos los demás campos (apodo, avatar, biografía y similares) son opcionales, y no proporcionarlos no afecta el uso del Servicio |
-
-Cuando usted inicia sesión con una cuenta de Linux DO, el Servicio obtiene de esa fuente de identidad identificadores como su identificador de usuario, su apodo y su avatar; ello constituye la recopilación de datos personales no facilitados directamente por usted, cuya fuente es la cuenta de Linux DO con la que usted inicia sesión. El período, la región, los destinatarios y los modos de utilización, así como los derechos que puede ejercer y su forma de ejercicio, son los notificados en los apartados 2 a 5 de la tabla anterior. El Servicio no recopila ningún otro dato personal de fuentes distintas de usted.
-
-## 4. Datos personales recopilados
-
-### 4.1 Proporcionados por usted
-
-- **Dirección de correo electrónico y contraseña**: necesarias para el registro. La contraseña se almacena únicamente como un hash PBKDF2-HMAC-SHA256 (100.000 iteraciones, con una sal aleatoria independiente por usuario); a partir del hash no es posible recuperar la contraseña original.
-- **Credenciales de verificación en dos pasos (opcional)**: el secreto TOTP se almacena cifrado con AES-256-GCM; los códigos de recuperación de respaldo se almacenan únicamente como hashes SHA-256; las passkeys almacenan solo la clave pública, mientras que la clave privada permanece en su dispositivo.
-- **Datos de perfil (opcionales)**: apodo, avatar y biografía; las imágenes de avatar se almacenan por defecto en el almacenamiento de objetos propio de la instancia (KV), y el Operador puede configurar un servicio externo de alojamiento de imágenes mediante una variable de entorno (véase [Encargados del tratamiento](/es/mail/sub-processors/)).
-
-### 4.2 Sus comunicaciones
-
-El correo electrónico que envía y recibe (incluidos metadatos como remitente y destinatario, asunto, cuerpo y marcas de tiempo) y sus adjuntos, junto con las etiquetas, estrellas, estados de lectura y recordatorios de posposición que aplique, se almacenan en la base de datos de la instancia (Cloudflare D1) y en el almacenamiento de objetos (resuelto en orden según la configuración de la instancia: su propio almacenamiento compatible con S3, un almacén compatible con S3 configurado por el Operador, un enlace de Cloudflare R2; en su defecto, Cloudflare KV). La titularidad y la responsabilidad sobre el contenido del correo le corresponden a usted; el Operador no vende el contenido del correo, no lo utiliza con fines publicitarios y no integra ningún sistema de análisis de terceros.
-
-### 4.3 Datos técnicos registrados automáticamente
-
-- **Registros de inicio de sesión y de seguridad**: la dirección IP, el User-Agent del navegador y el sistema operativo, el navegador y el tipo de dispositivo analizados a partir de este, registrados durante el registro de la cuenta y el inicio de sesión, utilizados para la auditoría de seguridad de la información y la identificación de inicios de sesión anómalos.
-- **Tokens de sesión**: el JWT emitido tras el inicio de sesión (válido durante 30 días) se almacena en el localStorage de su navegador para mantener su sesión iniciada y sus preferencias de interfaz. El Servicio no utiliza cookies para identificarle ni para rastrear su comportamiento, y no existe rastreo entre sitios.
-- **Cookies y verificación humana**: la verificación de Turnstile la proporciona Cloudflare; durante la verificación puede aparecer en su navegador un almacenamiento estrictamente necesario para completar el desafío. El Servicio no lo lee ni lo utiliza con fines de identificación o publicidad. El Servicio no incrusta scripts de publicidad, análisis ni plataformas sociales.
-- **Registros de la red perimetral**: Cloudflare trata los metadatos de las solicitudes conforme a sus propias políticas.
-
-### 4.4 Datos que el Servicio no recopila
-
-El Servicio no contiene ningún SDK de rastreo publicitario, ni elaboración de perfiles de comportamiento, ni cookies entre sitios, ni Google Analytics ni ningún sistema de análisis de terceros; tampoco lee los contactos, la fototeca ni la ubicación de su dispositivo, ni los datos de otras aplicaciones.
-
-### 4.5 Datos personales de alta sensibilidad
-
-Los datos personales relativos a antecedentes médicos, tratamientos médicos, información genética, vida sexual, exámenes de salud y antecedentes penales constituyen categorías de alta sensibilidad, cuya recopilación y tratamiento están sujetos a restricciones estrictas en la mayoría de las jurisdicciones. Los campos de cuenta y de sistema del Servicio no recopilan tales datos. No obstante, el contenido que usted transmita por correo electrónico puede contenerlos; el Operador los almacena y transmite pasivamente únicamente en la medida necesaria para la prestación del servicio de comunicaciones, y no analiza ni elabora perfiles del contenido. Usted debe decidir con cautela si transmite datos personales de alta sensibilidad por correo electrónico.
-
-## 5. Naturaleza del tratamiento de la recopilación, el tratamiento y la utilización
-
-La naturaleza de cada una de las actividades de tratamiento del Servicio es la siguiente:
-
-| Actividad de tratamiento | Fin específico | Naturaleza del tratamiento |
-| --- | --- | --- |
-| Registro de la cuenta, inicio de sesión y administración del buzón | Prestación del servicio de correo electrónico | Tratamiento necesario para la ejecución del contrato, con adopción de medidas de seguridad apropiadas |
-| Registros de inicio de sesión, bloqueo por fallos y verificación en dos pasos | Mantenimiento de la seguridad de la información | Tratamiento necesario para la ejecución del contrato, de conformidad con el principio de proporcionalidad |
-| Extracción automática de códigos de verificación (opcional, habilitada por el Operador) | Mejora de la comodidad del servicio | Con su consentimiento; puede solicitar su desactivación o migrar a una instancia en la que la función no esté habilitada |
-| Traducción de correo y reconocimiento de texto en imágenes (activados por usted) | Asistencia de contenido | Con su consentimiento; nada se transmite salvo que usted lo active |
-| Página de perfil público (desactivada por defecto) | Presentación social | Datos que usted ha hecho públicos por sí mismo |
-| Anuncios del sistema y correo de bienvenida oficial | Ejecución del contrato y comunicación con los usuarios | Tratamiento necesario para la ejecución del contrato |
-
-Sus datos personales se utilizan únicamente para la finalidad de la recopilación y el ámbito estrechamente relacionado con ella. El Servicio no utiliza sus datos personales para la toma de decisiones automatizada, la elaboración de perfiles de usuarios ni ningún fin comercial ajeno a la prestación del Servicio. Cuando el Operador realice marketing con datos personales, en cuanto usted manifieste su negativa a recibir comunicaciones comerciales, el Operador cesará de inmediato dicha utilización; y en el momento del primer envío comercial le proporcionará los medios para rechazarlo.
-
-## 6. Aviso especial sobre el tratamiento mediante IA
-
-El Servicio implica tres tipos de tratamiento mediante IA; sus condiciones de activación y el alcance de los datos involucrados son los siguientes:
-
-1. **Extracción automática de códigos de verificación** (opcional, habilitada por el Operador): cuando llega un correo nuevo, el sistema envía el asunto y los primeros 6.000 caracteres del cuerpo a Cloudflare Workers AI para su inferencia en nodos perimetrales y extraer los códigos de verificación del correo. Este es el único tratamiento mediante IA no activado manualmente por usted; si no desea este tratamiento, puede pedir al Operador que desactive la función o migrar a una instancia en la que la función no esté habilitada.
-2. **Traducción de correo** (activada por usted): tras pulsar «Traducir», el texto del correo se envía por fragmentos al punto de conexión del modelo de gran tamaño configurado por la instancia (protocolo compatible con OpenAI por defecto), con las API públicas de MyMemory y Google Translate como respaldo. Si no activa la traducción, el contenido del correo no se transmite a ningún servicio de IA. Cuando los correos oficiales del sistema (bienvenida, anuncios globales) no han sido modificados por el administrador, su traducción proviene directamente de las plantillas oficiales predefinidas en el idioma correspondiente y se renderiza localmente en el cliente, sin transmitir el contenido del correo a ningún servicio de IA; los modificados siguen el flujo de IA descrito.
-3. **Reconocimiento de texto en imágenes** (activado por usted): una imagen que contenga texto solo se envía a los servicios de IA descritos cuando usted la carga; las imágenes puramente decorativas, los logotipos y los iconos se omiten automáticamente.
-
-El Operador no entrena ningún modelo con contenido de correo ni envía a los servicios de IA información de identidad más allá del texto necesario para la traducción o el reconocimiento. Puede retirar en cualquier momento, por los medios indicados en la Sección 9, el consentimiento de los tratamientos descritos anteriormente que se basen en el consentimiento; la retirada no afecta a los tratamientos realizados con anterioridad a la misma.
-
-## 7. Comunicación a terceros y transferencias internacionales
-
-El Servicio comparte datos personales con terceros conforme al principio de mínima necesidad, únicamente en las circunstancias siguientes (véase [Subencargados del Tratamiento](/es/mail/sub-processors/) para la lista completa y las garantías):
-
-1. **Encargo del tratamiento**: Cloudflare (computación, almacenamiento, enrutamiento de correo, verificación de bots, IA perimetral) y Resend o Mailjet (entrega saliente; solo el correo enviado fuera de la plataforma implica el correo completo);
-2. **Con su autorización**: notificaciones de Telegram (solo se envían los campos que usted configure), aplicaciones OAuth de terceros (alcance limitado a openid / profile / email, revocable en cualquier momento), inicio de sesión con Linux DO y vinculación de nivel del blog (blog.epocanvas.com; su dirección de correo electrónico se transmite en la consulta);
-3. **Activados por usted**: servicios de traducción mediante IA y de reconocimiento de texto en imágenes (véase la Sección 6);
-4. **Requisitos legales**: se proporcionan únicamente cuando una autoridad competente así lo requiera mediante procedimientos legales, con notificación a usted en la medida permitida por la ley.
-
-Principios de tratamiento de las solicitudes de las autoridades encargadas de la aplicación de la ley y judiciales: el Operador solo facilita datos cuando la solicitud se basa en un fundamento legal concreto, verifica la legalidad y el alcance de la solicitud, no facilita voluntariamente contenido que exceda lo solicitado y notifica con antelación a las personas afectadas cuando la ley lo permite (salvo prohibición legal); el Servicio no se somete a accesos arbitrarios sin fundamento legal.
-
-El Servicio está construido sobre la red perimetral global de Cloudflare y sus datos personales pueden tratarse en nodos situados fuera del país donde resida el Operador; el Operador cumple los requisitos de la ley aplicable en materia de transferencias internacionales y las restricciones que la autoridad competente dicte conforme a la ley, y se apoya en las medidas de protección de datos de Cloudflare (certificaciones SOC 2 Type II e ISO/IEC 27001) y en el mecanismo de las Cláusulas Contractuales Estándar (SCC) de la UE para garantizar las transferencias. Los operadores de instancias autoalojadas deberán evaluar por sí mismos y asegurar que sus transferencias internacionales cumplan los requisitos legales de su lugar de ubicación.
-
-## 8. Plazos de conservación y supresión de los datos
-
-| Categoría de datos | Política de conservación |
-| --- | --- |
-| Correo de la bandeja de entrada | Se conserva hasta que usted lo elimine o hasta que se active la depuración por cuota |
-| Correo no deseado | Permanece en cuarentena durante 7 días y luego se traslada a la papelera |
-| Correo de la papelera | Supresión física mediante una tarea programada del sistema 7 días después de la recepción (incluidos adjuntos e índices) |
-| Correos oficiales del sistema (correos de bienvenida, anuncios globales) | Caducan y se suprimen automáticamente 7 días después de la entrega por defecto; el Operador puede configurar el plazo |
-| Uso del buzón superior al 90 % | El sistema suprime físicamente el correo ya marcado como eliminado para liberar espacio |
-| Cancelación de la cuenta | Las sesiones quedan invalidadas de inmediato; el correo pasa a un estado de eliminación lógica y, salvo que la ley exija su conservación, un administrador realiza la supresión física en un plazo de 90 días |
-| Supresión física | Los datos de cuenta, los buzones, el correo, los adjuntos, las autorizaciones OAuth y las sesiones se eliminan conjuntamente y no pueden recuperarse |
-| Aplicación por infracciones | después de que una cuenta sea suspendida por infracciones, el Operador puede purgar de forma forzada sus correos y adjuntos para liberar espacio (véase la escalera de aplicación de la [Política de Uso Aceptable](/es/mail/acceptable-use/)) |
-| Cese de la instancia | El Operador deberá notificarlo con antelación y ofrecer una ventana de exportación de datos; tras el cese, los datos se destruyen junto con los recursos de Cloudflare |
-
-Los datos no pueden recuperarse tras la supresión física. Antes de la eliminación, puede obtener una copia completa en formato JSON (incluidos los datos de perfil y el texto íntegro del correo aún no eliminado) mediante «Configuración → Exportar datos». Para una descripción completa de las medidas técnicas, véase [Procesamiento de Datos y Seguridad](/es/mail/data-security/).
-
-## 9. Derechos de los interesados y cómo ejercerlos
-
-Usted dispone de los siguientes derechos respecto de sus datos personales:
-
-1. consultar o solicitar la inspección;
-2. solicitar una copia (implementada por el Servicio mediante la función «Exportar datos»);
-3. solicitar la complementación o la rectificación;
-4. solicitar el cese de la recopilación, del tratamiento o de la utilización;
-5. solicitar la supresión.
-
-Cómo ejercerlos: las funciones de autoservicio de la interfaz (exportación, cancelación de la cuenta, revocación de autorizaciones OAuth y cierre de sesión) surten efecto de inmediato; para las solicitudes que requieran gestión manual, el Operador responde y las procesa dentro de los 30 días siguientes a su recepción. Contacto: `privacy@epocanvas.com`.
-
-Si usted considera que el tratamiento del Servicio ha lesionado sus derechos, puede solicitar reparación al Operador; el Operador responde de explicar y acreditar la licitud de su tratamiento. También puede presentar una reclamación ante la autoridad competente del lugar donde se ubica el Operador o buscar recursos legales (la ley aplicable se expone en la Sección 12).
-
-## 10. Medidas de mantenimiento de la seguridad
-
-El Operador establece y mejora continuamente las medidas de mantenimiento de la seguridad para impedir que los datos personales sean sustraídos, alterados, dañados, perdidos o filtrados, entre ellas: cifrado HTTPS/TLS en tránsito en todo el sitio; hash con sal PBKDF2 de las contraseñas; cifrado AES-256-GCM en reposo de los secretos TOTP; bloqueo por inicios de sesión fallidos (bloqueo de 12 horas tras 5 fallos consecutivos); un límite de 10 sesiones con revocación inmediata; enrutamiento del correo basado en hashes criptográficos (para impedir el acceso no autorizado y la enumeración de recursos); y cabeceras defensivas y una lista de permitidos MIME para la descarga de adjuntos. Para la lista completa, véase [Procesamiento de Datos y Seguridad](/es/mail/data-security/).
-
-:::caution[Alcance y límites del cifrado]
-El cifrado de los tres modos de correo del Servicio—«todo», «privado» y «cifrado»—es un cifrado en reposo del lado del servidor: las claves se derivan de las variables de entorno del servidor de la instancia y de la identidad del usuario. Este mecanismo protege contra el riesgo de robo de los archivos de la base de datos o de filtración de instantáneas; no constituye cifrado de extremo a extremo, y un Operador que posea el servidor y las claves tiene técnicamente la capacidad de descifrar. El alcance de acceso del administrador depende del modo: en modo «todo el correo» el administrador puede leer todo el correo; en modo «privado», únicamente el correo no deseado, eliminado y sin propietario; en modo «cifrado», la interfaz de administración no devuelve el correo de los usuarios. Cuando se requiera confidencialidad también frente al Operador, cifre usted mismo el cuerpo del correo con una herramienta de cifrado de extremo a extremo como GPG antes de enviarlo.
+<!-- legal-review-draft -->
+:::caution[Borrador de revisión jurídica: no es el aviso vigente]
+Este borrador recoge cláusulas propuestas y cuestiones pendientes de verificación. No sustituye al aviso vigente ni certifica el cumplimiento. No debe utilizarse para activar tratamientos antes de verificar la identidad y los datos de contacto legalmente exigidos al operador, las bases jurídicas reales, los destinatarios y las garantías de transferencia, la conservación y la supresión, y de facilitar la información requerida. La versión de referencia es la base de redacción en chino tradicional, no una entrada en vigor. Las obligaciones legales y los derechos existentes no se alteran.
 :::
 
-## 11. Protección de la infancia y la adolescencia
+Esta Política explica cómo la instancia de EpoCanvas Mail trata datos personales, incluidos los de remitentes y destinatarios que se comunican con usuarios sin registrarse. Es una notificación sobre el tratamiento de datos, no un contrato que le exija otorgar un consentimiento general para todos los tratamientos; leerla, continuar utilizando el Servicio o aceptar los Términos del Servicio no sustituye el consentimiento separado que deba obtenerse conforme a la ley. Puede contactar al Operador, oponerse al tratamiento o ejercer sus derechos conforme a la Sección 9.
 
-El Servicio no está dirigido a menores de 14 años y no recopila conscientemente datos personales de niños. Un tutor que considere que un niño ha proporcionado datos personales puede contactar al Operador para solicitar la supresión; la solicitud se procesará de inmediato tras su verificación. Ninguna persona puede utilizar el Servicio para difundir a niños y adolescentes contenidos perjudiciales para su salud física o mental; para las restricciones de uso relacionadas, véase la [Política de Uso Aceptable](/es/mail/acceptable-use/). Los operadores de instancias autoalojadas fijarán por sí mismos el umbral de edad de conformidad con las leyes de su jurisdicción.
+La versión en chino tradicional (Taiwán) es la versión oficial de este sitio; los demás idiomas son traducciones de referencia. Esta disposición no excluye el derecho a recibir una notificación comprensible ni los derechos imperativos de consumidores e interesados exigidos por la ley aplicable. Este texto se ha preparado a partir de la implementación de código abierto verificada y no demuestra que la instancia en línea haya habilitado todos los ajustes de seguridad ni obtenido una certificación de cumplimiento.
 
-## 12. Ley aplicable y supervisión de la autoridad
+![Los cinco temas de la Política de Privacidad: recopilación, utilización, transferencia, seguridad y derechos](/images/mail/es/privacy-pillars.svg)
 
-El proyecto de código abierto no presta ningún servicio ni responde del cumplimiento de ninguna instancia; las obligaciones legales corresponden a la entidad que opera el servicio. La ley aplicable a cada instancia se determina por la ubicación de su operador: la instancia alojada `mail.epocanvas.com` es operada por el equipo de operaciones desde Taiwán; el tratamiento de datos personales de dicha instancia se rige por la ley de Taiwán actualmente en vigor, incluida la Ley de Protección de Datos Personales (PDPA), y el Operador acepta la inspección y la supervisión que la autoridad competente de dicha ley realiza conforme a la ley; esta Política y [Procesamiento de Datos y Seguridad](/es/mail/data-security/) constituyen los documentos base para dicha inspección. La ley aplicable a las instancias autoalojadas es la del lugar donde se ubica su entidad desplegadora, y las obligaciones de notificación, de mantenimiento de la seguridad y de sometimiento a supervisión las cumple por sí misma dicha entidad.
+*Figura: el tratamiento debe tener una finalidad específica y una base válida; las transferencias a terceros deben contar con garantías adecuadas; los interesados pueden ejercer sus derechos y reclamar ante la autoridad competente.*
 
-## 13. Cambios en esta Política
+## 1. Ámbito de aplicación y naturaleza de prueba
 
-Esta Política puede revisarse a medida que cambien el Servicio o la ley. Los cambios sustanciales (como la adición de un tercero encargado del tratamiento o la modificación de las políticas de conservación o de los modos de cifrado) se anunciarán con antelación mediante un aviso en el sitio o un correo del sistema, y se actualizarán la fecha de entrada en vigor y el número de versión en la parte superior de esta página. Si usted continúa utilizando el Servicio después de que un cambio entre en vigor, se considerará que ha aceptado la Política revisada; si no está de acuerdo, puede dejar de utilizar el Servicio y exportar o eliminar sus datos. Las versiones históricas de las revisiones sustanciales se archivan con el historial de versiones del repositorio de código abierto.
+Esta Política se aplica al sitio web, los clientes asociados, la API, las cuentas y el tratamiento del correo de la instancia alojada `mail.epocanvas.com`. Es un proyecto de aprendizaje y pruebas sin fines de lucro, mantenido por una persona a título individual. No vende datos, no presta servicios publicitarios ni promete disponibilidad de nivel empresarial; esta naturaleza no exime de las obligaciones legales aplicables en materia de protección de datos personales.
+
+Quienes desplieguen el software por su cuenta deberán adaptar y publicar una notificación acorde con su identidad, configuración, destinatarios y forma de conservación. No pueden utilizar directamente esta página como prueba de su propio cumplimiento. La mera obtención o modificación del código fuente no transmite a los autores ascendentes los datos del despliegue correspondiente.
+
+## 2. Quién es responsable de sus datos
+
+| Situación de uso | Entidad responsable | Función y contacto |
+| --- | --- | --- |
+| Instancia de prueba alojada | La persona física u organización que opera efectivamente `mail.epocanvas.com` bajo el nombre EpoCanvas | La persona que determina los fines y medios del tratamiento de cuentas, el servicio de comunicaciones y la gestión de seguridad es el responsable del tratamiento; `privacy@epocanvas.com` |
+| Instancia desplegada por usted | El operador efectivo de dicha instancia | La función se determina según quién decida efectivamente los fines y medios del tratamiento; contacte con el canal publicado por el sitio |
+| Autores y colaboradores que solo publican el código fuente | Personas que no participan en la operación de la instancia correspondiente | Su condición de autor o colaborador no los convierte en responsables ni encargados del tratamiento de esa instancia |
+
+EpoCanvas es el nombre del proyecto; esta página no demuestra que el operador sea una sociedad, fundación o entidad registrada. Antes de recopilar datos personales del público, la instancia debe publicar información accesible que indique el nombre identificable o denominación legal del operador, su país de residencia efectiva y una dirección de contacto adecuada. También debe indicar toda dirección física, representante en la Unión Europea o contacto del delegado de protección de datos que exija la ley aplicable. A la fecha, esta página no ha verificado la identidad completa ni la dirección de dicha entidad, y no confirma que se haya nombrado a un representante en la Unión Europea o a un delegado de protección de datos. Una dirección de correo electrónico de contacto no sustituye la información de identidad que la ley obliga a publicar.
+
+Si el operador trata datos por cuenta de un cliente organizativo y siguiendo sus instrucciones, las partes deben determinar sus funciones y suscribir un acuerdo de tratamiento de datos conforme a la ley aplicable. El hecho de que el usuario posea el contenido del correo no basta para calificar automáticamente al usuario como responsable del tratamiento y al operador como encargado.
+
+## 3. Fuentes, necesidad y finalidades de los datos
+
+| Categoría y fuente | Datos y finalidades | Consecuencias de no facilitarlos |
+| --- | --- | --- |
+| Registro, inicio de sesión o proveedor de identidad | Identificador de cuenta, credenciales necesarias para iniciar sesión, identificador, apodo, avatar y atributos devueltos por un proveedor de identidad como Linux DO | No podrá completarse el método de inicio de sesión o registro elegido; los campos obligatorios varían según el método |
+| Usted, sus contactos y sistemas de envío y recepción | Remitente, destinatario, copia, asunto, cuerpo, adjuntos, hora, estado de entrega y clasificación | No será posible enviar, recibir, almacenar ni organizar los correos correspondientes |
+| Registros de red y seguridad generados automáticamente | IP, User-Agent, información del dispositivo e inicio de sesión, operaciones y eventos de seguridad | Los registros necesarios para la autenticación y la seguridad no pueden desactivarse por separado; puede dejar de usar el servicio y ejercer sus derechos |
+| Campos opcionales y funciones optativas | Campos del perfil, avatar, ajustes de notificaciones y almacenamiento externo, contenido para traducir o reconocer | La función correspondiente no estará disponible; esto no debería privarle de funciones básicas no relacionadas |
+| Respuestas de servicios externos | Informes de entrega, resultados relacionados con identidad o nivel, solicitudes de aplicaciones que usted autoriza y respuestas de notificaciones | Solo se tratarán cuando se produzca la configuración o acción correspondiente |
+
+Los datos personales incluidos en los correos pueden ser facilitados por otros remitentes, destinatarios, administradores o servicios elegidos por usted; no proceden necesariamente de lo que usted introdujo directamente ni de Linux DO. Los contactos que no se hayan registrado también pueden dirigirse al canal indicado en la Sección 14. Cuando la ley exija una notificación sobre la recopilación indirecta, el operador deberá facilitar esta Política y los complementos necesarios; solo podrá aplicarse una excepción si se cumplen sus requisitos legales.
+
+Cuando se aplique el RGPD a datos obtenidos indirectamente, el operador debe facilitar esta política e información complementaria, incluida su fuente, en un plazo razonable y como máximo un mes después de obtenerlos, salvo excepción legal. Si la primera comunicación con usted o divulgación a otro destinatario ocurre antes, debe facilitar la información a más tardar en ese momento. La mera disponibilidad de esta página no sustituye la información proactiva. Toda excepción por imposibilidad o esfuerzo desproporcionado debe evaluarse y documentarse con garantías adecuadas, incluida la publicación de la información necesaria. Se aplicarán asimismo las reglas taiwanesas que exijan informar antes del tratamiento o uso, o permitan hacerlo con el primer uso. La gratuidad, las pruebas o no estar registrado no constituyen por sí solas una exención.
+
+## 4. Alcance real del almacenamiento y acceso
+
+### 4.1 Cuentas y datos de seguridad
+
+Las contraseñas nuevas se verifican mediante PBKDF2-HMAC-SHA256 con sal, con 210.000 iteraciones por defecto y un parámetro configurable. Los registros históricos que utilizan SHA-256 o menos iteraciones pueden actualizarse al verificarse; no se garantiza que todos los registros existentes ya se hayan migrado. Los secretos TOTP se almacenan cifrados; los códigos de recuperación se conservan como hashes para su verificación y también como una copia cifrada que permite mostrar el código original tras una nueva verificación. Las passkeys se conservan como datos de credenciales públicas. Estas medidas reducen los riesgos, pero no garantizan que una contraseña nunca pueda adivinarse. El proceso de configuración de TOTP puede guardar temporalmente en KV una clave de configuración sin cifrar durante 600 segundos. Si la actualización de una contraseña antigua se encuentra con la autenticación multifactor, el flujo KV pendiente puede almacenar la contraseña introducida durante 300 segundos y ese plazo puede renovarse; por tanto, no se puede afirmar que ninguna ruta almacene credenciales en texto sin cifrar. Los campos personales, las fuentes de inicio de sesión, los registros de operaciones y los ajustes de permisos también pueden almacenarse en la base de datos o KV de la instancia.
+
+### 4.2 Correos y adjuntos
+
+Los datos de correo se procesan principalmente mediante Cloudflare D1 y el almacenamiento de objetos configurado. Según la configuración del usuario o del operador, los adjuntos pueden guardarse en almacenamiento compatible con S3, R2 o, si no hay configuración, KV. La ruta de entrada verificada lee y analiza el MIME original, pero no conserva por separado el mensaje original completo en bruto. Descargar un archivo .eml no demuestra que se haya conservado el archivo original. Los respaldos externos, las bases de datos y las prácticas de conservación modificadas deben verificarse por separado; la ubicación efectiva de los datos no puede deducirse únicamente del código fuente.
+
+El Servicio no proporciona cifrado de extremo a extremo. Según el programa y su configuración, los modos «cifrado» y «privado» aplican cifrado en reposo del lado del servidor a parte del cuerpo y del asunto. Los adjuntos y los metadatos de enrutamiento no quedan incluidos automáticamente en esa protección; quien controle el servidor y las claves puede técnicamente descifrar los datos.
+
+### 4.3 Navegador, registros y solicitudes externas
+
+El navegador puede guardar en localStorage un token de inicio de sesión, el idioma y las preferencias de interfaz. El cierre de sesión, la revocación por parte del servidor y el período de validez de las credenciales son mecanismos distintos. Después de utilizar un dispositivo compartido, debería cerrar sesión y borrar los datos locales que no desee conservar. La lista de entornos conocidos conserva como máximo los 15 registros más recientes y utiliza un TTL deslizante de 180 días; el uso continuado puede renovar el vencimiento. Los registros que relacionan varias cuentas por IP utilizan un TTL de 7.200 segundos. Las credenciales de dispositivos de confianza pueden conservarse durante 60 días y pueden eximir de algunas verificaciones multifactor durante los primeros 30 días. Estos períodos no son los mismos que los de los campos de cuenta o los registros de auditoría.
+
+Las reglas sobre cookies también pueden abarcar el almacenamiento o acceso en terminales, como localStorage. Cuando se apliquen las reglas ePrivacy, solo el acceso destinado exclusivamente a transmitir una comunicación o estrictamente necesario para un servicio solicitado expresamente se beneficia de la excepción correspondiente al consentimiento previo; la etiqueta de acceso o seguridad no basta. Los demás accesos requieren información clara y consentimiento válido antes de activarse y deben permanecer inactivos hasta entonces. El rechazo no debe desactivar funciones básicas no relacionadas. Retirar el consentimiento debe ser tan fácil como otorgarlo y detener el acceso correspondiente. No utilizar cookies no elimina estas obligaciones.
+
+Las fuentes tipográficas, Turnstile, las imágenes externas y otros recursos configurados pueden recibir la IP, el User-Agent, la hora y los datos de la solicitud. La consulta de imágenes remotas incluidas en un correo también puede revelar al remitente que el mensaje se abrió. Que no haya SDK de publicidad o analítica no significa que no existan solicitudes de red a terceros. Los flujos de datos detallados figuran en la [Lista de subencargados del tratamiento](/es/mail/sub-processors/).
+
+### 4.4 Acceso administrativo y depuración
+
+La interfaz de administración limita lo que puede verse según el modo de correo, el rol y los permisos; esto no garantiza que el operador sea técnicamente incapaz de acceder a los datos. El acceso humano se limita a necesidades concretas de asistencia, incidentes de seguridad, denuncias de abuso, solicitudes legales u otros motivos justificados y necesarios. Se aplica el principio de privilegio mínimo y se conservan registros adecuados. Está prohibido leer correos reales por curiosidad o con el pretexto de aprender o probar, así como publicarlos en incidencias públicas o servicios de depuración.
+
+La página de perfil público está desactivada por defecto. Cuando se activa, los visitantes anónimos pueden obtener el buzón principal, los campos del perfil, el rol, la fecha de incorporación y estadísticas de actividad u origen del correo. Algunos ajustes para «ocultar estadísticas» solo afectan a la visualización y no restringen el acceso a la API; tampoco se ha confirmado que la eliminación lógica de la cuenta cierre automáticamente esa vía pública. Para retirar información pública, desactive también la página y solicite al operador que compruebe el acceso anónimo; hasta que se corrija, no publique mediante esta función datos reales que no sean necesarios.
+
+### 4.5 Datos sensibles y de terceros
+
+Los correos pueden contener categorías especiales de datos, como datos de salud, origen racial o étnico, religión, opiniones políticas, afiliación sindical, datos genéticos o biométricos, vida sexual u orientación sexual; los datos sobre infracciones también están sujetos a restricciones particulares. Calificar el almacenamiento de «pasivo» u obtener el consentimiento general del usuario de la cuenta no satisface automáticamente los requisitos legales adicionales. Para las pruebas, utilice datos sintéticos o anonimizados conforme a la ley. El Servicio no tiene como finalidad tratar datos sensibles regulados; no cargue datos reales de este tipo antes de confirmar una base jurídica válida y las garantías necesarias.
+
+## 5. Finalidades del tratamiento y bases jurídicas
+
+Cuando se aplique el RGPD, el operador debe determinar una base jurídica adecuada para cada finalidad; también debe cumplir los requisitos adicionales de las demás leyes aplicables.
+
+| Actividad de tratamiento | Finalidad | Base y límites cuando se aplica el RGPD |
+| --- | --- | --- |
+| Cuenta, entrega, almacenamiento y notificaciones necesarias del servicio | Prestar el servicio de correo solicitado | Necesario para ejecutar el contrato con usted; los datos de las personas que no son parte del contrato en una comunicación se tratan sobre la base de un interés legítimo ponderado u otra base adecuada |
+| Seguridad del inicio de sesión, limitación de velocidad y prevención de abusos concretos | Proteger a los usuarios, las comunicaciones y la infraestructura | Interés legítimo cuando sea necesario, sujeto a evaluación de necesidad y ponderación de intereses; la obligación legal solo es base cuando exista realmente una obligación aplicable |
+| Traducción, OCR, notificaciones opcionales o campos públicos | Proporcionar funciones adicionales que usted elija | Notificación clara y separada según la función y el destinatario; cuando se requiera consentimiento, obtenerlo de forma libre, específica, informada e inequívoca y permitir retirarlo |
+| Extracción automática de códigos de verificación | Ayudar a reconocer códigos de verificación | Ni la conveniencia ni la activación por el operador la convierten automáticamente en necesaria para el contrato; antes de habilitarla se deben confirmar una base válida, las garantías necesarias y las opciones individuales requeridas |
+| Respuesta legal a solicitudes de derechos o de autoridades competentes | Cumplir un requisito legal efectivamente aplicable | Obligación legal específica; las órdenes extranjeras también deben evaluarse en cuanto a su aplicabilidad, el secreto de las comunicaciones y las normas sobre transferencias internacionales |
+| Registros mínimos necesarios para un litigio concreto | Formular, ejercer o defender reclamaciones jurídicas | Interés legítimo ponderado y conservación legal aplicable, limitando el alcance y el período |
+
+Cuando se invoque el interés legítimo, el interés consiste en prestar las comunicaciones solicitadas, mantener la seguridad o defender una reclamación concreta. El operador debe conservar constancia de la evaluación de necesidad y ponderación y permitir la oposición prevista en la Sección 9. No debe presentar todas las funciones como «necesarias para ejecutar el contrato». El Servicio no trata datos con la finalidad de venderlos, publicar anuncios ni entrenar modelos comerciales.
+
+La clasificación automática, la limitación de velocidad o las señales de riesgo pueden afectar al tratamiento del correo y a las funciones de la cuenta; esta Política no autoriza decisiones basadas exclusivamente en tratamiento automatizado que produzcan efectos jurídicos o efectos similares importantes para usted. Si un despliegue real incluye una decisión de este tipo, primero deben confirmarse las condiciones legales, explicarse la lógica y los efectos, y ofrecerse intervención humana y una vía de reclamación adecuadas.
+
+## 6. IA y tratamiento de contenido optativo
+
+El código verificado incluye la extracción de códigos de verificación al recibir mensajes y la traducción y el reconocimiento de texto en imágenes tras una acción suya. Los datos tratados realmente pueden incluir el asunto, fragmentos del cuerpo, imágenes y los datos de identidad o sensibles que contengan; no se puede garantizar que el texto no incluya datos personales. La compatibilidad con el protocolo OpenAI solo describe una interfaz y no significa que el destinatario sea necesariamente OpenAI.
+
+El interruptor global de extracción de códigos de verificación está desactivado por defecto en la versión revisada. Cuando se activa, al llegar un mensaje nuevo el sistema puede enviar a Workers AI el asunto completo y hasta 6.000 caracteres JavaScript del texto del cuerpo; el asunto no se incluye en ese límite. El tratamiento no se activa con un botón suyo cada vez, y no se ha observado una opción de exclusión individual. El interruptor global no equivale al consentimiento válido de cada usuario. Si no existe una base jurídica válida, la opción requerida o un mecanismo de retirada que pueda cumplirse, el operador del despliegue debe desactivar la transmisión correspondiente; pedir al usuario que se cambie a otra instancia no sustituye una retirada libre ni demuestra que el consentimiento se hubiera obtenido previamente.
+
+La traducción de texto puede utilizar el modelo configurado o Workers AI. Algunos flujos envían fragmentos de texto a las interfaces públicas de MyMemory o Google Translate, incluso mediante parámetros de consulta en la URL; la alternativa para fragmentos que faltan no se limita a los casos en que el punto de conexión completo deja de funcionar.
+
+El OCR puede enviar los bytes de una imagen incrustada a Workers AI o la URL de una imagen remota a un punto de conexión visual externo configurado; el texto reconocido entra después en el flujo de traducción. El OCR del cliente está desactivado por defecto, pero las llamadas API que omiten el parámetro pueden utilizar otro valor predeterminado; por ello, el ajuste de la interfaz no permite concluir que todas las rutas eviten el tratamiento de imágenes. Para los correos que contengan datos personales o confidenciales, se debe desactivar esa ruta hasta confirmar el destinatario, el contrato de encargo, la conservación y las garantías de transferencia transfronteriza. Pulsar «Traducir» una vez no constituye un consentimiento general a un destinatario no revelado ni al entrenamiento posterior de modelos. Algunas imágenes pueden extraerse durante el flujo de traducción, no solo las imágenes que usted cargue por separado.
+
+El operador no utiliza los correos como conjunto de datos para entrenar sus propios modelos. Los límites de conservación, entrenamiento y reutilización por terceros deben confirmarse en los contratos y la configuración efectivos; esta Política no garantiza tales límites en nombre de terceros. Los resultados de la IA pueden ser erróneos: usted debe comprobar los códigos de verificación, las traducciones y los resultados del reconocimiento. El Servicio no ofrece sobre esta base juicios profesionales con efectos jurídicos. Cuando corresponda, las funciones y los resultados de IA deben identificarse claramente, con la transparencia necesaria según la función efectiva y la finalidad; una traducción o un reconocimiento ordinarios no constituyen automáticamente un sistema de alto riesgo por el mero uso de IA ni confieren una certificación de cumplimiento.
+
+## 7. Destinatarios y transferencias internacionales
+
+Según la configuración efectiva, los destinatarios pueden incluir Cloudflare, servicios de entrega saliente, almacenamiento y bases de datos designados por usted o el operador, proveedores de identidad, servicios de IA o traducción, plataformas de notificaciones, aplicaciones autorizadas y proveedores de correo de los destinatarios. La calificación de cada parte como encargado o responsable independiente depende de sus finalidades efectivas y del contrato; no todos pueden considerarse encargados que tratan datos únicamente siguiendo instrucciones.
+
+El uso de la red global de Cloudflare o de proveedores ubicados fuera de la Unión Europea no garantiza que los datos se traten únicamente dentro del Espacio Económico Europeo. Para una transferencia internacional sujeta a las restricciones del RGPD, primero se deben verificar las ubicaciones reales y el mecanismo jurídico válido, como una decisión de adecuación aplicable a la transferencia correspondiente o cláusulas contractuales tipo válidamente suscritas, una evaluación de impacto de la transferencia y las medidas complementarias necesarias. Una certificación SOC 2 o ISO, TLS o la afirmación de un proveedor de que ofrece cláusulas contractuales tipo no demuestra por sí sola que esa transferencia sea lícita. Una excepción o un consentimiento explícito no debería utilizarse habitualmente en sustitución de transferencias repetidas y estructurales.
+
+Puede solicitar al canal de la Sección 14 un resumen de los destinatarios, las regiones y las garantías relacionados con sus datos, y obtener los documentos de garantía cuando la ley lo permita y tras las ocultaciones necesarias. Ante una solicitud de una autoridad competente, el operador verifica sus facultades y base jurídica, limita el alcance de la divulgación e informa a las personas afectadas cuando la ley lo permite y ello no perjudica una finalidad legítima.
+
+## 8. Conservación, desactivación y supresión
+
+| Categoría de datos | Mecanismo efectivo y criterio de conservación |
+| --- | --- |
+| Cuentas, preferencias personales y correo ordinario | Se conserva para prestar el servicio hasta que se elimine, se depure la cuenta o deje de existir la necesidad legal; desactivar no equivale a borrar físicamente |
+| Correo no deseado y papelera | El procesamiento diario calcula los plazos desde `create_time`; el correo no deseado se traslada por defecto a la papelera tras 7 días, y el umbral de la papelera también es fijo de 7 días, por lo que la supresión física puede producirse en la misma ejecución; no se garantiza un período de gracia de 7 días después del traslado a la papelera |
+| Correo del sistema caducado y depuración por cuota | Algunos correos oficiales se marcan como eliminados al leer la lista según el plazo de caducidad (7 días por defecto) y luego los procesa una tarea programada; al ejecutar la eliminación, los correos seleccionados pueden suprimirse físicamente de inmediato si el uso supera el 90 % de la cuota |
+| Cancelación o desactivación de la cuenta | La operación de autoservicio restringe el acceso y cambia el estado de los datos; no se ha verificado ningún mecanismo que borre automáticamente todos los datos 90 días después de la cancelación; cada solicitud de supresión debe seguirse por separado hasta completarse |
+| Registros de seguridad, inicio de sesión, auditoría y solicitudes de derechos | Se conservan solo durante el tiempo necesario para una finalidad específica; algunos elementos no tienen una caducidad automática general, por lo que el operador debe establecer y aplicar un plazo mínimo necesario y revisarlo periódicamente |
+| Adjuntos, correo original, respaldos y copias externas | La supresión debe confirmarse por separado en cada almacenamiento y respaldo; borrar desde la interfaz no significa que todas las copias se hayan eliminado simultáneamente; la instancia debe informar de los ciclos efectivos |
+| Conservación legal o litigio concreto | Cuando exista una base jurídica real, se conservan únicamente los datos necesarios, se limita cualquier otro uso y se registran los motivos y el plazo; al vencer este, se eliminan |
+| Cese planificado del servicio | Cuando sea razonablemente posible, se avisa y se ofrece un período para recuperar los datos antes de terminar los recursos y tratar las copias residuales; una interrupción repentina puede limitar la recuperación |
+
+Ningún período fijo de gracia de 90 días puede excluir la obligación legal de borrar los datos cuando dejen de ser necesarios ni los plazos de las solicitudes de la Sección 9. Si un respaldo solo puede sobrescribirse siguiendo un ciclo, debe aislarse y dejar de utilizarse, debe informarse del ciclo y, si se restaura, debe volver a aplicarse la supresión. Un ciclo de respaldo no confirmado no puede describirse como inmediato ni como totalmente irrecuperable. Por lo general, este Servicio no puede borrar unilateralmente las copias que ya poseen remitentes, destinatarios o proveedores de servicios independientes; si la ley exige notificar a los destinatarios una rectificación, supresión o limitación, deberá hacerlo igualmente.
+
+## 9. Derechos de los interesados y plazos de respuesta
+
+Conforme a las condiciones de la ley aplicable, usted puede solicitar información, acceso y copia, rectificación, supresión o limitación del tratamiento; oponerse al tratamiento basado en intereses legítimos; retirar su consentimiento; y, cuando se cumplan los requisitos, obtener los datos en un formato legible por máquina o solicitar su portabilidad. La retirada no afecta a la licitud del tratamiento realizado antes de ella; si se opone al marketing directo, debe cesar esa finalidad. También puede solicitar las garantías aplicables y la intervención humana respecto de decisiones automatizadas con efectos importantes.
+
+Cuando se aplique el RGPD, puede recibir los datos personales que le conciernen y que haya facilitado, tratados por medios automatizados sobre la base del consentimiento o un contrato, en un formato estructurado, de uso común y lectura mecánica, y transmitirlos sin impedimentos a otro responsable. Puede solicitar la transmisión directa cuando sea técnicamente posible. Este derecho no debe afectar negativamente a los derechos y libertades de otras personas ni limita los derechos de acceso o supresión.
+
+La exportación de autoservicio es una de las vías disponibles. El archivo exportado no es una copia completa de todos los datos: los campos personales son un subconjunto seleccionado; la exportación no incluye archivos adjuntos, correo de la papelera, campos completos de enrutamiento, MIME original, todos los alias ni registros de auditoría de seguridad o administración. Para solicitar datos omitidos a los que tenga derecho, contacte con `privacy@epocanvas.com`. El operador también debe proteger los derechos de sus contactos y de otras personas y, cuando sea necesario, ocultar datos en vez de rechazar la solicitud en su conjunto.
+
+:::note[Oposición al tratamiento basado en intereses legítimos]
+Cuando se aplique el RGPD, puede oponerse en cualquier momento, por motivos relacionados con su situación particular, al tratamiento basado en intereses legítimos, incluida la elaboración de perfiles. Debe cesar salvo que el operador demuestre motivos legítimos imperiosos que prevalezcan sobre sus intereses, derechos y libertades, o la necesidad de formular, ejercer o defender reclamaciones. La oposición a la mercadotecnia directa no requiere motivos particulares y ese uso debe cesar. Contacte con `privacy@epocanvas.com`. El operador debe presentar este derecho de forma clara y separada a más tardar en la primera comunicación.
+:::
+
+Cuando se aplique el RGPD, se debe responder sin dilación indebida y dentro del mes siguiente a la recepción de la solicitud. Si la complejidad o el número de solicitudes lo hace necesario, el plazo puede ampliarse legalmente hasta dos meses adicionales, pero la ampliación y sus motivos deben comunicarse durante el primer mes. Si no se adopta ninguna medida, también deben comunicarse los motivos y las vías de reclamación y recurso judicial. Se aplicarán los plazos más breves que establezcan otras leyes aplicables.
+
+Las solicitudes ordinarias son gratuitas. Solo podrán cobrarse gastos razonables o rechazarse con explicación si la ley aplicable lo permite y se puede demostrar que la solicitud es manifiestamente infundada o excesiva. Si existe una duda razonable sobre la identidad, solo se solicitará la verificación adicional necesaria; no se exigirá un documento de identidad de forma sistemática ni se excluirá un derecho por no estar registrado o no poder iniciar sesión.
+
+Puede presentar una reclamación directamente ante la autoridad de protección de datos competente y solicitar tutela judicial; cuando se aplique el RGPD, esto incluye a la autoridad de su residencia habitual, lugar de trabajo o lugar de la presunta infracción. No necesita obtener primero el consentimiento del operador ni agotar las reclamaciones internas. Los datos de contacto de las autoridades de la Unión Europea figuran en la [lista de miembros del EDPB](https://www.edpb.europa.eu/about-edpb/about-edpb/members_en).
+
+## 10. Seguridad y respuesta a incidentes
+
+El operador debe adoptar medidas adecuadas de control de acceso, protección de credenciales, cifrado, actualizaciones y gestión de incidentes según la naturaleza de los datos, los riesgos, el estado de la técnica y los costes razonables de implementación. La existencia de funciones de seguridad no garantiza riesgo cero ni una certificación concreta. El modo de mantenimiento individual no promete asistencia las 24 horas más allá de lo indicado en esta Política, pero no amplía los plazos legales de notificación.
+
+Todo incidente debe evaluarse y contenerse de inmediato y quedar registrado. Cuando se aplique el RGPD, salvo que sea improbable que la violación entrañe un riesgo para los derechos y libertades de las personas físicas, el responsable del tratamiento debe notificarla a la autoridad de control competente sin dilación indebida y, de ser posible, dentro de las 72 horas desde que tenga conocimiento de ella; los retrasos deben justificarse y la información puede proporcionarse por fases cuando la ley lo permita. Si es probable que la violación entrañe un alto riesgo para los interesados, se les debe informar directamente sin dilación indebida, salvo que se aplique una excepción legal; publicar los detalles del incidente en general no sustituye sistemáticamente esta notificación. El encargado del tratamiento debe informar al responsable sin dilación indebida. Si otra ley aplicable en materia de comunicaciones establece destinatarios de la notificación, umbrales o plazos más breves diferentes, se aplicará lo dispuesto en ella.
+
+## 11. Edad y datos de menores
+
+El servicio de prueba alojado está destinado a personas de 16 años o más que tengan capacidad para celebrar contratos conforme a la ley aplicable. Si la ley del lugar exige una edad superior o autorización de un representante legal, deberá cumplirse ese requisito. Este umbral del servicio no significa que la edad haya sido verificada ni sustituye la evaluación del consentimiento infantil u otras normas de protección de menores del RGPD. Si el operador averigua que se registró alguien que no cumple el umbral, debe limitar los tratamientos innecesarios y verificar, responder y suprimir los datos conforme a la ley. Quienes desplieguen el servicio por su cuenta deben evaluar por separado el público destinatario, la edad y las garantías que puedan aplicar.
+
+## 12. Ley aplicable y proporcionalidad
+
+El lugar de operación de la instancia alojada es Taiwán. El operador debe cumplir las leyes aplicables de protección de datos personales y comunicaciones y determinar sus obligaciones según las disposiciones vigentes y las notas de entrada en vigor publicadas en fuentes oficiales. La promulgación de una modificación legal no significa que ya haya entrado en vigor.
+
+El lugar de operación no es el único criterio. El RGPD también puede aplicarse al tratamiento en el contexto de las actividades de un establecimiento en la Unión Europea o, desde fuera de ella, cuando se ofrezcan servicios a personas que se encuentren en la Unión o se supervise su comportamiento allí y se cumplan las condiciones legales. Que un sitio web sea accesible desde la Unión no significa automáticamente que se ofrezcan servicios en ella. El carácter gratuito o de interés público, que lo mantenga una persona autora individual o que esté «en pruebas» no excluye automáticamente la aplicación de la ley; un buzón abierto al público tampoco puede invocar de forma general la excepción de actividad exclusivamente personal o doméstica.
+
+El nombramiento de un representante en la Unión Europea o de un delegado de protección de datos, la evaluación de impacto y el registro de actividades dependen de sus respectivos requisitos legales. Un proyecto pequeño no queda exento automáticamente, pero tampoco es obligatorio efectuar todos los nombramientos por el mero hecho de que pueda accederse desde la Unión. Un servicio de correo que opera de forma continua no suele constituir un tratamiento ocasional, y las excepciones pertinentes deben evaluarse con cautela. Las medidas pueden adaptarse al tamaño y a los riesgos; no es necesario obtener una certificación ISO ni prometer un servicio empresarial solo por publicar el código fuente.
+
+## 13. Actualizaciones y nuevas finalidades
+
+Antes de iniciar un tratamiento nuevo, los cambios sustanciales deben notificarse claramente y de forma apropiada, indicando los cambios y las condiciones aplicables. Si se requiere consentimiento para una nueva finalidad o un nuevo destinatario, debe obtenerse previamente un consentimiento válido; la negativa no puede interpretarse como consentimiento. Antes de utilizar datos existentes para una finalidad nueva, debe evaluarse la compatibilidad de las finalidades y la base jurídica. Continuar utilizando el servicio no constituye un nuevo consentimiento de privacidad, y la fecha de actualización no demuestra que todas las instancias hayan aplicado los cambios.
 
 ## 14. Canales de contacto
 
-- **Asuntos de privacidad, ejercicio de derechos y reclamaciones**: `privacy@epocanvas.com`
-- **Contacto dentro del producto**: mensajes dentro de la aplicación o `admin@epocanvas.com`
-- **Sitios autoalojados**: contacte al Operador de dicho sitio
+- Privacidad, ejercicio de derechos y reclamaciones: `privacy@epocanvas.com`.
+- Cuenta y problemas del servicio: `admin@epocanvas.com` o el contacto dentro del Servicio.
+- Despliegue propio: canal publicado por el operador efectivo del sitio.
 
----
-
-*Este documento es un documento de cumplimiento elaborado por el equipo de operaciones de EpoCanvas Mail; no constituye asesoramiento jurídico. La ley aplicable a cada instancia se determina por la ubicación de su operador.*
+No publique en incidencias públicas el texto íntegro de un correo, documentos de identidad, claves API ni credenciales de inicio de sesión. El estado de publicación de la identidad del operador y de la dirección legalmente exigida se indica en la Sección 2; los flujos de datos y los asuntos pendientes de confirmar en el despliegue figuran en la [Lista de subencargados del tratamiento](/es/mail/sub-processors/) y en [Tratamiento de datos y medidas de seguridad](/es/mail/data-security/).

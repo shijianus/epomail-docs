@@ -1,102 +1,55 @@
-# EpomailDocs · EpoCanvas Mail 官方法律文档站
+# EpomailDocs · EpoCanvas Mail 法律与技术文档
 
-本目录是 **EpoCanvas Mail** 的官方文档站（独立 git 仓库）：法律内容以**台湾《个人资料保护法》为主要法律依据**，按 Google 政策范式拆分为 **7 篇法律专题 + 1 篇专案介绍 + 功能指南／技术架构／防篡改验证 3 篇专页，共 11 篇 × 6 种语言（66 页）**，全部技术事实（数据存储位置、加密语义、第三方清单、保留期限）均经仓库源码逐项核实；法规依据以 [`doc/legal-reference.md`](doc/legal-reference.md) 为唯一核验底稿（2026-09-28 自全国法规数据库 law.moj.gov.tw 抓取存档），v5.0 起全站不引用法条条号。
+> **v5.21 独立审阅分支，不是已生效的正式法律告知。** 本分支记录非营利学习测试项目的拟议条款、数据处理事实和已知限制。运营者完整身份、实际处理依据、供应者及跨境保障、保存与删除安排尚须核实；不得据此启用缺少必要依据或保障的数据处理。本次不合并到 `main`，不替换线上正式条款，也不执行部署。
 
-- 产品定位：基于 Cloudflare Workers / D1 / KV / R2 的开源（MIT）可自托管邮箱服务
-- 托管实例：[mail.epocanvas.com](https://mail.epocanvas.com)
-- 视觉：Dignified Minimal 主题（靛蓝 `#2563eb` 主色 + Slate 中性色），12 张主题自适应 SVG 原理图（浅色底 + `prefers-color-scheme` 暗色适配，六语言全量本地化）+ 8 张托管实例真实运行截图，每图承担真实信息职责并作为文档开头的视觉分区
+本站使用 Astro／Starlight，包含36类文档、6种语言，共216篇内容页。繁体中文（台湾）是审阅文本的语言基准，其他语言为对照文本；基准地位不代表条款已经生效，也不排除消费者及资料当事人的强制权利。
 
-## 文档架构（专案介绍 1 篇 + 法律 7 篇 + 专页 3 篇）
+- 软件项目：[shijianus/epomail](https://github.com/shijianus/epomail)，MIT授权。
+- 托管实例：[mail.epocanvas.com](https://mail.epocanvas.com)。本次未读取生产邮件、密钥或用户数据库。
+- 应用审阅基线：`3e1ef741eb57d77908c1f23ad83e6c0cee9e931d`（本次重新fetch确认的远端master）。
+- 法律来源：[核验底稿](doc/legal-reference.md)。适用范围依实际法律条件判断，不仅由运营者所在地决定。
+- 交付状态：[独立复核报告](doc/legal-independent-review-2026-11-02.md)。生产合规缺口不会因文件、测试或源码公开而自动消除。
 
-| 文档 | slug | 内容 |
-| --- | --- | --- |
-| 专案介绍 | `project` | 产品定位、核心功能（源码逐项核实）、适用边界与常见疑问、技术架构、安全设计、开发历程与完整提交链路（主仓逾 560 提交 + 本站逾 45 提交的里程碑锚点） |
-| 总览 | `overview` | 平台身份、资料控管者/受托处理者角色界定、文档地图、效力顺序 |
-| 隐私政策 | `privacy-policy` | 资料蒐集处理利用之告知事项与处理性质、AI 特别告知、国际传输保障、当事人权利、安全维护措施 |
-| 服务条款 | `terms-of-service` | 电子同意、条款审阅、责任限制及效力边界、准据法与管辖（依运营者所在地确定）、主管监督 |
-| 可接受使用政策 | `acceptable-use` | 禁止行为清单与运营者处置措施（零容忍/先行移除/隔离/证据保存/移交）、执行阶梯与申诉 |
-| 数据处理与安全维护 | `data-security` | 数据生命周期、处理矩阵、11 项安全维护措施、事件应变、受检配合 |
-| 第三方处理者清单 | `sub-processors` | 受托处理者、经授权对象、AI 链路、自备服务、法律要求下之共享 |
-| 用语定义 | `key-terms` | 法律名词（采资料保护法制通用定义）与技术名词 |
-| 官方邮件规范与防篡改验证 | `tamper-proof` | 官方发信身份与认证标记、官方邮件目录、不可变投递与预置翻译、渲染隔离、文档 SHA-256 存证清单 |
-| 功能指南 | `features` | 收件箱整理、撰写发送、搜索语法、标签规则引擎、验证码提取、垃圾治理、转发推送、AI 能力与开放平台 |
-| 技术架构 | `architecture` | 部署拓扑、技术栈、三模式加密体系、附件存储链、角色权限模型、邮件生命周期与应用安全设计 |
+## 核心法律与数据文件
 
-**法律要点（v5.0 去条号引用立场）**：开源专案面向所有国家或地区的用户，文档不逐条罗列任何法域之条号；义务表述锚定「适用法律」，各实例适用之法律以其**运营者所在地**为准——托管实例 `mail.epocanvas.com` 于台湾营运，其个人资料处理适用台湾现行法律（含《个人资料保护法》，仅出现法规名称），并接受其主管机关依法实施之检查与监督；自行部署实例由部署者依其所在地法律独立履行义务。服务器合规标准（Cloudflare SOC 2 Type II、ISO/IEC 27001、欧盟标准合同条款）作为技术事实直接陈述。繁体中文（台湾）版为正式版本，其余语言为对照版本。当前文档版本 **5.10**（生效日期 2026-10-04，全站统一）。
+| 文件 | 用途 |
+| --- | --- |
+| `overview` | 角色、文件分工、适用顺序和联系窗口 |
+| `privacy-policy` | 来源、目的、法律依据、权利、期限与跨境 |
+| `terms-of-service` | 测试用途、服务范围、合理责任边界与救济 |
+| `acceptable-use` | 禁止滥用、授权隔离测试、比例处置及申诉 |
+| `data-security` | 真实安全控制、资料生命周期、删除和导出限制 |
+| `sub-processors` | 接收者与数据流、实际配置及契约待核实事项 |
+| `key-terms` | 相关法律与技术名词 |
+| `open-source` | MIT分发与实际部署者的责任区分 |
+| `service-scope` | 免费非营利测试服务范围与支援边界 |
+| `tamper-proof` | 系统通知及发布清单一致性检查的范围与限制 |
 
-## 语言矩阵（6 语言 × 11 文档）
+六语言目录为 `src/content/docs/mail/`、`zh-tw/mail/`、`en/mail/`、`fr/mail/`、`es/mail/`、`nl/mail/`。本次不包含工作区其他任务新增的德文与七语配置。
 
-| 语言 | 目录 | 说明 |
-| --- | --- | --- |
-| 简体中文（默认） | `src/content/docs/mail/` | Starlight `root` 约定占用根路径（URL 如 `/mail/privacy-policy/`） |
-| 繁體中文（正式版本） | `src/content/docs/zh-tw/mail/` | 台湾官方用语（蒐集/裝置/實體刪除/罰鍰…），义务表述锚定适用法律（不逐条引用条号） |
-| English | `src/content/docs/en/mail/` | |
-| Français | `src/content/docs/fr/mail/` | |
-| Español | `src/content/docs/es/mail/` | |
-| Nederlands | `src/content/docs/nl/mail/` | |
-
-语言集合与 EpoCanvas Mail 产品内建 6 语言 i18n（`zh` / `zh-Hant` / `en` / `fr` / `es` / `nl`）一一对应。
-
-## 配图（12 张 SVG 原理图 × 6 语言本地化 + 8 张产品截图，浅色底 + 暗色自适应）
-
-| 文件 | 内容 | 被引用于 |
-| --- | --- | --- |
-| `public/images/mail/project-architecture.svg` | 系统架构三层图：客户端层 → Cloudflare 边缘层（API／Email Routing／Workers AI／出站）→ 存储层（双 D1／KV／对象存储），底部安全基线 | 专案介绍、技术架构 |
-| `public/images/mail/self-host-responsibilities.svg` | 三方责任边界：上游开源项目 → 实例运营者（资料控管者）→ 当事人 | 总览 |
-| `public/images/mail/privacy-pillars.svg` | 隐私政策五支柱（契约与同意、目的限制、传输保障、安全维护、权利救济五内涵，主管监督基座） | 隐私政策 |
-| `public/images/mail/legal-architecture.svg` | 契约层—政策层—适用法律基座三层架构 | 总览 |
-| `public/images/mail/aup-ladder.svg` | 五级执行阶梯 + 申诉回路 + 儿少保护零容忍通道 | 可接受使用政策 |
-| `public/images/mail/security-trust-shield.svg` | 传输、边缘、静态存储与凭证四层防护 + 用户自主控制 | 数据处理与安全维护 |
-| `public/images/mail/dual-nature-scale.svg` | 双轨运营责任天平（托管实例 / 自建实例） | 数据处理与安全维护 |
-| `public/images/mail/data-sovereignty-export.svg` | 资料自主：导出／删除／控制路径 | 数据处理与安全维护 |
-| `public/images/mail/subprocessor-map.svg` | 第三方共享地图四通道（受托/授权/触发/法定） | 第三方处理者清单 |
-| `public/images/mail/tos-contract.svg` | 服务条款契约生命周期四阶段（电子同意→履约→修订→终止）+ 准据法基座 + 完整约定三文档 | 服务条款 |
-| `public/images/mail/key-terms-glossary.svg` | 用语地图：法律名词与技术名词两族定义 + 全站一致使用 + 解释基准 | 用语定义 |
-| `public/images/mail/anti-tamper-architecture.svg` | 官方邮件三层处理（签发／投递／客户端）与文档存证核验 | 防篡改与官方规范 |
-| `public/images/mail/ui/*.png` | 托管实例真实运行截图 8 张（收件箱亮暗／写信／搜索／验证码详情／官方公告／en／移动端） | 功能指南等 |
-
-图片内标签为英文微标签（跨语言复用），语义由各语言图注（markdown 内本地化）承载；全部走站点绝对路径 `/images/mail/…`，由 `public/` 目录提供。
-
-## 本地构建与检视
+## 本地验证
 
 ```bash
-cd EpomailDocs
-pnpm install        # astro ^5 / @astrojs/starlight ^0.32
-pnpm build          # 66 内容页 + 跳转页，Pagefind 全文搜索索引
-pnpm preview        # http://localhost:4321/
-node scripts/validate-anchors.cjs   # 校验 dist 全部页内锚点与图片引用
+pnpm install --frozen-lockfile
+node scripts/generate-figures.mjs
+node scripts/test-tamper-proof-client.cjs
+pnpm run build
+python scripts/check-structure.py
+node scripts/validate-anchors.cjs
+python scripts/check-article-whitelist.py
+node scripts/validate-legal-release.mjs
 ```
 
-构建时 Starlight 依 Git 提交历史生成「最后更新于」时间戳；`custom.css` 提供明暗双主题设计变量。部署时将 `astro.config.mjs` 顶部 `SITE_ORIGIN` 换成实际域名即可。
+提交源文并生成相应清单后，可执行 `node scripts/validate-legal-release.mjs --committed-source`，验证216篇源文与清单指定提交逐项一致。清单自身另行提交，避免哈希自引用。
 
-## 正式上线检查清单（部署前）
+`tamper-proof.json` 是既有文件名，不表示数字签名或不可篡改。在线面板只比对两次同源清单的该页SHA-256及完整提交号，失败时不得显示成功；不验证页面正文、发布者身份或法律合规。
 
-1. ~~确定域名并修改 `SITE_ORIGIN`~~ **已定案（v5.3）**：发布地址 `https://docs.epocanvas.com/epomail/`，`SITE_ORIGIN = https://docs.epocanvas.com`、`base = '/epomail'` 已写入 `astro.config.mjs`，内链与图路径经 `rehypePrefixBase` 自动携带 base 前缀；
-2. **同步 `public/robots.txt`**：将 `Sitemap:` 行改为与 `SITE_ORIGIN` 一致；
-3. **同步应用内文档链接**：mail-worker 环境变量 `DOCS_URL`（现默认 `https://docs.epocanvas.com/epomail`）与 `mail-vue/src/const/links-const.js` 之 `docs` 值指向最终地址；
-4. **建立发布管道**：以 Cloudflare Pages 连接本仓库（构建命令 `pnpm build`，输出目录 `dist`），或执行 `pnpm exec wrangler pages deploy dist`；
-5. **发布前核验**：`pnpm validate`（构建 + 页内锚点断链检查 + 6 语言 × 11 篇结构对称 + 法规核验底稿比对）。
+12类基础SVG由生成器生成，共72张六语言产物。文字采用简短中性标签并以本地图注解释；修改须落到生成源，重复运行不应恢复旧承诺。截图及额外图解另按各指南引用。
 
-## 法规引用维护
+## 法律与采用边界
 
-- 法规依据以 [`doc/legal-reference.md`](doc/legal-reference.md) 为唯一核验底稿；全站不引用法条条号，义务表述锚定「适用法律」（v5.0 立场）
-- 复现核验：`python scripts/extract-tw-articles.py tmp_laws doc/_law-raw.md`（原始页缓存 `tmp_laws/` 已 gitignore）；引注一致性：`python scripts/verify-laws.py`
-- 法规修正时：重新抓取 → 更新 `doc/legal-reference.md` → 全语言同步修订对应义务表述
-- 写作规范沉淀于 [`.zcode/skills/tw-legal-writing/SKILL.md`](.zcode/skills/tw-legal-writing/SKILL.md)（引用格式、公文红线、6 语言同步流程）
+非营利、免费、个人维护及测试性质不自动豁免GDPR或其他强制规范；合理安全与治理措施可以按风险和规模安排，不必承诺ISO认证、24小时值班、永久托管或企业SLA。上游仅提供代码与实际运营实例应分别判断责任，MIT授权不是运营者的概括免责。
 
-## 自托管运营者采用指南
+自部署者不能只替换域名和邮箱便把审阅稿当作完整告知。须核实实际主体及联系资料、资料来源与用途、适用法律依据、接收者及有效契约、跨境保障、具体保存与删除、权利请求及事故响应；必要时补足有效选择和撤回流程。
 
-本文档为「通用范本 + 托管实例实文」双轨设计。自托管运营者采用时：
-
-1. **替换三处身份信息**：实例域名（`mail.epocanvas.com` → 你的域名）、联络邮箱、生效日期；
-2. **复核第三方处理者清单**：未启用 Resend / Telegram / Linux DO 等就删除对应行，避免过度披露或虚假披露；
-3. **如实选择邮件模式表述**：加密语义与管理员可及范围之措辞取决于你选择的「全部 / 隐私 / 加密」模式；
-4. **履行控管者义务**：自行部署之时点起即为资料控管者——依个资法 §8 向用户告知、依 §20-1 办理安全维护、依 §22 接受主管机关检查；
-5. **按辖区补足法定条款**（GDPR / UK GDPR / LGPD / CCPA-CPRA 等）；本模板不构成法律意见。
-
-## 一致性保障
-
-- 六语言版本结构 1:1（标题、表格、提示框、图片、图注逐一对应），修改任一语言时同步其余五种语言
-- 页内锚点经 `scripts/validate-anchors.cjs` 全量复核（1416 锚点 0 断链）；六语言结构对称经 `scripts/check-structure.py` 校验（6 语言 × 11 篇 1:1，含图片数）；法规核验底稿经 `scripts/verify-laws.py` 与原始条文比对一致
-- 全站不引用法条条号（v5.0 立场）：法规仅以名称出现；v4.1 及更早版本的条号引用格式规范已随去条号立场废止
-- 时效型数据（主仓/本站提交数、测试脚本数、锚点总数）随源码演进变化：每次文档仓提交前运行 `pnpm check`，并对照 `git rev-list --count HEAD` 与 `ls tests/*.mjs | wc -l` 刷新 project.md 与本 README 之数值
+台湾法规应核对官方现行有效文本和施行注记。旧技能、`tmp_laws/`缓存及 `scripts/verify-laws.py` 的展示结果不能证明修法已生效；不采信未经确认的2026-08-10施行断言。公开法律页不逐条引用条号，来源与时效依据集中记录在核验底稿。

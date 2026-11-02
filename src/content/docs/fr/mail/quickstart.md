@@ -3,13 +3,13 @@ title: Prise en main
 description: Prise en main d'EpoCanvas Mail — le chemin le plus court de l'inscription au premier courriel envoyé sur l'instance hébergée, et la séquence complète du clonage du dépôt à la vérification d'envoi et de réception sur une instance auto-hébergée.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 Cette page donne la séquence d'actions la plus courte pour deux voies : la voie A s'inscrit sur l'instance hébergée et va de l'inscription au premier courriel envoyé en une dizaine de minutes ; la voie B déploie tout le service sur votre propre domaine et votre compte Cloudflare, du clonage du dépôt à la vérification d'envoi et de réception en une demi-heure environ. Les deux voies exécutent le même code et la même interface ; la page ne liste que les actions et leurs résultats, chaque lien menant à la page dédiée pour la sémantique fonctionnelle et la configuration, et l'ensemble suit l'implémentation open source.
 
 La version en chinois traditionnel (Taïwan) des documents juridiques du site fait foi ; les autres langues sont des traductions de référence et, en cas de doute, la version faisant foi prévaut.
 
-![Schéma de la double gouvernance d'EpoCanvas Mail : une même base de code open source ; l'instance hébergée est exploitée par l'équipe d'exploitation, tandis que sur une instance auto-déployée toutes les données restent dans les ressources Cloudflare du déployeur](/images/mail/fr/dual-nature-scale.svg)
+![Deux voies EpoCanvas Mail : le même code ouvert, chaque instance utilisant les ressources et services externes choisis par son exploitant réel](/images/mail/fr/dual-nature-scale.svg)
 
 *Figure : les deux voies exécutent le même code. Choisir l'instance hébergée vaut acceptation de sa [Politique de confidentialité](/fr/mail/privacy-policy/) et de ses [Conditions d'utilisation](/fr/mail/terms-of-service/) ; à compter de l'auto-déploiement, le déployeur devient le responsable du traitement de ses utilisateurs (voir la [Confidentialité et conditions — Vue d'ensemble](/fr/mail/overview/), section 2).*
 
@@ -32,7 +32,7 @@ La version en chinois traditionnel (Taïwan) des documents juridiques du site fa
 5. **Activer le classement automatique** : quatre étiquettes sont livrées d'usine — Communauté, Abonnements, Promotions et Travail — et le courrier entrant est classé par heuristique intégrée ; règles personnalisées, exceptions et priorités dans la [Gestion des étiquettes et du classement](/fr/mail/labels/).
 6. **Activer la vérification en deux étapes** : sous « Paramètres → Sécurité », liez une application d'authentification (TOTP) en trois étapes ; dix codes de récupération à usage unique s'affichent à la fin, à conserver hors ligne. Étapes dans le [Guide de sécurité du compte](/fr/mail/security/).
 7. **Lier la push Telegram (facultatif)** : recevez les nouveaux courriels en temps réel via votre propre robot, avec un lien de lecture sur le site valable 7 jours. Étapes dans le [Guide des notifications et du transfert](/fr/mail/notify/).
-8. **Exporter une sauvegarde (facultatif)** : un clic sur « Paramètres → Données » exporte une copie JSON complète ; les courriels de la corbeille sont physiquement supprimés 7 jours après réception, exportez donc d'abord ce que vous voulez conserver (voir [Export des données et stockage](/fr/mail/data/)).
+8. **Exporter des données (facultatif)** : dans « Paramètres → Données », téléchargez les champs sélectionnés du profil et des messages non supprimés en JSON, sans pièces jointes, MIME original complet ni tous les paramètres de sécurité. La corbeille utilise la création du message depuis plus de 7 jours ; gardez les pièces jointes séparément avant suppression. Voir [Export](/fr/mail/data/), [Confidentialité](/fr/mail/privacy-policy/), [Sécurité](/fr/mail/data-security/) et [Sous-traitants](/fr/mail/sub-processors/).
 
 ## 3. Voie B : auto-déploiement
 

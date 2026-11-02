@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Verantwoordelijkheidsgrenzen: het open-sourceproject bovenstrooms, de instantie-exploitant als verwerkingsverantwoordelijke en u als betrokkene">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Auteurs, exploitanten en gebruikers: rollen en plichten volgen de feitelijke verwerking.">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -30,32 +30,32 @@
   </defs>
   <rect class="bg" width="1000" height="470" rx="16"/>
   <rect class="card" x="60" y="52" width="270" height="130" rx="12"/>
-  <text class="tag" x="84" y="80">BRON · MIT-LICENTIE</text>
-  <text class="title" x="84" y="106">Open-sourceproject</text>
-  <text class="body" x="84" y="130">Publiceert alleen de broncode.</text>
-  <text class="body" x="84" y="150">Exploiteert geen e-maildienst,</text>
-  <text class="body" x="84" y="170">houdt geen gebruikersgegevens bij, nul telemetrie.</text>
+  <text class="tag" x="84" y="80">SOURCE · MIT</text>
+  <text class="title" x="84" y="106">Source authors</text>
+  <text class="body" x="84" y="130">Publish code &amp; patches</text>
+  <text class="body" x="84" y="150">Roles depend on actual activity</text>
+  <text class="body" x="84" y="170">Operating brings duties</text>
   <rect class="card-accent" x="390" y="52" width="270" height="130" rx="12"/>
-  <text class="tag accent" x="414" y="80">INSTANTIE · VERWERKINGSVERANTWOORDELIJKE</text>
-  <text class="title" x="414" y="106">Instantie-exploitant</text>
-  <text class="body" x="414" y="130">Deployt op een eigen Cloudflare-account</text>
-  <text class="body" x="414" y="150">(Workers · D1 · KV · R2) en draagt de</text>
-  <text class="body" x="414" y="170">beschermingsplichten: informatie, beveiliging, toezicht.</text>
+  <text class="tag accent" x="414" y="80">INSTANCE</text>
+  <text class="title" x="414" y="106">Instance operator</text>
+  <text class="body" x="414" y="130">Determines deployment &amp; access</text>
+  <text class="body" x="414" y="150">Assess each processing activity</text>
+  <text class="body" x="414" y="170">Publish notices &amp; safeguards</text>
   <rect class="card" x="720" y="52" width="220" height="130" rx="12"/>
-  <text class="tag" x="744" y="80">BETROKKENE</text>
-  <text class="title" x="744" y="106">U</text>
-  <text class="body" x="744" y="130">Registreert een account en vertrouwt</text>
-  <text class="body" x="744" y="150">uw mailboxen en berichten</text>
-  <text class="body" x="744" y="170">toe aan de instantie.</text>
+  <text class="tag" x="744" y="80">PEOPLE</text>
+  <text class="title" x="744" y="106">Users &amp; contacts</text>
+  <text class="body" x="744" y="130">Users, senders &amp; recipients</text>
+  <text class="body" x="744" y="150">Rights follow the processing</text>
+  <text class="body" x="744" y="170">Contact the actual operator</text>
   <path class="arrow" d="M330,117 L382,117"/>
   <path class="arrow" d="M660,117 L712,117"/>
   <text class="foot" x="340" y="106">code</text>
-  <text class="foot" x="672" y="106">vertrouwen</text>
+  <text class="foot" x="672" y="106">use</text>
   <line class="divider" x1="60" y1="228" x2="940" y2="228"/>
   <rect class="card" x="60" y="262" width="880" height="150" rx="12"/>
-  <text class="tag" x="84" y="290">WAT DIT BETEKENT</text>
-  <text class="title" x="84" y="318" font-size="15.5">De exploitant bij wie u zich registreert is uw verwerkingsverantwoordelijke — niet de oorspronkelijke auteurs.</text>
-  <text class="body" x="84" y="344">• Gehoste instantie mail.epocanvas.com: het EpoCanvas-team is verantwoordelijke voor accountgegevens en beveiligingslogboeken.</text>
-  <text class="body" x="84" y="366">• Zelfgehoste instantie: de deployer wordt vanaf het deployen de enige verwerkingsverantwoordelijke.</text>
-  <text class="body" x="84" y="388">• De juridische documenten op deze site gelden per instantie; de overeenkomst komt tot stand met de exploitant van uw instantie.</text>
+  <text class="tag" x="84" y="290">ROLES &amp; DUTIES</text>
+  <text class="title" x="84" y="318" font-size="15.5">Roles follow purposes, means &amp; actual activity</text>
+  <text class="body" x="84" y="344">Hosted: identify the actual operator and the processing it controls.</text>
+  <text class="body" x="84" y="366">Self-hosted: assess controller, joint-controller and processor roles for each activity.</text>
+  <text class="body" x="84" y="388">Code authors who also operate or decide processing remain responsible for that activity.</text>
 </svg>

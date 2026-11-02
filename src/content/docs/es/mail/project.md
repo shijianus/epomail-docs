@@ -5,7 +5,7 @@ description: Presentación completa del proyecto EpoCanvas Mail—posicionamient
 
 **Primer commit: 21 de julio de 2026 | Versión actual: v1.1.0 | Licencia: MIT**
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 EpoCanvas Mail es un servicio de correo electrónico de código abierto que funciona en la red edge de Cloudflare. Con un solo dominio y una cuenta de Cloudflare, puedes montar un servicio de buzones propio con envío y recepción de correo, adjuntos y acceso multiplataforma. El proyecto se explota como instancia alojada en [mail.epocanvas.com](https://mail.epocanvas.com), publica su código fuente completo para autoalojamiento y ofrece una aplicación Android acompañante (epomail). Esta página describe el posicionamiento del proyecto, sus funciones, su arquitectura técnica, su diseño de seguridad y su historial de desarrollo; los términos legales del servicio y las prácticas de privacidad figuran en la [Descripción general de privacidad y condiciones](/es/mail/overview/).
 
@@ -13,14 +13,14 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 
 ![Arquitectura del sistema de EpoCanvas Mail: la capa de clientes (aplicación web, aplicación Android, aplicaciones de terceros OAuth) se conecta a través del edge de Cloudflare; los Workers sostienen la API, el análisis del correo entrante y las funciones de IA, con envío saliente vía Resend y Telegram; los datos se guardan en dos bases D1, KV y almacenamiento de objetos](/images/mail/es/project-architecture.svg)
 
-*Figura: Arquitectura del sistema. Los clientes se conectan por el edge, sin servidor de origen único; el correo entrante lo recibe y analiza Email Routing, y el envío saliente pasa por el canal de Resend; todo el estado queda en los recursos de Cloudflare del propio desplegador.*
+*Figura: Email Routing analiza el correo entrante y los canales configurados entregan el saliente. Los datos pueden llegar a servicios externos de almacenamiento, identidad, avisos o IA; véase la [Lista de encargados](/es/mail/sub-processors/).*
 
 ## 1. Posicionamiento
 
 Operar un sistema de correo propio exige un servidor mantenido a largo plazo, una IP fija y gestión antispam; los servicios de buzón comerciales, por su parte, concentran los datos en manos del proveedor, y el usuario difícilmente puede verificar cómo se tratan. EpoCanvas Mail toma una tercera vía: el servicio completo cabe dentro de la cuota medida de Cloudflare (cómputo Workers, bases de datos D1, caché KV, almacenamiento de objetos R2), se entrega sin servidores, con coste fijo de servidor cero y código totalmente abierto.
 
 - Sin carga de operación: tras el despliegue no hay mantenimiento de sistema ni de certificados; el escalado y la aceleración global los gestiona Cloudflare;
-- Propiedad de los datos: todos los datos de una instancia autoalojada residen en la base D1 y el almacenamiento de objetos del propio desplegador; el código no integra ninguna telemetría;
+- Autonomía: quien despliega elige recursos y servicios externos. El código procesa señales de seguridad y guarda registros. No se encontró un canal dedicado de telemetría de uso al autor original; sí existen logs y solicitudes a terceros. Véase [Privacidad](/es/mail/privacy-policy/);
 - Doble uso: registrarse en la instancia alojada, o tomar el código fuente y desplegarlo en el dominio propio. La asignación del responsable del tratamiento en cada escenario figura en la sección 2 de la [Descripción general](/es/mail/overview/).
 
 ## 2. Resumen de funcionalidades
@@ -37,19 +37,19 @@ El servidor funciona sobre Cloudflare Workers (sandbox V8 Isolate sin estado); l
 El proyecto conviene en las siguientes situaciones:
 
 - personas o equipos pequeños que ya disponen de un dominio y una cuenta de Cloudflare y desean un buzón sin coste fijo de servidor;
-- usuarios que se autoalojan y desean un código fuente auditable con todos los datos dentro de su propia cuenta;
+- usuarios de autoalojamiento que quieren código auditable y elegir su almacenamiento y servicios terceros;
 - usuarios individuales que necesitan buzones aislados, clasificación automática y extracción instantánea de códigos de verificación para correos de registro.
 
 Valore una alternativa en las siguientes situaciones:
 
-- escenarios empresariales que exijan compromisos de disponibilidad, soporte formal o conservación de archivos a largo plazo: el servicio no ofrece SLA y el correo de la papelera se suprime físicamente 7 días después de la recepción (véanse los [Términos del servicio](/es/mail/terms-of-service/), Sección 8);
+- usos empresariales que requieren disponibilidad garantizada, soporte formal o archivo duradero: no hay SLA; la papelera se limpia según creación del mensaje superior a 7 días, sin garantizar otros 7 días después de moverlo. Véase [Privacidad](/es/mail/privacy-policy/);
 - usos centrados en el envío masivo de marketing: la Política de uso aceptable prohíbe el correo comercial masivo no solicitado (véase la [Política de uso aceptable](/es/mail/acceptable-use/), Sección 3);
 - comunicaciones que requieran cifrado de extremo a extremo: el cifrado del servicio es estático en el lado del servidor y no cubre los adjuntos (véase [Tratamiento de datos y seguridad](/es/mail/data-security/), Sección 3);
 - usuarios que no deseen mantener los recursos de Cloudflare, el dominio y la configuración de claves: la autoimplementación sigue requiriendo la inyección de secretos y la inicialización (véase la Sección 8).
 
 ## 5. Resumen del diseño de seguridad
 
-Las contraseñas se almacenan como hashes PBKDF2-HMAC-SHA256 (100.000 iteraciones) con sal; las claves TOTP se cifran en reposo con AES-256-GCM; las URL del correo usan hashes aleatorios de 20 caracteres firmados con HMAC-SHA256 contra la escalada de privilegios y la enumeración; triple defensa XSS y bloqueo SSRF; entrega del correo oficial como instantáneas inmutables. Estas medidas se cerraron en el endurecimiento integral de seguridad del 22 de septiembre de 2026 (43 aserciones automatizadas en verde); la lista completa está en [Arquitectura técnica](/es/mail/architecture/), Sección 7, y las informaciones y plazos de conservación debidos a las personas en [Procesamiento de Datos y Seguridad](/es/mail/data-security/).
+Las contraseñas nuevas usan por defecto PBKDF2-HMAC-SHA256 con sal (210.000 iteraciones, configurables); los hashes antiguos se actualizan al iniciar sesión y los secretos TOTP activados usan AES-256-GCM. Otros mecanismos incluyen enlaces firmados, filtros XSS, comprobaciones de direcciones salientes e instantáneas oficiales. Las 43 aserciones del 22 de septiembre de 2026 son una validación histórica, no certificación de la versión actual o de producción. Véanse [Arquitectura](/es/mail/architecture/) y [Datos y seguridad](/es/mail/data-security/).
 
 ## 6. Historial de desarrollo y cadena de commits
 
@@ -144,9 +144,9 @@ La tabla y la cadena de anclaje anteriores están a escala de hitos; cada correc
 ## 7. Garantía de calidad
 
 - El directorio `tests/` contiene más de un centenar de scripts de pruebas, auditoría e inspección automatizadas, que cubren la regresión de navegador con pila completa Playwright, aserciones extremo a extremo públicas contra producción y análisis estáticos de todo el repositorio;
-- Comprobaciones cuantificadas representativas: endurecimiento de seguridad 43／43 aserciones, enrutado público extremo a extremo 32／32, pantalla de inicio de sesión en seis idiomas 62／62, inspección sensorial 33／33 y 369 comparaciones de integridad de producción byte a byte;
+- Validaciones históricas: seguridad 43/43 aserciones, rutas públicas 32/32, acceso en seis idiomas 62/62, inspección visual 33/33 y 369 comparaciones de integridad; corresponden a versiones y entornos probados entonces, sin validar la versión actual ni producción;
 - Triple auditoría estática de i18n: `i18n-symmetry` (conjuntos de claves absolutamente simétricos entre los seis idiomas), `i18n-audit` (cero referencias literales ausentes) e `i18n-hardcoded` (cero texto visible codificado sin envolver);
-- Cero residuos de datos de prueba: cada caso de prueba limpia físicamente en un bloque `finally`; la base de datos y el KV no contienen datos falsos;
+- Las reglas de prueba exigen limpiar mediante `finally`; los residuos reales requieren comprobar los registros de ejecución. La regla no garantiza bases ni KV siempre libres de datos de prueba;
 - El desarrollo sigue un SOP de cinco pasos (confirmación del alcance, codificación disciplinada, pruebas con pila completa, commits disciplinados e informe al inicio de la respuesta), con resultados repartidos entre `CHECKLIST.log` y `REPORTS.md`.
 
 ## 8. Obtener el proyecto y desplegarlo
@@ -175,13 +175,13 @@ Los requisitos previos completos, la cadena de arranque de la inicialización y 
 El software es gratuito bajo la licencia MIT; el coste de la autoimplementación es su propio consumo de Cloudflare. La instancia alojada actualmente no tiene funciones de pago; el número de buzones, el volumen de envío y las cuotas de almacenamiento se establecen según el rol de la cuenta.
 
 **¿Puede el administrador leer mi correo?**
-Depende del modo de correo de la instancia: en el modo «Todo» el administrador puede leer todo el correo; en el modo «Privado» solo el spam, el correo eliminado y el sin propietario; en el modo «Cifrado» la interfaz de administración no devuelve correo de usuario. Véase el alcance del cifrado en la [Política de privacidad](/es/mail/privacy-policy/), Sección 10.
+La visibilidad administrativa depende del modo: Todo permite todos los mensajes; Privado, spam, borrados y sin propietario; Cifrado bloquea esa lectura en la interfaz. El servidor conserva capacidad de descifrado, por lo que no es cifrado de extremo a extremo. Véanse [Privacidad](/es/mail/privacy-policy/) y [Datos y seguridad](/es/mail/data-security/).
 
 **¿Se puede recuperar el correo eliminado?**
-El correo de la papelera se suprime físicamente 7 días después de la recepción y no se puede recuperar; conserve antes una copia mediante «Configuración → Exportar datos» (véase la [Política de privacidad](/es/mail/privacy-policy/), Sección 8).
+La papelera usa la creación del mensaje superior a 7 días; moverlo no reinicia el plazo. La exportación contiene campos seleccionados del perfil y mensajes no borrados, sin archivos adjuntos ni MIME original completo. Guarde adjuntos aparte antes de borrar y revise el archivo; véase [Privacidad](/es/mail/privacy-policy/).
 
 **¿Qué se necesita para la autoimplementación?**
-Un dominio y una cuenta de Cloudflare; los pasos de despliegue y la inyección de secretos están en la Sección 8. Todos los datos permanecen en los recursos de Cloudflare del implementador y el código no contiene telemetría.
+Se necesitan dominio, cuenta Cloudflare y las configuraciones pertinentes; véase la sección 8. Servicios externos de envío, almacenamiento, identidad, avisos e IA pueden tratar datos, sin garantía de que todo permanezca en Cloudflare. Véase la [Lista de encargados](/es/mail/sub-processors/).
 
 ## 10. Documentos relacionados
 

@@ -3,7 +3,7 @@ title: 開放平台與 API 接入
 description: EpoCanvas Mail 開放平台與 API 接入指南——OAuth 應用註冊、授權端點、權杖置換、userinfo、scope 語義與使用者授權撤銷之完整開發者教學。
 ---
 
-**生效日期：2026 年 10 月 11 日｜版本：5.19**
+**更新日期：2026 年 11 月 2 日｜版本：5.21**
 
 EpoCanvas Mail 內建 OAuth 2.0／OIDC 認證中心：管理員於管理區「應用管理」（`#manage/admin/oauth-apps`）註冊第三方應用，外部站點即可讓使用者「使用 Epomail 登入」。本頁是面向開發者的完整接入教學；應用管理介面的位置見[介面與路由總覽](/zh-tw/mail/interface/)第 4 節，使用者授權資料的處理見[第三方處理者清單](/zh-tw/mail/sub-processors/)。
 
@@ -19,7 +19,7 @@ EpoCanvas Mail 內建 OAuth 2.0／OIDC 認證中心：管理員於管理區「�
 1. **`/.well-known/openid-configuration`**：OIDC Discovery 中繼資料端點：issuer、各端點與支援項目的自我描述，第三方框架（如 NextAuth）據此自動發現設定。
 2. **`/oauth/authorize`**：使用者授權端點：引導使用者登入並同意授權；彈窗場景經 `postMessage` 回傳結果，使用者取消則回跳並攜帶 `error=access_denied`。
 3. **`/api/oauth/token`**：權杖置換端點：以一次性授權碼（5 分鐘有效）換取 2 小時有效的存取權杖與 ID Token；支援 JSON、表單與 HTTP Basic 三種傳參，配置 PKCE 時校驗 `code_verifier`（S256）。
-4. **`/api/oauth/userinfo`**：使用者資料端點：以 Bearer 存取權杖讀取 `sub`、`email`、`name`、`picture` 等已授權欄位；權杖過期或被撤銷時返回 401。
+4. **`/api/oauth/userinfo`**：userinfo 回傳身分及角色欄位，未必逐項按 scope 精簡；欄位與撤銷限制見第三方清單，不應將請求範圍當作嚴格的欄位過濾保證。
 5. **應用卡片（shijianus-blog）**：每個應用一張卡：Client ID 與 Client Secret（Secret 僅在建立或重設時完整顯示一次）、啟停開關、編輯／刪除，以及內建 NextAuth、Node、Python、cURL 與通用 OIDC 五套可複製的整合程式碼。
 
 </details>
@@ -79,13 +79,13 @@ curl -X POST https://<實例網域>/api/oauth/token \
 | `comments` | 部落格留言與互動管理（範例應用使用，屬互動權限） |
 | `offline_access` | 長期登入保持；目前版本不簽發 refresh token，授權頁展示該 scope 不產生離線權杖 |
 
-userinfo 回傳欄位：`sub`、`email`、`email_verified`、`name`、`preferred_username`、`picture`、`is_admin` 與 `role`。
+userinfo 回傳欄位：`sub`、`email`、`email_verified`、`name`、`preferred_username`、`picture`、`is_admin` 與 `role`。 userinfo 回傳身分及角色欄位，未必逐項按 scope 精簡；欄位與撤銷限制見第三方清單，不應將請求範圍當作嚴格的欄位過濾保證。
 
 ## 5. 使用者側：授權與撤銷
 
 - 授權頁向使用者完整展示應用資訊、官方認證徽章與所申請的 scope 清單；授權不會洩漏使用者的帳號通關密語或郵件正文；
 - 使用者隨時可在「設定 → 資料」的「第三方應用和服務」逐應用移除存取權限，或經詳情彈窗一鍵撤銷全部授權；
-- 撤銷即時生效：該應用的現有權杖立即失效（userinfo 回傳 401），授權記錄從使用者名下移除。
+- 撤銷阻止後續透過本服務 userinfo 取得資料，不保證已簽發 ID token 在第三方立即失效，也不能收回對方已取得的資料。
 
 ## 6. 個人 API 權杖（現況說明）
 

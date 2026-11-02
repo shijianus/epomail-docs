@@ -3,7 +3,7 @@ title: Architecture technique d'EpoCanvas Mail
 description: Architecture technique d'EpoCanvas Mail — topologie de déploiement en périphérie Cloudflare, isolation à double base de données, chiffrement à trois modes, chaîne de stockage des pièces jointes, modèle de permissions par rôle, cycle de vie des courriels et conception de sécurité applicative.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 Cette page décrit l'implémentation technique d'EpoCanvas Mail : topologie de déploiement, chiffrement des données, chaîne de stockage, modèle de permissions et cycle de vie des courriels. Tous les faits techniques suivent l'implémentation réelle du code open source et peuvent être audités librement ; les incidences sur votre vie privée et les informations légales figurent dans [Traitement des données et maintien de la sécurité](/fr/mail/data-security/) et la [Politique de confidentialité](/fr/mail/privacy-policy/).
 
@@ -11,19 +11,19 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 
 ![Architecture système d'EpoCanvas Mail : la couche cliente (application Web, application Android, applications tierces OAuth) accède par la périphérie Cloudflare ; les Workers hébergent l'API, l'analyse du courrier entrant et les capacités d'IA, le courrier sortant passe par Resend et Telegram ; les données résident dans les doubles bases D1, KV et le stockage d'objets](/images/mail/fr/project-architecture.svg)
 
-*Figure : architecture système. Les clients accèdent par la périphérie, sans serveur à point unique ; le courrier entrant est reçu et analysé par Email Routing, le courrier sortant passe par les canaux de délivrance ; tout l'état réside dans les ressources Cloudflare du déployeur lui-même.*
+*Figure : les clients passent par le réseau périphérique ; Email Routing reçoit et analyse les messages entrants, les canaux configurés assurent l'envoi. Des données peuvent aussi atteindre des stockages et services externes ; voir la [Liste des sous-traitants](/fr/mail/sub-processors/).*
 
 ## 1. Topologie de déploiement
 
 | Composant | Implémentation |
 | --- | --- |
-| Calcul | Cloudflare Workers (sandbox V8 Isolate) : la logique métier est sans état, le texte en clair n'existe que dans la mémoire de la requête et est libéré à la fin de celle-ci |
+| Calcul | Cloudflare Workers (sandbox V8 Isolate) traite les requêtes ; le serveur peut accéder au texte en clair. Le code ne garantit pas la destruction du sandbox ni l'effacement de tout texte en clair à la fin de la requête |
 | Entrant | Cloudflare Email Routing reçoit les courriels ; postal-mime analyse le corps, les en-têtes et les pièces jointes |
 | Sortant | résolution séquentielle par trois canaux : liaison Cloudflare Email Workers, API Resend, Mailjet ; les envois internes entre comptes écrivent directement en base |
-| Stockage structuré | Cloudflare D1 (double base physiquement isolée : la base utilisateurs porte les comptes, les rôles et les paramètres ; la base courriel porte les courriels, les étoiles et les métadonnées des pièces jointes ; le déploiement à base unique reste rétrocompatible à 100 % ; l'instance hébergée fonctionne actuellement avec une base de données unique) |
+| Stockage structuré | Cloudflare D1 permet de séparer les bases utilisateurs et courriels ou de revenir à une base unique ; la première contient comptes, rôles et paramètres, la seconde courriels, étoiles et métadonnées des pièces jointes. Les liaisons en production doivent être vérifiées séparément |
 | Stockage clé-valeur | Workers KV : jetons de session, compteurs de gestion des risques de connexion, états intermédiaires TOTP, profils utilisateur et solution de repli du stockage d'objets |
 | Inférence en périphérie | Workers AI (extraction de captcha, etc., llama-3.1-8b-instruct par défaut) |
-| Tâches planifiées | les déclencheurs Cron exécutent : l'actualisation du cache d'analyse des données toutes les 30 minutes ; chaque jour, remise à zéro des compteurs de risque, réinitialisation des compteurs d'envoi, purge de la corbeille et des pourriels, suppression des comptes OAuth non liés |
+| Tâches planifiées | Configuration du dépôt : chaque jour à 16:00 UTC (00:00 le lendemain à Taïwan), remise à zéro des compteurs de vérification et d'envoi, nettoyage des messages supprimés et des identités OAuth non liées, actualisation des statistiques ; toutes les 5 minutes, traitement des notifications et suppressions d'objets. La branche de 30 minutes existe mais n'est pas enregistrée dans cette configuration |
 | Vérification humaine | Cloudflare Turnstile (vérification par API HTTP, à l'inscription et à la création de boîtes supplémentaires) |
 
 ## 2. Pile technique
@@ -37,18 +37,18 @@ Les versions en chinois traditionnel (Taïwan) des documents juridiques du prés
 
 ## 3. Système de chiffrement des données
 
-- **Chiffrement au repos à trois modes** : mode Tout (aucun chiffrement), mode Privé (tout est chiffré sauf indésirables et corbeille), mode Chiffré (tout est chiffré) ; la sémantique des modes et la visibilité administrateur figurent à la section 1.3 de [Traitement des données et maintien de la sécurité](/fr/mail/data-security/) ;
-- **Chiffrement des courriels** : l'objet et le corps sont chiffrés en AES-256-GCM (avec balises d'authentification), chaque enregistrement utilisant un vecteur d'initialisation aléatoire ; les clés sont dérivées par HKDF-SHA256 de la variable d'environnement de secret maître au niveau de l'instance, avec un sel par utilisateur ; le secret maître n'est jamais écrit en base ni validé dans le dépôt ;
-- **Protection des identifiants** : les mots de passe sont hachés par PBKDF2-HMAC-SHA256 à 100 000 itérations avec sel ; le secret TOTP est chiffré au repos en AES-256-GCM ; les codes de récupération ne sont conservés que sous forme de hachés SHA-256 ; les clés d'accès ne stockent que la clé publique ;
+- **Trois modes de stockage** : Tout laisse les champs sans chiffrement ; Privé choisit selon les états indésirable, corbeille et sans propriétaire ; Chiffré chiffre les champs sélectionnés. Le périmètre est `subject/content/text/code`, pas toutes les données ; voir [Traitement des données et sécurité](/fr/mail/data-security/) ;
+- **Chiffrement des courriels** : AES-256-GCM utilise un IV aléatoire de 12 octets et des clés par utilisateur dérivées avec HKDF-SHA256. Les sources sont `email_enc_key`, puis `totp_enc_key`, puis `jwt_secret` ; sans aucune de ces clés, le chiffrement échoue, sans clé intégrée par défaut ;
+- **Protection des identifiants** : les nouveaux mots de passe utilisent par défaut PBKDF2-HMAC-SHA256 avec sel et 210 000 itérations, configurables ; les anciens hachés sont migrés à la connexion. Les secrets TOTP activés utilisent AES-256-GCM ; les codes de récupération ont des hachés SHA-256 et une copie chiffrée des codes originaux ; les clés d'accès conservent la clé publique et les métadonnées. Les données temporaires et autres exceptions figurent dans [Traitement des données et sécurité](/fr/mail/data-security/) ;
 - **Périmètre** : il s'agit d'un chiffrement au repos côté serveur, non d'un chiffrement de bout en bout ; les pièces jointes sont hors du périmètre du chiffrement.
 
 ## 4. Chaîne de stockage des pièces jointes
 
-Le binaire des pièces jointes est résolu et stocké dans l'ordre : stockage compatible S3 apporté par vos soins (BYOS, prenant en charge AWS S3, Backblaze B2, MinIO, etc.) → stockage compatible S3 configuré par l'Opérateur → liaison Cloudflare R2 → Cloudflare KV à défaut. Les métadonnées (nom de fichier, MIME, taille) sont stockées dans D1 ; les téléchargements comportent des en-têtes défensifs et une liste d'autorisation MIME ; lors de la suppression d'un courriel, les pièces jointes sont purgées en cascade par comptage de références.
+Le stockage des pièces jointes suit cet ordre : S3 de l'utilisateur → S3 de l'exploitant → Cloudflare R2 → KV. Les métadonnées sont dans D1 ; les téléchargements utilisent des liens signés et des en-têtes défensifs. La suppression physique retire les métadonnées et inscrit les objets dans une file, puis vérifie les références restantes ; les reprises automatiques cessent après 10 échecs. La suppression simultanée de tous les objets n'est pas garantie. Voir la [Liste des sous-traitants](/fr/mail/sub-processors/) pour les copies externes.
 
 ## 5. Sessions et permissions par rôle
 
-Les sessions sont des JWT (HS256) d'une validité de 30 jours, conservés dans KV sous forme fortement masquée ; au plus 10 sessions actives par compte, révoquées immédiatement à la déconnexion et à la clôture du compte. Les permissions suivent le modèle RBAC, avec six rôles standard :
+Les JWT (HS256) ont par défaut une validité de 30 jours. KV conserve une liste de sessions et un instantané utilisateur dont certains champs sensibles sont retirés. Le code vérifie si le nombre dépasse 10 avant d'ajouter une session : il peut normalement en garder 11, sans plafond strict de 10. L'activité et certaines opérations renouvellent ou raccourcissent la durée KV. La déconnexion retire la session courante ; la clôture supprime l'enregistrement des sessions du compte. RBAC prévoit six rôles :
 
 | Rôle | Envoi quotidien | Quota de stockage | Pièces jointes | Capacités supplémentaires |
 | --- | --- | --- | --- | --- |
@@ -59,30 +59,30 @@ Les sessions sont des JWT (HS256) d'une validité de 30 jours, conservés dans K
 | Administrateur | 100 courriels | 500 Mo | Oui | gestion des utilisateurs, gestion de tous les courriels (selon le mode de messagerie) |
 | Webmestre | Sans limite | 1024 Mo | Oui | toutes les permissions |
 
-Toutes les routes d'administration et métier sont contrôlées par une passerelle d'authentification unique ; seuls font exception les points de terminaison publics (connexion, inscription, OAuth, initialisation) ; la suppression d'un compte révoque immédiatement ses sessions.
+Les routes protégées vérifient JWT, sessions KV et permissions ; certains points publics ont une vérification distincte. La clôture retire les sessions ordinaires sans supprimer simultanément toutes les autorisations, données ou copies tierces.
 
 ## 6. Cycle de vie des courriels
 
 | Étape | Comportement |
 | --- | --- |
-| Suppression | le courriel passe d'abord dans la corbeille (suppression logique) ; 7 jours après réception, une tâche planifiée le supprime physiquement (pièces jointes et index compris) |
-| Quarantaine des pourriels | les pourriels sont conservés 7 jours puis déplacés vers la corbeille ; la durée de quarantaine est configurable |
-| Purge de quota | lorsque la boîte dépasse 90 % du quota, les courriels déjà marqués comme supprimés sont immédiatement supprimés physiquement |
-| Courriels officiels | les courriels de bienvenue et les annonces à l'échelle du système expirent par défaut après 7 jours (configurable) |
-| Suppression en cascade | la suppression physique s'effectue par lots (pour respecter la limite de paramètres liés d'une instruction D1) ; pièces jointes et étoiles sont retirées en cascade avec le courriel |
-| Clôture du compte | les sessions deviennent immédiatement invalides ; les données passent en état de suppression logique jusqu'à la suppression physique par un administrateur (le délai garanti figure à la section 8 de la [Politique de confidentialité](/fr/mail/privacy-policy/)) |
+| Suppression | La suppression ordinaire fixe `is_del=1` ; la tâche quotidienne nettoie la corbeille si `email.create_time` date de plus de 7 jours, sans accorder 7 jours supplémentaires après le déplacement. Une suppression définitive demandée ou une condition de quota peut supprimer directement |
+| Quarantaine des pourriels | `spamRetentionDays` vaut 7 jours par défaut, à partir de la création du message ; le passage à la corbeille peut être suivi d'une suppression physique dans la même exécution |
+| Purge de quota | Lors d'une demande de suppression, si l'utilisation existante dépasse strictement 90 % du quota, les messages sélectionnés sont supprimés physiquement ; atteindre 90 % ne déclenche pas une purge en arrière-plan |
+| Courriels officiels | La lecture de la liste marque comme supprimés les messages expirés des adresses officielles désignées, selon leur création et `welcomeExpireDays` (7 jours par défaut) ; la tâche de corbeille assure ensuite le nettoyage physique |
+| Suppression en cascade | La suppression définitive ordinaire et le nettoyage de corbeille retirent métadonnées des pièces jointes et étoiles, puis programment les reprises d'objets ; la couverture varie entre les chemins de suppression groupée administrateur |
+| Clôture du compte | Seule la ligne utilisateur est marquée supprimée et les sessions retirées ; boîtes, messages et profils ne sont pas marqués ensemble. Aucune suppression physique automatique à 90 jours n'est planifiée ; voir la [Politique de confidentialité](/fr/mail/privacy-policy/) |
 
 ## 7. Conception de sécurité applicative
 
 - **Routes à l'épreuve des accès non autorisés** : les URL des courriels utilisent systématiquement un haché aléatoire de 20 caractères signé par HMAC-SHA256, lié à l'utilisateur et au locataire, sans exposition des identifiants auto-incrémentés, ce qui exclut l'énumération et le BOLA／IDOR ;
 - **Triple défense XSS** : assainissement par liste d'autorisation DOMPurify, filtrage des injections body style, liste d'autorisation MIME en sortie des pièces jointes avec CSP strict et `nosniff` ;
 - **Blocage SSRF** : les requêtes sortantes passent une validation d'adresses publiques ; les adresses de bouclage, RFC 1918 et de métadonnées cloud sont systématiquement refusées ;
-- **Protection de la connexion** : 5 échecs consécutifs entraînent un verrouillage de 12 heures ; vérification humaine Turnstile ; vérification en deux étapes TOTP／clé d'accès ;
+- **Protection de connexion** : les échecs sont comptés par identifiant saisi ; à 5 échecs, la connexion est refusée et chaque échec écrit un TTL de 12 heures. Ce n'est pas un verrou atomique partagé par tous les alias. Turnstile et TOTP / Passkey complètent les vérifications ;
 - **Intégrité des courriels officiels** : verrouillage de l'identité d'expédition officielle, délivrance par instantané immuable et vérification anti-falsification des documents, voir [Anti-falsification et normes officielles](/fr/mail/tamper-proof/).
 
 ## 8. Observabilité et assurance qualité
 
-- Les journaux d'exécution sont collectés via Cloudflare Workers Logs (l'application ne conserve aucun journal propre au-delà des journaux d'IP) ; la page d'analyse des données ne présente que des agrégats statistiques, sans données au niveau du contenu ;
+- Le dépôt active Cloudflare observability ; D1 / KV conservent aussi opérations d'identité, signalements, décisions et environnements de connexion. La plupart des journaux d'audit n'ont pas de tâche d'expiration ; la conservation des journaux de plateforme doit être vérifiée. Voir la [Politique de confidentialité](/fr/mail/privacy-policy/) ;
 - Plus d'une centaine de scripts de tests automatisés, d'audits et de contrôles : régressions navigateur Playwright sur pile complète, assertions de bout en bout sur le réseau public, balayage statique de l'ensemble du dépôt et triptyque i18n en six langues (voir la section 7 de [Présentation du projet](/fr/mail/project/)).
 
 ## 9. Documents associés

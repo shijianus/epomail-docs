@@ -3,9 +3,9 @@ title: Inleiding EpoCanvas Mail documentatiesite
 description: Inleiding EpoCanvas Mail documentatiesite — positionering van de site, documentatiearchitectuur, leesroutes, meertalige structuur en volledige navigatie.
 ---
 
-**Site-lancering: 28 september 2026 | Huidige versie: v5.19 | Site-URL: docs.epocanvas.com/epomail**
+**Site-lancering: 28 september 2026 | Huidige versie: v5.21 | Site-URL: docs.epocanvas.com/epomail**
 
-**Datum van kracht: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 De EpoCanvas Mail documentatiesite (hierna "deze site") is het officiële documentatiecentrum voor de open-source e-maildienst EpoCanvas Mail, met juridische voorwaarden, technische specificaties, gebruikershandleidingen en ontwikkelingsdocumentatie. Gebouwd met Astro 5 + Starlight, behoudt de site volledige structurele symmetrie over zes talen (vereenvoudigd Chinees, traditioneel Chinees, English, Français, Español, Nederlands), waarbij elk document woord voor woord is geverifieerd tegen de code-implementatie, wat gebruikers van gehoste instanties, zelf-hosters en auditdeelnemers een enkele bron van waarheid biedt. Deze pagina legt de positionering van de site, documentatiearchitectuur, leesroutes en navigatie-ingangspunten uit.
 
@@ -49,7 +49,7 @@ Deze site is georganiseerd in drie groepen documenten, die naar elkaar verwijzen
 | [Mailbox-interface en berichtdetail](/nl/mail/mailbox/) | Inbox-weergaven, driekolomsverdeling, conversatiedraden en berichtdetailpagina item voor item |
 | [Labels en classificatiebeheer](/nl/mail/labels/) | Labeltaxonomie, classificatieregelmotor, zwart/wit-lijsten en wereldwijde governance-tools |
 | [Persoonlijke gegevens en algemene instellingen](/nl/mail/preferences/) | Profielkaarten, adreskaarten, interfacetaal, themabehang en leesvoorkeuren |
-| [Gegevensexport en opslag](/nl/mail/data/) | JSON volledige-kopie-export, .eml enkel-berichtdownload en opslaggebruikbeheer |
+| [Gegevensexport en opslag](/nl/mail/data/) | JSON-export van geselecteerde gegevens, .eml-downloads en opslagbeheer; beperkingen in de beveiligingsdocumentatie |
 | [Accountbeveiligingsgids](/nl/mail/security/) | Gebruikersnaam en wachtwoord, tweestapsverificatiecentrum (TOTP, backup-herstelcodes, toegangssleutels) en vertrouwde apparaten |
 | [Meldingen en doorsturgids](/nl/mail/notify/) | Persoonlijk doorsturen, Telegram-push en configuratie en gedrag van wereldwijde doorstuurregels |
 | [Analyses](/nl/mail/analysis/) | Datavisualisatiedashboards, gebruikersgroei en mailclassificatiestatistieken |

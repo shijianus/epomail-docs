@@ -3,9 +3,9 @@ title: EpoCanvas Mail 文件站介紹
 description: EpoCanvas Mail 文件站介紹——站點定位、文件架構、閱讀路線、多語言結構與完整導覽。
 ---
 
-**站點啟用：2026 年 9 月 28 日｜當前版本：v5.19｜站點地址：docs.epocanvas.com/epomail**
+**站點啟用：2026 年 9 月 28 日｜當前版本：v5.21｜站點地址：docs.epocanvas.com/epomail**
 
-**生效日期：2026 年 10 月 11 日｜版本：5.19**
+**更新日期：2026 年 11 月 2 日｜版本：5.21**
 
 EpoCanvas Mail 文件站（下稱「本站」）是 EpoCanvas Mail 開放原始碼電子郵件服務的官方文件中心，涵蓋法律條款、技術規範、使用指南與開發文件。本站以 Astro 5 + Starlight 構建，六語言完全對稱（簡體中文、繁體中文、English、Français、Español、Nederlands），全部文件經程式碼實作逐字核驗，為託管實例使用者、自行部署者與稽核參與者提供單一可信文件源。本頁說明本站的定位、文件架構、閱讀路線與導覽入口。
 
@@ -49,7 +49,7 @@ EpoCanvas Mail 文件站（下稱「本站」）是 EpoCanvas Mail 開放原始�
 | [信箱介面與郵件詳情](/zh-tw/mail/mailbox/) | 收件匣視圖、三欄分屏、對話線程與郵件詳情頁的逐項說明 |
 | [標籤與分類管理](/zh-tw/mail/labels/) | 標籤體系、分類規則引擎、黑白名單與全域治理工具 |
 | [個資與常規設定](/zh-tw/mail/preferences/) | 個人資料卡、地址卡、介面語言、主題桌布與閱讀偏好 |
-| [資料匯出與儲存](/zh-tw/mail/data/) | JSON 完整副本匯出、.eml 單郵件下載與儲存用量管理 |
+| [資料匯出與儲存](/zh-tw/mail/data/) | 選定資料的 JSON 匯出、.eml 下載及儲存管理；範圍限制見資料安全說明 |
 | [帳號安全設定指南](/zh-tw/mail/security/) | 使用者名稱與密碼、兩步驟驗證中心（TOTP、備用恢復碼、通行密鑰）與信任裝置 |
 | [通知與轉寄指南](/zh-tw/mail/notify/) | 個人轉寄、Telegram 推送與全域轉寄規則的配置與行為 |
 | [分析頁](/zh-tw/mail/analysis/) | 資料視覺化儀表板、使用者增長與郵件分類統計 |

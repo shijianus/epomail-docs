@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Cinq piliers de la politique de confidentialité sur le socle de la surveillance : collecte, utilisation, transfert, sécurité, vos droits — sous le droit applicable de protection des données">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Confidentialité : collecte, utilisation, transfert, sécurité et droits ; évaluer les bases légales, garanties et recours selon le traitement réel.">
   <style>
     .bg { fill: #f8fafc; }
     .roof { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.6; }
@@ -23,39 +23,39 @@
   </style>
   <rect class="bg" width="1000" height="400" rx="16"/>
   <rect class="roof" x="60" y="40" width="880" height="64" rx="12"/>
-  <text class="roof-t" x="84" y="68" font-size="13">Droit applicable — devoir d’information : quoi, pourquoi, combien de temps, vos recours</text>
-  <text class="law" x="84" y="90">S’APPLIQUE À TOUTE ACTIVITÉ DE TRAITEMENT DÉCRITE DANS LA PRÉSENTE POLITIQUE</text>
+  <text class="roof-t" x="84" y="68" font-size="13">Privacy notice: purposes, lawful bases, recipients, retention &amp; rights</text>
+  <text class="law" x="84" y="90">EACH PROCESSING ACTIVITY REQUIRES ITS OWN ASSESSMENT</text>
   <rect class="pillar" x="60" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="78" y="168">Collecte</text>
-  <text class="pb" x="78" y="190">Nécessité contractuelle ;</text>
-  <text class="pb" x="78" y="206">consentement pour</text>
-  <text class="pb" x="78" y="222">les fonctions IA</text>
-  <text class="law" x="78" y="262">CONTRAT · CONSENTEMENT</text>
+  <text class="pt" x="78" y="168">Collect</text>
+  <text class="pb" x="78" y="190">Stated purposes</text>
+  <text class="pb" x="78" y="206">Necessary data</text>
+  <text class="pb" x="78" y="222">Valid lawful basis</text>
+  <text class="law" x="78" y="262">LAWFUL BASIS</text>
   <rect class="pillar" x="230" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="248" y="168">Utilisation</text>
-  <text class="pb" x="248" y="190">dans la finalité ;</text>
-  <text class="pb" x="248" y="206">opposition au</text>
-  <text class="pb" x="248" y="222">marketing à tout moment</text>
-  <text class="law" x="248" y="262">LIMITATION DES FINALITÉS</text>
+  <text class="pt" x="248" y="168">Use</text>
+  <text class="pb" x="248" y="190">Purpose limits</text>
+  <text class="pb" x="248" y="206">Optional features</text>
+  <text class="pb" x="248" y="222">Consent if required</text>
+  <text class="law" x="248" y="262">USER CHOICES</text>
   <rect class="pillar" x="400" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="418" y="168">Transfert</text>
-  <text class="pb" x="418" y="190">transfrontalier via</text>
-  <text class="pb" x="418" y="206">Cloudflare ; respecte</text>
-  <text class="pb" x="418" y="222">les restrictions légales</text>
-  <text class="law" x="418" y="262">GARANTIES DE TRANSFERT</text>
+  <text class="pt" x="418" y="168">Transfer</text>
+  <text class="pb" x="418" y="190">Actual recipients</text>
+  <text class="pb" x="418" y="206">Data may leave</text>
+  <text class="pb" x="418" y="222">the instance</text>
+  <text class="law" x="418" y="262">SAFEGUARDS</text>
   <rect class="pillar" x="570" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="588" y="168">Sécurité</text>
-  <text class="pb" x="588" y="190">chiffrement, blocage,</text>
-  <text class="pb" x="588" y="206">audits — mesures</text>
-  <text class="pb" x="588" y="222">améliorées en continu</text>
-  <text class="law" x="588" y="262">MESURES DE SÉCURITÉ</text>
+  <text class="pt" x="588" y="168">Security</text>
+  <text class="pb" x="588" y="190">Scoped encryption</text>
+  <text class="pb" x="588" y="206">Access controls</text>
+  <text class="pb" x="588" y="222">Verify deployment</text>
+  <text class="law" x="588" y="262">RISK CONTROLS</text>
   <rect class="pillar" x="740" y="140" width="160" height="140" rx="10"/>
-  <text class="pt" x="758" y="168">Vos droits</text>
-  <text class="pb" x="758" y="190">consulter, copier,</text>
-  <text class="pb" x="758" y="206">rectifier, stopper,</text>
-  <text class="pb" x="758" y="222">supprimer — § 9</text>
-  <text class="law" x="758" y="262">DROITS & RECOURS</text>
+  <text class="pt" x="758" y="168">Rights</text>
+  <text class="pb" x="758" y="190">Access &amp; correction</text>
+  <text class="pb" x="758" y="206">Erasure &amp; objection</text>
+  <text class="pb" x="758" y="222">Applicable deadlines</text>
+  <text class="law" x="758" y="262">RIGHTS &amp; REMEDIES</text>
   <rect class="base" x="60" y="312" width="880" height="56" rx="12"/>
-  <text class="bt" x="84" y="336" font-size="12">Socle : surveillance par l’autorité compétente du lieu de l’exploitant</text>
-  <text class="law" x="84" y="356">DROIT APPLICABLE DE LA JURIDICTION DE L’EXPLOITANT DE CHAQUE INSTANCE</text>
+  <text class="bt" x="84" y="336" font-size="12">Oversight &amp; remedies follow applicable law and the actual processing</text>
+  <text class="law" x="84" y="356">COMPETENT AUTHORITIES · MANDATORY LOCAL RIGHTS</text>
 </svg>

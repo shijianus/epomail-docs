@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="用语地图：法律名词与技术名词一次定义、全站一致使用">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="法律与技术用语地图；角色依实际活动判断，机制须连同范围及限制理解。">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -30,35 +30,35 @@
     }
   </style>
   <rect class="bg" width="1000" height="400" rx="16"/>
-  <text class="tag" x="60" y="46">用语地图 · 用语定义</text>
+  <text class="tag" x="60" y="46">LEGAL &amp; TECHNICAL TERMS</text>
   <rect class="c1" x="60" y="66" width="330" height="230" rx="12"/>
-  <text class="bt" x="84" y="96">法律名词</text>
+  <text class="bt" x="84" y="96">Legal terms</text>
   <rect class="row" x="80" y="112" width="290" height="36" rx="8"/>
-  <text class="t" x="94" y="135" font-size="12">数据控制者 · 受托处理者</text>
+  <text class="t" x="94" y="135" font-size="12">Controller · Processor</text>
   <rect class="row" x="80" y="156" width="290" height="36" rx="8"/>
-  <text class="t" x="94" y="179" font-size="12">当事人 · 特定目的</text>
+  <text class="t" x="94" y="179" font-size="12">Data subject · Purpose</text>
   <rect class="row" x="80" y="200" width="290" height="36" rx="8"/>
-  <text class="t" x="94" y="223" font-size="12">国际传输</text>
+  <text class="t" x="94" y="223" font-size="12">Transfer · Safeguards</text>
   <rect class="row" x="80" y="244" width="290" height="36" rx="8"/>
-  <text class="t" x="94" y="267" font-size="12">告知义务 · 营销拒绝</text>
+  <text class="t" x="94" y="267" font-size="12">Notice · Rights · Remedies</text>
   <rect class="c2" x="610" y="66" width="330" height="230" rx="12"/>
-  <text class="bt" x="634" y="96">技术名词</text>
+  <text class="bt" x="634" y="96">Technical terms</text>
   <rect class="row" x="630" y="112" width="290" height="36" rx="8"/>
-  <text class="t" x="644" y="135" font-size="12">实例 · 运营者</text>
+  <text class="t" x="644" y="135" font-size="12">Instance · Operator</text>
   <rect class="row" x="630" y="156" width="290" height="36" rx="8"/>
   <text class="t" x="644" y="179" font-size="12">D1 · KV · R2 · BYOS</text>
   <rect class="row" x="630" y="200" width="290" height="36" rx="8"/>
-  <text class="t" x="644" y="223" font-size="12">静态加密 · JWT · RBAC</text>
+  <text class="t" x="644" y="223" font-size="12">Scoped encryption · JWT · RBAC</text>
   <rect class="row" x="630" y="244" width="290" height="36" rx="8"/>
-  <text class="t" x="644" y="267" font-size="12">零遥测 · 软删除／实体删除</text>
+  <text class="t" x="644" y="267" font-size="12">Telemetry · Deletion limits</text>
   <circle class="hub" cx="500" cy="181" r="86"/>
-  <text class="hub-t" x="500" y="172" text-anchor="middle">本页定义</text>
-  <text class="hub-b" x="500" y="192" text-anchor="middle">全站文档</text>
-  <text class="hub-b" x="500" y="208" text-anchor="middle">一致使用</text>
+  <text class="hub-t" x="500" y="172" text-anchor="middle">DEFINITIONS</text>
+  <text class="hub-b" x="500" y="192" text-anchor="middle">Read in context</text>
+  <text class="hub-b" x="500" y="208" text-anchor="middle">Assess actual facts</text>
   <path class="link" d="M392,181 L414,181"/>
   <path class="link" d="M586,181 L608,181"/>
-  <text class="tag" x="60" y="330">解释基准</text>
+  <text class="tag" x="60" y="330">SCOPE &amp; LIMITS</text>
   <rect class="card" x="60" y="342" width="880" height="40" rx="10"/>
-  <text class="b" x="84" y="360">法律名词采资料保护法制通用定义；技术名词依开源代码实际实现解释。</text>
-  <text class="b" x="84" y="376">未列名词依隐私政策与服务条款之文脉解释。</text>
+  <text class="b" x="84" y="360">Legal roles follow actual purposes and means; technical scope follows the deployed implementation.</text>
+  <text class="b" x="84" y="376">Definitions do not create a lawful basis, certification or service guarantee.</text>
 </svg>

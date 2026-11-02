@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Échelle d’exécution : avertissement, limitation, quarantaine, suspension, suppression — avec voie de recours et tolérance zéro pour l’exploitation sexuelle d’enfants">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Mesures proportionnées : avertir, limiter, isoler, suspendre et terminer ; les mesures urgentes restent contestables, avec suppression et conservation nécessaire distinctes.">
   <style>
     .bg { fill: #f8fafc; }
     .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -41,25 +41,25 @@
   </defs>
   <rect class="bg" width="1000" height="400" rx="16"/>
   <rect class="band" x="60" y="36" width="880" height="56" rx="10"/>
-  <text class="bt" x="84" y="60">Tolérance zéro — exploitation sexuelle d’enfants :</text>
-  <text class="b0" x="84" y="80">suppression immédiate et clôture du compte, preuves conservées, signalement à l’autorité — pas de délai de recours</text>
+  <text class="bt" x="84" y="60">Urgent protection: child sexual abuse &amp; exploitation content</text>
+  <text class="b0" x="84" y="80">Restrict access and spread; preserve necessary evidence and report as required by law; review the action.</text>
   <rect class="s1" x="60"  y="300" width="150" height="56" rx="10"/>
-  <text class="t" x="76" y="324">1 · Avertissement</text>
-  <text class="b" x="76" y="342">premier écart mineur</text>
+  <text class="t" x="76" y="324">1 · Warn</text>
+  <text class="b" x="76" y="342">Minor breach</text>
   <rect class="s2" x="234" y="252" width="150" height="56" rx="10"/>
-  <text class="t" x="250" y="276">2 · Limitation</text>
-  <text class="b" x="250" y="294">envoi et API réduits</text>
+  <text class="t" x="250" y="276">2 · Limit</text>
+  <text class="b" x="250" y="294">Sending &amp; API</text>
   <rect class="s3" x="408" y="204" width="150" height="56" rx="10"/>
-  <text class="t" x="424" y="228">3 · Quarantaine</text>
-  <text class="b" x="424" y="246">vers les indésirables</text>
+  <text class="t" x="424" y="228">3 · Isolate</text>
+  <text class="b" x="424" y="246">Restrict access</text>
   <rect class="s4" x="582" y="156" width="150" height="56" rx="10"/>
-  <text class="t" x="598" y="180">4 · Suspension</text>
-  <text class="b" x="598" y="198">accès suspendu</text>
+  <text class="t" x="598" y="180">4 · Suspend</text>
+  <text class="b" x="598" y="198">Pause &amp; review</text>
   <rect class="s5" x="756" y="108" width="150" height="56" rx="10"/>
-  <text class="t" x="772" y="132">5 · Suppression</text>
-  <text class="b" x="772" y="150">définitive, irréversible</text>
+  <text class="t" x="772" y="132">5 · End</text>
+  <text class="b" x="772" y="150">Deletion &amp; retention</text>
   <path class="loop" d="M820,168 C866,240 736,318 540,330 C380,340 250,334 218,318"/>
-  <text class="loop-t" x="470" y="356">Recours et signalement — réponse dans un délai raisonnable ;</text>
-  <text class="loop-t" x="470" y="372">information préalable sauf urgence</text>
-  <text class="tag" x="60" y="378">ÉCHELLE PROPORTIONNÉE À LA GRAVITÉ</text>
+  <text class="loop-t" x="470" y="356">Reasons, appeal &amp; review remain available.</text>
+  <text class="loop-t" x="470" y="372">Urgent protection may precede notice.</text>
+  <text class="tag" x="60" y="378">PROPORTIONATE ACTION</text>
 </svg>

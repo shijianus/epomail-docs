@@ -3,7 +3,7 @@ title: Guía de las tarjetas de configuración del sistema
 description: Guía de las tarjetas de configuración del sistema de EpoCanvas Mail — once tarjetas explicadas una a una, de la configuración del sitio a la personalización, la autenticación de terceros, el almacenamiento, el push de correo, el motor de IA, el control de datos de usuario, Turnstile, los avisos, los informes de operaciones y el acerca de.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 La página de configuración del sistema (`#manage/admin/system`, claves de permiso `setting:query`／`setting:set`) organiza toda la configuración al nivel de la instancia en tarjetas. Esta página explica tarjeta por tarjeta; los nombres de las tarjetas coinciden con la interfaz de la aplicación.
 

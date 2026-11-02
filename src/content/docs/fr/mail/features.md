@@ -3,7 +3,7 @@ title: Guide des fonctionnalités d'EpoCanvas Mail
 description: Guide des fonctionnalités d'EpoCanvas Mail — organisation de la boîte de réception, rédaction et envoi, syntaxe de recherche, moteur de règles d'étiquettes, extraction des codes de vérification, gestion des pourriels, réexpédition et notifications, capacités d'IA et plateforme ouverte.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 La présente page décrit une à une les fonctionnalités réelles d'EpoCanvas Mail ; chaque point a été vérifié à partir du code open source, et les captures d'écran de l'interface proviennent de l'exécution réelle de l'instance hébergée officielle. Le positionnement du projet, son historique de développement et son déploiement sont présentés dans [Présentation du projet](/fr/mail/project/) ; le traitement des données et les durées de conservation propres à chaque fonctionnalité figurent dans [Traitement des données et sécurité](/fr/mail/data-security/).
 
@@ -108,7 +108,7 @@ L'extraction des codes de vérification dans le détail d'un courriel : le code 
 
 - **Zone du code en grands caractères** : Le code extrait par Workers AI depuis l'objet et les 6,000 premiers caractères du corps, affiché en grands caractères pour le recopier facilement.
 - **Badge vert** : Le marqueur vert qui apparaît à la fois sur la ligne de liste et sur la page de détail signifie « ce courriel contient un code de vérification extrait » : vous le repérez dès la liste, sans ouvrir chaque message. Le badge ne paraît qu'en cas d'extraction réussie ; sans correspondance ou extraction désactivée, il reste absent — son absence ne prouve pas que le courriel est sûr, seulement qu'il n'y a pas de code à recopier.
-- **Limites** : C'est le seul traitement par IA qui n'est pas déclenché manuellement ; il se désactive dans les paramètres généraux. Étendue du traitement et modalités de retrait : section 6 de la politique de confidentialité.
+- **Limites** : L'extraction des codes dépend d'un commutateur global, désactivé par défaut. Une fois activée, la réception peut déclencher un transfert automatique ; aucun refus individuel n'a été trouvé. Voir la section 6 de la politique de confidentialité.
 
 </details>
 
@@ -122,7 +122,7 @@ L'extraction des codes de vérification dans le détail d'un courriel : le code 
 
 - **Réexpédition personnelle** : réacheminement automatique du courrier de la boîte vers d'autres adresses, avec prise en charge de la copie (cc) ;
 - **Réexpédition globale** : l'administrateur peut configurer des règles de réexpédition au niveau du système, dans la limite du mode de messagerie (désactivée en mode « Chiffré ») ;
-- **Notifications Telegram** : après liaison du bot, envoi selon la configuration de l'objet, de l'expéditeur, du corps et du code de vérification, avec un lien de lecture interne valable 7 jours ; chaque champ de notification peut être masqué individuellement.
+- **Notifications Telegram** : Certains champs expéditeur, destinataire et corps sont configurables. L'objet, le code extrait et le lien de lecture accessible à son détenteur pendant 7 jours peuvent être ajoutés automatiquement ; tous les champs ne peuvent pas être masqués.
 
 ## 8. Capacités d'IA
 
@@ -130,16 +130,16 @@ L'extraction des codes de vérification dans le détail d'un courriel : le code 
 | --- | --- | --- |
 | Extraction des codes de vérification | automatique à l'arrivée d'un nouveau courriel (désactivable) | inférence en périphérie par Workers AI, voir la section 5 |
 | Traduction intégrale | clic manuel | traduction multilingue qui conserve la mise en page du courriel d'origine, segments traités en parallèle ; les points de terminaison des modèles et le canal de secours figurent à la section 6 de la [Politique de confidentialité](/fr/mail/privacy-policy/) |
-| Reconnaissance du texte des images | téléversement manuel | sous-titres générés par OCR ; les images purement décoratives sont automatiquement ignorées |
+| Reconnaissance du texte des images | Flux de traduction et paramètre OCR | Peut traiter des images intégrées aux courriels ou leurs URL distantes. Désactivé par défaut côté client ; l'omission du paramètre API peut l'activer. Le filtrage décoratif est heuristique. |
 | AI Hub | configuration par l'administrateur | connexion à des points de terminaison multi-modèles compatibles OpenAI, test de vitesse à zéro jeton, autorisation des modèles par rôle |
 
-L'Opérateur n'entraîne aucun modèle sur le contenu des courriels ; le traitement par IA consenti peut être retiré à tout moment (voir la section 6 de la [Politique de confidentialité](/fr/mail/privacy-policy/)).
+L'exploitant n'entraîne pas lui-même de modèles sur les courriels ; les usages tiers exigent une vérification contractuelle. Le retrait est un droit, non la preuve d'un arrêt individuel fonctionnel. Les flux sans base ou choix requis doivent être désactivés.
 
 ## 9. Plateforme ouverte et autonomie des données
 
-- **Centre d'authentification OAuth 2.0 / OIDC** : l'administrateur peut enregistrer des applications tierces, avec des portées d'autorisation limitées à openid / profile / email et des jetons d'accès valables 2 heures ; la personne concernée peut suivre en temps réel les autorisations sur la page « Applications tierces » et les révoquer à tout moment ;
+- **Centre d'authentification OAuth 2.0 / OIDC** : Les applications peuvent recevoir des champs réels d'identité et de rôle, pas seulement ceux décrits par openid/profile/email. La révocation ne rappelle ni les ID tokens émis ni les copies tierces.
 - **Guide d'intégration** : l'enregistrement des applications côté administration, les points de terminaison et le code d'intégration figurent dans [Plateforme ouverte et accès API](/fr/mail/api/);
-- **Export des données** : export en un clic, depuis la page des paramètres, d'une copie complète au format JSON (profil et texte intégral des courriels non supprimés) ; chaque courriel peut être téléchargé au format .eml ;
+- **Export des données** : Le JSON contient des champs de profil sélectionnés, des données des courriels non marqués supprimés et des étiquettes personnalisées. Il exclut pièces jointes, routage complet, alias, contacts, règles et paramètres de sécurité. Ce n'est pas une sauvegarde complète ; les données omises peuvent être demandées selon la loi.
 
 ## 10. Interface et mobile
 

@@ -3,7 +3,7 @@ title: Permissions
 description: Permissions d'EpoCanvas Mail — les six groupes d'identité, les clés de permission attribuées une à une, le groupe par défaut et la protection des groupes, la synchronisation par le niveau de blog.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 La page des permissions est l'interface de gestion des groupes d'identité de la zone d'administration (`#manage/admin/roles`, clé de permission `role:query`) ; elle décide des quotas, des clés de permission et de l'autorisation des modèles IA de chaque groupe. Le comportement côté utilisateur de chaque groupe figure à la section 3 de [Modes de fonctionnement](/fr/mail/modes/).
 

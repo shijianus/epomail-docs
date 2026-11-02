@@ -3,7 +3,7 @@ title: Open platform en API-toegang
 description: De gids voor het open platform en de API-toegang van EpoCanvas Mail — OAuth-apps registreren, de authorize- en token-eindpunten, userinfo, de semantiek van scopes en de toestemmings- en intrekkingsstroom aan gebruikerskant.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 EpoCanvas Mail beschikt over een ingebouwd OAuth 2.0 / OIDC-autorisatiecentrum: de beheerder registreert applicaties van derden in de beheersectie «Appbeheer» (`#manage/admin/oauth-apps`), waarna externe sites «Aanmelden met Epomail» kunnen aanbieden. Deze pagina is de volledige ontwikkelaarshandleiding; waar het appbeheer in de app zit, staat in de [Interface en routekaart](/nl/mail/interface/), sectie 4, en de verwerking van autorisatiegegevens wordt openbaar gemaakt in de [Verwerkerslijst](/nl/mail/sub-processors/).
 
@@ -19,7 +19,7 @@ Vijf gebieden van de pagina Appbeheer: vier eindpunten bovenaan en één voorbee
 1. **`/.well-known/openid-configuration`**: Het eindpunt met OIDC Discovery-metadata: issuer, de eindpunten en de mogelijkheden, zelfbeschreven zodat frameworks zoals NextAuth zich automatisch kunnen configureren.
 2. **`/oauth/authorize`**: Het eindpunt voor gebruikersautorisatie: het loodst de gebruiker door aanmelden en het verlenen van toestemming. Pop-ups krijgen het resultaat terug via `postMessage`; bij annulering keert de gebruiker terug met `error=access_denied`.
 3. **`/api/oauth/token`**: Het eindpunt voor tokenuitwisseling: een eenmalig gebruikbare autorisatiecode (5 minuten geldig) wordt geruild voor een access token en een ID Token die 2 uur geldig zijn. JSON, formulier en HTTP Basic worden alle drie geaccepteerd; met PKCE wordt de `code_verifier` (S256) gecontroleerd.
-4. **`/api/oauth/userinfo`**: Het eindpunt voor het gebruikersprofiel: met een Bearer access token lees je de verleende velden (`sub`, `email`, `name`, `picture`, …). Een verlopen of ingetrokken token geeft 401 terug.
+4. **`/api/oauth/userinfo`**: userinfo levert identiteits- en rolvelden en filtert niet noodzakelijk op elke gevraagde scope. Zie de ontvangerslijst; scopes garanderen geen strikte veldfiltering.
 5. **Appkaart (shijianus-blog)**: Eén kaart per app: Client ID en Client Secret (het secret wordt alleen bij aanmaak of herstel één keer volledig getoond), een aan/uit-schakelaar, bewerken/verwijderen, en vijf kant-en-klare integratiefragmenten — NextAuth, Node, Python, cURL en generieke OIDC.
 
 </details>
@@ -79,13 +79,13 @@ curl -X POST https://<instance-domain>/api/oauth/token \
 | `comments` | Beheer van blogreacties en interacties (gebruikt door de voorbeeldapp; een interactierecht) |
 | `offline_access` | Aangemeld blijven voor langere tijd; momenteel wordt geen refresh token uitgegeven, dus het verlenen van deze scope levert geen offline token op |
 
-userinfo geeft terug: `sub`, `email`, `email_verified`, `name`, `preferred_username`, `picture`, `is_admin` en `role`.
+userinfo geeft terug: `sub`, `email`, `email_verified`, `name`, `preferred_username`, `picture`, `is_admin` en `role`. userinfo levert identiteits- en rolvelden en filtert niet noodzakelijk op elke gevraagde scope. Zie de ontvangerslijst; scopes garanderen geen strikte veldfiltering.
 
 ## 5. Gebruikerskant: toestemming en intrekking
 
 - De toestemmingspagina toont de informatie van de app, de officiële badge en de volledige scopelijst; autoriseren legt nooit het wachtwoord of de e-mailinhoud van de gebruiker bloot;
 - Gebruikers kunnen de toegang van een app op elk moment intrekken onder «Instellingen → Gegevens» in de lijst «Apps en diensten van derden», of alles tegelijk intrekken via het detailvenster;
-- Intrekking werkt onmiddellijk: de bestaande tokens van de app vervallen ter plekke (userinfo geeft 401 terug) en de machtiging wordt uit het account van de gebruiker verwijderd.
+- Intrekken blokkeert nieuwe opvragingen via userinfo van deze dienst. Het garandeert geen onmiddellijke ongeldigheid van ID-tokens bij derden en haalt verkregen gegevens niet terug.
 
 ## 6. Persoonlijke API-tokens (huidige status)
 

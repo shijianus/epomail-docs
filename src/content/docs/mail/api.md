@@ -3,7 +3,7 @@ title: 开放平台与 API 接入
 description: EpoCanvas Mail 开放平台与 API 接入指南——OAuth 应用注册、授权端点、令牌置换、userinfo、scope 语义与用户授权撤销之完整开发者教程。
 ---
 
-**生效日期：2026 年 10 月 11 日｜版本：5.19**
+**更新日期：2026 年 11 月 2 日｜版本：5.21**
 
 EpoCanvas Mail 内建 OAuth 2.0／OIDC 认证中心：管理员于管理区「应用管理」（`#manage/admin/oauth-apps`）注册第三方应用，外部站点即可让用户「使用 Epomail 登录」。本页是面向开发者的完整接入教程；应用管理界面的位置见[界面与路由总览](/mail/interface/)第 4 节，用户授权数据的处理见[第三方处理者清单](/mail/sub-processors/)。
 
@@ -19,7 +19,7 @@ EpoCanvas Mail 内建 OAuth 2.0／OIDC 认证中心：管理员于管理区「�
 1. **`/.well-known/openid-configuration`**：OIDC Discovery 元数据端点：issuer、各端点与支持项自述，第三方框架（如 NextAuth）据此自动发现配置。
 2. **`/oauth/authorize`**：用户授权端点：引导用户登录并同意授权；弹窗场景经 `postMessage` 回传结果，用户取消则回跳携带 `error=access_denied`。
 3. **`/api/oauth/token`**：令牌置换端点：以一次性授权码（5 分钟有效）换取 2 小时有效的访问令牌与 ID Token；支持 JSON、表单与 HTTP Basic 三种传参，配置 PKCE 时校验 `code_verifier`（S256）。
-4. **`/api/oauth/userinfo`**：用户资料端点：以 Bearer 访问令牌读取 `sub`、`email`、`name`、`picture` 等已授权字段；令牌过期或被撤销时返回 401。
+4. **`/api/oauth/userinfo`**：userinfo 返回身份及角色字段，未必逐项按 scope 精简；字段与撤销限制见第三方清单，不应将请求范围当作严格的字段过滤保证。
 5. **应用卡片（shijianus-blog）**：每应用一张卡：Client ID 与 Client Secret（Secret 仅在创建或重置时完整显示一次）、启停开关、编辑/删除，以及内置 NextAuth、Node、Python、cURL 与通用 OIDC 五套可复制的集成代码。
 
 </details>
@@ -79,13 +79,13 @@ curl -X POST https://<实例域名>/api/oauth/token \
 | `comments` | 博客评论与互动管理（示例应用使用，属互动权限） |
 | `offline_access` | 长期登录保持；当前版本不签发 refresh token，授权页展示该 scope 不产生离线令牌 |
 
-userinfo 返回字段：`sub`、`email`、`email_verified`、`name`、`preferred_username`、`picture`、`is_admin` 与 `role`。
+userinfo 返回字段：`sub`、`email`、`email_verified`、`name`、`preferred_username`、`picture`、`is_admin` 与 `role`。 userinfo 返回身份及角色字段，未必逐项按 scope 精简；字段与撤销限制见第三方清单，不应将请求范围当作严格的字段过滤保证。
 
 ## 5. 用户侧：授权与撤销
 
 - 授权页向用户完整展示应用信息、官方认证徽章与所申请的 scope 清单；授权不会泄露用户的帐号密码或邮件正文；
 - 用户随时可在「设置 → 资料」的「第三方应用和服务」逐应用移除访问权限，或经详情弹窗一键撤销全部授权；
-- 撤销即时生效：该应用的现有令牌立即失效（userinfo 返回 401），授权记录从用户名下移除。
+- 撤销阻止后续通过本服务 userinfo 取得资料，不保证已签发 ID token 在第三方立即失效，也不能收回对方已取得的资料。
 
 ## 6. 个人 API 令牌（现状说明）
 

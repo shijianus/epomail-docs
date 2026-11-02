@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="官方郵件三層處理：簽發層鎖定官方發信地址並注入認證標記，投遞層不可變快照與預置翻譯回退，用戶端沙箱隔離與文件完整性存證">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="系統郵件標識、翻譯與記錄檢查：顯示標識不是簽章，翻譯可能使用 AI；中繼資料和雜湊記錄比對不等於驗證所讀全文。">
   <style>
     .bg { fill: #f8fafc; }
     .band { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -36,42 +36,42 @@
   </defs>
   <rect class="bg" width="1000" height="480" rx="16"/>
   <rect class="band" x="40" y="35" width="920" height="110" rx="14"/>
-  <text class="lbl-blue" x="60" y="58">第一層 · 官方發信身分（簽發）</text>
+  <text class="lbl-blue" x="60" y="58">TIER 1 · SYSTEM MAIL LABELS</text>
   <rect class="box-blue" x="60" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="78" y="93" font-size="13">官方發信地址鎖定</text>
+  <text class="t" x="78" y="93" font-size="13">Configured sender</text>
   <text class="mono" x="78" y="112">announcement@epocanvas.com</text>
   <rect class="box" x="355" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="373" y="93" font-size="13">官方認證標記（isOfficial）</text>
-  <text class="b" x="373" y="112">官方地址與「官方」標籤</text>
+  <text class="t" x="373" y="93" font-size="13">Official flag</text>
+  <text class="b" x="373" y="112">UI marker · not a signature</text>
   <rect class="box-green" x="650" y="70" width="290" height="60" rx="10"/>
-  <text class="t" x="668" y="93" font-size="13">閱讀標識與橫幅</text>
-  <text class="b" x="668" y="112">官方郵件於用戶端醒目標示</text>
+  <text class="t" x="668" y="93" font-size="13">Reader badge</text>
+  <text class="b" x="668" y="112">Display label · check the context</text>
   <path class="arrow" d="M195,145 L195,185"/>
   <path class="arrow" d="M490,145 L490,185"/>
   <path class="arrow" d="M795,145 L795,185"/>
   <rect class="band" x="40" y="190" width="920" height="115" rx="14"/>
-  <text class="lbl-amber" x="60" y="213">第二層 · 不可變投遞（儲存）</text>
+  <text class="lbl-amber" x="60" y="213">TIER 2 · DELIVERY &amp; TRANSLATION</text>
   <rect class="box" x="60" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="78" y="249" font-size="13">不可變快照</text>
-  <text class="b" x="78" y="268">發送時一次渲染，與語言解耦</text>
+  <text class="t" x="78" y="249" font-size="13">Rendered content</text>
+  <text class="b" x="78" y="268">Stored output · scope depends on path</text>
   <rect class="box-amber" x="355" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="373" y="249" font-size="13">預置翻譯回退</text>
-  <text class="b" x="373" y="268">未修改本地渲染；已修改經 AI</text>
+  <text class="t" x="373" y="249" font-size="13">Translation routes</text>
+  <text class="b" x="373" y="268">Templates or AI by content &amp; settings</text>
   <rect class="box" x="650" y="225" width="290" height="64" rx="10"/>
-  <text class="t" x="668" y="249" font-size="13">生命週期與加密</text>
-  <text class="b" x="668" y="268">按設定天數過期（預設 7 日）</text>
+  <text class="t" x="668" y="249" font-size="13">Retention &amp; cleanup</text>
+  <text class="b" x="668" y="268">Expiry marks · scheduled cleanup</text>
   <path class="arrow" d="M195,305 L195,345"/>
   <path class="arrow" d="M490,305 L490,345"/>
   <path class="arrow" d="M795,305 L795,345"/>
   <rect class="band" x="40" y="350" width="920" height="105" rx="14"/>
-  <text class="lbl-green" x="60" y="373">第三層 · 用戶端沙箱與文件完整性（核驗）</text>
+  <text class="lbl-green" x="60" y="373">TIER 3 · RENDERING &amp; RECORD CHECKS</text>
   <rect class="box-green" x="60" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="78" y="405" font-size="13">Shadow DOM 隔離</text>
-  <text class="b" x="78" y="423">頁面樣式與腳本不進出</text>
+  <text class="t" x="78" y="405" font-size="13">Shadow DOM</text>
+  <text class="b" x="78" y="423">Style scope · no security guarantee</text>
   <rect class="box" x="355" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="373" y="405" font-size="13">DOMPurify 白名單</text>
-  <text class="b" x="373" y="423">移除 script · iframe · embed · form · style</text>
+  <text class="t" x="373" y="405" font-size="13">DOMPurify</text>
+  <text class="b" x="373" y="423">Sanitize HTML · review allowed content</text>
   <rect class="box-blue" x="650" y="383" width="290" height="58" rx="10"/>
-  <text class="t" x="668" y="405" font-size="13">完整性清單</text>
-  <text class="b" x="668" y="423">tamper-proof.json · SHA-256 · git 提交錨點</text>
+  <text class="t" x="668" y="405" font-size="13">Metadata &amp; hash records</text>
+  <text class="b" x="668" y="423">Record check · not a content signature</text>
 </svg>

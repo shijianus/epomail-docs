@@ -213,6 +213,11 @@ const g = (label, items) => ({ label, translations: SIDEBAR_GROUPS_I18N[label] ?
 export default defineConfig({
 	site: SITE_ORIGIN,
 	base: SITE_BASE,
+	redirects: Object.fromEntries(
+		['zh-tw', 'en', 'fr', 'es', 'nl'].map((locale) => [
+			`/${locale}`, `${SITE_BASE}/${locale}/mail/overview/`,
+		]),
+	),
 	markdown: { rehypePlugins: [rehypePrefixBase] },
 	// 纯文档站点用不到 Astro 开发工具栏
 	devToolbar: { enabled: false },

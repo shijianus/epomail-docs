@@ -3,7 +3,7 @@ title: Deployment Guide
 description: The EpoCanvas Mail deployment guide — prerequisites, the three-step deployment, initialisation and the bootstrap chain, secret injection, mail configuration, storage choices, the demo instance and upgrades.
 ---
 
-**Effective date: 11 October 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
 This page is for users and administrators preparing to deploy EpoCanvas Mail themselves; it covers the full path from zero to a working instance. Once deployed, all instance data lives in the deployer's own Cloudflare resources, and the deployer becomes the data controller for its users — the legal position is set out in [Open-Source & Self-Hosting Legal](/en/mail/open-source/). Using the hosted instance ([mail.epocanvas.com](https://mail.epocanvas.com)) requires none of these steps.
 
@@ -52,7 +52,7 @@ After the first deployment, visit `/api/init/<jwt_secret>` (replacing the path p
 
 - Inbound: enable Email Routing for the domain in the Cloudflare dashboard and route destination addresses to the Worker; mail is parsed on arrival;
 - Outbound: once a delivery channel (such as Resend) is configured in system settings, off-instance mail is sent through it; without one, only in-instance direct delivery works;
-- System mail (welcome mail, security notices, announcement mail) is rendered from built-in templates in the recipient's language: buttons in the welcome mail such as "open the inbox" are in-site relative paths whose landing behaviour depends on the mail client's handling of relative links, while security notices use absolute links on the instance's domain. Self-hosters can adapt the wording and sender signature through the template constants; the delivery semantics of official mail appear in [Anti-Tampering & Official Specs](/en/mail/tamper-proof/).
+- System mail (welcome mail, security notices, announcement mail) is rendered from built-in templates in the recipient's language: buttons in the welcome mail such as "open the inbox" are in-site relative paths whose landing behaviour depends on the mail client's handling of relative links, while security notices use absolute links on the instance's domain. Self-hosters can adapt the wording and sender signature through the template constants; the delivery semantics of official mail appear in [Anti-Tampering & Official Specs](/en/mail/tamper-proof/). Manifest comparison is an aid to checking source-file hashes, not verification of mail identity, content signatures or legal compliance.
 
 ## 6. Storage and database choices
 

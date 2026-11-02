@@ -1,53 +1,63 @@
 ---
 title: "Open source en zelfhosting: juridisch kader"
-description: De juridische voorwaarden voor open source en zelfhosting van EpoCanvas Mail — de reikwijdte van de MIT-licentie, wat erbuiten valt, de positie van de zelf-uitroller als gegevensbeheerder, constructies met derden en bijdragen.
+description: Reikwijdte van MIT, onderscheid tussen auteurs en werkelijke exploitanten en gegevensbeschermingsplichten bij zelfhosting.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
-Deze pagina zet de reikwijdte van de open-sourcelicentie van EpoCanvas Mail uiteen en de juridische positie van zelfhosting. Zij vormt geen gebruikerscontract voor enige instantie: gebruikers van de gehoste instantie vallen onder de [Servicevoorwaarden](/nl/mail/terms-of-service/) en het [Privacybeleid](/nl/mail/privacy-policy/); gebruikers van een zelf gehoste instantie vallen onder de voorwaarden die diens uitroller publiceert.
 
-![Verantwoordelijkheidsgrenzen van EpoCanvas Mail: het upstream open source-project levert de broncode; de instantie wordt onafhankelijk uitgebaat door diens exploitant, die de verantwoordelijkheid van gegevensbeheerder draagt](/images/mail/nl/self-host-responsibilities.svg)
+<!-- legal-review-draft -->
+:::caution[Juridisch beoordelingsconcept: niet de geldende kennisgeving]
+Dit concept bevat voorgestelde voorwaarden en nog te verifiëren punten. Het vervangt de huidige kennisgeving niet en certificeert geen naleving. Het mag niet worden gebruikt om verwerking te activeren voordat de identiteit en wettelijk vereiste contactgegevens van de exploitant, de werkelijke rechtsgronden, ontvangers en doorgiftewaarborgen, bewaartermijnen en verwijdering zijn geverifieerd en de vereiste informatie is verstrekt. De gezaghebbende versie is de Traditioneel-Chinese tekstbasis, niet een inwerkingtreding. Bestaande wettelijke plichten en gebruikersrechten blijven onaangetast.
+:::
 
-*Figuur: de verantwoordelijkheidsgrenzen tussen software, exploitant en gebruikers. De upstream auteurs exploiteren geen enkele e-maildienst en staan niet in voor het handelen van enige instantie.*
+Deze pagina beschrijft de open-sourcelicentie en zelfhostingverantwoordelijkheden van EpoCanvas Mail. Een particulier onderhoudt het project zonder winstoogmerk voor leren en testen; de gehoste dienst volgt afzonderlijk de [Servicevoorwaarden](/nl/mail/terms-of-service/) en het [Privacybeleid](/nl/mail/privacy-policy/). Uitrollers moeten voorwaarden en informatie voor hun werkelijke diensten geven.
+
+De versie in traditioneel Chinees (Taiwan) is de officiële versie; andere talen zijn vertalingen ter vergelijking. Dit beperkt geen wettelijk vereiste duidelijke informatie, uitleg ten gunste van consumenten of rechten waarvan geen afstand kan worden gedaan. De bijwerkdatum vermeldt een tekstherziening en herschrijft de bij de code geleverde MIT-licentie niet.
+
+![Rollen bij codepublicatie en instantie-exploitatie](/images/mail/nl/self-host-responsibilities.svg)
+
+*Figuur: code publiceren maakt de auteur niet tot exploitant van andermans uitrol; auteurs die diensten exploiteren of verwerking bepalen, dragen de bijbehorende plichten.*
 
 ## 1. De licentie
 
-De broncode van dit project wordt vrijgegeven onder de MIT-licentie. Eenieder kan haar kosteloos verkrijgen en:
+De broncode volgt de bijgevoegde MIT License. Deze samenvatting moet samen met de oorspronkelijke volledige licentie worden gelezen.
 
-1. de software gebruiken, kopiëren, wijzigen, samenvoegen, publiceren, verspreiden, in sublicentie geven en kopieën ervan verkopen;
-2. onder voorbehoud dat de oorspronkelijke auteursrechtvermelding en deze licentie in alle kopieën of wezenlijke delen van de software worden opgenomen;
-3. de software wordt geleverd «as is», zonder enige garantie, uitdrukkelijk of stilzwijgend, waaronder de garanties van verkoopbaarheid, geschiktheid voor een bepaald doel en niet-schending van rechten;
-4. de auteurs of auteursrechtenhouders zijn niet aansprakelijk voor enige vordering, schade of andere aansprakelijkheid die voortvloeit uit de software of het gebruik ervan.
+1. Gebruik, kopiëren, wijzigen, samenvoegen, publiceren, verspreiden, sublicentiëren en verkopen van kopieën zijn toegestaan; het niet-commerciële projectdoel trekt door MIT toegestaan commercieel gebruik niet in.
+2. Kopieën of wezenlijke delen moeten de oorspronkelijke auteursrecht- en toestemmingsvermeldingen behouden.
+3. De licentie bevat levering in huidige staat en uitsluiting van garanties, voor zover toepasselijk recht dit toestaat.
+4. Aansprakelijkheidsuitsluitingen gaan niet boven dwingend recht en stellen auteurs niet automatisch vrij voor afzonderlijke dienstverlening, feitelijke gegevensverwerking of eigen toezeggingen.
 
 ## 2. Buiten de licentie
 
-- De MIT-licentie verleent geen merk- of handelsnaamrechten: de namen EpoCanvas en Epomail, hun logo's en visuele middelen worden door de publicatie van de broncode niet in licentie gegeven;
-- Er mag geen verklaring worden gedaan die steun van, of partnerschap met, het upstreamproject suggereert;
-- Afgeleide distributies dragen zelf de naleving voor naamgeving en branding en onderhouden hun eigen verklaring van verschillen met de upstreamcode.
+- MIT verleent op zichzelf geen merksteun of partnerstatus. Namen en merken volgen relevante rechten en wet; visuele middelen volgen hun werkelijke licenties.
+- Zelfgehoste sites moeten hun werkelijke exploitant duidelijk vermelden en mogen niet ten onrechte officiële exploitatie, certificering of samenwerking claimen.
+- Afgeleide versies behoren verschillen te beschrijven voor onderhoud en veiligheidsbeoordeling; deze pagina voegt geen met MIT strijdige broncodebeperkingen toe.
 
 ## 3. De juridische positie van de zelf-uitroller
 
-- Vanaf het moment van uitrol is de uitroller de gegevensbeheerder voor de gebruikers van diens instantie, en hebben de upstream auteurs geen toegang tot instantiegegevens (de verdeling staat in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/), sectie 2);
-- De uitroller is aan diens gebruikers informatieplicht, afhandeling van de rechten van betrokkenen, beveiligingsonderhoud en naleving van internationale doorgifte verschuldigd, krachtens het recht dat op diens vestigingsplaats geldt;
-- De juridische documenten van deze site (privacybeleid, servicevoorwaarden, beleid voor acceptabel gebruik, gegevensverwerking, verwerkerslijst) kunnen als malplaatje dienen voor de gebruikers van een uitroller; ze moeten worden herzien naar de werkelijke configuratie van de uitroller, en bij overname gaat de verantwoordelijkheid naar de uitroller over;
-- Diensten van derden die de uitroller configureert (Cloudflare, Resend, Backblaze, Turso en anderen) worden gecontracteerd door de uitroller, en diens voorwaarden binden dan de uitroller en diens gebruikers — onafhankelijk van de [lijst van verwerkers](/nl/mail/sub-processors/) van de gehoste instantie.
+- Rollen volgen doelen en middelen per activiteit. Uitrollers zijn doorgaans verantwoordelijk voor zelf bepaalde verwerking, maar kunnen gezamenlijk verantwoordelijk zijn of voor anderen verwerken; zelfhosting maakt niet automatisch uitsluitend verantwoordelijk en niet iedere particulier is verantwoordelijke.
+- Toepasselijk recht gaat verder dan de uitrollocatie. Beoordeel AVG-vestigings- en extraterritoriale voorwaarden, communicatiegeheim en dwingende consumentenbescherming; zonder winstoogmerk werken geeft geen vrijstelling. Rollen staan in paragraaf 2 van het [Overzicht](/nl/mail/overview/).
+- Documenten kunnen als schrijfvoorbeeld dienen, maar identiteit, contact, bronnen, functies, bewaring en doorgifte moeten worden geverifieerd. Organisatieverwerking vereist voorafgaande aanvaarding en zo nodig een aparte DPA; teksten kopiëren of rollen benoemen vervangt geen rechtsgrond en werkelijke maatregelen.
+- Derdenrelaties volgen feitelijke diensten en contracten; sommige aanbieders zijn voor bepaalde activiteiten zelfstandig verantwoordelijk. Leg niet alle derdenvoorwaarden aan elke gebruiker op. Verifieer aanbieders en doorgifte; de gehoste [Lijst van verwerkers](/nl/mail/sub-processors/) is geen algemene garantie.
 
 ## 4. Technische drempel en beveiligingsverantwoordelijkheid
 
-De uitroller is verantwoordelijk voor het voltooien van de injectie van geheimen en de initialisatie-bootstrap (de stappen staan in de [Uitrolgids](/nl/mail/deployment/)), en voor het toegangsbeheer van de instantie, het bewaren van de sleutels en de vervolgupdates; upstream gepubliceerde beveiligingsfixes bereiken een uitrol die niet wordt bijgewerkt niet automatisch.
+Volg de [Uitrolgids](/nl/mail/deployment/) voor sleutels, rechten en updates en beoordeel back-ups, verwijdering, incidentafhandeling en noodzakelijke beveiliging. Upstreamreparaties werken niet automatisch elke uitrol bij; een testomgeving geeft geen recht op willekeurig gebruik van echte gegevens.
+
+Codepublicatie alleen biedt geen SLA, permanente ondersteuning, blijvende hosting of certificering. Werkelijke exploitanten moeten beveiliging en rechtenafhandeling volgens risico en recht uitvoeren. Versleuteling en toegangsbeheer garanderen geen afwezigheid van lekken; zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/) voor grenzen.
 
 ## 5. Bijdragen
 
-- Bugrapporten en voorstellen gaan via de Issues van de GitHub-repository; code via Pull Requests;
-- Bijdragers moeten gerechtigd zijn tot wat zij inzenden; eenmaal samengevoegd wordt een bijdrage onder de MIT-licentie met de bron verspreid;
-- Beveiligingskwetsbaarheden mogen niet in een openbaar issue worden onthuld — meld ze privé via de contactpunten in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/), sectie 5.
+- Bugs en voorstellen kunnen via [GitHub Issues](https://github.com/shijianus/epomail/issues), code via Pull Request; aanvaarding van elke inzending of een antwoordtermijn is niet beloofd.
+- Bijdragers moeten bevoegd zijn onder de repositorylicentie in te dienen en vereiste derdenvermeldingen behouden. Een bijdrage alleen maakt geen exploitant of verwerkingsverantwoordelijke.
+- Meld niet-openbare kwetsbaarheden en persoonsgegevens privé via paragraaf 5 van het [Overzicht](/nl/mail/overview/); meldingen te goeder trouw en rechtmatig onderzoek verliezen geen bescherming door kritiek op het project.
 
 ## 6. Verwante documenten
 
 | Bron | Link |
 | --- | --- |
-| Rondleiding langs de juridische documenten en hun rangorde | [Privacy- en voorwaardenoverzicht](/nl/mail/overview/) |
-| Volledige stappen om een eigen instantie uit te rollen | [Uitrolgids](/nl/mail/deployment/) |
-| Dienstomvang en ondersteuning van de gehoste instantie | [Dienstomvang en ondersteuning](/nl/mail/service-scope/) |
-| Begrippen | [Begrippenlijst](/nl/mail/key-terms/) |
+| Juridische documenten, rollen en rangorde | [Overzicht van privacy en voorwaarden](/nl/mail/overview/) |
+| Configuratiestappen voor zelfhosting | [Uitrolgids](/nl/mail/deployment/) |
+| Gehoste functies en ondersteuningsgrenzen | [Dienstomvang en ondersteuning](/nl/mail/service-scope/) |
+| Juridische en technische begrippen | [Begrippenlijst](/nl/mail/key-terms/) |

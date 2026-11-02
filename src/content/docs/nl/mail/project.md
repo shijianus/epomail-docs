@@ -5,7 +5,7 @@ description: Een complete introductie van het EpoCanvas Mail-project—positione
 
 **Eerste commit: 21 juli 2026 | Huidige versie: v1.1.0 | Licentie: MIT**
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 EpoCanvas Mail is een open source e-mailservice die draait op het Cloudflare-edge-netwerk. Met één domein en één Cloudflare-account richt u een eigen mailboxdienst op met verzending en ontvangst van e-mail, bijlagen en toegang vanaf meerdere apparaten. Het project wordt geëxploiteerd als gehoste instantie op [mail.epocanvas.com](https://mail.epocanvas.com), publiceert zijn volledige broncode voor zelf-hosting en levert een bijbehorende Android-app (epomail). Deze pagina beschrijft de positionering, de functies, de technische architectuur, het beveiligingsontwerp en de ontwikkelgeschiedenis van het project; de juridische voorwaarden van de dienst en de privacypraktijken staan in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/).
 
@@ -13,14 +13,14 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 
 ![Systeemarchitectuur van EpoCanvas Mail: de clientlaag (webapp, Android-app, OAuth-apps van derden) verbindt via de Cloudflare-edge; Workers dragen de API, de verwerking van inkomende e-mail en de AI-mogelijkheden, met uitgaande verzending via Resend en Telegram; gegevens worden opgeslagen in dubbele D1-databases, KV en objectopslag](/images/mail/nl/project-architecture.svg)
 
-*Figuur: Systeemarchitectuur. Clients verbinden via de edge, zonder enkele oorspronkelijke server; inkomende e-mail wordt ontvangen en geparseerd door Email Routing, en uitgaande verzending gaat via het Resend-kanaal; alle toestand blijft in de eigen Cloudflare-bronnen van de uitroller.*
+*Figuur: Email Routing verwerkt inkomende mail en ingestelde kanalen bezorgen uitgaande mail. Gegevens kunnen ook externe opslag, identiteits-, meldings- of AI-diensten bereiken; zie de [Verwerkerslijst](/nl/mail/sub-processors/).*
 
 ## 1. Positionering
 
 Een eigen mailsysteem draaien vraagt om een server die langdurig onderhouden wordt, een vast IP-adres en anti-spambeheer; commerciële mailboxdiensten concentreren uw gegevens juist in handen van de aanbieder, en als gebruiker kunt u nauwelijks verifiëren hoe ze worden behandeld. EpoCanvas Mail kiest een derde pad: de complete dienst past binnen de gemeterde gratis tier van Cloudflare (Workers-rekenkracht, D1-databases, KV-cache, R2-objectopslag), wordt serverloos geleverd, met nul vaste serverkosten en volledig open source code.
 
 - Geen beheerlast: na uitrol is er geen onderhoud van besturingssysteem of certificaten; schalen en wereldwijde versnelling worden door Cloudflare verzorgd;
-- Eigendom van gegevens: alle gegevens van een zelf-gehoste instantie staan in de eigen D1- en objectopslag van de uitroller; de code bevat geen enkele telemetry;
+- Zeggenschap: de beheerder kiest middelen en externe diensten. De code verwerkt beveiligingssignalen en bewaart records. Er is geen speciaal kanaal gevonden dat gebruikstelemetrie naar de oorspronkelijke auteur stuurt; logs en externe verzoeken bestaan wel. Zie het [Privacybeleid](/nl/mail/privacy-policy/);
 - Twee manieren van gebruik: registreren op de gehoste instantie, of de broncode nemen en uitrollen op uw eigen domein. De toewijzing van de verwerkingsverantwoordelijke rol in elk scenario staat in sectie 2 van het [Overzicht](/nl/mail/overview/).
 
 ## 2. Functieoverzicht
@@ -37,19 +37,19 @@ De server draait op Cloudflare Workers (stateless V8 Isolate-sandboxen); gegeven
 Het project is geschikt voor de volgende situaties:
 
 - particulieren of kleine teams die al een domein en een Cloudflare-account hebben en een mailbox willen zonder vaste serverkosten;
-- zelfhostende gebruikers die controleerbare broncode willen en alle gegevens binnen hun eigen account willen houden;
+- zelfhosters die controleerbare code willen en zelf hun opslag en externe diensten willen kiezen;
 - individuele gebruikers die geïsoleerde mailboxen, automatische classificatie en directe extractie van verificatiecodes voor registratiemail nodig hebben.
 
 Overweeg een alternatief in de volgende situaties:
 
-- bedrijfsscenario's die beschikbaarheidsgaranties, formele ondersteuning of langetermijnarchivering vereisen: de dienst biedt geen SLA en e-mail in de prullenbak wordt 7 dagen na ontvangst fysiek verwijderd (zie [Servicevoorwaarden](/nl/mail/terms-of-service/), Sectie 8);
+- bedrijfsgebruik met beschikbaarheidsgarantie, formele ondersteuning of langdurige archivering: geen SLA; prullenbakopschoning gebruikt een aanmaaktijd ouder dan 7 dagen, zonder 7 extra dagen na verplaatsing te garanderen. Zie het [Privacybeleid](/nl/mail/privacy-policy/);
 - toepassingen gericht op massale uitgaande marketing: het beleid voor acceptabel gebruik verbiedt ongevraagde commerciële massamail (zie [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/), Sectie 3);
 - communicatie die end-to-end-versleuteling vereist: de versleuteling van de dienst is statisch aan serverzijde en omvat geen bijlagen (zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/), Sectie 3);
 - gebruikers die Cloudflare-resources, het domein en de sleutelconfiguratie niet willen beheren: selfhosting vereist nog steeds het injecteren van de sleutels en initialisatie (zie Sectie 8).
 
 ## 5. Beveiligingsontwerp in het kort
 
-Wachtwoorden worden opgeslagen alsgezouten PBKDF2-HMAC-SHA256-hashes (100.000 iteraties); TOTP-sleutels worden met AES-256-GCM in rust versleuteld; mail-URL's gebruiken willekeurige 20-tekens hashes ondertekend met HMAC-SHA256 tegen privilege-escalatie en enumeratie; drievoudige XSS-verdediging en SSRF-blokkering; officiële mail wordt geleverd als onveranderlijke snapshots. Deze maatregelen zijn afgerond in de volledige security-hardening van 22 september 2026 (43 geautomatiseerde asserts groen); de volledige lijst staat in [Technische architectuur](/nl/mail/architecture/), paragraaf 7, en de informaties en bewaartermijnen jegens personen in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
+Nieuwe wachtwoorden gebruiken standaard gezouten PBKDF2-HMAC-SHA256 (210.000 iteraties, instelbaar); oudere hashes worden bij aanmelden bijgewerkt en actieve TOTP-geheimen gebruiken AES-256-GCM. Andere maatregelen omvatten ondertekende links, XSS-filters, uitgaande adrescontroles en officiële mailsnapshots. De 43 controles van 22 september 2026 zijn historische verificatie, geen beveiligingscertificering van de huidige versie of productie. Zie [Architectuur](/nl/mail/architecture/) en [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
 ## 6. Ontwikkelgeschiedenis en de commit-keten
 
@@ -144,9 +144,9 @@ De tabel en ankerketen hierboven zijn op mijlpaalniveau; elke reguliere fix, tes
 ## 7. Kwaliteitsborging
 
 - De map `tests/` bevat ruim honderd geautomatiseerde test-, audit- en inspectiescripts, met dekking van Playwright full-stack browserregressie, publieke end-to-end asserties tegen productie en statische scans van de hele repository;
-- Representatieve gekwantificeerde controles: beveiligingsverharding 43／43 asserties, publieke routering end-to-end 32／32, aanmeldscherm in zes talen 62／62, sensorische inspectie 33／33 en 369 productie-integriteitsvergelijkingen byte voor byte;
+- Historische controles: beveiliging 43/43, publieke routes 32/32, aanmelden in zes talen 62/62, visuele inspectie 33/33 en 369 integriteitsvergelijkingen; deze gelden voor de destijds geteste versies en omgevingen, niet als verificatie van de huidige versie of productie;
 - De driedelige statische i18n-audit: `i18n-symmetry` (absoluut symmetrische sleutelsets over zes talen), `i18n-audit` (nul ontbrekende letterlijke verwijzingen) en `i18n-hardcoded` (nul ongeünpackte hardgecodeerde gebruikerszichtbare tekst);
-- Nul testgegevensresten: elke testcase ruimt fysiek op in een `finally`-blok; de database en KV bevatten geen fictieve gegevens;
+- Testregels vereisen opruimen via `finally`; werkelijke resten moeten in uitvoeringsverslagen worden gecontroleerd. De regel garandeert niet dat database en KV altijd vrij van testgegevens zijn;
 - De ontwikkeling volgt een vijfstaps-SOP (bereikbevestiging, gedisciplineerd coderen, full-stack testen, gedisciplineerde commits, rapportage bovenaan het antwoord), met uitvoer gesplitst naar `CHECKLIST.log` en `REPORTS.md`.
 
 ## 8. Het project ophalen en uitrollen
@@ -175,13 +175,13 @@ De volledige randvoorwaarden, de initialisatieketen en de sleutelinjectie voor z
 De software is gratis onder de MIT-licentie; de kosten van selfhosting zijn uw eigen Cloudflare-verbruik. De gehoste instantie heeft momenteel geen betaalfuncties; het aantal mailboxen, het verzendvolume en de opslagquota worden per accountrol vastgesteld.
 
 **Kan de beheerder mijn e-mail lezen?**
-Dat hangt af van de e-mailmodus van de instantie: in de modus «Alles» kan de beheerder alle e-mail lezen; in de modus «Privé» uitsluitend spam, verwijderde en onbeheerde e-mail; in de modus «Versleuteld» geeft de beheerinterface geen gebruikers-e-mail terug. Zie de reikwijdte van de versleuteling in het [Privacybeleid](/nl/mail/privacy-policy/), Sectie 10.
+Beheerderszicht hangt af van de modus: Alles staat alle mail toe, Privé alleen spam, verwijderde en eigenaarloze mail, Versleuteld blokkeert deze leestoegang in de interface. De server behoudt ontsleutelmogelijkheden; dit is geen end-to-end-versleuteling. Zie het [Privacybeleid](/nl/mail/privacy-policy/) en [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
 **Kan verwijderde e-mail worden hersteld?**
-E-mail in de prullenbak wordt 7 dagen na ontvangst fysiek door het systeem verwijderd en kan niet worden hersteld; bewaar eerst een kopie via «Instellingen → Gegevensexport» (zie het [Privacybeleid](/nl/mail/privacy-policy/), Sectie 8).
+Prullenbakopschoning gebruikt een aanmaaktijd ouder dan 7 dagen; verplaatsen begint geen nieuwe termijn. Export bevat geselecteerde profiel- en niet-verwijderde mailvelden, zonder bijlagebestanden of volledige oorspronkelijke MIME. Bewaar bijlagen apart vóór verwijdering en controleer de export; zie het [Privacybeleid](/nl/mail/privacy-policy/).
 
 **Wat is er nodig voor selfhosting?**
-Een domein en een Cloudflare-account; de uitrolstappen en het injecteren van de sleutels staan in Sectie 8. Alle gegevens blijven binnen de Cloudflare-resources van de beheerder en de code bevat geen telemetrie.
+Nodig zijn een domein, Cloudflare-account en passende instellingen; zie sectie 8. Externe bezorging, opslag, identiteit, meldingen en AI kunnen gegevens verwerken; niet alles blijft gegarandeerd binnen Cloudflare. Zie de [Verwerkerslijst](/nl/mail/sub-processors/).
 
 ## 10. Gerelateerde documenten
 

@@ -3,7 +3,7 @@ title: Accountbeveiligingsgids
 description: De gids voor accountbeveiliging van EpoCanvas Mail — tweestapsverificatie in drie stappen inschakelen, herstelcodes beheren, toegangssleutels registreren en activeren, het verificatiegedrag bij aanmelding en het verwijderen van het account.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Deze pagina loopt elke handeling op de pagina «Instellingen → Beveiliging» langs. Het algemene gedrag van tweestapsverificatie (vertrouwde apparaten, afgedwongen beleid) staat beschreven in [Werkingsmodi](/nl/mail/modes/), sectie 4; deze pagina behandelt alleen de configuratie. Ingang: zijbalk «Instellingen → Beveiliging» (`#settings/security`).
 

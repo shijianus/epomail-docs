@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Architecture des documents juridiques : les Conditions d'utilisation en couche contractuelle, la Politique de confidentialité et la Politique d'utilisation acceptable en couche politique, le traitement des données et les sous-traitants en documents d'appui, sur le socle du droit applicable et des obligations de sécurité">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Documents juridiques : contrat, confidentialité, usage, sécurité et destinataires ; les règles impératives et les droits protégés priment.">
   <style>
     .bg { fill: #f8fafc; }
     .layer { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -23,26 +23,26 @@
   </style>
   <rect class="bg" width="1000" height="430" rx="16"/>
   <rect class="top" x="250" y="46" width="500" height="86" rx="12"/>
-  <text class="tag" x="274" y="72">COUCHE CONTRACTUELLE</text>
-  <text class="t" x="274" y="94">Conditions d'utilisation</text>
-  <text class="b" x="274" y="110">Consentement électronique : même valeur qu’une signature écrite</text>
-  <text class="b" x="274" y="126">Texte intégral publié pour examen · révisions archivées dans le dépôt open source</text>
+  <text class="tag" x="274" y="72">CONTRACT</text>
+  <text class="t" x="274" y="94">Terms of Service</text>
+  <text class="b" x="274" y="110">Review terms · explicit acceptance</text>
+  <text class="b" x="274" y="126">Material changes: notice &amp; acceptance where required</text>
   <line class="vline" x1="360" y1="132" x2="360" y2="168"/>
   <line class="vline" x1="500" y1="132" x2="500" y2="168"/>
   <line class="vline" x1="640" y1="132" x2="640" y2="168"/>
   <rect class="layer" x="70" y="168" width="290" height="66" rx="12"/>
-  <text class="t" x="90" y="194" font-size="13">Politique de confidentialité</text>
-  <text class="b" x="90" y="214">Ce que nous collectons et pourquoi · normes de traitement</text>
+  <text class="t" x="90" y="194" font-size="13">Privacy Policy</text>
+  <text class="b" x="90" y="214">Purposes · lawful basis · rights</text>
   <rect class="layer" x="380" y="168" width="240" height="66" rx="12"/>
-  <text class="t" x="400" y="194" font-size="13">Politique d'utilisation acceptable</text>
-  <text class="b" x="400" y="214">Limites de conduite et exécution</text>
+  <text class="t" x="400" y="194" font-size="13">Acceptable Use</text>
+  <text class="b" x="400" y="214">Proportionate action · appeal</text>
   <rect class="layer" x="640" y="168" width="290" height="66" rx="12"/>
-  <text class="t" x="660" y="194" font-size="13">Données et sécurité · Sous-traitants</text>
-  <text class="b" x="660" y="214">Mesures de sécurité · liste des sous-traitants</text>
+  <text class="t" x="660" y="194" font-size="13">Security &amp; Recipients</text>
+  <text class="b" x="660" y="214">Controls · limits · data flows</text>
   <rect class="base" x="70" y="266" width="860" height="100" rx="12"/>
-  <text class="tag" x="94" y="292">CADRE JURIDIQUE</text>
-  <text class="t" x="94" y="316" font-size="13.5">Droit du lieu de l’exploitant — instance hébergée : droit taïwanais, tribunal de district de Taipei</text>
-  <text class="b" x="94" y="336">Les clauses types manifestement déloyales ne lient pas en droit applicable</text>
-  <text class="b" x="94" y="352">La responsabilité que le droit ne permet pas d’exclure n’est pas plafonnée</text>
-  <text class="law" x="94" y="400">ORDRE DE PRÉSÉANCE : le document propre au sujet prévaut · la version en chinois traditionnel (Taïwan) fait autorité</text>
+  <text class="tag" x="94" y="292">APPLICABLE LAW</text>
+  <text class="t" x="94" y="316" font-size="13.5">Mandatory law &amp; protected rights take priority</text>
+  <text class="b" x="94" y="336">Contract choice of law does not remove mandatory local protections.</text>
+  <text class="b" x="94" y="352">Free or non-profit service: statutory duties and remedies remain.</text>
+  <text class="law" x="94" y="400">Subject-specific documents · zh-TW authoritative, subject to mandatory rights</text>
 </svg>

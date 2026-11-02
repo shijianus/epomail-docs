@@ -1,147 +1,107 @@
 ---
-title: Traitement des Données et Maintien de la Sécurité
-description: Sécurité des données et protection des données personnelles d'EpoCanvas Mail — mesures de sécurité, frontières de responsabilité de l'exploitation à double voie, exercice de vos droits et réponse aux incidents de sécurité.
+title: Traitement des données et maintien de la sécurité
+description: Cycle de vie des données vérifié, mesures et limites de sécurité, ainsi que les exigences applicables aux demandes de droits, aux suppressions et aux incidents dans une petite instance à but non lucratif.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
-Le présent document décrit les mesures par lesquelles l'instance hébergée officielle (mail.epocanvas.com) protège les données, les frontières de responsabilité entre le service hébergé et le projet open source, ainsi que les modalités de consultation, d'exportation et de suppression de vos propres données. Il est établi en vertu de la [Politique de confidentialité](/fr/mail/privacy-policy/) et des [Conditions d'utilisation](/fr/mail/terms-of-service/) ; les faits techniques qui y sont énoncés suivent l'implémentation réelle du code open source.
 
-Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Les documents juridiques et techniques de ce site suivent l'implémentation open source du service et visent à établir des normes de communication communautaires transparentes, rigoureuses et non commerciales.
+<!-- legal-review-draft -->
+:::caution[Projet soumis à revue juridique : non applicable comme notice actuelle]
+Ce projet présente des clauses proposées et des éléments restant à vérifier. Il ne remplace pas la notice actuellement en vigueur et ne certifie pas la conformité. Il ne doit pas servir à activer un traitement avant vérification de l’identité de l’exploitant, des coordonnées légalement requises, des bases juridiques réelles, des destinataires, des garanties de transfert, de la conservation et de l’effacement, et avant fourniture de l’information requise. La version faisant autorité désigne la base rédactionnelle en chinois traditionnel, non une entrée en vigueur. Les obligations légales et les droits existants restent inchangés.
+:::
 
-<div class="privacy-checkup-row">
-  <div class="privacy-checkup-icon">
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="40" height="40" rx="10" fill="#E8F0FE"/>
-      <path d="M20 9L29 13V19C29 24.5 25.2 29.6 20 31C14.8 29.6 11 24.5 11 19V13L20 9Z" fill="#1967D2"/>
-      <path d="M17 20L19.2 22.2L23.8 17.6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
-  <div class="privacy-checkup-content">
-    <div class="privacy-checkup-title">Guide rapide de sécurité et de confidentialité</div>
-    <div class="privacy-checkup-desc">Vous cherchez comment les données sont collectées et protégées, comment exercer vos droits, ou comment vérifier ces documents ?</div>
-    <a href="/fr/mail/overview/" class="privacy-checkup-link">Accéder à la vue d'ensemble ↗</a>
-  </div>
-</div>
+Cette page complète la [Politique de confidentialité](/fr/mail/privacy-policy/) et distingue les mécanismes mis en œuvre dans le code open source des mesures que l'exploitant doit appliquer dans son déploiement réel. La base technique est la version récupérée et examinée de `shijianus/epomail` ; le code source ne prouve ni la configuration en ligne, ni les contrats des fournisseurs, ni l'achèvement d'une suppression donnée.
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+La version en chinois traditionnel (Taïwan) est la version officielle ; les traductions ne limitent ni les règles impératives du droit applicable ni les droits des personnes concernées. Le service est un projet d'apprentissage et de test à but non lucratif, maintenu par une personne, et adopte des mesures proportionnées aux risques. La présente page ne promet ni certification ISO, ni assurance, ni personnel disponible en permanence, ni niveau de service pour entreprise.
 
-## 1. Sécurité intégrée au service
+![Couches de sécurité du transport, du traitement, du stockage et des identifiants](/images/mail/fr/security-trust-shield.svg)
 
-La protection des données sur l'instance hébergée officielle s'organise en quatre couches : transport, traitement en périphérie, stockage au repos et identifiants. Chaque mesure est implémentée dans le code open source et peut être auditée indépendamment.
+*Figure : chaque couche de contrôle réduit des risques différents ; l'existence d'un mécanisme, sa configuration correcte et sa vérification effective sont des choses distinctes.*
 
-<div class="google-illustration-container">
-  <img src="/images/mail/fr/security-trust-shield.svg" alt="Défense en profondeur d'EpoCanvas Mail : transport chiffré, traitement sans état en périphérie, chiffrement au repos et protection des identifiants, reposant sur le contrôle par l'utilisateur" width="416" height="276" />
-</div>
+## 1. Fonctionnalités de sécurité et limites connues
 
-*Figure : quatre couches de protection — transport, périphérie, stockage au repos et identifiants ; la base est votre propre contrôle (exportation en libre-service, suppression et vérification en deux étapes).*
+### 1.1 Transport et confidentialité des communications
 
-### 1.1 Chiffrement du transport
+Le site et l'API doivent utiliser HTTPS/TLS configuré correctement. Pour la livraison sortante, les systèmes des destinataires, le stockage externe d'objets et l'ensemble du parcours de transfert effectué par l'utilisateur, le simple fait que la connexion du navigateur utilise TLS ne garantit pas un chiffrement de bout en bout. Les images distantes, les liens publics et la lecture partagée peuvent également exposer des données ; voir la [Liste des destinataires tiers et sous-traitants](/fr/mail/sub-processors/).
 
-Lorsque vous accédez au service par navigateur ou application mobile, toutes les connexions sont chiffrées en HTTPS/TLS : le contenu des communications reste illisible pour les intermédiaires des réseaux publics. Les ressources statiques du site sont diffusées par un réseau de diffusion de contenu avec en-têtes de cache et de sécurité.
+### 1.2 Traitement en périphérie et débogage
 
-### 1.2 Traitement sans état en périphérie
+La logique métier s'exécute sur Cloudflare Workers et l'état persistant est conservé par des bases de données et des services de stockage. L'analyse des courriels, la traduction, la livraison et les mécanismes de repli peuvent accéder à des données en clair en mémoire. Les environnements isolés peuvent être réutilisés ; il n'est pas garanti que la mémoire physique soit détruite à la fin de chaque requête. L'absence de serveurs propres ne permet pas non plus de conclure que la plateforme ne tient pas de journaux ou d'instantanés.
 
-La logique métier s'exécute sur Cloudflare Workers (sandbox V8 Isolate) : le texte en clair des courriels déchiffré pendant le traitement n'existe que dans la mémoire de la requête concernée ; à la fin de la requête, le bac à sable est libéré et aucun texte en clair ne subsiste sur les disques physiques de la machine hôte. Le service n'exploite aucun serveur persistant ni aucun processus d'arrière-plan permanent.
+Les journaux doivent masquer les identifiants, le corps des courriels et les données d'identification non nécessaires. Pour les tests, privilégiez les contenus synthétiques et les ressources isolées ; ne téléversez pas de courriels réels, de clés ou de copies de bases de données dans un dépôt public ou un service d'IA ou de diagnostic non approuvé dans le but de reproduire une erreur.
 
 ### 1.3 Chiffrement au repos
 
-Le chiffrement des objets et du corps des courriels dépend du mode de messagerie adopté par l'instance : en mode « Chiffré », les objets et corps de tous les courriels sont stockés en AES-256-GCM (avec balises d'authentification) ; en mode « Privé », tout est chiffré sauf les indésirables et la corbeille ; en mode « Tout », aucun chiffrement n'est appliqué. Chaque enregistrement utilise un vecteur d'initialisation aléatoire. Les clés de chiffrement sont dérivées par HKDF-SHA256 d'une variable d'environnement de secret maître au niveau de l'instance (`jwt_secret` / `totp_enc_key`) avec un sel par utilisateur ; le secret maître n'est jamais écrit dans la base de données ni validé dans le dépôt. Si une instance ne configure pas les variables d'environnement du secret maître, le chiffrement se dégrade vers une clé par défaut intégrée au code ; le déployeur doit terminer la configuration via la porte d'initialisation pour l'éviter. Les pièces jointes sont hors du périmètre du chiffrement.
+Selon le mode et l'état de l'enregistrement, le mode de courrier peut appliquer un chiffrement au repos côté serveur AES-256-GCM à l'objet et au corps. Les pièces jointes, les courriels d'origine et les métadonnées ne bénéficient pas automatiquement de la même protection au niveau de l'application. Un exploitant qui détient les clés et les autorisations sur le serveur peut techniquement déchiffrer les données ; les restrictions d'accès de l'interface d'administration ne sont pas un chiffrement de bout en bout.
 
-:::caution[Périmètre et limites du chiffrement]
-Le chiffrement décrit ci-dessus est un chiffrement au repos côté serveur : il protège contre les risques d'infrastructure tels que le vol de fichiers de base de données ou la fuite d'instantanés ; il ne s'agit pas d'un chiffrement de bout en bout. Un exploitant qui contrôle le serveur de l'instance et le secret maître est techniquement en mesure de déchiffrer le contenu. Ce que les administrateurs peuvent voir dépend du mode de messagerie : en mode « Tout », l'administrateur peut lire tous les courriels ; en mode « Privé », seuls les indésirables, les supprimés et les sans destinataire ; en mode « Chiffré », l'interface d'administration ne renvoie pas le contenu des courriels. Si vous avez besoin d'une confidentialité à l'égard de tout tiers, y compris l'exploitant, chiffrez vous-même le corps du message avec GPG/OpenPGP ou un outil client similaire avant l'envoi.
-:::
+L'instance doit utiliser des clés distinctes correctement protégées, terminer l'initialisation et vérifier l'état réel du chiffrement, puis prévoir leur rotation et contrôler les autorisations d'accès. La présence de fonctions de chiffrement dans le code source ne prouve pas que chaque donnée historique, sauvegarde ou copie détenue par un tiers est chiffrée.
 
-### 1.4 Protection des identifiants
+### 1.4 Identifiants et sessions
 
-- **Mots de passe** : hachés par PBKDF2-HMAC-SHA256 à 100 000 itérations avec un sel aléatoire unique par utilisateur ; jamais stockés en clair ni sous forme réversible ;
-- **Vérification en deux étapes** : le secret TOTP est stocké chiffré en AES-256-GCM ; les codes de récupération ne sont conservés que sous forme de hachés SHA-256 ;
-- **Clés d'accès (Passkey/WebAuthn)** : le serveur ne stocke que la clé publique et l'identifiant d'identifiants ; la clé privée demeure dans l'authentificateur de votre appareil et ne transite jamais par le réseau.
+Dans la version examinée, les nouveaux mots de passe utilisent PBKDF2-HMAC-SHA256 avec un sel aléatoire propre à chaque utilisateur et 210 000 itérations par défaut. Le paramètre est configurable ; les enregistrements historiques utilisant SHA-256 ou un nombre inférieur d'itérations restent acceptés et sont mis à niveau lors de la vérification. Les clés TOTP utilisent AES-256-GCM ; les codes de récupération ont un hachage et une copie chiffrée du code d'origine, affichable après une nouvelle vérification ; les clés d'accès sont conservées sous forme de données de justificatif public. Un hachage ne garantit pas qu'un mot de passe ne puisse pas être deviné ; les paramètres doivent continuer à être évalués en fonction des risques et de l'état de la technique.
+
+La clé de configuration TOTP peut être conservée temporairement dans KV pendant 600 secondes ; lorsqu'une mise à niveau d'un ancien mot de passe rencontre une authentification multifacteur, le flux en attente peut conserver le mot de passe saisi dans KV pendant 300 secondes et cette durée peut être renouvelée. Il n'est donc pas possible d'affirmer que tous les parcours évitent le stockage temporaire d'identifiants en clair. L'exploitant doit restreindre les accès et réduire les mises en attente inutiles. La liste des environnements de connexion comporte au plus 15 entrées et un TTL glissant de 180 jours ; le TTL de l'association de plusieurs comptes par IP est de 7 200 secondes ; les justificatifs d'appareil de confiance peuvent être conservés 60 jours et dispenser de certaines vérifications multifactorielles pendant les 30 premiers jours.
+
+La limitation des échecs de connexion et la révocation des sessions sont mises en œuvre ; la durée de validité par défaut du JWT est de 30 jours. La vérification de capacité de la liste des sessions présente une différence à la limite ; il n'est pas possible d'affirmer que le programme garantit strictement au plus 10 sessions simultanées. Lorsque les identifiants sont conservés dans localStorage du navigateur, les risques liés aux appareils partagés et à l'accès par des scripts doivent également être pris en compte.
 
 ### 1.5 Matrice de traitement des données
 
-Les catégories de données, les champs collectés, les finalités, les supports de stockage et les durées de conservation du service sont les suivants :
+| Catégorie | Emplacement et contenu conservé | Mécanisme de nettoyage existant | Limites que l'exploitant doit appliquer |
+| --- | --- | --- | --- |
+| Compte et authentification | Compte, champs personnels, données d'authentification et de configuration dans D1 ; sessions dans KV | La fermeture en libre-service marque le compte comme supprimé et efface l'état principal de connexion | Vérifier séparément la suppression des autres jetons, autorisations OAuth, images et données résiduelles ; ne pas assimiler la désactivation à un effacement complet |
+| Courriels ordinaires | Objet, corps, métadonnées et étiquettes dans D1 | Actions de l'utilisateur, nettoyage de quota et nettoyage administratif | Ne pas conserver sans finalité les données ordinaires indéfiniment ; traiter séparément les sauvegardes et copies historiques |
+| Indésirables / corbeille | Données de courriel et objets associés | Une branche quotidienne compare le seuil de 7 jours à `create_time` ; un message déplacé vers la corbeille peut satisfaire au même passage les conditions de suppression | Il ne s'agit pas d'un délai fixe de 7 jours à compter du déplacement vers la corbeille ; vérifier l'exécution de la tâche planifiée et les nouvelles tentatives en cas d'échec |
+| Courriels système | Contenus de bienvenue ou d'annonce et champs d'expiration | Certains courriels officiels sont marqués comme supprimés à la lecture de la liste selon leur délai d'expiration (7 jours par défaut), puis nettoyés par une branche quotidienne | Ils ne sont pas effacés immédiatement par une tâche d'expiration distincte ; l'instance doit communiquer et vérifier le délai réellement appliqué |
+| Pièces jointes et courriels d'origine | Les pièces jointes sont stockées selon la configuration, notamment S3, R2 ou KV ; le parcours d'arrivée vérifié ne conserve pas séparément l'intégralité du MIME d'origine | Certains parcours de suppression physique d'un courriel tentent de supprimer les objets associés | Vérifier les nouvelles tentatives après échec, le stockage d'origine, les copies et les objets orphelins ; ne pas promettre une suppression atomique dans tous les parcours |
+| Événements de connexion et de sécurité | Adresse IP, User-Agent, appareil, opérateur, événements et données nécessaires au traitement | Les champs de compte et les différents mécanismes de journalisation ont des règles distinctes ; aucune expiration automatique générale n'a été observée | Définir la minimisation des champs, les autorisations d'accès et des durées de conservation applicables en pratique |
+| Audit, réclamations et décisions | Événements d'audit, état des risques ou tickets, réclamations, notifications et données d'audit des autorisations | Suppression manuelle conditionnelle de certains anciens événements ordinaires ; aucun TTL par défaut pour l'ensemble des catégories | Appliquer les conditions de conservation ci-dessous ; définir par catégorie un délai et une procédure de suppression |
+| Exportations et copies locales | Fichier JSON téléchargé par l'utilisateur, fichier .eml individuel et stockage du navigateur | L'utilisateur gère les copies qu'il a téléchargées | Indiquer la portée de l'exportation et les risques locaux ; compléter par demande manuelle les données qui ne sont pas incluses et doivent être fournies légalement |
 
-| Catégorie de données | Champs collectés | Finalité | Stockage et protection | Conservation |
-| --- | --- | --- | --- | --- |
-| Identifiants de compte | adresse électronique, nom d'utilisateur, haché de mot de passe et sel, secret TOTP (chiffré), hachés des codes de secours, clés publiques des clés d'accès | inscription, connexion, vérification en deux étapes | Cloudflare D1 ; PBKDF2 (100 000 itérations), TOTP chiffré au repos | pendant la vie du compte ; sessions révoquées à la désactivation, irrécupérables après suppression définitive |
-| Données de communication | expéditeur et destinataires, CC/CCI, objet, horodatages, statut de lecture, étiquettes, corps du courriel | envoi, réception, organisation en conversations, recherche par mots-clés | Cloudflare D1 (métadonnées) ; objet et corps chiffrés selon le mode de messagerie | sous votre contrôle ; corbeille conservée 7 jours puis supprimée définitivement |
-| Données réseau et d'appareil | IP d'inscription, IP de dernière connexion, système d'exploitation, type de navigateur et d'appareil | audit de sécurité, détection de connexions inhabituelles | Cloudflare D1 ; consultables uniquement dans le cadre d'audits d'administration, jamais utilisées pour le profilage commercial | jusqu'à la suppression définitive du compte |
-| Données d'environnement périphérique | code pays/région de la requête (`cf-ipcountry`) | présélection d'interface (indicatif téléphonique par défaut, par exemple) | non persistées ; renvoyées uniquement avec la réponse au navigateur | non stockées ; détruites à la fin de la réponse |
-| Sessions et autorisations | jetons de session JWT, permissions de rôle | authentification de l'API en périphérie | liste d'autorisation Cloudflare KV ; au plus 10 sessions actives par compte | validité de 30 jours ; suppression immédiate à la déconnexion |
-| Pièces jointes | nom de fichier d'origine, type MIME, taille, contenu binaire | transfert, aperçu et téléchargement des pièces jointes | stockage d'objets de l'instance (résolution dans l'ordre : stockage S3 compatible fourni, liaison R2, KV par défaut) ; en-têtes défensifs au téléchargement | supprimées en cascade avec le courriel auquel elles appartiennent |
+La branche de nettoyage quotidienne est prévue à 16 h UTC (minuit le lendemain à Taïwan) ; une autre tâche est planifiée toutes les cinq minutes. La configuration d'une tâche planifiée ne signifie pas que chaque opération de nettoyage s'exécute toutes les cinq minutes. Lorsqu'un utilisateur supprime des messages, ceux qu'il sélectionne peuvent être supprimés physiquement directement si l'utilisation dépasse alors 90 % du quota ; ils ne sont pas seulement effacés par une tâche d'arrière-plan qui traite une corbeille déjà constituée.
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+Le point de terminaison de nettoyage des audits n'accepte qu'un périmètre précis : événements datant de plus de 180 jours, d'audit ordinaire, de risque normal et dont l'état est clos, expiré ou rejeté, à l'exclusion de toute référence à une interdiction encore active. Il s'agit d'une condition technique de nettoyage et non d'une durée minimale de conservation légale ; les autres événements, réclamations, décisions, notifications et enregistrements d'autorisations n'expirent pas automatiquement de ce fait. L'exploitant doit définir les règles légales de conservation et mettre en œuvre un nettoyage effectif. La présence d'un « bouton de nettoyage » ne signifie pas que tous les journaux sont supprimés dans les délais.
 
-## 2. Frontières de responsabilité de l'exploitation à double voie
+## 2. Exploitation et responsabilités liées au code open source
 
-EpoCanvas Mail est à la fois un service hébergé officiel et un projet open source. La définition du responsable du traitement et la répartition des responsabilités entre les trois parties figurent à la section 2 de la [Vue d'ensemble Confidentialité et conditions](/fr/mail/overview/) ; la présente section précise le positionnement de l'instance hébergée et les règles de diffusion du code open source.
+### 2.1 Instance de test hébergée
 
-<div class="google-illustration-container">
-  <img src="/images/mail/fr/dual-nature-scale.svg" alt="Gouvernance à double voie d'EpoCanvas Mail : une base de code open source, avec le responsable du traitement et les frontières de responsabilité des instances hébergées et auto-hébergées" width="416" height="276" />
-</div>
+Le caractère non lucratif et la maintenance individuelle peuvent influer sur l'échelle et les modalités raisonnables des mesures, mais ne suppriment pas les responsabilités légales concernant les données réelles. Aucun service de sauvegarde de niveau entreprise, aucune absence définitive de perte de données ni exploitation gratuite permanente n'est promis ; les utilisateurs doivent conserver les copies nécessaires et l'exploitant doit mettre en œuvre les mesures de sécurité et le traitement des demandes de droits nécessaires.
 
-*Figure : deux voies d'exploitation sur une même base de code open source. L'équipe d'exploitation est responsable du traitement de l'instance hébergée ; le déployeur est l'unique responsable du traitement d'une instance auto-hébergée ; les auteurs amont n'exploitent aucun service et ne détiennent aucune donnée.*
+### 2.2 Auteurs du code source et déployeurs
 
-### 2.1 Positionnement de l'instance hébergée officielle
+Une personne qui fournit uniquement le code source et ne décide pas des finalités ou des moyens du traitement d'une instance donnée n'assume pas, de ce seul fait, les obligations d'exploitation de cette instance. Si le même auteur exploite séparément une instance, il est responsable de cette exploitation ; les rôles de décision conjointe ou de sous-traitance effective doivent également être déterminés selon les faits et ne peuvent pas être écartés à l'avance par un document.
 
-L'instance hébergée mail.epocanvas.com est exploitée par l'équipe d'exploitation sur une base non commerciale : aucune publicité n'y est insérée, aucune donnée utilisateur n'y est vendue ou louée, et aucun accord de niveau de service (SLA) de qualité entreprise n'est offert. La disponibilité dépend de services amont tels que Cloudflare et les canaux de distribution ; exportez vous-même, à intervalles réguliers, des sauvegardes de votre correspondance importante (voir la section 3).
+### 2.3 Gouvernance proportionnée à l'échelle
 
-### 2.2 Limites de conduite
+Une petite instance peut tenir un inventaire simple des données, appliquer le moindre privilège, isoler les clés, utiliser une liste de contrôle des contrats fournisseurs et des transferts, conserver les traces de nettoyage périodique et définir un processus de contact en cas d'incident. Elle doit évaluer conformément au droit applicable la nécessité d'un registre des traitements, d'un représentant dans l'Union européenne, d'un délégué à la protection des données et d'une analyse d'impact. Le caractère open source ou le test à but non lucratif ne justifie pas à lui seul de promettre une certification, une équipe dédiée ou des exigences d'approvisionnement d'entreprise.
 
-L'utilisation de l'instance hébergée est soumise à l'intégralité de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/), y compris l'interdiction du pourriels de masse, de l'hameçonnage et de la diffusion de logiciels malveillants, des inscriptions en masse et de l'abus de ressources. Les violations sont traitées selon l'échelle d'exécution prévue par cette politique, jusqu'à la suppression définitive.
+### 2.4 Vérifications avant l'ouverture au public
 
-### 2.3 Diffusion et modification du code open source
+L'identité et l'adresse de l'exploitant, les tiers réels et leurs emplacements, les bases juridiques du traitement, les choix et retraits pour les fonctionnalités nécessitant un consentement, la conservation des journaux et sauvegardes, la suppression complète des comptes et le suivi des demandes doivent être mis en œuvre dans l'instance. Les flux de données dépourvus de base ou de garanties nécessaires doivent être désactivés ; modifier uniquement l'information publiée ne permet pas de poursuivre le traitement. Les éléments de l'instance qui restent à vérifier sont indiqués aux sections 2 et 8 de la [Politique de confidentialité](/fr/mail/privacy-policy/) et à la section 7 de la [Liste des destinataires tiers et sous-traitants](/fr/mail/sub-processors/).
 
-Le code source est publié sous licence MIT ; chacun peut le consulter, l'auditer, le modifier et l'auto-héberger. Lors de la diffusion ou de la modification du code :
+## 3. Droits, suppression et incidents
 
-1. conservez intégralement la mention de droit d'auteur d'origine et le texte complet de la licence MIT ;
-2. ne laissez pas entendre, dans des domaines, des interfaces ou des supports promotionnels, qu'une instance est exploitée ou approuvée par l'équipe officielle ;
-3. si vous offrez l'inscription publique à un service de messagerie, publiez votre propre entité exploitante, vos conditions d'utilisation et votre politique de confidentialité. Les documents de ce site peuvent servir de modèle, ce qui ne constitue pas une approbation.
+### 3.1 Exportation et demandes complémentaires
 
-### 2.4 Responsabilité indépendante des instances auto-hébergées
+L'exportation JSON en libre-service comprend une partie des données personnelles, la correspondance des courriels non marqués comme supprimés et les étiquettes personnalisées. Elle n'inclut pas tous les champs de destinataires, le contenu binaire des pièces jointes, les courriels d'origine, tous les alias de boîte ni les données d'audit administratif. Un fichier .eml individuel ne garantit pas non plus de contenir l'ensemble des données personnelles de la base. Une exportation lisible par machine ne satisfait pas à elle seule toutes les obligations d'accès et de portabilité.
 
-Un tiers qui déploie le code open source devient, dès le déploiement, l'unique et exclusif responsable du traitement pour les utilisateurs de son instance, et doit remplir lui-même les obligations d'information, de maintien de la sécurité et de surveillance exigées par le droit applicable sur son lieu. Les auteurs et contributeurs amont n'exploitent aucune instance, n'accèdent à aucune donnée des instances auto-hébergées et n'assument aucune responsabilité solidaire pour l'exploitation, les incidents de sécurité ou les litiges d'une instance.
+Les données non incluses mais pouvant être demandées légalement doivent être vérifiées et fournies par un canal humain ; l'absence d'une fonctionnalité ne justifie pas un refus. Les délais de réponse, la vérification, les frais et les réclamations sont régis par la section 9 de la [Politique de confidentialité](/fr/mail/privacy-policy/).
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+### 3.2 Procédure de suppression
 
-## 3. Le contrôle de vos données
+La fermeture en libre-service marque actuellement le compte et l'état principal de connexion comme supprimés de manière logique ; aucun mécanisme d'effacement physique automatique et complet après 90 jours n'a été confirmé. La boîte et la logique d'arrivée ne vérifient pas toutes systématiquement ce marqueur de suppression logique ; la fermeture ne garantit donc pas l'arrêt de la réception des messages. Toute page de profil public déjà activée doit également être fermée et vérifiée séparément. La suppression par l'administrateur ne permet pas de conclure que les données d'audit, les autorisations OAuth, les images et tous les objets ont été effacés.
 
-Vous disposez de droits de consultation, de copie, de rectification, d'opposition au traitement et de suppression sur vos propres données. Ce chapitre explique par quelle fonctionnalité chaque droit se réalise ; les définitions complètes figurent à la section 9 de la [Politique de confidentialité](/fr/mail/privacy-policy/).
+Les nouvelles tentatives de suppression d'un stockage externe fourni par l'utilisateur dépendent de la configuration du stockage d'origine ; si les paramètres du compte sont retirés en premier, une nouvelle tentative ultérieure peut ne plus permettre d'identifier le stockage d'origine. Avant une suppression complète, il faut conserver les informations nécessaires à l'identification de la suppression, vérifier le traitement de chaque objet, puis effacer de manière sécurisée les paramètres concernés.
 
-<div class="google-illustration-container">
-  <img src="/images/mail/fr/data-sovereignty-export.svg" alt="Contrôle des données EpoCanvas Mail : exportation en libre-service, suppression avec tampon de corbeille et droits opposables" width="416" height="276" />
-</div>
+Toute demande de suppression doit faire l'objet d'un enregistrement traçable et d'une vérification séparée du compte, des alias, des courriels, des objets, des données d'authentification et d'autorisation, des systèmes d'audit et de sauvegarde. Les données dont la conservation est légalement requise doivent être assorties d'un motif, isolées des autres usages, et les motifs et délais pouvant être communiqués doivent être indiqués. Ne confirmez pas à l'utilisateur que « tout a été définitivement supprimé » avant vérification de l'achèvement. Le traitement des demandes ne peut pas dépasser le délai légal au motif que les procédures internes ne sont pas encore automatisées.
 
-*Figure : trois voies de contrôle — exportation en libre-service (JSON), suppression (tampon de corbeille, puis suppression définitive) et exercice des droits (réponse sous 30 jours).*
+### 3.3 Minimisation et choix de l'utilisateur
 
-### 3.1 Consultation, exportation et rectification
+Les champs personnels non nécessaires, les pages publiques et les notifications externes doivent dépendre d'un choix de l'utilisateur ; une fonctionnalité choisie ne doit transmettre que les champs nécessaires. Avant d'activer l'IA, les services publics de traduction de secours ou les ressources distantes pour des données personnelles réelles, il faut disposer d'une base juridique valable, fournir une information claire et appliquer des garanties appropriées. Pour les champs publics et tout contenu accessible à quiconque possède un lien de lecture, indiquez les personnes susceptibles d'y accéder et les limites de révocation.
 
-- **En libre-service dans l'interface** : vous pouvez à tout moment consulter votre profil, vos journaux de connexion et tous vos courriels dans l'interface de la boîte ;
-- **Exportation des données** : « Paramètres → Exportation des données » produit une copie complète au format JSON (profil et texte intégral des courriels non supprimés) ; un courriel isolé peut aussi être téléchargé en fichier .eml ;
-- **Demandes manuelles** : les demandes nécessitant un traitement humain, telles que la rectification ou l'opposition au traitement, reçoivent une réponse et un traitement dans les 30 jours suivant leur réception, via `privacy@epocanvas.com`.
+### 3.4 Réponse aux incidents
 
-### 3.2 Suppression
+Lorsqu'un incident est découvert, il faut en maîtriser les effets, préserver les éléments de preuve nécessaires, déterminer les données et les risques concernés et consigner les décisions. La notification à l'autorité au titre du RGPD dépend du niveau de risque et doit être effectuée, si possible, dans les 72 heures suivant la prise de connaissance. En cas de risque élevé, les personnes concernées doivent être informées sans retard injustifié conformément à la loi. Les règles complètes figurent à la section 10 de la [Politique de confidentialité](/fr/mail/privacy-policy/) ; une annonce publique de vulnérabilité ne remplace pas systématiquement une notification individuelle.
 
-- **Suppression des courriels** : les courriels supprimés passent d'abord à la corbeille et sont supprimés définitivement (pièces jointes et index compris) par une tâche planifiée 7 jours plus tard ; la suppression est irréversible. Lorsque l'utilisation de la boîte dépasse 90 % du quota, les suppressions que vous effectuez sont immédiatement définitives afin de libérer l'espace ;
-- **Désactivation du compte** : vous pouvez désactiver votre compte vous-même dans les paramètres. Les sessions prennent fin immédiatement et les courriels et données passent en état de suppression logicielle ; sauf conservation exigée par la loi, un administrateur effectue la suppression définitive dans les 90 jours suivant la désactivation. Après celle-ci, les données du compte, les courriels, les pièces jointes et les autorisations sont retirés de la base de données et du stockage d'objets, sans possibilité de récupération ;
-- **Droits légaux correspondants** : les droits de consultation, de copie et de suppression dont disposent, en vertu du RGPD, les utilisateurs de l'Espace économique européen, et les droits d'information, de suppression et de non-discrimination dont disposent, en vertu du CCPA/CPRA, les résidents de Californie, sont mis en œuvre par les fonctions en libre-service et le canal de demande manuelle ci-dessus ; les utilisateurs d'autres juridictions exercent des droits équivalents selon le droit applicable sur leur lieu.
-
-### 3.3 Exclusion de la vente et du suivi
-
-- L'exploitant ne vend, ne loue et ne troque ni vos données personnelles ni le contenu de vos communications ;
-- Les données ne sont pas utilisées à des fins de publicité comportementale intersites, de profilage utilisateur ou d'entraînement de modèles commerciaux ;
-- L'exercice de vos droits à la confidentialité n'entraîne aucune dégradation des fonctionnalités, de la qualité ou de la disponibilité du service.
-
-### 3.4 Réponse aux incidents de sécurité
-
-Si des données personnelles sont volées, divulguées, altérées ou perdues, l'exploitant procédera comme suit :
-
-1. **Confinement immédiat** : déconnexion forcée des sessions concernées et mise en quarantaine du contenu touché, avec suspension partielle du service si nécessaire pour empêcher l'aggravation du dommage ;
-2. **Notification légale** : notification à l'autorité compétente dans les 72 heures suivant la constatation de l'incident (lorsque le droit applicable prévoit un délai différent, ce dernier s'applique et la notification intervient sans délai), et information des personnes touchées par une annonce sur le site ou un courriel système ;
-3. **Correctifs publiés** : une fois la cause identifiée, publication des correctifs et d'un avis de sécurité dans le dépôt open source afin que les exploitants auto-hébergés puissent s'aligner.
-
-Pour signaler un problème ou une vulnérabilité de sécurité, utilisez :
-
-- **Sécurité et communications officielles** : `announcement@epocanvas.com`
-- **Confidentialité et protection des données** : `privacy@epocanvas.com`
+Les problèmes de sécurité peuvent être signalés en privé à `announcement@epocanvas.com` ; les questions de confidentialité et les demandes relatives aux droits doivent être adressées à `privacy@epocanvas.com`. Les avis publics sur les correctifs doivent éviter les détails d'incidents permettant d'identifier des utilisateurs ou les identifiants encore exploitables.

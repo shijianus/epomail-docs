@@ -5,7 +5,7 @@ description: A complete introduction to the EpoCanvas Mail project — positioni
 
 **First commit: July 21, 2026 | Current version: v1.1.0 | License: MIT**
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
 EpoCanvas Mail is an open-source e-mail service running on Cloudflare's edge network. With just a domain and a Cloudflare account, you can set up your own mailbox supporting sending and receiving, attachments, and multi-device access. The project is operated publicly through the hosted instance [mail.epocanvas.com](https://mail.epocanvas.com), releases all source code for self-hosting, and ships a companion Android app (epomail). This page covers the project's positioning, features, technical architecture, security design, and development history; the legal terms of the service and privacy are in the [Privacy & Terms Overview](/en/mail/overview/).
 
@@ -13,14 +13,14 @@ The Traditional Chinese (Taiwan) versions of this site's legal documents are the
 
 ![EpoCanvas Mail system architecture: the client layer (web app, Android app, OAuth third-party apps) connects through the Cloudflare edge; Workers host the API, inbound mail parsing, and AI features, with outbound delivery via Resend and Telegram; data lands in dual D1 databases, KV, and object storage](/images/mail/en/project-architecture.svg)
 
-*Figure: the system architecture. Clients connect through the edge with no single-point server; inbound mail is received by Email Routing and parsed, outbound goes through the Resend channel; all state stays inside the deployer's own Cloudflare resources.*
+*Figure: clients connect through the edge; Email Routing parses incoming mail and configured channels deliver outgoing mail. Data may also reach external storage, identity, notification or AI services; see the [Sub-processor List](/en/mail/sub-processors/).*
 
 ## 1. Project Positioning
 
 Self-hosted mail systems demand long-term maintained servers, fixed IPs, and anti-spam stewardship; commercial mailbox services concentrate data in the provider's hands, hard for users to verify. EpoCanvas Mail takes a third path: it fits the whole service inside Cloudflare's usage-based allowances (Workers compute, D1 databases, KV cache, R2 object storage), delivered serverlessly with zero fixed server cost and fully public source code.
 
 - No ops: after deployment there is no OS or certificate upkeep; scaling and global acceleration are handled by Cloudflare;
-- Data autonomy: all data of a self-hosted instance lands in the deployer's own D1 and object storage; the code has no telemetry built in;
+- Data autonomy: deployers choose resources and external services. The code processes login security signals and stores records. No dedicated usage-telemetry channel to the upstream author was found; logs and third-party requests still exist. See the [Privacy Policy](/en/mail/privacy-policy/);
 - Two tracks: register on the hosted instance directly, or take the source code and deploy on your own domain. The definition of the data controller in each form is in Section 2 of the [Overview](/en/mail/overview/).
 
 ## 2. Feature Overview
@@ -37,19 +37,19 @@ The server runs on Cloudflare Workers (stateless V8 Isolate sandboxes); data lan
 Choose this project when:
 
 - you already hold a domain and a Cloudflare account and want to run a personal or small-team mailbox at zero fixed server cost;
-- you want auditable source code and data that stays inside your own account as a self-hoster;
+- self-hosters who want auditable source code and control over their storage resources and third-party services;
 - you are an individual user who needs multi-mailbox isolation, automatic classification, and instant verification-code extraction for registration mail.
 
 Evaluate alternatives when:
 
-- you need a promised uptime, formal technical support, or long-term archiving for an enterprise scenario: the Service promises no SLA, and trash mail is hard-deleted 7 days after receipt (see Section 8 of the [Terms of Service](/en/mail/terms-of-service/));
+- enterprise scenarios requiring promised uptime, formal support or long-term archiving: no SLA is promised; trash cleanup uses mail creation time older than 7 days, without guaranteeing 7 more days after moving to trash. See the [Privacy Policy](/en/mail/privacy-policy/);
 - your main use is bulk outbound marketing: the Acceptable Use Policy forbids unsolicited bulk commercial mail (see Section 3 of the [Acceptable Use Policy](/en/mail/acceptable-use/));
 - you need end-to-end encryption: this service's encryption is server-side encryption at rest and does not cover attachments (see Section 1 of [Data Processing & Security Maintenance](/en/mail/data-security/));
 - you have no intention of maintaining Cloudflare resources, domains, and key configuration: self-hosting still requires key injection and initialisation (see Section 8).
 
 ## 5. Security Design Overview
 
-Passwords are salted PBKDF2-HMAC-SHA256 hashes (100,000 iterations); TOTP secrets are encrypted at rest with AES-256-GCM; mail URLs use 20-character HMAC-SHA256-signed random hashes against privilege escalation and enumeration; XSS is handled by triple defence and SSRF is blocked; official mail is delivered as immutable snapshots. These measures were closed out in the 2026-09-22 full security hardening (43 automated assertions green); the complete list is in [Technical Architecture](/en/mail/architecture/), Section 7, and the notices and retention owed to individuals are in [Data Processing & Security Maintenance](/en/mail/data-security/).
+New passwords default to salted PBKDF2-HMAC-SHA256 (210,000 iterations, configurable), with older hashes upgraded at login; enabled TOTP secrets use AES-256-GCM. Other designs include signed mail links, XSS filtering, outbound-address checks and official-mail snapshots. The 43 assertions from September 22, 2026 are historical verification records, not security certification of the current version or live instance. See [Technical Architecture](/en/mail/architecture/) and [Data Processing & Security Maintenance](/en/mail/data-security/) for scope and limits.
 
 ## 6. Development History and Commit Chain
 
@@ -144,9 +144,9 @@ The table and anchor chains above are milestone-granular; all routine fixes, tes
 ## 7. Quality Assurance
 
 - The `tests/` directory holds over a hundred automated test, audit, and inspection scripts covering Playwright full-stack browser regression, production public-network end-to-end assertions, and repository-wide static scanning;
-- Representative verified figures: security hardening 43/43 assertions, public-route end-to-end 32/32, six-language login surface 62/62, sensory inspection 33/33, production integrity 369-item byte-by-byte comparison;
+- Historical verification figures: security hardening 43/43 assertions, public routing 32/32, six-language login 62/62, visual inspection 33/33, and 369 production-integrity comparisons. These concern the versions and environments tested then, not verification of the current version or live instance;
 - The multilingual static-audit trio: `i18n-symmetry` (six-language key sets absolutely symmetric), `i18n-audit` (zero missing literal references), `i18n-hardcoded` (zero unwrapped hard-coded user-visible text);
-- Zero test-data residue: all cases have `finally` physical cleanup; the database and KV hold no fake data;
+- Test rules require cleanup through `finally`; actual residue must be checked against execution records. The rule does not establish that the database and KV always contain no test data;
 - Development follows the five-step SOP (scope, implement, full-stack testing, disciplined commit, top-posted report), with output routed to `CHECKLIST.log` and `REPORTS.md`.
 
 ## 8. Getting and Deploying
@@ -175,13 +175,13 @@ The full prerequisites, the initialisation bootstrap chain and secret injection 
 The software is free under the MIT license; self-hosting costs whatever the deployer's own Cloudflare usage amounts to. The hosted instance currently has no paid features; mailbox count, sending volume, and storage quotas are set per account role.
 
 **Can the administrator read my mail?**
-It depends on the instance's mail mode: in "All-mail" mode the administrator can read all mail; in "Private" mode only spam, deleted, and unassigned mail; in "Encrypted" mode the admin interface does not return user mail. See the encryption-scope note in Section 10 of the [Privacy Policy](/en/mail/privacy-policy/).
+Admin-interface visibility depends on mail mode: All-Mail allows all mail, Privacy limits it to spam, deleted and unassigned mail, and Encrypted blocks that interface from reading user mail. The server retains decryption capability; this is not end-to-end encryption. See the [Privacy Policy](/en/mail/privacy-policy/) and [Data Processing & Security Maintenance](/en/mail/data-security/).
 
 **Can deleted mail be recovered?**
-Trash mail is hard-deleted 7 days after receipt and cannot be recovered; to keep something, first get a complete copy through "Settings → Data Export" (see Section 8 of the [Privacy Policy](/en/mail/privacy-policy/)).
+Trash cleanup uses mail creation time older than 7 days; moving mail does not reset that clock. Exports contain selected profile and undeleted-mail fields, without attachment files or complete original MIME. Save required attachments separately before deletion and check the export; see the [Privacy Policy](/en/mail/privacy-policy/).
 
 **What does self-hosting require?**
-A domain and a Cloudflare account; deployment steps and key injection are in Section 8. All data stays inside the deployer's own Cloudflare resources, and the code has no telemetry built in.
+A domain, a Cloudflare account and relevant service configuration are needed; deployment steps are in Section 8. External delivery, storage, identity, notification and AI paths can process data, so all data is not guaranteed to stay within Cloudflare. See the [Sub-processor List](/en/mail/sub-processors/).
 
 ## 10. Related Documents
 

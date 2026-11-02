@@ -3,7 +3,7 @@ title: Guide de déploiement
 description: Guide de déploiement d'EpoCanvas Mail — prérequis, déploiement en trois étapes, initialisation et chaîne d'amorçage, injection des secrets, configuration du courrier, choix de stockage, instance de démonstration et mises à niveau.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 La présente page s'adresse aux utilisateurs et aux administrateurs qui se préparent à déployer eux-mêmes EpoCanvas Mail ; elle couvre tout le chemin, de zéro à une instance fonctionnelle. Une fois déployée, l'intégralité des données de l'instance réside dans les propres ressources Cloudflare du déployeur, et le déployeur devient le responsable du traitement de ses utilisateurs — la position juridique est exposée dans [Open source et cadre juridique de l'auto-hébergement](/fr/mail/open-source/). L'utilisation de l'instance hébergée ([mail.epocanvas.com](https://mail.epocanvas.com)) ne requiert aucune de ces étapes.
 
@@ -52,7 +52,7 @@ Après le premier déploiement, visitez `/api/init/<jwt_secret>` (en remplaçant
 
 - Entrant : activer Email Routing pour le domaine dans le tableau de bord Cloudflare et acheminer les adresses de destination vers le Worker ; le courriel est analysé à l'arrivée ;
 - Sortant : dès qu'un canal de livraison (tel que Resend) est configuré dans les paramètres système, le courrier hors site passe par lui ; sans canal, seule la livraison directe au sein du site fonctionne ;
-- Les courriels système (courriels de bienvenue, avis de sécurité, courriels d'annonce) sont rendus à partir de modèles intégrés dans la langue du destinataire : les boutons du courriel de bienvenue tels que « ouvrir la boîte de réception » sont des chemins relatifs au site dont le comportement d'atterrissage dépend de la gestion des liens relatifs par le client de messagerie, tandis que les avis de sécurité utilisent des liens absolus sur le domaine de l'instance. Les auto-hébergeurs peuvent adapter la formulation et la signature de l'expéditeur via les constantes de modèle ; la sémantique de livraison des courriels officiels figure dans [Anti-falsification et normes officielles](/fr/mail/tamper-proof/).
+- Les courriels système (courriels de bienvenue, avis de sécurité, courriels d'annonce) sont rendus à partir de modèles intégrés dans la langue du destinataire : les boutons du courriel de bienvenue tels que « ouvrir la boîte de réception » sont des chemins relatifs au site dont le comportement d'atterrissage dépend de la gestion des liens relatifs par le client de messagerie, tandis que les avis de sécurité utilisent des liens absolus sur le domaine de l'instance. Les auto-hébergeurs peuvent adapter la formulation et la signature de l'expéditeur via les constantes de modèle ; la sémantique de livraison des courriels officiels figure dans [Anti-falsification et normes officielles](/fr/mail/tamper-proof/). Comparer le manifeste aide à vérifier les empreintes des fichiers sources ; cela ne vérifie ni l'identité des courriels, ni une signature du contenu, ni la conformité juridique.
 
 ## 6. Choix de stockage et de base de données
 

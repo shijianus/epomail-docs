@@ -3,7 +3,7 @@ title: Rapport d'audit
 description: Rapport d'audit d'EpoCanvas Mail — appréciation des tickets d'alerte des quatre classes, boutons de traitement par classe, arbitrage des recours et dépouillement des horodatages en mode chiffré.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 Le rapport d'audit est l'interface des tickets de risque de la zone d'administration (`#manage/admin/audit` ; la consultation exige `setting:query`, le traitement et l'arbitrage exigent `setting:set`). Les tickets persistent dans une table de journal d'audit indépendante, avec recherche de l'historique paginée.
 

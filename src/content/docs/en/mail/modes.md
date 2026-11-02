@@ -3,7 +3,7 @@ title: Operating Modes
 description: EpoCanvas Mail operating modes — deployment forms, the three mail-mode privacy levels, identity groups and quotas, sign-in and two-step verification, multi-account, and interface display modes.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
 The same code base presents different operating forms depending on configuration: an instance can be hosted or self-deployed; the administrator chooses the balance between privacy and reviewability across three mail modes; accounts receive quotas and permissions according to their identity group; and sign-in, multi-account use, and the interface each offer several options. This page documents the behaviour of and differences between each mode. For the data handling involved, see [Data Processing & Security Maintenance](/en/mail/data-security/); for feature operation, see the [Feature Guide](/en/mail/features/); for the item-by-item settings entrances, see the [Settings Guide](/en/mail/settings/).
 
@@ -14,7 +14,7 @@ The service is available in the following two forms; the definition of the data 
 | Form | Operator | Suited to |
 | --- | --- | --- |
 | Hosted instance | The EpoCanvas operations team ([mail.epocanvas.com](https://mail.epocanvas.com)) | Sign up and use, with no need to bring your own domain or Cloudflare account |
-| Self-deployed instance | The deploying person or organisation | All data stays within the deployer's own Cloudflare resources, with auditable source code |
+| Self-deployed instance | The deploying person or organisation | The deployer selects infrastructure and external services. Delivery, storage, AI, translation, notifications and remote resources may involve third-party processing; not all data necessarily stays within Cloudflare. |
 
 ## 2. Mail mode: three privacy levels
 
@@ -29,9 +29,9 @@ The administrator selects the instance's mail mode on the website-settings card 
 
 The mail-mode region of the Site Settings card in system settings: one dropdown decides how mail is stored encrypted and how much the admin can see, effective immediately.
 
-1. **Mail-mode dropdown**: The admin picks the balance among three tiers: Level 1 all plaintext (admin sees everything), Level 2 private mode (factory default; user mail AES-256-GCM encrypted at rest), Level 3 full E2EE (the admin API returns no user mail at all).
+1. **Mail-mode dropdown**: Subjects and bodies use server-side encryption at rest according to mode, not end-to-end encryption. Attachments and metadata are not automatically covered, and key holders may decrypt.
 2. **Level 2 privacy badge**: This instance runs in private mode: the admin can only see spam, trash and ownerless mail, and the two-step-verification master switch is locked on.
-3. **The three expanded options**: L1 all-mail mode, L2 private mode (recommended) and L3 encrypted mode (E2EE) at a glance. In encrypted mode the mail-review entry disappears, timestamps are stripped from audit tickets and global forwarding is locked off.
+3. **The three expanded options**: Subjects and bodies use server-side encryption at rest according to mode, not end-to-end encryption. Attachments and metadata are not automatically covered, and key holders may decrypt.
 
 </details>
 
@@ -39,7 +39,7 @@ The mail-mode region of the Site Settings card in system settings: one dropdown 
 | --- | --- | --- | --- | --- |
 | All-Mail Mode (Level 1) | Everything in plaintext | All mail | Can be turned off | Can be turned on |
 | Privacy Mail Mode (Level 2, factory default) | User correspondence encrypted at rest with AES-256-GCM; trash kept in plaintext for recovery | Spam, trash and ownerless mail only | Locked on | Can be turned on |
-| Encrypted Mail Mode (Level 3 [E2EE]) | All mail (trash included) fully encrypted | Returns no user mail list whatsoever | Locked on | Locked off |
+| Server-encrypted mode (Level 3) | Subjects and bodies encrypted at rest; attachments and metadata not automatically covered | Returns no user mail list whatsoever | Locked on | Locked off |
 
 Mode changes take effect immediately. In encrypted mode the admin mail list is permanently empty, audit records have their timestamps stripped, and the mail-review entry in the admin sidebar is hidden as well. Per-user forwarding and Telegram push configured by individual users do not follow the site-wide mode; they are governed by the operator's user-data-control switches and the users' own settings. In privacy mode, restoring a message from the trash decrypts it before it lands back in the mailbox, and re-encrypts it afterwards.
 
@@ -87,7 +87,7 @@ New registrations land in the factory-default group, the Visitor; the operator c
 The three core regions of the sign-in page: one complete password login path; third-party quick sign-in buttons sit below the card.
 
 1. **Email field**: The account is the email address itself. In reg-key mode this page also accepts an `?code=` invite parameter that pre-fills the registration form.
-2. **Password field**: Passwords are stored as salted hashes — the server never sees plaintext. "Forgot password" hops to the external appeal portal carrying the appeal type, UI language and email.
+2. **Password field**: New password-verification records use salted PBKDF2. Legacy migration and MFA flows may temporarily store plaintext in KV; the server does encounter plaintext. See Data Processing & Security Maintenance.
 3. **Sign-in button**: On submit, accounts with two-step verification continue to the second factor; repeated failures trigger brute-force lockout. Tick "keep this device trusted" to skip re-verification for 30 days.
 
 </details>

@@ -3,7 +3,7 @@ title: Uitrolgids
 description: De uitrolgids van EpoCanvas Mail — vereisten, de uitrol in drie stappen, initialisatie en de bootstrapketen, injectie van geheimen, mailconfiguratie, opslagkeuzes, de demo-instantie en upgrades.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Deze pagina is voor gebruikers en beheerders die EpoCanvas Mail zelf willen uitrollen; zij beslaat het volledige pad van nul tot een werkende instantie. Eenmaal uitgerold leven alle instantiegegevens in de eigen Cloudflare-bronnen van de uitroller, en wordt de uitroller de gegevensbeheerder voor diens gebruikers — de juridische positie staat uiteengezet in [Open source en zelfhosting: juridisch kader](/nl/mail/open-source/). Het gebruik van de gehoste instantie ([mail.epocanvas.com](https://mail.epocanvas.com)) vraagt om geen van deze stappen.
 
@@ -52,7 +52,7 @@ Na de eerste uitrol bezoekt u `/api/init/<jwt_secret>` (waarbij de padparameter 
 
 - Inkomend: zet Email Routing voor het domein aan in het Cloudflare-dashboard en routeer de doeladressen naar de Worker; mail wordt bij aankomst geparseerd;
 - Uitgaand: zodra een afleverkanaal (zoals Resend) in de systeeminstellingen is geconfigureerd, wordt mail naar buiten de instantie erdoorheen verzonden; zonder zo'n kanaal werkt alleen directe aflevering binnen de instantie;
-- Systeemmail (welkomstmail, beveiligingskennisgevingen, aankondigingsmail) wordt vanuit ingebouwde sjablonen opgemaakt in de taal van de ontvanger: knoppen in de welkomstmail zoals «open de postvak IN» zijn relatieve paden binnen de site waarvan het landingsgedrag afhangt van hoe de mailclient relatieve koppelingen behandelt, terwijl beveiligingskennisgevingen absolute koppelingen op het domein van de instantie gebruiken. Zelfhosters kunnen de formuleringen en de afzendersignatuur via de sjabloonconstanten aanpassen; de afleversemantiek van officiële mail staat in [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/).
+- Systeemmail (welkomstmail, beveiligingskennisgevingen, aankondigingsmail) wordt vanuit ingebouwde sjablonen opgemaakt in de taal van de ontvanger: knoppen in de welkomstmail zoals «open de postvak IN» zijn relatieve paden binnen de site waarvan het landingsgedrag afhangt van hoe de mailclient relatieve koppelingen behandelt, terwijl beveiligingskennisgevingen absolute koppelingen op het domein van de instantie gebruiken. Zelfhosters kunnen de formuleringen en de afzendersignatuur via de sjabloonconstanten aanpassen; de afleversemantiek van officiële mail staat in [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/). Het manifest vergelijken helpt bronbestandhashes te controleren; dit verifieert geen mailidentiteit, inhoudshandtekeningen of juridische naleving.
 
 ## 6. Opslag- en databasekeuzes
 

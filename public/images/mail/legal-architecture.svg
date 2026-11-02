@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="法律文档架构：服务条款为契约层，隐私政策与可接受使用政策为政策层，数据处理与第三方处理者为支撑文档，立于适用法律与安全维护义务之上">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="法律文件关系：契约、隐私、使用规则、安全与接收者；强制法律及不可排除的权利优先。">
   <style>
     .bg { fill: #f8fafc; }
     .layer { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -23,26 +23,26 @@
   </style>
   <rect class="bg" width="1000" height="430" rx="16"/>
   <rect class="top" x="250" y="46" width="500" height="86" rx="12"/>
-  <text class="tag" x="274" y="72">契约层</text>
-  <text class="t" x="274" y="94">服务条款</text>
-  <text class="b" x="274" y="110">电子同意：与书面签署同等效力</text>
-  <text class="b" x="274" y="126">全文公开供审阅 · 修订随开源仓库存档</text>
+  <text class="tag" x="274" y="72">CONTRACT</text>
+  <text class="t" x="274" y="94">Terms of Service</text>
+  <text class="b" x="274" y="110">Review terms · explicit acceptance</text>
+  <text class="b" x="274" y="126">Material changes: notice &amp; acceptance where required</text>
   <line class="vline" x1="360" y1="132" x2="360" y2="168"/>
   <line class="vline" x1="500" y1="132" x2="500" y2="168"/>
   <line class="vline" x1="640" y1="132" x2="640" y2="168"/>
   <rect class="layer" x="70" y="168" width="290" height="66" rx="12"/>
-  <text class="t" x="90" y="194" font-size="13">隐私政策</text>
-  <text class="b" x="90" y="214">收集内容与目的 · 处理标准</text>
+  <text class="t" x="90" y="194" font-size="13">Privacy Policy</text>
+  <text class="b" x="90" y="214">Purposes · lawful basis · rights</text>
   <rect class="layer" x="380" y="168" width="240" height="66" rx="12"/>
-  <text class="t" x="400" y="194" font-size="13">可接受使用政策</text>
-  <text class="b" x="400" y="214">行为边界与执行</text>
+  <text class="t" x="400" y="194" font-size="13">Acceptable Use</text>
+  <text class="b" x="400" y="214">Proportionate action · appeal</text>
   <rect class="layer" x="640" y="168" width="290" height="66" rx="12"/>
-  <text class="t" x="660" y="194" font-size="13">数据处理与安全 · 第三方处理者</text>
-  <text class="b" x="660" y="214">安全维护措施 · 处理者清单</text>
+  <text class="t" x="660" y="194" font-size="13">Security &amp; Recipients</text>
+  <text class="b" x="660" y="214">Controls · limits · data flows</text>
   <rect class="base" x="70" y="266" width="860" height="100" rx="12"/>
-  <text class="tag" x="94" y="292">准据框架</text>
-  <text class="t" x="94" y="316" font-size="13.5">准据法为运营者所在地之法律：托管实例适用台湾法律、台北地方法院</text>
-  <text class="b" x="94" y="336">显失公平之标准条款依适用法律不受拘束</text>
-  <text class="b" x="94" y="352">适用法律不得排除之责任不因责任上限而受限</text>
-  <text class="law" x="94" y="400">效力顺序：主题文档优先 · 繁体中文（台湾）版为正式版本</text>
+  <text class="tag" x="94" y="292">APPLICABLE LAW</text>
+  <text class="t" x="94" y="316" font-size="13.5">Mandatory law &amp; protected rights take priority</text>
+  <text class="b" x="94" y="336">Contract choice of law does not remove mandatory local protections.</text>
+  <text class="b" x="94" y="352">Free or non-profit service: statutory duties and remedies remain.</text>
+  <text class="law" x="94" y="400">Subject-specific documents · zh-TW authoritative, subject to mandatory rights</text>
 </svg>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="服務條款之契約生命週期：電子同意、履行、修訂、終止，以營運者轄區為準據">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="契約的明示接受、使用、變更與退出；強制法律、當地保護與法定救濟優先。">
   <style>
     .bg { fill: #f8fafc; }
     .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -38,44 +38,44 @@
     </marker>
   </defs>
   <rect class="bg" width="1000" height="400" rx="16"/>
-  <text class="tag" x="60" y="46">契約生命週期 · 服務條款</text>
+  <text class="tag" x="60" y="46">SERVICE AGREEMENT</text>
   <rect class="chip" x="672" y="24" width="268" height="40" rx="10"/>
-  <text class="bb" x="688" y="42">電子同意</text>
-  <text class="b" x="688" y="57">與書面簽署同等效力</text>
+  <text class="bb" x="688" y="42">Explicit acceptance</text>
+  <text class="b" x="688" y="57">Separate privacy choices</text>
   <rect class="s1" x="60" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="78" y="112">1 · 同意</text>
-  <text class="b" x="78" y="132">註冊、登入或使用</text>
-  <text class="b" x="78" y="148">即受本條款拘束</text>
-  <text class="b" x="78" y="164">全文公開供審閱</text>
+  <text class="t" x="78" y="112">1 · Accept</text>
+  <text class="b" x="78" y="132">Review &amp; save terms</text>
+  <text class="b" x="78" y="148">Affirmative action</text>
+  <text class="b" x="78" y="164">Consent where required</text>
   <rect class="s2" x="300" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="318" y="112">2 · 履行</text>
-  <text class="b" x="318" y="132">帳號與安全義務</text>
-  <text class="b" x="318" y="148">內容歸您所有</text>
-  <text class="b" x="318" y="164">責任限制（§3/§5/§10）</text>
+  <text class="t" x="318" y="112">2 · Use</text>
+  <text class="b" x="318" y="132">Account &amp; security duties</text>
+  <text class="b" x="318" y="148">Content rights remain</text>
+  <text class="b" x="318" y="164">Mandatory rights apply</text>
   <rect class="s3" x="540" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="558" y="112">3 · 修訂</text>
-  <text class="b" x="558" y="132">重大變更於生效前公告</text>
-  <text class="b" x="558" y="148">（§12）</text>
-  <text class="b" x="558" y="164">歷史版本存於開源儲存庫</text>
+  <text class="t" x="558" y="112">3 · Changes</text>
+  <text class="b" x="558" y="132">Notice of material changes</text>
+  <text class="b" x="558" y="148">New acceptance if required</text>
+  <text class="b" x="558" y="164">Opportunity to exit</text>
   <rect class="s4" x="780" y="86" width="160" height="96" rx="10"/>
-  <text class="t" x="798" y="112">4 · 終止</text>
-  <text class="b" x="798" y="132">自助註銷</text>
-  <text class="b" x="798" y="148">先匯出後刪除</text>
-  <text class="b" x="798" y="164">（§8）</text>
+  <text class="t" x="798" y="112">4 · Exit</text>
+  <text class="b" x="798" y="132">Export available data</text>
+  <text class="b" x="798" y="148">Request deletion</text>
+  <text class="b" x="798" y="164">Retention limits</text>
   <path class="arrow" d="M260,134 L296,134"/>
   <path class="arrow" d="M500,134 L536,134"/>
   <path class="arrow" d="M740,134 L776,134"/>
   <rect class="band" x="60" y="216" width="880" height="64" rx="10"/>
-  <text class="bt" x="84" y="242">準據法：營運者轄區（§11）</text>
-  <text class="bb" x="84" y="262">託管實例 mail.epocanvas.com：臺灣法律、臺北地方法院 · 自建實例：其部署者轄區</text>
-  <text class="tag" x="60" y="322">亦屬本約定之一部</text>
+  <text class="bt" x="84" y="242">Choice of law is subject to mandatory protections</text>
+  <text class="bb" x="84" y="262">Hosted: Taiwan law · mandatory local protections, competent courts &amp; data-protection authorities remain available.</text>
+  <text class="tag" x="60" y="322">RELATED DOCUMENTS</text>
   <rect class="step" x="60" y="334" width="272" height="44" rx="10"/>
-  <text class="t" x="78" y="352">隱私權政策</text>
-  <text class="b" x="78" y="368">個人資料告知與權利</text>
+  <text class="t" x="78" y="352">Privacy Policy</text>
+  <text class="b" x="78" y="368">Notice · lawful bases · rights</text>
   <rect class="step" x="352" y="334" width="272" height="44" rx="10"/>
-  <text class="t" x="370" y="352">可接受使用政策</text>
-  <text class="b" x="370" y="368">行為邊界與執行</text>
+  <text class="t" x="370" y="352">Acceptable Use</text>
+  <text class="b" x="370" y="368">Proportionate action &amp; appeal</text>
   <rect class="step" x="644" y="334" width="296" height="44" rx="10"/>
-  <text class="t" x="662" y="352">效力順序</text>
-  <text class="b" x="662" y="368">主題文件優先 · 見總覽</text>
+  <text class="t" x="662" y="352">Document scope</text>
+  <text class="b" x="662" y="368">Subject-specific rules · mandatory rights first</text>
 </svg>

@@ -3,7 +3,7 @@ title: Guía de configuración
 description: Guía de configuración de EpoCanvas Mail — las cinco secciones de la configuración personal (perfil, general, seguridad, datos, etiquetas) y el recorrido completo por las nueve secciones de la consola de administración y las tarjetas de configuración del sistema.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 EpoCanvas Mail divide su configuración en dos zonas: la zona «configuración» de la barra lateral reúne los ajustes personales que cada cuenta puede modificar por sí misma, en cinco secciones — perfil, general, seguridad, datos y etiquetas; la zona «administración» solo aparece para los grupos de identidad con permisos administrativos y alberga la configuración al nivel de la instancia. Esta página recorre cada zona y las relaciones entre los ajustes. Para el comportamiento a nivel de funcionamiento — multicuenta, modos de correo, inicio de sesión —, véase [Modos de funcionamiento](/es/mail/modes/).
 
@@ -74,18 +74,18 @@ La página de seguridad modifica el nombre de usuario y la contraseña (mostrand
 
 Las cuatro tarjetas de la página de datos: tres formatos para llevarse los datos, una zona de reenvío, una de almacenamiento y otra de autorizaciones de terceros —la interfaz completa de la autonomía sobre los datos personales.
 
-1. **Tarjeta de exportación de datos y perfil del usuario**: Tres exportaciones en paralelo: la copia de seguridad integral en JSON, el archivo del historial de correo (MBOX/JSON/CSV con rango de fechas) y los contactos y la configuración. Un mensaje suelto también puede descargarse como .eml desde el panel de lectura.
+1. **Tarjeta de exportación de datos y perfil del usuario**: El JSON contiene campos de perfil seleccionados, datos de correos no marcados como eliminados y etiquetas personalizadas. Excluye adjuntos, rutas completas, alias, contactos, reglas y ajustes de seguridad. No es una copia completa; los datos omitidos pueden solicitarse según la ley. La interfaz ofrece formatos y fechas, pero el servidor revisado no aplica los parámetros de tipo, formato o periodo. No se garantiza el formato ni el intervalo solicitado.
 2. **Tarjeta de reenvío de correo y mensajes**: Configuración detallada del push de mensajes de Telegram y del reenvío automático; que estas dos funciones estén disponibles para la cuenta lo decide el interruptor de «Control de datos de usuario» del administrador.
 3. **Tarjeta de espacio de almacenamiento**: El indicador de uso del almacenamiento de adjuntos se coteja con la cuota en tiempo real. Puede conectarse un cubo de Backblaze B2/S3 propio: a partir de entonces los adjuntos nuevos se guardan directamente en la nube personal, fuera de la cuota de la instancia, y al retirar la conexión se vuelve al almacenamiento de la instancia.
-4. **Tarjeta de aplicaciones y servicios de terceros**: Lista de todas las aplicaciones con autorización OAuth de la cuenta: puede retirarse el acceso aplicación por aplicación, o revocarlas todas de una vez desde la ventana de detalle. La revocación surte efecto de inmediato y los tokens existentes de la aplicación dejan de valer en el acto.
+4. **Tarjeta de aplicaciones y servicios de terceros**: Revocar bloquea nuevas lecturas mediante userinfo del servicio. No garantiza la invalidez inmediata de ID tokens en terceros ni recupera datos ya obtenidos.
 
 </details>
 
 | Exportación | Formato | Alcance |
 | --- | --- | --- |
-| Exportación integral de datos | JSON | Copia de seguridad completa: datos de la cuenta, historial de correo, contactos, reglas de clasificación y etiquetas, y ajustes de seguridad |
-| Archivo del historial de correo | MBOX (universal), JSON o CSV | Solo el correo enviado y recibido, con rango de fechas opcional |
-| Contactos y configuración | JSON | Directorio de contactos, reglas de alias personalizadas y preferencias de personalización |
+| Exportación integral de datos | JSON | El JSON contiene campos de perfil seleccionados, datos de correos no marcados como eliminados y etiquetas personalizadas. Excluye adjuntos, rutas completas, alias, contactos, reglas y ajustes de seguridad. No es una copia completa; los datos omitidos pueden solicitarse según la ley. |
+| Archivo del historial de correo | MBOX (universal), JSON o CSV | La interfaz ofrece formatos y fechas, pero el servidor revisado no aplica los parámetros de tipo, formato o periodo. No se garantiza el formato ni el intervalo solicitado. |
+| Contactos y configuración | JSON | El nombre de la tarjeta no demuestra la exportación de contactos, reglas de alias o todas las preferencias. La respuesta tiene el mismo alcance JSON; véase la documentación de seguridad. |
 
 Un mensaje suelto se descarga en .eml directamente desde el panel de lectura. La zona «Reenvío de correo y mensajes» ofrece el push de Telegram y el reenvío automático: la vinculación de un bot privado, las preferencias de push y los tipos de disparador se explican paso a paso en la [Guía de notificaciones y reenvío](/es/mail/notify/); si estas dos funciones se ofrecen a los usuarios lo decide el interruptor de «Control de datos de usuario» del operador. La zona de almacenamiento muestra el indicador de uso de adjuntos y permite conectar un almacenamiento de objetos personal (un cubo de Backblaze B2 o S3 propio); una vez conectado, los adjuntos van directamente a la nube personal, fuera de la cuota de la instancia.
 

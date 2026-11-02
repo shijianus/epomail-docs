@@ -3,7 +3,7 @@ title: Modes de fonctionnement
 description: Modes de fonctionnement d'EpoCanvas Mail — formes de déploiement, les trois niveaux de confidentialité du mode courriel, groupes d'identité et quotas, connexion et vérification en deux étapes, multi-comptes et modes d'affichage de l'interface.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 Le même code d'EpoCanvas Mail prend des formes de fonctionnement différentes selon la configuration : une instance peut être hébergée ou auto-déployée ; l'administrateur choisit l'équilibre entre confidentialité et vérifiabilité parmi trois modes courriel ; les comptes reçoivent leurs quotas et permissions selon leur groupe d'identité ; la connexion, le multi-comptes et l'affichage offrent chacun plusieurs options. La présente page décrit le comportement et les différences de chaque mode. Le traitement des données associé est présenté dans [Traitement des données et sécurité](/fr/mail/data-security/) ; le fonctionnement des fonctions, dans [Guide des fonctions](/fr/mail/features/) ; les entrées de réglage, dans [Guide des paramètres](/fr/mail/settings/).
 
@@ -14,7 +14,7 @@ Le service est proposé sous les deux formes suivantes ; la qualification du res
 | Forme | Opérateur | Cas d'usage |
 | --- | --- | --- |
 | Instance hébergée | L'équipe d'exploitation EpoCanvas ([mail.epocanvas.com](https://mail.epocanvas.com)) | Inscription et utilisation immédiates, sans domaine ni compte Cloudflare à apporter |
-| Instance auto-déployée | La personne ou l'organisation qui la déploie | Toutes les données restent dans les ressources Cloudflare du déployeur, avec un code source auditable |
+| Instance auto-déployée | La personne ou l'organisation qui la déploie | Le déployeur choisit l'infrastructure et les services externes. Livraison, stockage, IA, traduction, notifications et ressources distantes peuvent impliquer des tiers ; les données ne restent pas nécessairement toutes chez Cloudflare. |
 
 ## 2. Mode courriel : trois niveaux de confidentialité
 
@@ -29,9 +29,9 @@ L'administrateur sélectionne le mode courriel de l'instance sur la carte des pa
 
 La zone du mode courriel dans la carte « Paramètres du site » des paramètres système : un menu déroulant décide du chiffrement au stockage de tous les courriels de l'instance et de l'étendue visible côté administration, avec effet immédiat.
 
-1. **Menu déroulant du mode courriel** : L'administrateur choisit l'équilibre entre trois niveaux : Level 1 tout en clair (l'administration voit tous les courriels), Level 2 mode privé (valeur d'usine ; les courriers échangés par les utilisateurs sont chiffrés au repos en AES-256-GCM), Level 3 E2EE intégral (l'API d'administration ne renvoie aucune liste de courriels utilisateurs).
+1. **Menu déroulant du mode courriel** : Objet et corps sont chiffrés au repos côté serveur selon le mode, pas de bout en bout. Les pièces jointes et métadonnées ne sont pas automatiquement couvertes ; les détenteurs des clés peuvent déchiffrer.
 2. **Badge Confidentialité renforcée Level 2** : L'instance tourne en mode courriel privé : l'administration ne voit que les pourriels, la corbeille et les courriels sans propriétaire, et l'interrupteur général de la vérification en deux étapes est verrouillé sur activé.
-3. **Les trois options déroulées** : Les différences entre L1 mode tous courriels, L2 mode courriel privé (recommandé) et L3 mode courriel chiffré (E2EE) sautent aux yeux. En mode chiffré, l'entrée de revue du courriel disparaît, les horodatages sont dépouillés des rapports d'audit et le transfert global est verrouillé sur désactivé.
+3. **Les trois options déroulées** : Objet et corps sont chiffrés au repos côté serveur selon le mode, pas de bout en bout. Les pièces jointes et métadonnées ne sont pas automatiquement couvertes ; les détenteurs des clés peuvent déchiffrer.
 
 </details>
 
@@ -39,7 +39,7 @@ La zone du mode courriel dans la carte « Paramètres du site » des paramètres
 | --- | --- | --- | --- | --- |
 | Mode tous courriels (Level 1) | Tout en clair | Tous les courriels | Peut être désactivé | Peut être activé |
 | Mode courriel privé (Level 2, valeur d'usine) | Correspondance des utilisateurs chiffrée au repos en AES-256-GCM ; corbeille conservée en clair pour permettre la récupération | Courriels indésirables, corbeille et courriels sans propriétaire uniquement | Verrouillé sur activé | Peut être activé |
-| Mode courriel chiffré (Level 3 [E2EE]) | Tous les courriels (corbeille incluse) intégralement chiffrés | Ne renvoie aucune liste de courriels utilisateurs | Verrouillé sur activé | Verrouillé sur désactivé |
+| Mode chiffré côté serveur (Level 3) | Objet et corps chiffrés au repos ; pièces jointes et métadonnées non automatiquement couvertes | Ne renvoie aucune liste de courriels utilisateurs | Verrouillé sur activé | Verrouillé sur désactivé |
 
 Le changement de mode prend effet immédiatement. En mode chiffré, la liste administrative des courriels reste vide en permanence, les rapports d'audit sont dépouillés de leurs horodatages, et l'entrée de revue du courriel disparaît de la barre latérale d'administration. Le transfert individuel et le push Telegram configurés par chaque utilisateur ne suivent pas le mode global du site ; ils dépendent des interrupteurs de contrôle des données utilisateurs fixés par l'opérateur et des réglages propres à chaque utilisateur. En mode privé, la restauration d'un message depuis la corbeille le déchiffre avant qu'il ne regagne la boîte, puis le rechiffre.
 
@@ -87,7 +87,7 @@ Les nouvelles inscriptions arrivent dans le groupe par défaut d'usine, le Visit
 Les trois régions centrales de la surface de connexion : le parcours complet de saisie et de validation d'une connexion par mot de passe ; les boutons de connexion rapide tierce se trouvent sous la carte.
 
 1. **Champ adresse électronique** : Le compte, c'est l'adresse électronique elle-même. En mode code d'inscription, cette page accepte aussi un paramètre d'invitation `?code=` qui préremplit directement le formulaire d'inscription.
-2. **Champ mot de passe** : La phrase secrète est stockée en empreinte salée, le serveur ne voit jamais le texte en clair. « Mot de passe oublié » ouvre par une boîte de dialogue le portail de recours externe, en transmettant le type de recours, la langue de l'interface et l'adresse électronique.
+2. **Champ mot de passe** : Les nouvelles vérifications de mot de passe utilisent PBKDF2 avec sel. La migration historique et la MFA peuvent conserver temporairement du texte clair dans KV ; le serveur rencontre donc du texte clair. Voir la sécurité des données.
 3. **Bouton de connexion** : Après validation, les comptes ayant activé la vérification en deux étapes passent au second facteur ; des échecs répétés déclenchent un verrouillage anti-force brute. Cochez « Ne plus demander sur cet appareil » pour dispenser ce dernier de vérification pendant 30 jours.
 
 </details>

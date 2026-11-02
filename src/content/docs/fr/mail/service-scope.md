@@ -1,81 +1,93 @@
 ---
 title: Périmètre du service et assistance
-description: Périmètre du service et assistance d'EpoCanvas Mail — ce que fournit l'instance hébergée, les limites de ce service, les liens officiels, les canaux d'assistance et les voies de recours et de récupération.
+description: Fonctions, limites, assistance, recours et récupération des données d'un service personnel de tests sans but lucratif.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
-La présente page décrit ce que fournit l'instance hébergée ([mail.epocanvas.com](https://mail.epocanvas.com)), où ce service s'arrête, et les canaux d'assistance. Les instances auto-hébergées restent en dehors du « service » décrit ici : le logiciel est fourni sous licence MIT et le projet amont n'assume aucune responsabilité quant au fonctionnement d'une instance — la position juridique figure dans [Open source et cadre juridique de l'auto-hébergement](/fr/mail/open-source/) ; la répartition du responsable du traitement entre les deux formes se trouve à la section 2 de l'[Aperçu confidentialité et conditions](/fr/mail/overview/).
 
-![Architecture juridique d'EpoCanvas Mail : les conditions d'utilisation et la politique de confidentialité reposent sur le droit applicable et les obligations de sécurité](/images/mail/fr/legal-architecture.svg)
+<!-- legal-review-draft -->
+:::caution[Projet soumis à revue juridique : non applicable comme notice actuelle]
+Ce projet présente des clauses proposées et des éléments restant à vérifier. Il ne remplace pas la notice actuellement en vigueur et ne certifie pas la conformité. Il ne doit pas servir à activer un traitement avant vérification de l’identité de l’exploitant, des coordonnées légalement requises, des bases juridiques réelles, des destinataires, des garanties de transfert, de la conservation et de l’effacement, et avant fourniture de l’information requise. La version faisant autorité désigne la base rédactionnelle en chinois traditionnel, non une entrée en vigueur. Les obligations légales et les droits existants restent inchangés.
+:::
 
-*Figure : l'architecture d'engagement de ce service. La présente page décrit le service lui-même ; le contrat et les normes d'information sont portés par les documents juridiques situés au-dessus de lui.*
+Cette page explique le service et l'assistance de l'instance [mail.epocanvas.com](https://mail.epocanvas.com), projet personnel annexe sans but lucratif destiné à l'apprentissage et aux tests. Les conditions d'auto-hébergement sont fournies par l'opérateur réel ; voir le [Cadre juridique de l'auto-hébergement](/fr/mail/open-source/) et la [Vue d'ensemble](/fr/mail/overview/) pour les rôles et obligations. Lisez les Conditions avant de vous inscrire ; ne créez pas de compte si vous les refusez.
+
+La version en chinois traditionnel (Taïwan) est la version officielle ; les autres langues sont des traductions de comparaison. Cette organisation ne limite ni l'information claire exigée par le droit applicable, ni l'interprétation favorable aux consommateurs, ni les droits auxquels il ne peut être renoncé. La date de mise à jour indique une révision, sans effet automatique des nouvelles conditions.
+
+![Relations entre le périmètre du service et les documents juridiques](/images/mail/fr/legal-architecture.svg)
+
+*Figure : cette page décrit fonctions et assistance ; les documents contractuels et de confidentialité en précisent les conditions. Le droit impératif et les droits non renonçables priment.*
 
 ## 1. Ce que le service fournit
 
 | Élément | Description |
 | --- | --- |
-| Comptes et inscription | Comptes obtenus par codes d'inscription ou inscription ouverte selon la configuration ; six groupes d'identité décident des quotas et des permissions |
-| Envoi et réception | Entrant via Cloudflare Email Routing, analysé à l'arrivée ; livraison directe au sein du site ; hors site via le canal de livraison de l'Opérateur |
-| Stockage | Quota de stockage par groupe d'identité ; un stockage d'objets personnel peut être branché pour que les pièces jointes y atterrissent directement |
-| Organisation et automatisation | Boîte à huit vues, étiquettes et moteur de règles de classement, recherche avancée, extraction des codes de vérification |
-| Capacités d'IA | Traduction intégrale et OCR des images (selon la configuration du moteur d'IA de l'instance et l'autorisation des modèles) |
-| Notifications et transfert | Push Telegram et transfert par règles (selon les contrôles des données utilisateurs fixés par l'administrateur) |
-| Clients | Web (installable en PWA) et application Android (epomail) |
-| Langues | Six langues d'interface ; courriels système et de bienvenue livrés dans la langue du destinataire |
+| Comptes et inscription | Selon l'ouverture de l'instance et ses quotas, pour les personnes d'au moins 16 ans ayant la capacité contractuelle requise |
+| Envoi et réception | Routage entrant, acheminement interne et canaux externes configurés ; la réception dépend aussi du service destinataire |
+| Stockage | Quotas par compte ; connecter un stockage personnel entraîne les transferts correspondants selon la configuration |
+| Organisation et automatisation | Vues de messages, étiquettes, règles, recherche et extraction configurable de codes de vérification |
+| Capacités d'IA | Portée des données et déclencheurs de traduction, reconnaissance et autres fonctions activées dans la Politique de confidentialité |
+| Notifications et transfert | Telegram et transfert de courriels configurables, impliquant des destinataires externes et les transmissions correspondantes |
+| Clients | Web, PWA installable et application Android selon les versions publiées |
+| Langues | Six langues d'interface et notifications localisées, selon la couverture de la version |
 
-Les détails au niveau des fonctions figurent dans le [Guide des fonctions](/fr/mail/features/) ; une visite de chaque interface et route se trouve dans [Interface et plan des routes](/fr/mail/interface/).
+L'utilisation est décrite dans le [Guide des fonctions](/fr/mail/features/) et [Interface et plan des routes](/fr/mail/interface/) ; les traitements personnels doivent être lus avec la [Politique de confidentialité](/fr/mail/privacy-policy/).
 
 ## 2. Limites du service
 
 | Sujet | Limite |
 | --- | --- |
-| Disponibilité | Aucun accord de niveau de service n'est offert ; la disponibilité repose sur la plateforme Cloudflare |
-| Conservation | La corbeille est effacée physiquement sept jours après réception ; les pourriels sont mis en quarantaine sept jours puis déplacés vers la corbeille |
-| Quotas | L'envoi, les boîtes et le stockage suivent les valeurs d'usine du groupe d'identité, ajustables par le Maître sur la page des permissions |
-| Coût | L'instance hébergée n'offre actuellement aucune fonction payante |
-| Évolution des fonctions | Les fonctions évoluent avec les versions ; les changements importants sont annoncés par l'avis sur le site et par courriel d'annonce |
-| Limite des pièces jointes | Le plafond par pièce jointe suit le réglage de l'instance et ne lie que les utilisateurs du stockage partagé de l'Opérateur |
+| Disponibilité | Aucun SLA, taux fixe de disponibilité, délai d'acheminement ou permanence continue ; la responsabilité pour les interruptions amont dépend toujours des faits et de la loi |
+| Conservation | Corbeille, tâches planifiées, sauvegardes et conservation légale ont des périmètres distincts ; la suppression n'efface pas toutes les copies immédiatement. Voir les documents de confidentialité et de sécurité |
+| Quotas | Envoi, nombre de boîtes et stockage selon les réglages publiés et une procédure raisonnable de changement |
+| Coût | L'instance hébergée est actuellement gratuite ; l'absence de but lucratif n'écarte pas les obligations de protection des données et des consommateurs |
+| Évolution des fonctions | Ni hébergement perpétuel ni maintien de chaque fonction garanti ; les changements défavorables importants et fermetures prévisibles appellent un préavis raisonnablement possible et un délai raisonnable de récupération |
+| Limites des pièces jointes | Limites de l'instance, du stockage et des prestataires d'acheminement ; BYOS n'écarte pas les autres limites techniques ou légales |
 
-La sémantique complète de la conservation figure dans [Traitement des données et sécurité](/fr/mail/data-security/) ; les limites comportementales, dans la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/).
+Le service ne convient pas aux urgences, à la conservation légale, aux décisions médicales, à une unique adresse de récupération de compte ou à l'unique sauvegarde de données importantes. Aucune certification n'est promise. Les limites de conservation, d'export et de chiffrement figurent dans la [Politique de confidentialité](/fr/mail/privacy-policy/) et [Traitement des données et sécurité](/fr/mail/data-security/), les règles de conduite dans la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/).
 
 ## 3. Liens officiels dans l'application
 
-Les cibles par défaut des liens officiels présents dans l'application sont listées ci-dessous ; l'opérateur d'une instance peut les remplacer dans les paramètres système :
+Les liens par défaut ci-dessous peuvent être modifiés par l'opérateur. Un lien vers ce site ne prouve pas la gestion ou la certification officielle du déploiement.
 
 | Lien | Cible par défaut | Emplacement |
 | --- | --- | --- |
-| Présentation du projet | Page Présentation du projet de ce site | Pied du menu de compte |
-| Politique de confidentialité / Conditions d'utilisation | Les documents juridiques correspondants de ce site | Pied du menu de compte |
-| Documentation | Ce site (rejoint par négociation de la langue du navigateur) | Paramètres système, carte « À propos » |
-| Assistance | Page Périmètre du service et assistance de ce site | Paramètres système, carte « À propos » |
-| Versions | GitHub Releases | Paramètres système, carte « À propos » |
-| Telegram | `t.me/epomail` | Paramètres système, carte « À propos » |
+| Présentation du projet | Présentation du projet sur ce site | Pied du menu de compte |
+| Politique de confidentialité / Conditions d'utilisation | Documents juridiques correspondants du site | Pied du menu de compte |
+| Documentation | Pages du site dans la langue concernée | Paramètres système, carte À propos |
+| Assistance | Page Périmètre du service et assistance | Paramètres système, carte À propos |
+| Versions | GitHub Releases | Paramètres système, carte À propos |
+| Telegram | `t.me/epomail` | Paramètres système, carte À propos |
 
 ## 4. Canaux d'assistance
 
 | Canal | Pour |
 | --- | --- |
-| Contact dans le produit | Message sur le site ou `admin@epocanvas.com` |
-| Confidentialité et protection des données | `privacy@epocanvas.com` (exercice des droits des personnes concernées, recours de protection des données) |
-| GitHub Issues | Rapports de bugs et propositions de fonctions (`github.com/shijianus/epomail`) |
-| Telegram | Salon communautaire sur `t.me/epomail` |
+| Contact dans le produit | Messages internes ou `admin@epocanvas.com`, assistance générale et recours |
+| Confidentialité et protection des données | `privacy@epocanvas.com`, exercice des droits et réclamations |
+| GitHub Issues | Bugs et propositions dans le [dépôt source](https://github.com/shijianus/epomail/issues) |
+| Telegram | Discussions à `t.me/epomail`, sans données privées ni identifiants |
+
+L'assistance générale est asynchrone, sans délai de réponse ou de réparation promis. Lorsque le RGPD s'applique, les demandes de protection des données doivent recevoir une réponse sans retard injustifié et sous un mois après réception ; lorsque les conditions légales de complexité ou de nombre sont réunies, une prolongation maximale de deux mois supplémentaires est possible, avec information motivée dans le premier mois. Les délais plus courts imposés par une autre loi applicable priment. Voir la Politique de confidentialité ; l'organisation ordinaire de l'assistance ne peut retarder les délais légaux.
 
 ## 5. Recours et récupération
 
-- Mot de passe oublié : la boîte de dialogue « mot de passe oublié » de la page de connexion mène au portail de recours (en transmettant le type de recours, la langue de l'interface et l'adresse électronique) ; l'accès est restauré après vérification ;
-- Recours contre bannissement et alerte : un recours contre une décision de traitement entre dans le rapport d'audit comme ticket d'alerte, qu'un administrateur arbitre en levant ou en rejetant ; l'échelle d'exécution figure à la section 6 de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/) ;
-- Données en libre-service : l'export JSON intégral, les archives de l'historique des courriels et les téléchargements .eml de messages isolés sont disponibles à tout moment dans « Paramètres → Données » — voir la section 5 du [Guide des paramètres](/fr/mail/settings/).
+- Si la connexion est impossible, utilisez l'entrée de récupération ou de recours de la page de connexion, ou `admin@epocanvas.com`. Seule une vérification proportionnée est demandée ; la récupération dépend de sa réussite et de la faisabilité technique.
+- Avertissements, suspensions et résiliations peuvent être contestés. L'isolement urgent ne supprime ni réexamen ultérieur ni recours externe ; voir les sections 6 et 7 de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/).
+- Utilisez les exports et téléchargements de messages actuellement disponibles. L'export autonome ne couvre pas nécessairement toutes les données personnelles, pièces jointes ou copies externes. Demandez accès complémentaire, portabilité ou suppression selon la [Politique de confidentialité](/fr/mail/privacy-policy/) et [Traitement des données et sécurité](/fr/mail/data-security/).
 
 ## 6. Limite d'assistance pour les instances auto-hébergées
 
-Le projet open source amont ne fournit aucun service, aucune assistance ni aucun engagement de disponibilité pour quelque déploiement de son code que ce soit ; le déployeur porte envers ses propres utilisateurs les devoirs d'assistance, d'information et de conformité. Les documents du présent site (ensemble juridique compris) peuvent servir de base aux matériaux destinés aux utilisateurs d'un déployeur, et quiconque les adopte en devient responsable.
+La seule publication du code ne crée pas d'engagement d'hébergement, d'assistance ou de disponibilité pour tout déploiement. Les opérateurs réels doivent informer et offrir les recours découlant de leur relation de service et du droit applicable ; les auteurs qui exploitent aussi un service assument ces obligations.
+
+Ces documents sont une référence rédactionnelle, sans remplacer l'évaluation des rôles, configurations et lois réels ni constituer une certification. Le traitement pour une organisation exige une acceptation préalable et un accord distinct de sous-traitance lorsque nécessaire.
 
 ## 7. Documents connexes
 
 | Ressource | Lien |
 | --- | --- |
-| Le contrat et la limitation de responsabilité pour le service | [Conditions d'utilisation](/fr/mail/terms-of-service/) |
-| Avis de confidentialité et droits des personnes concernées | [Politique de confidentialité](/fr/mail/privacy-policy/) |
-| La licence open source et le droit de l'auto-hébergement | [Open source et cadre juridique de l'auto-hébergement](/fr/mail/open-source/) |
-| Étapes complètes pour déployer votre propre instance | [Guide de déploiement](/fr/mail/deployment/) |
+| Conditions contractuelles et limites de responsabilité | [Conditions d'utilisation](/fr/mail/terms-of-service/) |
+| Information de confidentialité et droits des personnes | [Politique de confidentialité](/fr/mail/privacy-policy/) |
+| Licence open source et devoirs d'auto-hébergement | [Cadre juridique de l'auto-hébergement](/fr/mail/open-source/) |
+| Étapes de configuration pour l'auto-hébergement | [Guide de déploiement](/fr/mail/deployment/) |

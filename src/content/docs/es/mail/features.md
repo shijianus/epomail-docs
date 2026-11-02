@@ -3,7 +3,7 @@ title: Guía de funciones de EpoCanvas Mail
 description: Guía de funciones de EpoCanvas Mail — organización de la bandeja de entrada, redacción y envío, sintaxis de búsqueda, motor de reglas de etiquetas, extracción de códigos de verificación, gestión del correo no deseado, reenvío y notificaciones, funciones de IA y plataforma abierta.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 Esta página describe una a una las funciones reales de EpoCanvas Mail; todo el contenido ha sido verificado punto por punto contra el código abierto, y las capturas de pantalla de la interfaz proceden de imágenes reales del funcionamiento de la instancia alojada oficial. El posicionamiento del proyecto, su historial de desarrollo y su despliegue se describen en [Presentación del proyecto](/es/mail/project/); el tratamiento de los datos y los plazos de conservación de cada función figuran en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
@@ -108,7 +108,7 @@ El efecto de la extracción de códigos de verificación en el detalle del corre
 
 - **Zona del código en tamaño grande**: El código que Workers AI extrae del asunto y de los primeros 6,000 caracteres del cuerpo se presenta directamente en tamaño grande, para copiarlo con facilidad.
 - **Insignia verde**: La marca verde que aparece de forma sincronizada en la fila de la lista y en la página de detalle: significa que este correo lleva un código de verificación ya extraído, de modo que se reconoce directamente desde la lista sin abrir cada mensaje. La insignia solo aparece cuando la extracción tiene éxito; su ausencia no significa que el correo sea seguro, solo que no hay ningún código que copiar.
-- **Límites**: Es el único tratamiento de IA que no se desencadena manualmente y puede desactivarse en la configuración general; el alcance del tratamiento y la forma de retirarlo figuran en la sección 6 de la política de privacidad.
+- **Límites**: La extracción de códigos depende de un interruptor global, desactivado por defecto. Al activarse, recibir correo puede causar transferencias automáticas; no se encontró exclusión individual. Véase la sección 6 de privacidad.
 
 </details>
 
@@ -122,7 +122,7 @@ El efecto de la extracción de códigos de verificación en el detalle del corre
 
 - **Reenvío personal**: reenvío automático del correo del buzón a otras direcciones, con compatibilidad de copia (CC);
 - **Reenvío global**: el administrador puede configurar reglas de reenvío a nivel del sistema, sujetas al modo de correo (desactivado en modo «Cifrado»);
-- **Notificaciones de Telegram**: tras vincular el bot, envío según la configuración del asunto, el remitente, el cuerpo y el código de verificación, con un enlace de lectura interna válido durante 7 días; los campos de la notificación pueden ocultarse uno por uno.
+- **Notificaciones de Telegram**: Algunos campos de remitente, destinatario y cuerpo son configurables. El asunto, el código extraído y el enlace de lectura para quien lo posea durante 7 días pueden añadirse automáticamente; no todos los campos pueden ocultarse.
 
 ## 8. Funciones de IA
 
@@ -130,16 +130,16 @@ El efecto de la extracción de códigos de verificación en el detalle del corre
 | --- | --- | --- |
 | Extracción de códigos de verificación | automática al llegar correo nuevo (desactivable) | inferencia en el borde con Workers AI, véase la sección 5 |
 | Traducción completa | clic manual | traducción multilingüe que conserva el diseño del correo original, fragmentos tratados en paralelo; los puntos de conexión de los modelos y el canal de respaldo figuran en la sección 6 de la [Política de Privacidad](/es/mail/privacy-policy/) |
-| Reconocimiento de texto en imágenes | carga manual | subtítulos generados por OCR; las imágenes puramente decorativas se omiten automáticamente |
+| Reconocimiento de texto en imágenes | Flujo de traducción y parámetro OCR | Puede procesar imágenes del correo o sus URL remotas. Está desactivado por defecto en el cliente; omitir el parámetro API puede activarlo. El filtro de imágenes decorativas es heurístico. |
 | AI Hub | configuración del administrador | conexión a puntos de conexión multmodelo compatibles con OpenAI, pruebas de velocidad a cero tokens, autorización de modelos por rol |
 
-El Operador no entrena ningún modelo con el contenido del correo; el tratamiento de IA consentido puede retirarse en cualquier momento (véase la sección 6 de la [Política de Privacidad](/es/mail/privacy-policy/)).
+El operador no entrena por sí mismo modelos con correos; los usos de terceros requieren verificación contractual. Retirar el consentimiento es un derecho, no prueba de un interruptor individual operativo. Deben desactivarse los flujos sin base o elección exigida.
 
 ## 9. Plataforma abierta y autonomía de los datos
 
-- **Centro de autenticación OAuth 2.0 / OIDC**: el administrador puede registrar aplicaciones de terceros, con ámbitos de autorización limitados a openid / profile / email y tokens de acceso válidos durante 2 horas; la persona interesada puede consultar en tiempo real las autorizaciones en la página «Aplicaciones de terceros» y revocarlas en cualquier momento;
+- **Centro de autenticación OAuth 2.0 / OIDC**: Las aplicaciones pueden recibir campos reales de identidad y rol, no solo los descritos por openid/profile/email. La revocación no recupera ID tokens emitidos ni copias de terceros.
 - **Guía de integración**: el registro de aplicaciones en la administración, los puntos de enlace y el código de integración están en [Plataforma abierta y acceso a la API](/es/mail/api/);
-- **Exportar datos**: exportación con un clic, desde la página de configuración, de una copia completa en formato JSON (perfil y texto íntegro del correo no eliminado); cada correo puede descargarse como .eml;
+- **Exportar datos**: El JSON contiene campos de perfil seleccionados, datos de correos no marcados como eliminados y etiquetas personalizadas. Excluye adjuntos, rutas completas, alias, contactos, reglas y ajustes de seguridad. No es una copia completa; los datos omitidos pueden solicitarse según la ley.
 
 ## 10. Interfaz y móvil
 

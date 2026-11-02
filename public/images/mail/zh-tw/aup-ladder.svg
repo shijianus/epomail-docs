@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="執行階梯：警告、限流、隔離、暫停、刪除，附申訴路徑與兒少性剝削零容忍捷徑">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="比例處置：警告、限流、隔離、暫停與終止；緊急保護後仍可申訴，刪除與必要保存分別處理。">
   <style>
     .bg { fill: #f8fafc; }
     .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -41,25 +41,25 @@
   </defs>
   <rect class="bg" width="1000" height="400" rx="16"/>
   <rect class="band" x="60" y="36" width="880" height="56" rx="10"/>
-  <text class="bt" x="84" y="60">零容忍：兒少性剝削內容</text>
-  <text class="b0" x="84" y="80">即行刪除並終止帳號，保存證據，移交主管機關或司法警察，不適用申訴緩衝</text>
+  <text class="bt" x="84" y="60">Urgent protection: child sexual abuse &amp; exploitation content</text>
+  <text class="b0" x="84" y="80">Restrict access and spread; preserve necessary evidence and report as required by law; review the action.</text>
   <rect class="s1" x="60"  y="300" width="150" height="56" rx="10"/>
-  <text class="t" x="76" y="324">1 · 警告</text>
-  <text class="b" x="76" y="342">初次或輕微違規</text>
+  <text class="t" x="76" y="324">1 · Warn</text>
+  <text class="b" x="76" y="342">Minor breach</text>
   <rect class="s2" x="234" y="252" width="150" height="56" rx="10"/>
-  <text class="t" x="250" y="276">2 · 限流</text>
-  <text class="b" x="250" y="294">限制寄信量與 API</text>
+  <text class="t" x="250" y="276">2 · Limit</text>
+  <text class="b" x="250" y="294">Sending &amp; API</text>
   <rect class="s3" x="408" y="204" width="150" height="56" rx="10"/>
-  <text class="t" x="424" y="228">3 · 隔離</text>
-  <text class="b" x="424" y="246">改入垃圾郵件資料夾</text>
+  <text class="t" x="424" y="228">3 · Isolate</text>
+  <text class="b" x="424" y="246">Restrict access</text>
   <rect class="s4" x="582" y="156" width="150" height="56" rx="10"/>
-  <text class="t" x="598" y="180">4 · 暫停</text>
-  <text class="b" x="598" y="198">停止帳號存取</text>
+  <text class="t" x="598" y="180">4 · Suspend</text>
+  <text class="b" x="598" y="198">Pause &amp; review</text>
   <rect class="s5" x="756" y="108" width="150" height="56" rx="10"/>
-  <text class="t" x="772" y="132">5 · 刪除</text>
-  <text class="b" x="772" y="150">實體刪除，不可復原</text>
+  <text class="t" x="772" y="132">5 · End</text>
+  <text class="b" x="772" y="150">Deletion &amp; retention</text>
   <path class="loop" d="M820,168 C866,240 736,318 540,330 C380,340 250,334 218,318"/>
-  <text class="loop-t" x="470" y="356">申訴與舉報：合理期限內複核答覆；</text>
-  <text class="loop-t" x="470" y="372">重大處置前給予說明機會（緊急情形除外）</text>
-  <text class="tag" x="60" y="378">執行階梯 · 按情節輕重、比例為原則</text>
+  <text class="loop-t" x="470" y="356">Reasons, appeal &amp; review remain available.</text>
+  <text class="loop-t" x="470" y="372">Urgent protection may precede notice.</text>
+  <text class="tag" x="60" y="378">PROPORTIONATE ACTION</text>
 </svg>

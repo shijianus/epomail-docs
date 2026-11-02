@@ -3,7 +3,7 @@ title: Gestión de etiquetas y clasificación
 description: Gestión de etiquetas y clasificación de EpoCanvas Mail — creación de etiquetas, iconos y colores, mantenimiento heurístico de las cuatro etiquetas de fábrica, constructor de reglas de clasificación y presentación de estadísticas.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 Las etiquetas y las reglas de clasificación se gestionan en «Configuración → Etiquetas» (`#settings/labels`). La tabla completa de campos de condición de las reglas figura en la sección 7 de [Referencia de búsqueda y reglas](/es/mail/search/); esta página cubre las operaciones y estadísticas de las etiquetas propiamente dichas.
 

@@ -3,7 +3,7 @@ title: Guide des notifications et du transfert
 description: Guide des notifications et du transfert d'EpoCanvas Mail — liaison du push Telegram, préférences de push et visibilité des champs, destination et types de déclencheur du transfert automatique.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 La présente page parcourt les deux capacités de la zone « Notifications et transfert » de la page « Paramètres → Données » : le push des messages Telegram et le transfert automatique. Un compte y accède ou non selon la carte « Contrôle des données utilisateurs » de l'administrateur ; lorsque l'interrupteur est désactivé, les blocs sont masqués. L'export des données et le stockage figurent sur la même page, voir la section 5 du [Guide des paramètres](/fr/mail/settings/).
 
@@ -16,9 +16,9 @@ La présente page parcourt les deux capacités de la zone « Notifications et tr
 
 Trois cartes d'export et la zone d'en-tête « Transfert de courriels et de messages » de la page Données : le haut régit les formats sous lesquels les données s'en vont, le bas la façon dont le courrier entrant vous atteint en temps réel.
 
-1. **Carte d'export intégral des données** : Sauvegarde JSON complète : informations du compte, texte intégral de l'historique des courriels, répertoire, règles de classement et d'étiquettes et paramètres de sécurité, téléchargés en un seul paquet — l'entrée principale pour exercer le droit à la portabilité des données.
-2. **Carte d'archive de l'historique des courriels** : Exporte uniquement les courriels envoyés et reçus : en MBOX (format universel, importable directement par la plupart des clients de messagerie), JSON ou CSV, avec possibilité de borner une plage de dates.
-3. **Carte contacts et configuration** : Troisième export : le carnet d'adresses, les règles d'alias personnalisées et les préférences de personnalisation. C'est le plus petit des trois fichiers, mais c'est lui qui décide si vos habitudes survivent à un changement d'instance — les règles d'alias et la nomenclature des étiquettes partent avec lui, si bien que rien n'a à être renommé ni reclassé.
+1. **Carte d'export intégral des données** : Le JSON contient des champs de profil sélectionnés, des données des courriels non marqués supprimés et des étiquettes personnalisées. Il exclut pièces jointes, routage complet, alias, contacts, règles et paramètres de sécurité. Ce n'est pas une sauvegarde complète ; les données omises peuvent être demandées selon la loi.
+2. **Carte d'archive de l'historique des courriels** : L'interface propose des formats et des dates, mais le serveur vérifié n'applique pas les paramètres de type, de format ou de période. Le format ou la période demandés ne sont pas garantis.
+3. **Carte contacts et configuration** : Le nom de la carte ne prouve pas l'export des contacts, règles d'alias ou préférences complètes. La réponse a la même portée JSON ; voir le document de sécurité des données.
 4. **Zone d'en-tête « Transfert de courriels et de messages »** : Deux capacités d'atteinte en temps réel : le push de messages Telegram (lier votre propre robot privé ; push de tout le courrier, ou seulement des messages importants et des codes de vérification, avec un lien de lecture interne valable 7 jours) et le transfert automatique (destinations, type de déclencheur et en-tête `[Fwd]`).
 
 </details>

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="第三方共享地图：以实例为中心的四类共享——受托处理者、经您授权、您触发的 AI 与法律要求">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="实例的第三方资料流：基础设施、整合与外部请求、内容处理及法律请求；逐一路径确认角色和保障。">
   <style>
     .bg { fill: #f8fafc; }
     .hub { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.8; }
@@ -24,33 +24,33 @@
   <rect class="bg" width="1000" height="470" rx="16"/>
   <rect class="hub" x="390" y="185" width="220" height="100" rx="14"/>
   <text class="hub-t" x="414" y="222">EpoCanvas Mail</text>
-  <text class="hub-t" x="414" y="242">实例</text>
-  <text class="hub-b" x="414" y="264">最小必要共享 · 不出售、</text>
-  <text class="hub-b" x="414" y="280">无广告、无追踪</text>
+  <text class="hub-t" x="414" y="242">Instance</text>
+  <text class="hub-b" x="414" y="264">Necessary sharing</text>
+  <text class="hub-b" x="414" y="280">Assess each data flow</text>
   <rect class="grp" x="48" y="48" width="290" height="120" rx="12"/>
-  <text class="tag" x="70" y="74">受托处理者</text>
-  <text class="gt" x="70" y="98">Cloudflare · Resend / Mailjet</text>
-  <text class="gb" x="70" y="120">基础设施与站外投递。</text>
-  <text class="gb" x="70" y="138">SOC 2 Type II · ISO/IEC 27001 · 欧盟 SCC。</text>
-  <text class="gb" x="70" y="156">仅站外投递涉及完整邮件内容。</text>
+  <text class="tag" x="70" y="74">INFRASTRUCTURE</text>
+  <text class="gt" x="70" y="98">Cloud · storage · mail</text>
+  <text class="gb" x="70" y="120">Cloudflare &amp; configured providers</text>
+  <text class="gb" x="70" y="138">Content, files &amp; request data</text>
+  <text class="gb" x="70" y="156">Contracts · regions · safeguards</text>
   <rect class="grp" x="662" y="48" width="290" height="120" rx="12"/>
-  <text class="tag" x="684" y="74">经您授权</text>
-  <text class="gt" x="684" y="98">Telegram · OAuth 应用 · Linux DO</text>
-  <text class="gb" x="684" y="120">仅经您同意；OAuth 范围限</text>
-  <text class="gb" x="684" y="138">openid / profile / email；</text>
-  <text class="gb" x="684" y="156">得随时撤销，即时生效。</text>
+  <text class="tag" x="684" y="74">INTEGRATIONS</text>
+  <text class="gt" x="684" y="98">Identity · apps · notifications</text>
+  <text class="gb" x="684" y="120">Fields depend on the active path</text>
+  <text class="gb" x="684" y="138">Fonts · verification · remote images</text>
+  <text class="gb" x="684" y="156">Revocation cannot recall copies</text>
   <rect class="grp" x="48" y="302" width="290" height="120" rx="12"/>
-  <text class="tag" x="70" y="328">您触发的 AI</text>
-  <text class="gt" x="70" y="352" font-size="12.5">模型端点 · Workers AI · MyMemory</text>
-  <text class="gb" x="70" y="374">翻译与 OCR 仅于您触发时运行。</text>
-  <text class="gb" x="70" y="392">验证码提取为唯一自动 AI 处理</text>
-  <text class="gb" x="70" y="410">（运营者可选；前 6,000 字符）。</text>
+  <text class="tag" x="70" y="328">CONTENT PROCESSING</text>
+  <text class="gt" x="70" y="352" font-size="12.5">AI · translation · OCR</text>
+  <text class="gb" x="70" y="374">Automatic &amp; user-triggered paths</text>
+  <text class="gb" x="70" y="392">Actual recipients &amp; content scope</text>
+  <text class="gb" x="70" y="410">Valid basis · choices · safeguards</text>
   <rect class="grp" x="662" y="302" width="290" height="120" rx="12"/>
-  <text class="tag" x="684" y="328">法律要求</text>
-  <text class="gt" x="684" y="352">有权机关</text>
-  <text class="gb" x="684" y="374">仅依法定强制程序；最小揭露；</text>
-  <text class="gb" x="684" y="392">核实合法性；法律允许时</text>
-  <text class="gb" x="684" y="410">通知您。</text>
+  <text class="tag" x="684" y="328">LEGAL REQUESTS</text>
+  <text class="gt" x="684" y="352">Competent authorities</text>
+  <text class="gb" x="684" y="374">Verify authority &amp; legal basis</text>
+  <text class="gb" x="684" y="392">Limit disclosure to what is needed</text>
+  <text class="gb" x="684" y="410">Notify when legally permitted</text>
   <path class="line" d="M390,210 C330,196 340,150 338,140"/>
   <path class="line" d="M610,210 C670,196 660,150 662,140"/>
   <path class="line" d="M390,260 C330,274 340,320 338,330"/>

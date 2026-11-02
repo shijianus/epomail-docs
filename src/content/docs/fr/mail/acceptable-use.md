@@ -1,94 +1,93 @@
 ---
 title: Politique d'utilisation acceptable
-description: Politique d'utilisation acceptable d'EpoCanvas Mail — liste des comportements interdits, mesures de l'Opérateur et procédure de recours.
+description: Prévention des abus, tests autorisés, conservation des preuves, mesures proportionnées et recours pour EpoCanvas Mail.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
-La présente politique concrétise la section 7 (« Utilisation acceptable ») des [Conditions d'utilisation](/fr/mail/terms-of-service/) et fixe les limites de conduite lors de l'utilisation du service EpoCanvas Mail (le « Service »). En cas de violation de la présente politique, l'Opérateur prend les mesures prévues à la section « Mesures d'exécution » ; les faits susceptibles de constituer une infraction sont en outre traités conformément à la loi.
 
-Les comportements énumérés dans la présente politique, outre qu'ils violent la présente politique, peuvent également constituer des actes illicites selon le droit du lieu où vous résidez ou celui où réside l'Opérateur ; la qualification concrète relève des autorités compétentes, et le présent document ne constitue pas un avis juridique.
+<!-- legal-review-draft -->
+:::caution[Projet soumis à revue juridique : non applicable comme notice actuelle]
+Ce projet présente des clauses proposées et des éléments restant à vérifier. Il ne remplace pas la notice actuellement en vigueur et ne certifie pas la conformité. Il ne doit pas servir à activer un traitement avant vérification de l’identité de l’exploitant, des coordonnées légalement requises, des bases juridiques réelles, des destinataires, des garanties de transfert, de la conservation et de l’effacement, et avant fourniture de l’information requise. La version faisant autorité désigne la base rédactionnelle en chinois traditionnel, non une entrée en vigueur. Les obligations légales et les droits existants restent inchangés.
+:::
 
-Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut. Les documents juridiques et techniques du présent site visent à établir des normes de communication communautaires non commerciales, transparentes et rigoureuses.
+Cette politique précise la section 7 des [Conditions d'utilisation](/fr/mail/terms-of-service/) de ce service personnel d'apprentissage et de tests sans but lucratif. Ne vous inscrivez pas si vous refusez ces conditions ; les tests isolés licites suivent la section 4. La gratuité, l'absence de but lucratif ou la recherche n'écartent pas le droit applicable.
+
+La version en chinois traditionnel (Taïwan) est la version officielle ; les autres langues sont des traductions de comparaison. Cette organisation ne limite ni l'information claire exigée par le droit applicable, ni l'interprétation favorable aux consommateurs, ni les droits auxquels il ne peut être renoncé. La date de mise à jour indique une révision du texte ; l'information et l'application des changements suivent les Conditions d'utilisation.
 
 ## 1. Contenus illicites et dangereux
 
-Vous ne devez pas utiliser le Service pour transmettre, stocker ou diffuser les contenus suivants :
+N'utilisez pas le service pour les comportements suivants. Les décisions doivent tenir compte d'informations fiables, du préjudice réel et des usages licites possibles ; l'isolement urgent et les signalements légaux suivent les sections 6 et 7.
 
-| Comportement interdit | Mesures de l'Opérateur |
+| Comportement interdit | Mesures de l'opérateur |
 | --- | --- |
-| Contenus d'exploitation sexuelle d'enfants et d'adolescents, y compris photographier, fabriquer, reproduire, détenir, diffuser, transmettre, remettre, exposer publiquement ou vendre des images sexuelles d'enfants ou d'adolescents, ou des dessins, enregistrements sonores ou objets à caractère sexuel les concernant | Tolérance zéro : dès découverte, suppression du contenu et résiliation du compte ; les preuves sont conservées et transmises aux autorités compétentes ; la procédure de recours ne s'applique pas |
-| Distribution ou diffusion, vers des enfants et des adolescents, de contenus de violence, de sang, de pornographie, d'obscénité ou de jeux d'argent nuisibles à leur santé physique ou mentale | Procédure de tolérance zéro : restriction de l'accès ou retrait préalable |
-| Enregistrement ou reproduction d'images sexuelles non consensuelles, leur diffusion, ou fabrication d'images sexuelles fabriquées par synthèse informatique ou moyens similaires (voir la section 2) | Restriction préalable de la consultation ou retrait, conservation des preuves pendant au moins 180 jours et coopération aux enquêtes |
-| Diffusion, transmission, vente ou exposition publique de textes, images, sons, vidéos ou autres objets obscènes | Traitement selon les signalements ; les contenus illicites sont retirés et traités selon la gravité |
-| Courriels et contenus de fraude, d'hameçonnage ou d'usurpation d'identité (y compris falsification de l'identité de l'expéditeur ou usurpation du nom d'organismes publics et de fonctionnaires) | Mise en quarantaine ou suppression des contenus suspectés de fraude ; les faits susceptibles de constituer une infraction sont transmis aux autorités compétentes |
-| Diffusion de logiciels malveillants, de virus ou de rançongiciels, courriels visant au vol d'identifiants, intrusion sans cause, obtention, suppression ou modification d'enregistrements électromagnétiques ou interférence avec des systèmes informatiques | Isolement immédiat et résiliation du compte ; les faits susceptibles de constituer une infraction sont transmis aux autorités compétentes |
-| Contenus portant atteinte au droit d'auteur, aux droits de marque, à la vie privée ou à la réputation d'autrui | Retrait après notification valide du titulaire du droit, et traitement conformément au droit applicable |
+| Production, détention ou diffusion de contenus d'abus ou d'exploitation sexuelle de mineurs, ou sollicitation de mineurs à des fins d'abus | Restreindre immédiatement l'accès et arrêter la diffusion ; préserver les preuves nécessaires et signaler conformément à la loi, puis examiner la clôture du compte |
+| Fourniture aux mineurs de contenus violents, sexuels ou de jeux d'argent dont la fourniture leur est légalement interdite | Limiter d'abord l'exposition nocive ; retirer ou restreindre le compte selon la loi et la gravité |
+| Création ou diffusion d'images intimes sans consentement, y compris des images sexuelles synthétiques préjudiciables | Restreindre rapidement l'accès ou retirer ; conservation et recours selon la section 2 |
+| Contenus obscènes dont la diffusion, la vente ou l'exposition publique est illicite | Vérifier le signalement et le droit applicable avant les mesures nécessaires |
+| Fraude, hameçonnage, usurpation d'identité ou falsification d'expéditeur pour tromper autrui | Isoler le contenu, limiter les fonctions concernées et agir selon la loi |
+| Diffusion de logiciels malveillants, vol d'identifiants, intrusion non autorisée ou dégradation de systèmes | Isoler immédiatement le danger et réexaminer ; les tests isolés licites de la section 4 s'apprécient dans leur périmètre autorisé |
+| Atteinte au droit d'auteur, aux marques, à la vie privée ou divulgation illicite de données d'autrui | Vérifier les droits et les motifs d'usage licite selon la section 8 ou la procédure applicable |
 
 ## 2. Images sexuelles non consensuelles
 
-En cas de téléversement, de transmission ou de stockage d'images sexuelles non consensuelles par le biais du Service, l'Opérateur en restreint dès constatation la consultation ou les retire, et traite l'affaire selon les dispositions suivantes :
+Il est interdit de créer, transmettre ou diffuser des images intimes sans consentement au moyen du service. Après un signalement crédible permettant de localiser le contenu, l'opérateur doit rapidement en restreindre l'accès ou le retirer afin de réduire sa rediffusion.
 
-1. **Interdiction pénale** : l'enregistrement, la reproduction ou la diffusion de l'image sexuelle d'autrui sans son consentement, ou la fabrication d'images sexuelles fabriquées par synthèse informatique ou d'autres moyens technologiques et leur diffusion, constituent une infraction pénale dans la plupart des juridictions.
-2. **Obligation de retrait de la plateforme** : dès que l'Opérateur a connaissance de faits laissant suspecter une infraction d'atteinte sexuelle, il restreint préalablement la consultation ou retire les données liées à l'infraction ; ces données, ainsi que les données personnelles du suspect et ses enregistrements d'utilisation du réseau, sont conservées pendant au moins 180 jours afin d'être fournies aux autorités judiciaires et de police pour leur enquête.
-3. **Modalités de traitement** : après notification ou signalement, l'Opérateur restreint d'abord la consultation ou retire ces contenus, conserve les preuves et coopère aux enquêtes des autorités judiciaires et de police. Les mesures de la présente section ne sont pas soumises à la procédure de recours de la section 7.
+1. Évaluer les obligations de retrait, de conservation des preuves et de signalement selon le droit réellement applicable, sans universaliser les règles d'une juridiction.
+2. Conserver les preuves au moins 180 jours uniquement si le droit applicable l'exige expressément, selon son champ, ses destinataires et son point de départ. Sinon, retenir la durée licite et nécessaire la plus courte. Isoler les preuves, limiter l'accès aux personnes autorisées qui en ont besoin et les effacer à l'expiration, sauf autre motif légal de conservation.
+3. La transmission aux autorités de contrôle ou d'enquête exige une base légale, la vérification du destinataire et un périmètre nécessaire. Le retrait urgent ne supprime pas le recours ultérieur ; la communication des motifs peut être limitée ou différée dans les conditions légales si elle est interdite ou compromet une enquête.
 
 ## 3. Pourriels et comportements abusifs
 
-Vous ne devez pas :
+Les comportements suivants sont interdits :
 
-1. envoyer en masse des courriels commerciaux non sollicités (UBE/UCE), faire du marketing auprès de destinataires qui n'ont pas consenti, ou utiliser le Service pour l'échauffement de boîtes (warm-up) ou le bombardement de vérification d'adresses. Les comportements précités peuvent enfreindre le droit du pays du destinataire (CAN-SPAM Act américain, directive ePrivacy de l'Union européenne, CASL canadien, par exemple) ; pour les transmissions transfrontalières, le droit du lieu de réception s'applique. Lorsque des données personnelles sont utilisées à des fins de marketing, dès que la personne concernée manifeste son refus de recevoir du marketing, l'utilisation de ses données personnelles à des fins de marketing cesse immédiatement.
-2. créer des comptes par lots au moyen de procédés automatisés, contourner la vérification humaine (Turnstile), une clé d'inscription ou des limites de quota.
-3. utiliser le Service comme relais de transfert anonyme ou vivier éphémère d'envoi abusif, ou s'inscrire à répétition dans le but d'échapper aux mesures.
+1. Envoyer des courriels de masse non sollicités, prospecter des destinataires n'ayant pas consenti, pratiquer le réchauffement de boîtes ou le bombardement de vérification d'adresses. Outre cette politique, respecter les règles anti-pourriel applicables aux lieux d'envoi, de réception et ailleurs ; cesser la prospection en cas de refus.
+2. Créer des comptes en masse sans autorisation ou contourner Turnstile, les clés d'inscription ou les quotas.
+3. Créer des relais abusifs ou des réserves de comptes temporaires, ou se réinscrire pour contourner les mesures.
 
 ## 4. Attaques et entraves
 
-Vous ne devez pas :
+L'apprentissage, le débogage et les tests de sécurité sont permis sur un déploiement sous votre contrôle, isolé des services réels, avec des données synthétiques ou légalement désidentifiées et sans affecter les tiers. Tester n'autorise pas l'accès aux courriels réels, données personnelles ou identifiants d'autrui.
 
-1. scanner, sonder ou attaquer par force brute le Service ou des systèmes tiers ; tenter d'accéder sans autorisation à la boîte d'autrui, à l'interface d'administration ou aux données d'autres utilisateurs. Les comportements précités peuvent constituer une infraction, et l'Opérateur peut en outre agir en réparation et en traitement par les voies civile et administrative.
-2. utiliser sans motif légitime les ressources partagées telles que la traduction par IA, les pièces jointes ou l'API, au point de gêner l'usage normal des autres utilisateurs.
-3. exercer à l'encontre de Cloudflare, de la communauté open source amont ou de l'Opérateur des comportements de harcèlement, de diffamation ou d'abus de droit.
-4. enfreindre les conditions d'utilisation des services tiers (Cloudflare, Resend, Mailjet, Telegram, etc.).
+1. Avant tout scan, test de charge, ingénierie sociale, test par force brute ou test d'accès sur une instance publique, un système d'utilisateurs réels ou de tiers, obtenir l'autorisation explicite du responsable du système et respecter son périmètre, sa durée et ses conditions d'arrêt. L'accès public ne vaut pas autorisation.
+2. Ne pas épuiser délibérément les ressources partagées d'IA, de pièces jointes ou d'API, ni gêner autrui ; les tests de capacité autorisés respectent les limites convenues.
+3. Les critiques de bonne foi, signalements de vulnérabilités, réclamations de confidentialité, signalements aux autorités et exercices licites des droits ne sont pas des abus. Menaces, harcèlement ciblé et divulgations préjudiciables d'informations privées sont interdits.
+4. Les conditions de tiers ne s'appliquent que dans le cadre des services effectivement utilisés et des relations contractuelles pertinentes ; elles ne transfèrent pas aux utilisateurs les obligations propres à l'opérateur.
 
 ## 5. Obligations générales d'usage des ressources
 
-1. Vous utilisez les ressources dans la limite du quota de stockage de votre compte ; les quotas sont fixés par l'Opérateur selon les rôles.
-2. Le compte et les jetons API ne peuvent être prêtés, loués ni cédés à des tiers pour usage.
-3. Si vous recourez à un stockage externe apporté par vous (BYOS) ou à des bases de données externes, vous devez vous-même vous assurer que ces services satisfont aux exigences du droit du lieu où vous vous trouvez en matière de transferts internationaux.
+1. Respecter les quotas publiés de stockage et d'envoi ; les changements sont notifiés selon les Conditions d'utilisation.
+2. Ne pas louer ou revendre les comptes ni confier les identifiants à des personnes non autorisées. Les intégrations licites utilisent des autorisations limitées et protègent les clés.
+3. Avant de choisir BYOS ou une base externe, vérifier les accès et les conditions de traitement. Utilisateurs et opérateur assument leurs rôles respectifs ; le choix de l'utilisateur n'exonère pas l'opérateur de ses obligations de protection des données et de transfert international.
 
 ## 6. Mesures d'exécution
 
-Selon la nature et la gravité de la violation, l'Opérateur prend des mesures proportionnées ; les contenus d'exploitation sexuelle d'enfants et d'adolescents ne relèvent pas de l'échelle graduée et suivent directement la procédure de tolérance zéro.
+Les mesures doivent être proportionnées à la nature des faits, à la fiabilité des éléments, au préjudice et à la répétition. Les abus sur mineurs, images non consensuelles ou attaques en cours peuvent être isolés ou désactivés sans parcourir chaque niveau ; un réexamen reste nécessaire.
 
-![L'échelle d'exécution de la Politique d'utilisation acceptable d'EpoCanvas Mail : cinq niveaux — avertissement, limitation de débit, quarantaine vers les pourriels, suspension du compte, suppression physique — avec un chemin de recours, et un raccourci de tolérance zéro pour l'exploitation sexuelle d'enfants et d'adolescents menant directement à la suppression](/images/mail/fr/aup-ladder.svg)
+![Niveaux d'avertissement, limitation, isolement, suspension et résiliation, avec recours](/images/mail/fr/aup-ladder.svg)
 
-*Figure : l'échelle d'exécution. Les mesures s'élèvent niveau par niveau selon le principe de proportionnalité ; la suppression physique est la mesure finale irréversible. Le chemin de tolérance zéro figuré en pointillé s'applique à l'exploitation sexuelle d'enfants et d'adolescents ainsi qu'aux images sexuelles non consensuelles : suppression immédiate et conservation des preuves.*
+*Figure : les niveaux sont choisis selon les circonstances ; protection urgente et recours ultérieur coexistent, tandis que suppression et conservation suivent la loi et les limites techniques.*
 
 | Niveau | Mesure | Cas d'application |
 | --- | --- | --- |
-| 1 | Avertissement | Violation mineure ou de premier ordre |
-| 2 | Limitation de débit des fonctions | Limitation du volume d'envoi et de la fréquence des appels API |
-| 3 | Quarantaine | Les courriels envoyés hors du site sont dirigés vers le dossier des pourriels |
-| 4 | Suspension du compte | Accès au compte arrêté, données conservées en attendant réexamen |
-| 5 | Suppression physique | Compte et ensemble des données supprimés, sans possibilité de restauration |
+| 1 | Avertissement | Première violation mineure pouvant être corrigée |
+| 2 | Limitation de débit | Limiter le volume d'envoi, la fréquence de l'API ou les fonctions concernées |
+| 3 | Isolement | Limiter l'accès ou l'acheminement afin d'arrêter le préjudice |
+| 4 | Suspension du compte | Suspendre l'accès et conserver légalement les données nécessaires au réexamen |
+| 5 | Résiliation et suppression | Violations graves ou répétées ; suppression, récupération et conservation légale selon la Politique de confidentialité |
 
-Base technique de l'échelle d'exécution : le volume sortant est plafonné par le quota d'envoi du rôle du compte (utilisateurs de base 5 courriels/jour, LV.0 8/jour, LV.1 10/jour, administrateurs 100/jour ; le compte Webmestre est sans limite), les compteurs quotidiens étant réinitialisés chaque jour ; les pourriels sont mis en quarantaine 7 jours puis déplacés vers la corbeille ; lorsque la boîte dépasse 90 % du quota, les courriels déjà marqués comme supprimés sont immédiatement supprimés définitivement. Ces paramètres varient selon le rôle et la configuration de l'instance, laquelle prévaut.
+Les quotas, nettoyages planifiés et limites des sauvegardes figurent dans [Traitement des données et sécurité](/fr/mail/data-security/) et la [Politique de confidentialité](/fr/mail/privacy-policy/). Suspendre un compte n'efface pas immédiatement toutes les copies ; supprimer ne garantit pas que les données de chaque système soient irrécupérables.
 
-En cas de comportement illicite, l'Opérateur peut conserver les preuves nécessaires (au moins 180 jours dans les cas visés à la section 2) et coopère aux enquêtes des autorités compétentes. Lorsque votre comportement expose l'Opérateur à des sanctions de Cloudflare ou d'un fournisseur amont, l'Opérateur peut en demander réparation à votre égard selon la section 10 des [Conditions d'utilisation](/fr/mail/terms-of-service/).
+Les signalements légaux de contenus suivent le droit applicable et ne transmettent que les données nécessaires aux destinataires habilités. Les contenus ne sont pas automatiquement communiqués à tous les tiers, prestataires amont ou auteurs de signalements. L'utilisateur ne répond que des actes qui lui sont juridiquement imputables, sans obligation générale de rembourser tous les frais, amendes ou réclamations de tiers de l'opérateur ou des développeurs.
 
 ## 7. Recours et signalement
 
-1. **Recours** : si vous estimez une mesure erronée, vous pouvez former un recours par les canaux énumérés à la section 13 des [Conditions d'utilisation](/fr/mail/terms-of-service/) ; l'Opérateur réexamine et répond dans un délai raisonnable. Sauf urgence, une possibilité de s'expliquer est offerte avant toute mesure importante de niveau 4 ou plus.
-2. **Signalement** : toute personne qui découvre un comportement violant la présente politique ou un risque de sécurité (sources de pourriels, courriels d'hameçonnage, tentatives d'accès non autorisé, etc.) peut le signaler par les canaux précités ; les signalements de bonne foi sont tous vérifiés et traités.
-3. **Exception** : pour les contenus d'exploitation sexuelle d'enfants et d'adolescents ou les images sexuelles non consensuelles visées à la section 2, l'Opérateur n'applique pas la procédure de recours : il procède directement à la suppression, met fin au compte, conserve les preuves et transmet l'affaire aux autorités compétentes.
-
+1. Une décision contestée peut faire l'objet d'un recours à `admin@epocanvas.com` ou selon la section 13 des Conditions, même sans accès au compte. En principe, les mesures importantes sont précédées de motifs et d'une possibilité de réponse ; le réexamen et la réponse interviennent dans un délai raisonnable.
+2. Fournir les informations nécessaires pour localiser les faits, leur date et leurs motifs, sans rediffuser d'images de victimes, de mots de passe ou de données sans rapport. L'opérateur priorise selon la crédibilité et le préjudice ; les délais légaux des demandes de confidentialité suivent séparément la Politique de confidentialité.
+3. L'urgence peut justifier d'agir avant d'informer, sans supprimer le recours ultérieur ni l'accès aux tribunaux et autorités. Les erreurs constatées sont corrigées dans les limites légales et techniques ; la restauration de données supprimées ne peut être promise.
 
 ## 8. Avis et contre-avis relatifs au droit d'auteur et à la propriété intellectuelle
 
-Le titulaire de droits qui estime qu'un contenu hébergé sur le Service porte atteinte à son droit d'auteur, à sa marque ou à d'autres droits légitimes peut adresser un avis à l'Opérateur. L'avis précise : la description du droit violé et la preuve de titularité, les informations permettant de localiser le contenu en cause (adresse du destinataire et objet du courriel, par exemple), les coordonnées de contact, ainsi qu'une déclaration de bonne foi dûment signée indiquant que l'utilisation n'est pas autorisée. Après vérification, l'Opérateur retire le contenu ou en restreint l'accès et informe l'auteur de l'avis du résultat.
+Les titulaires peuvent préciser le droit et l'atteinte alléguée, les informations permettant de localiser le contenu, leurs coordonnées et les déclarations légalement requises. L'opérateur doit vérifier l'avis, les autorisations et les exceptions ou limitations applicables avant de limiter l'accès, retirer ou demander des précisions. Une allégation unilatérale n'établit pas à elle seule une atteinte.
 
-L'utilisateur dont le contenu a été retiré et qui estime que ce retrait est erroné peut soumettre un contre-avis exposant ses raisons et assorti d'une déclaration de bonne foi ; l'Opérateur transmet le contre-avis à l'auteur de l'avis initial. Les atteintes répétées aux droits d'autrui exposent l'utilisateur à une escalade selon l'échelle d'exécution de la section 6, jusqu'à la suppression définitive. Les avis et contre-avis de mauvaise foi causant un préjudice à autrui peuvent engager la responsabilité de leur auteur.
-
----
-
-*Le présent document ne constitue pas un avis juridique ; la qualification juridique des comportements énumérés relève des autorités compétentes.*
+La personne affectée peut fournir un contre-avis et les motifs d'un usage licite. Avis, contre-avis et données d'identité ne sont transmis que dans le périmètre nécessaire d'une procédure applicable et d'une base légale, avec l'information requise, sans transfert intégral automatique à l'auteur du signalement. Les atteintes répétées ou avis sciemment faux sont traités selon les faits, la proportionnalité et la loi ; la procédure interne ne remplace pas les recours légaux.

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="责任边界：上游开源项目、作为数据控制者的实例运营者，以及作为当事人的您">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="原始码作者、实例运营者与使用者的关系；角色和义务依实际处理活动判断。">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -30,32 +30,32 @@
   </defs>
   <rect class="bg" width="1000" height="470" rx="16"/>
   <rect class="card" x="60" y="52" width="270" height="130" rx="12"/>
-  <text class="tag" x="84" y="80">上游 · MIT 授权</text>
-  <text class="title" x="84" y="106">开源项目</text>
-  <text class="body" x="84" y="130">仅发布源代码。</text>
-  <text class="body" x="84" y="150">不运营邮件服务，</text>
-  <text class="body" x="84" y="170">不掌握用户资料，零遥测。</text>
+  <text class="tag" x="84" y="80">SOURCE · MIT</text>
+  <text class="title" x="84" y="106">Source authors</text>
+  <text class="body" x="84" y="130">Publish code &amp; patches</text>
+  <text class="body" x="84" y="150">Roles depend on actual activity</text>
+  <text class="body" x="84" y="170">Operating brings duties</text>
   <rect class="card-accent" x="390" y="52" width="270" height="130" rx="12"/>
-  <text class="tag accent" x="414" y="80">实例 · 数据控制者</text>
-  <text class="title" x="414" y="106">实例运营者</text>
-  <text class="body" x="414" y="130">部署于其自有 Cloudflare 账号</text>
-  <text class="body" x="414" y="150">（Workers · D1 · KV · R2），承担</text>
-  <text class="body" x="414" y="170">数据保护义务：告知、安全维护、受监督。</text>
+  <text class="tag accent" x="414" y="80">INSTANCE</text>
+  <text class="title" x="414" y="106">Instance operator</text>
+  <text class="body" x="414" y="130">Determines deployment &amp; access</text>
+  <text class="body" x="414" y="150">Assess each processing activity</text>
+  <text class="body" x="414" y="170">Publish notices &amp; safeguards</text>
   <rect class="card" x="720" y="52" width="220" height="130" rx="12"/>
-  <text class="tag" x="744" y="80">当事人</text>
-  <text class="title" x="744" y="106">您</text>
-  <text class="body" x="744" y="130">注册帐号，并将信箱</text>
-  <text class="body" x="744" y="150">与邮件委托给</text>
-  <text class="body" x="744" y="170">该实例。</text>
+  <text class="tag" x="744" y="80">PEOPLE</text>
+  <text class="title" x="744" y="106">Users &amp; contacts</text>
+  <text class="body" x="744" y="130">Users, senders &amp; recipients</text>
+  <text class="body" x="744" y="150">Rights follow the processing</text>
+  <text class="body" x="744" y="170">Contact the actual operator</text>
   <path class="arrow" d="M330,117 L382,117"/>
   <path class="arrow" d="M660,117 L712,117"/>
-  <text class="foot" x="340" y="106">代码</text>
-  <text class="foot" x="672" y="106">委托</text>
+  <text class="foot" x="340" y="106">code</text>
+  <text class="foot" x="672" y="106">use</text>
   <line class="divider" x1="60" y1="228" x2="940" y2="228"/>
   <rect class="card" x="60" y="262" width="880" height="150" rx="12"/>
-  <text class="tag" x="84" y="290">含义</text>
-  <text class="title" x="84" y="318" font-size="15.5">您注册所在实例的运营者即您的数据控制者，而非上游作者。</text>
-  <text class="body" x="84" y="344">• 托管实例 mail.epocanvas.com：EpoCanvas 运营团队为帐号资料与安全日志之控制者。</text>
-  <text class="body" x="84" y="366">• 自建实例：部署者自部署时点起即为唯一且排他之数据控制者。</text>
-  <text class="body" x="84" y="388">• 本站法律文档按实例适用；您与所注册实例之运营者成立契约。</text>
+  <text class="tag" x="84" y="290">ROLES &amp; DUTIES</text>
+  <text class="title" x="84" y="318" font-size="15.5">Roles follow purposes, means &amp; actual activity</text>
+  <text class="body" x="84" y="344">Hosted: identify the actual operator and the processing it controls.</text>
+  <text class="body" x="84" y="366">Self-hosted: assess controller, joint-controller and processor roles for each activity.</text>
+  <text class="body" x="84" y="388">Code authors who also operate or decide processing remain responsible for that activity.</text>
 </svg>

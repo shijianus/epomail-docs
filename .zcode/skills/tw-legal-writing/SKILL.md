@@ -1,19 +1,15 @@
 ---
 name: tw-legal-writing
-description: 为 EpomailDocs（EpoCanvas Mail 法文档站）撰写或修订法律内容时使用。固化台湾法规引用规范（全国法规数据库核验白名单、條/項/款格式、個資法 2026-08-10 施行之修正版要点）、Google 政策页分区范式与去 AI 味公文写作规则，以及 6 语言对称同步流程。凡涉及 privacy-policy / terms-of-service / acceptable-use / data-security / sub-processors / overview / key-terms 任一文档的编辑，先读本 skill 再动笔。
+description: 为 EpomailDocs（EpoCanvas Mail 文档站）撰写或修订法律内容时使用。核对官方法规的现行有效文本与施行注记，以 doc/legal-reference.md 记录来源，按实际源码说明数据处理并同步六语言文件。涉及 privacy-policy / terms-of-service / acceptable-use / data-security / sub-processors / overview / key-terms 时，先读本规范。
 ---
 
 # 台湾法域法律文档写作规范（EpomailDocs）
 
 ## 0. 单一事实源（写作前必读）
 
-1. **法条引用白名单**：`doc/legal-reference.md` 是全站唯一法条引用依据。**只允许引用该清单已核验之条号**；清单未收录的法规一律不带条号引用（只可提法规名称）。原始条文缓存于 `tmp_laws/`（已 gitignore），复现命令：
-   ```bash
-   python scripts/extract-tw-articles.py tmp_laws doc/_law-raw.md
-   python scripts/verify-laws.py
-   ```
-2. **技术事实**（加密语义、保存期限、第三方清单、保留/删除行为）以 epomail 仓库源码为准，禁止臆造。
-3. 法规时效锚点：個資法修正案於民國 114 年 11 月 11 日公布，行政院定自**民國 115 年 8 月 10 日（2026-08-10）施行**。现行文本即修正后版本：主管机关为**個人資料保護委員會**（§1-1）；非公务机关安全维护义务为 **§20-1**（旧 §27 已删除，全站严禁再引用）；施行细则 §12 十一项安全维护措施清单是 data-security 文档的框架。
+1. **法律依据**：`doc/legal-reference.md` 记录官方来源与核验范围。公开文档采用不逐条列条号的写法，法律名称及义务须与适用范围一致。`tmp_laws/` 与 `scripts/verify-laws.py` 仅为历史缓存及展示，成功执行不能证明现行法或施行状态。
+2. **技术事实**（加密语义、保存期限、第三方清单、保留/删除行为）以 epomail 仓库源码为准，禁止臆造；明确已核对的提交及未核实的生产配置。
+3. **法规时效**：修正公布不等于施行。以全国法规数据库现行有效文本及施行注记核实，不沿用未经官方来源确认的 2026-08-10 施行断言，不预先认定新主管机关或删除条文已生效。缺少运营者身份、实际依据、期限或供应者保障时，须标明审阅稿，不作完整合规告知发布。
 
 ## 1. 台湾法定写作格式
 
@@ -43,11 +39,15 @@ description: 为 EpomailDocs（EpoCanvas Mail 法文档站）撰写或修订法�
 ## 4. 6 语言同步与核验
 
 - 结构 1:1：标题、表格行列、提示框、图片、图注逐一对应；改任一语言必须同步其余五种（zh 简中为默认、zh-tw 为正式版、en/fr/es/nl 对照）。
-- 版本号与生效日期全站统一（每篇文档头部 `生效日期｜版本` 行）。
+- 版本号与文本更新日期全站统一；更新日期不代替依法须完成的通知、接受或生效安排。
 - 提交前核验：
   ```bash
-  pnpm build                     # 零报错
-  node scripts/validate-anchors.cjs   # 全站锚点 0 断链
-  python scripts/verify-laws.py       # 法条引用与核验底稿一致
+  node scripts/generate-figures.mjs
+  node scripts/test-tamper-proof-client.cjs
+  pnpm build
+  node scripts/validate-anchors.cjs
+  python scripts/check-structure.py
+  python scripts/check-article-whitelist.py
+  node scripts/validate-legal-release.mjs
   ```
 - 图片引用一律 `/images/mail/*.svg` 站点绝对路径；SVG 支持浅色 + `prefers-color-scheme` 暗色双主题。

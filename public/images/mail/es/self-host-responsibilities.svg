@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Límites de responsabilidad: el proyecto de código abierto original, el operador de la instancia como responsable del tratamiento y usted como interesado">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Autores del código, operadores y usuarios: las funciones y obligaciones dependen del tratamiento real.">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -30,32 +30,32 @@
   </defs>
   <rect class="bg" width="1000" height="470" rx="16"/>
   <rect class="card" x="60" y="52" width="270" height="130" rx="12"/>
-  <text class="tag" x="84" y="80">ORIGINAL · LICENCIA MIT</text>
-  <text class="title" x="84" y="106">Proyecto de código abierto</text>
-  <text class="body" x="84" y="130">Solo publica el código fuente.</text>
-  <text class="body" x="84" y="150">No opera ningún servicio de correo,</text>
-  <text class="body" x="84" y="170">no custodia datos, cero telemetría.</text>
+  <text class="tag" x="84" y="80">SOURCE · MIT</text>
+  <text class="title" x="84" y="106">Source authors</text>
+  <text class="body" x="84" y="130">Publish code &amp; patches</text>
+  <text class="body" x="84" y="150">Roles depend on actual activity</text>
+  <text class="body" x="84" y="170">Operating brings duties</text>
   <rect class="card-accent" x="390" y="52" width="270" height="130" rx="12"/>
-  <text class="tag accent" x="414" y="80">INSTANCIA · RESPONSABLE DEL TRATAMIENTO</text>
-  <text class="title" x="414" y="106">Operador de la instancia</text>
-  <text class="body" x="414" y="130">Se despliega en su propia cuenta Cloudflare</text>
-  <text class="body" x="414" y="150">(Workers · D1 · KV · R2) y asume los</text>
-  <text class="body" x="414" y="170">deberes de protección: información, seguridad, supervisión.</text>
+  <text class="tag accent" x="414" y="80">INSTANCE</text>
+  <text class="title" x="414" y="106">Instance operator</text>
+  <text class="body" x="414" y="130">Determines deployment &amp; access</text>
+  <text class="body" x="414" y="150">Assess each processing activity</text>
+  <text class="body" x="414" y="170">Publish notices &amp; safeguards</text>
   <rect class="card" x="720" y="52" width="220" height="130" rx="12"/>
-  <text class="tag" x="744" y="80">INTERESADO</text>
-  <text class="title" x="744" y="106">Usted</text>
-  <text class="body" x="744" y="130">Registra una cuenta y confía</text>
-  <text class="body" x="744" y="150">sus buzones y sus mensajes</text>
-  <text class="body" x="744" y="170">a la instancia.</text>
+  <text class="tag" x="744" y="80">PEOPLE</text>
+  <text class="title" x="744" y="106">Users &amp; contacts</text>
+  <text class="body" x="744" y="130">Users, senders &amp; recipients</text>
+  <text class="body" x="744" y="150">Rights follow the processing</text>
+  <text class="body" x="744" y="170">Contact the actual operator</text>
   <path class="arrow" d="M330,117 L382,117"/>
   <path class="arrow" d="M660,117 L712,117"/>
-  <text class="foot" x="340" y="106">código</text>
-  <text class="foot" x="672" y="106">confianza</text>
+  <text class="foot" x="340" y="106">code</text>
+  <text class="foot" x="672" y="106">use</text>
   <line class="divider" x1="60" y1="228" x2="940" y2="228"/>
   <rect class="card" x="60" y="262" width="880" height="150" rx="12"/>
-  <text class="tag" x="84" y="290">QUÉ SIGNIFICA</text>
-  <text class="title" x="84" y="318" font-size="15.5">El operador con quien se registra es su responsable del tratamiento — no los autores originales.</text>
-  <text class="body" x="84" y="344">• Instancia alojada mail.epocanvas.com: el equipo de EpoCanvas es responsable de los datos de cuenta y los registros de seguridad.</text>
-  <text class="body" x="84" y="366">• Instancia autoalojada: quien la despliega se convierte en el único responsable del tratamiento desde el despliegue.</text>
-  <text class="body" x="84" y="388">• Los documentos jurídicos de este sitio se aplican por instancia; el acuerdo se celebra con el operador de la instancia de registro.</text>
+  <text class="tag" x="84" y="290">ROLES &amp; DUTIES</text>
+  <text class="title" x="84" y="318" font-size="15.5">Roles follow purposes, means &amp; actual activity</text>
+  <text class="body" x="84" y="344">Hosted: identify the actual operator and the processing it controls.</text>
+  <text class="body" x="84" y="366">Self-hosted: assess controller, joint-controller and processor roles for each activity.</text>
+  <text class="body" x="84" y="388">Code authors who also operate or decide processing remain responsible for that activity.</text>
 </svg>

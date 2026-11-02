@@ -3,7 +3,7 @@ title: Guía de despliegue
 description: Guía de despliegue de EpoCanvas Mail — requisitos previos, despliegue en tres pasos, inicialización y cadena de arranque, inyección de secretos, configuración del correo, opciones de almacenamiento, la instancia de demostración y las actualizaciones.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 Esta página va dirigida a usuarios y administradores que preparen desplegar EpoCanvas Mail por sí mismos; cubre el camino completo desde cero hasta una instancia operativa. Una vez desplegada, todos los datos de la instancia residen en los recursos de Cloudflare del propio desplegador, y el desplegador pasa a ser el responsable del tratamiento ante sus usuarios — la posición legal se expone en [Marco legal del código abierto y el autoalojamiento](/es/mail/open-source/). Usar la instancia alojada ([mail.epocanvas.com](https://mail.epocanvas.com)) no requiere ninguno de estos pasos.
 
@@ -52,7 +52,7 @@ Tras el primer despliegue, visite `/api/init/<jwt_secret>` (sustituyendo el par�
 
 - Entrante: active Email Routing para el dominio en el panel de Cloudflare y dirija las direcciones de destino al Worker; el correo se analiza al llegar;
 - Saliente: una vez configurado un canal de entrega (como Resend) en la configuración del sistema, el correo fuera del sitio se envía a través de él; sin canal, solo funciona la entrega directa dentro del sitio;
-- El correo del sistema (correo de bienvenida, avisos de seguridad, correo de anuncios) se genera a partir de plantillas incorporadas en el idioma del destinatario: los botones del correo de bienvenida como «abrir la bandeja de entrada» son rutas relativas internas cuyo comportamiento al aterrizar depende de cómo el cliente de correo gestione los enlaces relativos, mientras que los avisos de seguridad usan enlaces absolutos en el dominio de la instancia. Quienes se autoalojan pueden adaptar la redacción y la firma del remitente mediante las constantes de plantilla; la semántica de entrega del correo oficial figura en [Seguridad contra manipulaciones y normas](/es/mail/tamper-proof/).
+- El correo del sistema (correo de bienvenida, avisos de seguridad, correo de anuncios) se genera a partir de plantillas incorporadas en el idioma del destinatario: los botones del correo de bienvenida como «abrir la bandeja de entrada» son rutas relativas internas cuyo comportamiento al aterrizar depende de cómo el cliente de correo gestione los enlaces relativos, mientras que los avisos de seguridad usan enlaces absolutos en el dominio de la instancia. Quienes se autoalojan pueden adaptar la redacción y la firma del remitente mediante las constantes de plantilla; la semántica de entrega del correo oficial figura en [Seguridad contra manipulaciones y normas](/es/mail/tamper-proof/). Comparar el manifiesto ayuda a comprobar hashes de archivos fuente; no verifica identidad del correo, firmas de contenido ni cumplimiento jurídico.
 
 ## 6. Opciones de almacenamiento y base de datos
 

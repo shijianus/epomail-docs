@@ -3,13 +3,13 @@ title: Primeros pasos
 description: Primeros pasos con EpoCanvas Mail — el camino más corto del registro al primer correo enviado en la instancia alojada, y la secuencia completa desde clonar el repositorio hasta la verificación de envío y recepción en una instancia autoalojada.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 Esta página ofrece la secuencia de acciones más corta para dos caminos: la vía A se registra en la instancia alojada y va del registro al primer correo enviado en unos diez minutos; la vía B despliega todo el servicio en su propio dominio y cuenta de Cloudflare, desde clonar el repositorio hasta la verificación de envío y recepción en unos treinta minutos. Ambos caminos ejecutan el mismo código y la misma interfaz; esta página solo enumera acciones y resultados, con enlaces a las páginas dedicadas para la semántica funcional y la configuración, y todo sigue la implementación de código abierto.
 
 La versión en chino tradicional (Taiwán) de los documentos jurídicos del sitio es la versión oficial; las demás lenguas son traducciones de referencia y, en caso de duda, prevalece la versión oficial.
 
-![Esquema de doble gobernanza de EpoCanvas Mail: una misma base de código de código abierto; la instancia alojada la explota el equipo de operación, mientras que en una instancia autodesplegada todos los datos permanecen en los recursos de Cloudflare del despliegue](/images/mail/es/dual-nature-scale.svg)
+![Dos vías EpoCanvas Mail: el mismo código abierto, con recursos y servicios externos elegidos por el operador real de cada instancia](/images/mail/es/dual-nature-scale.svg)
 
 *Figura: ambos caminos ejecutan el mismo código. Elegir la instancia alojada supone aceptar su [Política de Privacidad](/es/mail/privacy-policy/) y sus [Términos del Servicio](/es/mail/terms-of-service/); desde el momento del autoalojamiento, quien despliega se convierte en el responsable del tratamiento de sus usuarios (véase [Privacidad y Términos — Visión General](/es/mail/overview/), sección 2).*
 
@@ -32,7 +32,7 @@ La versión en chino tradicional (Taiwán) de los documentos jurídicos del siti
 5. **Activar la clasificación automática**: de fábrica vienen cuatro etiquetas — Comunidad, Suscripciones, Promociones y Trabajo — y el correo entrante se clasifica por heurística incorporada; reglas propias, excepciones y prioridades en la [Gestión de etiquetas y clasificación](/es/mail/labels/).
 6. **Activar la verificación en dos pasos**: en «Configuración → Seguridad», vincule una aplicación de autenticación (TOTP) en tres pasos; al terminar se muestran 10 códigos de recuperación de un solo uso, que conviene guardar sin conexión. Pasos en la [Guía de seguridad de la cuenta](/es/mail/security/).
 7. **Vincular el push de Telegram (opcional)**: reciba el correo nuevo en tiempo real con su propio bot, con un enlace de lectura interno válido 7 días. Pasos en la [Guía de notificaciones y reenvío](/es/mail/notify/).
-8. **Exportar una copia de seguridad (opcional)**: un clic en «Configuración → Datos» exporta una copia JSON completa; los correos de la papelera se eliminan físicamente 7 días después de su recepción, así que exporte antes lo que quiera conservar (véase [Exportación de datos y almacenamiento](/es/mail/data/)).
+8. **Exportar datos (opcional)**: en «Configuración → Datos», descargue campos seleccionados del perfil y mensajes no borrados en JSON, sin adjuntos, MIME original completo ni todos los ajustes de seguridad. La papelera usa la creación del mensaje superior a 7 días; guarde adjuntos aparte antes de borrar. Véanse [Exportación](/es/mail/data/), [Privacidad](/es/mail/privacy-policy/), [Datos y seguridad](/es/mail/data-security/) y [Encargados](/es/mail/sub-processors/).
 
 ## 3. Vía B: autoalojamiento
 

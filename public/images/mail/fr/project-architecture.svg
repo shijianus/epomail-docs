@@ -74,5 +74,5 @@
   <text class="t" x="731" y="390">R2 / B2 / S3</text>
   <text class="b" x="731" y="408">pièces jointes · stockage personnel</text>
   <rect class="chip" x="185" y="446" width="630" height="20" rx="10"/>
-  <text class="chip-t" x="500" y="460" text-anchor="middle">PBKDF2 ×100k · JWT 30 d · HMAC mail-hash · RBAC · TOTP/Passkey · Turnstile</text>
+  <text class="chip-t" x="500" y="460" text-anchor="middle">PBKDF2 · configurable parameters · JWT · HMAC · RBAC · TOTP/Passkey · Turnstile</text>
 </svg>

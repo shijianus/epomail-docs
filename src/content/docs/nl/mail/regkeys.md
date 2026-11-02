@@ -3,7 +3,7 @@ title: Registratiesleutels
 description: Registratiesleutels van EpoCanvas Mail — uitnodigingscodes uitgeven, het aantal gebruik en de geldigheid beheren en de gebruikslog controleren.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Registratiesleutels is de uitnodigingscode-interface van de beheerzone (`#manage/admin/reg-keys`, rechten-sleutel `reg-key:query`) en bepaalt wie zich op deze instantie kan registreren. De drie sitewijde codemodi (verplicht／uit／optioneel) worden bepaald door de kaart website-instellingen van de [systeeminstellingen](/nl/mail/system/).
 

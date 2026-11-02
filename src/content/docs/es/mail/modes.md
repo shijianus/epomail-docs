@@ -3,7 +3,7 @@ title: Modos de funcionamiento
 description: Modos de funcionamiento de EpoCanvas Mail — formas de despliegue, los tres niveles de privacidad del modo de correo, grupos de identidad y cuotas, inicio de sesión y verificación en dos pasos, multicuenta y modos de visualización de la interfaz.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 El mismo código de EpoCanvas Mail adopta formas de funcionamiento distintas según la configuración: una instancia puede estar alojada o autodesplegada; el administrador elige el equilibrio entre privacidad y revisabilidad entre tres modos de correo; las cuentas reciben cuotas y permisos según su grupo de identidad; y el inicio de sesión, la multicuenta y la visualización ofrecen cada uno varias opciones. Esta página describe el comportamiento y las diferencias de cada modo. El tratamiento de datos asociado figura en [Tratamiento de datos y seguridad](/es/mail/data-security/); el funcionamiento de las funciones, en la [Guía de funciones](/es/mail/features/); las entradas de configuración, en la [Guía de configuración](/es/mail/settings/).
 
@@ -14,7 +14,7 @@ El servicio se ofrece en las dos formas siguientes; la calificación del respons
 | Forma | Operador | Caso de uso |
 | --- | --- | --- |
 | Instancia alojada | El equipo de operación de EpoCanvas ([mail.epocanvas.com](https://mail.epocanvas.com)) | Registro y uso inmediatos, sin necesidad de dominio ni cuenta de Cloudflare propios |
-| Instancia autodesplegada | La persona u organización que la despliega | Todos los datos permanecen en los recursos de Cloudflare del propio desplegador, con código fuente auditable |
+| Instancia autodesplegada | La persona u organización que la despliega | El desplegador elige infraestructura y servicios externos. Entrega, almacenamiento, IA, traducción, notificaciones y recursos remotos pueden implicar terceros; no todos los datos permanecen necesariamente en Cloudflare. |
 
 ## 2. Modo de correo: tres niveles de privacidad
 
@@ -29,9 +29,9 @@ El administrador selecciona el modo de correo de la instancia en la tarjeta de c
 
 La región del modo de correo dentro de la tarjeta de configuración del sitio, en la configuración del sistema: un solo desplegable decide el cifrado con que se almacena el correo de toda la instancia y cuánto alcanza a ver el lado administrativo, con efecto inmediato.
 
-1. **Desplegable del modo de correo**: El administrador elige el equilibrio entre tres niveles: Level 1 todo en texto claro (el lado administrativo ve todo el correo), Level 2 modo privado (valor de fábrica; la correspondencia de los usuarios se cifra en reposo con AES-256-GCM) y Level 3 E2EE integral (la interfaz administrativa no devuelve ninguna lista de correo de usuarios).
+1. **Desplegable del modo de correo**: Asunto y cuerpo se cifran en reposo en el servidor según el modo, no de extremo a extremo. Adjuntos y metadatos no quedan cubiertos automáticamente; quien posea las claves puede descifrar.
 2. **Insignia de privacidad reforzada Level 2**: La instancia funciona en modo de correo privado: el lado administrativo solo ve correo no deseado, papelera y correo sin propietario, y el interruptor general de la verificación en dos pasos queda bloqueado en encendido.
-3. **Las tres opciones al desplegar**: De un vistazo se aprecian las diferencias entre L1 modo de todo el correo, L2 modo de correo privado (recomendado) y L3 modo de correo cifrado (E2EE). En el modo cifrado desaparece la entrada de revisión de todo el almacén, los informes de operaciones pierden sus marcas de tiempo y el reenvío global queda bloqueado en apagado.
+3. **Las tres opciones al desplegar**: Asunto y cuerpo se cifran en reposo en el servidor según el modo, no de extremo a extremo. Adjuntos y metadatos no quedan cubiertos automáticamente; quien posea las claves puede descifrar.
 
 </details>
 
@@ -39,7 +39,7 @@ La región del modo de correo dentro de la tarjeta de configuración del sitio, 
 | --- | --- | --- | --- | --- |
 | Modo de todo el correo (Level 1) | Todo en texto claro | Todo el correo | Se puede apagar | Se puede encender |
 | Modo de correo privado (Level 2, valor de fábrica) | Correspondencia de los usuarios cifrada en reposo con AES-256-GCM; la papelera se conserva en texto claro para permitir la recuperación | Solo correo no deseado, papelera y correo sin propietario | Bloqueado en encendido | Se puede encender |
-| Modo de correo cifrado (Level 3 [E2EE]) | Todo el correo (papelera incluida) totalmente cifrado | No devuelve lista alguna de correo de usuarios | Bloqueado en encendido | Bloqueado en apagado |
+| Modo cifrado en servidor (Level 3) | Asunto y cuerpo cifrados en reposo; adjuntos y metadatos no cubiertos automáticamente | No devuelve lista alguna de correo de usuarios | Bloqueado en encendido | Bloqueado en apagado |
 
 El cambio de modo surte efecto de inmediato. En el modo cifrado, la lista administrativa de correo permanece vacía de forma permanente, los informes de auditoría pierden sus marcas de tiempo y la entrada de revisión de correo desaparece de la barra lateral administrativa. El reenvío individual y el push de Telegram que cada usuario configura no siguen el modo global del sitio: se rigen por los interruptores de control de datos de usuario fijados por el operador y por los ajustes propios de cada usuario. En el modo privado, restaurar un mensaje desde la papelera lo descifra antes de devolverlo al buzón y lo vuelve a cifrar después.
 
@@ -87,7 +87,7 @@ Los registros nuevos entran en el grupo por defecto de fábrica, el Visitante; e
 Las tres regiones principales de la página de inicio de sesión: el recorrido completo de introducción y envío del acceso con contraseña; los botones de acceso rápido de terceros quedan debajo de la tarjeta.
 
 1. **Campo de correo**: La cuenta es la propia dirección de correo. En el modo de código de registro, esta página también admite el parámetro de código de invitación `?code=`, que prellena directamente el formulario de registro.
-2. **Campo de contraseña**: La frase secreta se almacena como resumen con sal y el servidor nunca entra en contacto con el texto claro. «He olvidado mi contraseña» abre en una ventana emergente el portal externo de apelaciones, con el tipo de apelación, el idioma de la interfaz y el correo como parámetros.
+2. **Campo de contraseña**: Las nuevas verificaciones de contraseña usan PBKDF2 con sal. La migración histórica y MFA pueden guardar temporalmente texto claro en KV; el servidor sí trata texto claro. Véase la seguridad de datos.
 3. **Botón de inicio de sesión**: Al enviarlo, las cuentas con verificación en dos pasos pasan a la segunda verificación; los fallos consecutivos activan el bloqueo antifuerza bruta. Si se marca «mantener la conexión orbital», este dispositivo queda exento de volver a verificarse durante 30 días.
 
 </details>

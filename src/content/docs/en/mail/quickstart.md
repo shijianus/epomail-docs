@@ -3,13 +3,13 @@ title: Quick Start
 description: EpoCanvas Mail quick start — the shortest path from registration to your first sent message on the hosted instance, and the full sequence from cloning the repository to send/receive verification on a self-deployed instance.
 ---
 
-**Effective date: 11 October 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
 This page gives the shortest action sequence for two paths: Path A registers on the hosted instance and goes from sign-up to a first sent message in about ten minutes; Path B deploys the whole service onto your own domain and Cloudflare account, going from cloning the repository to send/receive verification in about thirty minutes. Both paths run the same code and the same interface; this page lists actions and results only, with links into the dedicated pages for behaviour and configuration, and everything follows the open-source implementation.
 
 The Traditional Chinese (Taiwan) version of this site's legal documents is the authoritative version; the other languages are reference translations, and in case of doubt the authoritative version prevails.
 
-![EpoCanvas Mail dual-governance diagram: one open-source code base; the hosted instance is run by the operations team, while on a self-deployed instance all data stays inside the deployer's own Cloudflare resources](/images/mail/en/dual-nature-scale.svg)
+![EpoCanvas Mail deployment paths: the same open-source code, with each hosted or self-hosted instance using resources and external services selected by its actual operator](/images/mail/en/dual-nature-scale.svg)
 
 *Figure: both paths run the same code. Choosing the hosted instance means accepting its [Privacy Policy](/en/mail/privacy-policy/) and [Terms of Service](/en/mail/terms-of-service/); from the moment of self-deployment, the deployer becomes the data controller for their users (see [Privacy and Terms Overview](/en/mail/overview/), Section 2).*
 
@@ -32,7 +32,7 @@ The Traditional Chinese (Taiwan) version of this site's legal documents is the a
 5. **Switch on automatic sorting**: Four labels ship by default — Social, Subscriptions, Promotions and Work — and new mail is sorted by built-in heuristics; custom rules, exceptions and priorities are covered in [Labels & Classification Management](/en/mail/labels/).
 6. **Turn on two-step verification**: Under "Settings → Security", bind an authenticator app (TOTP) in three steps; ten one-time recovery codes are shown on completion and should be kept offline. Steps in the [Account Security Guide](/en/mail/security/).
 7. **Connect Telegram push (optional)**: Receive new mail in real time through your own bot, with a 7-day in-site reading link. Steps in the [Notifications & Forwarding Guide](/en/mail/notify/).
-8. **Export a backup (optional)**: One click on "Settings → Data" exports a complete JSON copy; messages in the trash are physically deleted 7 days after receipt, so export anything you need to keep first (see [Data Export & Storage](/en/mail/data/)).
+8. **Export data (optional)**: under "Settings → Data", download JSON containing selected profile and undeleted-mail fields; attachment files, complete original MIME and all security settings are not included. Trash cleanup uses mail creation time older than 7 days; save attachments separately before deletion. See [Data Export & Storage](/en/mail/data/), the [Privacy Policy](/en/mail/privacy-policy/), [Data Processing & Security Maintenance](/en/mail/data-security/) and the [Sub-processor List](/en/mail/sub-processors/).
 
 ## 3. Path B: self-deployment
 

@@ -3,7 +3,7 @@ title: Settings Guide
 description: EpoCanvas Mail settings guide — the five personal-settings sections (profile, general, security, data, labels) and a complete tour of the nine admin-console sections and the system-settings cards.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
 EpoCanvas Mail splits its settings into two areas: the "settings" area of the sidebar holds the personal settings every account can adjust itself, in five sections — profile, general, security, data and labels; the "admin" area appears only for identity groups with administrative permissions and carries the instance-level configuration. This page walks through each area and how the settings relate. For behaviour at the operating level — multi-account, mail modes, sign-in — see [Operating Modes](/en/mail/modes/).
 
@@ -74,18 +74,18 @@ The security page changes the username and the password (showing when it last ch
 
 The four cards of the data page: three export formats, a forwarding region, a storage region and a third-party grants region — personal data autonomy in one screen.
 
-1. **Export card**: Three exports side by side: the full JSON backup, the mail archive (MBOX/JSON/CSV with time range) and contacts & preferences; individual messages can also be downloaded as .eml from the reading pane.
+1. **Export card**: JSON contains selected profile fields, mappings of mail not marked deleted, and custom labels. It excludes attachments, complete routing, aliases, contacts, rules and security settings. It is not a complete backup; omitted data may be requested where the law allows. The interface offers format and date options, but the checked backend does not apply type, format or date-range parameters. The requested format or range is not guaranteed.
 2. **Forwarding card**: Item-by-item settings for Telegram push and auto-forwarding; whether the account may use them is decided by the operator's "user data control" switches.
 3. **Storage card**: A live usage gauge against the quota. Connect your own Backblaze B2/S3 bucket and new attachments land in your cloud, outside the instance quota; disconnecting falls back to instance storage.
-4. **Third-party apps card**: Every OAuth grant on the account: revoke per app or all at once from the detail dialog. Revocation is immediate — the app's existing tokens die at once.
+4. **Third-party apps card**: Revocation blocks subsequent retrieval through this service's userinfo endpoint. It does not ensure immediate invalidity of issued ID tokens at third parties or recall data already obtained.
 
 </details>
 
 | Export | Format | Scope |
 | --- | --- | --- |
-| Full-data export | JSON | Complete backup: account details, mail history, contacts, classification and label rules, and security settings |
-| Mail history archive | MBOX (universal), JSON or CSV | Sent and received mail only, with an optional time range |
-| Contacts and configuration | JSON | Contact list, custom alias rules and personalisation preferences |
+| Full-data export | JSON | JSON contains selected profile fields, mappings of mail not marked deleted, and custom labels. It excludes attachments, complete routing, aliases, contacts, rules and security settings. It is not a complete backup; omitted data may be requested where the law allows. |
+| Mail history archive | MBOX (universal), JSON or CSV | The interface offers format and date options, but the checked backend does not apply type, format or date-range parameters. The requested format or range is not guaranteed. |
+| Contacts and configuration | JSON | The card name does not establish export of contacts, alias rules or all preferences. The actual response has the same JSON scope; see the data security document. |
 
 A single message can be downloaded as .eml straight from the reading pane. The notifications-and-forwarding area offers Telegram push (binding a bot and chat ID) and rule-based mail forwarding (destination address of your choice; trigger types are all mail, alias prefix and smart rules, with options to keep a copy and prefix the subject); whether these two are offered to users is decided by the operator's user-data-control switches. The storage area shows the attachment-usage gauge and allows attaching a personal object store (a Backblaze B2 or S3 bucket of your own); once connected, attachments go straight to the personal cloud and are no longer bound by the instance quota.
 

@@ -3,7 +3,7 @@ title: Plateforme ouverte et accès API
 description: Guide de la plateforme ouverte et de l'accès API d'EpoCanvas Mail — enregistrement des applications OAuth, points de terminaison authorize et token, userinfo, sémantique des périmètres et flux de consentement et de révocation côté utilisateur.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 EpoCanvas Mail embarque un centre d'autorisation OAuth 2.0 / OIDC intégré : l'administrateur enregistre les applications tierces dans la section « Gestion des applications » de la console d'administration (`#manage/admin/oauth-apps`), et les sites externes peuvent alors proposer « Se connecter avec Epomail ». La présente page constitue le tutoriel développeur complet ; l'emplacement de l'interface dans l'application figure à la section 4 de l'[Interface et plan des routes](/fr/mail/interface/), et le traitement des données d'autorisation est exposé dans la [Liste des sous-traitants](/fr/mail/sub-processors/).
 
@@ -19,7 +19,7 @@ Cinq régions de la page de gestion des applications : quatre points de terminai
 1. **`/.well-known/openid-configuration`** : Le point de terminaison des métadonnées OIDC Discovery : émetteur, points de terminaison et capacités s'y décrivent d'eux-mêmes, ce qui permet aux frameworks tiers (NextAuth, par exemple) de se configurer automatiquement.
 2. **`/oauth/authorize`** : Le point de terminaison d'autorisation utilisateur : il guide l'utilisateur à travers la connexion et le consentement. Dans une fenêtre surgissante, le résultat revient via `postMessage` ; une annulation redirige en retour avec `error=access_denied`.
 3. **`/api/oauth/token`** : Le point de terminaison d'échange de jetons : un code d'autorisation à usage unique (valable 5 minutes) s'échange contre un jeton d'accès et un ID Token valables 2 heures. Il accepte JSON, formulaire et HTTP Basic ; avec PKCE configuré, il vérifie `code_verifier` (S256).
-4. **`/api/oauth/userinfo`** : Le point de terminaison du profil utilisateur : un jeton d'accès Bearer lit les champs autorisés (`sub`, `email`, `name`, `picture`, …). Un jeton expiré ou révoqué renvoie 401.
+4. **`/api/oauth/userinfo`** : userinfo renvoie des champs d'identité et de rôle sans forcément les filtrer selon chaque portée demandée. Voir la liste des destinataires ; les portées ne garantissent pas un filtrage strict.
 5. **Carte d'application (shijianus-blog)** : Une carte par application : Client ID et Client Secret (le secret n'est affiché intégralement qu'une seule fois, à la création ou à la réinitialisation), interrupteur d'activation, modification et suppression, plus cinq extraits d'intégration prêts à copier — NextAuth, Node, Python, cURL et OIDC générique.
 
 </details>
@@ -79,13 +79,13 @@ curl -X POST https://<instance-domain>/api/oauth/token \
 | `comments` | Gestion des commentaires et des interactions du blog (utilisée par l'application d'exemple ; une permission d'interaction) |
 | `offline_access` | Connexion de longue durée ; aucun jeton de rafraîchissement n'est délivré à ce jour, aussi l'octroi de ce périmètre ne produit aucun jeton hors ligne |
 
-userinfo renvoie : `sub`, `email`, `email_verified`, `name`, `preferred_username`, `picture`, `is_admin` et `role`.
+userinfo renvoie : `sub`, `email`, `email_verified`, `name`, `preferred_username`, `picture`, `is_admin` et `role`. userinfo renvoie des champs d'identité et de rôle sans forcément les filtrer selon chaque portée demandée. Voir la liste des destinataires ; les portées ne garantissent pas un filtrage strict.
 
 ## 5. Côté utilisateur : consentement et révocation
 
 - La page de consentement affiche les informations de l'application, son badge officiel et la liste complète des périmètres ; autoriser ne révèle jamais le mot de passe ni le contenu du courriel de l'utilisateur ;
 - Les utilisateurs peuvent retirer à tout moment l'accès d'une application dans « Paramètres → Données », dans la liste « Applications tierces et services », ou tout révoquer d'un coup depuis la boîte de dialogue de détail ;
-- La révocation est immédiate : les jetons existants de l'application meurent sur-le-champ (userinfo renvoie 401) et l'autorisation est retirée du compte de l'utilisateur.
+- La révocation bloque les nouvelles lectures via userinfo de ce service. Elle ne garantit pas l'invalidation immédiate des ID tokens chez les tiers et ne rappelle pas les données déjà reçues.
 
 ## 6. Jetons API personnels (état actuel)
 

@@ -3,7 +3,7 @@ title: Gestion des étiquettes et du classement
 description: Gestion des étiquettes et du classement d'EpoCanvas Mail — création des étiquettes, icônes et couleurs, entretien heuristique des quatre étiquettes d'usine, constructeur de règles de classement et présentation des statistiques.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 Les étiquettes et les règles de classement se gèrent dans « Paramètres → Étiquettes » (`#settings/labels`). La table complète des champs de conditions figure à la section 7 de la [Référence de la recherche et des règles](/fr/mail/search/) ; la présente page décrit la manipulation des étiquettes elles-mêmes et leurs statistiques.
 

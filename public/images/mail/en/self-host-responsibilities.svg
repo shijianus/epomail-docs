@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Responsibility boundaries: upstream open-source project, instance operator as data controller, and you as data subject">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Source authors, instance operators and users: roles and duties follow actual processing activities.">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -30,32 +30,32 @@
   </defs>
   <rect class="bg" width="1000" height="470" rx="16"/>
   <rect class="card" x="60" y="52" width="270" height="130" rx="12"/>
-  <text class="tag" x="84" y="80">UPSTREAM · MIT LICENSE</text>
-  <text class="title" x="84" y="106">Open-source project</text>
-  <text class="body" x="84" y="130">Publishes source code only.</text>
-  <text class="body" x="84" y="150">Runs no e-mail service,</text>
-  <text class="body" x="84" y="170">holds no user data, zero telemetry.</text>
+  <text class="tag" x="84" y="80">SOURCE · MIT</text>
+  <text class="title" x="84" y="106">Source authors</text>
+  <text class="body" x="84" y="130">Publish code &amp; patches</text>
+  <text class="body" x="84" y="150">Roles depend on actual activity</text>
+  <text class="body" x="84" y="170">Operating brings duties</text>
   <rect class="card-accent" x="390" y="52" width="270" height="130" rx="12"/>
-  <text class="tag accent" x="414" y="80">INSTANCE · DATA CONTROLLER</text>
+  <text class="tag accent" x="414" y="80">INSTANCE</text>
   <text class="title" x="414" y="106">Instance operator</text>
-  <text class="body" x="414" y="130">Deploys on its own Cloudflare account</text>
-  <text class="body" x="414" y="150">(Workers · D1 · KV · R2) and bears the</text>
-  <text class="body" x="414" y="170">data-protection duties: notice, security, oversight.</text>
+  <text class="body" x="414" y="130">Determines deployment &amp; access</text>
+  <text class="body" x="414" y="150">Assess each processing activity</text>
+  <text class="body" x="414" y="170">Publish notices &amp; safeguards</text>
   <rect class="card" x="720" y="52" width="220" height="130" rx="12"/>
-  <text class="tag" x="744" y="80">DATA SUBJECT</text>
-  <text class="title" x="744" y="106">You</text>
-  <text class="body" x="744" y="130">Register an account and</text>
-  <text class="body" x="744" y="150">entrust your mailboxes and</text>
-  <text class="body" x="744" y="170">messages to the instance.</text>
+  <text class="tag" x="744" y="80">PEOPLE</text>
+  <text class="title" x="744" y="106">Users &amp; contacts</text>
+  <text class="body" x="744" y="130">Users, senders &amp; recipients</text>
+  <text class="body" x="744" y="150">Rights follow the processing</text>
+  <text class="body" x="744" y="170">Contact the actual operator</text>
   <path class="arrow" d="M330,117 L382,117"/>
   <path class="arrow" d="M660,117 L712,117"/>
   <text class="foot" x="340" y="106">code</text>
-  <text class="foot" x="672" y="106">trust</text>
+  <text class="foot" x="672" y="106">use</text>
   <line class="divider" x1="60" y1="228" x2="940" y2="228"/>
   <rect class="card" x="60" y="262" width="880" height="150" rx="12"/>
-  <text class="tag" x="84" y="290">WHAT THIS MEANS</text>
-  <text class="title" x="84" y="318" font-size="15.5">The operator you register with is your data controller — not the upstream authors.</text>
-  <text class="body" x="84" y="344">• Hosted instance mail.epocanvas.com: the EpoCanvas operations team is the controller for account data and security logs.</text>
-  <text class="body" x="84" y="366">• Self-hosted instance: the deployer becomes the sole and exclusive data controller from the moment of deployment.</text>
-  <text class="body" x="84" y="388">• All legal documents on this site apply per instance; you enter into the agreement with the operator of the instance you register on.</text>
+  <text class="tag" x="84" y="290">ROLES &amp; DUTIES</text>
+  <text class="title" x="84" y="318" font-size="15.5">Roles follow purposes, means &amp; actual activity</text>
+  <text class="body" x="84" y="344">Hosted: identify the actual operator and the processing it controls.</text>
+  <text class="body" x="84" y="366">Self-hosted: assess controller, joint-controller and processor roles for each activity.</text>
+  <text class="body" x="84" y="388">Code authors who also operate or decide processing remain responsible for that activity.</text>
 </svg>

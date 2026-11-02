@@ -1,4 +1,4 @@
-<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dual-nature governance: one MIT-licensed codebase, two independent operation tracks with different data controllers">
+<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hosted and self-hosted deployments of one MIT codebase: duties follow actual operations and processing decisions.">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; }
@@ -28,10 +28,10 @@
     }
   </style>
   <rect class="bg" width="416" height="276" rx="16"/>
-  <text class="tag" x="26" y="26">DUAL-NATURE GOVERNANCE</text>
+  <text class="tag" x="26" y="26">SOURCE &amp; OPERATIONS</text>
   <rect class="chip" x="108" y="38" width="200" height="34" rx="10"/>
-  <text class="t" x="208" y="53" text-anchor="middle" font-size="9.5">One open-source codebase (MIT)</text>
-  <text class="b" x="208" y="66" text-anchor="middle">zero telemetry · nothing phones home</text>
+  <text class="t" x="208" y="53" text-anchor="middle" font-size="9.5">One MIT codebase</text>
+  <text class="b" x="208" y="66" text-anchor="middle">Actual activity determines duties</text>
   <line class="mid" x1="208" y1="72" x2="208" y2="84"/>
   <line class="mid" x1="112" y1="84" x2="304" y2="84"/>
   <line class="mid" x1="112" y1="84" x2="112" y2="94"/>
@@ -39,18 +39,18 @@
   <rect class="hosted" x="26" y="94" width="172" height="112" rx="10"/>
   <text class="tag" x="42" y="114">HOSTED INSTANCE</text>
   <text class="t" x="42" y="132" font-size="9.5">mail.epocanvas.com</text>
-  <text class="b" x="42" y="148">operated by the EpoCanvas team</text>
-  <text class="b" x="42" y="162">operator is the data controller</text>
-  <text class="b" x="42" y="176">non-commercial · Taiwan jurisdiction</text>
-  <text class="b" x="42" y="190">terms of this site apply directly</text>
+  <text class="b" x="42" y="148">Identify the actual operator</text>
+  <text class="b" x="42" y="162">Roles follow processing</text>
+  <text class="b" x="42" y="176">Non-profit · legal duties remain</text>
+  <text class="b" x="42" y="190">Terms &amp; mandatory rights</text>
   <rect class="self" x="218" y="94" width="172" height="112" rx="10"/>
-  <text class="tagg" x="234" y="114">SELF-HOSTED INSTANCE</text>
-  <text class="t" x="234" y="132" font-size="9.5">your domain · your account</text>
-  <text class="b" x="234" y="148">deployer is the sole data controller</text>
-  <text class="b" x="234" y="162">runs on the deployer's Cloudflare</text>
-  <text class="b" x="234" y="176">own terms · own jurisdiction</text>
-  <text class="b" x="234" y="190">this site may serve as a template</text>
+  <text class="tagg" x="234" y="114">SELF-HOSTED</text>
+  <text class="t" x="234" y="132" font-size="9.5">Your deployment</text>
+  <text class="b" x="234" y="148">Assess actual processing roles</text>
+  <text class="b" x="234" y="162">Verify providers &amp; data flows</text>
+  <text class="b" x="234" y="176">Applicable laws &amp; local rights</text>
+  <text class="b" x="234" y="190">Publish tailored terms &amp; notices</text>
   <rect class="base" x="26" y="222" width="364" height="36" rx="10"/>
-  <text class="bt" x="44" y="238">Upstream authors:</text>
-  <text class="b" x="44" y="251">run no e-mail service · hold no user data · bear no liability for any instance's operation</text>
+  <text class="bt" x="44" y="238">Source authors</text>
+  <text class="b" x="44" y="251">Duties follow actual operations and processing decisions.</text>
 </svg>

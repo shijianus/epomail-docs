@@ -3,7 +3,7 @@ title: Plataforma abierta y acceso a la API
 description: Plataforma abierta y acceso a la API de EpoCanvas Mail — registro de aplicaciones OAuth, los puntos de conexión authorize y token, userinfo, la semántica de los ámbitos y el flujo de consentimiento y revocación en el lado del usuario.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 EpoCanvas Mail incorpora de serie un centro de autorización OAuth 2.0 / OIDC: el administrador registra aplicaciones de terceros en la sección «Gestión de aplicaciones» de la administración (`#manage/admin/oauth-apps`), y los sitios externos pueden ofrecer entonces «Iniciar sesión con Epomail». Esta página es el tutorial completo para desarrolladores; dónde se sitúa la interfaz dentro de la aplicación figura en la sección 4 del [Mapa de interfaz y rutas](/es/mail/interface/), y el tratamiento de los datos de autorización se divulga en la [Lista de encargados del tratamiento](/es/mail/sub-processors/).
 
@@ -19,7 +19,7 @@ Cinco regiones anotadas de la página de gestión de aplicaciones: cuatro puntos
 1. **`/.well-known/openid-configuration`**: El punto de conexión de metadatos de OIDC Discovery: el emisor, cada punto de conexión y las capacidades se describen a sí mismos, de modo que frameworks de terceros como NextAuth descubren la configuración automáticamente.
 2. **`/oauth/authorize`**: El punto de conexión de autorización del usuario: le guía para iniciar sesión y otorgar el consentimiento. En los escenarios con ventana emergente el resultado vuelve por `postMessage`; si el usuario cancela, se redirige de vuelta con `error=access_denied`.
 3. **`/api/oauth/token`**: El punto de conexión de intercambio de tokens: un código de autorización de un solo uso (válido 5 minutos) se canjea por un token de acceso y un ID Token válidos 2 horas. Admite JSON, formulario y HTTP Basic; con PKCE configurado verifica el `code_verifier` (S256).
-4. **`/api/oauth/userinfo`**: El punto de conexión del perfil de usuario: con un token de acceso Bearer se leen los campos ya autorizados (`sub`, `email`, `name`, `picture`, etc.). Si el token caduca o se revoca, devuelve 401.
+4. **`/api/oauth/userinfo`**: userinfo devuelve campos de identidad y rol y no necesariamente los filtra por cada ámbito solicitado. Véase la lista de destinatarios; los ámbitos no garantizan un filtrado estricto.
 5. **Tarjeta de aplicación (shijianus-blog)**: Una tarjeta por aplicación: Client ID y Client Secret (el secret solo se muestra completo una vez, al crearlo o al restablecerlo), interruptor de activación, edición y borrado, y cinco ejemplos de integración listos para copiar: NextAuth, Node, Python, cURL y OIDC genérico.
 
 </details>
@@ -79,13 +79,13 @@ curl -X POST https://<instance-domain>/api/oauth/token \
 | `comments` | Gestión de los comentarios y las interacciones del blog (lo usa la aplicación de ejemplo; es un permiso de interacción) |
 | `offline_access` | Inicio de sesión de larga duración; actualmente no se emite ningún refresh token, de modo que conceder este ámbito no produce ningún token sin conexión |
 
-userinfo devuelve: `sub`, `email`, `email_verified`, `name`, `preferred_username`, `picture`, `is_admin` y `role`.
+userinfo devuelve: `sub`, `email`, `email_verified`, `name`, `preferred_username`, `picture`, `is_admin` y `role`. userinfo devuelve campos de identidad y rol y no necesariamente los filtra por cada ámbito solicitado. Véase la lista de destinatarios; los ámbitos no garantizan un filtrado estricto.
 
 ## 5. Lado del usuario: consentimiento y revocación
 
 - La página de consentimiento muestra la información de la aplicación, su insignia oficial y la lista completa de ámbitos; autorizar nunca revela la contraseña del usuario ni el contenido de su correo;
 - Los usuarios pueden retirar en cualquier momento el acceso de una aplicación en «Configuración → Datos», en la lista «Aplicaciones y servicios de terceros», o revocarlo todo de una vez desde el diálogo de detalle;
-- La revocación surte efecto de inmediato: los tokens existentes de la aplicación mueren en el acto (userinfo devuelve 401) y la autorización se retira de la cuenta del usuario.
+- Revocar bloquea nuevas lecturas mediante userinfo del servicio. No garantiza la invalidez inmediata de ID tokens en terceros ni recupera datos ya obtenidos.
 
 ## 6. Tokens de API personales (estado actual)
 

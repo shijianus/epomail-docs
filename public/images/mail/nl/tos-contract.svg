@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Contractlevenscyclus van de Servicevoorwaarden: toestemming, nakoming, herziening, einde — naar de vestigingsplaats van de exploitant">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Overeenkomst: uitdrukkelijke aanvaarding, gebruik, wijzigingen en einde; dwingend recht, lokale bescherming en rechtsmiddelen gaan voor.">
   <style>
     .bg { fill: #f8fafc; }
     .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -38,44 +38,44 @@
     </marker>
   </defs>
   <rect class="bg" width="1000" height="400" rx="16"/>
-  <text class="tag" x="60" y="46">CONTRACTLEVENSCYCLUS — SERVICEVOORWAARDEN</text>
+  <text class="tag" x="60" y="46">SERVICE AGREEMENT</text>
   <rect class="chip" x="672" y="24" width="268" height="40" rx="10"/>
-  <text class="bb" x="688" y="42">Elektronische toestemming</text>
-  <text class="b" x="688" y="57">dezelfde kracht als een schriftelijke handtekening</text>
+  <text class="bb" x="688" y="42">Explicit acceptance</text>
+  <text class="b" x="688" y="57">Separate privacy choices</text>
   <rect class="s1" x="60" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="78" y="112">1 · Toestemming</text>
-  <text class="b" x="78" y="132">registratie, aanmelding of</text>
-  <text class="b" x="78" y="148">gebruik bindt u</text>
-  <text class="b" x="78" y="164">volledige tekst gepubliceerd</text>
+  <text class="t" x="78" y="112">1 · Accept</text>
+  <text class="b" x="78" y="132">Review &amp; save terms</text>
+  <text class="b" x="78" y="148">Affirmative action</text>
+  <text class="b" x="78" y="164">Consent where required</text>
   <rect class="s2" x="300" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="318" y="112">2 · Nakoming</text>
-  <text class="b" x="318" y="132">account- en beveiliging</text>
-  <text class="b" x="318" y="148">uw inhoud blijft van u</text>
-  <text class="b" x="318" y="164">aansprakelijkheid §3/§5/§10</text>
+  <text class="t" x="318" y="112">2 · Use</text>
+  <text class="b" x="318" y="132">Account &amp; security duties</text>
+  <text class="b" x="318" y="148">Content rights remain</text>
+  <text class="b" x="318" y="164">Mandatory rights apply</text>
   <rect class="s3" x="540" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="558" y="112">3 · Herziening</text>
-  <text class="b" x="558" y="132">belangrijke wijzigingen</text>
-  <text class="b" x="558" y="148">aangekondigd vooraf (§12)</text>
-  <text class="b" x="558" y="164">historie in de open-sourcebron</text>
+  <text class="t" x="558" y="112">3 · Changes</text>
+  <text class="b" x="558" y="132">Notice of material changes</text>
+  <text class="b" x="558" y="148">New acceptance if required</text>
+  <text class="b" x="558" y="164">Opportunity to exit</text>
   <rect class="s4" x="780" y="86" width="160" height="96" rx="10"/>
-  <text class="t" x="798" y="112">4 · Einde</text>
-  <text class="b" x="798" y="132">zelf opzeggen</text>
-  <text class="b" x="798" y="148">exporteren, dan wissen</text>
-  <text class="b" x="798" y="164">(§8)</text>
+  <text class="t" x="798" y="112">4 · Exit</text>
+  <text class="b" x="798" y="132">Export available data</text>
+  <text class="b" x="798" y="148">Request deletion</text>
+  <text class="b" x="798" y="164">Retention limits</text>
   <path class="arrow" d="M260,134 L296,134"/>
   <path class="arrow" d="M500,134 L536,134"/>
   <path class="arrow" d="M740,134 L776,134"/>
   <rect class="band" x="60" y="216" width="880" height="64" rx="10"/>
-  <text class="bt" x="84" y="242">Toepasselijk recht — vestigingsplaats exploitant (§11) :</text>
-  <text class="bb" x="84" y="262">gehoste instantie mail.epocanvas.com : Taiwanees recht, rechtbank Taipei · zelfgehost : dat van de deployer</text>
-  <text class="tag" x="60" y="322">OOK DEEL VAN DE OVEREENKOMST</text>
+  <text class="bt" x="84" y="242">Choice of law is subject to mandatory protections</text>
+  <text class="bb" x="84" y="262">Hosted: Taiwan law · mandatory local protections, competent courts &amp; data-protection authorities remain available.</text>
+  <text class="tag" x="60" y="322">RELATED DOCUMENTS</text>
   <rect class="step" x="60" y="334" width="272" height="44" rx="10"/>
-  <text class="t" x="78" y="352">Privacybeleid</text>
-  <text class="b" x="78" y="368">informatieverplichtingen en rechten</text>
+  <text class="t" x="78" y="352">Privacy Policy</text>
+  <text class="b" x="78" y="368">Notice · lawful bases · rights</text>
   <rect class="step" x="352" y="334" width="272" height="44" rx="10"/>
-  <text class="t" x="370" y="352">Beleid voor acceptabel gebruik</text>
-  <text class="b" x="370" y="368">gedragsgrenzen en handhaving</text>
+  <text class="t" x="370" y="352">Acceptable Use</text>
+  <text class="b" x="370" y="368">Proportionate action &amp; appeal</text>
   <rect class="step" x="644" y="334" width="296" height="44" rx="10"/>
-  <text class="t" x="662" y="352">Volgorde</text>
-  <text class="b" x="662" y="368">eigen document prevaleert · overzicht</text>
+  <text class="t" x="662" y="352">Document scope</text>
+  <text class="b" x="662" y="368">Subject-specific rules · mandatory rights first</text>
 </svg>

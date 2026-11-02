@@ -3,7 +3,7 @@ title: Profiel en algemene instellingen
 description: Profiel en algemene instellingen van EpoCanvas Mail — avatar, bijnaam, contactgegevens en adressen, uiterlijk, themaachtergronden, leesvoorkeuren en interfacetaal, onderdeel voor onderdeel.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Deze pagina loopt elk onderdeel van de twee secties «Instellingen → Profiel» en «Instellingen → Algemeen» langs. De instellingen voor beveiliging en gegevens staan apart beschreven in de [Accountbeveiligingsgids](/nl/mail/security/) en bij [Gegevensexport en opslag](/nl/mail/data/).
 

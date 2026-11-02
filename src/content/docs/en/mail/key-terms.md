@@ -1,61 +1,70 @@
 ---
 title: Key Terms
-description: Definitions of the technical and legal terms used in the EpoCanvas Mail legal documents — general data-protection usage, interpreted by this service's architecture.
+description: Definitions and limits of legal roles, data sources, encryption, access control, retention and deletion.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
-This page defines the terms used across this site's legal documents. Legal terms follow general data-protection usage; technical terms are interpreted by the actual implementation of the Service's open-source code.
 
-The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
+<!-- legal-review-draft -->
+:::caution[Legal review draft: not the current notice]
+This draft records proposed terms and matters still requiring verification. It does not replace the current live notice or certify compliance. It must not be used to enable processing before the operator identity and legally required contact information, actual legal bases, recipients and transfer safeguards, retention and deletion arrangements have been verified and the required notice provided. References to an authoritative version mean the Traditional Chinese drafting baseline, not entry into force. Existing statutory duties and user rights remain unaffected.
+:::
 
-![Map of terms: legal terms (data controller, processor, data subject, specific purpose, and others) and technical terms (instance, D1/KV/R2, encryption at rest, zero telemetry, and others) used consistently across all documents; the interpretation bases are general data-protection usage and the actual open-source implementation](/images/mail/en/key-terms-glossary.svg)
+This page explains terminology in EpoCanvas Mail's legal documents. It creates no separate processing ground or service guarantee. Legal roles depend on actual activities and applicable law; technical scope follows deployed implementations and [Data Processing & Security](/en/mail/data-security/).
 
-*Figure: the relation between the two groups of definitions. Legal terms follow general data-protection usage; technical terms are interpreted by the open-source implementation; terms not listed are read in the context of the Privacy Policy and the Terms of Service.*
+The Traditional Chinese (Taiwan) version is the official version; other languages are translations for comparison. This arrangement does not limit clear information required by applicable law, interpretation favourable to consumers or rights that cannot be waived. The update date records a text revision, not renewed consent.
+
+![Map of legal and technical terminology](/images/mail/en/key-terms-glossary.svg)
+
+*Figure: legal definitions describe rights and roles; technical definitions describe mechanisms and limitations. Neither replaces assessment of the actual facts.*
 
 ## 1. Legal Terms
 
 | Term | Definition |
 | --- | --- |
-| Personal data | any data relating to a natural person's name, date of birth, contact details, social activity, and anything else by which that person can be identified directly or indirectly. In this Service it is mainly e-mail addresses, account credentials, and network-activity records |
-| Highly sensitive personal data | medical records, healthcare, genetics, sex life, health checks, criminal records, and similar highly sensitive categories, whose processing is strictly restricted in most jurisdictions |
-| Collection / processing / use | collection: acquiring personal data by any means; processing: recording, entering, storing, editing, correcting, copying, retrieving, deleting, outputting, linking, or internally transferring data to build or use a personal-data file; use: employing collected personal data for anything other than processing |
-| Data controller | the entity that decides the purposes and manner of collecting, processing, and using personal data; the hosted instance's operator and a self-hosted instance's deployer are both controllers |
-| Data processor | an entity that processes personal data on a controller's instructions and for it (such as Cloudflare or Resend) |
-| Data subject | the natural person identified by personal data — "you" in these documents |
-| International transfer | processing or using personal data across national borders; it follows applicable law's requirements and safeguard mechanisms such as standard contractual clauses |
-| Notice duty | when collecting personal data from a data subject, the duty to inform of the collector's identity, purposes, data categories, the period, region, recipients, and manner of use, the rights the subject may exercise and how, and the consequences of not providing; for data not obtained from the subject, the source must be disclosed before processing or use |
-| Specific purpose | the specific purpose a collection or processing of personal data must have; use must stay within the scope necessary for that purpose |
-| Marketing opt-out | when a data subject declines marketing, use of their personal data for marketing stops immediately; the first marketing message must offer a way to decline |
-| Competent authority | the authority responsible for personal-data protection under the applicable law; for the hosted instance located in Taiwan it is the Personal Data Protection Commission |
-| Non-consensual intimate imagery | intimate imagery of another person recorded, reproduced, or distributed without consent, and fabricated sexual imagery made by computer synthesis or similar means; recording, reproducing, or distributing it without consent is a crime in most jurisdictions, and a platform notified of it should restrict access or remove it first |
-| Child sexual exploitation | sexually exploiting children or juveniles, including photographing, producing, reproducing, holding, distributing, broadcasting, delivering, publicly displaying, selling, or being paid to view sexual imagery of children or juveniles |
-| Governing law | the law governing the contract, determined by the operator's location; Section 11 of the [Terms of Service](/en/mail/terms-of-service/) states each instance's governing law |
-| Standard-form contract | a contract concluded by general terms with many unspecified persons; parts that are grossly unfair may not bind under applicable law |
+| Personal data | Information relating to an identified or identifiable natural person, including accounts, network records and personal information in messages, attachments or metadata; not limited to registration fields |
+| Highly sensitive personal data | Information such as health, genetic or sex-life data receiving special legal protection; criminal records may follow separate rules, and categories and conditions vary across jurisdictions |
+| Collection / processing / use | Operations including obtaining, recording, storing, retrieving, transmitting, using and deleting data; Taiwan law distinguishes collection, processing and use, while GDPR processing is broader, so the categories are not mechanically interchangeable |
+| Data controller | A party determining the purposes and means of particular processing, alone or jointly; determined by facts, without automatic exclusive control on self-hosting or treating every individual user as a controller |
+| Data processor | A party processing on a controller's behalf under lawful instructions; the same provider may independently control other activities whose purposes it determines |
+| Data subject | A natural person whom data concerns, including users, senders, recipients and people mentioned in mail, whether or not they hold an account |
+| International transfer | Activities that legally constitute cross-border provision or access by an overseas recipient; assess valid mechanisms against actual routes, since supplier certification does not automatically satisfy transfer requirements |
+| Notice duty | Legally required information on the processing party's identity, purposes, grounds, sources, recipients, retention and rights; indirect sources include senders, identity providers, reporters and integrations, with timing and exceptions governed by applicable law |
+| Specific purpose | A purpose defined before processing, which must remain lawful, necessary and compatible; learning or testing does not permit arbitrary use of real mail |
+| Marketing opt-out | A person's right under applicable law to reject direct marketing; stop the relevant use after rejection and provide an accessible way to opt out |
+| Competent authority | An authority with jurisdiction under current law and the actual processing activity, not necessarily only at the operator's location; EU authorities appear in the [EDPB members list](https://www.edpb.europa.eu/about-edpb/about-edpb/members_en) |
+| Non-consensual intimate imagery | Intimate imagery made or distributed without consent, including harmful synthetic imagery; access restrictions, necessary retention and remedies follow the [Acceptable Use Policy](/en/mail/acceptable-use/) |
+| Child sexual exploitation | Sexual abuse, exploitation or grooming of children, or producing, possessing or distributing related unlawful material; protection, reporting and evidence retention follow applicable law |
+| Governing law | Law validly chosen for a contract or determined by legal rules; mandatory consumer, data-protection and judicial-remedy rights remain, as explained in [Terms of Service](/en/mail/terms-of-service/) Section 11 |
+| Standard-form contract | Terms drafted in advance for multiple users; unfair terms or exclusions of non-waivable rights do not become valid simply through clicking acceptance |
+| Data processing agreement (DPA) | A necessary agreement covering actual processing on another's behalf, instructions, security, assistance and termination; organisational use requires separate confirmation and agreement, and labels do not alter actual roles |
+| Data protection officer (DPO) | An independent data-protection function requiring designation when statutory conditions are met; a general privacy mailbox does not establish appointment of a DPO |
+| EU representative | A representative in the EU designated where required for certain GDPR-covered processing outside the EU; distinct from a DPO, and not presumed appointed because European-language interfaces are offered |
 
 ## 2. Technical Terms
 
 | Term | Definition |
 | --- | --- |
-| Instance (site) | one deployment of EpoCanvas Mail running within a particular person's or organization's Cloudflare account, such as `mail.epocanvas.com` |
-| Operator | the person or team that deploys and manages an instance — "we" in these documents |
-| PBKDF2 | a password-hashing algorithm. The Service runs HMAC-SHA256 at 100,000 iterations with a unique random salt per user, so the original password cannot be reversed from the hash |
-| TOTP | a time-based one-time password per RFC 6238; its secret is stored in the database encrypted with AES-256-GCM |
-| Passkey | a public-key credential per the FIDO2/WebAuthn standards; the Service stores only the public key, and the private key stays on the user's device |
-| JWT (session token) | a digitally signed credential issued at login, valid 30 days; at most 10 concurrent sessions per account; revoked server-side on logout |
-| localStorage | browser-provided web storage that persists across sessions on the user's device; the Service's session token is stored here, and no cookies are used |
-| Encryption at rest | encrypting data as it is written to storage media. The Service's keys are derived from the instance server's environment variables — server-side encryption, not end-to-end encryption |
-| End-to-end encryption (E2EE) | encryption in which only the sending and receiving parties can decrypt. The Service does not provide it; if you need it, encrypt with GPG or a similar tool beforehand |
-| HMAC masked routing | a mechanism binding mail identifiers to user identity with a hash-based message authentication code, preventing unauthorised access (IDOR) and resource enumeration |
-| RBAC | role-based access control. The Service uses a deny-by-default multi-level permission model; non-whitelisted parameters are stripped at the gateway |
-| D1 / KV / R2 | Cloudflare's edge SQLite database, globally replicated key-value storage, and S3-compatible object storage, carrying structured data, session caches, and attachment blobs respectively |
-| Telemetry | software automatically sending usage data back to its developers. This Service's source code has zero telemetry and sends nothing back about any instance |
-| Soft deletion / hard deletion | soft deletion marks records deleted, which an administrator can restore; hard deletion removes them, with attachments and indexes, from the storage itself, irreversibly |
-| BYOS | Bring Your Own Storage — keeping attachments in an S3-compatible object store of the operator's or user's own (such as Backblaze B2 or Wasabi); storage credentials are kept by whoever configures it |
-| Workers AI | Cloudflare's edge inference service, used for verification-code extraction and other AI processing; see Section 6 of the [Privacy Policy](/en/mail/privacy-policy/) for triggers and data scope |
-| Turnstile | Cloudflare's human-verification mechanism, run at registration and when adding a mailbox, assessing browser trustworthiness without advertising cookies or cross-site tracking |
-| SSRF protection | blocking of server-side request forgery; requests to external endpoints are always checked against public addresses, and loopback, private ranges, and cloud metadata addresses are rejected |
+| Instance (site) | An EpoCanvas Mail deployment managed by a particular operator, such as `mail.epocanvas.com`; data flows depend on its infrastructure and feature configuration |
+| Operator | The natural person or organisation actually determining and managing an instance's service; an author who also operates it bears corresponding duties |
+| PBKDF2 | Derivation of a verification value from a password and salt to increase guessing costs; it does not guarantee weak passwords cannot be cracked; see security documentation for actual parameters |
+| TOTP | One-time verification codes generated using a shared secret and time; the server must protect its secret, not just store a public key |
+| Passkey | A WebAuthn credential; the server stores the public key, credential identifier and necessary verification metadata. The private key is managed by the authenticator or chosen synchronisation service and is not sent to this service's verification server |
+| JWT (session token) | A signed token for login sessions; signing is not encryption, and validity, revocation and session limits follow the deployed implementation |
+| localStorage | Browser storage that can persist across sessions and hold login state or preferences; it does not establish that every page or third-party component is cookie-free |
+| Encryption at rest | Encryption of stored data; mail subjects and bodies depend on mode, and attachments and metadata are not automatically protected by the same application-layer encryption. Holders of server access and keys may still decrypt |
+| End-to-end encryption (E2EE) | A design in which only communication endpoints can decrypt; the service does not provide that guarantee, and using OpenPGP independently does not necessarily hide envelope information or other metadata |
+| HMAC masked routing | Binding resource identifiers to user information to reduce enumeration and unauthorised-access risks; server authorisation checks remain necessary, and it cannot guarantee absence of access-control failures |
+| RBAC | Restricting actions and data access by role; effectiveness depends on permission configuration, checks and maintenance, without an absolute security guarantee |
+| D1 / KV / R2 | Cloudflare database, key-value and object-storage services; actual locations, copies and retention depend on configuration and provider arrangements |
+| Telemetry | Automatic reporting of usage or diagnostic data; absence of upstream usage analytics does not mean no third-party traffic, since fonts, verification, delivery and optional services may still make requests |
+| Soft deletion / hard deletion | Marking or restricting data use versus removing it from specified storage; neither implies simultaneous removal of backups, external copies and lawful retained evidence, nor certain recoverability or irrecoverability |
+| BYOS | Use of configured S3-compatible object storage; endpoints, credentials and files may be processed by the instance to enable access, rather than remaining only on the user's device |
+| Workers AI | Cloudflare's inference service; enabled automatic processing and user-triggered functions may send message content, with scope and grounds set out in the [Privacy Policy](/en/mail/privacy-policy/) |
+| Turnstile | Cloudflare's human-verification service; verification requests and necessary technical data involve third-party processing, detailed in the [Sub-processor List](/en/mail/sub-processors/) |
+| SSRF protection | Checks limiting attempts to induce a server to contact inappropriate destinations; coverage and effectiveness depend on actual request paths and deployment, not elimination of all external-request risks |
 
 ## 3. Other
 
-Terms not defined on this page are interpreted in the context of the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/) and by general legal and technical usage. If a definition is unclear, ask through the channels listed in Section 14 of the [Privacy Policy](/en/mail/privacy-policy/).
+Unlisted terms follow the [Privacy Policy](/en/mail/privacy-policy/), [Terms of Service](/en/mail/terms-of-service/) and applicable law. Consult the [official text](https://eur-lex.europa.eu/eli/reg/2016/679/oj) for GDPR concepts; this page makes no compliance-certification claim. Questions may be sent to `privacy@epocanvas.com`.

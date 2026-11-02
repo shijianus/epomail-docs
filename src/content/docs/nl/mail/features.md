@@ -3,7 +3,7 @@ title: Functiegids van EpoCanvas Mail
 description: Functiegids van EpoCanvas Mail — indeling van de postvak IN, opstellen en verzenden, zoeksyntaxis, labelregelengine, extractie van verificatiecodes, spamaanpak, doorsturen en pushmeldingen, AI-mogelijkheden en het open platform.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Deze pagina beschrijft de daadwerkelijke functies van EpoCanvas Mail één voor één; alle inhoud is punt voor punt geverifieerd aan de hand van de open-sourcecode, en de interface-screenshots komen uit de echte werking van de officieel gehoste instantie. Voor de positionering van het project, de ontwikkelgeschiedenis en de implementatie, zie [Projectoverzicht](/nl/mail/project/); voor de gegevensverwerking en bewaartermijnen per functie, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
@@ -108,7 +108,7 @@ Het effect van de verificatiecode-extractie in de e-maildetails: de code van 6 c
 
 - **Gebied met de code in groot lettertype**: De code die Workers AI uit het onderwerp en de eerste 6,000 tekens van de body haalt, wordt direct groot weergegeven zodat je hem makkelijk kunt overnemen.
 - **Groene badge**: Het groene merkteken op zowel de lijstrij als de detailpagina betekent "dit bericht bevat een geëxtraheerde verificatiecode", zodat je het al in de lijst herkent zonder elk bericht te openen. De badge verschijnt alleen bij een geslaagde extractie; zonder match of met uitgeschakelde extractie blijft hij weg — zijn afwezigheid bewijst dus niet dat de mail veilig is, alleen dat er geen code te kopiëren valt.
-- **Grens**: Dit is de enige AI-verwerking die niet handmatig wordt getriggerd; je kunt haar in de algemene instellingen uitzetten. De reikwijdte en de manier om je eraan te onttrekken staan in sectie 6 van het Privacybeleid.
+- **Grens**: Code-extractie heeft een globale schakelaar, standaard uit. Na inschakeling kan ontvangst automatische doorgifte veroorzaken; er is geen individuele opt-out gevonden. Zie privacybeleid sectie 6.
 
 </details>
 
@@ -122,7 +122,7 @@ Het effect van de verificatiecode-extractie in de e-maildetails: de code van 6 c
 
 - **Persoonlijk doorsturen**: e-mail uit de mailbox kan automatisch naar andere adressen worden doorgestuurd, met ondersteuning voor cc;
 - **Globaal doorsturen**: de beheerder kan doorstuurregels op systeemniveau configureren, afhankelijk van de e-mailmodus (uitgeschakeld in de modus «Versleuteld»);
-- **Telegram-pushmeldingen**: na koppeling van de bot worden onderwerp, afzender, body en verificatiecode volgens de configuratie gepusht, met een leeslink op de site die 7 dagen geldig is; de pushvelden kunnen per stuk worden verborgen.
+- **Telegram-pushmeldingen**: Sommige afzender-, ontvanger- en inhoudsvelden zijn instelbaar. Onderwerp, geëxtraheerde code en een 7 dagen geldige leeslink voor de houder kunnen automatisch worden toegevoegd; niet elk veld kan worden verborgen.
 
 ## 8. AI-mogelijkheden
 
@@ -130,16 +130,16 @@ Het effect van de verificatiecode-extractie in de e-maildetails: de code van 6 c
 | --- | --- | --- |
 | Extractie van verificatiecodes | automatisch bij nieuwe e-mail (uitschakelbaar) | inferentie aan de rand door Workers AI, zie sectie 5 |
 | Volledige vertaling | handmatige klik | meertalige vertaling die de opmaak van de originele e-mail behoudt, segmenten gelijktijdig verwerkt; de modeleindpunten en het back-upkanaal staan in sectie 6 van het [Privacybeleid](/nl/mail/privacy-policy/) |
-| Tekstherkenning in afbeeldingen | handmatige upload | ondertitels via OCR; puur decoratieve afbeeldingen worden automatisch overgeslagen |
+| Tekstherkenning in afbeeldingen | Vertaalproces en OCR-parameter | Kan ingesloten e-mailafbeeldingen of externe afbeeldings-URL's verwerken. Standaard uit bij de client; een ontbrekende API-parameter kan het activeren. Het decoratiefilter is heuristisch. |
 | AI Hub | beheerdersconfiguratie | verbinding met multimodel-eindpunten die OpenAI-compatibel zijn, snelheidstests zonder tokens, modelautorisatie per rol |
 
-De Exploitant traint geen enkel model op de inhoud van e-mail; de toegestemde AI-verwerking kan op elk moment worden ingetrokken (zie sectie 6 van het [Privacybeleid](/nl/mail/privacy-policy/)).
+De exploitant traint zelf geen modellen met mail; gebruik door derden vereist contractcontrole. Intrekking is een recht, geen bewijs van een werkende persoonlijke uitschakelaar. Doorgifte zonder grondslag of vereiste keuze moet worden uitgeschakeld.
 
 ## 9. Open platform en gegevensautonomie
 
-- **OAuth 2.0 / OIDC-authenticatiecentrum**: de beheerder kan apps van derden registreren, met autorisatiebereiken beperkt tot openid / profile / email en toegangstokens die 2 uur geldig zijn; de betrokkene kan de autorisaties op de pagina «Apps van derden» in realtime bekijken en op elk moment intrekken;
+- **OAuth 2.0 / OIDC-authenticatiecentrum**: Apps kunnen daadwerkelijke identiteits- en rolvelden ontvangen, niet alleen wat openid/profile/email beschrijft. Intrekking haalt uitgegeven ID-tokens of kopieën bij derden niet terug.
 - **Integratiegids**: het registreren van apps aan beheerderskant, eindpunten en integratiecode staan in [Open platform en API-toegang](/nl/mail/api/);
-- **Gegevensexport**: met één klik exporteert de instellingenpagina een volledige kopie in JSON-formaat (profiel en volledige tekst van niet-verwijderde e-mail); afzonderlijke e-mails kunnen als .eml worden gedownload;
+- **Gegevensexport**: JSON bevat geselecteerde profielvelden, gegevens van niet als verwijderd gemarkeerde e-mail en aangepaste labels. Bijlagen, volledige routering, aliassen, contacten, regels en beveiligingsinstellingen ontbreken. Dit is geen volledige back-up; ontbrekende gegevens kunnen volgens de wet worden opgevraagd.
 
 ## 10. Interface en mobiel
 

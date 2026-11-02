@@ -3,7 +3,7 @@ title: Guía de notificaciones y reenvío
 description: Guía de notificaciones y reenvío de EpoCanvas Mail — vinculación del push de Telegram, preferencias de push y visibilidad de campos, y los destinos y tipos de disparador del reenvío automático.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 Esta página recorre paso a paso las dos capacidades de la zona «Reenvío de correo y mensajes» de la página «Configuración → Datos»: el push de mensajes de Telegram y el reenvío automático. Que una cuenta disponga de ellas lo decide la tarjeta «Control de datos de usuario» del administrador; cuando está desactivada, los bloques correspondientes no se muestran. La exportación y el almacenamiento de datos viven en la misma página; véase la sección 5 de la [Guía de configuración](/es/mail/settings/).
 
@@ -16,9 +16,9 @@ Esta página recorre paso a paso las dos capacidades de la zona «Reenvío de co
 
 Las tres tarjetas de exportación y la zona de título del reenvío de correo y mensajes, en la página «Datos»: lo de arriba gobierna en qué formato salen los datos, y lo de abajo, cómo llega el correo entrante en tiempo real.
 
-1. **Tarjeta de exportación integral de datos**: Copia de seguridad completa en JSON: los datos de la cuenta, el texto íntegro del historial de correo, los contactos, las reglas de clasificación y etiquetas y los ajustes de seguridad en un solo paquete descargable; es la vía principal para ejercer el derecho a la portabilidad de los datos.
-2. **Tarjeta del archivo del historial de correo**: Exporta únicamente el correo enviado y recibido, en tres formatos —MBOX (formato universal que casi todos los clientes de correo importan), JSON o CSV— y permite acotar un rango de fechas.
-3. **Tarjeta de contactos y configuración**: La tercera exportación: el directorio de contactos, las reglas de alias personalizadas y las preferencias de personalización del sistema. Es la más pequeña de las tres, pero decide si sus hábitos sobreviven a un cambio de instancia: las reglas de alias y el sistema de etiquetas viajan con ella, de modo que nada hay que renombrar ni reclasificar.
+1. **Tarjeta de exportación integral de datos**: El JSON contiene campos de perfil seleccionados, datos de correos no marcados como eliminados y etiquetas personalizadas. Excluye adjuntos, rutas completas, alias, contactos, reglas y ajustes de seguridad. No es una copia completa; los datos omitidos pueden solicitarse según la ley.
+2. **Tarjeta del archivo del historial de correo**: La interfaz ofrece formatos y fechas, pero el servidor revisado no aplica los parámetros de tipo, formato o periodo. No se garantiza el formato ni el intervalo solicitado.
+3. **Tarjeta de contactos y configuración**: El nombre de la tarjeta no demuestra la exportación de contactos, reglas de alias o todas las preferencias. La respuesta tiene el mismo alcance JSON; véase la documentación de seguridad.
 4. **Zona de título del reenvío de correo y mensajes**: Dos capacidades de alcance en tiempo real: el push de mensajes de Telegram (se vincula un bot privado y se elige enviar todo el correo o solo el importante y el de códigos de verificación, con un enlace de lectura interna válido 7 días) y el reenvío automático (destinos, tipo de disparador y cabecera `[Fwd]`).
 
 </details>

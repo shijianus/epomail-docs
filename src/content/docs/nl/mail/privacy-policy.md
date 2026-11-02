@@ -1,177 +1,184 @@
 ---
 title: Privacybeleid
-description: Privacybeleid van EpoCanvas Mail — de normen en toezeggingen voor de verzameling en het gebruik van gegevens, de aard van de verwerking, de rechten van de betrokkene, internationale doorgifte en de beveiligingsmaatregelen.
+description: Gegevensbronnen, doeleinden en rechtsgrondslagen van een mailbox voor tests zonder winstoogmerk, AI en doorgifte aan derden, bewaargrenzen en rechten wanneer de AVG van toepassing is.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
-Dit beleid beschrijft hoe de dienst EpoCanvas Mail (hierna «de Dienst») uw persoonsgegevens verzamelt, verwerkt en doorgeeft, evenals de normen en toezeggingen waarop de Exploitant zich bij de bescherming van gegevens baseert. U dient dit beleid te lezen voordat u zich registreert voor de Dienst of deze gebruikt; indien u met enig onderdeel van dit beleid niet instemt, gebruik de Dienst dan niet.
 
-De technische feiten in dit document volgen de daadwerkelijke implementatie in de open source-broncode van de Dienst. De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend. Het toepasselijke recht van de instantie die u gebruikt, wordt bepaald door de vestigingsplaats van de Exploitant (zie paragraaf 12). De juridische en technische documenten op deze site volgen de open-sourceimplementatie van de dienst en beogen transparante, strenge, niet-commerciële normen voor gemeenschapscommunicatie.
-
-![De vijf zuilen van het Privacybeleid van EpoCanvas Mail: verzamelen, gebruiken, doorgifte, beveiliging en rechten van de betrokkene, inhoudelijk gekleurd door contract en toestemming, het doelbindingsbeginsel, de waarborgen bij doorgifte, het beveiligingsonderhoud en de rechten en rechtsmiddelen, gezamenlijk rustend op de basis van toezicht door de autoriteit](/images/mail/nl/privacy-pillars.svg)
-
-*Figuur: de vijf hoofdlijnen van dit beleid. Verzamelen en gebruiken blijven beperkt tot het bestek dat voor het specifieke doel noodzakelijk is; internationale doorgifte volgt de eisen van het toepasselijke recht en de standaardwaarborgmechanismen; het beveiligingsonderhoud wordt doorloend verbeterd; de rechten van de betrokkene worden uitgeoefend overeenkomstig paragraaf 9; alle vijf rusten op het toezicht door de autoriteit.*
-
-## 1. Toepassingsbereik
-
-Dit beleid is van toepassing op de persoonsgegevens die ontstaan wanneer u de Dienst op enigerlei wijze gebruikt, waaronder:
-
-1. een bezoek aan de website van de Dienst (`mail.epocanvas.com` of het domein van een zelfgehoste instantie);
-2. het gebruik van de mobiele app (epomail);
-3. de toegang tot de Dienst via de open API.
-
-Mailboxadressen die door de gehoste instantie worden uitgegeven, behoren tot de domeinen `epomail.bond` en `epomail.cyou`; officiële systeem-e-mails (welkomst-e-mails, globale aankondigingen) worden verzonden vanaf `announcement@epocanvas.com`.
-
-Dit beleid is niet van toepassing op websites en diensten van derden waarnaar de Dienst verwijst of die de Dienst integreert; die derden hebben hun eigen privacybeleid en dragen daar zelf de verantwoordelijkheid voor.
-
-De exploitant die EpoCanvas Mail zelf host, wordt vanaf het moment van implementatie de verwerkingsverantwoordelijke van zijn gebruikers en dient zelf de informatieverplichtingen jegens zijn gebruikers na te komen krachtens het toepasselijke recht op zijn vestigingsplaats; dit beleid kan als basistekst voor die informatieverstrekking dienen.
-
-## 2. Verwerkingsverantwoordelijke en verwerkers
-
-| De instantie die u gebruikt | Verwerkingsverantwoordelijke | Toelichting |
-| --- | --- | --- |
-| Gehoste instantie `mail.epocanvas.com` | Het EpoCanvas-exploitatieteam | Wat betreft accountgegevens, authenticatierecords en beveiligingsauditlogs is het exploitatieteam de verwerkingsverantwoordelijke; wat betreft de inhoud van de e-mail die u verzendt en ontvangt, verwerkt het exploitatieteam die binnen het bestek dat nodig is voor het verlenen van de communicatiedienst |
-| Zelfgehoste instantie | De implementateur van die instantie |de open source-broncode bevat geen telemetriemechanisme; afgezien van externe diensten die door de Exploitant zelf worden geconfigureerd, worden geen instantie-gegevens naar de upstream-auteurs of derden teruggestuurd |
-
-Verwerkers verwerken de gegevens op instructie van de verwerkingsverantwoordelijke; de volledige lijst staat in de [Lijst van verwerkers](/nl/mail/sub-processors/).
-
-## 3. Informatieverplichting bij het verzamelen
-
-Bij het verzamelen van uw persoonsgegevens deelt de Dienst u uitdrukkelijk het volgende mee:
-
-| Vermeldingen | Informatie van de Dienst |
-| --- | --- |
-| 1. Identiteit van de verzamelaar | De Exploitant (zie paragraaf 2; bij een zelfgehoste instantie is dat de implementateur ervan) |
-| 2. Doeleinden van de verzameling | Verlenen van de e-mailcommunicatiedienst; beheer van het account en de informatiebeveiliging; preventie van misbruik en fraude; verzending van systeemmededelingen; naleving van wettelijke verplichtingen (zie de tabel met verwerkingsactiviteiten in paragraaf 5) |
-| 3. Categorieën van persoonsgegevens | Identificatiegegevens (e-mailadres, gebruikersnaam); accountbeveiligingsgegevens (wachtwoordhash, tweestapsverificatiereferenties); interfacevoorkeuren (taal, lichte en donkere modus); netwerkactiviteitsgegevens (e-mailrecords, labels, sterren, leesstatus); en andere gegevens waarmee een persoon direct of indirect kan worden geïdentificeerd (inlog-IP en het uit de User-Agent afgeleide besturingssysteem, browser en apparaattype), zie paragraaf 4 |
-| 4. Termijn, regio, ontvangers en wijze van gebruik | Termijn: zolang het account bestaat, met vaste bewaartermijnen voor enkele items (zie de verwerkingsmatrix in [Gegevensverwerking en beveiliging](/nl/mail/data-security/)); regio: de Dienst draait op het wereldwijde edge-netwerk van Cloudflare, gegevens kunnen op elk edge-knooppunt ter wereld worden verwerkt (zie paragraaf 7); ontvangers: de Exploitant en diens verwerkers, door u geautoriseerde apps van derden en op grond van de wet bevoegde organen (zie paragraaf 7); wijze: geautomatiseerde opslag, overdracht, raadpleging, pushbezorging en edge-inferentie, zonder handmatige beoordeling behoudens op grond van wetgeving of gerechtelijke procedures |
-| 5. Rechten van de betrokkene en de wijze van uitoefening | De rechten van raadpleging en inzage, verkrijging van een kopie, aanvulling en rectificatie, stopzetting van verzameling, verwerking en gebruik, en verwijdering; de wijze van uitoefening staat in paragraaf 9 |
-| 6. Gevolgen van het niet verstrekken van de gegevens | E-mailadres en wachtwoord zijn noodzakelijk voor registratie en aanmelding; zonder deze gegevens kan geen account worden aangemaakt. Alle overige velden (nickname, avatar, persoonlijke omschrijving en dergelijke) zijn optioneel; het niet verstrekken ervan belemmert het gebruik van de Dienst niet |
-
-Wanneer u zich met een Linux DO-account aanmeldt, verkrijgt de Dienst van die identiteitsbron uw gebruikersidentificator, nickname, avatar en andere identificatiegegevens; dit is de verzameling van persoonsgegevens die niet rechtstreeks door u zijn verstrekt. De bron van deze gegevens is het Linux DO-account waarmee u zich aanmeldt; voor de termijn, regio, ontvangers en wijze van gebruik, en voor de rechten die u kunt uitoefenen en de wijze waarop, geldt de informatie van onderdeel 2 tot en met onderdeel 5 van de voorgaande tabel. De Dienst kent geen andere gevallen waarin persoonsgegevens worden verzameld die niet door u zijn verstrekt.
-
-## 4. Verzamelde persoonsgegevens
-
-### 4.1 Gegevens die u zelf verstrekt
-
-- **E-mailadres en wachtwoord**: noodzakelijk voor de registratie. Het wachtwoord wordt uitsluitend bewaard als PBKDF2-HMAC-SHA256-hash (100.000 iteraties, per gebruiker een onafhankelijk willekeurig salt); uit de hash kan het oorspronkelijke wachtwoord niet worden gereconstrueerd.
-- **Referenties voor tweestapsverificatie (optioneel)**: de TOTP-sleutel wordt versleuteld bewaard met AES-256-GCM; back-upherstelcodes worden uitsluitend bewaard als SHA-256-hash; passkeys bewaren uitsluitend de publieke sleutel, de privésleutel blijft op uw apparaat.
-- **Profielgegevens (optioneel)**: nickname, avatar en persoonlijke omschrijving; afbeeldingen van avatars worden standaard opgeslagen in de eigen objectopslag van de instantie (KV), en de Exploitant kan via een omgevingsvariabele een externe afbeeldingshostingdienst configureren (zie [Verwerkers](/nl/mail/sub-processors/)).
-
-### 4.2 De inhoud van uw communicatie
-
-De e-mail die u verzendt en ontvangt (inclusief metadata zoals afzender en ontvanger, onderwerp, berichttekst en tijdstempels) en de bijlagen, evenals de labels, sterren, leesstatussen en uitgestelde herinneringen die u toepast, worden bewaard in de database van de instantie (Cloudflare D1) en de objectopslag (in volgorde van instantieconfiguratie: uw eigen S3-compatibele opslag, door de Exploitant geconfigureerde S3-compatibele opslag, een Cloudflare R2-binding; bij ontbreken daarvan Cloudflare KV). Het eigendom van en de verantwoordelijkheid voor de e-mailinhoud rust bij u; de Exploitant verkoopt de e-mailinhoud niet, gebruikt die niet voor advertentiedoeleinden en koppelt geen statistiek of tracking van derden.
-
-### 4.3 Automatisch geregistreerde technische gegevens
-
-- **Aanmeld- en beveiligingslogboeken**: het IP-adres, de browser-User-Agent en het daaruit afgeleide besturingssysteem, de browser en het apparaattype, geregistreerd bij registratie en aanmelding, gebruikt voor de beveiligingsaudit en de identificatie van afwijkende aanmeldingen.
-- **Sessietokens**: de na aanmelding uitgegeven JWT (30 dagen geldig) wordt bewaard in de localStorage van uw browser om uw aangemelde status en interfacevoorkeuren te behouden. De Dienst gebruikt geen cookies om u te identificeren of uw gedrag te volgen en doet geen cross-site-tracking.
-- **Cookies en mensverificatie**: Turnstile-verificatie wordt geleverd door Cloudflare; tijdens de verificatie kan in uw browser een technische opslag verschijnen die strikt noodzakelijk is om de challenge af te ronden. De Dienst leest die niet en gebruikt die niet voor identificatie of reclame. De Dienst embedt geen advertentie-, analytische of sociale-platformscripts.
-- **Edge-netwerklogboeken**: Cloudflare verwerkt de requestmetadata overeenkomstig het eigen beleid.
-
-### 4.4 Gegevens die de Dienst niet verzamelt
-
-De Dienst bevat geen advertentie-tracking-SDK, geen gedragsprofilering, geen cross-site-cookies en geen Google Analytics of andere statistiek van derden; de Dienst leest ook de contacten, de fotobibliotheek, de locatie of de gegevens van andere apps op uw apparaat niet.
-
-### 4.5 Zeer gevoelige persoonsgegevens
-
-Persoonsgegevens over medische dossiers, medische behandeling, genetica, seksueel leven, gezondheidsonderzoeken en strafrechtelijk verleden behoren tot de categorie zeer gevoelige persoonsgegevens; de verzameling en verwerking ervan zijn in de meeste rechtsgebieden aan strikte beperkingen onderworpen. De account- en systeemvelden van de Dienst verzamelen dergelijke gegevens niet. De inhoud die u zelf per e-mail doorgeeft, kan deze evenwel bevatten; de Exploitant slaat die op en geeft die uitsluitend passief door binnen het bestek dat nodig is voor het verlenen van de communicatiedienst, zonder inhoudsanalyse of profilering. U dient zelf zorgvuldig af te wegen of u zeer gevoelige gegevens per e-mail doorgeeft.
-
-## 5. Aard van de verwerking bij verzameling, verwerking en gebruik
-
-De aard van de verwerkingsactiviteiten van de Dienst is als volgt:
-
-| Verwerkingsactiviteit | Specifiek doel | Aard van de verwerking |
-| --- | --- | --- |
-| Registratie van het account, aanmelding, mailboxbeheer | Verlenen van de e-maildienst | Noodzakelijke verwerking voor de uitvoering van de overeenkomst, met passende beveiligingsmaatregelen |
-| Aanmeldlogboeken, blokkering na mislukte aanmelding, tweestapsverificatie | Instandhouding van de informatiebeveiliging | Noodzakelijke verwerking voor de uitvoering van de overeenkomst, met inachtneming van het proportionaliteitsbeginsel |
-| Automatische extractie van verificatiecodes (optioneel in te schakelen door de Exploitant) | Verbetering van het gebruiksgemak van de dienst | Met uw toestemming; u kunt verzoeken de functie uit te schakelen, of overstappen op een instantie waar deze functie niet is ingeschakeld |
-| E-mailvertaling, tekstherkenning in afbeeldingen (door u geactiveerd) | Ondersteuning bij inhoud | Met uw toestemming; zonder uw activering wordt niets doorgestuurd |
-| Openbare profielpagina (standaard uitgeschakeld) | Sociale presentatie | Gegevens die u zelf openbaar heeft gemaakt |
-| Systeemmededelingen, officiële welkomstmail | Contractuitvoering en communicatie met gebruikers | Noodzakelijke verwerking voor de uitvoering van de overeenkomst |
-
-Uw persoonsgegevens worden uitsluitend gebruikt voor het doel van de verzameling en binnen het daarmee nauw verwante bereik. De Dienst gebruikt uw persoonsgegevens niet voor geautomatiseerde besluitvorming, profilering van gebruikers of enig commercieel doel dat niet verband houdt met het verlenen van de dienst. Gebruikt de Exploitant persoonsgegevens voor marketing, dan stopt de Exploitant dat gebruik onmiddellijk zodra u kenbaar maakt geen marketing te willen ontvangen; bij de eerste marketing verstrekt de Exploitant tevens de wijze waarop u uw weigering kenbaar kunt maken.
-
-## 6. Bijzondere informatie over AI-verwerking
-
-De Dienst omvat drie vormen van AI-verwerking; de activeringsvoorwaarden en de omvang van de gegevens zijn als volgt:
-
-1. **Automatische extractie van verificatiecodes** (optioneel in te schakelen door de Exploitant): bij ontvangst van een nieuwe e-mail zendt het systeem het onderwerp en de eerste 6.000 tekens van de berichttekst naar Cloudflare Workers AI voor inferentie op edge-knooppunten, om de verificatiecode in de e-mail te extraheren. Dit is de enige AI-verwerking die niet door u handmatig wordt geactiveerd; wie deze verwerking niet wenst, kan de Exploitant verzoeken de functie uit te schakelen, of overstappen op een instantie waar deze functie niet is ingeschakeld.
-2. **E-mailvertaling** (door u geactiveerd): nadat u op «Vertalen» klikt, wordt de e-mailtekst in segmenten gezonden naar het door de instantie geconfigureerde endpoint van het grote taalmodel (standaard OpenAI-compatibel protocol), met de openbare API's van MyMemory en Google Translate als back-up. Zolang u de vertaling niet activeert, wordt de e-mailinhoud naar geen enkele AI-dienst gezonden. Wanneer de officiële systeemberichten (welkomstmails, algemene aankondigingen) door de beheerder ongewijzigd zijn, komt de vertaling rechtstreeks uit de vooraf ingestelde officiële sjablonen in de betreffende taal en wordt lokaal in de client weergegeven, zonder de e-mailinhoud naar enige AI-dienst te zenden; gewijzigde berichten volgen eerstbedoelde AI-route.
-3. **Tekstherkenning in afbeeldingen** (door u geactiveerd): een afbeelding met tekst wordt pas naar de voornoemde AI-diensten gezonden wanneer u die uploadt; zuiver decoratieve afbeeldingen, logo's en pictogrammen worden automatisch overgeslagen.
-
-De Exploitant traint geen enkel model met e-mailinhoud en zendt naar AI-diensten geen identiteitsgegevens dan de tekst die voor vertaling of herkenning nodig is. Voor de bovengenoemde verwerkingen die op toestemming berusten, kunt u uw toestemming op elk moment intrekken via de in paragraaf 9 genoemde wijzen; intrekking laat verwerkingen die vóór de intrekking zijn verricht onverlet.
-
-## 7. Delen met derden en internationale doorgifte
-
-De Dienst deelt persoonsgegevens volgens het beginsel van minimale noodzakelijkheid met derden, uitsluitend in de volgende gevallen (de volledige lijst en de waarborgmechanismen staan in de [Lijst van verwerkers](/nl/mail/sub-processors/)):
-
-1. **Verwerking door verwerkers**: Cloudflare (rekenkracht, opslag, e-mailroutering, mensverificatie, edge-AI) en Resend of Mailjet (uitgaande aflevering; alleen e-mail die naar buiten de site wordt verzonden betreft de volledige e-mail);
-2. **Op uw autorisatie**: Telegram-meldingen (uitsluitend de door u geconfigureerde velden worden gepusht), OAuth-apps van derden (beperkt tot openid / profile / email, op elk moment in te trekken), aanmelding via Linux DO en de blogniveausynchronisatie (blog.epocanvas.com; uw e-mailadres wordt bij de query verzonden);
-3. **Door u geactiveerd**: AI-vertaling en tekstherkenning in afbeeldingen (zie paragraaf 6);
-4. **Wettelijke vereisten**: verstrekt uitsluitend wanneer een bevoegd orgaan dat op grond van wettelijke procedures verlangt, met kennisgeving aan u voor zover de wet dat toelaat.
-
-Beginselen voor het afhandelen van verzoeken van handhavings- en justitiële autoriteiten: de Exploitant verstrekt gegevens alleen wanneer een verzoek op een concrete wettelijke basis rust, verifieert de rechtmatigheid en het bereik van het verzoek, verstrekt niet uit eigen beweging meer dan het verzoek dekt en stelt getroffenen waar de wet dat toelaat vooraf in kennis (tenzij de wet dat verbiedt); de Dienst onderwerpt zich niet aan willekeurige toegang zonder wettelijke basis.
-
-De Dienst draait op het wereldwijde edge-netwerk van Cloudflare; uw persoonsgegevens kunnen worden verwerkt op knooppunten buiten het land waar de Exploitant is gevestigd. De Exploitant volgt de eisen van het toepasselijke recht voor internationale doorgifte en de beperkingen die het bevoegd gezag overeenkomstig de wet oplegt, en steunt op de beschermende maatregelen van Cloudflare (certificeringen SOC 2 Type II en ISO/IEC 27001, en het mechanisme van de Europese standaardcontractbepalingen) voor de beveiliging van de doorgifte. Exploitanten van zelfgehoste instanties beoordelen zelf en waarborgen zelf dat hun internationale doorgifte voldoet aan de wettelijke eisen op hun vestigingsplaats.
-
-## 8. Bewaartermijnen en vernietiging
-
-| Gegevenscategorie | Bewaarbeleid |
-| --- | --- |
-| E-mail in de inbox | bewaard tot u die verwijdert, of tot opschoning wegens quotum wordt geactiveerd |
-| Spam | zeven dagen in quarantaine, daarna verplaatst naar de prullenbak |
-| E-mail in de prullenbak | zeven dagen na ontvangst fysiek verwijderd door een routinetaak van het systeem (inclusief bijlagen en indexen) |
-| Officiële systeem-e-mails (welkomst-e-mails, globale aankondigingen) | vervallen en worden standaard 7 dagen na bezorging automatisch gewist; de Exploitant kan de termijn configureren |
-| Mailboxgebruik boven 90 % | het systeem verwijdert fysiek de e-mail die al als verwijderd is gemarkeerd, om ruimte vrij te maken |
-| Opzegging van het account | sessies vervallen onmiddellijk; de e-mail komt in een zacht-verwijderde staat en, tenzij de wet bewaring vereist, voert een beheerder de fysieke verwijdering binnen 90 dagen uit |
-| Fysieke verwijdering | accountgegevens, mailboxen, e-mail, bijlagen, OAuth-autorisaties en sessies worden gezamenlijk verwijderd en kunnen niet worden hersteld |
-| Handhaving bij overtredingen | nadat een account wegens overtredingen is geblokkeerd, kan de Exploitant de e-mails en bijlagen forcerend wissen om ruimte vrij te maken (zie de handhavingsladder in het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/)) |
-| Beëindiging van de instantie | de Exploitant dient dit vooraf aan te kondigen en een periode voor gegevensexport aan te bieden; na beëindiging worden de gegevens vernietigd samen met de Cloudflare-resources |
-
-Na fysieke verwijdering kunnen gegevens niet worden hersteld. Vóór verwijdering kunt u via «Instellingen → Gegevensexport» een volledige kopie in JSON-formaat verkrijgen (inclusief uw persoonsgegevens en de volledige tekst van nog niet verwijderde e-mail). De volledige beschrijving van de technische maatregelen staat in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
-
-## 9. Rechten van de betrokkene en de wijze van uitoefening
-
-Met betrekking tot uw persoonsgegevens heeft u de volgende rechten:
-
-1. raadpleging of inzage vragen;
-2. een kopie vragen (de Dienst realiseert dit met de functie «Gegevensexport»);
-3. aanvulling of rectificatie vragen;
-4. stopzetting van de verzameling, de verwerking of het gebruik vragen;
-5. verwijdering vragen.
-
-Wijze van uitoefening: de zelfservicefuncties in de interface (export, opzegging van het account, intrekken van OAuth-autorisaties, uitloggen) werken onmiddellijk; verzoeken die handmatige verwerking vereisen, beantwoordt en verwerkt de Exploitant binnen 30 dagen na ontvangst. Contactpunt: `privacy@epocanvas.com`.
-
-Meent u dat de verwerking door de Dienst uw rechten heeft geschaad, dan kunt u bij de Exploitant herstel van schade vragen; de Exploitant is verantwoordelijk voor de uitleg en onderbouwing van de rechtmatigheid van de verwerking. U kunt tevens een klacht indienen bij het bevoegd gezag op de vestigingsplaats van de Exploitant of een juridisch middel aanwenden (het toepasselijke recht staat in paragraaf 12).
-
-## 10. Beveiligingsmaatregelen
-
-De Exploitant stelt de volgende beveiligingsmaatregelen op en verbetert die doorloend, om te voorkomen dat persoonsgegevens worden gestolen, gewijzigd, beschadigd, verloren of gelekt; daaronder: versleutelde overdracht via HTTPS/TLS voor de gehele site; PBKDF2-hashing van wachtwoorden met salt; versleutelde opslag van TOTP-sleutels met AES-256-GCM; blokkering na mislukte aanmeldingen (na vijf opeenvolgende mislukte pogingen twaalf uur geblokkeerd); een limiet van tien sessies met de mogelijkheid van onmiddellijke intrekking; e-mailroutering op basis van cryptografische hashes (tegen ongeautoriseerde toegang en opsomming van bronnen); en defensieve headers en een MIME-allowlist bij het downloaden van bijlagen. De volledige lijst staat in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
-
-:::caution[Reikwijdte en grenzen van de versleuteling]
-De versleuteling van de drie e-mailmodi van de Dienst («alles», «privé» en «versleuteld») is server-side versleuteling in rust: de sleutels worden afgeleid uit de omgevingsvariabelen van de instantieserver en de gebruikersidentificatie. Dit mechanisme beschermt tegen het risico dat databasebestanden worden gestolen of snapshots lekken; het is geen end-to-end-versleuteling. De Exploitant die de server en de sleutels beheert, heeft technisch de mogelijkheid tot ontsleuteling. De toegang voor beheerders verschilt per modus: in de modus «alles» kan de beheerder alle e-mail lezen; in de modus «privé» uitsluitend spam, verwijderde en onbeheerde e-mail; in de modus «versleuteld» levert de beheerinterface geen gebruikersmail terug. Wie een vertrouwelijkheidsniveau nodig heeft waarbij ook de Exploitant niets kan lezen, versleutelt de berichttekst vooraf zelf met een end-to-end-versleutelingshulpmiddel zoals GPG, alvorens die te verzenden.
+<!-- legal-review-draft -->
+:::caution[Juridisch beoordelingsconcept: niet de geldende kennisgeving]
+Dit concept bevat voorgestelde voorwaarden en nog te verifiëren punten. Het vervangt de huidige kennisgeving niet en certificeert geen naleving. Het mag niet worden gebruikt om verwerking te activeren voordat de identiteit en wettelijk vereiste contactgegevens van de exploitant, de werkelijke rechtsgronden, ontvangers en doorgiftewaarborgen, bewaartermijnen en verwijdering zijn geverifieerd en de vereiste informatie is verstrekt. De gezaghebbende versie is de Traditioneel-Chinese tekstbasis, niet een inwerkingtreding. Bestaande wettelijke plichten en gebruikersrechten blijven onaangetast.
 :::
 
-## 11. Bescherming van kinderen en jongeren
+Dit beleid beschrijft hoe een EpoCanvas Mail-instantie persoonsgegevens verwerkt, waaronder die van niet-geregistreerde afzenders en ontvangers die met gebruikers communiceren. Het is informatie over gegevensverwerking, geen overeenkomst waarmee u wordt gevraagd alle verwerkingen in algemene zin toe te staan; het lezen van dit beleid, het voortzetten van het gebruik of het aanvaarden van de servicevoorwaarden vervangt geen toestemming die volgens de wet afzonderlijk moet worden verkregen. Via paragraaf 9 kunt u informatie opvragen, bezwaar maken of uw rechten uitoefenen.
 
-De Dienst richt zich niet op kinderen jonger dan 14 jaar en verzamelt bewust geen persoonsgegevens van kinderen. Een voogd die meent dat een kind persoonsgegevens heeft verstrekt, kan contact opnemen met de Exploitant om verwijdering te verzoeken; na verificatie wordt dat onmiddellijk verwerkt. Niemand mag de Dienst gebruiken om aan kinderen en jongeren inhoud te verspreiden die schadelijk is voor hun lichamelijke of geestelijke gezondheid; de bijbehorende beperkingen op het gebruik staan in het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/). Exploitanten van zelfgehoste instanties stellen zelf een leeftijdsgrens vast overeenkomstig het recht van hun rechtsgebied.
+De versie in het traditioneel Chinees (Taiwan) is de officiële versie van deze site; de andere taalversies zijn vertalingen ter vergelijking. Deze regeling mag niet worden gebruikt om begrijpelijke informatie die het toepasselijke recht vereist of dwingende rechten van consumenten en betrokkenen uit te sluiten. Deze tekst is opgesteld op basis van de gecontroleerde opensource-implementatie en bewijst niet dat de online instantie alle beveiligingsinstellingen heeft ingeschakeld of gecertificeerd is voor naleving van regelgeving.
 
-## 12. Toepasselijk recht en toezicht door de autoriteit
+![De vijf thema's van het privacybeleid: gegevensverzameling, gebruik, doorgifte, beveiliging en rechten](/images/mail/nl/privacy-pillars.svg)
 
-Het open source-project verleent zelf geen dienst en is evenmin verantwoordelijk voor de naleving van enige instantie; de wettelijke verplichtingen rusten op de entiteit die de Dienst exploiteert. Het toepasselijke recht van elke instantie wordt bepaald door de vestigingsplaats van de Exploitant: de gehoste instantie `mail.epocanvas.com` wordt door het exploitatieteam vanuit Taiwan uitgebaat; voor de verwerking van persoonsgegevens geldt het recht dat in Taiwan van kracht is (met inbegrip van de Persoonsgegevenswet (PDPA)), en de Exploitant aanvaardt de controle en het toezicht die het bevoegd gezag voor die wet overeenkomstig de wet uitvoert. Dit beleid en [Gegevensverwerking en beveiliging](/nl/mail/data-security/) dienen als basisdocumenten voor die controle. Voor zelfgehoste instanties geldt als toepasselijk recht het recht op de vestigingsplaats van de implementateur; de verplichtingen inzake informatieplicht, beveiligingsonderhoud en toezicht worden door de implementateur zelf nagekomen.
+*Figuur: verwerking moet een specifiek doel en een geldige grondslag hebben; doorgifte aan derden vereist passende waarborgen, en betrokkenen kunnen hun rechten uitoefenen en een klacht indienen bij een bevoegde autoriteit.*
 
-## 13. Wijzigingen van dit beleid
+## 1. Toepassingsbereik en testkarakter
 
-Dit beleid kan worden herzien wanneer de dienst of de wetgeving verandert. Wezenlijke wijzigingen (zoals het toevoegen van een verwerker, of het wijzigen van bewaarbeleid of versleutelingsmodi) worden vooraf aangekondigd via een bericht op de site of een systeemmail, en de datum van inwerkingtreding en het versienummer bovenaan deze pagina worden bijgewerkt. Gebruikt u de Dienst na de inwerkingtreding van een wijziging voort, dan wordt u geacht het herziene beleid te hebben aanvaard; indien u niet instemt, kunt u het gebruik staken en uw gegevens exporteren of verwijderen. Historische versies van wezenlijke herzieningen worden gearchiveerd in de versiegeschiedenis van de open source-repository.
+Dit beleid is van toepassing op de website, verbonden clients, API, accounts en e-mailverwerking van de gehoste instantie `mail.epocanvas.com`. Dit is een door een particulier onderhouden project voor leren en testen zonder winstoogmerk, dat geen gegevens verkoopt, geen advertentiediensten aanbiedt en geen beschikbaarheid op bedrijfsniveau toezegt; dit karakter stelt het niet vrij van de verplichtingen inzake de bescherming van persoonsgegevens die volgens de wet van toepassing zijn.
+
+Wie zelf een instantie uitrolt, moet de informatieverstrekking aanpassen aan de eigen identiteit, instellingen, ontvangers en bewaarmethoden en deze publiceren; deze pagina mag niet zonder meer worden gebruikt als bewijs dat de eigen instantie aan de regels voldoet. Alleen het verkrijgen of wijzigen van broncode draagt geen gegevens van die instantie over aan de oorspronkelijke auteurs.
+
+## 2. Wie verantwoordelijk is voor uw gegevens
+
+| Gebruikssituatie | Verantwoordelijke partij | Rol en contact |
+| --- | --- | --- |
+| Gehoste testinstantie | De natuurlijke persoon of organisatie die `mail.epocanvas.com` feitelijk onder de naam EpoCanvas exploiteert | Degene die voor accounts, de communicatiedienst en het beveiligingsbeheer de doeleinden en middelen bepaalt, is de verwerkingsverantwoordelijke; `privacy@epocanvas.com` |
+| Zelfgehoste instantie | De feitelijke exploitant van die instantie | De rol wordt bepaald op basis van wie feitelijk de doeleinden en middelen van de verwerking vaststelt; neem contact op met het door de site gepubliceerde contactpunt |
+| Auteurs en bijdragers die uitsluitend broncode publiceren | Personen die niet betrokken zijn bij de exploitatie van een specifieke instantie | Worden niet door hun auteurschap of bijdrage verwerkingsverantwoordelijke of verwerker van die instantie |
+
+EpoCanvas is een projectnaam; deze pagina bewijst op die grond niet dat de exploitant een bedrijf, stichting of geregistreerde organisatie is. Voordat de instantie persoonsgegevens van anderen verzamelt, moet zij in openbaar toegankelijke informatie over de exploitant een identificeerbare persoonsnaam of wettelijke naam, het land waar de exploitant feitelijk is gevestigd en een passend contactadres vermelden; ook een fysiek adres en de contactgegevens van een EU-vertegenwoordiger of functionaris voor gegevensbescherming moeten worden toegevoegd wanneer het toepasselijke recht dit vereist. Op deze pagina zijn die volledige identiteit en adressen momenteel niet geverifieerd en is evenmin bevestigd dat een EU-vertegenwoordiger of functionaris voor gegevensbescherming is aangesteld. Een e-mailcontactpunt vervangt niet de identiteitsinformatie die wettelijk openbaar moet worden gemaakt.
+
+Wanneer de exploitant in opdracht van een organisatie die klant is haar gegevens verwerkt, moeten de rollen afzonderlijk worden vastgesteld en moeten afspraken over gegevensverwerking worden gemaakt die aan het toepasselijke recht voldoen; het feit dat een gebruiker over e-mailinhoud beschikt, betekent niet dat de gebruiker altijd als verwerkingsverantwoordelijke en de exploitant als verwerker wordt aangemerkt.
+
+## 3. Gegevensbronnen, noodzakelijkheid en gebruik
+
+| Categorie en bron | Gegevens en gebruik | Gevolgen van niet-verstrekking |
+| --- | --- | --- |
+| Registratie, aanmelding of identiteitsbron | Accountidentificatie, benodigde inloggegevens en identificatoren, bijnaam, avatar en bijbehorende kenmerken die identiteitsbronnen zoals Linux DO teruggeven | De gekozen aanmeld- of registratiemethode kan niet worden voltooid; verplichte gegevens verschillen per methode |
+| U, uw correspondenten en verzend- en ontvangstsystemen | Afzender, ontvanger, CC-ontvangers, onderwerp, berichttekst, bijlagen, tijdstippen, aflever- en classificatiestatus | De betreffende e-mail kan niet worden verzonden, ontvangen, opgeslagen of geordend |
+| Automatisch gegenereerde netwerk- en beveiligingsregistraties | IP-adres, User-Agent, apparaat- en aanmeldgegevens, handelingen en beveiligingsgebeurtenissen | Noodzakelijke verificatie en beveiligingsregistraties kunnen niet afzonderlijk worden uitgeschakeld; u kunt het gebruik staken en uw rechten uitoefenen |
+| Optionele velden en functies | Profielvelden, avatar, meldingsinstellingen, instellingen voor externe opslag en inhoud voor vertaling of herkenning | De bijbehorende functie is niet beschikbaar; dit mag niet leiden tot verlies van niet-gerelateerde basisfuncties |
+| Gegevens die externe diensten teruggeven | Afleverrapporten, resultaten van koppelingen voor identiteit of niveau, verzoeken van door u geautoriseerde apps en antwoorden op meldingen | Worden alleen verwerkt wanneer de bijbehorende configuratie of handeling dit meebrengt |
+
+Persoonsgegevens in e-mails kunnen afkomstig zijn van andere afzenders, ontvangers, beheerders of door u gekozen diensten; de bronnen zijn niet beperkt tot wat u zelf invoert of tot Linux DO. Ook niet-geregistreerde correspondenten kunnen contact opnemen via paragraaf 14. Wanneer de wet informatieverstrekking bij indirecte verzameling vereist, moet de exploitant dit beleid en de nodige aanvullingen verstrekken; uitzonderingen mogen alleen worden toegepast als aan de wettelijke voorwaarden is voldaan.
+
+Wanneer de AVG van toepassing is op indirect verkregen gegevens, moet de exploitant dit beleid en aanvullende informatie, waaronder de bron, binnen een redelijke termijn en uiterlijk één maand na verkrijging verstrekken, tenzij een wettelijke uitzondering geldt. Vindt het eerste contact met u of de eerste verstrekking aan een andere ontvanger eerder plaats, dan moet de informatie uiterlijk op dat moment worden verstrekt. Alleen deze pagina vindbaar maken vervangt geen actieve informatieverstrekking. Een uitzondering wegens onmogelijkheid of onevenredige inspanning moet worden beoordeeld en vastgelegd, met passende waarborgen, waaronder openbaarmaking van noodzakelijke informatie. Taiwanese regels die informatie vóór verwerking of gebruik verlangen, of bij het eerste gebruik toestaan, blijven gelden. Kosteloosheid, testen of niet geregistreerd zijn vormt op zichzelf geen vrijstelling.
+
+## 4. Feitelijke reikwijdte van opslag en toegang
+
+### 4.1 Account- en beveiligingsgegevens
+
+Nieuw opgeslagen gegevens voor wachtwoordverificatie gebruiken PBKDF2-HMAC-SHA256 met salt, standaard met 210.000 iteraties en configureerbare parameters; oudere SHA-256-registraties of registraties met lagere parameters kunnen bij verificatie worden bijgewerkt, maar er is geen garantie dat alle bestaande gegevens al zijn gemigreerd. TOTP-sleutels worden versleuteld opgeslagen; herstelcodes hebben een hash voor verificatie en daarnaast een met een sleutel versleutelde kopie van de oorspronkelijke codes die na hernieuwde verificatie kan worden getoond; voor passkeys worden publieke authenticatiegegevens opgeslagen. Deze maatregelen verminderen risico's, maar garanderen niet dat wachtwoorden nooit door raden kunnen worden achterhaald. Tijdens het instellen van TOTP kan de onversleutelde instelsleutel 600 seconden tijdelijk in KV worden bewaard; wanneer bij het bijwerken van oudere wachtwoordgegevens multifactorauthenticatie nodig is, kan het ingevoerde wachtwoord 300 seconden in de nog niet afgeronde KV-procedure worden bewaard, mogelijk met verlenging. Daarom kan niet worden gesteld dat geen enkele route authenticatiegegevens in leesbare vorm opslaat. Persoonlijke velden, aanmeldbronnen, handelingenlogboeken en machtigingsinstellingen kunnen ook in de database of KV van de instantie worden opgeslagen.
+
+### 4.2 E-mails en bijlagen
+
+E-mailgegevens worden hoofdzakelijk verwerkt door Cloudflare D1 en de geconfigureerde objectopslag; bijlagen kunnen, afhankelijk van de configuratie door de gebruiker of exploitant, in S3-compatibele opslag of R2 worden bewaard, of bij ontbreken daarvan in KV. De gecontroleerde route voor inkomende e-mail leest en ontleedt de oorspronkelijke MIME-gegevens en slaat de volledige oorspronkelijke e-mail niet afzonderlijk duurzaam op; het downloaden van een .eml-bestand bewijst niet dat het oorspronkelijke bestand is bewaard. Externe back-ups, databases en zelf aangepaste bewaarprocessen moeten afzonderlijk worden gecontroleerd; de feitelijke locatie van gegevens kan niet uitsluitend uit de broncode worden afgeleid.
+
+De dienst biedt geen end-to-end-versleuteling. De modi «versleuteld» en «privé» gebruiken, afhankelijk van de code en instellingen, serverzijdige versleuteling in rust voor delen van berichtteksten en onderwerpen; bijlagen en routeringsmetadata vallen niet automatisch onder deze bescherming, en wie over de server en sleutels beschikt, kan technisch mogelijk ontsleutelen.
+
+### 4.3 Browser, logboeken en externe verzoeken
+
+De browser kan aanmeldtokens, taal- en interfacevoorkeuren in localStorage bewaren; uitloggen, intrekking op de server en de geldigheidsduur van authenticatiegegevens zijn verschillende mechanismen. Log na gebruik op een gedeeld apparaat uit en wis lokale gegevens die niet hoeven te worden bewaard.
+
+De aanmeldbeveiliging verwerkt ook uit het IP-adres afgeleide landen en steden, het ASN van het netwerk en apparaatgegevens. De lijst van bekende omgevingen bewaart maximaal de 15 meest recente vermeldingen met een verschuivende TTL van 180 dagen; voortgezet gebruik kan de termijn verlengen. Registraties die meerdere accounts aan een IP-adres koppelen, hebben een TTL van 7.200 seconden. Authenticatiegegevens voor vertrouwde apparaten kunnen 60 dagen worden bewaard en gedurende de eerste 30 dagen worden gebruikt om delen van de multifactorauthenticatie over te slaan. Deze termijnen zijn niet dezelfde als die voor accountvelden of auditlogboeken.
+
+Cookieregels kunnen ook opslag of toegang op eindapparatuur omvatten, zoals localStorage. Wanneer de ePrivacy-regels gelden, valt alleen toegang uitsluitend voor het verzenden van een communicatie of strikt noodzakelijk voor een uitdrukkelijk gevraagde dienst onder de betreffende uitzondering op voorafgaande toestemming; het label inloggen of beveiliging volstaat niet. Andere toegang vereist duidelijke informatie en geldige toestemming vóór activering en moet tot die tijd uitgeschakeld blijven. Weigeren mag niet-gerelateerde basisfuncties niet uitschakelen. Intrekken moet even eenvoudig zijn als toestemming geven en de betreffende toegang beëindigen. Geen cookies gebruiken neemt deze verplichtingen niet weg.
+
+Lettertypen, Turnstile, externe afbeeldingen en andere geconfigureerde bronnen kunnen IP-adressen, User-Agent, tijdstippen en verzoekgegevens ontvangen; het laden van externe afbeeldingen in e-mails kan ook aan de afzender onthullen dat een bericht is geopend. Het ontbreken van advertentie- of analyse-SDK's betekent niet dat er geen netwerkverzoeken naar derden zijn. De volledige gegevensstromen staan in de [Lijst van verwerkers](/nl/mail/sub-processors/).
+
+### 4.4 Toegang voor beheer en foutopsporing
+
+De beheerinterface beperkt de zichtbaarheid op basis van de e-mailmodus, rollen en machtigingen; dit garandeert niet dat de exploitant technisch onder geen enkele omstandigheid toegang tot gegevens kan krijgen. Handmatige toegang is beperkt tot concrete ondersteuning, beveiligingsincidenten, meldingen van misbruik, rechtmatige verzoeken of andere zaken waarvoor een grondslag bestaat en waarvoor toegang noodzakelijk is, met minimale toegangsrechten en passende registraties. Het is verboden echte e-mails naar believen te lezen met leren, testen of nieuwsgierigheid als reden, of ze in openbare issues of foutopsporingsdiensten te plaatsen.
+
+De openbare profielpagina is standaard uitgeschakeld; na inschakeling kunnen anonieme bezoekers de primaire mailbox, profielvelden, rol, datum van toetreding en statistieken over e-mailactiviteit en -bronnen opvragen. Sommige instellingen voor het «verbergen van statistieken» regelen alleen de weergave en mogen niet als toegangsbeperking voor de API worden beschouwd; ook is niet bevestigd dat het logisch verwijderen van een account deze openbare route afsluit. Als u de openbaarmaking wilt intrekken, moet u ook de pagina uitschakelen en de exploitant vragen de anonieme toegang te controleren. Gebruik deze functie vóór een correctie niet om onnodige echte gegevens openbaar te maken.
+
+### 4.5 Gevoelige gegevens en gegevens van derden
+
+E-mails kunnen bijzondere categorieën gegevens bevatten over gezondheid, ras, religie, politieke opvattingen, vakbondslidmaatschap, genetische of biometrische kenmerken, seksueel leven of seksuele gerichtheid; voor strafrechtelijke gegevens gelden afzonderlijke bijzondere beperkingen. Alleen de verwerking «passieve opslag» noemen of algemene toestemming van de accounthouder verkrijgen, voldoet niet automatisch aan de bijbehorende aanvullende wettelijke voorwaarden. Gebruik voor tests synthetische of op rechtmatige wijze gede-identificeerde inhoud. De dienst is momenteel niet bedoeld om de verwerking van gereguleerde gevoelige gegevens op zich te nemen; upload dergelijke echte gegevens niet voordat een rechtmatige grondslag en waarborgen zijn bevestigd.
+
+## 5. Verwerkingsdoeleinden en rechtsgrondslagen
+
+Wanneer de AVG (GDPR) van toepassing is, moet de exploitant voor elk doel een passende grondslag vaststellen; aanvullende voorwaarden uit ander toepasselijk recht moeten eveneens worden nageleefd.
+
+| Verwerkingsactiviteit | Doel | Grondslag en beperkingen wanneer de AVG van toepassing is |
+| --- | --- | --- |
+| Accounts, aflevering, opslag en noodzakelijke dienstmededelingen | De door u gevraagde mailboxdienst verlenen | Voor u: noodzakelijk voor de uitvoering van de overeenkomst; gegevens van personen die bij de communicatie betrokken zijn maar geen contractspartij zijn, worden verwerkt op basis van gerechtvaardigde belangen na belangenafweging of een andere passende grondslag |
+| Aanmeldbeveiliging, beperking van het aantal verzoeken en concrete misbruikpreventie | Gebruikers, communicatie en infrastructuur beschermen | Waar nodig op basis van gerechtvaardigde belangen na toetsing van noodzakelijkheid en belangenafweging; een wettelijke verplichting dient alleen als grondslag als die daadwerkelijk van toepassing is |
+| Vertaling, OCR, optionele meldingen of openbare velden | Aanvullende functies aanbieden die u actief kiest | Afzonderlijke duidelijke informatie naar gelang de functie en ontvanger; waar toestemming nodig is, moet deze vrij, specifiek, geïnformeerd en ondubbelzinnig zijn en kunnen worden ingetrokken |
+| Automatische extractie van verificatiecodes | Helpen bij het herkennen van verificatiecodes | Gebruiksgemak of een schakelaar van de exploitant maakt de functie niet automatisch noodzakelijk voor de uitvoering van de overeenkomst; vóór activering moeten een geldige grondslag, noodzakelijke waarborgen en de vereiste individuele keuzemogelijkheden worden vastgesteld |
+| Volgens de wet reageren op rechtenverzoeken of bevoegde autoriteiten | Voldoen aan daadwerkelijk toepasselijke wettelijke vereisten | Een duidelijke wettelijke verplichting; bij buitenlandse bevelen moeten de toepasselijkheid, de vertrouwelijkheid van communicatie en de regels voor internationale doorgifte nog steeds worden beoordeeld |
+| Minimaal noodzakelijke registraties voor een specifiek geschil | Rechtsvorderingen instellen of uitoefenen, of zich daartegen verweren | Gerechtvaardigde belangen na belangenafweging en toepasselijke wettelijke bewaarregels, met beperking van de omvang en duur |
+
+Bij een beroep op gerechtvaardigde belangen gaat het om het aanbieden van de gevraagde communicatie, het handhaven van de beveiliging of het voeren van verweer tegen concrete vorderingen. De exploitant moet de noodzakelijkheid en belangenafweging documenteren en het in paragraaf 9 beschreven bezwaar mogelijk maken. Niet alle functies mogen gezamenlijk als «noodzakelijk voor de uitvoering van de overeenkomst» worden aangemerkt. De dienst verwerkt gegevens niet met als doel ze te verkopen, advertenties te plaatsen of commerciële modellen te trainen.
+
+Automatische classificatie, beperking van het aantal verzoeken of risicosignalen kunnen de e-mailverwerking en accountfuncties beïnvloeden; dit beleid geeft geen toestemming voor besluiten die uitsluitend op geautomatiseerde verwerking berusten en voor u rechtsgevolgen of vergelijkbare aanzienlijke gevolgen hebben. Als de feitelijke implementatie dergelijke besluiten omvat, moeten eerst de wettelijke voorwaarden worden vastgesteld, de logica en gevolgen worden toegelicht en passende menselijke tussenkomst en mogelijkheden om op te komen tegen het besluit worden geboden.
+
+## 6. AI en optionele inhoudsverwerking
+
+De gecontroleerde code omvat extractie van verificatiecodes bij ontvangst van e-mail, en vertaling en tekstherkenning in afbeeldingen nadat u een handeling verricht. De feitelijke gegevens kunnen onderwerpen, fragmenten van berichtteksten, afbeeldingen en daarin voorkomende identificerende of gevoelige inhoud omvatten; er kan niet worden gegarandeerd dat de tekst geen persoonsgegevens bevat. Een OpenAI-compatibel protocol beschrijft alleen de interface en betekent niet dat de ontvanger noodzakelijkerwijs OpenAI is.
+
+De algemene schakelaar voor extractie van verificatiecodes is in de bij deze controle onderzochte versie standaard uitgeschakeld; na inschakeling kunnen bij aankomst van nieuwe e-mail automatisch het volledige onderwerp en maximaal 6.000 JavaScript-tekens van de berichttekst naar Workers AI worden verzonden. Het onderwerp telt niet mee voor die limiet. Dit wordt niet telkens door een druk op een knop van u geactiveerd en er is geen controle aangetroffen op een opt-out per gebruiker. De algemene schakelaar staat niet gelijk aan geldige toestemming van elke gebruiker. Bij ontbreken van een geldige grondslag, vereiste keuzemogelijkheden of een uitvoerbaar mechanisme voor intrekking moet degene die de instantie uitrolt de desbetreffende doorgifte naar externe diensten uitschakelen; gebruikers vragen naar een andere instantie over te stappen, vervangt geen vrije intrekking en bewijst niet dat eerder toestemming is verkregen.
+
+Tekstvertaling kan een geconfigureerd model of Workers AI gebruiken; in sommige processen worden tekstfragmenten naar de openbare interfaces van MyMemory of Google Translate verzonden, ook via URL-queryparameters. Een alternatieve route voor ontbrekende fragmenten wordt niet alleen gebruikt wanneer het volledige eindpunt uitvalt. OCR kan de bytes van ingesloten afbeeldingen naar Workers AI sturen of de URL van externe afbeeldingen naar een geconfigureerd extern eindpunt voor beeldverwerking; de herkende tekst gaat vervolgens het vertaalproces in. OCR is in de client standaard uitgeschakeld, maar API-aanroepen die de parameter weglaten, kunnen een andere standaardwaarde gebruiken. Uit de schakelaar in de interface mag daarom niet worden afgeleid dat geen enkele route afbeeldingen verwerkt.
+
+Voor e-mails met persoonsgegevens of vertrouwelijke gegevens moet de betreffende route worden uitgeschakeld zolang de ontvanger, verwerkersovereenkomst, bewaring en waarborgen voor grensoverschrijdende doorgifte niet zijn vastgesteld. Een enkele klik op vertalen is geen algemene toestemming voor niet-bekendgemaakte ontvangers of latere modeltraining; sommige afbeeldingen kunnen binnen het vertaalproces worden geëxtraheerd, zodat het niet uitsluitend gaat om afbeeldingen die u afzonderlijk uploadt.
+
+De exploitant gebruikt e-mails niet als dataset om zelf modellen te trainen; beperkingen op bewaring, training en hergebruik door derden moeten worden vastgesteld aan de hand van de feitelijke overeenkomsten en configuratie. Dit beleid staat daar niet namens hen voor in. AI-resultaten kunnen fouten bevatten; u moet verificatiecodes, vertalingen en herkenningsresultaten zelf controleren. De dienst biedt hiermee geen professioneel oordeel met rechtsgevolgen. Voor zover de betreffende regels van toepassing zijn, moeten AI-functies en hun uitvoer duidelijk worden aangeduid en moeten de noodzakelijke transparantieverplichtingen volgens de feitelijke rol en het gebruiksdoel worden nagekomen; gewone vertaling of herkenning is niet alleen door het gebruik van AI automatisch een hoogrisicosysteem en verkrijgt daardoor evenmin een certificering voor naleving van regelgeving.
+
+## 7. Ontvangers en internationale doorgifte
+
+Afhankelijk van de feitelijke configuratie omvatten ontvangers Cloudflare, diensten voor uitgaande aflevering, door u of de exploitant aangewezen opslag en databases, identiteitsbronnen, AI- en vertaaldiensten, meldingsplatforms, geautoriseerde apps en de e-mailproviders van ontvangers. Of een partij verwerker of zelfstandig verwerkingsverantwoordelijke is, wordt bepaald door haar feitelijke gebruiksdoeleinden en overeenkomsten; niet alle partijen kunnen worden aangemerkt als partijen die uitsluitend op instructie verwerken.
+
+Het gebruik van het wereldwijde netwerk van Cloudflare of van leveranciers buiten de EU garandeert niet dat gegevens uitsluitend binnen de Europese Economische Ruimte worden verwerkt. Voor grensoverschrijdende doorgifte die onder de beperkingen van de AVG valt, moeten eerst de daadwerkelijke regio's en een rechtmatig mechanisme worden vastgesteld, bijvoorbeeld een adequaatheidsbesluit dat de betrokken doorgifte dekt, of rechtsgeldig overeengekomen standaardcontractbepalingen, een beoordeling van de gevolgen van de doorgifte en noodzakelijke aanvullende maatregelen. SOC 2, ISO-certificering, TLS of de mededeling van een dienstverlener dat deze SCC's aanbiedt, bewijzen elk op zichzelf niet dat de betreffende doorgifte rechtmatig is. Uitzonderingen of uitdrukkelijke toestemming mogen niet als gebruikelijk alternatief worden ingezet voor herhaalde, structurele doorgiften.
+
+U kunt via het contactpunt in paragraaf 14 een overzicht opvragen van de ontvangers, regio's en waarborgen die op uw gegevens betrekking hebben, en documenten over die waarborgen verkrijgen voor zover deze volgens de wet kunnen worden verstrekt en na noodzakelijke afscherming van informatie. Bij verzoeken van bevoegde autoriteiten controleert de exploitant de bevoegdheid en rechtsgrondslag, beperkt de omvang van de verstrekking en stelt betrokkenen in kennis wanneer de wet dit toelaat en het rechtmatige doel daardoor niet wordt geschaad.
+
+## 8. Bewaring, deactivering en verwijdering
+
+| Gegevenscategorie | Feitelijke mechanismen en bewaarcriteria |
+| --- | --- |
+| Accounts, persoonlijke instellingen en gewone e-mail | Bewaard voor de dienstverlening tot verwijdering, accountopschoning of het vervallen van de rechtmatige noodzaak; deactivering is niet hetzelfde als fysieke verwijdering |
+| Spam en prullenbak | De dagelijkse verwerking rekent vanaf `create_time` van de e-mail; spam wordt standaard na 7 dagen naar de prullenbak verplaatst, waarvoor een vaste drempel van 7 dagen geldt. Daardoor kan in dezelfde verwerkingsronde al aan de voorwaarden voor fysieke verwijdering zijn voldaan; er is geen gegarandeerde extra buffer van 7 dagen na verplaatsing |
+| Verlopen systeemberichten en opschoning wegens quota | Sommige officiële e-mails worden bij het ophalen van de lijst op basis van de vervaltermijn, standaard 7 dagen, als verwijderd gemarkeerd en vervolgens door geplande taken verwerkt; bij een verwijderingshandeling kunnen e-mails direct fysiek worden verwijderd als het gebruik op dat moment al meer dan 90% van het quotum bedraagt |
+| Opzegging of deactivering van accounts | Zelfbediening beperkt de toegang en wijzigt de gegevensstatus; er is geen bevestigd mechanisme dat alle gegevens 90 dagen na opzegging automatisch wist. De voltooiing van verwijderingsverzoeken moet afzonderlijk worden gevolgd |
+| Beveiligings-, aanmeld- en auditlogboeken en registraties van rechtenverzoeken | Alleen bewaard zolang dit voor het specifieke doel noodzakelijk is; voor items zonder algemene automatische vervaldatum moet de exploitant afzonderlijk de kortst noodzakelijke bewaartermijn en periodieke herbeoordeling vaststellen en uitvoeren |
+| Bijlagen, oorspronkelijke e-mails, back-ups en externe kopieën | Verwijdering moet voor elke opslag en reservekopie afzonderlijk worden bevestigd; verwijderen via de interface mag niet worden opgevat als gelijktijdige verwijdering van alle kopieën. De instantie moet aanvullende informatie over de concrete termijnen verstrekken |
+| Wettelijke bewaring of concrete geschillen | Alleen bij een daadwerkelijke rechtsgrondslag de benodigde gegevens bewaren, ander gebruik beperken en redenen en termijnen vastleggen; na afloop verwijderen |
+| Geplande beëindiging van de dienst | Waar redelijkerwijs haalbaar vooraf informeren en een periode bieden om gegevens terug te halen, daarna de resources beëindigen en resterende kopieën afhandelen; onverwachte onderbrekingen kunnen het terughalen beperken |
+
+Een vaste respijttermijn van 90 dagen kan de wettelijke regel dat gegevens moeten worden gewist zodra zij niet meer nodig zijn, of de termijnen voor verzoeken uit paragraaf 9, niet opzijzetten. Als back-ups alleen volgens een cyclus kunnen worden overschreven, moeten zij worden geïsoleerd en buiten gebruik worden gesteld, moet de cyclus worden meegedeeld en moet bij herstel de verwijdering opnieuw worden toegepast; verwijdering bij niet-bevestigde back-upcycli mag niet als onmiddellijk of volledig onomkeerbaar worden omschreven. Kopieën die al in bezit zijn van afzenders, ontvangers of onafhankelijke dienstverleners, kunnen doorgaans niet eenzijdig door deze dienst worden verwijderd; waar de wet kennisgeving van rectificatie, wissing of beperking aan ontvangers vereist, moet die kennisgeving wel plaatsvinden.
+
+## 9. Rechten van betrokkenen en afhandelingstermijnen
+
+Volgens het toepasselijke recht en de bijbehorende voorwaarden kunt u verzoeken om informatie, inzage en een kopie, rectificatie, wissing en beperking van de verwerking, bezwaar maken tegen verwerking op basis van gerechtvaardigde belangen, toestemming intrekken en, als aan de voorwaarden is voldaan, gegevens in een machineleesbaar formaat verkrijgen of om overdraagbaarheid verzoeken. Intrekking tast de rechtmatige verwerking vóór de intrekking niet aan; bij bezwaar tegen direct marketing moet dat gebruik worden stopgezet. Ook kunt u de toepasselijke waarborgen en menselijke tussenkomst vragen bij geautomatiseerde besluiten met aanzienlijke gevolgen.
+
+Wanneer de AVG van toepassing is, kunt u persoonsgegevens over uzelf die u hebt verstrekt en die geautomatiseerd op basis van toestemming of een overeenkomst worden verwerkt, ontvangen in een gestructureerd, gangbaar en machineleesbaar formaat en zonder belemmering aan een andere verwerkingsverantwoordelijke overdragen. Rechtstreekse overdracht kan worden gevraagd als dit technisch mogelijk is. Dit recht mag de rechten en vrijheden van anderen niet nadelig beïnvloeden en beperkt het recht op inzage of gegevenswissing niet.
+
+Zelf gegevens exporteren is één van de mogelijkheden; een exportbestand is niet hetzelfde als een volledige kopie van alle gegevens: de persoonlijke velden vormen een geselecteerde deelverzameling en bijlagebestanden, e-mails in de prullenbak, volledige routeringsvelden, oorspronkelijke MIME-gegevens, alle aliassen en beveiligings- en beheerauditlogboeken zijn niet inbegrepen. Voor niet-opgenomen gegevens die u volgens de wet kunt opvragen, kunt u contact opnemen met `privacy@epocanvas.com`. De exploitant moet ook de rechten van correspondenten en andere personen beschermen, zo nodig door informatie af te schermen in plaats van het verzoek zonder onderscheid af te wijzen.
+
+:::note[Bezwaar tegen verwerking op basis van gerechtvaardigde belangen]
+Wanneer de AVG van toepassing is, kunt u op elk moment vanwege uw specifieke situatie bezwaar maken tegen verwerking op basis van gerechtvaardigde belangen, inclusief profilering. De verwerking moet stoppen tenzij de exploitant dwingende gerechtvaardigde gronden aantoont die zwaarder wegen dan uw belangen, rechten en vrijheden, of de noodzaak voor het instellen, uitoefenen of onderbouwen van rechtsvorderingen. Bezwaar tegen direct marketing vereist geen specifieke reden en dat gebruik moet stoppen. Neem contact op via `privacy@epocanvas.com`. De exploitant moet u uiterlijk bij het eerste contact duidelijk en afzonderlijk op dit recht wijzen.
+:::
+
+Wanneer de AVG van toepassing is, moet zonder onredelijke vertraging en binnen één maand na ontvangst van het verzoek worden geantwoord. Als de complexiteit of het aantal verzoeken dit noodzakelijk maakt, kan die termijn volgens de wet met maximaal twee maanden worden verlengd, maar de verlenging en de redenen moeten binnen de eerste maand worden meegedeeld; ook wanneer geen actie wordt ondernomen, moeten de redenen en de mogelijkheden voor een klacht en beroep op de rechter worden vermeld. Als ander toepasselijk recht kortere termijnen voorschrijft, gelden die termijnen.
+
+Verzoeken zijn in beginsel kosteloos. Alleen als het toepasselijke recht dit toestaat en kan worden aangetoond dat een verzoek kennelijk ongegrond of buitensporig is, mag een redelijke vergoeding worden gevraagd of het verzoek gemotiveerd worden geweigerd. Bij redelijke twijfel aan de identiteit mag alleen noodzakelijke aanvullende verificatie worden gevraagd; een identiteitsbewijs mag niet standaard worden verlangd en het ontbreken van een registratie of de mogelijkheid om in te loggen sluit rechten niet uit.
+
+U kunt rechtstreeks een klacht indienen bij een bevoegde gegevensbeschermingsautoriteit en een beroep doen op de rechter; wanneer de AVG van toepassing is, omvat dit de autoriteit van uw gewone verblijfplaats, werkplek of de plaats van de vermeende inbreuk. U hoeft niet eerst toestemming van de exploitant te verkrijgen of de interne klachtenprocedure volledig te doorlopen. Contactgegevens van EU-autoriteiten staan in de [Ledenlijst van het EDPB](https://www.edpb.europa.eu/about-edpb/about-edpb/members_en).
+
+## 10. Beveiliging en incidentafhandeling
+
+De exploitant moet passende maatregelen nemen voor toegangscontrole, bescherming van authenticatiegegevens, versleuteling, updates en incidentafhandeling, rekening houdend met de aard van de gegevens, de risico's, de stand van de techniek en redelijke uitvoeringskosten; de aanwezigheid van beveiligingsfuncties garandeert geen afwezigheid van risico's of specifieke certificering. Het onderhoud door een particulier vereist geen ondersteuning gedurende 24 uur buiten wat dit beleid bepaalt, maar verlengt de wettelijke meldingstermijnen niet.
+
+Incidenten moeten onmiddellijk worden beoordeeld, onder controle worden gebracht en gedocumenteerd. Wanneer de AVG van toepassing is, moet de verwerkingsverantwoordelijke de bevoegde toezichthoudende autoriteit zonder onredelijke vertraging en, indien mogelijk, binnen 72 uur na kennisneming in kennis stellen, tenzij het onwaarschijnlijk is dat het incident een risico voor de rechten en vrijheden van natuurlijke personen oplevert; een te late melding moet worden toegelicht en informatie mag volgens de wet in fasen worden verstrekt. Als er waarschijnlijk een hoog risico voor betrokkenen is, moeten zij zonder onredelijke vertraging rechtstreeks worden geïnformeerd, tenzij aan een wettelijke uitzondering is voldaan; het openbaar maken van incidentdetails kan niet standaard die kennisgeving vervangen. Een verwerker moet de verwerkingsverantwoordelijke zonder onredelijke vertraging informeren. Als andere toepasselijke communicatiewetgeving andere ontvangers van meldingen, meldingsdrempels of kortere termijnen voorschrijft, gelden die bepalingen.
+
+## 11. Leeftijd en gegevens van kinderen
+
+De gehoste testdienst is bestemd voor personen van 16 jaar of ouder die wettelijk bevoegd zijn een overeenkomst te sluiten; als het recht ter plaatse een hogere leeftijd of toestemming van een wettelijke vertegenwoordiger vereist, moet daaraan worden voldaan. Deze toelatingsgrens houdt niet in dat leeftijdsverificatie heeft plaatsgevonden en vervangt niet de beoordeling van toestemming van kinderen onder de AVG en andere regels ter bescherming van kinderen en jongeren. Wanneer bekend wordt dat iemand die niet aan de toelatingsgrens voldoet zich heeft geregistreerd, moet onnodige verwerking worden beperkt en moeten verificatie, reactie en verwijdering volgens de wet plaatsvinden. Wie zelf een instantie uitrolt, moet doelgroep, leeftijd en haalbare waarborgen afzonderlijk beoordelen.
+
+## 12. Toepasselijk recht en evenredigheid
+
+De gehoste instantie wordt vanuit Taiwan geëxploiteerd en moet voldoen aan de toepasselijke wetgeving inzake persoonsgegevens en communicatie; verplichtingen moeten worden beoordeeld aan de hand van de reeds in werking getreden bepalingen en de aantekeningen over inwerkingtreding in de officiële databank. De bekendmaking van een wetswijziging betekent niet dat die al in werking is getreden.
+
+De plaats van exploitatie is niet het enige criterium. De AVG kan ook van toepassing zijn op verwerking in het kader van de activiteiten van een vestiging in de EU, of wanneer vanuit een land buiten de EU diensten worden aangeboden aan personen die zich in de EU bevinden of hun gedrag binnen de EU wordt gevolgd en aan de wettelijke voorwaarden is voldaan; het enkele feit dat een website vanuit de EU bereikbaar is, betekent niet automatisch dat daar diensten worden aangeboden. Gratis gebruik, een maatschappelijk doel, een individuele auteur of een «testfase» sluiten de toepasselijkheid niet automatisch uit; een voor anderen opengestelde mailboxdienst kan zich evenmin zonder meer beroepen op de uitzondering voor zuiver persoonlijke of huishoudelijke activiteiten.
+
+De vereisten voor een EU-vertegenwoordiger, functionaris voor gegevensbescherming, effectbeoordeling en verwerkingsregister hangen elk af van hun wettelijke voorwaarden. Een klein project is niet automatisch overal van vrijgesteld, en bereikbaarheid vanuit de EU betekent evenmin dat benoemingen altijd verplicht zijn. Een doorlopend geëxploiteerde mailboxdienst is doorgaans geen incidentele verwerking; de betreffende uitzonderingen moeten zorgvuldig worden beoordeeld. Maatregelen kunnen worden afgestemd op omvang en risico; uitsluitend voor het publiceren van broncode hoeft geen ISO-certificering te worden verkregen of dienstverlening op bedrijfsniveau te worden toegezegd.
+
+## 13. Updates en nieuwe doeleinden
+
+Over wezenlijke wijzigingen moet vóór de nieuwe verwerking begint op passende wijze duidelijke informatie worden verstrekt, met vermelding van de wijzigingen en de toepasselijke regelingen; voor nieuwe doeleinden of ontvangers waarvoor toestemming nodig is, moet vooraf geldige toestemming worden verkregen en mag een weigering niet als toestemming worden uitgelegd. Voordat bestaande gegevens voor nieuwe doeleinden worden gebruikt, moeten de verenigbaarheid en rechtsgrondslag worden beoordeeld. Voortgezet gebruik vormt geen nieuwe privacytoestemming en de bijwerkdatum betekent evenmin dat alle instanties de wijzigingen al hebben doorgevoerd.
 
 ## 14. Contactpunten
 
-- **Privacykwesties, uitoefening van rechten en klachten**: `privacy@epocanvas.com`
-- **Contact binnen het product**: intern bericht of `admin@epocanvas.com`
-- **Zelfgehoste sites**: neem contact op met de Exploitant van de betreffende site
+- Privacy, uitoefening van rechten en klachten: `privacy@epocanvas.com`.
+- Account- en dienstvragen: `admin@epocanvas.com` of contact binnen de site.
+- Zelfgehoste instanties: het door de site gepubliceerde contactpunt van de feitelijke exploitant.
 
----
-
-*Dit document is een nalevingsdocument opgesteld door het exploitatieteam van EpoCanvas Mail; het vormt geen juridisch advies. Het toepasselijke recht van elke instantie wordt bepaald door de vestigingsplaats van de Exploitant.*
+Plaats geen volledige e-mails, identiteitsdocumenten, API-sleutels of inloggegevens in openbare issues. De stand van de bekendmaking van de identiteit van de exploitant en de wettelijk vereiste adressen staat in paragraaf 2; gegevensstromen en punten die nog voor de implementatie moeten worden bevestigd, staan in de [Lijst van verwerkers](/nl/mail/sub-processors/) en [Gegevensverwerking en beveiliging](/nl/mail/data-security/).

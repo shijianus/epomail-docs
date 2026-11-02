@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Ciclo de vida contractual de los Términos del Servicio: consentimiento, cumplimiento, revisión, fin — según el lugar del operador">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Contrato: aceptación expresa, uso, cambios y salida; prevalecen las normas imperativas, protecciones locales y vías legales.">
   <style>
     .bg { fill: #f8fafc; }
     .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -38,44 +38,44 @@
     </marker>
   </defs>
   <rect class="bg" width="1000" height="400" rx="16"/>
-  <text class="tag" x="60" y="46">CICLO CONTRACTUAL — TÉRMINOS DEL SERVICIO</text>
+  <text class="tag" x="60" y="46">SERVICE AGREEMENT</text>
   <rect class="chip" x="672" y="24" width="268" height="40" rx="10"/>
-  <text class="bb" x="688" y="42">Consentimiento electrónico</text>
-  <text class="b" x="688" y="57">misma fuerza que una firma escrita</text>
+  <text class="bb" x="688" y="42">Explicit acceptance</text>
+  <text class="b" x="688" y="57">Separate privacy choices</text>
   <rect class="s1" x="60" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="78" y="112">1 · Consentimiento</text>
-  <text class="b" x="78" y="132">registrarse, iniciar sesión</text>
-  <text class="b" x="78" y="148">o usar le vincula</text>
-  <text class="b" x="78" y="164">texto íntegro publicado</text>
+  <text class="t" x="78" y="112">1 · Accept</text>
+  <text class="b" x="78" y="132">Review &amp; save terms</text>
+  <text class="b" x="78" y="148">Affirmative action</text>
+  <text class="b" x="78" y="164">Consent where required</text>
   <rect class="s2" x="300" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="318" y="112">2 · Cumplimiento</text>
-  <text class="b" x="318" y="132">deberes de cuenta</text>
-  <text class="b" x="318" y="148">y seguridad ; su contenido</text>
-  <text class="b" x="318" y="164">es suyo ; límites §3/§5/§10</text>
+  <text class="t" x="318" y="112">2 · Use</text>
+  <text class="b" x="318" y="132">Account &amp; security duties</text>
+  <text class="b" x="318" y="148">Content rights remain</text>
+  <text class="b" x="318" y="164">Mandatory rights apply</text>
   <rect class="s3" x="540" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="558" y="112">3 · Revisión</text>
-  <text class="b" x="558" y="132">cambios importantes</text>
-  <text class="b" x="558" y="148">avisados antes de regir (§12)</text>
-  <text class="b" x="558" y="164">historial en el repositorio</text>
+  <text class="t" x="558" y="112">3 · Changes</text>
+  <text class="b" x="558" y="132">Notice of material changes</text>
+  <text class="b" x="558" y="148">New acceptance if required</text>
+  <text class="b" x="558" y="164">Opportunity to exit</text>
   <rect class="s4" x="780" y="86" width="160" height="96" rx="10"/>
-  <text class="t" x="798" y="112">4 · Fin</text>
-  <text class="b" x="798" y="132">baja de autoservicio</text>
-  <text class="b" x="798" y="148">exportar y luego eliminar</text>
-  <text class="b" x="798" y="164">(§8)</text>
+  <text class="t" x="798" y="112">4 · Exit</text>
+  <text class="b" x="798" y="132">Export available data</text>
+  <text class="b" x="798" y="148">Request deletion</text>
+  <text class="b" x="798" y="164">Retention limits</text>
   <path class="arrow" d="M260,134 L296,134"/>
   <path class="arrow" d="M500,134 L536,134"/>
   <path class="arrow" d="M740,134 L776,134"/>
   <rect class="band" x="60" y="216" width="880" height="64" rx="10"/>
-  <text class="bt" x="84" y="242">Derecho aplicable — lugar del operador (§11) :</text>
-  <text class="bb" x="84" y="262">instancia alojada mail.epocanvas.com : derecho taiwanés, tribunal de Taipéi · autoalojadas : el de su desplegador</text>
-  <text class="tag" x="60" y="322">TAMBIÉN PARTE DEL ACUERDO</text>
+  <text class="bt" x="84" y="242">Choice of law is subject to mandatory protections</text>
+  <text class="bb" x="84" y="262">Hosted: Taiwan law · mandatory local protections, competent courts &amp; data-protection authorities remain available.</text>
+  <text class="tag" x="60" y="322">RELATED DOCUMENTS</text>
   <rect class="step" x="60" y="334" width="272" height="44" rx="10"/>
-  <text class="t" x="78" y="352">Política de Privacidad</text>
-  <text class="b" x="78" y="368">avisos y derechos de datos</text>
+  <text class="t" x="78" y="352">Privacy Policy</text>
+  <text class="b" x="78" y="368">Notice · lawful bases · rights</text>
   <rect class="step" x="352" y="334" width="272" height="44" rx="10"/>
-  <text class="t" x="370" y="352">Política de Uso Aceptable</text>
-  <text class="b" x="370" y="368">límites de conducta y ejecución</text>
+  <text class="t" x="370" y="352">Acceptable Use</text>
+  <text class="b" x="370" y="368">Proportionate action &amp; appeal</text>
   <rect class="step" x="644" y="334" width="296" height="44" rx="10"/>
-  <text class="t" x="662" y="352">Orden de prelación</text>
-  <text class="b" x="662" y="368">prevalece el documento propio · vista general</text>
+  <text class="t" x="662" y="352">Document scope</text>
+  <text class="b" x="662" y="368">Subject-specific rules · mandatory rights first</text>
 </svg>

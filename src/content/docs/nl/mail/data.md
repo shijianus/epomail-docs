@@ -1,9 +1,9 @@
 ---
 title: Gegevensexport en opslag
-description: Gegevensexport en opslag van EpoCanvas Mail — de drie exporten (volledige back-up, e-mailarchief, contacten en configuratie) en het koppelen van persoonlijke objectopslag.
+description: Gegevensexport en opslag van EpoCanvas Mail — werkelijke velden en beperkingen van drie exporten en het koppelen van persoonlijke opslag.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Deze pagina behandelt de twee delen van de pagina «Instellingen → Gegevens»: export en opslag. De meldingen en het doorsturen op dezelfde pagina staan in de [Gids voor meldingen en doorsturen](/nl/mail/notify/); de juridische status van geëxporteerde gegevens staat in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
@@ -16,10 +16,10 @@ Deze pagina behandelt de twee delen van de pagina «Instellingen → Gegevens»:
 
 De vier kaarten van de pagina Gegevens: drie exportformaten, een doorstuurgebied, een opslaggebied en een gebied voor autorisaties van derden — persoonlijke data-autonomie op één scherm.
 
-1. **Kaart gebruikersgegevens en data-export**: Drie exporten naast elkaar: de volledige back-up in JSON, het archief van de e-mailgeschiedenis (MBOX/JSON/CSV met periode) en contacten en configuratie; een los bericht is daarnaast in het leesvenster als .eml te downloaden.
+1. **Exportkaart**: JSON-gegevens, mailarchieven (MBOX/JSON/CSV) en profiel- en labelexport gebruiken hetzelfde serverantwoord. De gekozen periode wordt niet toegepast; ook .eml-bestanden worden uit bestaande velden opgebouwd.
 2. **Kaart E-mail en berichten doorsturen**: De instellingen van Telegram-push en automatisch doorsturen, punt voor punt; of een account ze mag gebruiken, bepaalt de schakelaar «Gebruikersgegevensbeheer» van de beheerder.
-3. **Kaart opslagruimte**: De verbruiksmeter voor bijlagen naast de quota, realtime. Je kunt je eigen Backblaze B2-/S3-bucket koppelen: nieuwe bijlagen gaan dan rechtstreeks naar je eigen cloud, buiten de quota van de instantie, en bij ontkoppelen valt het terug.
-4. **Kaart apps en diensten van derden**: Alle OAuth-autorisaties op het account: per app de toegang intrekken, of met één klik alles via het detailvenster. Intrekking werkt onmiddellijk — de bestaande tokens van de app vervallen ter plekke.
+3. **Opslagkaart**: toont gemeten mail- en bijlagegebruik en het effectieve quotum. Eigen Backblaze B2/S3 ontvangt nieuwe bijlagen en omzeilt quotumcontroles in hun opslagpad; andere mailbeperkingen blijven gelden. Ontkoppelen migreert oude objecten niet.
+4. **Apps van derden**: toont OAuth-autorisaties en intrekking. De server verwijdert de autorisatie en registreert intrekking, die userinfo controleert om toegang te weigeren. Dit garandeert niet dat externe sessies en alle tokens tegelijk vervallen of dat al verkregen gegevens worden teruggehaald.
 
 </details>
 
@@ -27,17 +27,17 @@ De vier kaarten van de pagina Gegevens: drie exportformaten, een doorstuurgebied
 
 | Export | Formaat | Bereik |
 | --- | --- | --- |
-| Volledige data-export | JSON | Volledige back-up: accountgegevens, e-mailgeschiedenis, contacten, classificatie- en labelregels en beveiligingsinstellingen |
-| Archief van de e-mailgeschiedenis | MBOX (universeel), JSON of CSV | Alleen verzonden en ontvangen e-mail, met optionele periode |
-| Contacten en configuratie | JSON | Contactenlijst, eigen aliasregels en personalisatievoorkeuren |
+| Volledige data-export | JSON | Geselecteerde account- en profielvelden, velden van `is_del=0`-mail en `customLabels`; zonder bijlagebestanden, oorspronkelijke MIME, volledige contacten/aliassen, beveiligingsinstellingen of auditrecords |
+| Archief van de e-mailgeschiedenis | MBOX, JSON of CSV | De browser converteert velden uit hetzelfde antwoord; de server negeert `type/format/range`, filtert niet op de gekozen periode en sluit prullenbakmail uit |
+| Contacten en configuratie | JSON | Alleen de teruggegeven profile-deelverzameling, customLabels en exporttijd; geen volledige back-up van contacten, aliasregels of voorkeuren |
 
-Een los bericht kan in het leesvenster rechtstreeks als .eml worden gedownload. Mail in de prullenbak wordt na 7 dagen fysiek gewist en is niet herstelbaar; wie iets wil bewaren, exporteert het eerst (zie sectie 8 van de [Servicevoorwaarden](/nl/mail/terms-of-service/)).
+Losse .eml-bestanden en MBOX-archieven worden uit bestaande velden opgebouwd, zonder volledige oorspronkelijke MIME of bijlagebestanden. Prullenbakopschoning gebruikt een aanmaaktijd ouder dan 7 dagen, zonder 7 extra dagen na verplaatsen te garanderen. Bewaar bijlagen apart vóór verwijderen en controleer de export; zie het [Privacybeleid](/nl/mail/privacy-policy/).
 
 ## 2. Opslagruimte
 
 - De verbruiksmeter voor bijlagen toont in realtime verbruik en quota; de quota volgt de identiteitsgroep (de fabrieksstandaardwaarden staan in sectie 3 van [Werkingsmodi](/nl/mail/modes/));
-- Er kan een persoonlijke objectopslag worden gekoppeld (een eigen Backblaze B2- of S3-bucket): na koppeling worden nieuwe bijlagen rechtstreeks in uw eigen cloud bewaard en tellen ze niet meer mee voor de quota van de instantie; het platform beveelt B2 aan vanwege het gratis quotum en de kosten van nul voor uitgaand verkeer;
-- De koppeling kan op elk moment worden opgeheven; daarna belanden nieuwe bijlagen weer in de opslag van de instantie.
+- Een eigen Backblaze B2/S3-bucket ontvangt nieuwe bijlagen volgens uw instellingen. Bijlageopslag omzeilt systeemquota, maar meting en andere mailbeperkingen blijven gelden. Kosten en externe bewaartermijnen vereisen aparte bevestiging; zie de [Verwerkerslijst](/nl/mail/sub-processors/);
+- Ontkoppelen herstelt de opslagkeuze via systeeminstellingen; oude objecten worden niet gemigreerd of verwijderd en blijven niet gegarandeerd leesbaar. Zie verwijderbeperkingen in [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
 <details>
 <summary>Visuele handleiding: de export en de opslag in stappen</summary>
@@ -45,9 +45,9 @@ Een los bericht kan in het leesvenster rechtstreeks als .eml worden gedownload. 
 ![De export en de opslag in stappen](/images/mail/nl/ui/data.png)
 
 1. Ga naar «Instellingen → Gegevens».
-2. «Volledige data-export» downloadt in één pakket een volledige JSON-back-up (accountgegevens, e-mailgeschiedenis, contacten, classificatie- en labelregels en beveiligingsinstellingen).
-3. «Archief van de e-mailgeschiedenis» downloadt u na keuze van het formaat MBOX／JSON／CSV en een periode.
-4. «Contacten en configuratie» exporteert de contactenlijst en de personalisatievoorkeuren.
+2. «Volledige data-export» downloadt geselecteerde profielvelden, niet-verwijderde mailvelden en customLabels als JSON; regel bijlagen, volledige contacten en beveiligingsinstellingen apart.
+3. «Archief van de e-mailgeschiedenis»: kies MBOX/JSON/CSV en download; de browser converteert het formaat, de server past de periode niet toe.
+4. «Contacten en configuratie» exporteert de teruggegeven profile-deelverzameling en customLabels; controleer of de benodigde contacten en voorkeuren aanwezig zijn.
 5. De opslagkaart toont het bijlagenverbruik; klik op «persoonlijke objectopslag koppelen» om een eigen Backblaze B2- of S3-bucket te binden — nieuwe bijlagen gaan daarna rechtstreeks naar uw eigen cloud.
 
 </details>

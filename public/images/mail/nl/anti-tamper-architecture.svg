@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="Keten van officiële mail: afzendervergrendeling en officiële vlag bij uitgifte, onveranderlijke momentopname en vooraf ingestelde vertaalreserve bij aflevering, client-sandbox en integriteitsmanifest voor verificatie">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" role="img" aria-label="Systeemlabels, vertaling en recordcontroles: labels zijn geen handtekeningen, vertaling kan AI gebruiken en controle van metadata en hashrecords verifieert niet de volledige getoonde inhoud.">
   <style>
     .bg { fill: #f8fafc; }
     .band { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -36,42 +36,42 @@
   </defs>
   <rect class="bg" width="1000" height="480" rx="16"/>
   <rect class="band" x="40" y="35" width="920" height="110" rx="14"/>
-  <text class="lbl-blue" x="60" y="58">LAAG 1 · OFFICIËLE AFZENDERIDENTITEIT (UITGIFTE)</text>
+  <text class="lbl-blue" x="60" y="58">TIER 1 · SYSTEM MAIL LABELS</text>
   <rect class="box-blue" x="60" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="78" y="93" font-size="13">Vergrendeling officiële afzender</text>
+  <text class="t" x="78" y="93" font-size="13">Configured sender</text>
   <text class="mono" x="78" y="112">announcement@epocanvas.com</text>
   <rect class="box" x="355" y="70" width="270" height="60" rx="10"/>
-  <text class="t" x="373" y="93" font-size="13">Officiële vlag (isOfficial)</text>
-  <text class="b" x="373" y="112">officiële adressen en het label «officieel»</text>
+  <text class="t" x="373" y="93" font-size="13">Official flag</text>
+  <text class="b" x="373" y="112">UI marker · not a signature</text>
   <rect class="box-green" x="650" y="70" width="290" height="60" rx="10"/>
-  <text class="t" x="668" y="93" font-size="13">Insigne en banner in de lezer</text>
-  <text class="b" x="668" y="112">officiële mail gemarkeerd in de client</text>
+  <text class="t" x="668" y="93" font-size="13">Reader badge</text>
+  <text class="b" x="668" y="112">Display label · check the context</text>
   <path class="arrow" d="M195,145 L195,185"/>
   <path class="arrow" d="M490,145 L490,185"/>
   <path class="arrow" d="M795,145 L795,185"/>
   <rect class="band" x="40" y="190" width="920" height="115" rx="14"/>
-  <text class="lbl-amber" x="60" y="213">LAAG 2 · ONVERANDERLIJKE AFLEVERING (OPSLAG)</text>
+  <text class="lbl-amber" x="60" y="213">TIER 2 · DELIVERY &amp; TRANSLATION</text>
   <rect class="box" x="60" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="78" y="249" font-size="13">Onveranderlijke momentopname</text>
-  <text class="b" x="78" y="268">eenmaal gerenderd bij verzending</text>
+  <text class="t" x="78" y="249" font-size="13">Rendered content</text>
+  <text class="b" x="78" y="268">Stored output · scope depends on path</text>
   <rect class="box-amber" x="355" y="225" width="270" height="64" rx="10"/>
-  <text class="t" x="373" y="249" font-size="13">Vooraf ingestelde vertaalreserve</text>
-  <text class="b" x="373" y="268">ongewijzigd: lokaal ; gewijzigd: AI</text>
+  <text class="t" x="373" y="249" font-size="13">Translation routes</text>
+  <text class="b" x="373" y="268">Templates or AI by content &amp; settings</text>
   <rect class="box" x="650" y="225" width="290" height="64" rx="10"/>
-  <text class="t" x="668" y="249" font-size="13">Levenscyclus en versleuteling</text>
-  <text class="b" x="668" y="268">vervalt na ingestelde dagen (standaard 7)</text>
+  <text class="t" x="668" y="249" font-size="13">Retention &amp; cleanup</text>
+  <text class="b" x="668" y="268">Expiry marks · scheduled cleanup</text>
   <path class="arrow" d="M195,305 L195,345"/>
   <path class="arrow" d="M490,305 L490,345"/>
   <path class="arrow" d="M795,305 L795,345"/>
   <rect class="band" x="40" y="350" width="920" height="105" rx="14"/>
-  <text class="lbl-green" x="60" y="373">LAAG 3 · CLIENT-SANDBOX EN INTEGRITEIT (VERIFICATIE)</text>
+  <text class="lbl-green" x="60" y="373">TIER 3 · RENDERING &amp; RECORD CHECKS</text>
   <rect class="box-green" x="60" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="78" y="405" font-size="13">Shadow DOM-isolatie</text>
-  <text class="b" x="78" y="423">paginastijlen en -scripts zonder effect</text>
+  <text class="t" x="78" y="405" font-size="13">Shadow DOM</text>
+  <text class="b" x="78" y="423">Style scope · no security guarantee</text>
   <rect class="box" x="355" y="383" width="270" height="58" rx="10"/>
-  <text class="t" x="373" y="405" font-size="13">DOMPurify-whitelist</text>
-  <text class="b" x="373" y="423">script · iframe · embed · form verwijderd</text>
+  <text class="t" x="373" y="405" font-size="13">DOMPurify</text>
+  <text class="b" x="373" y="423">Sanitize HTML · review allowed content</text>
   <rect class="box-blue" x="650" y="383" width="290" height="58" rx="10"/>
-  <text class="t" x="668" y="405" font-size="13">Integriteitsmanifest</text>
-  <text class="b" x="668" y="423">tamper-proof.json · SHA-256 · git-commitanker</text>
+  <text class="t" x="668" y="405" font-size="13">Metadata &amp; hash records</text>
+  <text class="b" x="668" y="423">Record check · not a content signature</text>
 </svg>

@@ -1,81 +1,93 @@
 ---
 title: Dienstomvang en ondersteuning
-description: Dienstomvang en ondersteuning van EpoCanvas Mail — wat de gehoste instantie biedt, waar die dienst eindigt, de officiële links, de ondersteuningskanalen en de beroeps- en herstelroutes.
+description: Functies, grenzen, ondersteuning, bezwaar en gegevensopvraging bij een persoonlijke testdienst zonder winstoogmerk.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
-Deze pagina beschrijft wat de gehoste instantie ([mail.epocanvas.com](https://mail.epocanvas.com)) biedt, waar die dienst eindigt, en de ondersteuningskanalen. Zelf gehoste instanties vallen buiten de «dienst» die hier beschreven wordt: de software wordt onder de MIT-licentie verstrekt en het upstreamproject draagt geen enkele verantwoordelijkheid voor de exploitatie van enige instantie — de juridische positie staat in [Open source en zelfhosting: juridisch kader](/nl/mail/open-source/); de verdeling van de rol van gegevensbeheerder tussen de beide vormen staat in het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/), sectie 2.
 
-![Juridische architectuur van EpoCanvas Mail: de Servicevoorwaarden en het Privacybeleid rusten op het toepasselijke recht en de veiligheidsverplichtingen](/images/mail/nl/legal-architecture.svg)
+<!-- legal-review-draft -->
+:::caution[Juridisch beoordelingsconcept: niet de geldende kennisgeving]
+Dit concept bevat voorgestelde voorwaarden en nog te verifiëren punten. Het vervangt de huidige kennisgeving niet en certificeert geen naleving. Het mag niet worden gebruikt om verwerking te activeren voordat de identiteit en wettelijk vereiste contactgegevens van de exploitant, de werkelijke rechtsgronden, ontvangers en doorgiftewaarborgen, bewaartermijnen en verwijdering zijn geverifieerd en de vereiste informatie is verstrekt. De gezaghebbende versie is de Traditioneel-Chinese tekstbasis, niet een inwerkingtreding. Bestaande wettelijke plichten en gebruikersrechten blijven onaangetast.
+:::
 
-*Figuur: de architectuur van de afspraken in deze dienst. Deze pagina beschrijft de dienst zelf; het contract en de normen voor informatieverstrekking worden gedragen door de juridische documenten daarboven.*
+Deze pagina beschrijft dienst en ondersteuning van [mail.epocanvas.com](https://mail.epocanvas.com), een persoonlijk onderhouden nevenproject zonder winstoogmerk voor leren en testen. Zelfhostingvoorwaarden komen van de werkelijke exploitant; rollen en plichten staan in [Open source en zelfhosting](/nl/mail/open-source/) en het [Overzicht](/nl/mail/overview/). Lees de voorwaarden vóór registratie; maak geen account als u ze niet aanvaardt.
+
+De versie in traditioneel Chinees (Taiwan) is de officiële versie; andere talen zijn vertalingen ter vergelijking. Dit beperkt geen wettelijk vereiste duidelijke informatie, uitleg ten gunste van consumenten of rechten waarvan geen afstand kan worden gedaan. De bijwerkdatum vermeldt een herziening, geen automatische inwerkingtreding van nieuwe voorwaarden.
+
+![Verband tussen dienstomvang en juridische documenten](/images/mail/nl/legal-architecture.svg)
+
+*Figuur: deze pagina beschrijft functies en ondersteuning; contract- en privacydocumenten geven de voorwaarden. Dwingend recht en onaantastbare rechten gaan voor.*
 
 ## 1. Wat de dienst biedt
 
 | Onderdeel | Beschrijving |
 | --- | --- |
-| Accounts en registratie | Accounts verkregen via registratiecodes of open registratie, naar gelang de configuratie; zes identiteitsgroepen bepalen quota's en rechten |
-| Verzenden en ontvangen | Inkomend via Cloudflare Email Routing, geparseerd bij aankomst; directe aflevering binnen de instantie; naar buiten de instantie via het afleverkanaal van de exploitant |
-| Opslag | Opslagquota per identiteitsgroep; persoonlijke objectopslag kan worden gekoppeld zodat bijlagen er rechtstreeks in belanden |
-| Organisatie en automatisering | Mailbox met acht weergaven, labels en de classificatieregelengine, geavanceerd zoeken, extractie van verificatiecodes |
-| AI-mogelijkheden | Volledige vertaling en tekstherkenning in afbeeldingen (naar gelang de configuratie van de AI-engine en de modelautorisatie van de instantie) |
-| Meldingen en doorsturen | Telegram-push en doorsturen via regels (naar gelang de schakelaars voor gebruikersgegevensbeheer van de beheerder) |
-| Clients | Web (te installeren als PWA) en de Android-app (epomail) |
-| Talen | Zes interfacetalen; systeemmail en welkomstmail afgeleverd in de taal van de ontvanger |
+| Accounts en registratie | Afhankelijk van openstelling en quota, voor personen vanaf 16 jaar met de vereiste contractuele bekwaamheid |
+| Verzenden en ontvangen | Geconfigureerde inkomende routes, interne bezorging en externe kanalen; ontvangst hangt ook van de ontvangende dienst af |
+| Opslag | Quota per account; gekoppelde persoonlijke objectopslag ontvangt relevante gegevens volgens configuratie |
+| Organisatie en automatisering | Mailweergaven, labels, regels, zoeken en configureerbare extractie van verificatiecodes |
+| AI-mogelijkheden | Gegevensbereik en activering van vertaling, tekstherkenning en andere ingeschakelde functies staan in het Privacybeleid |
+| Meldingen en doorsturen | Configureerbare Telegram- en maildoorgifte omvat externe ontvangers en betrokken gegevensoverdracht |
+| Clients | Web, installeerbare PWA en Android-app volgens gepubliceerde versies |
+| Talen | Zes interfacetalen en gelokaliseerde meldingen, met dekking volgens versie |
 
-Details op functieniveau staan in de [Functiegids](/nl/mail/features/); een rondleiding langs elke interface en route staat in de [Interface en routekaart](/nl/mail/interface/).
+Gebruik staat in de [Functiegids](/nl/mail/features/) en [Interface en routekaart](/nl/mail/interface/); lees gegevensverwerking samen met het [Privacybeleid](/nl/mail/privacy-policy/).
 
 ## 2. Grenzen van de dienst
 
 | Onderwerp | Grens |
 | --- | --- |
-| Beschikbaarheid | Er wordt geen service-level agreement aangeboden; de beschikbaarheid rust op het Cloudflare-platform |
-| Bewaring | De prullenbak wordt zeven dagen na ontvangst fysiek gewist; spam blijft zeven dagen in quarantaine en gaat daarna naar de prullenbak |
-| Quota's | Verzending, mailboxen en opslag volgen de fabriekswaarden van de identiteitsgroep, instelbaar door de meester op de permissionspagina |
-| Kosten | De gehoste instantie biedt momenteel geen betaalfuncties |
-| Functiewijziging | Functies ontwikkelen mee met releases; belangrijke wijzigingen worden aangekondigd in de melding binnen de site en per aankondigingsmail |
-| Bijlagelimiet | De limiet per bijlage volgt de instelling van de instantie en bindt alleen gebruikers van de gedeelde opslag van de exploitant |
+| Beschikbaarheid | Geen SLA, vast beschikbaarheidspercentage, bezorgtermijn of permanente bezetting; verantwoordelijkheid voor upstreamuitval blijft afhankelijk van feiten en wet |
+| Bewaring | Prullenbak, taken, back-ups en wettelijke bewaring hebben verschillende reikwijdten; verwijderen wist niet meteen alle kopieën. Zie privacy- en beveiligingsdocumenten |
+| Quota | Verzenden, aantal mailboxen en opslag volgens gepubliceerde instellingen en redelijke wijzigingsprocedures |
+| Kosten | De gehoste instantie is momenteel gratis; geen winstoogmerk sluit gegevens- en consumentenplichten niet uit |
+| Functiewijzigingen | Geen garantie op blijvende hosting of functies; belangrijke nadelige wijzigingen en voorzienbare sluiting vragen waar redelijkerwijs mogelijk vooraf bericht en redelijke tijd om gegevens op te halen |
+| Bijlagelimieten | Grenzen van instantie, opslag en bezorgaanbieder gelden; BYOS neemt overige technische of wettelijke grenzen niet weg |
 
-De volledige semantiek van bewaring staat in [Gegevensverwerking en beveiliging](/nl/mail/data-security/); de gedragsgrenzen in het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/).
+De dienst is ongeschikt voor noodcommunicatie, wettelijke bewaring, medische beslissingen, een enige accountherstelmailbox of de enige belangrijke back-up. Certificering wordt niet beloofd. Bewaar-, export- en versleutelingsgrenzen staan in het [Privacybeleid](/nl/mail/privacy-policy/) en [Gegevensverwerking en beveiliging](/nl/mail/data-security/), gedragsregels in het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/).
 
 ## 3. Officiële links in de app
 
-De standaarddoelen van de officiële links in de hele app staan hieronder opgesomd; een exploitant van een instantie kan ze in de systeeminstellingen overschrijven:
+De standaardlinks hieronder kunnen door de exploitant worden veranderd. Een link naar deze site bewijst geen officieel beheer of certificering van de uitrol.
 
 | Link | Standaarddoel | Waar |
 | --- | --- | --- |
-| Projectintroductie | De pagina Projectoverzicht van deze site | Voettekst van het accountmenu |
-| Privacybeleid／Servicevoorwaarden | De bijbehorende juridische documenten op deze site | Voettekst van het accountmenu |
-| Documentatie | Deze site (binnengekomen via taalonderhandeling met de browser) | Systeeminstellingen, kaart «Over» |
-| Ondersteuning | De pagina Dienstomvang en ondersteuning van deze site | Systeeminstellingen, kaart «Over» |
-| Releases | GitHub Releases | Systeeminstellingen, kaart «Over» |
-| Telegram | `t.me/epomail` | Systeeminstellingen, kaart «Over» |
+| Projectintroductie | Projectoverzicht op deze site | Voettekst accountmenu |
+| Privacybeleid / Servicevoorwaarden | Overeenkomstige juridische documenten | Voettekst accountmenu |
+| Documentatie | Pagina's in de betreffende taal | Systeeminstellingen, kaart Over |
+| Ondersteuning | Pagina Dienstomvang en ondersteuning | Systeeminstellingen, kaart Over |
+| Releases | GitHub Releases | Systeeminstellingen, kaart Over |
+| Telegram | `t.me/epomail` | Systeeminstellingen, kaart Over |
 
 ## 4. Ondersteuningskanalen
 
 | Kanaal | Voor |
 | --- | --- |
-| Contact binnen het product | Bericht binnen de site of `admin@epocanvas.com` |
-| Privacy en gegevensbescherming | `privacy@epocanvas.com` (uitoefenen van de rechten van betrokkenen, beroepen inzake gegevensbescherming) |
-| GitHub Issues | Bugrapporten en functievoorstellen (`github.com/shijianus/epomail`) |
-| Telegram | Gemeenschapschat op `t.me/epomail` |
+| Contact binnen het product | Interne berichten of `admin@epocanvas.com` voor algemene ondersteuning en bezwaar |
+| Privacy en gegevensbescherming | `privacy@epocanvas.com` voor rechtenverzoeken en gegevensklachten |
+| GitHub Issues | Bugs en voorstellen in de [bronrepository](https://github.com/shijianus/epomail/issues) |
+| Telegram | Gemeenschap op `t.me/epomail`, zonder privégegevens of inloggegevens |
+
+Algemene ondersteuning is asynchroon, zonder beloofde antwoord- of hersteltermijn. Waar de AVG geldt, moeten gegevensbeschermingsverzoeken zonder onredelijke vertraging en binnen één maand na ontvangst worden beantwoord. Bij wettelijke voorwaarden rond complexiteit of aantallen mag dit met maximaal twee maanden worden verlengd, met redenen binnen de eerste maand. Kortere termijnen uit ander toepasselijk recht gaan voor. Zie het Privacybeleid; gewone ondersteuningsplanning kan wettelijke termijnen niet uitstellen.
 
 ## 5. Beroep en herstel
 
-- Wachtwoord vergeten: het dialoog «wachtwoord vergeten» op de aanmeldpagina springt naar het beroepsportaal (met het beroeptype, de interfacetaal en het e-mailadres mee); de toegang wordt na verificatie hersteld;
-- Beroep tegen blokkades en waarschuwingen: een beroep tegen een afhandelingsbeslissing komt als beroepswaarschuwingsticket in het auditrapport terecht, dat een beheerder arbitreert door vrij te geven of te verwerpen; de handhavingsladder staat in het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/), sectie 6;
-- Gegevens in eigen beheer: de volledige JSON-export, archieven van de e-mailgeschiedenis en .eml-downloads van losse berichten zijn op elk moment beschikbaar onder «Instellingen → Gegevens», zie de [Instellingengids](/nl/mail/settings/), sectie 5.
+- Lukt inloggen niet, gebruik dan herstel of bezwaar op de aanmeldpagina of `admin@epocanvas.com`. Alleen evenredige verificatie wordt gevraagd; herstel hangt af van werkelijke verificatie en technische haalbaarheid.
+- Tegen waarschuwingen, opschorting en beëindiging kan bezwaar worden gemaakt. Spoedisolatie neemt latere beoordeling of externe rechtsmiddelen niet weg; zie paragrafen 6 en 7 van het [Beleid voor acceptabel gebruik](/nl/mail/acceptable-use/).
+- Gebruik de momenteel beschikbare export en downloads van afzonderlijke berichten. Zelfbediening omvat niet noodzakelijk alle persoonsgegevens, bijlagen of externe kopieën. Vraag extra inzage, overdraagbaarheid of verwijdering volgens het [Privacybeleid](/nl/mail/privacy-policy/) en [Gegevensverwerking en beveiliging](/nl/mail/data-security/).
 
-## 6. Ondersteuningsgrens voor zelf gehoste instanties
+## 6. Ondersteuningsgrens voor zelfgehoste instanties
 
-Het upstream open-sourceproject biedt geen dienst, ondersteuning of beschikbaarheidsverbintenis voor enige uitrol van zijn code; de uitroller draagt de ondersteunings-, informatie- en nalevingsplichten jegens de eigen gebruikers. De documenten op deze site (de juridische set daaronder begrepen) kunnen dienen als basis voor de gebruikersgerichte materialen van een uitroller, en wie ze overneemt wordt ervoor verantwoordelijk.
+Broncodepublicatie alleen schept geen hosting-, ondersteunings- of beschikbaarheidsbelofte voor elke uitrol. Werkelijke exploitanten moeten informatie en rechtsmiddelen bieden volgens hun dienstrelatie en toepasselijk recht; auteurs die ook exploiteren dragen dezelfde bijbehorende plichten.
+
+Deze documenten zijn een schrijfvoorbeeld, geen vervanging voor beoordeling van werkelijke rollen, configuratie en recht, en geen certificering. Organisatieverwerking vereist voorafgaande aanvaarding en zo nodig een afzonderlijke verwerkersovereenkomst.
 
 ## 7. Verwante documenten
 
 | Bron | Link |
 | --- | --- |
-| Het contract en de beperking van aansprakelijkheid voor de dienst | [Servicevoorwaarden](/nl/mail/terms-of-service/) |
-| Privacyinformatie en rechten van betrokkenen | [Privacybeleid](/nl/mail/privacy-policy/) |
-| De open-sourcelicentie en het recht rond zelfhosting | [Open source en zelfhosting: juridisch kader](/nl/mail/open-source/) |
-| Volledige stappen om een eigen instantie uit te rollen | [Uitrolgids](/nl/mail/deployment/) |
+| Contractvoorwaarden en aansprakelijkheidsgrenzen | [Servicevoorwaarden](/nl/mail/terms-of-service/) |
+| Privacyinformatie en rechten | [Privacybeleid](/nl/mail/privacy-policy/) |
+| Open-sourcelicentie en zelfhostingplichten | [Open source en zelfhosting](/nl/mail/open-source/) |
+| Configuratiestappen voor zelfhosting | [Uitrolgids](/nl/mail/deployment/) |

@@ -1,4 +1,4 @@
-<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="資料自主控制示意：自助匯出、刪除緩衝與權利行使，資料保存於營運者的 Cloudflare 資源內">
+<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="資料權利：自助匯出有範圍限制；刪除須核對副本與合法保存；請求依適用法定期限處理。">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; }
@@ -22,32 +22,32 @@
     }
   </style>
   <rect class="bg" width="416" height="276" rx="16"/>
-  <text class="tag" x="26" y="26">您的資料 您作主</text>
-  <text class="b" x="390" y="26" text-anchor="end">資料不離開實例儲存</text>
+  <text class="tag" x="26" y="26">DATA RIGHTS</text>
+  <text class="b" x="390" y="26" text-anchor="end">Scope &amp; limits apply</text>
   <rect class="card" x="26" y="40" width="112" height="128" rx="10"/>
   <rect class="ico" x="42" y="54" width="26" height="26" rx="8"/>
   <path class="icod" d="M55 60 V72 M51 68.5 L55 72.5 L59 68.5"/>
   <path class="icod" d="M49 76 H61"/>
-  <text class="t" x="42" y="96">匯出</text>
-  <text class="b" x="42" y="110">自助副本，</text>
-  <text class="b" x="42" y="122">JSON 格式，</text>
-  <text class="b" x="42" y="134">隨時於應用程式內</text>
+  <text class="t" x="42" y="96">Export</text>
+  <text class="b" x="42" y="110">Selected data</text>
+  <text class="b" x="42" y="122">JSON copy</text>
+  <text class="b" x="42" y="134">Ask for missing data</text>
   <rect class="card" x="152" y="40" width="112" height="128" rx="10"/>
   <rect class="ico" x="168" y="54" width="26" height="26" rx="8"/>
   <path class="icod" d="M176 61 H186 M179 61 V59 H183 V61 M178 61 L179 74 H183 L184 61"/>
-  <text class="t" x="168" y="96">刪除</text>
-  <text class="b" x="168" y="110">垃圾桶緩衝，</text>
-  <text class="b" x="168" y="122">而後實體刪除；</text>
-  <text class="b" x="168" y="134">註銷不可復原</text>
+  <text class="t" x="168" y="96">Deletion</text>
+  <text class="b" x="168" y="110">Request &amp; track</text>
+  <text class="b" x="168" y="122">Copies &amp; backups</text>
+  <text class="b" x="168" y="134">Lawful retention</text>
   <rect class="card" x="278" y="40" width="112" height="128" rx="10"/>
   <rect class="ico" x="294" y="54" width="26" height="26" rx="8"/>
   <path class="icod" d="M301 60 H315 L312 64 L315 68 H301 Z M303 68 V74"/>
-  <text class="t" x="294" y="96">權利</text>
-  <text class="b" x="294" y="110">查詢、複製、</text>
-  <text class="b" x="294" y="122">更正、停止、</text>
-  <text class="b" x="294" y="134">刪除；30 日內答覆</text>
+  <text class="t" x="294" y="96">Rights</text>
+  <text class="b" x="294" y="110">Access · correction</text>
+  <text class="b" x="294" y="122">Erasure · objection</text>
+  <text class="b" x="294" y="134">Legal time limits</text>
   <rect class="base" x="26" y="184" width="364" height="42" rx="10"/>
-  <text class="bt" x="44" y="202">資料存於何處：</text>
-  <text class="b" x="44" y="216">營運者的 Cloudflare 資源（D1 / KV / 物件儲存）· 適用法律隨營運者轄區</text>
-  <text class="b" x="26" y="248">自建部署？您即資料控制者，請公布您自己的告知與聯絡管道。</text>
+  <text class="bt" x="44" y="202">Storage &amp; recipients</text>
+  <text class="b" x="44" y="216">Configured cloud &amp; external services · assess each data flow</text>
+  <text class="b" x="26" y="248">Requests: privacy@epocanvas.com · GDPR timing: see Privacy Policy 9</text>
 </svg>

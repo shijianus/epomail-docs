@@ -1,4 +1,4 @@
-<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dubbele bestuursstructuur: één codebase onder MIT-licentie, twee onafhankelijke exploitatiesporen met verschillende verwerkingsverantwoordelijken">
+<svg width="416" height="276" viewBox="0 0 416 276" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gehoste en zelfgehoste versies van dezelfde MIT-code: plichten volgen feitelijke exploitatie en beslissingen over verwerking.">
   <style>
     .bg { fill: #f8fafc; }
     .card { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1; }
@@ -28,29 +28,29 @@
     }
   </style>
   <rect class="bg" width="416" height="276" rx="16"/>
-  <text class="tag" x="26" y="26">DUBBELE BESTUURSSTRUCTUUR</text>
+  <text class="tag" x="26" y="26">SOURCE &amp; OPERATIONS</text>
   <rect class="chip" x="108" y="38" width="200" height="34" rx="10"/>
-  <text class="t" x="208" y="53" text-anchor="middle" font-size="9.5">Eén open-sourcecodebase (MIT)</text>
-  <text class="b" x="208" y="66" text-anchor="middle">nul telemetrie · niets meldt zich thuis</text>
+  <text class="t" x="208" y="53" text-anchor="middle" font-size="9.5">One MIT codebase</text>
+  <text class="b" x="208" y="66" text-anchor="middle">Actual activity determines duties</text>
   <line class="mid" x1="208" y1="72" x2="208" y2="84"/>
   <line class="mid" x1="112" y1="84" x2="304" y2="84"/>
   <line class="mid" x1="112" y1="84" x2="112" y2="94"/>
   <line class="mid" x1="304" y1="84" x2="304" y2="94"/>
   <rect class="hosted" x="26" y="94" width="172" height="112" rx="10"/>
-  <text class="tag" x="42" y="114">GEHOSTE INSTANTIE</text>
+  <text class="tag" x="42" y="114">HOSTED INSTANCE</text>
   <text class="t" x="42" y="132" font-size="9.5">mail.epocanvas.com</text>
-  <text class="b" x="42" y="148">door het EpoCanvas-team</text>
-  <text class="b" x="42" y="162">de exploitant is verantwoordelijke</text>
-  <text class="b" x="42" y="176">niet-commercieel · Taiwan</text>
-  <text class="b" x="42" y="190">voorwaarden van deze site</text>
+  <text class="b" x="42" y="148">Identify the actual operator</text>
+  <text class="b" x="42" y="162">Roles follow processing</text>
+  <text class="b" x="42" y="176">Non-profit · legal duties remain</text>
+  <text class="b" x="42" y="190">Terms &amp; mandatory rights</text>
   <rect class="self" x="218" y="94" width="172" height="112" rx="10"/>
-  <text class="tagg" x="234" y="114">ZELFGEHOSTE INSTANTIE</text>
-  <text class="t" x="234" y="132" font-size="9.5">uw domein · uw account</text>
-  <text class="b" x="234" y="148">de deployer is enige verantwoordelijke</text>
-  <text class="b" x="234" y="162">op de Cloudflare van de deployer</text>
-  <text class="b" x="234" y="176">eigen voorwaarden · eigen recht</text>
-  <text class="b" x="234" y="190">deze site als voorbeeld</text>
+  <text class="tagg" x="234" y="114">SELF-HOSTED</text>
+  <text class="t" x="234" y="132" font-size="9.5">Your deployment</text>
+  <text class="b" x="234" y="148">Assess actual processing roles</text>
+  <text class="b" x="234" y="162">Verify providers &amp; data flows</text>
+  <text class="b" x="234" y="176">Applicable laws &amp; local rights</text>
+  <text class="b" x="234" y="190">Publish tailored terms &amp; notices</text>
   <rect class="base" x="26" y="222" width="364" height="36" rx="10"/>
-  <text class="bt" x="44" y="238">Oorspronkelijke auteurs:</text>
-  <text class="b" x="44" y="251">geen e-maildienst · geen gebruikersgegevens · geen aansprakelijkheid voor de exploitatie</text>
+  <text class="bt" x="44" y="238">Source authors</text>
+  <text class="b" x="44" y="251">Duties follow actual operations and processing decisions.</text>
 </svg>

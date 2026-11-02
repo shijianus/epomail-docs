@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Mapa de encargados: una instancia, cuatro categorías de cesión — encargados, servicios autorizados, IA activada por usted y requerimiento legal">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="100%" role="img" aria-label="Flujos a terceros: infraestructura, integraciones y solicitudes externas, tratamiento de contenido y requerimientos legales; evaluar funciones y garantías por cada ruta.">
   <style>
     .bg { fill: #f8fafc; }
     .hub { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.8; }
@@ -24,33 +24,33 @@
   <rect class="bg" width="1000" height="470" rx="16"/>
   <rect class="hub" x="390" y="185" width="220" height="100" rx="14"/>
   <text class="hub-t" x="414" y="222">EpoCanvas Mail</text>
-  <text class="hub-t" x="414" y="242">instancia</text>
-  <text class="hub-b" x="414" y="264">cesión mínima necesaria · sin venta,</text>
-  <text class="hub-b" x="414" y="280">sin publicidad, sin rastreadores</text>
+  <text class="hub-t" x="414" y="242">Instance</text>
+  <text class="hub-b" x="414" y="264">Necessary sharing</text>
+  <text class="hub-b" x="414" y="280">Assess each data flow</text>
   <rect class="grp" x="48" y="48" width="290" height="120" rx="12"/>
-  <text class="tag" x="70" y="74">ENCARGADOS</text>
-  <text class="gt" x="70" y="98">Cloudflare · Resend / Mailjet</text>
-  <text class="gb" x="70" y="120">Infraestructura y entrega saliente.</text>
-  <text class="gb" x="70" y="138">SOC 2 Type II · ISO/IEC 27001 · SCC UE.</text>
-  <text class="gb" x="70" y="156">Contenido completo solo para el envío saliente.</text>
+  <text class="tag" x="70" y="74">INFRASTRUCTURE</text>
+  <text class="gt" x="70" y="98">Cloud · storage · mail</text>
+  <text class="gb" x="70" y="120">Cloudflare &amp; configured providers</text>
+  <text class="gb" x="70" y="138">Content, files &amp; request data</text>
+  <text class="gb" x="70" y="156">Contracts · regions · safeguards</text>
   <rect class="grp" x="662" y="48" width="290" height="120" rx="12"/>
-  <text class="tag" x="684" y="74">AUTORIZADOS POR USTED</text>
-  <text class="gt" x="684" y="98">Telegram · Apps OAuth · Linux DO</text>
-  <text class="gb" x="684" y="120">solo con su consentimiento ; ámbito</text>
-  <text class="gb" x="684" y="138">openid / profile / email ; revocable en</text>
-  <text class="gb" x="684" y="156">cualquier momento y sin demora.</text>
+  <text class="tag" x="684" y="74">INTEGRATIONS</text>
+  <text class="gt" x="684" y="98">Identity · apps · notifications</text>
+  <text class="gb" x="684" y="120">Fields depend on the active path</text>
+  <text class="gb" x="684" y="138">Fonts · verification · remote images</text>
+  <text class="gb" x="684" y="156">Revocation cannot recall copies</text>
   <rect class="grp" x="48" y="302" width="290" height="120" rx="12"/>
-  <text class="tag" x="70" y="328">IA ACTIVADA POR USTED</text>
-  <text class="gt" x="70" y="352" font-size="12.5">Punto de modelos · Workers AI · MyMemory</text>
-  <text class="gb" x="70" y="374">Traducción y OCR solo por su iniciativa.</text>
-  <text class="gb" x="70" y="392">La extracción de códigos es el único paso IA</text>
-  <text class="gb" x="70" y="410">automático (opcional ; 6.000 caracteres).</text>
+  <text class="tag" x="70" y="328">CONTENT PROCESSING</text>
+  <text class="gt" x="70" y="352" font-size="12.5">AI · translation · OCR</text>
+  <text class="gb" x="70" y="374">Automatic &amp; user-triggered paths</text>
+  <text class="gb" x="70" y="392">Actual recipients &amp; content scope</text>
+  <text class="gb" x="70" y="410">Valid basis · choices · safeguards</text>
   <rect class="grp" x="662" y="302" width="290" height="120" rx="12"/>
-  <text class="tag" x="684" y="328">POR REQUERIMIENTO LEGAL</text>
-  <text class="gt" x="684" y="352">Autoridades competentes</text>
-  <text class="gb" x="684" y="374">solo requerimiento legal ; divulgación</text>
-  <text class="gb" x="684" y="392">mínima ; legalidad verificada ; aviso</text>
-  <text class="gb" x="684" y="410">donde la ley lo permita.</text>
+  <text class="tag" x="684" y="328">LEGAL REQUESTS</text>
+  <text class="gt" x="684" y="352">Competent authorities</text>
+  <text class="gb" x="684" y="374">Verify authority &amp; legal basis</text>
+  <text class="gb" x="684" y="392">Limit disclosure to what is needed</text>
+  <text class="gb" x="684" y="410">Notify when legally permitted</text>
   <path class="line" d="M390,210 C330,196 340,150 338,140"/>
   <path class="line" d="M610,210 C670,196 660,150 662,140"/>
   <path class="line" d="M390,260 C330,274 340,320 338,330"/>

@@ -3,7 +3,7 @@ title: EpoCanvas Mail Feature Guide
 description: EpoCanvas Mail feature guide — inbox organisation, composing and sending, search syntax, the labelling rule engine, verification-code extraction, spam governance, forwarding and push, AI capabilities, and the open platform.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
 This page documents the actual features of EpoCanvas Mail, each verified against the open-source code; the interface screenshots come from the hosted instance in real operation. For the project positioning, development history, and deployment, see the [Project Overview](/en/mail/project/); the data handling and retention implications of each feature are covered in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
@@ -107,7 +107,7 @@ Verification-code extraction in the reading pane: the 6-digit code in large type
 
 - **Large-code region**: The code extracted by Workers AI from the subject and the first 6,000 characters of the body, displayed large for easy copying.
 - **Green badge**: The green mark that appears on both the list row and the detail: it means this message carries an extracted verification code, so you can spot such mail straight from the list without opening each one. It appears only on a successful extraction — absence does not mean the mail is safe, merely that there is no code to copy.
-- **Boundary**: The only AI processing not triggered manually; it can be turned off in general settings. Scope and opt-out in Section 6 of the privacy policy.
+- **Boundary**: Code extraction is controlled by a site-wide switch, off by default. Once enabled, receipt may trigger automatic transfer; no per-user opt-out was found. See Privacy Policy Section 6 for bases and withdrawal arrangements.
 
 </details>
 
@@ -121,7 +121,7 @@ Verification-code extraction in the reading pane: the 6-digit code in large type
 
 - **Personal forwarding**: mailbox mail can auto-forward to other addresses, with cc support;
 - **Global forwarding**: administrators can configure system-level forwarding rules, constrained by the mail mode (disabled in encrypted mode);
-- **Telegram push**: after binding a bot, subject, sender, body, and codes are pushed per configuration with a 7-day in-site reading link; each pushed field can be hidden.
+- **Telegram push**: Some sender, recipient and body fields are configurable. The subject, extracted code and 7-day bearer reading link may be added automatically; not every field can be hidden.
 
 ## 8. AI Capabilities
 
@@ -129,16 +129,16 @@ Verification-code extraction in the reading pane: the 6-digit code in large type
 | --- | --- | --- |
 | Code extraction | automatic on new mail (optional) | Workers AI edge inference, see Section 5 |
 | Full-text translation | manual click | multilingual translation preserving the original layout, shards in parallel; model endpoints and fallbacks in [Privacy Policy](/en/mail/privacy-policy/), Section 6 |
-| Image text recognition | manual upload | OCR-generated captions; purely decorative images are skipped |
+| Image text recognition | Translation workflow and OCR parameter | May process embedded mail images or remote image URLs. Client default is off; omitted API parameters may enable it. Decorative-image filtering is heuristic. |
 | AI Hub | administrator-configured | multi-model endpoints on OpenAI-compatible protocols, 0-token latency probing, models authorised per role |
 
-The operator never trains models on mail content; consented AI processing can be withdrawn at any time (see [Privacy Policy](/en/mail/privacy-policy/), Section 6).
+The operator does not itself train models on mail; third-party uses require contract verification. Consent withdrawal is a legal right, not proof of a working personal off-switch. Routes lacking a basis or required choices must be disabled.
 
 ## 9. Open Platform and Data Autonomy
 
-- **OAuth 2.0 / OIDC centre**: administrators register third-party apps; scope is limited to openid / profile / email, access tokens last 2 hours, and data subjects can review and revoke grants at any time on the third-party apps page;
+- **OAuth 2.0 / OIDC centre**: Third-party apps may receive actual identity and role fields, not only data described by openid/profile/email. Revocation does not recall issued ID tokens or third-party copies.
 - **Integration guide**: registering apps on the admin side, endpoints and integration code appear in [Open Platform & API Access](/en/mail/api/);
-- **Data export**: one click in Settings produces a complete JSON copy (profile plus all undeleted mail in full text); single messages download as .eml;
+- **Data export**: JSON contains selected profile fields, mappings of mail not marked deleted, and custom labels. It excludes attachments, complete routing, aliases, contacts, rules and security settings. It is not a complete backup; omitted data may be requested where the law allows.
 
 ## 10. Interface and Mobile
 

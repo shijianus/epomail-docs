@@ -3,7 +3,7 @@ title: Technische architectuur van EpoCanvas Mail
 description: Technische architectuur van EpoCanvas Mail — Cloudflare-uitroltopologie aan de rand, scheiding van dubbele database, versleuteling in drie modi, bijlagenopslagketen, rol- en machtigingsmodel, levenscyclus van e-mail en beveiligingsontwerp van de applicatie.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Deze pagina beschrijft de technische implementatie van EpoCanvas Mail: uitroltopologie, gegevensversleuteling, opslagketen, machtigingsmodel en de levenscyclus van e-mail. Alle technische feiten volgen de werkelijke implementatie in de open-sourcecode en zijn zelfstandig te controleren; de gevolgen voor uw privacy en de wettelijke informatie staan in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) en het [Privacybeleid](/nl/mail/privacy-policy/).
 
@@ -11,19 +11,19 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 
 ![Systeemarchitectuur van EpoCanvas Mail: de clientlaag (webapp, Android-app, OAuth-apps van derden) benadert de rand van Cloudflare; de Workers dragen de API, de analyse van inkomende e-mail en de AI-mogelijkheden, uitgaande e-mail loopt via Resend en Telegram; gegevens rusten in de dubbele D1-databases, KV en objectopslag](/images/mail/nl/project-architecture.svg)
 
-*Figuur: systeemarchitectuur. Clients benaderen via de rand, zonder server op één punt; inkomende e-mail wordt ontvangen en geanalyseerd door Email Routing, uitgaande e-mail loopt via de afleverkanalen; alle status rust in de eigen Cloudflare-resources van de exploitant.*
+*Figuur: Email Routing ontvangt en verwerkt inkomende mail; ingestelde kanalen bezorgen uitgaande mail. Gegevens kunnen ook externe opslag en diensten bereiken; zie de [Verwerkerslijst](/nl/mail/sub-processors/).*
 
 ## 1. Uitroltopologie
 
 | Onderdeel | Implementatie |
 | --- | --- |
-| Rekenwerk | Cloudflare Workers (V8 Isolate-sandbox): de bedrijfslogica is staatloos, platte tekst bestaat alleen in het verzoekgeheugen en wordt aan het einde van het verzoek vrijgegeven |
+| Rekenwerk | Cloudflare Workers (V8 Isolate) verwerkt verzoeken en kan daarbij platte tekst lezen. De broncode garandeert niet dat de sandbox of alle platte tekst na ieder verzoek wordt vernietigd |
 | Inkomend | Cloudflare Email Routing ontvangt e-mail; postal-mime analyseert body, headers en bijlagen |
 | Uitgaand | sequentiële keuze uit drie kanalen: Cloudflare Email Workers-koppeling, Resend API, Mailjet; intern verkeer tussen accounts schrijft rechtstreeks naar de database |
-| Gestructureerde opslag | Cloudflare D1 (fysiek gescheiden dubbele database: de gebruikersdatabase bevat accounts, rollen en instellingen; de e-maildatabase bevat e-mail, sterren en bijlagen-metadata; uitrol met één database blijft 100% achterwaarts compatibel; de gehoste instantie draait momenteel op één database) |
+| Gestructureerde opslag | Cloudflare D1 ondersteunt aparte gebruikers- en maildatabases, met terugval naar één database; de eerste bevat accounts, rollen en instellingen, de tweede mail, sterren en bijlagemetadata. Productiekoppelingen moeten apart worden gecontroleerd |
 | Sleutel-waardeopslag | Workers KV: sessietokens, tellers voor aanmeldrisicobeheer, tussenstatus van TOTP, gebruikersprofielen en terugvaloptie voor objectopslag |
 | Inferentie aan de rand | Workers AI (captcha-extractie enz., standaard llama-3.1-8b-instruct) |
-| Geplande taken | Cron-triggers voeren uit: elke 30 minuten vernieuwing van de cache van de gegevensanalyse; dagelijks nulstelling van risicotellers, reset van verzendtellers, opschoning van prullenbak en spam, verwijdering van niet-gekoppelde OAuth-accounts |
+| Geplande taken | Repositoryconfiguratie: dagelijks om 16:00 UTC (00:00 de volgende dag in Taiwan) verificatie- en verzendtellers wissen, prullenbak en niet-gekoppelde OAuth-identiteiten opruimen en statistieken vernieuwen; elke 5 minuten meldingen en objectverwijderingen verwerken. De code heeft een 30-minutentak, maar die is hier niet geregistreerd |
 | Menselijke verificatie | Cloudflare Turnstile (verificatie via HTTP-API, bij registratie en het toevoegen van mailboxen) |
 
 ## 2. Technologiestack
@@ -37,18 +37,18 @@ De juridische documenten op deze site zijn vastgesteld in het traditioneel Chine
 
 ## 3. Versleutelingssysteem voor gegevens
 
-- **Versleuteling in rust in drie modi**: modus Alles (geen versleuteling), modus Privé (alles versleuteld behalve spam en prullenbak), modus Versleuteld (alles versleuteld); de semantiek van de modi en wat beheerders kunnen zien, staan in sectie 1.3 van [Gegevensverwerking en beveiliging](/nl/mail/data-security/);
-- **Versleuteling van e-mail**: onderwerp en body worden versleuteld met AES-256-GCM (met authenticatietags), elke record met een willekeurige initialisatievector; de sleutels worden met HKDF-SHA256 afgeleid van de instantiebrede omgevingsvariabele met hoofdgeheim, met een zout per gebruiker; het hoofdgeheim komt niet in de database en wordt niet in de code ingecheckt;
-- **Bescherming van referentiegegevens**: wachtwoorden worden gehasht met PBKDF2-HMAC-SHA256 bij 100.000 iteraties met zout; het TOTP-geheim wordt versleuteld in rust met AES-256-GCM opgeslagen; herstelcodes worden alleen als SHA-256-hash bewaard; toegangssleutels slaan alleen de publieke sleutel op;
+- **Drie opslagmodi**: Alles laat mailvelden onversleuteld; Privé kiest volgens spam-, prullenbak- en eigenaarloze status; Versleuteld versleutelt geselecteerde velden. Het bereik is `subject/content/text/code`, niet alle gegevens; zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/);
+- **Mailversleuteling**: AES-256-GCM gebruikt een willekeurige IV van 12 bytes en gebruikerssleutels afgeleid met HKDF-SHA256. De bronnen zijn `email_enc_key`, daarna `totp_enc_key`, daarna `jwt_secret`; ontbreken ze allemaal, dan volgt een fout zonder ingebouwde standaardsleutel;
+- **Aanmeldgegevens**: nieuwe wachtwoorden gebruiken standaard gezouten PBKDF2-HMAC-SHA256 met 210.000 instelbare iteraties; oudere hashes worden bij aanmelden bijgewerkt. Actieve TOTP-geheimen gebruiken AES-256-GCM; herstelcodes hebben SHA-256-hashes én een versleutelde kopie van de oorspronkelijke codes; passkeys bewaren publieke sleutels en metadata. Tijdelijke gegevens en andere uitzonderingen staan in [Gegevensverwerking en beveiliging](/nl/mail/data-security/);
 - **Grens**: het bovenstaande is serverside-versleuteling in rust, geen end-to-end-versleuteling; bijlagen vallen buiten de versleutelingsomvang.
 
 ## 4. Opslagketen van bijlagen
 
-De binaire inhoud van bijlagen wordt in deze volgorde opgelost en opgeslagen: eigen S3-compatibele opslag (BYOS, met ondersteuning voor AWS S3, Backblaze B2, MinIO enz.) → S3-compatibele opslag zoals geconfigureerd door de exploitant → Cloudflare R2-koppeling → standaard Cloudflare KV. De metadata (bestandsnaam, MIME, grootte) staan in D1; downloads bevatten defensieve koppen en een MIME-toestaanlijst; bij het verwijderen van e-mail worden bijlagen in cascade opgeruimd via referentietelling.
+De opslagvolgorde voor bijlagen is: gebruikers-S3 → beheerders-S3 → Cloudflare R2 → KV. Metadata staat in D1; downloads gebruiken ondertekende links en defensieve headers. Fysieke mailverwijdering wist bijlagemetadata en zet objecten in een wachtrij, met controle op resterende verwijzingen; automatische pogingen stoppen na 10 mislukkingen. Gelijktijdige verwijdering van alle objecten is niet gegarandeerd. Externe kopieën: [Verwerkerslijst](/nl/mail/sub-processors/).
 
 ## 5. Sessies en rolmachtigingen
 
-Sessies zijn JWT's (HS256) met een geldigheid van 30 dagen, die sterk gemaskeerd in KV staan; hooguit 10 actieve sessies per account, direct ingetrokken bij uitloggen en deactivering. Machtigingen volgen RBAC, met zes standaardrollen:
+JWT’s (HS256) zijn standaard 30 dagen geldig. KV bewaart toegestane sessies en een gebruikerskopie zonder bepaalde gevoelige velden. De code controleert vóór toevoegen of er meer dan 10 zijn: normaal kunnen er 11 blijven, geen strikte limiet van 10. Activiteit en sommige acties verlengen of verkorten de KV-termijn. Uitloggen verwijdert de huidige sessie; deactivering verwijdert het sessierecord van het account. RBAC kent zes rollen:
 
 | Rol | Dagelijkse verzending | Opslagquotum | Bijlagen | Extra mogelijkheden |
 | --- | --- | --- | --- | --- |
@@ -59,30 +59,30 @@ Sessies zijn JWT's (HS256) met een geldigheid van 30 dagen, die sterk gemaskeerd
 | Beheerder | 100 berichten | 500 MB | Ja | gebruikersbeheer, beheer van alle e-mail (volgens de e-mailmodus) |
 | Masteraccount | Onbeperkt | 1024 MB | Ja | alle machtigingen |
 
-Alle beheer- en bedrijfsroutes worden gecontroleerd door één authenticatiegateway; openbare eindpunten (aanmelding, registratie, OAuth, initialisatie) zijn uitgezonderd; bij het verwijderen van een account worden de sessies onmiddellijk ingetrokken.
+Beschermde routes controleren JWT, KV-sessies en rolrechten; sommige publieke endpoints hebben eigen verificatie. Deactivering verwijdert gewone sessies zonder alle autorisaties, gegevens of externe kopieën tegelijk te wissen.
 
 ## 6. Levenscyclus van e-mail
 
 | Fase | Gedrag |
 | --- | --- |
-| Verwijderen | e-mail gaat eerst naar de prullenbak (zachte verwijdering); 7 dagen na ontvangst verwijdert een geplande taak deze fysiek (bijlagen en indexen inbegrepen) |
-| Spamquarantaine | spam blijft 7 dagen staan en gaat daarna naar de prullenbak; de quarantainetermijn is instelbaar |
-| Quotumopschoning | bij mailboxgebruik boven 90 % van de quota wordt e-mail die al als verwijderd is gemarkeerd onmiddellijk fysiek verwijderd |
-| Officiële e-mail | welkomstmails en systeembrede aankondigingen verlopen standaard na 7 dagen (instelbaar) |
-| Verwijdering in cascade | fysieke verwijdering gebeurt in blokken (om de limiet op gebonden parameters per D1-instructie te respecteren); bijlagen en sterren worden met de e-mail in cascade verwijderd |
-| Accountdeactivering | sessies vervallen onmiddellijk; gegevens komen in een zacht-verwijderde staat tot een beheerder de fysieke verwijdering uitvoert (de termijnverbintenis staat in sectie 8 van het [Privacybeleid](/nl/mail/privacy-policy/)) |
+| Verwijderen | Gewone verwijdering zet `is_del=1`; de dagelijkse taak ruimt prullenbakmail op als `email.create_time` ouder is dan 7 dagen, niet 7 dagen na verplaatsing. Expliciet definitief verwijderen of quotumvoorwaarden kunnen direct fysiek verwijderen |
+| Spamquarantaine | `spamRetentionDays` is standaard 7 dagen vanaf aanmaak; mail gaat naar de prullenbak en kan in dezelfde uitvoering fysiek worden verwijderd |
+| Quotumopschoning | Bij een verwijderverzoek en bestaand opslaggebruik strikt boven 90% van het quotum worden de geselecteerde berichten fysiek verwijderd; alleen 90% bereiken start geen achtergrondopschoning |
+| Officiële mail | Bij het lezen van de lijst worden verlopen berichten van aangewezen officiële afzenders als verwijderd gemarkeerd, op basis van aanmaak en `welcomeExpireDays` (standaard 7 dagen); de prullenbaktaak verzorgt latere fysieke opschoning |
+| Cascadeverwijdering | Gewone definitieve verwijdering en prullenbakopschoning wissen bijlagemetadata en sterren en plannen nieuwe objectverwijderpogingen; beheerderpaden voor bulkverwijdering hebben niet dezelfde dekking |
+| Accountdeactivering | Alleen de gebruikersrij wordt als verwijderd gemarkeerd en sessies vervallen; mailboxen, mail en profielen worden niet samen gemarkeerd. Er is geen automatische fysieke verwijdering na 90 dagen; zie het [Privacybeleid](/nl/mail/privacy-policy/) |
 
 ## 7. Beveiligingsontwerp van de applicatie
 
 - **Routes tegen onbevoegde toegang**: e-mail-URL's gebruiken altijd een willekeurige hash van 20 tekens, ondertekend met HMAC-SHA256, gebonden aan gebruiker en tenant, zonder prijsgeving van oplopende ID's, wat enumeratie en BOLA／IDOR uitsluit;
 - **Driedubbele XSS-verdediging**: sanitisering via de DOMPurify-toestaanlijst, filtering van body style-injecties, MIME-toestaanlijst voor bijlagen bij uitvoer met strikte CSP en `nosniff`;
 - **SSRF-blokkade**: uitgaande verzoeken passen door validatie van publieke adressen; loopback-, RFC 1918- en cloud-metadata-adressen worden altijd geweigerd;
-- **Aanmeldbeveiliging**: na 5 opeenvolgende mislukte pogingen volgt een blokkade van 12 uur; menselijke verificatie via Turnstile; tweestapsverificatie met TOTP／toegangssleutel;
+- **Aanmeldbeveiliging**: mislukte pogingen tellen per ingevoerde aanmeldnaam; 5 pogingen blokkeren aanmelden en iedere mislukking schrijft een TTL van 12 uur. Dit is geen atomaire accountblokkade voor alle aliassen samen. Ook Turnstile en TOTP / Passkey zijn aanwezig;
 - **Integriteit van officiële e-mail**: vergrendeling van de officiële verzendidentiteit, aflevering als onveranderlijke momentopname en manipulatievrije verificatie van documenten; zie [Beveiliging tegen manipulatie en normen](/nl/mail/tamper-proof/).
 
 ## 8. Observeerbaarheid en kwaliteitsborging
 
-- Runtime-logs worden verzameld via Cloudflare Workers Logs (de applicatie houdt geen eigen logs bij naast de IP-logs); de gegevensanalysepagina toont alleen statistische aggregaties, geen inhoudelijke gegevens;
+- Cloudflare observability staat aan in de repository; D1 / KV bewaren ook identiteitsacties, meldingen, besluiten en aanmeldomgevingen. De meeste auditrecords hebben geen vervaltaak; bewaartermijnen van platformlogs vereisen controle. Zie het [Privacybeleid](/nl/mail/privacy-policy/);
 - Meer dan honderd scripts voor geautomatiseerde tests, audits en controles: Playwright-browserregressies op de volledige stack, end-to-end-beweringen op het publieke netwerk, statische scan van de hele repository en de i18n-drie-eenheid in zes talen (zie sectie 7 van [Projectoverzicht](/nl/mail/project/)).
 
 ## 9. Gerelateerde documenten

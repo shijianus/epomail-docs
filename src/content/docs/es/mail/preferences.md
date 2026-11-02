@@ -3,7 +3,7 @@ title: Perfil y ajustes generales
 description: Perfil y ajustes generales de EpoCanvas Mail — avatar, apodo, contacto y direcciones, tema de apariencia y fondo de pantalla, preferencias de lectura e idioma de la interfaz, explicados entrada por entrada.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.21**
 
 Esta página explica cada entrada de las secciones «Configuración → Perfil» y «Configuración → General». Los ajustes de seguridad y de datos figuran por separado en la [Guía de seguridad de la cuenta](/es/mail/security/) y en [Exportación de datos y almacenamiento](/es/mail/data/).
 

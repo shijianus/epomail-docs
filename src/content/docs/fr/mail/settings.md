@@ -3,7 +3,7 @@ title: Guide des paramètres
 description: Guide des paramètres d'EpoCanvas Mail — les cinq sections des paramètres personnels (profil, général, sécurité, données, étiquettes) et la visite complète des neuf sections de la console d'administration et des cartes de paramètres système.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 EpoCanvas Mail partage ses paramètres en deux zones : la zone « paramètres » de la barre latérale regroupe les paramètres personnels que chaque compte peut ajuster lui-même, en cinq sections — profil, général, sécurité, données et étiquettes ; la zone « administration » n'apparaît que pour les groupes d'identité dotés de permissions administratives et porte la configuration au niveau de l'instance. La présente page parcourt chaque zone et les relations entre les paramètres. Pour le comportement au niveau du fonctionnement — multi-comptes, modes courriel, connexion — voir [Modes de fonctionnement](/fr/mail/modes/).
 
@@ -74,18 +74,18 @@ La page de sécurité modifie le nom d'utilisateur et le mot de passe (en affich
 
 Les quatre cartes de la page Données : trois formats pour emporter ses données, une zone de transfert, une zone de stockage et une zone d'autorisations tierces — l'autonomie complète sur ses données personnelles en un écran.
 
-1. **Carte export des données du compte** : Trois exports côte à côte : la sauvegarde JSON intégrale, l'archive de l'historique des courriels (MBOX/JSON/CSV avec plage de dates) et les contacts et la configuration ; un courriel isolé se télécharge en .eml depuis le volet de lecture.
+1. **Carte export des données du compte** : Le JSON contient des champs de profil sélectionnés, des données des courriels non marqués supprimés et des étiquettes personnalisées. Il exclut pièces jointes, routage complet, alias, contacts, règles et paramètres de sécurité. Ce n'est pas une sauvegarde complète ; les données omises peuvent être demandées selon la loi. L'interface propose des formats et des dates, mais le serveur vérifié n'applique pas les paramètres de type, de format ou de période. Le format ou la période demandés ne sont pas garantis.
 2. **Carte transfert de courriels et de messages** : Le réglage détaillé du push de messages Telegram et du transfert automatique ; l'ouverture de ces deux fonctions au compte dépend des interrupteurs « Contrôle des données utilisateurs » de l'administrateur.
 3. **Carte espace de stockage** : Une jauge d'utilisation des pièces jointes constamment comparée au quota. En branchant son propre compartiment Backblaze B2/S3, les nouvelles pièces jointes vont directement dans votre cloud, hors du quota de l'instance ; délier le branchement fait revenir au stockage de l'instance.
-4. **Carte applications et services tiers** : La liste de toutes les autorisations OAuth du compte : retirer l'accès application par application, ou tout révoquer d'un coup depuis la boîte de dialogue de détail. La révocation prend effet immédiatement et les jetons existants de l'application meurent sur-le-champ.
+4. **Carte applications et services tiers** : La révocation bloque les nouvelles lectures via userinfo de ce service. Elle ne garantit pas l'invalidation immédiate des ID tokens chez les tiers et ne rappelle pas les données déjà reçues.
 
 </details>
 
 | Export | Format | Portée |
 | --- | --- | --- |
-| Export intégral des données | JSON | Sauvegarde complète : informations du compte, historique des courriels, contacts, règles de classement et d'étiquettes, et paramètres de sécurité |
-| Archive de l'historique des courriels | MBOX (universel), JSON ou CSV | Courriels envoyés et reçus uniquement, avec plage de dates facultative |
-| Contacts et configuration | JSON | Répertoire, règles d'alias personnalisées et préférences de personnalisation |
+| Export intégral des données | JSON | Le JSON contient des champs de profil sélectionnés, des données des courriels non marqués supprimés et des étiquettes personnalisées. Il exclut pièces jointes, routage complet, alias, contacts, règles et paramètres de sécurité. Ce n'est pas une sauvegarde complète ; les données omises peuvent être demandées selon la loi. |
+| Archive de l'historique des courriels | MBOX (universel), JSON ou CSV | L'interface propose des formats et des dates, mais le serveur vérifié n'applique pas les paramètres de type, de format ou de période. Le format ou la période demandés ne sont pas garantis. |
+| Contacts et configuration | JSON | Le nom de la carte ne prouve pas l'export des contacts, règles d'alias ou préférences complètes. La réponse a la même portée JSON ; voir le document de sécurité des données. |
 
 Un courriel isolé se télécharge en .eml directement depuis le volet de lecture. La zone « Transfert de courriels et de messages » propose le push Telegram et le transfert automatique : la liaison d'un robot privé, les préférences de push et les types de déclencheur s'expliquent pas à pas dans le [Guide des notifications et du transfert](/fr/mail/notify/) ; l'ouverture de ces deux fonctions aux utilisateurs relève de l'interrupteur « Contrôle des données utilisateurs » de l'opérateur. La zone de stockage affiche la jauge d'utilisation des pièces jointes et permet de brancher un stockage d'objets personnel (compartiment Backblaze B2 ou S3 à soi) ; une fois branché, les pièces jointes vont directement au cloud personnel, hors quota de l'instance.
 

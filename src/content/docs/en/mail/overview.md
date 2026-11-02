@@ -1,62 +1,79 @@
 ---
 title: Privacy and Terms Overview
-description: Overview of the EpoCanvas Mail legal documents — platform identity, data-processing roles, document architecture, order of precedence, and contact channels.
+description: Project purpose, actual data-processing roles, legal documents, order of precedence and contact details for EpoCanvas Mail.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
-This page is the guide to all legal documents of the EpoCanvas Mail service (the "Service"); it explains the roles of the parties, the document architecture, and the order in which the documents apply. Before registering for or using the Service, you should read this page together with the [Privacy Policy](/en/mail/privacy-policy/) and the [Terms of Service](/en/mail/terms-of-service/).
 
-![EpoCanvas Mail legal document architecture: the Terms of Service as the contract layer; the Privacy Policy and Acceptable Use Policy as the policy layer; data processing and security, the sub-processor list, and key terms as supporting documents — all standing on the base of applicable law and security-maintenance duties](/images/mail/en/legal-architecture.svg)
+<!-- legal-review-draft -->
+:::caution[Legal review draft: not the current notice]
+This draft records proposed terms and matters still requiring verification. It does not replace the current live notice or certify compliance. It must not be used to enable processing before the operator identity and legally required contact information, actual legal bases, recipients and transfer safeguards, retention and deletion arrangements have been verified and the required notice provided. References to an authoritative version mean the Traditional Chinese drafting baseline, not entry into force. Existing statutory duties and user rights remain unaffected.
+:::
 
-*Figure: the architecture of this site's legal documents. The Terms of Service set the contractual conditions; the Privacy Policy carries the notice and processing standards for personal data; the Acceptable Use Policy sets conduct boundaries; Data Processing & Security, the Sub-processor List, and Key Terms are supporting documents. The law applicable to each instance is determined by its operator's location.*
+This page guides you through the EpoCanvas Mail legal documents. Read the [Terms of Service](/en/mail/terms-of-service/) and [Privacy Policy](/en/mail/privacy-policy/) before creating an account; do not register if you do not accept the service conditions. Reading a document does not constitute consent to every personal-data processing activity.
+
+The Traditional Chinese (Taiwan) version is the official version; other languages are translations for comparison. This arrangement does not limit clear information required by applicable law, interpretation favourable to consumers or rights that cannot be waived. The update date records a text revision, not automatic application of changes to all users.
+
+![Relationship between the terms, privacy policy and supporting documents](/images/mail/en/legal-architecture.svg)
+
+*Figure: each document addresses its subject; mandatory law, data-protection rights and consumer rights take precedence over the agreed document hierarchy.*
 
 ## 1. Platform Identity
 
-EpoCanvas Mail is an open-source e-mail service built on Cloudflare's edge infrastructure (Workers, D1, KV, R2), with its source code released under the MIT license. The service can be provided in two forms:
+EpoCanvas Mail is an individually maintained, non-profit side project for learning and testing. Its source code is released under MIT and uses services such as Cloudflare Workers, D1, KV and R2. Free or non-profit operation does not exempt it from applicable GDPR, communications-confidentiality or consumer obligations.
 
-1. **Hosted instance**: the public site operated by the operations team (`mail.epocanvas.com`), together with the companion mobile app (epomail);
-2. **Self-hosted instances**: private sites that any individual, team, or organization deploys on their own domain and Cloudflare account from the open-source code.
+1. The hosted instance is `mail.epocanvas.com`, uses EpoCanvas as its contact name and has a companion mobile app. The actual operator's identifiable identity, location and contact details must be disclosed under Privacy Policy Section 2; a team name does not establish a separate legal entity.
+2. Self-hosted instances are managed by their actual operators, who must publish notices and terms suited to their configuration and applicable law, rather than simply copy the hosted instance's name or promises.
+
+The hosted service is for learning, development and ordinary communication tests by people aged 16 or over with the required contractual capacity. No SLA, round-the-clock staffing, permanent hosting or compliance certification is promised. It is unsuitable for emergency communications, statutory recordkeeping or a sole important backup; see [Service Scope & Support](/en/mail/service-scope/).
 
 ## 2. Data-Processing Roles
 
-The legal documents of the service use the "data controller / data processor" division, broadly equivalent to the classification used by the GDPR and similar regimes; the law applicable to each instance is determined by its operator's location.
+Roles depend on who actually determines the purposes and means of each processing activity, not simply on an open-source, self-hosting or contractual label. Applicable law also depends on more than the operator's location. GDPR applicability requires assessment of factors such as establishment activities, offering goods or services to people in the EU, or monitoring their behaviour there; accessibility of a website from the EU is not sufficient by itself.
 
-![EpoCanvas Mail responsibility boundaries: the upstream open-source project (MIT license) provides source code; the instance you use is operated independently by its operator, who bears data-controller responsibility; your account and mail data reside in that instance's Cloudflare resources](/images/mail/en/self-host-responsibilities.svg)
+![Roles in source-code publication, instance operation and use](/images/mail/en/self-host-responsibilities.svg)
 
-*Figure: the responsibility boundaries among the software, the operator, and the user. The upstream open-source authors operate no e-mail service and are not responsible for any instance's conduct.*
+*Figure: publishing source code alone is not operation of another person's instance; authors who also operate a service or determine processing remain responsible for their actual role.*
 
 | Scenario | Data controller | Data processor |
 | --- | --- | --- |
-| Hosted instance | the operations team (for account data and security-audit records); for the content of mail you send and receive, the operator processes it to the extent necessary to provide the communication service | Cloudflare, Resend, and other entrusted processors |
-| Self-hosted instance | the individual or organization that deployed the instance (sole and exclusive data controller) | the infrastructure providers that deployer has configured |
+| Hosted instance | The operator is responsible for account, security and communication-service processing whose purposes and means it determines; roles for message content depend on actual use | Providers supplying infrastructure or delivery under valid arrangements and instructions; the same provider may have a different role for processing it determines itself |
+| Self-hosted instance | The deployer usually controls processing it determines; joint control, independent control or processing on another's behalf may also occur, without automatic exclusive control | Determined by the deployment's actual services, contracts and instructions, not copied directly from the hosted instance's list |
 
-The open-source code itself collects nothing, uploads nothing, and sends back no telemetry; apart from external services the instance operator configures itself, the upstream authors never touch any instance's operating data. The open-source project provides no service and assumes none of any instance's compliance obligations: from the moment of deployment, the deployer becomes the data controller for its users and must fulfil the notice, security-maintenance, and oversight obligations required by the law applicable at its location, and may use the documents on this site as a template for its own notices and terms.
+Authors and contributors who only publish code or submit fixes do not thereby assume operating or controller duties for others' deployments. That distinction does not exempt them when they actually operate a service. Individual users are not automatically controllers instructing the operator merely because they send or receive mail. Organisational processing requires prior confirmation that the use is supported and a separate data processing agreement (DPA) where necessary; an agreement cannot override the actual roles.
+
+The absence of upstream usage analytics does not mean there are no third-party network requests. See the [Sub-processor List](/en/mail/sub-processors/) for delivery, cloud infrastructure, human verification, fonts and optional features.
 
 ## 3. Document Architecture
 
-The legal documents on this site are organised by topic and refer to one another; together they form the complete agreement:
+Each document addresses different matters. A privacy notice is neither blanket consent to processing nor certification of software or service compliance.
 
 | Document | Contents |
 | --- | --- |
-| [Privacy Policy](/en/mail/privacy-policy/) | collection, processing, and use of personal data; the nature of processing; your rights; international transfers |
-| [Terms of Service](/en/mail/terms-of-service/) | contractual conditions of use, rights and obligations, limitation of liability, governing law, and jurisdiction |
-| [Acceptable Use Policy](/en/mail/acceptable-use/) | conduct boundaries, the list of prohibited conduct, and the operator's enforcement and appeal procedures |
-| [Data Processing & Security Maintenance](/en/mail/data-security/) | the data lifecycle, the processing matrix, security measures, incident response, and cooperation with oversight |
-| [Sub-processor List](/en/mail/sub-processors/) | entrusted processors, shared objects, the data involved, and international-transfer safeguards |
-| [Key Terms](/en/mail/key-terms/) | definitions of the technical and legal terms used across this site's legal documents |
-| [Official Mail & Tamper-Proof Verification](/en/mail/tamper-proof/) | official mail specifications and identification, the official flag, immutable delivery, and document tamper-proof verification |
+| [Privacy Policy](/en/mail/privacy-policy/) | Data sources, processing purposes and grounds, retention, rights and international transfers |
+| [Terms of Service](/en/mail/terms-of-service/) | Contract formation, use, changes, termination, liability and remedies |
+| [Acceptable Use Policy](/en/mail/acceptable-use/) | Prohibited abuse, authorised testing, proportionate action and appeals |
+| [Data Processing & Security](/en/mail/data-security/) | Data lifecycle, security controls, encryption and export limitations |
+| [Sub-processor List](/en/mail/sub-processors/) | Providers, data received, triggers and transfer arrangements |
+| [Key Terms](/en/mail/key-terms/) | Scope of legal and technical terminology |
+| [Official Mail & Integrity Verification](/en/mail/tamper-proof/) | System-mail identification and document-integrity checks, not government or third-party certification |
 
-This site is organised along two complementary reading routes: readers who want to learn about the project, prepare a self-deployment or study its use can start from the [Project Overview](/en/mail/project/) and go deeper through the [Quick Start](/en/mail/quickstart/), the [Interface & Route Map](/en/mail/interface/), the [Search & Rules Reference](/en/mail/search/), the [Deployment Guide](/en/mail/deployment/) and the [Development Guide](/en/mail/development/); readers who want the scope of the service and its privacy and legal covenants can reach the legal documents below from this page. The two routes meet at the [Features Guide](/en/mail/features/) and [Operating Modes](/en/mail/modes/).
+For functions and deployment, see the [Features Guide](/en/mail/features/), [Operating Modes](/en/mail/modes/), [Deployment Guide](/en/mail/deployment/) and [Open-Source & Self-Hosting Legal](/en/mail/open-source/).
+
 ## 4. Order of Precedence
 
-1. For privacy matters the [Privacy Policy](/en/mail/privacy-policy/) is the specific provision; for conditions of use the [Terms of Service](/en/mail/terms-of-service/) is the specific provision; all other matters are interpreted according to the architecture on this page.
-2. Where the documents are inconsistent, the document most directly concerned with the subject matter prevails.
-3. The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The law applicable to each instance is determined by its operator's location (see Section 2).
+1. Mandatory applicable law and non-waivable data-protection and consumer rights prevail. Governing-law and court clauses cannot remove statutory access to local courts or supervisory authorities.
+2. Within those limits, the Privacy Policy addresses privacy, the Terms of Service address service conditions, and the Acceptable Use Policy addresses conduct. Interpret uncertainties by subject and applicable law; supporting documents do not expand exclusions of liability.
+3. Official status of the Traditional Chinese version is subject to the language and consumer safeguards at the start of this page. Notice, necessary consent and application of material changes follow Terms Section 12 and the Privacy Policy; continued use is not automatically consent to new processing purposes.
+
+Consult the [official GDPR text](https://eur-lex.europa.eu/eli/reg/2016/679/oj) for EU legal scope and the [EDPB members list](https://www.edpb.europa.eu/about-edpb/about-edpb/members_en) for supervisory authorities.
 
 ## 5. Contact Channels
 
-- **Privacy matters and data-protection complaints**: `privacy@epocanvas.com`
-- **In-product contact**: in-site message or `admin@epocanvas.com`
-- **Open-source project**: GitHub repository Issues (`github.com/shijianus/epomail`)
-- **Self-hosted sites**: contact the operator contact information published by that site
+- Privacy, rights requests and data-protection complaints: `privacy@epocanvas.com`.
+- Accounts, service and general appeals: in-site messages or `admin@epocanvas.com`; email remains available if you cannot log in.
+- Source-code issues: [GitHub Issues](https://github.com/shijianus/epomail/issues). Do not publish personal data, credentials or undisclosed vulnerabilities.
+- Self-hosted instances: contact the actual operator identified by that site.
+
+A privacy mailbox does not mean a data protection officer (DPO) or EU representative has been appointed. The operator must assess appointment duties against the actual conditions, make appointments where legally required and publish verifiable contact information.

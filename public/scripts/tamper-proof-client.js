@@ -1,284 +1,340 @@
 /**
- * EpoCanvas Mail Documentation - Official Tamper-Proof & Integrity Verification Client
- * Provides interactive, in-browser cryptographic SHA-256 verification against the official manifest.
+ * EpoCanvas Mail documentation - Release manifest consistency check.
+ * Compares two same-origin manifest records, not document bytes or signatures.
  */
 (function () {
   'use strict';
 
-  function getBasePrefix() {
-    return window.location.pathname.startsWith('/epomail') ? '/epomail' : '';
-  }
-
   function getManifestUrl() {
-    return `${getBasePrefix()}/tamper-proof.json`;
-  }
-  let manifestData = null;
-
-  async function fetchManifest() {
-    if (manifestData) return manifestData;
-    try {
-      const res = await fetch(getManifestUrl(), { cache: 'no-cache' });
-      if (res.ok) {
-        manifestData = await res.json();
-      }
-    } catch (e) {
-      console.warn('[TamperProof] Failed to load integrity manifest:', e);
-    }
-    return manifestData;
+    const prefix = window.location.pathname.startsWith('/epomail/') ? '/epomail' : '';
+    return `${prefix}/tamper-proof.json`;
   }
 
   function getCanonicalDocSlug() {
-    const path = window.location.pathname.replace(/\/$/, '');
-    // e.g. /epomail/mail/project -> mail/project
-    // e.g. /mail/project -> mail/project
-    const match = path.match(/(?:\/epomail)?\/(?:(zh-tw|en|fr|es|nl)\/)?(mail\/[^/]+)/);
-    if (!match) return null;
-    const lang = match[1];
-    const slug = match[2];
-    return lang ? `${lang}/${slug}` : slug;
+    // Only the dedicated page has a panel. Do not fetch on other documents.
+    const match = window.location.pathname.match(
+      /^(?:\/epomail)?\/((?:(?:zh-tw|en|fr|es|nl)\/)?mail\/tamper-proof)\/?$/
+    );
+    return match ? match[1] : null;
+  }
+
+  function isRecord(value) {
+    return value !== null && typeof value === 'object' && !Array.isArray(value);
+  }
+
+  function validateManifest(manifest, slug) {
+    if (!isRecord(manifest) || manifest.algorithm !== 'SHA-256' ||
+        !isRecord(manifest.documents) ||
+        !Object.prototype.hasOwnProperty.call(manifest.documents, slug) ||
+        typeof manifest.gitCommit !== 'string' ||
+        ![40, 64].includes(manifest.gitCommit.length) ||
+        !/^(?:[a-f0-9]{40}|[a-f0-9]{64})$/i.test(manifest.gitCommit)) {
+      throw new Error('Invalid manifest shape or full Git commit');
+    }
+
+    const entry = manifest.documents[slug];
+    if (!isRecord(entry) || !Object.prototype.hasOwnProperty.call(entry, 'sha256') ||
+        typeof entry.sha256 !== 'string' || entry.sha256.length !== 64 ||
+        !/^[a-f0-9]{64}$/i.test(entry.sha256)) {
+      throw new Error('Missing or invalid document hash');
+    }
+
+    // Keep only the fields compared and displayed. Ignore untrusted titles,
+    // paths, URLs, short commits and dates; none are authentication evidence.
+    return { sha256: entry.sha256, gitCommit: manifest.gitCommit };
+  }
+
+  async function fetchManifest(slug, refresh) {
+    const url = `${getManifestUrl()}${refresh ? `?t=${Date.now()}` : ''}`;
+    const response = await fetch(url, {
+      cache: 'no-store',
+      mode: 'same-origin',
+      redirect: 'error'
+    });
+    if (!response.ok) throw new Error('Manifest HTTP request failed');
+    return validateManifest(await response.json(), slug);
   }
 
   const I18N = {
     'zh-CN': {
-      title: '🛡️ 官方防篡改与完整性校验',
-      desc: '本文档受 EpoCanvas Mail 官方密码学哈希存证保护，内容不可伪造与篡改。',
-      badgeVerified: '官方密码学存证保护 (SHA-256)',
-      badgeJump: '查看存证详情与实时验真 ⬇',
-      docHashLabel: '官方发布哈希 (SHA-256)',
-      gitLabel: '固化版本 (Git Commit)',
-      authorityLabel: '认证发布通道',
-      verifyBtn: '🔍 实时验证本文完整性',
-      verifying: '正在校验密码学指纹...',
-      verifiedSuccess: '✅ 官方认证通过：本文档内容与源仓库发布记录 100% 吻合，完整未被篡改！',
-      verifiedFail: '⚠️ 哈希比对不一致，请核验是否访问了非官方镜像站点。',
-      copySuccess: '已复制哈希值！',
-      offlineCheckTitle: '终端离线验真指令',
+      title: '发布清单一致性检查',
+      desc: '比较当前站点两次返回的本页清单记录。不验证页面正文、发布者身份、数字签名或法律合规。',
+      docHashLabel: '初次清单中的 SHA-256',
+      gitLabel: '初次清单中的 Git 提交（未认证）',
+      sourceLabel: '清单来源（当前站点）',
+      copyBtn: '复制',
+      copySuccess: '已复制',
+      copyFail: '复制失败',
+      verifyBtn: '检查清单一致性',
+      retryBtn: '重新读取清单',
+      loading: '正在读取发布清单…',
+      ready: '已读取记录，尚未检查一致性。',
+      verifying: '正在重新读取并比较清单记录…',
+      verifiedSuccess: '清单一致：两次取得的本页条目 SHA-256 与 gitCommit 相同。未验证页面正文、发布者身份、签名或法律合规。',
+      verifiedFail: '验证失败：本页条目哈希或 gitCommit 不一致，也可能是发布版本发生了更新。',
+      unavailable: '无法验证：清单请求失败或数据无效（网络、HTTP、JSON、条目、哈希或提交号）。未确认一致性。',
+      pendingValue: '无有效记录',
+      manualTitle: '手动比较源文件（另行操作）',
+      manualNote: '须另行核对清单与源文件的来源、版本。以下命令只计算将 CRLF 规范为 LF 后的本地 Markdown 哈希；本面板不执行命令，也不验证文件。',
+      fetchComment: '获取站点清单，供手动比较；清单未签名',
+      hashComment: '在本地仓库中规范换行并计算源文件 SHA-256'
     },
     'zh-TW': {
-      title: '🛡️ 官方防竄改與完整性校驗',
-      desc: '本文檔受 EpoCanvas Mail 官方密碼學雜湊存證保護，內容不可偽造與竄改。',
-      badgeVerified: '官方密碼學存證保護 (SHA-256)',
-      badgeJump: '查看存證詳情與即時驗真 ⬇',
-      docHashLabel: '官方發布雜湊 (SHA-256)',
-      gitLabel: '固化版本 (Git Commit)',
-      authorityLabel: '認證發布通道',
-      verifyBtn: '🔍 即時驗證本文完整性',
-      verifying: '正在校驗密碼學指紋...',
-      verifiedSuccess: '✅ 官方認證通過：本文檔內容與源倉庫發布記錄 100% 吻合，完整未被竄改！',
-      verifiedFail: '⚠️ 雜湊比對不一致，請核驗是否訪問了非官方鏡像站點。',
-      copySuccess: '已複製雜湊值！',
-      offlineCheckTitle: '終端離線驗真指令',
+      title: '發布清單一致性檢查',
+      desc: '比較目前網站兩次傳回的本頁清單紀錄。不驗證頁面正文、發布者身分、數位簽章或法律合規。',
+      docHashLabel: '初次清單中的 SHA-256',
+      gitLabel: '初次清單中的 Git 提交（未認證）',
+      sourceLabel: '清單來源（目前網站）',
+      copyBtn: '複製',
+      copySuccess: '已複製',
+      copyFail: '複製失敗',
+      verifyBtn: '檢查清單一致性',
+      retryBtn: '重新讀取清單',
+      loading: '正在讀取發布清單…',
+      ready: '已讀取紀錄，尚未檢查一致性。',
+      verifying: '正在重新讀取並比較清單紀錄…',
+      verifiedSuccess: '清單一致：兩次取得的本頁項目 SHA-256 與 gitCommit 相同。未驗證頁面正文、發布者身分、簽章或法律合規。',
+      verifiedFail: '驗證失敗：本頁項目雜湊或 gitCommit 不一致，也可能是發布版本發生了更新。',
+      unavailable: '無法驗證：清單請求失敗或資料無效（網路、HTTP、JSON、項目、雜湊或提交號）。未確認一致性。',
+      pendingValue: '無有效紀錄',
+      manualTitle: '手動比較原始檔（另行操作）',
+      manualNote: '須另行核對清單與原始檔的來源、版本。以下指令只計算將 CRLF 正規化為 LF 後的本機 Markdown 雜湊；本面板不執行指令，也不驗證檔案。',
+      fetchComment: '取得網站清單，供手動比較；清單未簽章',
+      hashComment: '在本機儲存庫中正規化換行並計算原始檔 SHA-256'
     },
     en: {
-      title: '🛡️ Official Tamper-Proof & Integrity Verification',
-      desc: 'This document is cryptographically anchored by EpoCanvas Mail official SHA-256 manifest.',
-      badgeVerified: 'Official Cryptographic Seal (SHA-256)',
-      badgeJump: 'View Integrity Details & Verify Live ⬇',
-      docHashLabel: 'Official Release SHA-256',
-      gitLabel: 'Git Release Anchor',
-      authorityLabel: 'Verified Release Channel',
-      verifyBtn: '🔍 Verify Page Integrity Live',
-      verifying: 'Computing cryptographic digest...',
-      verifiedSuccess: '✅ Official Verification Passed: Document matches release record 100% intact!',
-      verifiedFail: '⚠️ Digest mismatch. Please verify if you are on an authentic official mirror.',
-      copySuccess: 'Hash copied to clipboard!',
-      offlineCheckTitle: 'Offline Terminal Verification',
+      title: 'Release manifest consistency check',
+      desc: 'Compares two records for this page returned by the current site. Does not verify page content, publisher identity, digital signatures or legal compliance.',
+      docHashLabel: 'SHA-256 in the initial manifest',
+      gitLabel: 'Git commit in the initial manifest (unauthenticated)',
+      sourceLabel: 'Manifest source (current site)',
+      copyBtn: 'Copy',
+      copySuccess: 'Copied',
+      copyFail: 'Copy failed',
+      verifyBtn: 'Check manifest consistency',
+      retryBtn: 'Reload manifest',
+      loading: 'Loading release manifest…',
+      ready: 'Record loaded; consistency not yet checked.',
+      verifying: 'Reloading and comparing manifest records…',
+      verifiedSuccess: 'Manifest consistent: this page’s entry SHA-256 and gitCommit match across both reads. Page content, publisher identity, signatures and legal compliance were not verified.',
+      verifiedFail: 'Verification failed: the entry hash or gitCommit differs. A release update may also cause this difference.',
+      unavailable: 'Unable to verify: the manifest request failed or its data is invalid (network, HTTP, JSON, entry, hash or commit). Consistency has not been confirmed.',
+      pendingValue: 'No valid record',
+      manualTitle: 'Compare source files manually (separate action)',
+      manualNote: 'Independently check the source and version of the manifest and files. These commands only hash local Markdown after normalizing CRLF to LF; this panel does not run them or verify files.',
+      fetchComment: 'Fetch the site manifest for manual comparison; it is unsigned',
+      hashComment: 'Normalize line endings and hash the source file in a local checkout'
     },
     fr: {
-      title: '🛡️ Vérification officielle anti-falsification et intégrité',
-      desc: 'Ce document est ancré cryptographiquement par le manifeste officiel EpoCanvas Mail.',
-      badgeVerified: 'Sceau cryptographique officiel (SHA-256)',
-      badgeJump: 'Voir détails et vérifier en direct ⬇',
-      docHashLabel: 'Empreinte officielle SHA-256',
-      gitLabel: 'Version figée (Git Commit)',
-      authorityLabel: 'Canal de publication certifié',
-      verifyBtn: '🔍 Vérifier l\'intégrité de la page en direct',
-      verifying: 'Calcul de l\'empreinte cryptographique...',
-      verifiedSuccess: '✅ Authentification officielle réussie : contenu 100 % intact et conforme !',
-      verifiedFail: '⚠️ Non-concordance de hachage. Vérifiez votre URL.',
-      copySuccess: 'Hachage copié !',
-      offlineCheckTitle: 'Vérification par terminal',
+      title: 'Contrôle de cohérence du manifeste de publication',
+      desc: 'Compare deux enregistrements de cette page renvoyés par le site actuel. Ne vérifie ni le contenu de la page, ni l’identité de l’éditeur, ni les signatures numériques, ni la conformité juridique.',
+      docHashLabel: 'SHA-256 du manifeste initial',
+      gitLabel: 'Commit Git du manifeste initial (non authentifié)',
+      sourceLabel: 'Source du manifeste (site actuel)',
+      copyBtn: 'Copier',
+      copySuccess: 'Copié',
+      copyFail: 'Échec de la copie',
+      verifyBtn: 'Contrôler la cohérence du manifeste',
+      retryBtn: 'Recharger le manifeste',
+      loading: 'Chargement du manifeste de publication…',
+      ready: 'Enregistrement chargé ; cohérence non encore contrôlée.',
+      verifying: 'Rechargement et comparaison des enregistrements du manifeste…',
+      verifiedSuccess: 'Manifeste cohérent : le SHA-256 de l’entrée de cette page et gitCommit sont identiques lors des deux lectures. Le contenu de la page, l’identité de l’éditeur, les signatures et la conformité juridique n’ont pas été vérifiés.',
+      verifiedFail: 'Échec de la vérification : le hachage de l’entrée ou gitCommit diffère. Une mise à jour de publication peut aussi expliquer cette différence.',
+      unavailable: 'Vérification impossible : échec de la requête ou données du manifeste invalides (réseau, HTTP, JSON, entrée, hachage ou commit). La cohérence n’est pas confirmée.',
+      pendingValue: 'Aucun enregistrement valide',
+      manualTitle: 'Comparer les fichiers sources manuellement (action distincte)',
+      manualNote: 'Vérifiez séparément la provenance et la version du manifeste et des fichiers. Ces commandes calculent uniquement le hachage du Markdown local après conversion de CRLF en LF ; ce panneau ne les exécute pas et ne vérifie pas les fichiers.',
+      fetchComment: 'Récupérer le manifeste du site pour une comparaison manuelle ; il n’est pas signé',
+      hashComment: 'Normaliser les fins de ligne et hacher le fichier source dans un dépôt local'
     },
     es: {
-      title: '🛡️ Verificación oficial contra manipulaciones e integridad',
-      desc: 'Este documento está protegido mediante la huella criptográfica oficial SHA-256.',
-      badgeVerified: 'Sello criptográfico oficial (SHA-256)',
-      badgeJump: 'Ver detalles y verificar en vivo ⬇',
-      docHashLabel: 'Huella digital SHA-256 oficial',
-      gitLabel: 'Versión consolidada (Git Commit)',
-      authorityLabel: 'Canal oficial de publicación',
-      verifyBtn: '🔍 Verificar integridad en tiempo real',
-      verifying: 'Calculando huella criptográfica...',
-      verifiedSuccess: '✅ Verificación oficial superada: ¡Contenido 100% íntegro e inalterado!',
-      verifiedFail: '⚠️ La huella digital no coincide.',
-      copySuccess: '¡Huella copiada!',
-      offlineCheckTitle: 'Comando de verificación en terminal',
+      title: 'Comprobación de coherencia del manifiesto de publicación',
+      desc: 'Compara dos registros de esta página devueltos por el sitio actual. No verifica el contenido de la página, la identidad del editor, las firmas digitales ni el cumplimiento legal.',
+      docHashLabel: 'SHA-256 del manifiesto inicial',
+      gitLabel: 'Commit Git del manifiesto inicial (sin autenticar)',
+      sourceLabel: 'Origen del manifiesto (sitio actual)',
+      copyBtn: 'Copiar',
+      copySuccess: 'Copiado',
+      copyFail: 'Error al copiar',
+      verifyBtn: 'Comprobar la coherencia del manifiesto',
+      retryBtn: 'Recargar el manifiesto',
+      loading: 'Cargando el manifiesto de publicación…',
+      ready: 'Registro cargado; coherencia aún no comprobada.',
+      verifying: 'Recargando y comparando los registros del manifiesto…',
+      verifiedSuccess: 'Manifiesto coherente: el SHA-256 de la entrada de esta página y gitCommit coinciden en ambas lecturas. No se han verificado el contenido de la página, la identidad del editor, las firmas ni el cumplimiento legal.',
+      verifiedFail: 'Verificación fallida: el hash de la entrada o gitCommit difiere. Una actualización de la publicación también puede causar esta diferencia.',
+      unavailable: 'No se puede verificar: la solicitud ha fallado o los datos del manifiesto no son válidos (red, HTTP, JSON, entrada, hash o commit). No se ha confirmado la coherencia.',
+      pendingValue: 'Sin registro válido',
+      manualTitle: 'Comparar archivos fuente manualmente (acción aparte)',
+      manualNote: 'Compruebe por separado el origen y la versión del manifiesto y los archivos. Estos comandos solo calculan el hash del Markdown local tras convertir CRLF en LF; el panel no los ejecuta ni verifica los archivos.',
+      fetchComment: 'Obtener el manifiesto del sitio para compararlo manualmente; no está firmado',
+      hashComment: 'Normalizar los saltos de línea y calcular el hash del archivo fuente en un repositorio local'
     },
     nl: {
-      title: '🛡️ Officiële verificatie van integriteit en anti-manipulatie',
-      desc: 'Dit document is cryptografisch verankerd via het officiële SHA-256-manifest van EpoCanvas Mail.',
-      badgeVerified: 'Officieel cryptografisch zegel (SHA-256)',
-      badgeJump: 'Bekijk integriteitsdetails & controleer live ⬇',
-      docHashLabel: 'Officiële SHA-256-hash',
-      gitLabel: 'Vastgelegde versie (Git Commit)',
-      authorityLabel: 'Geverifieerd publicatiekanaal',
-      verifyBtn: '🔍 Controleer integriteit van pagina',
-      verifying: 'Cryptografische hash berekenen...',
-      verifiedSuccess: '✅ Officiële verificatie geslaagd: inhoud is 100% intact en ongewijzigd!',
-      verifiedFail: '⚠️ Hash komt niet overeen.',
-      copySuccess: 'Hash gekopieerd!',
-      offlineCheckTitle: 'Terminal-verificatieopdracht',
+      title: 'Consistentiecontrole van het publicatiemanifest',
+      desc: 'Vergelijkt twee records voor deze pagina die de huidige site terugstuurt. Controleert niet de pagina-inhoud, de identiteit van de uitgever, digitale handtekeningen of wettelijke naleving.',
+      docHashLabel: 'SHA-256 in het oorspronkelijke manifest',
+      gitLabel: 'Git-commit in het oorspronkelijke manifest (niet geauthenticeerd)',
+      sourceLabel: 'Manifestbron (huidige site)',
+      copyBtn: 'Kopiëren',
+      copySuccess: 'Gekopieerd',
+      copyFail: 'Kopiëren mislukt',
+      verifyBtn: 'Manifestconsistentie controleren',
+      retryBtn: 'Manifest opnieuw laden',
+      loading: 'Publicatiemanifest laden…',
+      ready: 'Record geladen; consistentie nog niet gecontroleerd.',
+      verifying: 'Manifestrecords opnieuw laden en vergelijken…',
+      verifiedSuccess: 'Manifest consistent: de SHA-256 van het record voor deze pagina en gitCommit zijn bij beide lezingen gelijk. De pagina-inhoud, identiteit van de uitgever, handtekeningen en wettelijke naleving zijn niet geverifieerd.',
+      verifiedFail: 'Verificatie mislukt: de hash van het record of gitCommit verschilt. Dit kan ook door een nieuwe publicatie komen.',
+      unavailable: 'Verificatie niet mogelijk: het verzoek is mislukt of de manifestgegevens zijn ongeldig (netwerk, HTTP, JSON, record, hash of commit). De consistentie is niet bevestigd.',
+      pendingValue: 'Geen geldig record',
+      manualTitle: 'Bronbestanden handmatig vergelijken (afzonderlijke handeling)',
+      manualNote: 'Controleer de herkomst en versie van het manifest en de bestanden afzonderlijk. Deze opdrachten hashen alleen lokale Markdown na omzetting van CRLF naar LF; dit paneel voert ze niet uit en verifieert geen bestanden.',
+      fetchComment: 'Het sitemanifest ophalen voor handmatige vergelijking; het is niet ondertekend',
+      hashComment: 'Regeleinden normaliseren en het bronbestand in een lokale repository hashen'
     }
   };
 
   function getLangStrings() {
-    const htmlLang = document.documentElement.lang || 'zh-CN';
-    if (htmlLang.startsWith('zh-TW') || htmlLang.startsWith('zh-Hant')) return I18N['zh-TW'];
-    if (htmlLang.startsWith('fr')) return I18N.fr;
-    if (htmlLang.startsWith('es')) return I18N.es;
-    if (htmlLang.startsWith('nl')) return I18N.nl;
-    if (htmlLang.startsWith('en')) return I18N.en;
+    const lang = (document.documentElement.lang || 'zh-CN').toLowerCase();
+    if (lang.startsWith('zh-tw') || lang.startsWith('zh-hant')) return I18N['zh-TW'];
+    for (const code of ['en', 'fr', 'es', 'nl']) {
+      if (lang === code || lang.startsWith(`${code}-`)) return I18N[code];
+    }
     return I18N['zh-CN'];
+  }
+
+  function element(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = text;
+    return node;
   }
 
   async function renderTamperProofPanel() {
     const slug = getCanonicalDocSlug();
-    if (!slug) return;
-
-    const manifest = await fetchManifest();
-    if (!manifest) return;
-
-    const docMeta = manifest.documents[slug];
-    const docHash = docMeta ? docMeta.sha256 : 'Manifest pending synchronization';
-    const gitCommit = manifest.gitShortCommit || 'latest';
-    const committedAt = manifest.committedAt ? manifest.committedAt.substring(0, 10) : '2026-10-01';
+    const container = document.querySelector('.sl-markdown-content');
+    if (!slug || !container || document.getElementById('tamper-proof-widget')) return;
 
     const t = getLangStrings();
-
-    const container = document.querySelector('.sl-markdown-content');
-    if (!container) return;
-
-    const isTamperProofDoc = slug.includes('tamper-proof');
-    if (!isTamperProofDoc) {
-      // Do not inject the tamper-proof widget on general legal, privacy, or overview documents
-      // This strictly honors the rule: appear only on its dedicated specification page, avoiding visual fatigue.
-      return;
-    }
-
-    // 2. 主验真面板 (Main Verification Panel) - 仅在官方防篡改规范专页呈现，且全篇仅出现一次
-    if (document.getElementById('tamper-proof-widget')) return;
-
-    const widget = document.createElement('div');
+    // A baseline belongs to this panel, not a previous Astro page or locale.
+    let baseline = null;
+    const widget = element('div', 'tamper-proof-panel');
     widget.id = 'tamper-proof-widget';
-    widget.className = 'tamper-proof-panel';
-    widget.innerHTML = `
-      <div class="tamper-header">
-        <div class="tamper-title-row">
-          <span class="tamper-icon">🛡️</span>
-          <span class="tamper-title">${t.title}</span>
-          <span class="tamper-pill">SECURED</span>
-        </div>
-        <p class="tamper-desc">${t.desc}</p>
-      </div>
+    const header = element('div', 'tamper-header');
+    const titleRow = element('div', 'tamper-title-row');
+    titleRow.appendChild(element('span', 'tamper-title', t.title));
+    titleRow.appendChild(element('span', 'tamper-pill', 'HASH RECORD'));
+    header.appendChild(titleRow);
+    header.appendChild(element('p', 'tamper-desc', t.desc));
+    widget.appendChild(header);
 
-      <div class="tamper-grid">
-        <div class="tamper-grid-item">
-          <div class="tamper-k">${t.docHashLabel}</div>
-          <div class="tamper-v mono">
-            <span id="doc-sha256-val">${docHash}</span>
-            <button type="button" class="tamper-copy-btn" id="tamper-copy-btn" title="Copy Hash">📋</button>
-          </div>
-        </div>
+    const grid = element('div', 'tamper-grid');
+    function recordField(label) {
+      const item = element('div', 'tamper-grid-item');
+      item.appendChild(element('div', 'tamper-k', label));
+      const value = element('div', 'tamper-v mono');
+      item.appendChild(value);
+      grid.appendChild(item);
+      return value;
+    }
+    const hashField = recordField(t.docHashLabel);
+    const hashValue = element('span', '', t.pendingValue);
+    hashValue.id = 'doc-sha256-val';
+    hashField.appendChild(hashValue);
+    const copyBtn = element('button', 'tamper-copy-btn', t.copyBtn);
+    copyBtn.id = 'tamper-copy-btn';
+    copyBtn.type = 'button';
+    copyBtn.title = t.copyBtn;
+    copyBtn.disabled = true;
+    hashField.appendChild(copyBtn);
+    const commitValue = element('span', '', t.pendingValue);
+    commitValue.id = 'doc-git-commit-val';
+    recordField(t.gitLabel).appendChild(commitValue);
+    recordField(t.sourceLabel).appendChild(element('span', '', getManifestUrl()));
+    widget.appendChild(grid);
 
-        <div class="tamper-grid-item">
-          <div class="tamper-k">${t.gitLabel}</div>
-          <div class="tamper-v mono">
-            <a href="https://github.com/shijianus/epomail-docs/commit/${manifest.gitCommit}" target="_blank" rel="noopener noreferrer">
-              ${gitCommit} (${committedAt}) ↗
-            </a>
-          </div>
-        </div>
+    const actions = element('div', 'tamper-action-row');
+    const verifyBtn = element('button', 'tamper-action-btn', t.verifyBtn);
+    verifyBtn.id = 'tamper-verify-btn';
+    verifyBtn.type = 'button';
+    const statusEl = element('span', 'tamper-status');
+    statusEl.id = 'tamper-verify-status';
+    statusEl.setAttribute('role', 'status');
+    statusEl.setAttribute('aria-live', 'polite');
+    actions.appendChild(verifyBtn);
+    actions.appendChild(statusEl);
+    widget.appendChild(actions);
 
-        <div class="tamper-grid-item">
-          <div class="tamper-k">${t.authorityLabel}</div>
-          <div class="tamper-v">
-            <span class="tamper-verified-badge">✓ announcement@epocanvas.com</span>
-          </div>
-        </div>
-      </div>
+    const manual = element('details', 'tamper-terminal-fold');
+    manual.appendChild(element('summary', '', t.manualTitle));
+    manual.appendChild(element('p', '', t.manualNote));
+    const pre = element('pre', 'tamper-code');
+    pre.appendChild(element('code', '', `# ${t.fetchComment}
+curl -fsSL https://docs.epocanvas.com/epomail/tamper-proof.json
 
-      <div class="tamper-action-row">
-        <button type="button" class="tamper-action-btn" id="tamper-verify-btn">
-          ${t.verifyBtn}
-        </button>
-        <span class="tamper-status" id="tamper-verify-status"></span>
-      </div>
+# ${t.hashComment}
+node -e "const fs=require('node:fs'),c=require('node:crypto');console.log(c.createHash('sha256').update(fs.readFileSync('src/content/docs/${slug}.md','utf8').replace(/\\r\\n/g,'\\n'),'utf8').digest('hex'))"`));
+    manual.appendChild(pre);
+    widget.appendChild(manual);
 
-      <details class="tamper-terminal-fold">
-        <summary>${t.offlineCheckTitle}</summary>
-        <pre class="tamper-code"><code># 1. 抓取官方不可变指纹清单
-curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json | jq '.documents["${slug}"]'
-
-# 2. 离线校验本地文件哈希
-openssl dgst -sha256 src/content/docs/${slug}.md</code></pre>
-      </details>
-    `;
-
-    // 优先插入在第一个 h2 标题之前（紧跟概述段落与架构图之后），保证极其显眼
+    // Insert before awaiting fetch, so repeated page-load events cannot duplicate it.
     const firstH2 = container.querySelector('h2');
-    if (firstH2) {
-      container.insertBefore(widget, firstH2);
-    } else {
-      container.appendChild(widget);
+    if (firstH2) container.insertBefore(widget, firstH2);
+    else container.appendChild(widget);
+
+    function setStatus(state, text) {
+      statusEl.className = `tamper-status${state ? ` ${state}` : ''}`;
+      statusEl.textContent = text;
     }
 
-    // 绑定复制
-    const copyBtn = document.getElementById('tamper-copy-btn');
-    if (copyBtn) {
-      copyBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(docHash).then(() => {
-          const original = copyBtn.innerText;
-          copyBtn.innerText = '✓';
-          setTimeout(() => (copyBtn.innerText = original), 2000);
-        });
-      });
-    }
-
-    // 绑定验真
-    const verifyBtn = document.getElementById('tamper-verify-btn');
-    const statusEl = document.getElementById('tamper-verify-status');
-    if (verifyBtn && statusEl) {
-      verifyBtn.addEventListener('click', async () => {
-        verifyBtn.disabled = true;
-        statusEl.innerHTML = `<span class="tamper-loading">${t.verifying}</span>`;
-
-        try {
-          // 重新抓取清单进行比对
-          const fresh = await fetch(`${getManifestUrl()}?t=${Date.now()}`).then(r => r.json());
-          const target = fresh.documents[slug];
-
-          await new Promise(r => setTimeout(r, 350)); // 动画平滑过渡
-
-          if (target && target.sha256 === docHash) {
-            statusEl.innerHTML = `<span class="tamper-success">${t.verifiedSuccess}</span>`;
-          } else {
-            statusEl.innerHTML = `<span class="tamper-fail">${t.verifiedFail}</span>`;
-          }
-        } catch (e) {
-          statusEl.innerHTML = `<span class="tamper-success">${t.verifiedSuccess}</span>`;
-        } finally {
-          verifyBtn.disabled = false;
+    async function loadOrCompare(refresh) {
+      verifyBtn.disabled = true;
+      setStatus('tamper-loading', baseline ? t.verifying : t.loading);
+      try {
+        const current = await fetchManifest(slug, refresh);
+        if (!baseline) {
+          // A successful retry after a failed initial load only establishes a
+          // baseline; another successful read is required to compare records.
+          baseline = current;
+          hashValue.textContent = baseline.sha256;
+          commitValue.textContent = baseline.gitCommit;
+          copyBtn.disabled = false;
+          setStatus('', t.ready);
+        } else if (current.sha256 === baseline.sha256 && current.gitCommit === baseline.gitCommit) {
+          setStatus('tamper-success', t.verifiedSuccess);
+        } else {
+          setStatus('tamper-fail', t.verifiedFail);
         }
-      });
+      } catch {
+        // Network, HTTP, parse and validation failures must never imply success.
+        setStatus('tamper-fail', t.unavailable);
+      } finally {
+        verifyBtn.textContent = baseline ? t.verifyBtn : t.retryBtn;
+        verifyBtn.disabled = false;
+      }
     }
+
+    copyBtn.addEventListener('click', async () => {
+      if (!baseline) return;
+      try {
+        await navigator.clipboard.writeText(baseline.sha256);
+        copyBtn.textContent = t.copySuccess;
+      } catch {
+        copyBtn.textContent = t.copyFail;
+      }
+    });
+    verifyBtn.addEventListener('click', () => {
+      if (!verifyBtn.disabled) return loadOrCompare(true);
+    });
+    await loadOrCompare(false);
   }
 
-  // 页面加载及 Astro 页面切换时执行
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', renderTamperProofPanel);
   } else {
     renderTamperProofPanel();
   }
-
   document.addEventListener('astro:page-load', renderTamperProofPanel);
 })();

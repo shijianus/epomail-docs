@@ -3,7 +3,7 @@ title: Profil et réglages généraux
 description: Profil et réglages généraux d'EpoCanvas Mail — avatar, pseudonyme, coordonnées et adresses, palette d'apparence et fonds d'écran, préférences de lecture et langue d'interface, expliqués entrée par entrée.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 La présente page détaille chaque entrée des deux sections « Paramètres → Profil » et « Paramètres → Général ». Les réglages de sécurité et de données figurent séparément dans le [Guide de sécurité du compte](/fr/mail/security/) et dans [Export des données et stockage](/fr/mail/data/).
 

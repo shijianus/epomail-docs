@@ -3,7 +3,7 @@ title: Gids voor meldingen en doorsturen
 description: De gids voor meldingen en doorsturen van EpoCanvas Mail — Telegram-push koppelen, pushvoorkeuren en de zichtbaarheid van velden, en de bestemmingen en triggertypes van automatisch doorsturen.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 Deze pagina loopt de twee mogelijkheden van het gebied «E-mail en berichten doorsturen» op de pagina «Instellingen → Gegevens» langs: Telegram-berichtpush en automatisch doorsturen. Of een account ze te zien krijgt, wordt beslist door de kaart «Gebruikersgegevensbeheer» van de beheerder; staan ze uit, dan zijn de bijbehorende blokken verborgen. Gegevensexport en opslag staan op dezelfde pagina, zie de [Instellingengids](/nl/mail/settings/), sectie 5.
 
@@ -16,9 +16,9 @@ Deze pagina loopt de twee mogelijkheden van het gebied «E-mail en berichten doo
 
 Drie exportkaarten en het kopgebied «E-mail en berichten doorsturen» op de pagina Gegevens: het bovenste deel bepaalt hoe gegevens naar buiten gaan, het onderste hoe nieuwe mail je in realtime bereikt.
 
-1. **Kaart voor volledige data-export**: Een volledige back-up in JSON — accountgegevens, de volledige tekst van de e-mailgeschiedenis, contacten, classificatie- en labelregels en beveiligingsinstellingen in één pakket; de belangrijkste ingang om je recht op gegevensoverdraagbaarheid uit te oefenen.
-2. **Kaart voor het archief van de e-mailgeschiedenis**: Exporteert alleen mail, in MBOX (het universele formaat dat de meeste mailclients importeren), JSON of CSV, desgewenst beperkt tot een bepaalde periode.
-3. **Kaart voor contacten en configuratie**: De derde export: het contactenboek, eigen aliasregels en personalisatievoorkeuren. Van de drie bestanden de kleinste, maar degene die bepaalt of je gewoontes een verhuizing overleven — aliasregels en het labelstelsel reizen mee, zodat niets opnieuw hoeft te worden benoemd of ingedeeld.
+1. **Kaart voor volledige data-export**: JSON bevat geselecteerde profielvelden, gegevens van niet als verwijderd gemarkeerde e-mail en aangepaste labels. Bijlagen, volledige routering, aliassen, contacten, regels en beveiligingsinstellingen ontbreken. Dit is geen volledige back-up; ontbrekende gegevens kunnen volgens de wet worden opgevraagd.
+2. **Kaart voor het archief van de e-mailgeschiedenis**: De interface biedt formaten en datums, maar de gecontroleerde backend past type-, formaat- en periodeparameters niet toe. Het gevraagde formaat of bereik is niet gegarandeerd.
+3. **Kaart voor contacten en configuratie**: De kaartnaam bewijst geen export van contacten, aliasregels of alle voorkeuren. De respons heeft dezelfde JSON-reikwijdte; zie de gegevensbeveiligingsdocumentatie.
 4. **Kopgebied E-mail en berichten doorsturen**: Twee realtime kanalen: Telegram-berichtpush (koppel je eigen bot; alles of alleen belangrijke mail en verificatiecodes, met een leeslink op de site die 7 dagen geldig blijft) en automatisch doorsturen (bestemmingen, triggertype en de markering `[Fwd]`).
 
 </details>

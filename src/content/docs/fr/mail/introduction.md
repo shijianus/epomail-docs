@@ -3,9 +3,9 @@ title: Introduction au site de documentation EpoCanvas Mail
 description: Introduction au site de documentation EpoCanvas Mail — positionnement du site, architecture documentaire, parcours de lecture, structure multilingue et navigation complète.
 ---
 
-**Lancement du site : 28 septembre 2026 | Version actuelle : v5.19 | URL du site : docs.epocanvas.com/epomail**
+**Lancement du site : 28 septembre 2026 | Version actuelle : v5.21 | URL du site : docs.epocanvas.com/epomail**
 
-**Date d'effet : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 Le site de documentation EpoCanvas Mail (ci-après « ce site ») est le centre de documentation officiel du service de messagerie électronique open source EpoCanvas Mail, couvrant les conditions juridiques, les spécifications techniques, les guides d'utilisation et la documentation de développement. Construit avec Astro 5 + Starlight, le site maintient une symétrie structurelle complète sur six langues (chinois simplifié, chinois traditionnel, English, Français, Español, Nederlands), chaque document étant vérifié mot à mot par rapport à l'implémentation du code, offrant aux utilisateurs de l'instance hébergée, aux auto-hébergeurs et aux participants à l'audit une source unique de vérité. Cette page explique le positionnement du site, l'architecture documentaire, les parcours de lecture et les points d'entrée de navigation.
 
@@ -49,7 +49,7 @@ Ce site est organisé en trois groupes de documents, qui se référencent mutuel
 | [Interface boîte de réception et détail des messages](/fr/mail/mailbox/) | Vues de la boîte de réception, division en trois colonnes, fils de conversation et page de détail des messages élément par élément |
 | [Gestion des étiquettes et de la classification](/fr/mail/labels/) | Taxonomie des étiquettes, moteur de règles de classification, listes noires/blanches et outils de gouvernance globale |
 | [Données personnelles et paramètres généraux](/fr/mail/preferences/) | Fiches de profil, fiches d'adresse, langue de l'interface, fond d'écran thématique et préférences de lecture |
-| [Export de données et stockage](/fr/mail/data/) | Export de copie complète JSON, téléchargement de message unique .eml et gestion de l'utilisation du stockage |
+| [Export de données et stockage](/fr/mail/data/) | Export JSON de données sélectionnées, téléchargements .eml et gestion du stockage ; limites dans la documentation de sécurité |
 | [Guide de sécurité du compte](/fr/mail/security/) | Nom d'utilisateur et mot de passe, centre de vérification en deux étapes (TOTP, codes de récupération de secours, clés d'accès) et appareils de confiance |
 | [Guide des notifications et des transferts](/fr/mail/notify/) | Transfert personnel, push Telegram et configuration et comportement des règles de transfert globales |
 | [Analyses](/fr/mail/analysis/) | Tableaux de bord de visualisation de données, croissance des utilisateurs et statistiques de classification du courrier |

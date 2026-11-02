@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Architectuur van de juridische documenten: de Servicevoorwaarden als contractlaag, het Privacybeleid en het beleid voor acceptabel gebruik als beleidslaag, gegevensverwerking en verwerkers als ondersteunende documenten, op het toepasselijke recht en beveiligingsverplichtingen">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Juridische documenten: overeenkomst, privacy, gebruik, beveiliging en ontvangers; dwingend recht en beschermde rechten gaan voor.">
   <style>
     .bg { fill: #f8fafc; }
     .layer { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -23,26 +23,26 @@
   </style>
   <rect class="bg" width="1000" height="430" rx="16"/>
   <rect class="top" x="250" y="46" width="500" height="86" rx="12"/>
-  <text class="tag" x="274" y="72">CONTRACTLAAG</text>
-  <text class="t" x="274" y="94">Servicevoorwaarden</text>
-  <text class="b" x="274" y="110">Elektronische toestemming: dezelfde kracht als een schriftelijke handtekening</text>
-  <text class="b" x="274" y="126">Volledige tekst gepubliceerd voor controle · herzieningen gearchiveerd in de open-sourcebron</text>
+  <text class="tag" x="274" y="72">CONTRACT</text>
+  <text class="t" x="274" y="94">Terms of Service</text>
+  <text class="b" x="274" y="110">Review terms · explicit acceptance</text>
+  <text class="b" x="274" y="126">Material changes: notice &amp; acceptance where required</text>
   <line class="vline" x1="360" y1="132" x2="360" y2="168"/>
   <line class="vline" x1="500" y1="132" x2="500" y2="168"/>
   <line class="vline" x1="640" y1="132" x2="640" y2="168"/>
   <rect class="layer" x="70" y="168" width="290" height="66" rx="12"/>
-  <text class="t" x="90" y="194" font-size="13">Privacybeleid</text>
-  <text class="b" x="90" y="214">Wat we verzamelen en waarom · verwerkingsnormen</text>
+  <text class="t" x="90" y="194" font-size="13">Privacy Policy</text>
+  <text class="b" x="90" y="214">Purposes · lawful basis · rights</text>
   <rect class="layer" x="380" y="168" width="240" height="66" rx="12"/>
-  <text class="t" x="400" y="194" font-size="13">Beleid voor acceptabel gebruik</text>
-  <text class="b" x="400" y="214">Gedragsgrenzen en handhaving</text>
+  <text class="t" x="400" y="194" font-size="13">Acceptable Use</text>
+  <text class="b" x="400" y="214">Proportionate action · appeal</text>
   <rect class="layer" x="640" y="168" width="290" height="66" rx="12"/>
-  <text class="t" x="660" y="194" font-size="13">Gegevens en beveiliging · Verwerkers</text>
-  <text class="b" x="660" y="214">Beveiligingsmaatregelen · lijst van verwerkers</text>
+  <text class="t" x="660" y="194" font-size="13">Security &amp; Recipients</text>
+  <text class="b" x="660" y="214">Controls · limits · data flows</text>
   <rect class="base" x="70" y="266" width="860" height="100" rx="12"/>
-  <text class="tag" x="94" y="292">JURIDISCH KADER</text>
-  <text class="t" x="94" y="316" font-size="13.5">Recht van de vestigingsplaats van de exploitant — gehoste instantie: Taiwanees recht, rechtbank Taipei</text>
-  <text class="b" x="94" y="336">Manifest onredelijke standaardbedingen binden niet onder toepasselijk recht</text>
-  <text class="b" x="94" y="352">Aansprakelijkheid die het recht niet laat uitsluiten, valt niet onder plafonds</text>
-  <text class="law" x="94" y="400">VOLGORDE: het document over het eigen onderwerp prevaleert · de traditioneel Chinese (Taiwan) versie is leidend</text>
+  <text class="tag" x="94" y="292">APPLICABLE LAW</text>
+  <text class="t" x="94" y="316" font-size="13.5">Mandatory law &amp; protected rights take priority</text>
+  <text class="b" x="94" y="336">Contract choice of law does not remove mandatory local protections.</text>
+  <text class="b" x="94" y="352">Free or non-profit service: statutory duties and remedies remain.</text>
+  <text class="law" x="94" y="400">Subject-specific documents · zh-TW authoritative, subject to mandatory rights</text>
 </svg>

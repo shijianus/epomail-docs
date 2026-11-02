@@ -1,103 +1,110 @@
 ---
 title: Terms of Service
-description: The EpoCanvas Mail Terms of Service — acceptance and review, account rules, your content, limitation of liability, governing law, and jurisdiction.
+description: Non-profit learning and testing use, account and content rules, reasonable liability limits, and data protection and consumer rights that cannot be excluded.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
-These terms are the agreement between you and the operator of the instance you use concerning the use of the EpoCanvas Mail service (the "Service"). By completing registration, logging in, or otherwise using the Service, you confirm that you have read and agree to all of these terms; if you disagree, do not register or use the Service.
 
-These terms are standard terms, published in full on the registration page for your review, with historical versions archived in the open-source repository. Your electronic consent has the same effect as a physical document and signature. Rights that applicable law does not allow to be excluded or limited by standard terms are unaffected by these terms.
+<!-- legal-review-draft -->
+:::caution[Legal review draft: not the current notice]
+This draft records proposed terms and matters still requiring verification. It does not replace the current live notice or certify compliance. It must not be used to enable processing before the operator identity and legally required contact information, actual legal bases, recipients and transfer safeguards, retention and deletion arrangements have been verified and the required notice provided. References to an authoritative version mean the Traditional Chinese drafting baseline, not entry into force. Existing statutory duties and user rights remain unaffected.
+:::
 
-The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
+These terms govern the service relationship between you and the operator of the EpoCanvas Mail instance you use. Before registration or activation, the operator must provide terms and a privacy notice that can be saved, and obtain any necessary acceptance of the contract through an affirmative action. Merely visiting, remaining silent, or reading the privacy policy does not mean consent to all processing activities. If you do not accept the service conditions, do not create an account.
 
-![EpoCanvas Mail contract lifecycle of the Terms of Service: electronic consent (agree by registering, same force as writing) → performance (account security, your content, liability limits) → revision (announced before material changes take effect) → termination (deactivation, data export and deletion), on the base of governing law and jurisdiction (the operator's location; Taiwan for the hosted instance)](/images/mail/en/tos-contract.svg)
+The Traditional Chinese (Taiwan) version is this site's authoritative version; other languages are translations for reference. This arrangement does not limit clear notice required by applicable law, interpretations favourable to consumers, or rights that cannot be excluded. Technical descriptions are based on source code that has been checked; each instance separately publishes its actual configuration.
 
-*Figure: the contract's lifecycle from formation to termination. Electronic consent has the same force as writing; account, content, and liability terms are in Sections 3, 5, and 10; revision in Section 12; termination and data deletion in Section 8; governing law and jurisdiction in Section 11.*
+![Formation, use, amendment, and termination of the service contract](/images/mail/en/tos-contract.svg)
 
-## 1. Definitions
+*Figure: arrangements at each stage of the contract; mandatory provisions of applicable law take precedence over disclaimers and agreements on governing law and jurisdiction.*
 
-1. **The Service**: all functions running on an EpoCanvas Mail instance, including the web client, the mobile app (epomail), the open API, and related components.
-2. **Operator**: the individual or team that deploys and runs the instance you use. For the hosted instance `mail.epocanvas.com`, the EpoCanvas operations team; for self-hosted instances, their deployers.
-3. **You (data subject)**: the natural person or organization that registers, logs in, or otherwise uses the Service.
-4. **Formation**: you enter into the agreement with the operator of the instance you register on. These terms are a common template: the hosted instance applies them directly; self-hosted operators may adapt them for their sites and must fulfil the notice obligations required by the law applicable at their location towards their users.
+## 1. Operators, Software Authors, and Contracting Parties
 
-## 2. Description of the Service
+An "instance" is a deployment under a particular domain. The "operator" is the natural person or organisation that actually makes decisions about and manages that instance's service. The hosted instance is `mail.epocanvas.com` and communicates publicly under the EpoCanvas name. The operator's identifiable identity, location, and contact details must be disclosed under Section 2 of the [Privacy Policy](/en/mail/privacy-policy/); using a team name does not create a separate legal entity.
 
-The Service provides multi-mailbox management, on-site and off-site mail sending and receiving, attachments, labels and stars, spam quarantine, snooze reminders, search, AI translation (optional), automatic code extraction (optional), Telegram push (optional), two-step verification (TOTP / passkeys), an OAuth open platform, and data export; the functions actually available depend on what the instance enables.
+Authors and contributors who merely publish MIT-licensed source code, review code, or submit patches do not thereby become service providers, guarantors, or data controllers for other deployments. If the same person separately operates an instance or determines data processing, the corresponding obligations follow their actual conduct. Third-party self-hosting does not establish an agency, partnership, or joint operation with the upstream authors.
 
-The Service is built on an MIT-licensed open-source project and remains open source: the source code is public and auditable, and you may deploy it yourself to obtain the same capabilities. The software is provided "as is"; its license and these terms' liability provisions are consistent (see Section 10).
+## 2. Non-profit Learning and Testing Service
 
-## 3. Accounts and Security
+This project is an individually maintained, non-profit side project serving a public-interest purpose, for learning, development, and general communication testing. The hosted service is currently free. Being free or non-profit does not exclude data protection, confidentiality of communications, or consumer rules that apply under the law.
 
-1. **Registration information**: registration requires a valid mailbox address and password. You must not impersonate another person or use a domain you have no right to use.
-2. **Eligibility**: you confirm you are at least 14 years old; children under 14 may not use the Service. Age is taken on your honest declaration at registration; the Service has no separate age-verification mechanism, and where a declaration proves false the operator may terminate the account and delete its data. You must also ensure your registration and use comply with the law of your location.
-3. **Credential custody**: you are responsible for safeguarding your password, two-step verification credentials, and API tokens. Operations performed with your credentials are presumed to be yours.
-4. **Two-step verification**: enabling TOTP or a passkey is recommended. On instances using the "Encrypted" mail mode, the operator may require it under its security policy.
-5. **Login protection**: 5 consecutive wrong passwords lock login for 12 hours; an account keeps at most 10 active sessions, and you can sign out on any device to revoke a token immediately.
-6. **Registration restrictions**: identifiers such as `admin` are reserved; the operator may set the instance to require a registration key or close registration — this is instance administration.
+The service is provided according to available resources, with no agreed uptime, delivery time, backup recovery point, round-the-clock staffing, or enterprise-level service level agreement. Do not use it for emergency communications, statutory retention, medical decisions, your sole account recovery mailbox, or your sole backup of important data. These use restrictions do not reduce the operator's statutory obligations for personal data already held.
 
-## 4. Provision and Changes of the Service
+The MIT licence governs the use and distribution of copies of the software. The hosted service is separately subject to these terms and applicable law. The MIT disclaimer does not automatically exempt an instance operator from liability.
 
-1. **Availability**: the Service runs on Cloudflare's edge infrastructure. The operator makes reasonable efforts to maintain availability but does not promise a specific uptime, delivery time, or recovery deadline, and offers no service level agreement (SLA).
-2. **Feature changes**: the open-source project keeps evolving; features may be added, adjusted, or removed. Material changes affecting data-deletion capability will be announced in advance.
-3. **Experimental features**: features marked "experimental" or in testing (such as image text recognition and translation) are provided as-is, may be unstable, and may be changed or withdrawn at any time.
-4. **Maintenance and interruption**: the operator may suspend part or all of the Service for upgrades, repairs, or abuse handling. Unavailability caused by Cloudflare or upstream AI or delivery providers is not a breach by the operator.
+## 3. Eligibility and Account Security
 
-## 5. Your Content
+1. The hosted test service is for people aged 16 or older who have capacity to enter into a contract under the law of their location. If a guardian's permission is required, valid permission must be obtained first; there is currently no registration flow for children or verification flow for guardian consent.
+2. Provide account identification data that you are entitled to use. Do not impersonate others, resell accounts, or circumvent registration or quota limits. Required data for different login methods is described in the privacy policy.
+3. Safeguard your password, two-step verification credentials, and API credentials, and contact the operator if you suspect misuse. Records of credential use are only evidence for assessment and do not impose strict liability on you for all unauthorised actions.
+4. Login protection, session limits, and available features operate according to the instance's settings and deployed version. The operator may restrict registration or revoke suspicious sessions for security reasons.
 
-1. **Ownership**: you own the mail you send and receive and its attachments, and are responsible for them. The operator does not use your content for advertising, model training, or assignment.
-2. **Processing authorisation**: to provide storage, delivery, search, push, and (optional) translation, you authorise the operator to process technically, only to the extent necessary to run the Service; the authorisation ends when you stop using the Service and your data is deleted.
-3. **Sending responsibility**: you are responsible for every mail you send; disputes and legal liability arising from the content you send are yours.
-4. **Notice on content accessibility**: the operator does not in principle review your ordinary mail. In "All-mail" mode the administrator is technically able to read all mail (in "Private" mode only spam, deleted, and unassigned mail) and will act on reports or as required by law. Understand an instance's mode before choosing it; for stronger confidentiality see the encryption-scope note in Section 10 of the [Privacy Policy](/en/mail/privacy-policy/).
+## 4. Features, Maintenance, and Discontinuation
 
-## 6. Outbound Delivery and Third-Party Services
+Features and quotas may be adjusted according to cost, security, and maintenance capacity. Changes that materially disadvantage normal use or a foreseeable shutdown must be notified in advance where reasonably practicable, with a reasonable period for retrieving data. Urgent vulnerabilities, ongoing abuse, legal orders, or interruptions beyond control may be dealt with first and explained afterwards.
 
-1. **Outbound delivery**: mail addressed off-site is delivered through the operator's configured channel (Cloudflare Email Workers, Resend, or Mailjet). Third-party delivery may be delayed, bounced, or blocked by the recipient's provider; the operator does not guarantee delivery results.
-2. **Third-party terms**: using Telegram push, AI translation, Linux DO sign-in, external S3 storage, and similar features also binds you to those third parties' terms.
-3. **OAuth open platform**: if you authorise a third-party app through OAuth, its scope (openid / profile / email) and how to revoke it are in Section 7 of the [Privacy Policy](/en/mail/privacy-policy/); the app's use of the data follows its own terms.
+There is no commitment to permanent hosting, continued availability of a particular feature, or development and support for every suggestion. Planned testing should prioritise isolated environments and synthetic data. If testing will affect real users' data or interests, necessity must first be assessed, safeguards taken, and applicable notice and legal-basis requirements fulfilled. "Testing" does not itself authorise arbitrary inspection of real mail.
 
-## 7. Acceptable Use
+## 5. Your Content and the Scope of Processing
 
-Your use of the Service must comply with the [Acceptable Use Policy](/en/mail/acceptable-use/) in full, including the prohibitions on unlawful content, bulk spam, attacks on the system, and interference with others' use. Violations are handled under that policy's procedures, up to deletion of the account and all data, with evidence preserved as required by law and investigation.
+Existing intellectual property rights in mail and attachments are not transferred through use of the service. You must have the right to submit, forward, or publish the relevant content and respect the rights of senders, recipients, and other data subjects. Receiving someone else's mail does not give you all rights in it.
 
-## 8. Retention, Removal, and Account Termination
+You grant the operator permission for technical processing only as necessary for storage, delivery, retrieval, backup, and features you choose. This is not authorisation for advertising, selling data, or model training, and does not replace the processing basis the operator must have under the law. After deletion, processing may continue only within the scope of lawful and necessary retention.
 
-1. **You terminate**: you can deactivate your account yourself in Settings at any time, or ask the operator to delete it. After deactivation, sessions end immediately and mail enters a soft-deleted state; unless retention is required by law, an administrator performs the hard deletion within 90 days.
-2. **Routine cleanup**: spam is quarantined 7 days and then moved to trash; trash mail is hard-deleted (attachments included) 7 days after receipt. Deletion is irreversible; first obtain a JSON copy through "Data Export".
-3. **Operator termination**: if you violate the [Acceptable Use Policy](/en/mail/acceptable-use/), the operator may suspend or terminate your use under that policy.
-4. **Statutory retention**: where retention is required by law or judicial process, the operator may postpone deletion within the necessary scope and process according to due legal procedure.
+The service does not provide end-to-end encryption that prevents the operator from decrypting data. Attachments and metadata do not automatically receive application-layer encryption protection through the mode applied to the mail body. See the [Privacy Policy](/en/mail/privacy-policy/) and [Data Processing & Security Maintenance](/en/mail/data-security/) for administrative access, AI, and external data flows.
 
-## 9. Notice of Enforcement and Remedies
+## 6. Third-Party Delivery and Optional Features
 
-Before suspending or terminating your use under "Acceptable Use" or the previous section, the operator — except in urgent situations (an ongoing attack, transmission of unlawful content) — will notify you and give you a chance to explain or correct. If you believe a measure was mistaken, appeal under the "Appeals and reports" chapter of the [Acceptable Use Policy](/en/mail/acceptable-use/); the operator will review and answer within a reasonable period.
+Off-site delivery, cloud infrastructure, and the notification, translation, storage, or login features you choose involve third parties. Recipients' mail providers receive and process mail under their own policies. Delivery, receipt, and deletion by the other party cannot be guaranteed by this project alone.
 
-Notices under these terms made electronically are deemed delivered when the document enters the recipient's or its designated information system. The e-mail address you gave at registration is the place of electronic notice, and you should keep it able to receive mail.
+Third-party terms apply only within the scope of the relevant feature and your actual relationship with that third party. Choosing a third-party feature does not exempt the operator from its legal responsibilities for selecting and instructing providers, data protection agreements, or lawful transfers. See the [Sub-processor List](/en/mail/sub-processors/) for providers and the content transmitted.
 
-## 10. Disclaimers and Limitation of Liability
+## 7. Reasonable Use and Authorised Testing
 
-1. **As-is provision**: the Service (including its software) is provided "as is" and "as available", without any express or implied warranty, including merchantability, fitness for a particular purpose, and non-infringement; this matches the disclaimer scope of the software's MIT license.
-2. **Effect boundary**: where the previous item, or any other term reducing the operator's liability, increasing yours, or limiting your rights, is grossly unfair in its circumstances or not permitted by applicable law, that part does not take effect.
-3. **Liability cap**: to the maximum extent the law allows, the operator's cumulative liability to you is limited to the higher of what you actually paid the operator in the past 12 months (usually zero on a free instance) and USD 100. The operator is not liable for indirect damage, loss of data, lost profit, or harm to reputation. Back up important mail yourself.
-4. **Statutory liability is not limited**: liability that applicable law does not allow to be excluded or limited by agreement (including liability arising from the operator's breach of its personal-data protection duties) is not exempted or capped by the previous item.
-5. **Force majeure**: for service interruption or data loss caused by natural disasters, war, government action, backbone network failure, large-scale network attacks, or third-party providers' shutdown, the operator is not liable provided it has made reasonable efforts.
+Comply with the [Acceptable Use Policy](/en/mail/acceptable-use/). You may learn, debug, and conduct security tests in an isolated deployment you control, using synthetic or lawfully de-identified data. Scanning, stress testing, social engineering, or access testing against the hosted instance or someone else's systems requires prior explicit authorisation from the person responsible for that system and must remain within its scope.
 
-## 11. Governing Law, Jurisdiction, and Administrative Supervision
+Reporting defects in good faith, making privacy complaints or reports to competent authorities, and lawfully asserting rights are not abuse. Users are responsible only for unlawful conduct or breaches of contract legally attributable to them. There is no blanket obligation to indemnify developers for all costs, fines, or third-party claims.
 
-1. These terms are interpreted, and their validity and performance determined, under the law of the operator's location: Taiwan law for the hosted instance `mail.epocanvas.com`; the deployer's location's law for self-hosted instances.
-2. Disputes under these terms are first resolved by negotiation; failing that, for the hosted instance the Taipei District Court of Taiwan is the court of first instance, and for self-hosted instances the jurisdiction the operator publishes applies. Mandatory jurisdictional rules of the law prevail.
-3. The hosted instance's personal-data processing is subject to Taiwan law, and the operator accepts inspection and supervision by the competent authority and establishes and continuously improves personal-data file security-maintenance measures (see [Data Processing & Security Maintenance](/en/mail/data-security/)).
+## 8. Leaving, Deletion, and Shutdown
 
-## 12. Revision of the Terms
+You may stop using the service, export available data, and request account deletion. Logging out, revoking authorisation, or deactivating an account does not mean immediate physical deletion of all data; self-service export also has technical limits. Processing times, scheduled cleanup, backups, and lawful retention are handled under Sections 8 and 9 of the [Privacy Policy](/en/mail/privacy-policy/) and [Data Processing & Security Maintenance](/en/mail/data-security/).
 
-These terms may be revised as the service evolves. Material changes will be announced through an on-site notice or system mail, with the effective date and version number at the top of this page updated. Continuing to use the Service after a change takes effect means you accept the revised terms; if you disagree, stop using the Service and export or delete your data. Material revisions are archived with the open-source repository's version history; revised terms are published for review before taking effect in the manner described above.
+For serious violations, security risks, or statutory requirements, the operator may impose proportionate restrictions or terminate service. Normally, the reasons are notified first and an opportunity to explain is provided; in an emergency, isolation may come first. Rights to retrieve data, complain, and obtain statutory erasure do not automatically end upon termination.
+
+## 9. Notices, Support, and Complaints
+
+General support is provided asynchronously, with no agreed response or repair deadline. Data protection requests and statutory notifications remain subject to their respective legal deadlines. Material service notices may be sent through announcements after login, a verified contact email address, or other appropriate means, giving affected people a reasonable opportunity to become aware of them. Notices that cannot be seen after login are not sufficient on their own to handle complaints from people who have lost account access.
+
+Contact channels are listed in Section 13. A complaint should provide enough information to locate the issue, without first having to disclose full emails, passwords, or identity documents publicly. Where there are reasonable doubts, the operator requests only proportionate verification.
+
+## 10. Disclaimers and Reasonable Limits of Liability
+
+To the extent permitted by applicable law, the free test service is provided as is and as available, without additional guarantees of uninterrupted or error-free operation, fitness for a particular purpose, or successful third-party delivery. The operator must take appropriate measures according to risk, the state of the art, and reasonable resources. These terms do not promise insurance, particular certifications, or enterprise-level operations and maintenance.
+
+Only for contractual damages arising from ordinary negligence that may lawfully be limited by agreement, the operator's aggregate liability arising from the same cause is capped at the higher of the service fees you paid in the 12 months before the incident and USD 100. Where permitted by law, the operator is not liable for indirect business losses that could not reasonably have been foreseen. If that cap or exclusion is grossly unfair to a particular user or invalid under the law, statutory liability applies directly; these terms do not further reduce it.
+
+Those limits do not apply to intentional misconduct or gross negligence, fraud, liability for personal injury or death that cannot lawfully be limited, compensation under data protection law, consumer remedies that cannot be excluded, or other mandatory liability. You should keep your own backups of important data, but failure to back up is not a blanket waiver of rights.
+
+Whether an upstream service failure, attack, or force majeure event exempts the operator from liability depends on actual control, measures taken, causation, and applicable law; the event's name does not automatically confer an exemption. The liability of contributors who merely provide source code and are not involved in the relevant operations is determined by the software licence and applicable law. Contributor status alone does not make them responsible for service guarantees.
+
+## 11. Governing Law and Remedies for Disputes
+
+The hosted instance's contract is generally governed by Taiwan law. This choice does not deprive consumers of protections that cannot lawfully be excluded under the law of their habitual residence, or exclude the GDPR, confidentiality of communications, or other mandatory rules that apply within their scope.
+
+The parties may first negotiate through the contact channels, but completing an internal complaint is not a prerequisite to seeking remedies from a competent authority or court. Where jurisdiction may lawfully be agreed, the Taiwan Taipei District Court is the court of first instance for the hosted instance. This does not restrict rights such as those of EU consumers and data subjects to bring proceedings before a competent court where they are located, as provided by law. Self-hosted operators must separately publish arrangements that reflect their actual circumstances.
+
+## 12. Changes to the Terms and Their Effect
+
+Revisions must have a legitimate reason, and the version, content, and arrangements for taking effect must be published. Changes that materially disadvantage existing users must be notified by appropriate means with reasonable advance notice and an opportunity to leave and retrieve data. Where fresh agreement is required by law or by the nature of the change, the change applies only after affirmative acceptance has been obtained. Urgent security or legal changes may be addressed immediately to the extent necessary and explained as soon as possible, without retroactively depriving users of existing claims.
+
+The update date on this page records a textual revision; it does not by itself establish that all users have been notified or new consent obtained. A privacy policy update is not consent to new processing purposes. Historical versions are retained in the repository.
 
 ## 13. Contact
 
-- **Hosted instance (`mail.epocanvas.com`)**: in-site message or `admin@epocanvas.com`; privacy and appeals `privacy@epocanvas.com`
-- **Open-source project**: GitHub repository Issues (`github.com/shijianus/epomail`)
-- **Self-hosted sites**: contact the operator published by that site
+- Privacy, exercise of rights, and data protection complaints: `privacy@epocanvas.com`.
+- Account, service, and general complaints: `admin@epocanvas.com` or in-site contact.
+- Source code issues: [shijianus/epomail](https://github.com/shijianus/epomail/issues). Do not put personal data, credentials, or undisclosed vulnerabilities in public issues.
+- Self-hosted instances: contact the actual operator published by that site.
 
----
-
-*These terms, the [Privacy Policy](/en/mail/privacy-policy/), and the [Acceptable Use Policy](/en/mail/acceptable-use/) together form the complete agreement between you and the operator; the order of precedence among the documents is in the [Privacy & Terms Overview](/en/mail/overview/). This document is a common template prepared by the open-source community and is not legal advice; operators should consult a lawyer and adapt it to their actual business before formal operation.*
+See the [Privacy & Terms Overview](/en/mail/overview/) for the relationship between these terms, the privacy policy, and the acceptable use policy, and the precedence of mandatory law.

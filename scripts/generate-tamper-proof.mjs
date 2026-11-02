@@ -72,8 +72,8 @@ for (const filePath of docFiles) {
 
 const manifest = {
   specVersion: '1.0.0',
-  title: 'EpoCanvas Mail Official Documentation Anti-Tamper & Integrity Manifest',
-  authority: 'EpoCanvas Mail Official Security Team',
+  title: 'EpoCanvas Mail Documentation Source Hash Manifest',
+  authority: 'EpoCanvas Mail documentation maintainers',
   officialOrigin: 'https://docs.epocanvas.com/epomail',
   repository: 'https://github.com/shijianus/epomail-docs',
   verifiedChannel: 'announcement@epocanvas.com',

@@ -3,7 +3,7 @@ title: Notifications & Forwarding Guide
 description: The EpoCanvas Mail notifications and forwarding guide — binding Telegram push, push preferences and field visibility, and the destination and trigger types of auto-forwarding.
 ---
 
-**Effective date: 11 October 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.21**
 
 This page walks through the two capabilities of the "Mail & message forwarding" area on the "Settings → Data" page: Telegram message push and auto-forwarding. Whether an account sees them is decided by the admin's "User Data Control" card; when off, the blocks are hidden. Data export and storage live on the same page, see the [Settings Guide](/en/mail/settings/), Section 5.
 
@@ -16,9 +16,9 @@ This page walks through the two capabilities of the "Mail & message forwarding" 
 
 Three export cards and the forwarding header on the data page: the top half governs how data leaves, the bottom half how incoming mail reaches you in real time.
 
-1. **Full-data export card**: A complete JSON backup — profile, full mail history, contacts, label rules and security settings in one package; the primary entry for data-portability requests.
-2. **Mail archive card**: Exports mail only, in MBOX (the universal format most clients import), JSON or CSV, optionally bounded by a time range.
-3. **Contacts and preferences card**: The third export: the contact book, custom alias rules and personalisation preferences. The smallest of the three, yet it decides whether your habits survive a move — alias rules and the label taxonomy travel with it, so nothing has to be renamed or reclassified.
+1. **Full-data export card**: JSON contains selected profile fields, mappings of mail not marked deleted, and custom labels. It excludes attachments, complete routing, aliases, contacts, rules and security settings. It is not a complete backup; omitted data may be requested where the law allows.
+2. **Mail archive card**: The interface offers format and date options, but the checked backend does not apply type, format or date-range parameters. The requested format or range is not guaranteed.
+3. **Contacts and preferences card**: The card name does not establish export of contacts, alias rules or all preferences. The actual response has the same JSON scope; see the data security document.
 4. **Forwarding header region**: Two real-time channels: Telegram push (bind your own bot; all mail or important + verification codes only, with a 7-day in-site read link) and auto-forwarding (destinations, trigger type and the `[Fwd]` tag).
 
 </details>

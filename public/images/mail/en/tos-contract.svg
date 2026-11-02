@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Contract lifecycle of the Terms of Service: electronic consent, performance, revision, termination — governed by the Operator's jurisdiction">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Contract stages: explicit acceptance, use, changes and exit; mandatory law, local protections and legal remedies take priority.">
   <style>
     .bg { fill: #f8fafc; }
     .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -38,44 +38,44 @@
     </marker>
   </defs>
   <rect class="bg" width="1000" height="400" rx="16"/>
-  <text class="tag" x="60" y="46">CONTRACT LIFECYCLE — TERMS OF SERVICE</text>
+  <text class="tag" x="60" y="46">SERVICE AGREEMENT</text>
   <rect class="chip" x="672" y="24" width="268" height="40" rx="10"/>
-  <text class="bb" x="688" y="42">Electronic consent</text>
-  <text class="b" x="688" y="57">equal force as a written signature</text>
+  <text class="bb" x="688" y="42">Explicit acceptance</text>
+  <text class="b" x="688" y="57">Separate privacy choices</text>
   <rect class="s1" x="60" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="78" y="112">1 · Consent</text>
-  <text class="b" x="78" y="132">sign-up, login or use</text>
-  <text class="b" x="78" y="148">binds you to these terms</text>
-  <text class="b" x="78" y="164">full text published for review</text>
+  <text class="t" x="78" y="112">1 · Accept</text>
+  <text class="b" x="78" y="132">Review &amp; save terms</text>
+  <text class="b" x="78" y="148">Affirmative action</text>
+  <text class="b" x="78" y="164">Consent where required</text>
   <rect class="s2" x="300" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="318" y="112">2 · Performance</text>
-  <text class="b" x="318" y="132">account & security duties</text>
-  <text class="b" x="318" y="148">your content stays yours</text>
-  <text class="b" x="318" y="164">liability limits (§3 / §5 / §10)</text>
+  <text class="t" x="318" y="112">2 · Use</text>
+  <text class="b" x="318" y="132">Account &amp; security duties</text>
+  <text class="b" x="318" y="148">Content rights remain</text>
+  <text class="b" x="318" y="164">Mandatory rights apply</text>
   <rect class="s3" x="540" y="86" width="200" height="96" rx="10"/>
-  <text class="t" x="558" y="112">3 · Revision</text>
-  <text class="b" x="558" y="132">material changes announced</text>
-  <text class="b" x="558" y="148">before they take effect (§12)</text>
-  <text class="b" x="558" y="164">history kept in the open repo</text>
+  <text class="t" x="558" y="112">3 · Changes</text>
+  <text class="b" x="558" y="132">Notice of material changes</text>
+  <text class="b" x="558" y="148">New acceptance if required</text>
+  <text class="b" x="558" y="164">Opportunity to exit</text>
   <rect class="s4" x="780" y="86" width="160" height="96" rx="10"/>
-  <text class="t" x="798" y="112">4 · End</text>
-  <text class="b" x="798" y="132">self-service cancellation</text>
-  <text class="b" x="798" y="148">data export, then deletion</text>
-  <text class="b" x="798" y="164">(§8)</text>
+  <text class="t" x="798" y="112">4 · Exit</text>
+  <text class="b" x="798" y="132">Export available data</text>
+  <text class="b" x="798" y="148">Request deletion</text>
+  <text class="b" x="798" y="164">Retention limits</text>
   <path class="arrow" d="M260,134 L296,134"/>
   <path class="arrow" d="M500,134 L536,134"/>
   <path class="arrow" d="M740,134 L776,134"/>
   <rect class="band" x="60" y="216" width="880" height="64" rx="10"/>
-  <text class="bt" x="84" y="242">Governing law — the Operator's jurisdiction (§11):</text>
-  <text class="bb" x="84" y="262">hosted instance mail.epocanvas.com: Taiwan law, Taipei District Court · self-hosted instances: their deployer's jurisdiction</text>
-  <text class="tag" x="60" y="322">ALSO PART OF THE AGREEMENT</text>
+  <text class="bt" x="84" y="242">Choice of law is subject to mandatory protections</text>
+  <text class="bb" x="84" y="262">Hosted: Taiwan law · mandatory local protections, competent courts &amp; data-protection authorities remain available.</text>
+  <text class="tag" x="60" y="322">RELATED DOCUMENTS</text>
   <rect class="step" x="60" y="334" width="272" height="44" rx="10"/>
   <text class="t" x="78" y="352">Privacy Policy</text>
-  <text class="b" x="78" y="368">personal data notices & rights</text>
+  <text class="b" x="78" y="368">Notice · lawful bases · rights</text>
   <rect class="step" x="352" y="334" width="272" height="44" rx="10"/>
-  <text class="t" x="370" y="352">Acceptable Use Policy</text>
-  <text class="b" x="370" y="368">conduct boundaries & enforcement</text>
+  <text class="t" x="370" y="352">Acceptable Use</text>
+  <text class="b" x="370" y="368">Proportionate action &amp; appeal</text>
   <rect class="step" x="644" y="334" width="296" height="44" rx="10"/>
-  <text class="t" x="662" y="352">Order of precedence</text>
-  <text class="b" x="662" y="368">subject-specific document prevails · overview</text>
+  <text class="t" x="662" y="352">Document scope</text>
+  <text class="b" x="662" y="368">Subject-specific rules · mandatory rights first</text>
 </svg>

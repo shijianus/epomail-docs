@@ -3,7 +3,7 @@ title: Instellingengids
 description: Instellingengids van EpoCanvas Mail — de vijf secties van de persoonlijke instellingen (profiel, algemeen, beveiliging, gegevens, labels) en een volledige rondleiding langs de negen secties van de beheerconsole en de kaarten van de systeeminstellingen.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.21**
 
 EpoCanvas Mail verdeelt zijn instellingen over twee zones: de zone «instellingen» van de zijbalk bevat de persoonlijke instellingen die elk account zelf kan aanpassen, in vijf secties — profiel, algemeen, beveiliging, gegevens en labels; de zone «beheer» verschijnt alleen voor identiteitsgroepen met beheerrechten en draagt de configuratie op instantieniveau. Deze pagina loopt elke zone langs en laat zien hoe de instellingen samenhangen. Voor het gedrag op werkingsniveau — multi-account, e-mailmodi, aanmelding — zie [Werkingsmodi](/nl/mail/modes/).
 
@@ -74,18 +74,18 @@ De beveiligingspagina wijzigt de gebruikersnaam en het wachtwoord (met de datum 
 
 De vier kaarten van de pagina Gegevens: drie exportformaten, een doorstuurgebied, een opslaggebied en een gebied voor autorisaties van derden — persoonlijke data-autonomie op één scherm.
 
-1. **Kaart gebruikersgegevens en data-export**: Drie exporten naast elkaar: de volledige back-up in JSON, het archief van de e-mailgeschiedenis (MBOX/JSON/CSV met periode) en contacten en configuratie; een los bericht is daarnaast in het leesvenster als .eml te downloaden.
+1. **Kaart gebruikersgegevens en data-export**: JSON bevat geselecteerde profielvelden, gegevens van niet als verwijderd gemarkeerde e-mail en aangepaste labels. Bijlagen, volledige routering, aliassen, contacten, regels en beveiligingsinstellingen ontbreken. Dit is geen volledige back-up; ontbrekende gegevens kunnen volgens de wet worden opgevraagd. De interface biedt formaten en datums, maar de gecontroleerde backend past type-, formaat- en periodeparameters niet toe. Het gevraagde formaat of bereik is niet gegarandeerd.
 2. **Kaart E-mail en berichten doorsturen**: De instellingen van Telegram-push en automatisch doorsturen, punt voor punt; of een account ze mag gebruiken, bepaalt de schakelaar «Gebruikersgegevensbeheer» van de beheerder.
 3. **Kaart opslagruimte**: De verbruiksmeter voor bijlagen naast de quota, realtime. Je kunt je eigen Backblaze B2-/S3-bucket koppelen: nieuwe bijlagen gaan dan rechtstreeks naar je eigen cloud, buiten de quota van de instantie, en bij ontkoppelen valt het terug.
-4. **Kaart apps en diensten van derden**: Alle OAuth-autorisaties op het account: per app de toegang intrekken, of met één klik alles via het detailvenster. Intrekking werkt onmiddellijk — de bestaande tokens van de app vervallen ter plekke.
+4. **Kaart apps en diensten van derden**: Intrekken blokkeert nieuwe opvragingen via userinfo van deze dienst. Het garandeert geen onmiddellijke ongeldigheid van ID-tokens bij derden en haalt verkregen gegevens niet terug.
 
 </details>
 
 | Export | Formaat | Bereik |
 | --- | --- | --- |
-| Volledige data-export | JSON | Volledige back-up: accountgegevens, e-mailgeschiedenis, contacten, classificatie- en labelregels, en beveiligingsinstellingen |
-| Archief van de e-mailgeschiedenis | MBOX (universeel), JSON of CSV | Alleen verzonden en ontvangen e-mail, met optionele periode |
-| Contacten en configuratie | JSON | Contactenlijst, eigen aliasregels en personalisatievoorkeuren |
+| Volledige data-export | JSON | JSON bevat geselecteerde profielvelden, gegevens van niet als verwijderd gemarkeerde e-mail en aangepaste labels. Bijlagen, volledige routering, aliassen, contacten, regels en beveiligingsinstellingen ontbreken. Dit is geen volledige back-up; ontbrekende gegevens kunnen volgens de wet worden opgevraagd. |
+| Archief van de e-mailgeschiedenis | MBOX (universeel), JSON of CSV | De interface biedt formaten en datums, maar de gecontroleerde backend past type-, formaat- en periodeparameters niet toe. Het gevraagde formaat of bereik is niet gegarandeerd. |
+| Contacten en configuratie | JSON | De kaartnaam bewijst geen export van contacten, aliasregels of alle voorkeuren. De respons heeft dezelfde JSON-reikwijdte; zie de gegevensbeveiligingsdocumentatie. |
 
 Een los bericht wordt rechtstreeks in het leesvenster als .eml gedownload. Het gedeelte «E-mail en berichten doorsturen» biedt Telegram-push en automatisch doorsturen: het koppelen van een eigen bot, pushvoorkeuren en triggertypes worden stap voor stap uitgelegd in de [Handleiding meldingen en doorsturen](/nl/mail/notify/); of deze twee aan gebruikers worden aangeboden, beslist de schakelaar «Gebruikersgegevensbeheer» van de exploitant. Het opslaggedeelte toont de verbruiksmeter voor bijlagen en maakt het mogelijk een eigen objectopslag te koppelen (een eigen Backblaze B2- of S3-bucket); eenmaal gekoppeld gaan bijlagen rechtstreeks naar de persoonlijke cloud, buiten de quota van de instantie.
 

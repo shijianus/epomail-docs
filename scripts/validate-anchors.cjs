@@ -1,35 +1,61 @@
 const fs = require('fs');
 const path = require('path');
-const dist = 'dist';
-const pages = [];
-(function walk(d) {
-  for (const e of fs.readdirSync(d, { withFileTypes: true })) {
-    const p = path.join(d, e.name);
-    if (e.isDirectory()) walk(p);
-    else if (e.name === 'index.html') pages.push(p);
-  }
-})(dist);
-let bad = 0, checked = 0;
-for (const p of pages) {
-  const html = fs.readFileSync(p, 'utf8');
-  const ids = new Set([...html.matchAll(/ id="([^"]+)"/g)].map(m => m[1]));
-  const hrefs = [...html.matchAll(/ href="#([^"]+)"/g)].map(m => decodeURIComponent(m[1]));
-  for (const h of new Set(hrefs)) {
-    checked++;
-    if (!ids.has(h)) {
-      console.log('BROKEN ANCHOR', p.split(path.sep).join('/'), '#' + h);
-      if (/annexe|apéndice|apendice|bijlage|附录|附錄/.test(h)) {
-        const near = [...ids].filter(id => /annexe|ap[eé]ndice|bijlage|附录|附錄|glossaire|glosario|woorden|术语|術語|速查/i.test(id));
-        console.log('  candidates:', near.join(' | '));
-      }
-      bad++;
+const dist = path.resolve(__dirname, '..', 'dist');
+const pages = new Map();
+const origin = 'https://docs.invalid';
+const decodeAttribute = (value) => value.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+
+(function walk(dir) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) walk(file);
+    else if (entry.name.endsWith('.html')) {
+      const html = fs.readFileSync(file, 'utf8');
+      pages.set(file, {
+        html,
+        ids: new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => decodeAttribute(match[1]))),
+      });
     }
   }
-  const imgs = [...html.matchAll(/ src="(\/images\/[^"]+)"/g)].map(m => m[1]);
-  for (const s of new Set(imgs)) {
-    const f = path.join(dist, s.replace(/^\//, '').split('?')[0]);
-    if (!fs.existsSync(f)) { console.log('MISSING IMAGE', p.split(path.sep).join('/'), s); bad++; }
+})(dist);
+
+let bad = 0, checked = 0, imagesChecked = 0;
+function fail(file, value, reason) {
+  console.log(reason, path.relative(dist, file).split(path.sep).join('/'), value);
+  bad++;
+}
+function localTarget(value, file) {
+  const pagePath = '/' + path.relative(dist, file).split(path.sep).join('/');
+  const url = new URL(decodeAttribute(value), origin + pagePath);
+  if (url.origin !== origin) return null;
+  let target = path.resolve(dist, '.' + decodeURIComponent(url.pathname));
+  if (target !== dist && !target.startsWith(dist + path.sep)) throw new Error('Path outside output');
+  if (fs.existsSync(target) && fs.statSync(target).isDirectory()) target = path.join(target, 'index.html');
+  return { target, fragment: decodeURIComponent(url.hash.slice(1)) };
+}
+
+for (const [file, page] of pages) {
+  const links = new Set([...page.html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)].map((match) => match[1]));
+  for (const href of links) {
+    let resolved;
+    try { resolved = localTarget(href, file); }
+    catch { fail(file, href, 'INVALID LINK'); continue; }
+    if (!resolved) continue;
+    checked++;
+    if (!fs.existsSync(resolved.target)) fail(file, href, 'MISSING LINK TARGET');
+    else if (resolved.fragment && pages.has(resolved.target) && !pages.get(resolved.target).ids.has(resolved.fragment)) {
+      fail(file, href, 'BROKEN ANCHOR');
+    }
+  }
+  const images = new Set([...page.html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map((match) => match[1]));
+  for (const src of images) {
+    let resolved;
+    try { resolved = localTarget(src, file); }
+    catch { fail(file, src, 'INVALID IMAGE'); continue; }
+    if (!resolved) continue;
+    imagesChecked++;
+    if (!fs.existsSync(resolved.target)) fail(file, src, 'MISSING IMAGE');
   }
 }
-console.log('pages=' + pages.length, 'anchors-checked=' + checked, 'broken=' + bad);
+console.log(`pages=${pages.size} links-checked=${checked} images-checked=${imagesChecked} broken=${bad}`);
 process.exit(bad ? 1 : 0);

@@ -3,7 +3,7 @@ title: Guide de développement
 description: Guide de développement d'EpoCanvas Mail — organisation du dépôt, environnement local, suites de tests et d'inspection, discipline des six langues, discipline des migrations, flux de travail en cinq étapes et mode de contribution.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.21**
 
 La présente page s'adresse aux administrateurs et aux développeurs qui travaillent sur EpoCanvas Mail, l'auditent ou bâtissent dessus : organisation du dépôt, environnement local, système d'assurance qualité et flux de travail d'ingénierie. Les étapes pour mener un déploiement figurent dans le [Guide de déploiement](/fr/mail/deployment/) ; elles ne sont pas répétées ici.
 
