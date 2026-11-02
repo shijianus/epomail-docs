@@ -3,7 +3,7 @@ title: Guía de seguridad de la cuenta
 description: Guía de seguridad de la cuenta de EpoCanvas Mail — activación de la verificación en dos pasos en tres pasos, gestión de los códigos de recuperación, registro de llaves de acceso, comportamiento de la verificación al iniciar sesión y eliminación de la cuenta.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 Esta página recorre una a una todas las acciones de la página «Configuración → Seguridad». El comportamiento general de la verificación en dos pasos (dispositivos de confianza, políticas obligatorias) se describe en la sección 4 de [Modos de funcionamiento](/es/mail/modes/); esta página cubre solo la configuración. Entrada: barra lateral «Configuración → Seguridad» (`#settings/security`).
 
@@ -60,7 +60,9 @@ La visibilidad del centro sigue el modo de correo de la instancia: los modos pri
 
 ## 6. Eliminación de la cuenta
 
-Al pie de la página se sitúa la entrada de eliminación de la cuenta. Tras la eliminación, los datos de la cuenta se tramitan según las cláusulas de supresión de la [Política de privacidad](/es/mail/privacy-policy/); exporte antes sus datos desde «Configuración → Datos» (véase la [Guía de notificaciones y reenvío](/es/mail/notify/)).
+La entrada al pie de la página permite solicitar la eliminación de la cuenta actual. La implementación local de esta revisión primero desactiva en D1 la cuenta y todos sus buzones, y después revoca sesiones, tokens de acceso personal (PAT), confianza de dispositivos, credenciales OAuth pendientes y autorizaciones. El correo entrante de cuentas desactivadas se bloquea antes del tratamiento con IA. El servidor aplica las opciones de visualización del perfil público y devuelve 404 para perfiles de cuentas inactivas. Cada acceso compartido a mensajes y adjuntos vuelve a comprobar el estado actual de la cuenta y del mensaje y la versión de revocación. Cerrar sesión de forma ordinaria no equivale a esta revocación de toda la cuenta ni a eliminarla. Estos mecanismos locales no acreditan la actualización de todas las instancias en línea.
+
+El resultado `manual_review` significa que el acceso está desactivado y la eliminación sigue pendiente de revisión manual, no que el borrado físico esté completo. `cleanup_failed` indica que la cuenta sigue desactivada y parte de la limpieza requiere atención; contacte al operador y siga la solicitud. Los administradores pueden consultar la cola de limpieza de objetos, pero no cancelar una solicitud de eliminación mediante una restauración con un clic. Las ubicaciones BYO originales se conservan hasta que la cola confirme el trabajo. Las copias en chats, avatares estáticos del servidor, registros de auditoría, copias de seguridad y borradores locales no desaparecen automáticamente al recibir esta respuesta. Compruebe el alcance de la [exportación de datos](/es/mail/data/) y confirme aparte la limpieza de borradores del dispositivo en esa página; siga las Secciones 8 y 9 de la [Política de Privacidad](/es/mail/privacy-policy/) para la eliminación completa.
 
 ## 7. Documentos relacionados
 

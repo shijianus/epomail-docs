@@ -3,7 +3,7 @@ title: Guía de configuración
 description: Guía de configuración de EpoCanvas Mail — las cinco secciones de la configuración personal (perfil, general, seguridad, datos, etiquetas) y el recorrido completo por las nueve secciones de la consola de administración y las tarjetas de configuración del sistema.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 EpoCanvas Mail divide su configuración en dos zonas: la zona «configuración» de la barra lateral reúne los ajustes personales que cada cuenta puede modificar por sí misma, en cinco secciones — perfil, general, seguridad, datos y etiquetas; la zona «administración» solo aparece para los grupos de identidad con permisos administrativos y alberga la configuración al nivel de la instancia. Esta página recorre cada zona y las relaciones entre los ajustes. Para el comportamiento a nivel de funcionamiento — multicuenta, modos de correo, inicio de sesión —, véase [Modos de funcionamiento](/es/mail/modes/).
 
@@ -61,11 +61,11 @@ Las tres tarjetas de la página general —biografía, personalización de la ap
 
 ## 4. Seguridad: contraseña y verificación en dos pasos
 
-La página de seguridad modifica el nombre de usuario y la contraseña (mostrando la fecha del último cambio). El centro de verificación en dos pasos reúne el interruptor general y la configuración independiente de los tres segundos factores: aplicación de autenticación (TOTP), códigos de recuperación de respaldo (10 códigos de un solo uso) y llaves de acceso (Passkey). Para el comportamiento en el inicio de sesión y las reglas de dispositivos de confianza, véase la sección 4 de [Modos de funcionamiento](/es/mail/modes/). La parte inferior de la página contiene la entrada de eliminación de la cuenta; tras la eliminación, los datos de la cuenta se tramitan según las cláusulas de supresión de la [Política de privacidad](/es/mail/privacy-policy/).
+La página de seguridad modifica el nombre de usuario y la contraseña (mostrando la fecha del último cambio). El centro de verificación en dos pasos reúne el interruptor general y la configuración independiente de los tres segundos factores: aplicación de autenticación (TOTP), códigos de recuperación de respaldo (10 códigos de un solo uso) y llaves de acceso (Passkey). Desactivar TOTP elimina el secreto TOTP; si queda una passkey activa, la verificación en dos pasos sigue habilitada y la passkey no se elimina. Para el comportamiento en el inicio de sesión y las reglas de dispositivos de confianza, véase la sección 4 de [Modos de funcionamiento](/es/mail/modes/). La parte inferior de la página contiene la entrada de eliminación de la cuenta; tras la eliminación, los datos de la cuenta se tramitan según las cláusulas de supresión de la [Política de privacidad](/es/mail/privacy-policy/).
 
 ## 5. Datos: exportación, notificaciones y almacenamiento
 
-![Página de datos de EpoCanvas Mail: la tarjeta de exportación ofrece la exportación JSON integral, el archivo del correo (MBOX, JSON o CSV con rango de fechas) y la exportación de contactos y configuración; la tarjeta de almacenamiento de abajo muestra el indicador de uso de adjuntos y la entrada del almacenamiento de objetos personal (interfaz en chino simplificado)](/images/mail/es/ui/data-guide.png)
+![Página de datos de EpoCanvas Mail: accesos para exportar datos personales, archivos de correo y configuración; todas las exportaciones tienen límites de campos y el selector de fechas no acredita que el servidor lo aplique; debajo aparecen el uso de adjuntos y el acceso al almacenamiento de objetos (interfaz en chino simplificado)](/images/mail/es/ui/data-guide.png)
 
 *Figura: la página de datos. La exportación y la gestión del almacenamiento aparecen en la misma página; el uso de adjuntos computa contra la cuota del grupo de identidad.*
 
@@ -74,20 +74,20 @@ La página de seguridad modifica el nombre de usuario y la contraseña (mostrand
 
 Las cuatro tarjetas de la página de datos: tres formatos para llevarse los datos, una zona de reenvío, una de almacenamiento y otra de autorizaciones de terceros —la interfaz completa de la autonomía sobre los datos personales.
 
-1. **Tarjeta de exportación de datos y perfil del usuario**: Tres exportaciones en paralelo: la copia de seguridad integral en JSON, el archivo del historial de correo (MBOX/JSON/CSV con rango de fechas) y los contactos y la configuración. Un mensaje suelto también puede descargarse como .eml desde el panel de lectura.
-2. **Tarjeta de reenvío de correo y mensajes**: Configuración detallada del push de mensajes de Telegram y del reenvío automático; que estas dos funciones estén disponibles para la cuenta lo decide el interruptor de «Control de datos de usuario» del administrador.
-3. **Tarjeta de espacio de almacenamiento**: El indicador de uso del almacenamiento de adjuntos se coteja con la cuota en tiempo real. Puede conectarse un cubo de Backblaze B2/S3 propio: a partir de entonces los adjuntos nuevos se guardan directamente en la nube personal, fuera de la cuota de la instancia, y al retirar la conexión se vuelve al almacenamiento de la instancia.
-4. **Tarjeta de aplicaciones y servicios de terceros**: Lista de todas las aplicaciones con autorización OAuth de la cuenta: puede retirarse el acceso aplicación por aplicación, o revocarlas todas de una vez desde la ventana de detalle. La revocación surte efecto de inmediato y los tokens existentes de la aplicación dejan de valer en el acto.
+1. **Tarjeta de exportación de datos y perfil del usuario**: Las exportaciones JSON, de archivo de correo y de configuración utilizan la misma respuesta del servidor y solo incluyen campos seleccionados; el rango de fechas no se aplica y no constituyen una copia completa. Los archivos .eml individuales también se reconstruyen a partir de campos existentes.
+2. **Tarjeta de reenvío de correo y mensajes**: Ajustes de Telegram y reenvío; el administrador controla su disponibilidad. El reenvío personal por reglas (`rules`) no está disponible, no reenvía nada al ejecutarse ni pasa a todos los mensajes; los controles de alcance, vista previa y copia de códigos de Telegram se aplican según su configuración. Véase la guía de notificaciones y reenvío.
+3. **Tarjeta de espacio de almacenamiento**: Uso de adjuntos y cuota; el almacenamiento personal Backblaze B2/S3 puede recibir adjuntos nuevos, aunque siguen aplicándose otras limitaciones. Desconectarlo no migra ni elimina los objetos antiguos ni garantiza que los adjuntos anteriores sigan siendo legibles.
+4. **Tarjeta de aplicaciones y servicios de terceros**: Permite consultar y revocar autorizaciones OAuth; el servidor puede rechazar solicitudes posteriores relacionadas, pero no recupera los datos ya entregados ni revoca los ID tokens ya emitidos o las sesiones de terceros.
 
 </details>
 
 | Exportación | Formato | Alcance |
 | --- | --- | --- |
-| Exportación integral de datos | JSON | Copia de seguridad completa: datos de la cuenta, historial de correo, contactos, reglas de clasificación y etiquetas, y ajustes de seguridad |
-| Archivo del historial de correo | MBOX (universal), JSON o CSV | Solo el correo enviado y recibido, con rango de fechas opcional |
-| Contactos y configuración | JSON | Directorio de contactos, reglas de alias personalizadas y preferencias de personalización |
+| Exportación integral de datos (nombre en la interfaz) | JSON | Parte de los datos personales, campos seleccionados de correos no marcados como eliminados y `customLabels`; no incluye archivos adjuntos, contactos o reglas completos, ajustes de seguridad ni auditorías |
+| Archivo del historial de correo | MBOX, JSON o CSV | El navegador convierte los campos de correo de la misma respuesta; el servidor no aplica el rango de fechas y la exportación no incluye mensajes de la papelera ni el MIME original completo |
+| Contactos y configuración | JSON | Subconjunto de campos personales devuelto, `customLabels` y fecha de exportación; no es una copia completa de los contactos, alias ni todas las preferencias |
 
-Un mensaje suelto se descarga en .eml directamente desde el panel de lectura. La zona «Reenvío de correo y mensajes» ofrece el push de Telegram y el reenvío automático: la vinculación de un bot privado, las preferencias de push y los tipos de disparador se explican paso a paso en la [Guía de notificaciones y reenvío](/es/mail/notify/); si estas dos funciones se ofrecen a los usuarios lo decide el interruptor de «Control de datos de usuario» del operador. La zona de almacenamiento muestra el indicador de uso de adjuntos y permite conectar un almacenamiento de objetos personal (un cubo de Backblaze B2 o S3 propio); una vez conectado, los adjuntos van directamente a la nube personal, fuera de la cuota de la instancia.
+Los archivos .eml individuales se reconstruyen a partir de campos existentes; el alcance completo de la exportación se explica en [Exportación de datos y almacenamiento](/es/mail/data/). Los límites de vinculación, filtrado y revocación de enlaces de la zona «Reenvío de correo y mensajes» figuran en la [Guía de notificaciones y reenvío](/es/mail/notify/). Un almacenamiento personal Backblaze B2/S3 permite guardar allí los adjuntos nuevos y omitir la comprobación de la cuota del sistema en la ruta de almacenamiento de adjuntos, pero siguen aplicándose las demás limitaciones de correo, envío y del proveedor. Desconectarlo no migra ni elimina los objetos antiguos.
 
 ## 6. Gestión de etiquetas
 
@@ -107,7 +107,15 @@ La zona de administración se muestra partida por partida según los permisos de
 | Configuración del sistema | Configuración al nivel de la instancia — véase la lista de tarjetas de abajo |
 | Gestión de aplicaciones | Emisión y gestión de las credenciales de acceso de las aplicaciones de terceros OAuth 2.0 / OIDC |
 | Clasificación | Interruptores de recepción y envío, configuración del reconocimiento por IA, listas negras y blancas y reglas de bloqueo duro |
-| Informe de auditoría | Revisión, tratamiento y adjudicación de las cuatro clases de alertas |
+| Informe de auditoría | Estudio, tratamiento, cajones de evidencia y adjudicación de apelaciones de los tickets de riesgo en los cuatro paneles |
+
+<span id="operator-notice"></span>
+
+La tarjeta Operador y privacidad exige un nombre identificable del operador, su país o región real, un correo de contacto, la versión de las condiciones y enlaces válidos a las condiciones del servicio y al aviso de privacidad. Complete la dirección de contacto y la información sobre destinatarios y conservación según corresponda. La falta de datos obligatorios bloquea los nuevos registros, sin bloquear el acceso existente ni la inicialización. El nuevo usuario marca activamente una casilla de aceptación de condiciones inicialmente desmarcada. El servidor registra la cuenta, versión, fecha, idioma y URL de las condiciones; el aviso de privacidad no constituye consentimiento general.
+
+<span id="optional-processing"></span>
+
+La extracción opcional de códigos, la traducción y el OCR están desactivados por defecto y requieren un aviso sobre el destino de los datos antes de activarse. La extracción automática también exige la elección explícita del usuario en los ajustes de datos; cada traducción requiere confirmar el aviso vigente, y el OCR una elección separada para esa solicitud. El respaldo mediante traducción pública no está disponible. Los ajustes de datos también permiten revocar enlaces de lectura de Telegram existentes y borrar datos del dispositivo con confirmación explícita. El cierre indica acceso desactivado y eliminación pendiente de verificación, no el borrado de todas las copias. Actualice conjuntamente la interfaz y el servidor; la configuración no demuestra la identidad real, los contratos, destinatarios ni la conservación efectiva.
 
 La página de configuración del sistema organiza la configuración de la instancia en tarjetas:
 
@@ -125,28 +133,28 @@ La página de configuración del sistema organiza la configuración de la instan
 | Informes de operaciones | Umbrales operativos que disparan las alertas |
 | Acerca de | Información de versión y comprobación de actualizaciones |
 
-La página de informes de auditoría presenta los eventos de riesgo del sitio como avisos, cada uno con su clase, prioridad, estado y el detalle completo de su entorno (IP, geolocalización, dispositivo y huella):
+La página de informes de auditoría presenta los eventos de riesgo del sitio en cuatro paneles —amenazas de abuso, auditoría de apelaciones, gestión de riesgos y registro de operaciones—, cada uno con su clase de tickets y su propia tabla diferenciada:
 
-| Clase de alerta | Disparador | Tratamiento habitual |
+| Panel | Tickets incluidos | Estudio habitual |
 | --- | --- | --- |
-| Alerta de auditoría | Una denuncia o infracción señalada por otros usuarios queda acreditada | Verificar y después liberar o actuar |
-| Alerta de riesgo | Cruzar una línea roja de seguridad o un entorno de inicio de sesión anómalo (p. ej., inicios multi-IP y multiubicación simultáneos) | Seguimiento estrecho, entrevista o bloqueo |
-| Alerta de bloqueo | La cuenta ha sido bloqueada automáticamente por el sistema o manualmente por un administrador | Levantar la alerta o mantener el bloqueo |
-| Alerta de recurso | El usuario ha recurrido una decisión de tratamiento | Liberar (levantar el bloqueo) o rechazar |
+| Amenazas de abuso | Cuentas de amenaza LV3+: multicuenta, denuncias graves, etc. | Cotejar la evidencia y después liberar, bloquear o prorrogar |
+| Auditoría de apelaciones | Apelaciones contra decisiones de tratamiento | Revisar cada formulario y después liberar o rechazar |
+| Gestión de riesgos | Rutina de riesgo: spam, saltos de IP, etc. | Estudiar y archivar por nivel de infracción |
+| Registro de operaciones | Tratamientos finalizados y actualizaciones de archivo | Retrazar el libro completo y los recuentos de apelaciones |
 
-![Página de informes de auditoría de EpoCanvas Mail: la tabla enumera los avisos de las cuatro clases — recurso, bloqueo, auditoría y riesgo — con su prioridad, etiqueta de estado, detalles del entorno activo y botones de tratamiento como liberar y levantar alerta (interfaz en chino simplificado)](/images/mail/es/ui/audit-guide.png)
+![Página de informes de auditoría de EpoCanvas Mail: cuatro tarjetas de panel en la parte superior con una tabla de tickets diferenciada, la barra de herramientas con extensión por lotes, actualización, restablecimiento, exportación de datos, limpieza del historial y enlace a la documentación](/images/mail/es/ui/audit-guide.png)
 
-*Figura: el informe de auditoría. Las cuatro clases de alertas se revisan en una única lista, con los botones de tratamiento repartidos por clase; en el modo cifrado, las marcas de tiempo se suprimen.*
+*Figura: el informe de auditoría. Cada uno de los cuatro paneles resume una clase de tickets; en el modo cifrado, las marcas de tiempo se anonimizan.*
 
 <details>
-<summary>Guía visual: El informe de operaciones —  la cadena completa de un ticket de alerta</summary>
+<summary>Guía visual: El informe de operaciones —  la mesa de tickets de los cuatro paneles</summary>
 
-La tabla de cuatro columnas de la página de informes de operaciones: la cadena completa de información de un aviso, de «quién» a «por qué se disparó» y de ahí a «dónde está la prueba».
+Las cuatro zonas anotadas de la página: las tarjetas de panel fijan la orientación del estudio, los tickets se tratan fila a fila.
 
-1. **Columna de correo del usuario**: La cuenta a la que apunta el aviso: puede ser el objeto tratado (alerta de riesgo o de bloqueo), la parte denunciada (alerta de auditoría) o el apelante (alerta de recurso). Esta página solo estudia el caso; las acciones reales —bloquear, restaurar, restablecer— se ejecutan desde la página de la lista de usuarios, de modo que el veredicto se usa en combinación con aquella página.
-2. **Columna de nivel de auditoría de seguridad**: La graduación del riesgo (prioridad P0/P1 con etiqueta de categoría): los cuatro tipos de aviso —auditoría, riesgo, bloqueo y recurso— tienen cada uno su vía de tratamiento habitual.
-3. **Columna de explicación del aviso y rasgos del disparador**: Descripción de la situación que disparó el aviso (por ejemplo, inicios de sesión simultáneos desde varias ubicaciones y varias IP, o una denuncia acreditada); es la base para decidir si el aviso se libera o se rechaza.
-4. **Columna del grupo de entornos activos**: La información completa del entorno en texto claro: IP, geolocalización, dispositivo y huella. En el modo cifrado (Level 3) las marcas de tiempo se suprimen y el aviso sigue pudiendo estudiarse.
+1. **Tarjeta de amenazas de abuso**: el libro consolidado de cuentas de amenaza LV3+ con el recuento en vivo «pendientes N / bloqueados N»; al entrar se abre la vista compacta de tratamiento del panel de amenazas.
+2. **Tarjeta de auditoría de apelaciones**: el número de apelaciones y la entrada a la revisión formulario a formulario; liberar restablece la capacidad de envío de la cuenta.
+3. **Tarjeta de gestión de riesgos**: tickets de rutina estudiados por nivel de infracción, motivo de alarma y plazo.
+4. **Tarjeta de registro de operaciones**: el libro de tratamientos finalizados, con actualizaciones, última actualización y apelaciones; el detalle completo del cajón de evidencia, el tratamiento por lotes y la exportación CSV está en [Informe de auditoría](/es/mail/audit/).
 
 </details>
 

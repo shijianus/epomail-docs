@@ -3,9 +3,9 @@ title: EpoCanvas Mail Documentation Site Introduction
 description: EpoCanvas Mail documentation site introduction — site positioning, documentation architecture, reading paths, multilingual structure and complete navigation.
 ---
 
-**Site Launch: September 28, 2026 | Current Version: v5.19 | Site URL: docs.epocanvas.com/epomail**
+**Site Launch: September 28, 2026 | Current Version: v5.25 | Site URL: docs.epocanvas.com/epomail**
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
 The EpoCanvas Mail documentation site (hereinafter "this site") is the official documentation hub for the EpoCanvas Mail open-source email service, covering legal terms, technical specifications, usage guides and development documentation. Built with Astro 5 + Starlight, the site maintains complete structural symmetry across six languages (Simplified Chinese, Traditional Chinese, English, Français, Español, Nederlands), with every document verified word by word against the code implementation, providing hosted-instance users, self-hosters and audit participants with a single source of truth. This page explains the site's positioning, documentation architecture, reading paths and navigation entry points.
 

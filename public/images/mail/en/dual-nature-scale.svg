@@ -47,10 +47,10 @@
   <text class="tagg" x="234" y="114">SELF-HOSTED INSTANCE</text>
   <text class="t" x="234" y="132" font-size="9.5">your domain · your account</text>
   <text class="b" x="234" y="148">deployer is the sole data controller</text>
-  <text class="b" x="234" y="162">runs on the deployer's Cloudflare</text>
+  <text class="b" x="234" y="162">runs on the deployer&apos;s Cloudflare</text>
   <text class="b" x="234" y="176">own terms · own jurisdiction</text>
   <text class="b" x="234" y="190">this site may serve as a template</text>
   <rect class="base" x="26" y="222" width="364" height="36" rx="10"/>
   <text class="bt" x="44" y="238">Upstream authors:</text>
-  <text class="b" x="44" y="251">run no e-mail service · hold no user data · bear no liability for any instance's operation</text>
+  <text class="b" x="44" y="251">run no e-mail service · hold no user data · bear no liability for any instance&apos;s operation</text>
 </svg>

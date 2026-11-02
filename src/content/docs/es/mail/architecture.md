@@ -3,7 +3,7 @@ title: Arquitectura técnica de EpoCanvas Mail
 description: Arquitectura técnica de EpoCanvas Mail — topología de despliegue en el borde de Cloudflare, aislamiento de doble base de datos, sistema de cifrado de tres modos, cadena de almacenamiento de adjuntos, modelo de permisos por rol, ciclo de vida del correo y diseño de seguridad de la aplicación.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 Esta página describe la implementación técnica de EpoCanvas Mail: topología de despliegue, cifrado de datos, cadena de almacenamiento, modelo de permisos y ciclo de vida del correo. Todos los hechos técnicos siguen la implementación real del código abierto y pueden auditarse de forma independiente; las repercusiones sobre su privacidad y las informaciones legales figuran en [Procesamiento de Datos y Seguridad](/es/mail/data-security/) y en la [Política de Privacidad](/es/mail/privacy-policy/).
 
@@ -11,19 +11,19 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 
 ![Arquitectura del sistema de EpoCanvas Mail: la capa cliente (aplicación web, aplicación Android, aplicaciones de terceros OAuth) accede a través del borde de Cloudflare; los Workers alojan la API, el análisis del correo entrante y las capacidades de IA, y el correo saliente pasa por Resend y Telegram; los datos residen en las dobles bases de datos D1, KV y el almacenamiento de objetos](/images/mail/es/project-architecture.svg)
 
-*Figura: arquitectura del sistema. Los clientes acceden a través del borde, sin servidor de punto único; el correo entrante lo recibe y analiza Email Routing, y el saliente pasa por los canales de entrega; todo el estado reside en los recursos de Cloudflare del propio implementador.*
+*Figura: Email Routing recibe y analiza el correo entrante; los canales configurados entregan el saliente. Los datos también pueden llegar a almacenamiento y servicios externos; véase la [Lista de encargados](/es/mail/sub-processors/).*
 
 ## 1. Topología de despliegue
 
 | Componente | Implementación |
 | --- | --- |
-| Cómputo | Cloudflare Workers (entorno aislado V8 Isolate): la lógica de negocio no tiene estado, el texto plano existe solo en la memoria de la solicitud y se libera al terminar esta |
+| Cómputo | Cloudflare Workers (V8 Isolate) procesa solicitudes y puede acceder al texto plano. El código no garantiza la destrucción del entorno ni el borrado de todo el texto plano al terminar cada solicitud |
 | Entrante | Cloudflare Email Routing recibe el correo; postal-mime analiza el cuerpo, las cabeceras y los adjuntos |
 | Saliente | resolución secuencial por tres canales: enlace de Cloudflare Email Workers, API de Resend, Mailjet; los envíos internos entre cuentas se escriben directamente en la base de datos |
-| Almacenamiento estructurado | Cloudflare D1 (doble base aislada físicamente: la base de usuarios contiene cuentas, roles y ajustes; la base de correo contiene correos, estrellas y metadatos de adjuntos; el despliegue de base única sigue siendo retrocompatible al 100 %; la instancia alojada opera actualmente con una única base de datos) |
+| Almacenamiento estructurado | Cloudflare D1 permite separar las bases de usuarios y correo o usar una sola; la primera guarda cuentas, roles y ajustes, la segunda correo, estrellas y metadatos de adjuntos. Los enlaces reales de producción requieren verificación |
 | Almacenamiento clave-valor | Workers KV: tokens de sesión, contadores de control de riesgo de inicio de sesión, estados intermedios de TOTP, perfiles de usuario y respaldo del almacenamiento de objetos |
 | Inferencia en el borde | Workers AI (extracción de captcha, etc.; llama-3.1-8b-instruct por defecto) |
-| Tareas programadas | los desencadenadores Cron ejecutan: cada 30 minutos, la actualización de la caché del análisis de datos; a diario, la puesta a cero de los contadores de riesgo, el restablecimiento de los contadores de envío, la purga de la papelera y del correo no deseado y la eliminación de cuentas OAuth sin vincular |
+| Tareas programadas | Configuración del repositorio: a diario a las 16:00 UTC (00:00 del día siguiente en Taiwán), reinicio de contadores de verificación y envío, limpieza de papelera e identidades OAuth sin vincular y actualización de estadísticas; cada 5 minutos, avisos y borrado de objetos. Existe una rama de 30 minutos, pero no está registrada en esa configuración |
 | Verificación humana | Cloudflare Turnstile (verificación por API HTTP, en el registro y al crear buzones adicionales) |
 
 ## 2. Pila tecnológica
@@ -37,18 +37,18 @@ Las versiones en chino tradicional (Taiwán) de los documentos legales de este s
 
 ## 3. Sistema de cifrado de datos
 
-- **Cifrado en reposo de tres modos**: modo Todo (sin cifrado), modo Privado (todo cifrado salvo correo no deseado y papelera), modo Cifrado (todo cifrado); la semántica de los modos y el alcance de acceso del administrador figuran en la sección 1.3 de [Procesamiento de Datos y Seguridad](/es/mail/data-security/);
-- **Cifrado del correo**: el asunto y el cuerpo se cifran con AES-256-GCM (con etiquetas de autenticación) y cada registro usa un vector de inicialización aleatorio; las claves se derivan mediante HKDF-SHA256 de la variable de entorno de secreto maestro a nivel de instancia, con una sal por usuario; el secreto maestro nunca se escribe en la base de datos ni se confirma en el repositorio;
-- **Protección de las credenciales**: las contraseñas se calculan con PBKDF2-HMAC-SHA256 a 100.000 iteraciones con sal; el secreto TOTP se cifra en reposo con AES-256-GCM; los códigos de recuperación se guardan solo como resúmenes SHA-256; las llaves de acceso almacenan únicamente la clave pública;
+- **Tres modos**: Todo deja los campos sin cifrar; Privado selecciona según estados de spam, papelera y sin propietario; Cifrado cifra los campos seleccionados. El alcance es `subject/content/text/code`, no todos los datos; véase [Datos y seguridad](/es/mail/data-security/);
+- **Cifrado del correo**: AES-256-GCM usa un IV aleatorio de 12 bytes y claves por usuario derivadas mediante HKDF-SHA256. Se utiliza `email_enc_key`, después `totp_enc_key` y después `jwt_secret`; si faltan todas, falla sin usar una clave predeterminada integrada;
+- **Credenciales**: las contraseñas nuevas usan por defecto PBKDF2-HMAC-SHA256 con sal y 210.000 iteraciones, configurables; los hashes antiguos se actualizan al iniciar sesión. Los secretos TOTP activados usan AES-256-GCM; los códigos de recuperación guardan hashes SHA-256 y una copia cifrada de los originales; las passkeys guardan claves públicas y metadatos. Excepciones temporales y otras credenciales: [Datos y seguridad](/es/mail/data-security/);
 - **Límite**: lo anterior es cifrado en reposo del lado del servidor, no cifrado de extremo a extremo; los adjuntos quedan fuera del alcance del cifrado.
 
 ## 4. Cadena de almacenamiento de adjuntos
 
-El binario de los adjuntos se resuelve y almacena en orden: almacenamiento compatible con S3 propio (BYOS, compatible con AWS S3, Backblaze B2, MinIO, etc.) → almacenamiento compatible con S3 configurado por el Operador → enlace de Cloudflare R2 → Cloudflare KV por defecto. Los metadatos (nombre de archivo, MIME, tamaño) se guardan en D1; las descargas incluyen cabeceras defensivas y una lista de autorización MIME; al eliminar un correo, los adjuntos se purgan en cascada mediante recuento de referencias.
+El almacenamiento de adjuntos sigue este orden: S3 del usuario → S3 del operador → Cloudflare R2 → KV. D1 guarda metadatos; las descargas usan enlaces firmados y cabeceras defensivas. El borrado físico retira metadatos y encola objetos, comprobando referencias restantes; los reintentos automáticos cesan tras 10 fallos. No se garantiza el borrado simultáneo de todos los objetos. Copias externas: [Lista de encargados](/es/mail/sub-processors/).
 
 ## 5. Sesiones y permisos por rol
 
-Las sesiones son JWT (HS256) con una validez de 30 días, que se guardan en KV fuertemente enmascarados; como máximo 10 sesiones activas por cuenta, revocadas de inmediato al cerrar sesión y al cancelar la cuenta. Los permisos siguen RBAC, con seis roles estándar:
+Los JWT (HS256) caducan por defecto a los 30 días. KV guarda sesiones permitidas y una copia del usuario sin ciertos campos sensibles. El código comprueba si hay más de 10 antes de añadir una sesión: normalmente puede conservar 11, no un máximo estricto de 10. La actividad y ciertas operaciones renuevan o acortan el plazo KV. Cerrar sesión retira la actual; cancelar la cuenta elimina su registro de sesiones. RBAC incluye seis roles:
 
 | Rol | Envío diario | Cuota de almacenamiento | Adjuntos | Capacidades adicionales |
 | --- | --- | --- | --- | --- |
@@ -59,30 +59,30 @@ Las sesiones son JWT (HS256) con una validez de 30 días, que se guardan en KV f
 | Administrador | 100 correos | 500 MB | Sí | gestión de usuarios, gestión de todo el correo (según el modo de correo) |
 | Webmaster | Sin límite | 1024 MB | Sí | todos los permisos |
 
-Todas las rutas de administración y de negocio se validan en una única puerta de enlace de autenticación; quedan fuera los puntos de conexión públicos (inicio de sesión, registro, OAuth, inicialización); la eliminación de la cuenta revoca de inmediato sus sesiones.
+Las rutas protegidas verifican JWT, sesiones KV y permisos; algunos endpoints públicos tienen verificación propia. Cancelar la cuenta retira las sesiones ordinarias sin borrar simultáneamente todas las autorizaciones, datos o copias de terceros.
 
 ## 6. Ciclo de vida del correo
 
 | Etapa | Comportamiento |
 | --- | --- |
-| Eliminación | el correo pasa primero a la papelera (eliminación lógica); 7 días después de la recepción, una tarea programada lo suprime físicamente (adjuntos e índices incluidos) |
-| Cuarentena del correo no deseado | el correo no deseado se conserva 7 días y luego pasa a la papelera; el plazo de cuarentena es configurable |
-| Purga de cuota | cuando el buzón supera el 90 % de la cuota, el correo ya marcado como eliminado se suprime físicamente de inmediato |
-| Correo oficial | los correos de bienvenida y los anuncios globales caducan por defecto a los 7 días (configurable) |
-| Eliminación en cascada | la supresión física se ejecuta por lotes (para respetar el límite de parámetros enlazados de una instrucción D1); adjuntos y estrellas se retiran en cascada con el correo |
-| Cancelación de la cuenta | las sesiones quedan invalidadas de inmediato; los datos pasan a estado de eliminación lógica hasta que un administrador ejecuta la eliminación física (el plazo comprometido figura en la sección 8 de la [Política de Privacidad](/es/mail/privacy-policy/)) |
+| Eliminación | El borrado normal fija `is_del=1`; la tarea diaria limpia papelera cuando `email.create_time` supera 7 días, no 7 días después de mover el mensaje. Una solicitud de borrado definitivo o la cuota pueden activar el borrado físico directo |
+| Cuarentena del correo no deseado | `spamRetentionDays` vale 7 días por defecto desde la creación; el mensaje pasa a papelera y puede borrarse físicamente en la misma ejecución |
+| Purga de cuota | Al solicitar el usuario un borrado, si el uso existente supera estrictamente el 90% de cuota, se borran físicamente los mensajes seleccionados; alcanzar el 90% no activa una purga automática en segundo plano |
+| Correo oficial | Leer la lista marca como borrados los mensajes caducados de remitentes oficiales designados, según creación y `welcomeExpireDays` (7 días por defecto); la tarea de papelera hace la limpieza física posterior |
+| Eliminación en cascada | El borrado definitivo normal y la limpieza de papelera retiran metadatos de adjuntos y estrellas y encolan reintentos de objetos; la cobertura varía entre rutas masivas de administración |
+| Cancelación de la cuenta | Solo se marca borrada la fila del usuario y se retiran sesiones; buzones, mensajes y perfiles no se marcan juntos. No hay borrado físico automático a los 90 días; véase la [Política de privacidad](/es/mail/privacy-policy/) |
 
 ## 7. Diseño de seguridad de la aplicación
 
 - **Rutas a prueba de accesos no autorizados**: las URL de los correos usan siempre un hash aleatorio de 20 caracteres firmado con HMAC-SHA256, vinculado al usuario y al inquilino, sin exponer identificadores autoincrementales, lo que impide la enumeración y el BOLA／IDOR;
 - **Triple defensa XSS**: saneamiento mediante lista de autorización DOMPurify, filtrado de inyecciones de body style, lista de autorización MIME en la salida de adjuntos con CSP estricto y `nosniff`;
 - **Bloqueo de SSRF**: las solicitudes salientes pasan una validación de direcciones públicas; las direcciones de bucle local, RFC 1918 y de metadatos de la nube se rechazan siempre;
-- **Protección del inicio de sesión**: 5 fallos consecutivos bloquean el acceso durante 12 horas; verificación humana de Turnstile; verificación en dos pasos TOTP／llave de acceso;
+- **Inicio de sesión**: los fallos se cuentan por identificador introducido; con 5 se bloquea el acceso y cada fallo escribe un TTL de 12 horas. No es un bloqueo atómico compartido por todos los alias. También hay Turnstile y TOTP / Passkey;
 - **Integridad del correo oficial**: bloqueo de la identidad de envío oficial, entrega mediante instantánea inmutable y verificación contra manipulaciones de los documentos, véase [Seguridad contra manipulaciones y normas](/es/mail/tamper-proof/).
 
 ## 8. Observabilidad y garantía de calidad
 
-- Los registros de ejecución se recopilan mediante Cloudflare Workers Logs (la aplicación no guarda registros propios más allá de los registros de IP); la página de análisis de datos solo presenta agregaciones estadísticas, sin datos a nivel de contenido;
+- El repositorio activa Cloudflare observability; D1 / KV también guardan operaciones de identidad, denuncias, decisiones y entornos de acceso. La mayoría de registros de auditoría no tienen tarea de caducidad; debe verificarse la retención de logs de plataforma. Véase [Privacidad](/es/mail/privacy-policy/);
 - Más de un centenar de scripts de pruebas automatizadas, auditorías e inspecciones: regresiones de navegador con Playwright sobre la pila completa, aserciones de extremo a extremo en la red pública, barrido estático de todo el repositorio y el trío i18n en seis idiomas (véase la sección 7 de [Presentación del proyecto](/es/mail/project/)).
 
 ## 9. Documentos relacionados

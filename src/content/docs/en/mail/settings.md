@@ -3,7 +3,7 @@ title: Settings Guide
 description: EpoCanvas Mail settings guide — the five personal-settings sections (profile, general, security, data, labels) and a complete tour of the nine admin-console sections and the system-settings cards.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
 EpoCanvas Mail splits its settings into two areas: the "settings" area of the sidebar holds the personal settings every account can adjust itself, in five sections — profile, general, security, data and labels; the "admin" area appears only for identity groups with administrative permissions and carries the instance-level configuration. This page walks through each area and how the settings relate. For behaviour at the operating level — multi-account, mail modes, sign-in — see [Operating Modes](/en/mail/modes/).
 
@@ -61,11 +61,11 @@ The three cards of the general page — bio, personalisation and preferences —
 
 ## 4. Security: password and two-step verification
 
-The security page changes the username and the password (showing when it last changed). The two-step centre holds the master switch and the independent configuration of the three second factors: an authenticator app (TOTP), backup recovery codes (10 one-time codes) and passkeys. For the sign-in behaviour and trusted-device rules, see section 4 of [Operating Modes](/en/mail/modes/). The bottom of the page holds the account-deletion entrance; after deletion the account data is handled under the deletion clauses of the [Privacy Policy](/en/mail/privacy-policy/).
+The security page changes the username and the password (showing when it last changed). The two-step centre holds the master switch and the independent configuration of the three second factors: an authenticator app (TOTP), backup recovery codes (10 one-time codes) and passkeys. Disabling TOTP removes the TOTP secret; if an active passkey remains, two-step verification stays enabled and the passkey is not removed. For the sign-in behaviour and trusted-device rules, see section 4 of [Operating Modes](/en/mail/modes/). The bottom of the page holds the account-deletion entrance; after deletion the account data is handled under the deletion clauses of the [Privacy Policy](/en/mail/privacy-policy/).
 
 ## 5. Data: export, notifications and storage
 
-![EpoCanvas Mail data page: the export card offers the full-data JSON export, the mail archive (MBOX, JSON or CSV with a time range) and the contacts-and-configuration export; the storage card below shows the attachment-usage gauge and the personal object-storage entrance (interface in Simplified Chinese)](/images/mail/en/ui/data-guide.png)
+![EpoCanvas Mail data page: interface entries for profile, mail archive and configuration exports; all exports have field limits, and a time-range option does not mean the backend applies it; attachment usage and object-storage entries appear below (interface in Simplified Chinese)](/images/mail/en/ui/data-guide.png)
 
 *Figure: the data page. Export and storage management appear on one page; attachment usage counts against the identity group's quota.*
 
@@ -74,20 +74,20 @@ The security page changes the username and the password (showing when it last ch
 
 The four cards of the data page: three export formats, a forwarding region, a storage region and a third-party grants region — personal data autonomy in one screen.
 
-1. **Export card**: Three exports side by side: the full JSON backup, the mail archive (MBOX/JSON/CSV with time range) and contacts & preferences; individual messages can also be downloaded as .eml from the reading pane.
-2. **Forwarding card**: Item-by-item settings for Telegram push and auto-forwarding; whether the account may use them is decided by the operator's "user data control" switches.
-3. **Storage card**: A live usage gauge against the quota. Connect your own Backblaze B2/S3 bucket and new attachments land in your cloud, outside the instance quota; disconnecting falls back to instance storage.
-4. **Third-party apps card**: Every OAuth grant on the account: revoke per app or all at once from the detail dialog. Revocation is immediate — the app's existing tokens die at once.
+1. **Export card**: JSON, mail archive and configuration exports all use the same backend response, containing only selected fields. The time range is not applied, and this is not a complete backup. Individual .eml files are also reconstructed from existing fields.
+2. **Forwarding card**: Telegram and mail-forwarding settings; availability is controlled by the administrator. Personal smart-rule forwarding (`rules`) is currently unavailable, forwards nothing at runtime and does not fall back to all mail; Telegram notification scope, preview and code-copy controls are enforced according to their settings. See the Notifications & Forwarding Guide.
+3. **Storage card**: Attachment usage and quota; personal Backblaze B2/S3 storage can receive new attachments, while other limits still apply. Disconnecting does not migrate or delete old objects, nor guarantee continued access to old attachments.
+4. **Third-party apps card**: View and revoke OAuth grants; the server can reject subsequent related requests, but cannot recall data already provided, ID tokens already issued or third-party sessions.
 
 </details>
 
 | Export | Format | Scope |
 | --- | --- | --- |
-| Full-data export | JSON | Complete backup: account details, mail history, contacts, classification and label rules, and security settings |
-| Mail history archive | MBOX (universal), JSON or CSV | Sent and received mail only, with an optional time range |
-| Contacts and configuration | JSON | Contact list, custom alias rules and personalisation preferences |
+| Full-data export (interface label) | JSON | Selected profile fields, selected fields of mail not marked deleted, and `customLabels`; excludes attachment files, complete contacts and rules, security settings and audit records |
+| Mail history archive | MBOX, JSON or CSV | The browser converts mail fields from the same response; the backend does not apply the time range, and trash mail and complete original MIME are excluded |
+| Contacts and configuration | JSON | The returned subset of profile fields, `customLabels` and export time; not a complete backup of contacts, aliases or all preferences |
 
-A single message can be downloaded as .eml straight from the reading pane. The notifications-and-forwarding area offers Telegram push (binding a bot and chat ID) and rule-based mail forwarding (destination address of your choice; trigger types are all mail, alias prefix and smart rules, with options to keep a copy and prefix the subject); whether these two are offered to users is decided by the operator's user-data-control switches. The storage area shows the attachment-usage gauge and allows attaching a personal object store (a Backblaze B2 or S3 bucket of your own); once connected, attachments go straight to the personal cloud and are no longer bound by the instance quota.
+Individual .eml files are reconstructed from existing fields; see [Data Export & Storage](/en/mail/data/) for the full export limitations. See the [Notifications & Forwarding Guide](/en/mail/notify/) for linking, filtering and link-revocation limits in the notifications-and-forwarding area. Personal Backblaze B2/S3 storage can route new attachments to your own storage and bypass system quota checks in the attachment-saving path, but other mail, sending and provider limits still apply. Disconnecting does not migrate or delete old objects.
 
 ## 6. Label management
 
@@ -107,7 +107,15 @@ The admin area is shown item by item according to the identity group's permissio
 | System settings | Instance-level configuration — see the card list below |
 | App management | Issuing and managing the access credentials of OAuth 2.0 / OIDC third-party applications |
 | Classification | Receive and send function switches, AI recognition settings, block/allow lists and hard-block rules |
-| Audit report | Reviewing, handling and adjudicating the four warning classes |
+| Audit report | Triaging, handling, evidence drawers and appeal adjudication of risk tickets across the four boards |
+
+<span id="operator-notice"></span>
+
+The Operator and Privacy card requires an identifiable operator name, actual country or region, contact email, terms version and valid Terms of Service and privacy-notice links. Add an appropriate contact address and recipient and retention information as applicable. Missing required information blocks new registration; existing sign-in and initialization remain available. New users actively select an initially unchecked terms-acceptance box. The server records the account, version, time, language and terms URL; the privacy notice is not blanket consent.
+
+<span id="optional-processing"></span>
+
+Optional verification-code extraction, translation and OCR default to off and require a data-destination notice before activation. Automatic code extraction also needs the user's explicit data-settings choice; translation requires confirmation of the current notice for each request, and OCR a separate selection for that request. Public translation fallback is unavailable. Data settings also offer revocation of existing Telegram reading links and explicitly confirmed device-data clearing. Account closure reports disabled access and deletion awaiting verification, not erasure of every copy. Upgrade the frontend and backend together; configuration cannot prove actual identity, contracts, recipients or retention practices.
 
 The system-settings page organises the instance-level configuration into cards:
 
@@ -125,28 +133,28 @@ The system-settings page organises the instance-level configuration into cards:
 | Operation Reports | Operational thresholds that trigger warnings |
 | About | Version information and update check |
 
-The audit-report page presents site-wide risk events as warning tickets, each carrying its class, priority, status and full environment details (IP, geolocation, device and fingerprint):
+The audit-report page presents site-wide risk events in four boards — abuse threats, appeal audits, risk management and action records — each summarizing one class of tickets with its own differentiated ticket table:
 
-| Warning class | Trigger | Usual handling |
+| Board | Tickets included | Usual triage |
 | --- | --- | --- |
-| Audit warning | A report or rule violation flagged by other users holds up | Verify, then release or take action |
-| Risk warning | A security red line or anomalous sign-in environment (e.g. concurrent multi-IP, multi-location logins) | Watch closely, interview or ban |
-| Ban warning | The account has been banned automatically by the system or manually by an administrator | Lift the warning or maintain the ban |
-| Appeal warning | The user has appealed against a handling decision | Release (lift the ban) or reject |
+| Abuse threats | LV3+ threat accounts: multi-accounting, severe reports, etc. | Verify the evidence, then unban, ban or extend |
+| Appeal audits | Appeals submitted against handling decisions | Review each form, then release or reject |
+| Risk management | Routine risk control: spam, roaming IP jumps, etc. | Triage and archive by violation level |
+| Action records | Finalized handling and archive updates | Trace the full ledger and appeal counts |
 
-![EpoCanvas Mail audit-report page: the table lists warning tickets of the four classes — appeal, ban, audit and risk — each with its priority, status tag, active-environment details and handling buttons such as release and lift-warning (interface in Simplified Chinese)](/images/mail/en/ui/audit-guide.png)
+![EpoCanvas Mail audit-report page: four board cards on top with a differentiated ticket table, the toolbar offering batch extension, refresh, reset, data export, history clean-up and a docs link](/images/mail/en/ui/audit-guide.png)
 
-*Figure: the audit report. All four warning classes are reviewed in one list, with handling buttons routed by class; in encrypted mode the record timestamps are stripped.*
+*Figure: the audit report. Each of the four boards summarizes one class of tickets; in encrypted mode the record timestamps are redacted.*
 
 <details>
-<summary>Walkthrough: Audit —  the full information chain of one ticket</summary>
+<summary>Walkthrough: Audit —  the four-board ticket console</summary>
 
-The four-column table of the audit page: the full information chain of one ticket, from "who" through "why it fired" to "where the evidence is".
+The four annotated zones of the audit page: the board cards set the triage direction, tickets are handled row by row.
 
-1. **Email column**: The account this ticket points at: the subject of a risk-control or ban alert, the reported party in an audit alert, or the appellant in an appeal ticket. This page adjudicates only — the actual actions (ban, restore, reset) are executed from the users page, so a verdict here is used together with that page.
-2. **Audit-level column**: The risk grading (P0/P1 priority with category tags): audit, risk-control, ban and appeal tickets each carry their own handling path.
-3. **Alert-notes column**: What triggered the ticket — concurrent logins from many IPs, an upheld report, etc. This is the basis for approving or rejecting.
-4. **Environment-pool column**: The full environment in plain text: IP, geo, device and fingerprint. In encrypted mode (Level 3) timestamps are stripped, yet tickets stay reviewable.
+1. **Abuse-threat card**: the consolidated ledger of LV3+ threat accounts with a live "pending N / banned N" count; clicking enters the threat board's compact handling view.
+2. **Appeal-audit card**: the number of appeal tickets and the entry to per-ticket form review; a release restores the account's sending capability.
+3. **Risk-management card**: routine risk tickets triaged by violation level, alarm reason and deadline.
+4. **Action-record card**: the finalized-handling ledger with update counts, last update and appeal counts; the full evidence-drawer, batch-handling and CSV-export details are in [Operation Reports](/mail/audit/).
 
 </details>
 

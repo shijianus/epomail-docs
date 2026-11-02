@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Architecture des documents juridiques : les Conditions d'utilisation en couche contractuelle, la Politique de confidentialité et la Politique d'utilisation acceptable en couche politique, le traitement des données et les sous-traitants en documents d'appui, sur le socle du droit applicable et des obligations de sécurité">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="100%" role="img" aria-label="Architecture des documents juridiques : les Conditions d&apos;utilisation en couche contractuelle, la Politique de confidentialité et la Politique d&apos;utilisation acceptable en couche politique, le traitement des données et les sous-traitants en documents d&apos;appui, sur le socle du droit applicable et des obligations de sécurité">
   <style>
     .bg { fill: #f8fafc; }
     .layer { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -24,7 +24,7 @@
   <rect class="bg" width="1000" height="430" rx="16"/>
   <rect class="top" x="250" y="46" width="500" height="86" rx="12"/>
   <text class="tag" x="274" y="72">COUCHE CONTRACTUELLE</text>
-  <text class="t" x="274" y="94">Conditions d'utilisation</text>
+  <text class="t" x="274" y="94">Conditions d&apos;utilisation</text>
   <text class="b" x="274" y="110">Consentement électronique : même valeur qu’une signature écrite</text>
   <text class="b" x="274" y="126">Texte intégral publié pour examen · révisions archivées dans le dépôt open source</text>
   <line class="vline" x1="360" y1="132" x2="360" y2="168"/>
@@ -34,7 +34,7 @@
   <text class="t" x="90" y="194" font-size="13">Politique de confidentialité</text>
   <text class="b" x="90" y="214">Ce que nous collectons et pourquoi · normes de traitement</text>
   <rect class="layer" x="380" y="168" width="240" height="66" rx="12"/>
-  <text class="t" x="400" y="194" font-size="13">Politique d'utilisation acceptable</text>
+  <text class="t" x="400" y="194" font-size="13">Politique d&apos;utilisation acceptable</text>
   <text class="b" x="400" y="214">Limites de conduite et exécution</text>
   <rect class="layer" x="640" y="168" width="290" height="66" rx="12"/>
   <text class="t" x="660" y="194" font-size="13">Données et sécurité · Sous-traitants</text>

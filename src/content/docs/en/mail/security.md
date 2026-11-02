@@ -3,7 +3,7 @@ title: Account Security Guide
 description: The EpoCanvas Mail account security guide — enabling two-step verification in three steps, managing recovery codes, registering passkeys, sign-in verification behaviour and account deletion.
 ---
 
-**Effective date: 11 October 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
 This page walks through every action on the "Settings → Security" page. The overall behaviour of two-step verification (trusted devices, forced policies) is described in [Operating Modes](/en/mail/modes/), Section 4; this page only covers configuration. Entry: sidebar "Settings → Security" (`#settings/security`).
 
@@ -60,7 +60,9 @@ The centre's visibility follows the instance mail mode: privacy and encrypted mo
 
 ## 6. Account deletion
 
-A deletion entry sits at the bottom of the page. After deletion the account data follows the erasure clauses of the [Privacy Policy](/en/mail/privacy-policy/); export your data first via "Settings → Data" (see [Notifications & Forwarding Guide](/en/mail/notify/)).
+The entry at the bottom requests deletion of the current account. This round's local implementation first disables the account and all its mailboxes in D1, then revokes sessions, personal access tokens (PATs), device trust, pending OAuth credentials and grants. Inbound mail for disabled accounts is blocked before AI processing. Public-profile display choices are enforced by the backend, and inactive accounts' public profiles return 404. Reading and attachment-sharing requests recheck the current account and message state and revocation version each time. Ordinary logout is not this account-wide revocation or account deletion. These are local code mechanisms, not confirmation that every live instance has been updated.
+
+A `manual_review` result means access is disabled but deletion still awaits manual review, not that physical erasure is complete. `cleanup_failed` means the account remains disabled while some cleanup needs attention; contact the operator and track the request. Administrators can inspect the object-cleanup queue but cannot cancel a deletion request by a one-click restore. Original BYO object locations are retained until the queue confirms the work. Chat copies, server-hosted static avatars, audit records, backups and local drafts do not all disappear automatically on a deletion response. Check [Data Export](/en/mail/data/) before retaining data and separately confirm device-draft cleanup there; follow Sections 8 and 9 of the [Privacy Policy](/en/mail/privacy-policy/) to track complete deletion.
 
 ## 7. Related documents
 

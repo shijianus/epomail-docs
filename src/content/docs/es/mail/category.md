@@ -3,7 +3,7 @@ title: Gestión de clasificación
 description: Gestión de clasificación de EpoCanvas Mail — interruptores de recepción y envío, configuración del reconocimiento por IA, listas blancas y negras y reglas de bloqueo duro, a escala del sitio.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 La gestión de clasificación es la interfaz de gobernanza a nivel de sitio de la zona de administración (`#manage/admin/rules`, clave de permiso `setting:query`); superpone la gobernanza de la recepción de todo el sitio sobre las reglas personales de cada usuario. Las reglas personales de etiquetas figuran en [Gestión de etiquetas y clasificación](/es/mail/labels/); la semántica de los campos de condición, en la sección 7 de [Referencia de búsqueda y reglas](/es/mail/search/).
 

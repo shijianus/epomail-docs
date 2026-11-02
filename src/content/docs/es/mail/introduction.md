@@ -3,9 +3,9 @@ title: Introducción al sitio de documentación de EpoCanvas Mail
 description: Introducción al sitio de documentación de EpoCanvas Mail — posicionamiento del sitio, arquitectura documental, rutas de lectura, estructura multilingüe y navegación completa.
 ---
 
-**Lanzamiento del sitio: 28 de septiembre de 2026 | Versión actual: v5.19 | URL del sitio: docs.epocanvas.com/epomail**
+**Lanzamiento del sitio: 28 de septiembre de 2026 | Versión actual: v5.25 | URL del sitio: docs.epocanvas.com/epomail**
 
-**Fecha de vigencia: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 El sitio de documentación de EpoCanvas Mail (en adelante "este sitio") es el centro de documentación oficial del servicio de correo electrónico de código abierto EpoCanvas Mail, que cubre términos legales, especificaciones técnicas, guías de uso y documentación de desarrollo. Construido con Astro 5 + Starlight, el sitio mantiene simetría estructural completa en seis idiomas (chino simplificado, chino tradicional, English, Français, Español, Nederlands), con cada documento verificado palabra por palabra contra la implementación del código, proporcionando a los usuarios de la instancia alojada, autohospedadores y participantes de auditoría una única fuente de verdad. Esta página explica el posicionamiento del sitio, la arquitectura documental, las rutas de lectura y los puntos de entrada de navegación.
 

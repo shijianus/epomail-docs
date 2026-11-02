@@ -1,81 +1,89 @@
 ---
 title: Service Scope & Support
-description: EpoCanvas Mail service scope and support — what the hosted instance provides, the boundaries of that service, the official links, support channels and the appeal and recovery paths.
+description: Functions, resource limits, support channels, appeals and data retrieval for a personal non-profit testing service.
 ---
 
-**Effective date: 11 October 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
-This page describes what the hosted instance ([mail.epocanvas.com](https://mail.epocanvas.com)) provides, where that service ends, and the support channels. Self-hosted instances are outside the "service" described here: the software is provided under the MIT licence and the upstream project bears no responsibility for any instance's operation — the legal position appears in [Open-Source & Self-Hosting Legal](/en/mail/open-source/); the data-controller split between the two forms is in the [Overview](/en/mail/overview/), Section 2.
+This page explains service and support for the hosted instance [mail.epocanvas.com](https://mail.epocanvas.com), an individually maintained, non-profit side project for learning and testing. Self-hosted conditions are supplied by the actual operator; see [Open-Source & Self-Hosting Legal](/en/mail/open-source/) and the [Overview](/en/mail/overview/) for roles and duties. Read the Terms before registering; do not create an account if you do not accept them.
 
-![EpoCanvas Mail legal architecture: the terms of service and privacy policy rest on applicable law and security obligations](/images/mail/en/legal-architecture.svg)
+The Traditional Chinese (Taiwan) version is the official version; other languages are translations for comparison. This arrangement does not limit clear information required by applicable law, interpretation favourable to consumers or rights that cannot be waived. The update date records a text revision, not automatic effect of new conditions.
 
-*Figure: the covenant architecture of this service. This page describes the service itself; the contract and the notice standards are carried by the legal documents above it.*
+![Relationship between service scope and the legal documents](/images/mail/en/legal-architecture.svg)
 
-## 1. What the service provides
+*Figure: this page describes functions and support; contract and privacy documents explain their conditions. Mandatory law and non-waivable rights prevail.*
+
+## 1. What the Service Provides
 
 | Item | Description |
 | --- | --- |
-| Accounts and registration | Accounts obtained through registration codes or open registration as configured; six identity groups decide quotas and permissions |
-| Sending and receiving | Inbound through Cloudflare Email Routing, parsed on arrival; in-instance direct delivery; off-instance through the operator's delivery channel |
-| Storage | Storage quota per identity group; personal object storage can be connected so attachments land directly in it |
-| Organisation and automation | Eight-view mailbox, labels and the classification rule engine, advanced search, verification-code extraction |
-| AI capabilities | Full-text translation and image OCR (per the instance's AI engine configuration and model authorisation) |
-| Notifications and forwarding | Telegram push and rule-based forwarding (per the admin's user-data controls) |
-| Clients | Web (installable as a PWA) and the Android app (epomail) |
-| Languages | Six interface languages; system and welcome mail delivered in the recipient's language |
+| Accounts and registration | Registration depends on instance availability and quotas, for people aged 16 or over with required contractual capacity |
+| Sending and receiving | Configured inbound routing, internal delivery and external channels; receipt also depends on the receiving service |
+| Storage | Account-based quotas; connecting personal object storage transfers relevant data according to configuration |
+| Organisation and automation | Mail views, labels, rules, search and configurable verification-code extraction |
+| AI capabilities | Data scope and triggers for translation, text recognition and other enabled functions appear in the Privacy Policy |
+| Notifications and forwarding | Configurable Telegram and mail forwarding involve external recipients and corresponding data transfers |
+| Clients | Web, installable PWA and Android app as made available in released versions |
+| Languages | Six interface languages and localised notifications, with actual coverage depending on version |
 
-Feature-level details appear in the [Features Guide](/en/mail/features/); a tour of every interface and route is in the [Interface & Route Map](/en/mail/interface/).
+For operation, see the [Features Guide](/en/mail/features/) and [Interface & Route Map](/en/mail/interface/); read personal-data processing together with the [Privacy Policy](/en/mail/privacy-policy/).
 
-## 2. Service boundaries
+## 2. Service Boundaries
 
 | Matter | Boundary |
 | --- | --- |
-| Availability | No service-level agreement is offered; availability rests on the Cloudflare platform |
-| Retention | Trash is physically erased seven days after receipt; spam is quarantined for seven days and then moved to trash |
-| Quotas | Sending, mailboxes and storage follow the factory values of the identity group, adjustable by the master on the permission page |
-| Cost | The hosted instance currently offers no paid features |
-| Feature change | Features evolve with releases; significant changes are announced in the in-site notice and by announcement mail |
-| Attachment limit | The per-attachment cap follows the instance setting and binds only users of the operator's shared storage |
+| Availability | No SLA, fixed uptime, delivery deadline or round-the-clock staffing; responsibility for upstream outages still depends on facts and law |
+| Retention | Trash, scheduled jobs, backups and lawful retention have different scopes; deletion does not immediately clear every copy. See privacy and security documents |
+| Quotas | Sending, mailbox count and storage follow published instance settings and reasonable change procedures |
+| Cost | The hosted instance is currently free; non-profit operation does not displace data-protection or consumer duties |
+| Feature changes | Permanent hosting and continued features are not guaranteed; material adverse changes and foreseeable closure require advance notice where reasonably practicable and a reasonable retrieval period |
+| Attachment limits | Instance, storage and delivery-provider limits apply; BYOS does not remove other technical or legal limits |
 
-The full semantics of retention appear in [Data Processing & Security](/en/mail/data-security/); behavioural boundaries in the [Acceptable Use Policy](/en/mail/acceptable-use/).
+The project uses EU data-protection principles as a reference and makes reasonable efforts to maintain and improve the service according to actual risks. Section 1 of the [Privacy Policy](/en/mail/privacy-policy/) describes known risks and steps users can take. This position does not include a guarantee of full compliance certification, enterprise-level availability, or zero incidents; risk notices do not change statutory rights or liability that cannot be excluded.
 
-## 3. Official links inside the app
+The service is suitable for learning and ordinary communication tests where interruptions, content loss, and feature changes can be tolerated. It is unsuitable for emergency communications, statutory recordkeeping, medical decisions, a sole account-recovery mailbox, or the only backup of important data. Prefer synthetic content, keep necessary separate copies, and choose features according to actual needs. See the Privacy Policy and [Data Processing & Security](/en/mail/data-security/) for specific retention, export, and encryption boundaries, and the [Acceptable Use Policy](/en/mail/acceptable-use/) for conduct rules.
 
-The default targets of the official links throughout the app are listed below; an instance operator can override them in system settings:
+## 3. Official Links Inside the App
+
+Default links are listed below and may be changed by the operator. Linking to this site does not establish official management or certification of that deployment.
 
 | Link | Default target | Where |
 | --- | --- | --- |
-| Project introduction | This site's Project Overview page | Account-menu footer |
-| Privacy policy / Terms of service | The corresponding legal documents on this site | Account-menu footer |
-| Documentation | This site (entered via browser-language negotiation) | System settings, "About" card |
-| Support | This site's Service Scope & Support page | System settings, "About" card |
-| Releases | GitHub Releases | System settings, "About" card |
-| Telegram | `t.me/epomail` | System settings, "About" card |
+| Project introduction | This site's project overview | Account-menu footer |
+| Privacy Policy / Terms of Service | Corresponding legal documents on this site | Account-menu footer |
+| Documentation | The relevant language pages on this site | System settings, About card |
+| Support | This site's service scope and support page | System settings, About card |
+| Releases | GitHub Releases | System settings, About card |
+| Telegram | `t.me/epomail` | System settings, About card |
 
-## 4. Support channels
+## 4. Support Channels
 
 | Channel | For |
 | --- | --- |
-| In-product contact | In-site message or `admin@epocanvas.com` |
-| Privacy and data protection | `privacy@epocanvas.com` (exercising data-subject rights, data-protection appeals) |
-| GitHub Issues | Bug reports and feature proposals (`github.com/shijianus/epomail`) |
-| Telegram | Community chat at `t.me/epomail` |
+| In-product contact | In-site messages or `admin@epocanvas.com` for general support and appeals |
+| Privacy and data protection | `privacy@epocanvas.com` for rights requests and data-protection complaints |
+| GitHub Issues | Bugs and feature proposals in the [source repository](https://github.com/shijianus/epomail/issues) |
+| Telegram | Community chat at `t.me/epomail`, unsuitable for private data or credentials |
 
-## 5. Appeals and recovery
+General support is asynchronous, without promised response or repair deadlines. Where GDPR applies, data-protection requests must be answered without undue delay and within one month of receipt; where legal conditions concerning complexity or number of requests are met, this may be extended by up to two further months, with reasons notified within the first month. Shorter deadlines required by other applicable law prevail. See the Privacy Policy; ordinary support scheduling cannot delay statutory deadlines.
 
-- Forgot password: the login page's "forgot password" dialog jumps to the appeal portal (carrying the appeal type, interface language and e-mail address); access is restored after verification;
-- Ban and warning appeals: an appeal against a handling decision enters Operation Reports as a warning ticket, which an administrator adjudicates by releasing or rejecting; the enforcement ladder appears in the [Acceptable Use Policy](/en/mail/acceptable-use/), Section 6;
-- Self-service data: the full JSON export, mail-history archives and single-message .eml downloads are available at any time under "Settings → Data", see the [Settings Guide](/en/mail/settings/), Section 5.
+## 5. Appeals and Recovery
 
-## 6. Support boundary for self-hosted instances
+- If you cannot log in, use the recovery or appeal entry on the login page or email `admin@epocanvas.com`. Only proportionate verification is required; recovery depends on actual verification and technical feasibility.
+- Warnings, suspensions and termination may be appealed. Urgent isolation does not remove later review or external remedies; see [Acceptable Use Policy](/en/mail/acceptable-use/) Sections 6 and 7.
+- Use the export and individual-message downloads currently available in the interface. Self-service export does not imply coverage of all personal data, attachments or external copies. Request additional access, portability or deletion under the [Privacy Policy](/en/mail/privacy-policy/) and [Data Processing & Security](/en/mail/data-security/).
 
-The upstream open-source project provides no service, support or availability commitment for any deployment of its code; the deployer bears support, notice and compliance duties toward its own users. This site's documents (including the legal set) can serve as the basis for a deployer's user-facing materials, and whoever adopts them becomes responsible for them.
+## 6. Support Boundary for Self-Hosted Instances
 
-## 7. Related documents
+Publishing source code alone creates no hosting, support or availability commitment for every deployment. Actual operators must provide information and remedies under their service relationship and applicable law. Authors who also operate services bear the corresponding duties.
+
+These documents are a drafting reference, not a substitute for assessment of actual roles, configuration and applicable law, and not certification. Organisational processing requires prior confirmation of acceptance and a separate data processing agreement where necessary.
+
+## 7. Related Documents
 
 | Resource | Link |
 | --- | --- |
-| The contract and limitation of liability for the service | [Terms of Service](/en/mail/terms-of-service/) |
+| Contract conditions and liability limitations | [Terms of Service](/en/mail/terms-of-service/) |
 | Privacy notice and data-subject rights | [Privacy Policy](/en/mail/privacy-policy/) |
-| The open-source licence and self-hosting law | [Open-Source & Self-Hosting Legal](/en/mail/open-source/) |
-| Full steps to deploy your own instance | [Deployment Guide](/en/mail/deployment/) |
+| Open-source licensing and self-hosting duties | [Open-Source & Self-Hosting Legal](/en/mail/open-source/) |
+| Configuration steps for self-hosting | [Deployment Guide](/en/mail/deployment/) |

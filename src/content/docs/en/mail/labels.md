@@ -3,7 +3,7 @@ title: Labels & Classification Management
 description: EpoCanvas Mail labels and classification — creating labels, icons and colours, heuristic maintenance of the four factory labels, the classification rule builder and statistics.
 ---
 
-**Effective date: 11 October 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
 Labels and classification rules are managed under "Settings → Labels" (`#settings/labels`). The full field table of rule conditions is in Section 7 of the [Search & Rules Reference](/en/mail/search/); this page covers the operations and statistics of the labels themselves.
 

@@ -3,7 +3,7 @@ title: Modes de fonctionnement
 description: Modes de fonctionnement d'EpoCanvas Mail — formes de déploiement, les trois niveaux de confidentialité du mode courriel, groupes d'identité et quotas, connexion et vérification en deux étapes, multi-comptes et modes d'affichage de l'interface.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.25**
 
 Le même code d'EpoCanvas Mail prend des formes de fonctionnement différentes selon la configuration : une instance peut être hébergée ou auto-déployée ; l'administrateur choisit l'équilibre entre confidentialité et vérifiabilité parmi trois modes courriel ; les comptes reçoivent leurs quotas et permissions selon leur groupe d'identité ; la connexion, le multi-comptes et l'affichage offrent chacun plusieurs options. La présente page décrit le comportement et les différences de chaque mode. Le traitement des données associé est présenté dans [Traitement des données et sécurité](/fr/mail/data-security/) ; le fonctionnement des fonctions, dans [Guide des fonctions](/fr/mail/features/) ; les entrées de réglage, dans [Guide des paramètres](/fr/mail/settings/).
 
@@ -14,7 +14,7 @@ Le service est proposé sous les deux formes suivantes ; la qualification du res
 | Forme | Opérateur | Cas d'usage |
 | --- | --- | --- |
 | Instance hébergée | L'équipe d'exploitation EpoCanvas ([mail.epocanvas.com](https://mail.epocanvas.com)) | Inscription et utilisation immédiates, sans domaine ni compte Cloudflare à apporter |
-| Instance auto-déployée | La personne ou l'organisation qui la déploie | Toutes les données restent dans les ressources Cloudflare du déployeur, avec un code source auditable |
+| Instance auto-déployée | La personne ou l'organisation qui la déploie | Les ressources principales sont configurées par le déployeur ; les envois, sources d'identité, stockages d'objets, services d'IA et notifications peuvent néanmoins faire intervenir d'autres prestataires ; voir la liste des destinataires tiers et sous-traitants |
 
 ## 2. Mode courriel : trois niveaux de confidentialité
 
@@ -22,16 +22,16 @@ L'administrateur sélectionne le mode courriel de l'instance sur la carte des pa
 
 ![Paramètres système d'EpoCanvas Mail, carte des paramètres du site : le menu déroulant du mode courriel est ouvert et affiche Mode tous courriels (Level 1), Mode courriel privé (Level 2 [Recommandé]) et Mode courriel chiffré (Level 3 [E2EE]) ; la valeur actuelle est le mode courriel privé avec un badge de confidentialité renforcée Level 2 (interface en chinois simplifié)](/images/mail/fr/ui/mode-guide.png)
 
-*Figure : sélection du mode courriel. L'instance représentée fonctionne en mode courriel privé ; la carte de personnalisation à droite et les cartes de stockage et de push en dessous figurent sur la même page.*
+*Figure : exemple d'interface de sélection du mode courriel ; la valeur et le badge de la capture ne prouvent pas la configuration actuelle de l'instance en ligne et ne signifient pas qu'un chiffrement de bout en bout est fourni.*
 
 <details>
 <summary>Guide visuel : Le mode de messagerie  —  comment un menu déroulant décide de la confidentialité de toute l'instance</summary>
 
-La zone du mode courriel dans la carte « Paramètres du site » des paramètres système : un menu déroulant décide du chiffrement au stockage de tous les courriels de l'instance et de l'étendue visible côté administration, avec effet immédiat.
+La zone du mode courriel dans la carte « Paramètres du site » des paramètres système : le menu déroulant influe sur le chiffrement ultérieur des champs et la visibilité côté administration ; il ne signifie pas que la migration de toutes les données historiques est achevée.
 
-1. **Menu déroulant du mode courriel** : L'administrateur choisit l'équilibre entre trois niveaux : Level 1 tout en clair (l'administration voit tous les courriels), Level 2 mode privé (valeur d'usine ; les courriers échangés par les utilisateurs sont chiffrés au repos en AES-256-GCM), Level 3 E2EE intégral (l'API d'administration ne renvoie aucune liste de courriels utilisateurs).
-2. **Badge Confidentialité renforcée Level 2** : L'instance tourne en mode courriel privé : l'administration ne voit que les pourriels, la corbeille et les courriels sans propriétaire, et l'interrupteur général de la vérification en deux étapes est verrouillé sur activé.
-3. **Les trois options déroulées** : Les différences entre L1 mode tous courriels, L2 mode courriel privé (recommandé) et L3 mode courriel chiffré (E2EE) sautent aux yeux. En mode chiffré, l'entrée de revue du courriel disparaît, les horodatages sont dépouillés des rapports d'audit et le transfert global est verrouillé sur désactivé.
+1. **Menu déroulant du mode courriel** : Le Level 1 conserve les courriels en clair ; le Level 2, mode privé et valeur d'usine, chiffre au repos côté serveur une partie des corps et objets des utilisateurs ; le Level 3, mode chiffré, étend cette protection au repos et empêche la liste administrative de renvoyer les courriels des utilisateurs. Aucun de ces modes n'est un chiffrement de bout en bout : le serveur conserve la capacité de déchiffrer.
+2. **Badge Confidentialité renforcée Level 2** : En mode privé, la liste administrative affiche les indésirables, la corbeille et les courriels sans propriétaire, et l'interrupteur général de vérification en deux étapes est verrouillé sur activé. Ce badge ne prouve pas que l'administrateur soit techniquement incapable d'accéder aux autres données.
+3. **Les trois options déroulées** : La mention E2EE présente dans l'interface ou la capture ne change pas la conception réelle du chiffrement côté serveur. Le mode chiffré masque l'entrée de revue de l'ensemble des courriels, retire les horodatages des rapports d'opérations et désactive les transferts et notifications de robot au niveau système ; les transmissions externes configurées personnellement ne sont pas automatiquement désactivées.
 
 </details>
 
@@ -39,9 +39,9 @@ La zone du mode courriel dans la carte « Paramètres du site » des paramètres
 | --- | --- | --- | --- | --- |
 | Mode tous courriels (Level 1) | Tout en clair | Tous les courriels | Peut être désactivé | Peut être activé |
 | Mode courriel privé (Level 2, valeur d'usine) | Correspondance des utilisateurs chiffrée au repos en AES-256-GCM ; corbeille conservée en clair pour permettre la récupération | Courriels indésirables, corbeille et courriels sans propriétaire uniquement | Verrouillé sur activé | Peut être activé |
-| Mode courriel chiffré (Level 3 [E2EE]) | Tous les courriels (corbeille incluse) intégralement chiffrés | Ne renvoie aucune liste de courriels utilisateurs | Verrouillé sur activé | Verrouillé sur désactivé |
+| Mode courriel chiffré (Level 3, indiqué E2EE dans l'interface) | Chiffrement au repos côté serveur étendu aux objets et corps ; les pièces jointes et métadonnées de routage ne sont pas automatiquement incluses | Ne renvoie aucune liste de courriels utilisateurs | Verrouillé sur activé | Désactivé et verrouillé au niveau système ; les configurations personnelles doivent être vérifiées séparément |
 
-Le changement de mode prend effet immédiatement. En mode chiffré, la liste administrative des courriels reste vide en permanence, les rapports d'audit sont dépouillés de leurs horodatages, et l'entrée de revue du courriel disparaît de la barre latérale d'administration. Le transfert individuel et le push Telegram configurés par chaque utilisateur ne suivent pas le mode global du site ; ils dépendent des interrupteurs de contrôle des données utilisateurs fixés par l'opérateur et des réglages propres à chaque utilisateur. En mode privé, la restauration d'un message depuis la corbeille le déchiffre avant qu'il ne regagne la boîte, puis le rechiffre.
+Le changement de mode influe sur les traitements ultérieurs et les listes administratives, sans prouver la migration de l'ensemble des enregistrements historiques, copies ou pièces jointes. En mode chiffré, la liste administrative des courriels est vide, certains horodatages sont retirés des rapports d'opérations et l'entrée de revue disparaît de la barre latérale d'administration. Les transferts personnels et notifications Telegram ne sont pas automatiquement désactivés par le mode global ; ils restent régis par leurs contrôles respectifs et les paramètres personnels. En mode privé, déplacer un courriel vers la corbeille entraîne d'abord le déchiffrement et l'enregistrement de l'objet, du corps et du code de vérification, qui deviennent visibles dans l'administration ; lors de la restauration, ils sont de nouveau chiffrés selon ce mode.
 
 ## 3. Groupes d'identité et quotas
 
@@ -87,7 +87,7 @@ Les nouvelles inscriptions arrivent dans le groupe par défaut d'usine, le Visit
 Les trois régions centrales de la surface de connexion : le parcours complet de saisie et de validation d'une connexion par mot de passe ; les boutons de connexion rapide tierce se trouvent sous la carte.
 
 1. **Champ adresse électronique** : Le compte, c'est l'adresse électronique elle-même. En mode code d'inscription, cette page accepte aussi un paramètre d'invitation `?code=` qui préremplit directement le formulaire d'inscription.
-2. **Champ mot de passe** : La phrase secrète est stockée en empreinte salée, le serveur ne voit jamais le texte en clair. « Mot de passe oublié » ouvre par une boîte de dialogue le portail de recours externe, en transmettant le type de recours, la langue de l'interface et l'adresse électronique.
+2. **Champ mot de passe** : Le mot de passe est transmis au serveur via TLS pour vérification ; le serveur a accès à la valeur saisie. Les enregistrements persistants de vérification sont des hachages salés, mais certains parcours MFA en attente prévoient un stockage temporaire en clair ; voir la documentation de sécurité des données. Le lien « Mot de passe oublié » peut transmettre le type de recours, la langue et l'adresse électronique au portail de recours configuré.
 3. **Bouton de connexion** : Après validation, les comptes ayant activé la vérification en deux étapes passent au second facteur ; des échecs répétés déclenchent un verrouillage anti-force brute. Cochez « Ne plus demander sur cet appareil » pour dispenser ce dernier de vérification pendant 30 jours.
 
 </details>
@@ -115,7 +115,7 @@ Quatre régions de la page de sécurité : en haut l'entrée de modification des
 
 ## 5. Mode multi-comptes
 
-L'administrateur peut activer le « changement rapide multi-comptes » (désactivé par défaut). Une fois activé, le menu d'avatar liste les comptes connectés avec une entrée de bascule, et « gérer vos comptes Epomail » ouvre le flux d'ajout ; chaque compte conserve une session indépendante, et les chemins d'interface sont isolés par le préfixe `/mail/u/indice/` : basculer de compte n'écrase jamais la connexion d'un autre. La bascule entre alias de boîtes d'un même compte ne crée pas de nouvelle session.
+L’administrateur peut activer le changement rapide multi-comptes, désactivé par défaut. Le menu d’avatar liste alors les comptes connectés et permet d’en changer ou d’en ajouter ; `/mail/u/indice/` sélectionne le compte. Les comptes peuvent avoir des sessions distinctes et les bases de brouillons locaux sont choisies selon l’adresse de la boîte, mais le stockage de même origine ne constitue pas un profil de navigateur distinct. Dans l’implémentation locale de cette révision, une déconnexion ordinaire termine uniquement la session courante et efface le cache du message ouvert et l’historique des destinataires, en conservant les sessions des autres comptes et les brouillons. Elle ne révoque pas tous les jetons ou liens de partage. Changer d’alias au sein du même compte ne crée pas de nouvelle session. Ces comportements n’attestent pas un déploiement sur toutes les instances en ligne ; voir la section 4.3 de la Politique de confidentialité pour les appareils partagés.
 
 ![Menu d'avatar d'EpoCanvas Mail ouvert en haut à droite de la boîte de réception : le compte actuel admin (Maître) avec sa flèche déroulante, le bouton « gérer vos comptes Epomail » et la barre d'utilisation du stockage (interface en chinois simplifié)](/images/mail/ui/ui-account-menu.png)
 
@@ -126,8 +126,8 @@ L'administrateur peut activer le « changement rapide multi-comptes » (désacti
 
 Le menu d'avatar déplié dans le coin supérieur droit de la boîte de réception : le point d'entrée qui rassemble le changement de compte et les détails du compte.
 
-- **Ligne du compte** : Le compte actuel (admin · Maître) avec sa flèche déroulante de bascule ; en mode multi-comptes, toutes les sessions connectées sont listées et isolées par le préfixe `/mail/u/N/`.
-- **Bouton « Gérer vos comptes Epomail »** : L'entrée d'ajout de compte : le clic déclenche la connexion du nouveau compte par le lien profond dédié de la page de connexion, et l'on revient avec une session de plus. L'essentiel est le « non-écrasement » — le nouveau compte ne chasse pas la session en cours ; chaque espace de travail est isolé derrière un préfixe de chemin /mail/u/N/, de sorte que changer de compte revient à changer de préfixe, sans se reconnecter.
+- **Ligne du compte** : Le compte actuel (admin · Maître) et la flèche de changement de compte ; en mode multi-comptes, les sessions connectées sont listées et `/mail/u/N/` sélectionne le compte. Ce chemin ne constitue pas, à lui seul, une isolation du stockage ou de l'accès à l'appareil.
+- **Bouton « Gérer vos comptes Epomail »** : Ajoute un compte depuis la page de connexion, puis revient à la liste ; le routage ne constitue pas une séparation du stockage. Pour retirer de ce navigateur les données de tous les comptes du site, confirmez séparément le nettoyage de l’appareil dans Paramètres → Données. Une déconnexion ordinaire ne supprime pas silencieusement les brouillons des autres comptes.
 - **Barre d'utilisation du stockage** : La barre de progression du stockage des pièces jointes de ce compte : le numérateur est l'espace occupé, le dénominateur le quota attaché à son rôle (valeurs d'usine par rôle sur la page des rôles). Une fois le stockage d'objets personnel raccordé, les nouvelles pièces jointes ne comptent plus ici — une barre qui cesse de progresser ne signifie donc pas que les pièces jointes n'arrivent plus.
 
 </details>
@@ -146,4 +146,4 @@ L'interface existe en six langues — 简体中文, 繁體中文, English, Fran�
 | Visite des paramètres personnels et de la console d'administration | [Guide des paramètres](/fr/mail/settings/) |
 | Fonctions détaillées avec captures d'écran | [Guide des fonctions](/fr/mail/features/) |
 | Sémantique de confidentialité et conservation des modes courriel | [Traitement des données et sécurité](/fr/mail/data-security/) |
-| Visibilité de l'administration sur le contenu des courriels | [Politique de confidentialité](/fr/mail/privacy-policy/), section 10 |
+| Visibilité de l'administration sur le contenu des courriels | [Politique de confidentialité](/fr/mail/privacy-policy/), section 4 |

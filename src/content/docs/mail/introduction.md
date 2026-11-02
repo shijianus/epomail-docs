@@ -3,9 +3,9 @@ title: EpoCanvas Mail 文档站介绍
 description: EpoCanvas Mail 文档站介绍——站点定位、文档架构、阅读路线、多语言结构与完整导览。
 ---
 
-**站点启用：2026 年 9 月 28 日｜当前版本：v5.19｜站点地址：docs.epocanvas.com/epomail**
+**站点启用：2026 年 9 月 28 日｜当前版本：v5.25｜站点地址：docs.epocanvas.com/epomail**
 
-**生效日期：2026 年 10 月 11 日｜版本：5.19**
+**更新日期：2026 年 11 月 2 日｜版本：5.25**
 
 EpoCanvas Mail 文档站（下称「本站」）是 EpoCanvas Mail 开源电子邮件服务的官方文档中心，涵盖法律条款、技术规范、使用指南与开发文档。本站以 Astro 5 + Starlight 构建，六语言完全对称（简体中文、繁体中文、English、Français、Español、Nederlands），全部文档经代码实现逐字核验，为托管实例用户、自行部署者与审计参与者提供单一可信文档源。本页说明本站的定位、文档架构、阅读路线与导览入口。
 

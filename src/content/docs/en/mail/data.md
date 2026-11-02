@@ -1,9 +1,9 @@
 ---
 title: Data Export & Storage
-description: EpoCanvas Mail data export and storage — the full backup, mail-history archive and contacts-configuration exports, and connecting personal object storage.
+description: EpoCanvas Mail data export and storage — actual fields and limits of the three exports, and connecting personal object storage.
 ---
 
-**Effective date: 11 October 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
 This page covers the export and storage halves of the "Settings → Data" page. Notifications and forwarding on the same page are in the [Notifications & Forwarding Guide](/en/mail/notify/); the legal status of exported data is in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
@@ -16,10 +16,10 @@ This page covers the export and storage halves of the "Settings → Data" page. 
 
 The four cards of the data page: three export formats, a forwarding region, a storage region and a third-party grants region — personal data autonomy in one screen.
 
-1. **Export card**: Three exports side by side: the full JSON backup, the mail archive (MBOX/JSON/CSV with time range) and contacts & preferences; individual messages can also be downloaded as .eml from the reading pane.
+1. **Export card**: JSON data, mail archives (MBOX/JSON/CSV), and profile-and-label exports all use the same backend response. The time-range parameter is not applied; individual .eml files are also reconstructed from existing fields.
 2. **Forwarding card**: Item-by-item settings for Telegram push and auto-forwarding; whether the account may use them is decided by the operator's "user data control" switches.
-3. **Storage card**: A live usage gauge against the quota. Connect your own Backblaze B2/S3 bucket and new attachments land in your cloud, outside the instance quota; disconnecting falls back to instance storage.
-4. **Third-party apps card**: Every OAuth grant on the account: revoke per app or all at once from the detail dialog. Revocation is immediate — the app's existing tokens die at once.
+3. **Storage card**: shows metered mail and attachment usage and the effective quota. BYO Backblaze B2/S3 receives new attachments and bypasses quota checks in the attachment-storage path; other mail limits still apply. Disconnecting does not migrate old objects.
+4. **Third-party apps card**: lists OAuth grants and offers revocation. The backend deletes the grant and records revocation, which userinfo checks to reject access. This does not guarantee simultaneous invalidation of third-party sessions, all existing tokens, or retrieval of data already obtained.
 
 </details>
 
@@ -27,17 +27,23 @@ The four cards of the data page: three export formats, a forwarding region, a st
 
 | Export | Format | Scope |
 | --- | --- | --- |
-| Full-data export | JSON | Complete backup: account details, mail history, contacts, classification and label rules, and security settings |
-| Mail history archive | MBOX (universal), JSON or CSV | Sent and received mail only, with an optional time range |
-| Contacts and configuration | JSON | Contact list, custom alias rules and personalisation preferences |
+| Full-data export | JSON | Selected account/profile fields, selected fields of `is_del=0` mail, and `customLabels`; excludes attachment files, original MIME, complete contact/alias data, security settings and audit records |
+| Mail history archive | MBOX, JSON or CSV | The browser converts mail fields from the same response; the backend ignores `type/format/range`, does not filter the selected time range, and excludes trash |
+| Contacts and configuration | JSON | Only the returned profile subset, customLabels and export time; not a complete backup of contacts, alias rules or all preferences |
 
-A single message can be downloaded as .eml straight from the reading pane. Trash mail is hard-deleted after 7 days and cannot be recovered; export first if you need to keep a message (see Section 8 of the [Terms of Service](/en/mail/terms-of-service/)).
+Individual .eml files and batch MBOX archives are reconstructed from existing fields, without complete original MIME or attachment files. Trash cleanup uses mail creation time older than 7 days, without guaranteeing 7 more days in trash. Save attachments separately before deletion and check the export; see the [Privacy Policy](/en/mail/privacy-policy/).
+
+This round's local implementation also temporarily stores complete raw MIME in object storage, encrypted server-side with AES-256-GCM, for delivery recovery. The application sets a 7-day cleanup deadline; failed-delivery retries can extend it, and successful database ingestion does not delete the object immediately. Scheduled cleanup runs in batches and retains objects when deletion fails so it can retry. This is not a storage-layer TTL guarantee of deletion at expiry. The temporary raw MIME is excluded from self-service exports; individual .eml and MBOX downloads remain reconstructed from fields. This does not establish deployment to every live instance.
+
+In the current local implementation, ordinary logout clears the current session, current-message cache and recipient history, while preserving other account sessions and local drafts. Deleting a draft list entry removes the draft and its `att` attachments in one IndexedDB transaction. This local content is not included in server exports.
+
+Before sharing or transferring a device, save any drafts you need elsewhere, then choose the device-data cleanup action under Settings → Data → Privacy and this device. Confirmation covers saved sign-ins, device trust, caches, settings, drafts and attachments for ALL this site's accounts in this browser and signs you out. A blocked or partially failed cleanup is not reported as complete; retry as instructed or clear the site's data through the browser. This action does not revoke every server credential or delete other sites' data, chat copies, server-hosted static avatars, audit records or backups. Automatic verification-code recognition on the same card is off by default and requires personal opt-in, a configured service and a data-destination notice before it can be enabled. These statements describe this round's local implementation, not deployment to every live instance; see Section 4.3 of the privacy policy for same-origin storage boundaries.
 
 ## 2. Storage space
 
 - The attachment-usage gauge shows usage and quota in real time; the quota follows the identity group (factory values in Section 3 of [Operating Modes](/en/mail/modes/));
-- Personal object storage can be connected (bring your own Backblaze B2 or S3 bucket): once connected, new attachments are saved straight to your own cloud and no longer count against the instance quota; the platform's B2 recommendation rests on its free tier and zero egress fees;
-- The connection can be removed at any time; afterwards new attachments fall back to instance storage.
+- Connect a personal Backblaze B2/S3 bucket to store new attachments using your configuration. The attachment-storage path bypasses system quota checks, but metering and other mail limits remain. Provider fees and external retention require separate confirmation; see the [Sub-processor List](/en/mail/sub-processors/);
+- Disconnecting does not migrate or delete objects in the old bucket. Their original BYO storage location is retained until the object-cleanup queue confirms the relevant work; disconnecting is not confirmation of erasure. For old-attachment availability and deletion limits, see [Data Processing & Security Maintenance](/en/mail/data-security/).
 
 <details>
 <summary>Walkthrough: export and storage</summary>
@@ -45,9 +51,9 @@ A single message can be downloaded as .eml straight from the reading pane. Trash
 ![Export and storage](/images/mail/en/ui/data.png)
 
 1. Go to "Settings → Data".
-2. "Full-data export" downloads a complete JSON backup in one package (personal data, mail history, contacts, rules and security settings).
-3. "Mail history archive": choose the MBOX / JSON / CSV format and a time range, then download.
-4. "Contacts and configuration" exports the contact list and the personalisation preferences.
+2. "Full-data export" downloads JSON with selected profile fields, undeleted-mail fields and customLabels; handle attachments, complete contacts and security settings separately.
+3. "Mail history archive": choose MBOX/JSON/CSV and download; the browser converts the format, while the backend does not apply the time range.
+4. "Contacts and configuration" exports the returned profile subset and customLabels; check whether the contacts and preferences you need are included.
 5. The storage card shows attachment usage; click "Connect a bucket" to bind your own Backblaze B2 / S3, after which attachments are saved straight to your own cloud.
 
 </details>

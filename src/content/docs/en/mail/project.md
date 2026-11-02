@@ -5,7 +5,7 @@ description: A complete introduction to the EpoCanvas Mail project — positioni
 
 **First commit: July 21, 2026 | Current version: v1.1.0 | License: MIT**
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
 EpoCanvas Mail is an open-source e-mail service running on Cloudflare's edge network. With just a domain and a Cloudflare account, you can set up your own mailbox supporting sending and receiving, attachments, and multi-device access. The project is operated publicly through the hosted instance [mail.epocanvas.com](https://mail.epocanvas.com), releases all source code for self-hosting, and ships a companion Android app (epomail). This page covers the project's positioning, features, technical architecture, security design, and development history; the legal terms of the service and privacy are in the [Privacy & Terms Overview](/en/mail/overview/).
 
@@ -13,14 +13,14 @@ The Traditional Chinese (Taiwan) versions of this site's legal documents are the
 
 ![EpoCanvas Mail system architecture: the client layer (web app, Android app, OAuth third-party apps) connects through the Cloudflare edge; Workers host the API, inbound mail parsing, and AI features, with outbound delivery via Resend and Telegram; data lands in dual D1 databases, KV, and object storage](/images/mail/en/project-architecture.svg)
 
-*Figure: the system architecture. Clients connect through the edge with no single-point server; inbound mail is received by Email Routing and parsed, outbound goes through the Resend channel; all state stays inside the deployer's own Cloudflare resources.*
+*Figure: clients connect through the edge; Email Routing parses incoming mail and configured channels deliver outgoing mail. Data may also reach external storage, identity, notification or AI services; see the [Sub-processor List](/en/mail/sub-processors/).*
 
 ## 1. Project Positioning
 
 Self-hosted mail systems demand long-term maintained servers, fixed IPs, and anti-spam stewardship; commercial mailbox services concentrate data in the provider's hands, hard for users to verify. EpoCanvas Mail takes a third path: it fits the whole service inside Cloudflare's usage-based allowances (Workers compute, D1 databases, KV cache, R2 object storage), delivered serverlessly with zero fixed server cost and fully public source code.
 
 - No ops: after deployment there is no OS or certificate upkeep; scaling and global acceleration are handled by Cloudflare;
-- Data autonomy: all data of a self-hosted instance lands in the deployer's own D1 and object storage; the code has no telemetry built in;
+- Data autonomy: deployers choose resources and external services. The code processes login security signals and stores records. No dedicated usage-telemetry channel to the upstream author was found; logs and third-party requests still exist. See the [Privacy Policy](/en/mail/privacy-policy/);
 - Two tracks: register on the hosted instance directly, or take the source code and deploy on your own domain. The definition of the data controller in each form is in Section 2 of the [Overview](/en/mail/overview/).
 
 ## 2. Feature Overview
@@ -28,6 +28,11 @@ Self-hosted mail systems demand long-term maintained servers, fixed IPs, and ant
 The project spans sending and receiving, organisation, search, automation, and an open platform; a per-feature walkthrough with real interface screenshots is in the [Feature Guide](/en/mail/features/). Highlights: inbound via Cloudflare Email Routing with multi-channel outbound; an eight-view inbox with threads and a three-pane split; advanced search syntax and the classification rule engine; Workers AI code extraction and layout-preserving full-text translation; an OAuth 2.0 / OIDC centre and personal API tokens; and data export (JSON and .eml).
 
 Every interface and route is toured in the [Interface & Route Map](/en/mail/interface/); the complete reference of search operators and the classification rule engine appears in the [Search & Rules Reference](/en/mail/search/).
+
+The documentation site offers seven languages; the product interface currently offers six, without German. German documents therefore use English UI screenshots from `/images/mail/en/ui/` for localised walkthroughs. Existing shared screenshots under `/images/mail/ui/` keep their original interface language, identified in the caption or alternative text. The prose, captions and diagrams remain in German. These documented screenshot exceptions do not imply that a German product interface exists.
+
+The Chinese string `重要` is a literal product label meaning “important”, not untranslated prose. The search aliases `$发件人`, `$用户`, `$收件人` and `$主题` must also remain literal; they correspond to `$sender`, `$user`, `$to` and `$subject`, respectively. The interface language names `简体中文` (Simplified Chinese) and `繁體中文` (Traditional Chinese) retain their native spelling. Configuration keys, routes, filenames and other technical constants do not change with the documentation language.
+
 ## 3. Architecture Overview
 
 The server runs on Cloudflare Workers (stateless V8 Isolate sandboxes); data lands in dual physically isolated D1 databases (a user database and a mail database, with 100% single-database backward compatibility), KV, and object storage (a four-level chain: BYO S3, configured S3, R2, KV); inbound mail arrives via Email Routing, outbound goes through Resend / Mailjet and similar channels, and AI runs on Workers AI. The full topology, encryption scheme, role quotas, and mail lifecycle are in [Technical Architecture](/en/mail/architecture/).
@@ -37,19 +42,19 @@ The server runs on Cloudflare Workers (stateless V8 Isolate sandboxes); data lan
 Choose this project when:
 
 - you already hold a domain and a Cloudflare account and want to run a personal or small-team mailbox at zero fixed server cost;
-- you want auditable source code and data that stays inside your own account as a self-hoster;
+- self-hosters who want auditable source code and control over their storage resources and third-party services;
 - you are an individual user who needs multi-mailbox isolation, automatic classification, and instant verification-code extraction for registration mail.
 
 Evaluate alternatives when:
 
-- you need a promised uptime, formal technical support, or long-term archiving for an enterprise scenario: the Service promises no SLA, and trash mail is hard-deleted 7 days after receipt (see Section 8 of the [Terms of Service](/en/mail/terms-of-service/));
+- enterprise scenarios requiring promised uptime, formal support or long-term archiving: no SLA is promised; trash cleanup uses mail creation time older than 7 days, without guaranteeing 7 more days after moving to trash. See the [Privacy Policy](/en/mail/privacy-policy/);
 - your main use is bulk outbound marketing: the Acceptable Use Policy forbids unsolicited bulk commercial mail (see Section 3 of the [Acceptable Use Policy](/en/mail/acceptable-use/));
 - you need end-to-end encryption: this service's encryption is server-side encryption at rest and does not cover attachments (see Section 1 of [Data Processing & Security Maintenance](/en/mail/data-security/));
 - you have no intention of maintaining Cloudflare resources, domains, and key configuration: self-hosting still requires key injection and initialisation (see Section 8).
 
 ## 5. Security Design Overview
 
-Passwords are salted PBKDF2-HMAC-SHA256 hashes (100,000 iterations); TOTP secrets are encrypted at rest with AES-256-GCM; mail URLs use 20-character HMAC-SHA256-signed random hashes against privilege escalation and enumeration; XSS is handled by triple defence and SSRF is blocked; official mail is delivered as immutable snapshots. These measures were closed out in the 2026-09-22 full security hardening (43 automated assertions green); the complete list is in [Technical Architecture](/en/mail/architecture/), Section 7, and the notices and retention owed to individuals are in [Data Processing & Security Maintenance](/en/mail/data-security/).
+New passwords default to salted PBKDF2-HMAC-SHA256 (210,000 iterations, configurable), with older hashes upgraded at login; enabled TOTP secrets use AES-256-GCM. Other designs include signed mail links, XSS filtering, outbound-address checks and official-mail snapshots. The 43 assertions from September 22, 2026 are historical verification records, not security certification of the current version or live instance. See [Technical Architecture](/en/mail/architecture/) and [Data Processing & Security Maintenance](/en/mail/data-security/) for scope and limits.
 
 ## 6. Development History and Commit Chain
 
@@ -72,7 +77,7 @@ The project has been developed continuously since its first commit (`2bbb582`) o
 | 13. Sustained documentation operation | 2026-10-01 → 10-04 | local demo instance and seeding tool; v5.8 visual and entry polish; v5.9 features/architecture expansion (×6 languages) with real product screenshots; v5.9 independent audit with full claim-to-source verification | `26f6c3b` `8a60539` |
 | 14. Audit governance and overview expansion | 2026-10-04 → 10-05 | v5.10 independent audit governance (full claim-to-source fixes, en added to structure-symmetry checks); v5.11 running-modes / settings-guide pages (×6 languages, real product screenshots); audit console rebuild (RBAC and D1 persistence) and the OAuth feature flag | `08448fb` `ff4e93f` `596e7c1` |
 
-The main repository's full milestone anchor chain (40-character hashes, verifiable in the GitHub commit history):
+The main repository's full milestone anchor chain (40-character hashes, verifiable in the GitHub commit history) follows. In both chains, Chinese commit subjects are summarised in English; subjects originally written in English are retained. These are historical summaries, not descriptions of the current release. The hashes identify the original commits and their exact subjects.
 
 ```text
 2bbb582e19b8a1aca410767a5b5c52ae5d7f4423  2026-07-21  init: initial commit before UI/UX updates
@@ -84,58 +89,58 @@ e3e57c69a6154bc13218be27a6537711e0a21527  2026-08-09  Enhance: Upgrade collision
 0b7e37d953e2a25ff74dcf313272632fb60ba9c8  2026-08-13  fix(labels): ensureDefaultRules injection + system rule lock UI + real heuristic engine
 643edea268fb8dc4f67b4bfe17db49025f6c7662  2026-08-15  feat(ui): phase 3 - classification management analytics dashboard
 79f200fcb1a401e08c4d89ff94b8c3a65b51aef0  2026-08-16  feat: enhance login UX with toast and 12h anti-brute force lockout
-9fd02b75dcaa31e1c12c2424b3b9c52b19eab203  2026-09-03  feat(oauth): 管理员专属 OAuth 开放平台与应用管理独立分区上线及个人资料解耦清退
+9fd02b75dcaa31e1c12c2424b3b9c52b19eab203  2026-09-03  feat(oauth): add an admin-only OAuth platform and separate app management; remove these controls from personal profiles
 2cc2801ccec3d9ee07d5b1688f2af652d7dc25a2  2026-09-03  feat(db): introduce dual-db physical isolation architecture with 100% single-db backward compatibility
 b1a6a0ebe02a5bb196bf5da601a182f022ab1664  2026-09-03  feat(storage): implement Backblaze B2 and S3 object storage with pure WebCrypto SigV4 presigner
-6c5bda2b794fef6f9467a5d880ae2fede77824cd  2026-09-04  feat(db): 系统设置「存储与核心数据库」管理中心上线与第三方DB配置体系全量重构
-f09c963752e731d3e308893fa6ed09d1212713e8  2026-09-06  feat(role): 细化6大核心管理组权限控制规范、开源参观者沙箱交互、博客等级联动与UI架构透视全景上线
-deceaaa5b3e7589c63c2240df97b020bab5c2c14  2026-09-06  feat(content): 学习Gmail收件UI架构，升级to-me详情卡片、顶部操作栏与AI全文翻译及管理面板API密钥集成
-56768378f4d83b9eb70e65376930cfa16db16209  2026-09-07  feat(icons): 系统级全量300+离线矢量图标重构、零网络请求秒开与满Icon状态闭环
+6c5bda2b794fef6f9467a5d880ae2fede77824cd  2026-09-04  feat(db): add the Storage & Core Database centre in system settings and rebuild third-party database configuration
+f09c963752e731d3e308893fa6ed09d1212713e8  2026-09-06  feat(role): refine permissions for six core admin groups; add visitor-sandbox interaction, blog-level integration and a UI architecture overview
+deceaaa5b3e7589c63c2240df97b020bab5c2c14  2026-09-06  feat(content): adopt Gmail-style inbox layout; update the to-me detail card, top toolbar, AI full-text translation and admin-panel API-key integration
+56768378f4d83b9eb70e65376930cfa16db16209  2026-09-07  feat(icons): replace 300+ icons system-wide with offline vectors; load without network requests and complete icon-state coverage
 d103cd4edd4fbedbeaec669fc068bed2c5648dfa  2026-09-08  feat(ai-hub): automated dropdown model detection, multi-model pool role hierarchy, and real prompt live test response
-aa1955eeb1b564f11a370892c48ea94f7c21015f  2026-09-14  feat: 全专案主流多语言支持(正体中文/法/西/荷)、多语言欢迎邮件、网站公告全域公告邮件
-25985b1d0ca1c71e59222a3ecb3a9c53532834ef  2026-09-17  fix(prod): 生产环境Cloudflare正式上线、Playwright真机视觉全链路核验、Vue-i18n转义与抽屉缺陷修复
-b0251537e0a56b7d3b80f794ce79ff839871f945  2026-09-18  feat(auth): 登录界面两步验证 (TOTP/Passkey) 流体动效与丝滑交互重构
-5cfdaf910bd628d183f0b6d102134d1042f2e7df  2026-09-19  fix(core): 三大核验缺陷全量修复、全新部署引导链重构与密钥安全体系隔离
-7ee3a66d5fb17c44983ff2b7f35534d82c815524  2026-09-22  fix(security): 全量安全加固与漏洞闭环——P0/P1/P2防护/SSRF阻断/XSS三重防御/会话脱敏/权限对齐
-a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): 对齐 Gmail 邮件详情排版分层与悬浮快捷回复体验
-4b371a834458cb2be6ab5766ec15e99a91bc2022  2026-09-27  feat(routing): 严格对齐 Gmail 多账户隔离与密码学 Hash 防越权路由架构
-617cccf855a0bd9a0a46d37deaceacc4a8b0ddde  2026-09-29  docs(repo): EpomailDocs 独立为专用 git 仓库，自父仓库解除追踪
-4cf8014279669dbc67ff54ceb47239044c943ac8  2026-10-03  docs(checklist): 归档 EpomailDocs v5.8 视觉与入口打磨轮流水（EpomailDocs a1c1e89——翻页卡图标/表格居中/Accept-Language 协商）
-8a60539d318eef618b84aa0db4e8a88672c4940d  2026-10-04  docs(checklist): 归档 EpomailDocs v5.9 专案文档拆分扩充轮流水（EpomailDocs beb956a——功能指南/技术架构两新页×6 语言、真实产品截图、内容栏居中根治、本地演示实例）
-26f6c3b9750b2bad1c60f35a9a08b4db11dc1a6b  2026-10-04  feat(demo): 本地演示实例播种工具——seed-demo.py 演示邮件生成器与 wrangler-demo.toml 本地配置忽略
-33a5b0ba6abb2af208b713a81d057d9e36e17893  2026-10-04  docs(audit): EpomailDocs v5.9 独立审计——介绍与法律内容全量对码与完整性核查
-21af692803770c94ac2cfbdec5c32624e45754ce  2026-10-03  feat(sys-setting): 新增底层特性开关 ENABLE_OAUTH_INTEGRATION 并默认关闭隐藏第三方认证设置
+aa1955eeb1b564f11a370892c48ea94f7c21015f  2026-09-14  feat: add project-wide Traditional Chinese, French, Spanish and Dutch support, multilingual welcome mail and site-wide announcement mail
+25985b1d0ca1c71e59222a3ecb3a9c53532834ef  2026-09-17  fix(prod): launch production on Cloudflare; verify the visual flow on real devices with Playwright; fix Vue-i18n escaping and drawer defects
+b0251537e0a56b7d3b80f794ce79ff839871f945  2026-09-18  feat(auth): rebuild two-step login verification (TOTP/Passkey) with fluid animations and smoother interaction
+5cfdaf910bd628d183f0b6d102134d1042f2e7df  2026-09-19  fix(core): resolve three verification defects, rebuild the fresh-deployment bootstrap chain and isolate the secret-management system
+7ee3a66d5fb17c44983ff2b7f35534d82c815524  2026-09-22  fix(security): harden security and close vulnerabilities with P0/P1/P2 protections, SSRF blocking, three-layer XSS defence, session redaction and permission alignment
+a8d841a13c3a0aa31b72c1d82580f2e9c7a1e561  2026-09-25  feat(ui): align the layered mail-detail layout and floating quick reply with Gmail
+4b371a834458cb2be6ab5766ec15e99a91bc2022  2026-09-27  feat(routing): align multi-account isolation with Gmail and use cryptographic-hash routing to prevent unauthorised access
+617cccf855a0bd9a0a46d37deaceacc4a8b0ddde  2026-09-29  docs(repo): make EpomailDocs a dedicated git repository and remove it from tracking in the parent repository
+4cf8014279669dbc67ff54ceb47239044c943ac8  2026-10-03  docs(checklist): archive the EpomailDocs v5.8 visual and entry-point improvements (EpomailDocs a1c1e89: pagination-card icons, centred tables and Accept-Language negotiation)
+8a60539d318eef618b84aa0db4e8a88672c4940d  2026-10-04  docs(checklist): archive the EpomailDocs v5.9 documentation expansion (EpomailDocs beb956a: new feature and architecture guides in six languages, real product screenshots, content-column centring fix and local demo instance)
+26f6c3b9750b2bad1c60f35a9a08b4db11dc1a6b  2026-10-04  feat(demo): add local-demo seeding with the seed-demo.py mail generator and ignore the local wrangler-demo.toml configuration
+33a5b0ba6abb2af208b713a81d057d9e36e17893  2026-10-04  docs(audit): independently audit EpomailDocs v5.9 by checking all introductory and legal content against the source code and reviewing completeness
+21af692803770c94ac2cfbdec5c32624e45754ce  2026-10-03  feat(sys-setting): add the ENABLE_OAUTH_INTEGRATION feature flag, disabled by default to hide third-party authentication settings
 73a2561d3e91867a2b9e442bebe8366a639b5914  2026-10-04  feat(audit): refactor audit console to user-list standards with RBAC and D1 persistence
-596e7c1f4e4d022f3573917cfd56f72b65ae0136  2026-10-05  docs(checklist): 归档 EpomailDocs v5.11 专案介绍扩充轮流水（EpomailDocs ff4e93f+c597fca——运行模式/设置指南两新页×6 语言、9 张真实产品截图、全站 5.11 版本同步、本地视觉验证全绿）
+596e7c1f4e4d022f3573917cfd56f72b65ae0136  2026-10-05  docs(checklist): archive the EpomailDocs v5.11 project-guide expansion (EpomailDocs ff4e93f+c597fca: new modes and settings guides in six languages, nine real product screenshots, site-wide version 5.11 and passing local visual checks)
 ```
 
 This site's (EpomailDocs separate repository) commit chain:
 
 ```text
 fd57a71ab71d99ff61b83a9a7c4f4b191dd96b99  2026-09-28  feat: initial commit for epomail-docs with open-source and legal compliance documentation
-5208abc054626e305a5caac3e7320219706e3785  2026-09-29  docs(legal): 法律文档站 v4.1——台湾法域全量定稿（6 语言 × 7 篇 × 42 页）
-5fb18df6a9c317bf064b477d143a53eb0d54bf07  2026-09-29  docs(visual)+chore: aup-ladder.svg 布局重构消除遮挡，视觉验收与归档流水
-270cfd12c365b406661b5f40219740547d2b7d99  2026-09-29  fix(site): 补全根路径跳转页，/ 404 → 六语言总览入口
-7ad5ebc1bc3b2846d0932c872ef7666b0d07d6bb  2026-09-29  docs(project): 新增六语言专案介绍页——定位、功能、架构、安全与完整提交链路
+5208abc054626e305a5caac3e7320219706e3785  2026-09-29  docs(legal): finalise the v4.1 legal site for Taiwan (six languages, seven documents, 42 pages)
+5fb18df6a9c317bf064b477d143a53eb0d54bf07  2026-09-29  docs(visual)+chore: rebuild the aup-ladder.svg layout to remove overlaps; record visual acceptance and archive the work
+270cfd12c365b406661b5f40219740547d2b7d99  2026-09-29  fix(site): add the root redirect page, replacing the / 404 with six-language overview entry points
+7ad5ebc1bc3b2846d0932c872ef7666b0d07d6bb  2026-09-29  docs(project): add the project overview in six languages, covering positioning, features, architecture, security and the full commit chain
 5cc2b2f12d00f195d0e84cea34911f1b3390ce6b  2026-09-28  feat(legal): integrate official privacy policy and technical baseline spec
 d7beca35a2db489e75ff865435f95f20e68fd27f  2026-09-28  docs(audit): enrich architecture & legal compliance per subagent audits
-d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): 采纳远端旧结构文档线为历史祖先，树以本地六语言法律文档站为准
-05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): 法律文档站 v5.0——全站去条号引用，六语言 × 7 篇 × SVG 配图全量同步
-52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 独立审计修订——第三方清单增补博客等级联动披露、时效数据校正与工具补盲
-5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): 上线前审计修订——系统邮件不可变投递事实校准、AI 翻译预置模板披露、robots.txt
-79094ac9d2686c1014c25824b25318c6206c9270  2026-09-30  docs(legal): v5.2 内容完善——正式版本条款全站覆盖、专案介绍增补适用边界与常见疑问
-90c06edcdd29a90a991bd56ba480c031cf85a9cf  2026-09-30  docs(legal): v5.3——独立复审缺陷治理与发布链路定案（docs.epocanvas.com/epomail）
-6da475e6a7bd1f892e00165031ad94d5bacdb872  2026-10-01  docs(legal): v5.4 内容完整性补齐——配图全覆盖、术语补定义、保留期缺项与引用精度
+d3d1d309888f92e7c30c217c13a4f5b02781202b  2026-09-29  docs(repo): retain the remote legacy documentation branch as an ancestor while using the local six-language legal site as the working tree
+05c222c4ff2531dc17b29994c0806ade1ed99ed0  2026-09-29  docs(legal): v5.0 removes article-number citations site-wide and synchronises seven documents and SVG illustrations across six languages
+52412e393613a8b2763d133a95f6a3205e8cb6ce  2026-09-30  docs(legal): v5.1 independent-audit revisions add blog-level integration to the sub-processor disclosures, correct time-sensitive data and close tooling gaps
+5197f5092861b7db24f1d428991c7db057612ae3  2026-09-30  docs(legal): pre-launch audit revisions correct immutable system-mail delivery facts and document preset AI translation templates and robots.txt
+79094ac9d2686c1014c25824b25318c6206c9270  2026-09-30  docs(legal): v5.2 adds the authoritative-version clause site-wide and expands the project overview with scope limits and FAQs
+90c06edcdd29a90a991bd56ba480c031cf85a9cf  2026-09-30  docs(legal): v5.3 resolves independent-review findings and finalises the publication route at docs.epocanvas.com/epomail
+6da475e6a7bd1f892e00165031ad94d5bacdb872  2026-10-01  docs(legal): v5.4 completes illustration coverage, term definitions, missing retention periods and citation precision
 3223e7d6181a6b82192f225eaded3ed8ddab0a56  2026-10-01  feat(legal): integrate official mail specifications and complete anti-tampering verification engine
-e6eb758709b6702b3b51fddb1057bee94380a3e7  2026-10-03  docs(legal): v5.7 全站去幻觉与六语言深度整合——源码事实校准、en 九篇 1:1 重译、配图扁平化重绘
-c5de61f5e1330726fe31257588ee21fdec178d8e  2026-10-03  feat(figures): 十二张原理图全量六语言本地化——每种语言的文档配该语言的图
-fcc1d10f9616b905e1c6b89ccb4e6f8ac953c476  2026-10-03  docs(legal): v5.8 独立复审打磨——P1/P2 全项治理、八项补章、全站单 h1 与首次公网发布
-a1c1e89c4e8b85579346304df3d5b37d197b68db  2026-10-03  feat(ui)+feat(infra): v5.8 视觉与入口打磨——翻页卡文档图标、表格居中与 Accept-Language 入口协商
-beb956a1b50b5c4b94d3bbc9b9feba8ef774417a  2026-10-03  feat(docs): v5.9 专案文档拆分扩充——功能指南/技术架构两新页 ×6 语言 + 真实产品截图 + 内容栏居中
+e6eb758709b6702b3b51fddb1057bee94380a3e7  2026-10-03  docs(legal): v5.7 removes unsupported claims and integrates six languages; verify facts against source, retranslate nine en documents one-to-one and redraw flat diagrams
+c5de61f5e1330726fe31257588ee21fdec178d8e  2026-10-03  feat(figures): localise twelve diagrams into all six languages so each document uses figures in its own language
+fcc1d10f9616b905e1c6b89ccb4e6f8ac953c476  2026-10-03  docs(legal): v5.8 resolves all P1/P2 review findings, adds eight sections, standardises one h1 per page and makes the first public release
+a1c1e89c4e8b85579346304df3d5b37d197b68db  2026-10-03  feat(ui)+feat(infra): v5.8 improves visuals and entry points with pagination-card document icons, centred tables and Accept-Language negotiation
+beb956a1b50b5c4b94d3bbc9b9feba8ef774417a  2026-10-03  feat(docs): v5.9 splits and expands project documentation into feature and architecture guides in six languages, with real product screenshots and a centred content column
 e34ce0270c42dc7b50f0add6f0a47310046cf37e  2026-10-04  chore: sync manifest commit hash for beb956a
 68a014ce25cca575ec348f68db746419fd19e2ce  2026-10-04  chore: sync manifest commit hash for 08448fb
-08448fb63b011699b129e69266e7150a2174a49e  2026-10-04  feat(docs): v5.10 独立审计治理轮——P1×3 全量对码修订、P2 全项落地、en 纳入结构对称校验
-ff4e93f7bb9da6ee1a4729cb2d826b1993fe5167  2026-10-05  feat(docs): v5.11 专案介绍扩充——运行模式/设置指南两新页 ×6 语言与真实产品截图全量入库
+08448fb63b011699b129e69266e7150a2174a49e  2026-10-04  feat(docs): v5.10 resolves three P1 findings against source and all P2 findings from the independent audit; add en to structural-symmetry checks
+ff4e93f7bb9da6ee1a4729cb2d826b1993fe5167  2026-10-05  feat(docs): v5.11 expands the project introduction with modes and settings guides in six languages and checks in all real product screenshots
 c597fca8b14005a6fc7a3482d683b9a2937c55d8  2026-10-05  chore: sync manifest commit hash for ff4e93f
 ```
 
@@ -144,9 +149,9 @@ The table and anchor chains above are milestone-granular; all routine fixes, tes
 ## 7. Quality Assurance
 
 - The `tests/` directory holds over a hundred automated test, audit, and inspection scripts covering Playwright full-stack browser regression, production public-network end-to-end assertions, and repository-wide static scanning;
-- Representative verified figures: security hardening 43/43 assertions, public-route end-to-end 32/32, six-language login surface 62/62, sensory inspection 33/33, production integrity 369-item byte-by-byte comparison;
+- Historical verification figures: security hardening 43/43 assertions, public routing 32/32, six-language login 62/62, visual inspection 33/33, and 369 production-integrity comparisons. These concern the versions and environments tested then, not verification of the current version or live instance;
 - The multilingual static-audit trio: `i18n-symmetry` (six-language key sets absolutely symmetric), `i18n-audit` (zero missing literal references), `i18n-hardcoded` (zero unwrapped hard-coded user-visible text);
-- Zero test-data residue: all cases have `finally` physical cleanup; the database and KV hold no fake data;
+- Test rules require cleanup through `finally`; actual residue must be checked against execution records. The rule does not establish that the database and KV always contain no test data;
 - Development follows the five-step SOP (scope, implement, full-stack testing, disciplined commit, top-posted report), with output routed to `CHECKLIST.log` and `REPORTS.md`.
 
 ## 8. Getting and Deploying
@@ -175,13 +180,13 @@ The full prerequisites, the initialisation bootstrap chain and secret injection 
 The software is free under the MIT license; self-hosting costs whatever the deployer's own Cloudflare usage amounts to. The hosted instance currently has no paid features; mailbox count, sending volume, and storage quotas are set per account role.
 
 **Can the administrator read my mail?**
-It depends on the instance's mail mode: in "All-mail" mode the administrator can read all mail; in "Private" mode only spam, deleted, and unassigned mail; in "Encrypted" mode the admin interface does not return user mail. See the encryption-scope note in Section 10 of the [Privacy Policy](/en/mail/privacy-policy/).
+Admin-interface visibility depends on mail mode: All-Mail allows all mail, Privacy limits it to spam, deleted and unassigned mail, and Encrypted blocks that interface from reading user mail. The server retains decryption capability; this is not end-to-end encryption. See the [Privacy Policy](/en/mail/privacy-policy/) and [Data Processing & Security Maintenance](/en/mail/data-security/).
 
 **Can deleted mail be recovered?**
-Trash mail is hard-deleted 7 days after receipt and cannot be recovered; to keep something, first get a complete copy through "Settings → Data Export" (see Section 8 of the [Privacy Policy](/en/mail/privacy-policy/)).
+Trash cleanup uses mail creation time older than 7 days; moving mail does not reset that clock. Exports contain selected profile and undeleted-mail fields, without attachment files or complete original MIME. Save required attachments separately before deletion and check the export; see the [Privacy Policy](/en/mail/privacy-policy/).
 
 **What does self-hosting require?**
-A domain and a Cloudflare account; deployment steps and key injection are in Section 8. All data stays inside the deployer's own Cloudflare resources, and the code has no telemetry built in.
+A domain, a Cloudflare account and relevant service configuration are needed; deployment steps are in Section 8. External delivery, storage, identity, notification and AI paths can process data, so all data is not guaranteed to stay within Cloudflare. See the [Sub-processor List](/en/mail/sub-processors/).
 
 ## 10. Related Documents
 

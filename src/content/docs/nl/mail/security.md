@@ -3,7 +3,7 @@ title: Accountbeveiligingsgids
 description: De gids voor accountbeveiliging van EpoCanvas Mail — tweestapsverificatie in drie stappen inschakelen, herstelcodes beheren, toegangssleutels registreren en activeren, het verificatiegedrag bij aanmelding en het verwijderen van het account.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.25**
 
 Deze pagina loopt elke handeling op de pagina «Instellingen → Beveiliging» langs. Het algemene gedrag van tweestapsverificatie (vertrouwde apparaten, afgedwongen beleid) staat beschreven in [Werkingsmodi](/nl/mail/modes/), sectie 4; deze pagina behandelt alleen de configuratie. Ingang: zijbalk «Instellingen → Beveiliging» (`#settings/security`).
 
@@ -60,7 +60,9 @@ Of het centrum zichtbaar is, volgt de e-mailmodus van de instantie: in de privé
 
 ## 6. Account verwijderen
 
-Onderaan de pagina staat de ingang voor verwijdering. Na verwijdering worden de accountgegevens verwerkt volgens de verwijderbepalingen van het [Privacybeleid](/nl/mail/privacy-policy/); exporteer eerst je gegevens via «Instellingen → Gegevens» (zie de [Gids voor meldingen en doorsturen](/nl/mail/notify/)).
+Via de ingang onderaan vraagt u verwijdering van het huidige account aan. De lokale implementatie van deze ronde schakelt eerst het account en al zijn mailboxen uit in D1 en trekt daarna sessies, persoonlijke toegangstokens (PAT), apparaatvertrouwen, openstaande OAuth-referenties en machtigingen in. Inkomende mail voor uitgeschakelde accounts wordt vóór AI-verwerking geblokkeerd. De backend past weergavekeuzes voor openbare profielen toe; profielen van inactieve accounts geven 404 terug. Elk gedeeld lees- of bijlageverzoek controleert opnieuw de actuele account- en berichtstatus en de intrekkingsversie. Gewoon uitloggen is niet deze accountbrede intrekking of accountverwijdering. Deze lokale mechanismen bevestigen geen actualisering van alle online instanties.
+
+`manual_review` betekent dat de toegang is uitgeschakeld en verwijdering op handmatige beoordeling wacht, niet dat fysieke verwijdering voltooid is. `cleanup_failed` betekent dat het account uitgeschakeld blijft maar een deel van de opruiming aandacht nodig heeft; neem contact op met de beheerder en volg het verzoek. Beheerders kunnen de objectopruimwachtrij bekijken, maar een verwijderverzoek niet met één herstelknop ongedaan maken. Oorspronkelijke BYO-objectlocaties blijven behouden totdat de wachtrij het werk bevestigt. Chatkopieën, statische avatars op de server, auditrecords, back-ups en lokale concepten verdwijnen niet allemaal automatisch door dit antwoord. Controleer het bereik van de [gegevensexport](/nl/mail/data/) en bevestig apparaatopruiming daar afzonderlijk; volg paragrafen 8 en 9 van het [Privacybeleid](/nl/mail/privacy-policy/) voor volledige verwijdering.
 
 ## 7. Verwante documenten
 

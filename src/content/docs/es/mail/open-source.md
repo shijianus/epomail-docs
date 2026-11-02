@@ -1,53 +1,57 @@
 ---
 title: Marco legal del código abierto y el autoalojamiento
-description: Marco legal del código abierto y el autoalojamiento de EpoCanvas Mail — el alcance de la licencia MIT, lo que queda fuera de ella, la posición de la entidad desplegadora como responsable del tratamiento, los acuerdos con terceros y las contribuciones.
+description: Alcance de MIT, distinción entre autores y operadores reales y deberes de protección de datos en autoalojamiento.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
-Esta página expone el alcance de la licencia de código abierto de EpoCanvas Mail y la posición legal del autoalojamiento. No es un contrato de usuario para ninguna instancia: los usuarios de la instancia alojada se rigen por los [Términos del Servicio](/es/mail/terms-of-service/) y la [Política de Privacidad](/es/mail/privacy-policy/); los usuarios de una instancia autoalojada se rigen por las condiciones que publique su desplegador.
+Esta página explica la licencia y las responsabilidades del autoalojamiento de EpoCanvas Mail. El proyecto lo mantiene una persona sin ánimo de lucro para aprender y probar; el servicio alojado sigue por separado los [Términos del Servicio](/es/mail/terms-of-service/) y la [Política de Privacidad](/es/mail/privacy-policy/). Los desplegadores deben ofrecer condiciones e información sobre sus servicios reales.
 
-![Límites de responsabilidad de EpoCanvas Mail: el proyecto de código abierto ascendente proporciona el código fuente; la instancia la opera de forma independiente su operador, que asume la responsabilidad de responsable del tratamiento](/images/mail/es/self-host-responsibilities.svg)
+La versión en chino tradicional (Taiwán) es la oficial; los demás idiomas son traducciones de referencia. Esta disposición no limita la información clara exigida por la ley aplicable, la interpretación favorable al consumidor ni los derechos irrenunciables. La fecha registra una revisión del texto sin modificar la licencia MIT que acompaña al código.
 
-*Figura: los límites de responsabilidad entre el software, su operador y sus usuarios. Los autores ascendentes no explotan ningún servicio de correo ni responden de la conducta de ninguna instancia.*
+![Roles al publicar código y operar una instancia](/images/mail/es/self-host-responsibilities.svg)
+
+*Figura: publicar código no convierte al autor en operador del despliegue ajeno; si opera servicios o determina tratamientos, asume las obligaciones correspondientes.*
 
 ## 1. La licencia
 
-El código fuente de este proyecto se publica bajo la Licencia MIT. Cualquier persona puede obtenerlo de forma gratuita y:
+El código se rige por la licencia MIT adjunta. Esta sección es un resumen que debe leerse con el texto original completo.
 
-1. usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y vender copias del software;
-2. a condición de incluir el aviso de derechos de autor original y esta licencia en todas las copias o partes sustanciales del software;
-3. el software se proporciona «tal cual», sin garantía de ningún tipo, expresa o implícita, incluidas las garantías de comerciabilidad, de aptitud para un propósito determinado y de no infracción;
-4. los autores o titulares de los derechos de autor no responden de ninguna reclamación, daño ni otra responsabilidad derivada del software o de su uso.
+1. Se permite usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y vender copias; el fin no lucrativo del proyecto no revoca el uso comercial que MIT permite.
+2. Las copias o partes sustanciales deben conservar los avisos originales de autoría y autorización.
+3. La licencia contiene suministro tal cual y exclusión de garantías, con efecto en el ámbito permitido por la ley.
+4. Las exclusiones no prevalecen sobre normas imperativas ni eximen automáticamente al autor de responsabilidades por operar servicios separados, tratar datos realmente o asumir compromisos propios.
 
 ## 2. Fuera de la licencia
 
-- La licencia MIT no concede derechos de marca ni de denominación comercial: los nombres EpoCanvas y Epomail, sus logotipos y sus recursos visuales no quedan licenciados por la publicación del código fuente;
-- No puede emitirse declaración alguna que sugiera el respaldo de, o una colaboración con, el proyecto ascendente;
-- Las distribuciones derivadas asumen su propio cumplimiento en materia de denominación e identidad de marca, y mantienen su propia declaración de diferencias respecto del código ascendente.
+- MIT no otorga por sí mismo respaldo de marca ni condición de socio. Nombres y marcas siguen sus derechos y leyes; los recursos visuales dependen de sus licencias reales.
+- Los sitios autoalojados deben identificar al operador real y no atribuirse falsamente operación, certificación o colaboración oficial.
+- Conviene describir diferencias de versiones derivadas para facilitar mantenimiento y seguridad; esta página no añade restricciones de uso del código contrarias a MIT.
 
 ## 3. La posición legal de la entidad desplegadora
 
-- Desde el momento del despliegue, la entidad desplegadora es el responsable del tratamiento respecto de los usuarios de su instancia, y los autores ascendentes no tienen acceso a los datos de la instancia (la división figura en la sección 2 de la [Descripción general de privacidad y condiciones](/es/mail/overview/));
-- La entidad desplegadora debe a sus usuarios, conforme a la ley aplicable en su lugar de ubicación, el deber de información, la atención de los derechos de los interesados, el mantenimiento de la seguridad y el cumplimiento de las transferencias internacionales;
-- Los documentos legales de este sitio (política de privacidad, términos del servicio, política de uso aceptable, tratamiento de datos, lista de subencargados) pueden servir como plantillas para los usuarios de una entidad desplegadora; deben revisarse conforme a la configuración real del desplegador, y la responsabilidad pasa al desplegador al adoptarlos;
-- Los servicios de terceros que configura el desplegador (Cloudflare, Resend, Backblaze, Turso y otros) los contrata el propio desplegador, y sus condiciones vinculan entonces al desplegador y a sus usuarios — de manera independiente de la [lista de encargados del tratamiento](/es/mail/sub-processors/) de la instancia alojada.
+- Los roles dependen de los fines y medios de cada actividad. El desplegador suele ser responsable de lo que determina, pero puede ser corresponsable o tratar por cuenta ajena; autoalojar no crea exclusividad, ni cada particular es automáticamente responsable.
+- La ley aplicable va más allá de la ubicación del desplegador. Deben valorarse establecimiento o alcance extraterritorial del RGPD, confidencialidad y protección imperativa del consumidor; no tener ánimo de lucro no exime. Véanse los roles en la sección 2 de la [Visión general](/es/mail/overview/).
+- Estos textos pueden orientar avisos, pero deben verificarse identidad, contacto, fuentes, funciones, conservación y transferencias. Tratar para una organización exige aceptación previa y DPA separado cuando proceda; copiar documentos o atribuir etiquetas no sustituye bases legales ni medidas reales.
+- Las relaciones con terceros siguen servicios y contratos reales; algunos proveedores son responsables independientes de ciertas actividades. No imponga todas sus condiciones a todos los usuarios. Verifique proveedores y transferencias; la [Lista de subencargados](/es/mail/sub-processors/) alojada no es garantía universal.
 
 ## 4. Umbral técnico y responsabilidad de seguridad
 
-El desplegador es responsable de completar la inyección de secretos y el arranque de la inicialización (los pasos figuran en la [Guía de despliegue](/es/mail/deployment/)), así como del control de acceso de la instancia, la custodia de claves y las actualizaciones posteriores; las correcciones de seguridad publicadas en el proyecto ascendente no llegan automáticamente a un despliegue que no se actualiza.
+Use la [Guía de despliegue](/es/mail/deployment/) para claves, permisos y actualizaciones, y evalúe copias, borrado, incidentes y seguridad necesaria. Las correcciones originales no actualizan automáticamente todos los despliegues; un entorno de pruebas no autoriza uso arbitrario de datos reales.
+
+Publicar código por sí solo no ofrece SLA, asistencia las 24 horas, alojamiento permanente o certificación. Los operadores reales deben cumplir seguridad y atención de derechos según riesgo y ley. Cifrado y controles de acceso no garantizan ausencia de filtraciones; límites en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
 ## 5. Contribuciones
 
-- Los informes de errores y las propuestas pasan por los Issues del repositorio de GitHub; el código, por Pull Requests;
-- Quien contribuye debe tener derecho sobre lo que envía; una vez fusionada, una contribución se distribuye bajo la licencia MIT junto con el código fuente;
-- Las vulnerabilidades de seguridad no deben divulgarse en un issue público — notifíquelas de forma privada a través de los puntos de contacto de la sección 5 de la [Descripción general de privacidad y condiciones](/es/mail/overview/).
+- Los errores y propuestas pueden enviarse a [GitHub Issues](https://github.com/shijianus/epomail/issues), el código mediante Pull Request; no se promete aceptar cada envío ni un plazo de respuesta.
+- Los colaboradores deben tener derecho a aportar bajo la licencia del repositorio y mantener avisos de terceros necesarios. Aportar por sí solo no convierte en operador o responsable del tratamiento.
+- Envíe vulnerabilidades no divulgadas y datos personales por privado según la sección 5 de la [Visión general](/es/mail/overview/); informar de buena fe e investigar lícitamente no pierde protección por criticar el proyecto.
 
 ## 6. Documentos relacionados
 
 | Recurso | Enlace |
 | --- | --- |
-| Recorrido por los documentos legales y su orden de prelación | [Descripción general de privacidad y condiciones](/es/mail/overview/) |
-| Pasos completos para desplegar su propia instancia | [Guía de despliegue](/es/mail/deployment/) |
-| El alcance del servicio y el soporte de la instancia alojada | [Alcance del servicio y soporte](/es/mail/service-scope/) |
-| Términos clave | [Glosario](/es/mail/key-terms/) |
+| Documentos legales, roles y prelación | [Visión general](/es/mail/overview/) |
+| Pasos de configuración del autoalojamiento | [Guía de despliegue](/es/mail/deployment/) |
+| Funciones alojadas y límites de soporte | [Alcance del servicio y soporte](/es/mail/service-scope/) |
+| Terminología jurídica y técnica | [Glosario](/es/mail/key-terms/) |

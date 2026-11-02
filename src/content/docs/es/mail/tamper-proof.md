@@ -3,7 +3,7 @@ title: Especificación del correo oficial y verificación contra manipulaciones
 description: Cómo se emite e identifica el correo oficial del sistema de EpoCanvas Mail — marca oficial, entrega inmutable, aislamiento del renderizado en el cliente y verificación contra manipulaciones de los documentos.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 Este documento explica cómo se emite el correo oficial del sistema y cómo identificarlo, y describe el mecanismo de verificación contra manipulaciones de los documentos jurídicos de este sitio, para que pueda confirmar la autenticidad de las comunicaciones y los documentos oficiales. Se establece en virtud de la [Vista general de Privacidad y Términos](/es/mail/overview/) y de [Tratamiento de Datos y Mantenimiento de la Seguridad](/es/mail/data-security/).
 
@@ -46,17 +46,19 @@ El contenido de los correos (oficiales y entrantes por igual) se renderiza en el
 
 ## 5. Verificación contra manipulaciones de los documentos
 
-Los documentos jurídicos de este sitio se sellan criptográficamente al publicarse, de modo que cualquiera puede verificar que lo que lee coincide con la versión publicada en el repositorio de código abierto:
+Este sitio ofrece una comparación SHA-256 entre archivos fuente Markdown y un manifiesto de integridad. El manifiesto y la página proceden del mismo sitio y no constituyen una firma digital independiente; ambos podrían modificarse juntos. Una huella coincidente solo significa que el archivo elegido coincide con el manifiesto cargado. No acredita el contenido de la página web, la identidad del editor, la autenticidad del documento ni el cumplimiento legal.
 
 | Vía de verificación | Mecanismo | Descripción |
 | --- | --- | --- |
-| Manifiesto de integridad | `tamper-proof.json` | generado por la cadena de compilación a partir del repositorio git; registra para cada documento el resumen SHA-256, el tamaño en bytes y el commit fijado |
-| Panel integrado en la página | «Sello oficial y verificación de integridad» al pie de cada página | muestra el resumen oficial y el commit fijado de este documento; al pulsar «Verificar esta página», se vuelve a obtener el manifiesto y se compara con el resumen incrustado en la página |
-| Verificación sin conexión | `sha256sum` / OpenSSL | calcule el resumen de las fuentes Markdown del repositorio y compárelas con el manifiesto elemento por elemento |
-| Origen autorizado | `docs.epocanvas.com/epomail` | servido por HTTPS; el contenido leído desde otro dominio o un espejo debe cotejarse con los resúmenes del manifiesto |
+| Manifiesto de integridad de archivos | `tamper-proof.json` | Lee los archivos documentales del árbol de trabajo al generar el manifiesto y registra SHA-256, bytes, fecha de generación, una referencia Git HEAD y el estado local de los documentos |
+| Panel de esta página | «Comparación de integridad del archivo fuente», solo en esta página de especificación | Calcula el SHA-256 del archivo fuente local elegido y lo compara con el manifiesto cargado; no sube archivos ni calcula la huella de la página web renderizada |
+| Comparación por línea de comandos | Comando Node.js del panel | Convierte solo CRLF a LF antes del cálculo SHA-256 en UTF-8; ejecutar `sha256sum` u OpenSSL directamente sobre bytes CRLF utiliza una entrada distinta |
+| Fuente del manifiesto | `docs.epocanvas.com/epomail/tamper-proof.json` | HTTPS protege la conexión; un manifiesto del mismo sitio no es por sí solo una firma o certificación de publicación verificada mediante un canal de confianza independiente |
 
-:::tip[Cómo verificar en línea]
-Pulse «Verificar esta página» al pie de cualquier página de documento: el panel volverá a obtener el manifiesto oficial y lo comparará con el resumen incrustado en la página. También puede ejecutar `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json` en una terminal para obtener el manifiesto, y `sha256sum` sobre los archivos Markdown del repositorio para una comprobación elemento por elemento.
+El manifiesto usa los archivos del árbol de trabajo al generarse, en lugar de leer automáticamente los archivos confirmados en HEAD. Si los documentos incluyen contenido sin confirmar o sin seguimiento, sus huellas no pueden atribuirse a la versión confirmada de HEAD; un estado no registrado tampoco acredita una coincidencia. La fecha de HEAD es la de un commit del repositorio, no la fecha de publicación de esta página.
+
+:::tip[Comparar un archivo]
+En el panel «Comparación de integridad del archivo fuente» de esta página, elija el archivo Markdown local de la ruta indicada y pulse «Calcular y comparar archivo». La comparación por línea de comandos debe usar la misma normalización de saltos de línea. Una diferencia puede deberse a la versión, al contenido o al manifiesto. Un manifiesto no disponible o un fallo de lectura o cálculo no constituye una comparación satisfactoria.
 :::
 
 ## 6. Límites de responsabilidad y canales de notificación

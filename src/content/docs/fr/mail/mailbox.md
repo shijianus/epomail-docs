@@ -3,7 +3,7 @@ title: Interface de la boîte et détail des courriels
 description: Interface de la boîte d'EpoCanvas Mail — les huit vues, toutes les actions de la page de détail des courriels, la fenêtre de rédaction en surimpression et les fils de conversation, expliqués pas à pas.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.25**
 
 La présente page décrit une à une chaque vue de l'interface principale de la boîte et chaque action de la page de détail des courriels. Les routes de chaque vue et le squelette de l'interface figurent dans [Interface et plan des routes](/fr/mail/interface/) ; la recherche et les règles derrière ce rangement figurent dans la [Référence de la recherche et des règles](/fr/mail/search/).
 
@@ -30,11 +30,11 @@ Quatre régions annotées de la boîte de réception, correspondant aux quatre e
 | Boîte de réception | Vue par défaut ; ordre chronologique ascendant/descendant, insertion incrémentale des nouveaux courriels par scrutation, liste virtualisée, points non lus, groupement par conversations |
 | Tous les courriels | Agrégation tous dossiers confondus ; cliquer une étiquette de la barre latérale filtre aussitôt selon cette étiquette |
 | Envoyés | Courriels envoyés par le compte |
-| Brouillons | Brouillons locaux ; un marqueur d'espace réservé s'affiche sans destinataire |
+| Brouillons | Enregistrements locaux `draft` et pièces jointes `att` dans IndexedDB ; une déconnexion ordinaire conserve les brouillons, tandis que supprimer une entrée efface les deux dans une même transaction |
 | Étoilés | Collection des courriels marqués d'une étoile |
 | Reportés | Deux paliers, urgent et en attente ; retour automatique dans la boîte de réception à l'échéance |
-| Pourriels | Quarantaine de 7 jours, puis transfert vers la corbeille |
-| Corbeille | Suppression physique 7 jours après réception |
+| Pourriels | La tâche planifiée se fonde sur la date de création du courriel et le déplace par défaut vers la corbeille après plus de 7 jours ; aucune conservation supplémentaire de 7 jours après son classement comme indésirable n'est garantie |
+| Corbeille | Le seuil fixe de 7 jours est également calculé depuis la création ; la suppression peut intervenir lors du même passage que le déplacement depuis les indésirables ; une suppression demandée lorsque le quota est utilisé à plus de 90 % peut aussi entraîner un effacement physique direct |
 
 ## 2. Actions de la page de détail des courriels
 
@@ -42,8 +42,8 @@ Quatre régions annotées de la boîte de réception, correspondant aux quatre e
 | --- | --- |
 | Réponses | Répondre, répondre à tous, transférer ; réponse en ligne et réactions par émoji |
 | Organisation | Étoile, lu／non lu, déplacer vers (boîte de réception／pourriels／corbeille), archiver, reporter (heure préréglée ou au choix), étiqueter, signaler comme pourriel／non-pourriel |
-| IA | Traduction intégrale (mise en page d'origine conservée, langue cible choisissable courriel par courriel), badge de code de vérification |
-| Sortie | Imprimer un courriel isolé ou toute la conversation, télécharger en .eml, consulter les en-têtes bruts |
+| IA | Traduction intégrale avec information sur la destination des données et confirmation à chaque demande ; OCR désactivé par défaut. La reconnaissance automatique des codes est désactivée par défaut et exige un choix individuel et un service configuré |
+| Sortie | Imprimer un courriel ou une conversation, reconstruire et télécharger un .eml depuis les champs existants et consulter les en-têtes fournis ; l’export en libre-service exclut le MIME brut complet conservé temporairement pour reprendre les livraisons |
 | Gouvernance | Bloquer l'expéditeur, créer un filtre depuis la vue (étiqueter／marquer comme lu／vers les pourriels／vers la corbeille) |
 
 ## 3. La fenêtre de rédaction en surimpression
@@ -56,7 +56,9 @@ La rédaction est une surimpression (et non une route indépendante) ; points d'
 
 ## 4. Conversations et mise en page
 
-Le détail des courriels prend en charge l'agrégation en fils de conversation, la mise en page hiérarchisée et la réponse rapide flottante ; la consultation des en-têtes bruts sert à diagnostiquer les problèmes de remise. Les courriels des expéditeurs officiels portent la marque de certification et un bandeau explicatif — voir [Anti-falsification et normes officielles](/fr/mail/tamper-proof/).
+Le détail des courriels prend en charge les fils de conversation, la mise en page hiérarchisée et la réponse rapide flottante. Les en-têtes affichés et les .eml téléchargés restent reconstruits à partir des champs, et ne constituent pas un téléchargement du MIME brut complet ; voir [Export et stockage](/fr/mail/data/) pour la copie chiffrée de reprise des livraisons et son échéance de nettoyage. L’implémentation locale de cette révision bloque par défaut les images distantes, les styles chargeant des ressources réseau et le contenu actif. En lecture ordinaire, les images peuvent être autorisées pour le seul message courant après information sur la divulgation possible de l’adresse IP et de son ouverture. L’impression bloque toujours les contenus distants par défaut et la lecture partagée Telegram ne propose pas leur chargement. Les images intégrées sûres et les pièces jointes vérifiées du site se distinguent des ressources de suivi tierces.
+
+Une déconnexion ordinaire efface la session courante, le cache du message ouvert et l’historique des destinataires, mais conserve les sessions des autres comptes et les brouillons locaux. L’effacement de toutes les données locales du site exige une confirmation distincte via [l’action de nettoyage de la page Données](/fr/mail/data/). Ces comportements décrivent le code local, sans confirmer la mise à jour de toutes les instances en ligne. Voir la section 4.3 de la [Politique de confidentialité](/fr/mail/privacy-policy/) pour les limites du stockage et [Anti-falsification et normes officielles](/fr/mail/tamper-proof/) pour les marques des courriels officiels.
 
 <details>
 <summary>Guide visuel : les vues de la boîte et le détail des courriels</summary>

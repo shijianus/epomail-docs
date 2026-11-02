@@ -3,7 +3,7 @@ title: Guide des paramètres
 description: Guide des paramètres d'EpoCanvas Mail — les cinq sections des paramètres personnels (profil, général, sécurité, données, étiquettes) et la visite complète des neuf sections de la console d'administration et des cartes de paramètres système.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.25**
 
 EpoCanvas Mail partage ses paramètres en deux zones : la zone « paramètres » de la barre latérale regroupe les paramètres personnels que chaque compte peut ajuster lui-même, en cinq sections — profil, général, sécurité, données et étiquettes ; la zone « administration » n'apparaît que pour les groupes d'identité dotés de permissions administratives et porte la configuration au niveau de l'instance. La présente page parcourt chaque zone et les relations entre les paramètres. Pour le comportement au niveau du fonctionnement — multi-comptes, modes courriel, connexion — voir [Modes de fonctionnement](/fr/mail/modes/).
 
@@ -61,11 +61,11 @@ Les trois cartes de la page Général — biographie, personnalisation et préf�
 
 ## 4. Sécurité : mot de passe et vérification en deux étapes
 
-La page de sécurité modifie le nom d'utilisateur et le mot de passe (en affichant la date du dernier changement). Le centre de vérification en deux étapes réunit l'interrupteur général et la configuration indépendante des trois seconds facteurs : application d'authentification (TOTP), codes de récupération de secours (10 codes à usage unique) et clés d'accès (Passkey). Pour le comportement à la connexion et les règles d'appareils de confiance, voir la section 4 de [Modes de fonctionnement](/fr/mail/modes/). Le bas de la page porte l'entrée de suppression du compte ; après suppression, les données du compte suivent les clauses de suppression de la [Politique de confidentialité](/fr/mail/privacy-policy/).
+La page de sécurité modifie le nom d’utilisateur et le mot de passe (en affichant la date du dernier changement). Le centre de vérification en deux étapes réunit l’interrupteur général et la configuration indépendante des trois seconds facteurs : application d’authentification (TOTP), codes de récupération de secours (10 codes à usage unique) et clés d’accès (Passkey). Désactiver TOTP supprime le secret TOTP ; si une clé d’accès active reste présente, la vérification en deux étapes reste activée et la clé d’accès n’est pas supprimée. Pour le comportement à la connexion et les règles d’appareils de confiance, voir la section 4 de [Modes de fonctionnement](/fr/mail/modes/). Le bas de la page porte l’entrée de suppression du compte ; après suppression, les données du compte suivent les clauses de suppression de la [Politique de confidentialité](/fr/mail/privacy-policy/).
 
 ## 5. Données : export, notifications et stockage
 
-![Page des données d'EpoCanvas Mail : la carte d'export propose l'export JSON intégral, l'archive des courriels (MBOX, JSON ou CSV avec plage de dates) et l'export des contacts et de la configuration ; la carte de stockage en dessous affiche la jauge d'utilisation des pièces jointes et l'entrée du stockage d'objets personnel (interface en chinois simplifié)](/images/mail/fr/ui/data-guide.png)
+![Page des données d'EpoCanvas Mail : accès aux exports du profil, des archives de courriels et de la configuration ; les champs sont limités pour chaque export et l'option de plage de dates ne signifie pas qu'elle est appliquée par le serveur ; en dessous, utilisation des pièces jointes et accès au stockage d'objets](/images/mail/fr/ui/data-guide.png)
 
 *Figure : la page des données. Export et gestion du stockage figurent sur une même page ; l'utilisation des pièces jointes compte contre le quota du groupe d'identité.*
 
@@ -74,20 +74,20 @@ La page de sécurité modifie le nom d'utilisateur et le mot de passe (en affich
 
 Les quatre cartes de la page Données : trois formats pour emporter ses données, une zone de transfert, une zone de stockage et une zone d'autorisations tierces — l'autonomie complète sur ses données personnelles en un écran.
 
-1. **Carte export des données du compte** : Trois exports côte à côte : la sauvegarde JSON intégrale, l'archive de l'historique des courriels (MBOX/JSON/CSV avec plage de dates) et les contacts et la configuration ; un courriel isolé se télécharge en .eml depuis le volet de lecture.
-2. **Carte transfert de courriels et de messages** : Le réglage détaillé du push de messages Telegram et du transfert automatique ; l'ouverture de ces deux fonctions au compte dépend des interrupteurs « Contrôle des données utilisateurs » de l'administrateur.
-3. **Carte espace de stockage** : Une jauge d'utilisation des pièces jointes constamment comparée au quota. En branchant son propre compartiment Backblaze B2/S3, les nouvelles pièces jointes vont directement dans votre cloud, hors du quota de l'instance ; délier le branchement fait revenir au stockage de l'instance.
-4. **Carte applications et services tiers** : La liste de toutes les autorisations OAuth du compte : retirer l'accès application par application, ou tout révoquer d'un coup depuis la boîte de dialogue de détail. La révocation prend effet immédiatement et les jetons existants de l'application meurent sur-le-champ.
+1. **Carte données du compte et export** : Les exports JSON, d'archives de courriels et de configuration utilisent tous la même réponse du serveur et ne comprennent que les champs sélectionnés. La plage de dates n'est pas appliquée et il ne s'agit pas d'une sauvegarde complète. Chaque fichier .eml est lui aussi reconstruit à partir des champs existants.
+2. **Carte transfert de courriels et de messages** : Paramètres Telegram et de transfert ; leur disponibilité est contrôlée par l’administrateur. Le transfert personnel par règles (`rules`) est actuellement indisponible, ne transfère rien à l’exécution et ne se replie pas sur tous les messages ; les contrôles Telegram de portée, d’aperçu et de copie de code sont appliqués selon leurs paramètres. Voir le Guide des notifications et du transfert.
+3. **Carte espace de stockage** : Utilisation des pièces jointes et quota ; un stockage personnel Backblaze B2/S3 peut recevoir les nouvelles pièces jointes, tandis que les autres limites restent applicables. Le débranchement ne migre ni ne supprime les anciens objets et ne garantit pas que les anciennes pièces jointes restent lisibles.
+4. **Carte applications et services tiers** : Consultation et révocation des autorisations OAuth ; le serveur peut refuser les requêtes ultérieures concernées, mais ne peut pas récupérer les données déjà transmises ni retirer les ID tokens déjà émis ou les sessions des tiers.
 
 </details>
 
 | Export | Format | Portée |
 | --- | --- | --- |
-| Export intégral des données | JSON | Sauvegarde complète : informations du compte, historique des courriels, contacts, règles de classement et d'étiquettes, et paramètres de sécurité |
-| Archive de l'historique des courriels | MBOX (universel), JSON ou CSV | Courriels envoyés et reçus uniquement, avec plage de dates facultative |
-| Contacts et configuration | JSON | Répertoire, règles d'alias personnalisées et préférences de personnalisation |
+| Export intégral des données (nom dans l'interface) | JSON | Partie des données personnelles, champs sélectionnés des courriels non marqués comme supprimés et `customLabels` ; sans les fichiers joints, l'intégralité des contacts et règles, les paramètres de sécurité ni les données d'audit |
+| Archive de l'historique des courriels | MBOX, JSON ou CSV | Le navigateur convertit les champs des courriels issus de la même réponse ; le serveur n'applique pas la plage de dates ; les courriels de la corbeille et le MIME d'origine complet ne sont pas inclus |
+| Contacts et configuration | JSON | Sous-ensemble de champs personnels renvoyés, `customLabels` et date d'export ; ce n'est pas une sauvegarde complète du carnet d'adresses, des alias ou de toutes les préférences |
 
-Un courriel isolé se télécharge en .eml directement depuis le volet de lecture. La zone « Transfert de courriels et de messages » propose le push Telegram et le transfert automatique : la liaison d'un robot privé, les préférences de push et les types de déclencheur s'expliquent pas à pas dans le [Guide des notifications et du transfert](/fr/mail/notify/) ; l'ouverture de ces deux fonctions aux utilisateurs relève de l'interrupteur « Contrôle des données utilisateurs » de l'opérateur. La zone de stockage affiche la jauge d'utilisation des pièces jointes et permet de brancher un stockage d'objets personnel (compartiment Backblaze B2 ou S3 à soi) ; une fois branché, les pièces jointes vont directement au cloud personnel, hors quota de l'instance.
+Chaque fichier .eml est reconstruit à partir des champs existants ; les limites complètes de l'exportation sont précisées dans [Export des données et stockage](/fr/mail/data/). La liaison, le filtrage et les limites de révocation des liens de la zone « Transfert de courriels et de messages » sont décrits dans le [Guide des notifications et du transfert](/fr/mail/notify/). Un stockage personnel Backblaze B2/S3 permet d'y enregistrer les nouvelles pièces jointes sans passer par la vérification du quota système propre au parcours de stockage des pièces jointes ; les autres limites relatives aux courriels, aux envois et au fournisseur restent applicables. Le débranchement ne migre ni ne supprime les anciens objets.
 
 ## 6. Gestion des étiquettes
 
@@ -107,7 +107,15 @@ La zone d'administration s'affiche rubrique par rubrique selon les permissions d
 | Paramètres système | Configuration au niveau de l'instance — voir la liste de cartes ci-dessous |
 | Gestion des applications | Émission et gestion des identifiants d'accès des applications tierces OAuth 2.0 / OIDC |
 | Classement | Interrupteurs de réception et d'envoi, configuration de la reconnaissance par IA, listes noire/blanche et règles de blocage dur |
-| Rapport d'audit | Examen, traitement et arbitrage des quatre classes d'alertes |
+| Rapport d'audit | Instruction et traitement des tickets de risque sur quatre tableaux, tiroirs de preuves et arbitrage des recours |
+
+<span id="operator-notice"></span>
+
+La carte Exploitant et confidentialité exige un nom permettant d’identifier l’exploitant, son pays ou sa région réelle, une adresse de contact électronique, la version des conditions et des liens valides vers les conditions de service et l’information sur la confidentialité. Complétez l’adresse de contact et les informations sur les destinataires et la conservation selon le cas. Les informations obligatoires manquantes bloquent les nouvelles inscriptions, sans bloquer les connexions existantes ni l’initialisation. Le nouvel utilisateur coche activement une case d’acceptation des conditions non précochée. Le serveur enregistre le compte, la version, la date, la langue et l’URL des conditions ; l’information sur la confidentialité ne vaut pas consentement général.
+
+<span id="optional-processing"></span>
+
+L’extraction facultative de codes, la traduction et l’OCR sont désactivés par défaut et nécessitent une information sur la destination des données avant activation. L’extraction automatique exige aussi le choix explicite de l’utilisateur dans les paramètres de données ; la traduction demande une confirmation de l’information actuelle pour chaque requête, et l’OCR un choix distinct pour cette requête. Le repli vers des services publics de traduction est indisponible. Les paramètres de données permettent aussi de révoquer les liens de lecture Telegram existants et d’effacer les données de cet appareil après confirmation explicite. La fermeture indique l’accès désactivé et une suppression à vérifier, non l’effacement de toutes les copies. Mettez à niveau ensemble l’interface et le serveur ; la configuration ne prouve ni l’identité réelle, ni les contrats, destinataires ou pratiques de conservation.
 
 La page des paramètres système organise la configuration de l'instance en cartes :
 
@@ -125,28 +133,28 @@ La page des paramètres système organise la configuration de l'instance en cart
 | Rapports des opérations | Seuils opérationnels de déclenchement des alertes |
 | À propos | Informations de version et vérification des mises à jour |
 
-La page des rapports d'audit présente les événements de risque du site sous forme de tickets d'alerte, chacun portant sa classe, sa priorité, son état et le détail complet de son environnement (IP, géolocalisation, appareil et empreinte) :
+La page des rapports d'audit présente les événements de risque du site en quatre tableaux — menaces d'abus, audit des recours, gestion des risques et journal des opérations —, chacun résumant une classe de tickets dans une table différenciée :
 
-| Classe d'alerte | Déclencheur | Traitement habituel |
+| Tableau | Tickets inclus | Instruction habituelle |
 | --- | --- | --- |
-| Alerte d'audit | Signalement ou violation signalée par d'autres utilisateurs établie | Vérifier, puis lever ou traiter |
-| Alerte de risque | Franchissement d'une ligne rouge de sécurité ou environnement de connexion anormal (p. ex. connexions multi-IP et multi-sites simultanées) | Surveillance rapprochée, entretien ou bannissement |
-| Alerte de bannissement | Le compte a été banni automatiquement par le système ou manuellement par un administrateur | Lever l'alerte ou maintenir le bannissement |
-| Alerte d'appel | L'utilisateur a fait appel d'une décision de traitement | Lever (lever le bannissement) ou rejeter |
+| Menaces d'abus | Comptes à menace LV3+ : multi-comptes, signalements graves, etc. | Vérifier les preuves, puis lever, bannir ou prolonger |
+| Audit des recours | Recours contre les décisions de traitement | Examiner chaque formulaire, puis lever ou rejeter |
+| Gestion des risques | Routine de risque : spam, sauts d'IP, etc. | Instruire et archiver par niveau d'infraction |
+| Journal des opérations | Traitements conclus et mises à jour d'archivage | Retracer le registre complet et les recours |
 
-![Page des rapports d'audit d'EpoCanvas Mail : le tableau liste les tickets d'alerte des quatre classes — appel, bannissement, audit et risque — avec priorité, étiquette d'état, détails de l'environnement actif et boutons de traitement comme lever et lever l'alerte (interface en chinois simplifié)](/images/mail/fr/ui/audit-guide.png)
+![Page des rapports d'audit EpoCanvas Mail : quatre cartes de tableau en haut avec une table de tickets différenciée, la barre d'outils proposant prolongation par lots, actualisation, réinitialisation, export de données, nettoyage de l'historique et lien vers la documentation](/images/mail/fr/ui/audit-guide.png)
 
-*Figure : le rapport d'audit. Les quatre classes d'alertes s'examinent dans une liste unique, les boutons de traitement étant répartis par classe ; en mode chiffré, les horodatages sont dépouillés.*
+*Figure : le rapport d'audit. Chacun des quatre tableaux résume une classe de tickets ; en mode chiffré, les horodatages sont anonymisés.*
 
 <details>
-<summary>Guide visuel : Le rapport d'opérations  —  la chaîne d'information complète d'un ticket d'alerte</summary>
+<summary>Guide visuel : Le rapport d'opérations — la console de tickets à quatre tableaux</summary>
 
-Le tableau à quatre colonnes de la page du rapport d'audit : la chaîne d'information complète d'un ticket, du « qui » au « pourquoi le déclenchement » puis au « où sont les preuves ».
+Les quatre zones annotées de la page : les cartes définissent l'orientation de l'instruction, les tickets sont traités ligne à ligne.
 
-1. **Colonne adresse électronique** : Le compte auquel ce ticket se rapporte : peut-être l'objet d'une mesure (alerte de contrôle des risques ou de bannissement), la partie signalée (alerte d'audit) ou l'appelant (alerte d'appel). Cette page ne fait qu'apprécier — les véritables mesures (bannissement, restauration, réinitialisation) s'exécutent depuis la liste des utilisateurs ; une conclusion posée ici se lit donc avec cette page.
-2. **Colonne niveau d'audit de sécurité** : La gradation du risque (priorité P0/P1 avec étiquette de catégorie) : les quatre classes d'alertes — audit, contrôle des risques, bannissement et appel — ont chacune leur voie de traitement habituelle.
-3. **Colonne contexte de l'alerte et déclencheur** : La description de ce qui a déclenché le ticket (connexions simultanées depuis plusieurs IP et plusieurs sites, signalement établi, etc.) ; c'est sur elle que repose la décision de lever ou de rejeter.
-4. **Colonne pool d'environnements actifs** : L'information d'environnement complète présentée en texte brut : IP, géolocalisation, appareil et empreinte. En mode courriel chiffré (Level 3), les horodatages sont dépouillés mais le ticket reste appréciable.
+1. **Carte Menaces d'abus** : le registre consolidé des comptes à menace LV3+ avec le compteur en direct « en attente N / bloqués N » ; un clic ouvre la vue de traitement compacte du tableau des menaces.
+2. **Carte Audit des recours** : le nombre de tickets de recours et l'accès à l'examen formulaire par formulaire ; lever rétablit la capacité d'envoi du compte.
+3. **Carte Gestion des risques** : tickets de routine instruits selon le niveau d'infraction, le motif d'alerte et l'échéance.
+4. **Carte Journal des opérations** : le registre des traitements conclus, avec le nombre de mises à jour, la dernière mise à jour et les recours ; le détail complet du tiroir de preuves, du traitement par lots et de l'export CSV figure dans le [Rapport d'audit](/fr/mail/audit/).
 
 </details>
 

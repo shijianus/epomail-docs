@@ -3,7 +3,7 @@ title: Gebruikerslijst
 description: De gebruikerslijst van EpoCanvas Mail — accounts opzoeken, wachtwoorden herstellen, identiteitsgroepen wijzigen, tweestaps herstellen, blokkeren en herstellen.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.25**
 
 De gebruikerslijst is de accountbeheerinterface van de beheerzone (`#manage/admin/users`, rechten-sleutel `user:query`); daar zoekt de beheerder alle accounts op de instantie op en handelt ze af.
 

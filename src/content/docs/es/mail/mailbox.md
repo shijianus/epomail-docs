@@ -3,7 +3,7 @@ title: Interfaz del buzón y detalle del mensaje
 description: Interfaz del buzón de EpoCanvas Mail — recorrido paso a paso por las ocho vistas, por todas las acciones de la página de detalle del mensaje, por la capa de redacción y por los hilos de conversación.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 Esta página explica una a una las vistas de la interfaz principal del buzón y cada acción de la página de detalle del mensaje. Las rutas y el esqueleto de interfaz de cada vista figuran en [Mapa de interfaz y rutas](/es/mail/interface/); la búsqueda y las reglas que hay detrás de la organización, en [Referencia de búsqueda y reglas](/es/mail/search/).
 
@@ -30,11 +30,11 @@ Cuatro regiones anotadas de la bandeja de entrada, correspondientes a los cuatro
 | Principal | Vista por defecto; orden cronológico ascendente/descendente, inserción incremental de correo nuevo por sondeo, lista virtualizada, puntos de no leídos, agrupación en conversaciones |
 | Todo el correo | Vista agregada entre carpetas; pulsar una etiqueta de la barra lateral salta aquí filtrado por esa etiqueta |
 | Enviados | Correo enviado por la cuenta |
-| Borradores | Borradores locales; los destinatarios dejados en blanco muestran un marcador de sustitución |
+| Borradores | Registros locales `draft` y adjuntos `att` en IndexedDB; cerrar sesión de forma ordinaria conserva los borradores, mientras que eliminar una entrada borra ambos en una misma transacción |
 | Destacados | Colección del correo destacado |
 | Aplazados | Niveles urgente y en espera; vuelve a la bandeja de entrada automáticamente cuando llega el momento |
-| Correo no deseado | Cuarentena de 7 días antes de pasar a la papelera |
-| Papelera | Borrado físicamente siete días después de la recepción |
+| Correo no deseado | La tarea programada calcula la antigüedad desde la creación del mensaje y, por defecto, lo traslada a la papelera al superar 7 días; no garantiza otros 7 días desde su traslado a correo no deseado |
+| Papelera | El umbral fijo de 7 días también se calcula desde la creación y puede alcanzarse en la misma ejecución que el traslado desde correo no deseado; si el uso supera el 90 % de la cuota, una operación de eliminación también puede borrar físicamente de inmediato |
 
 ## 2. Acciones de la página de detalle del mensaje
 
@@ -42,8 +42,8 @@ Cuatro regiones anotadas de la bandeja de entrada, correspondientes a los cuatro
 | --- | --- |
 | Respuesta | Responder, responder a todos, reenviar; respuesta en línea y reacciones con emojis |
 | Organización | Destacar, leído/no leído, mover a (bandeja de entrada, correo no deseado, papelera), archivar, aplazar (hora predefinida o a elegir), etiquetar, denunciar como correo no deseado／legítimo |
-| IA | Traducción integral (conserva el diseño original, con idioma de destino seleccionable mensaje por mensaje), insignia de código de verificación |
-| Salida | Imprimir un mensaje o toda la conversación, descargar .eml, consultar las cabeceras originales |
+| IA | Traducción integral con aviso sobre el destino de los datos y confirmación en cada solicitud; OCR desactivado por defecto. El reconocimiento automático de códigos está desactivado por defecto y requiere elección individual y servicio configurado |
+| Salida | Imprimir un mensaje o una conversación, reconstruir y descargar un .eml desde los campos existentes y consultar las cabeceras disponibles; la exportación de autoservicio excluye el MIME original completo guardado temporalmente para recuperar entregas |
 | Gobernanza | Bloqueo del remitente, creación de filtros desde aquí (etiquetar／marcar como leído／mover a correo no deseado／mover a la papelera) |
 
 ## 3. La capa de redacción
@@ -56,7 +56,9 @@ La redacción es una capa superpuesta (no una ruta independiente); se abre desde
 
 ## 4. Conversaciones y diseño
 
-El detalle del mensaje admite la agrupación en hilos de conversación, el diseño en capas y la respuesta rápida flotante; la consulta de las cabeceras originales sirve para diagnosticar problemas de entrega. El correo de remitentes oficiales lleva la marca de verificación y un banner explicativo; véase [Especificación del correo oficial y verificación contra manipulaciones](/es/mail/tamper-proof/).
+El detalle del mensaje admite hilos de conversación, diseño en capas y respuesta rápida flotante. Las cabeceras mostradas y los .eml descargados siguen reconstruyéndose desde campos, sin ser una descarga del MIME original completo; véase [Exportación y almacenamiento](/es/mail/data/) para la copia cifrada de recuperación de entregas y su plazo de limpieza. La implementación local de esta revisión bloquea por defecto imágenes remotas, estilos que cargan recursos de red y contenido activo. En la lectura ordinaria se pueden permitir imágenes solo para el mensaje actual, tras informar de que cargarlas puede revelar la dirección IP y la apertura del mensaje. La impresión sigue bloqueando contenido remoto por defecto y la lectura compartida de Telegram no permite cargarlo. Las imágenes integradas seguras y los adjuntos verificados del sitio se distinguen de los recursos de seguimiento de terceros.
+
+Cerrar sesión de forma ordinaria elimina la sesión actual, la caché del mensaje abierto y el historial de destinatarios, pero conserva las sesiones de otras cuentas y los borradores locales. Eliminar todos los datos locales del sitio requiere una confirmación aparte mediante la [limpieza de la página Datos](/es/mail/data/). Estos comportamientos describen el código local, no confirman la actualización de todas las instancias en línea. Véanse la sección 4.3 de la [Política de Privacidad](/es/mail/privacy-policy/) sobre los límites del almacenamiento y la [Especificación del correo oficial y verificación contra manipulaciones](/es/mail/tamper-proof/) sobre las marcas oficiales.
 
 <details>
 <summary>Guía visual: pasos de uso de las vistas del buzón y del detalle del mensaje</summary>

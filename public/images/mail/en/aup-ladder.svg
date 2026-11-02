@@ -59,7 +59,7 @@
   <text class="t" x="772" y="132">5 · Delete</text>
   <text class="b" x="772" y="150">physical, irreversible</text>
   <path class="loop" d="M820,168 C866,240 736,318 540,330 C380,340 250,334 218,318"/>
-  <text class="loop-t" x="470" y="356">Appeal & report — reviewed and answered within a reasonable period;</text>
+  <text class="loop-t" x="470" y="356">Appeal &amp; report — reviewed and answered within a reasonable period;</text>
   <text class="loop-t" x="470" y="372">notice before major action except in urgent cases</text>
   <text class="tag" x="60" y="378">ENFORCEMENT LADDER — PROPORTIONATE, BY SEVERITY</text>
 </svg>

@@ -3,9 +3,9 @@ title: Guía de funciones de EpoCanvas Mail
 description: Guía de funciones de EpoCanvas Mail — organización de la bandeja de entrada, redacción y envío, sintaxis de búsqueda, motor de reglas de etiquetas, extracción de códigos de verificación, gestión del correo no deseado, reenvío y notificaciones, funciones de IA y plataforma abierta.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
-Esta página describe una a una las funciones reales de EpoCanvas Mail; todo el contenido ha sido verificado punto por punto contra el código abierto, y las capturas de pantalla de la interfaz proceden de imágenes reales del funcionamiento de la instancia alojada oficial. El posicionamiento del proyecto, su historial de desarrollo y su despliegue se describen en [Presentación del proyecto](/es/mail/project/); el tratamiento de los datos y los plazos de conservación de cada función figuran en [Tratamiento de datos y seguridad](/es/mail/data-security/).
+Esta página describe la implementación de EpoCanvas Mail tras esta ronda de cambios. Las capturas existentes indican dónde están los controles; no acreditan que los cambios se hayan desplegado en producción ni que todas las funciones estén activadas. El posicionamiento del proyecto, su historial de desarrollo y su despliegue se describen en [Presentación del proyecto](/es/mail/project/); el tratamiento y la conservación de datos figuran en [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
 Las versiones en chino tradicional (Taiwán) de los documentos legales de este sitio constituyen las versiones autoritativas; las traducciones a otros idiomas se proporcionan únicamente a título de referencia y, en caso de cualquier discrepancia, prevalecerá la versión en chino tradicional.
 
@@ -30,7 +30,7 @@ Cuatro regiones anotadas de la bandeja de entrada, correspondientes a los cuatro
 | Capacidad | Descripción |
 | --- | --- |
 | Vistas del correo | Ocho vistas: Principal, Destacados, Aplazados, Enviados, Borradores, Todo el correo, Correo no deseado, Papelera; contadores actualizados en tiempo real |
-| Diseño de lectura | Vista dividida de tres columnas, conversaciones agrupadas, respuesta en línea y reacciones con emojis; el detalle del correo permite consultar las cabeceras originales |
+| Diseño de lectura | Tres columnas, conversaciones, respuestas en línea y reacciones. Las cabeceras mostradas siguen reconstruyéndose y no acreditan el cifrado en tránsito o en reposo. La recuperación de recepción guarda aparte los bytes completos del MIME original en almacenamiento de objetos, cifrados por el servidor con AES-256-GCM, no de extremo a extremo; los límites de conservación figuran en la sección 9. Las imágenes y el CSS remotos se bloquean por defecto; tras un aviso de riesgos, la lectura ordinaria permite cargar imágenes solo para ese mensaje. La impresión mantiene el bloqueo por defecto y la página compartida de Telegram no ofrece un botón de carga externa |
 | Acciones de organización | Destacar, aplazar (a la hora que elija), denunciar como correo no deseado／legítimo, mover a la papelera, eliminación definitiva |
 | Insignia de código de verificación | Los códigos de verificación extraídos por Workers AI se muestran directamente en la lista y el detalle (véase la sección 5) |
 | Identificación del correo oficial | El correo de remitentes oficiales como announcement@epocanvas.com lleva la marca de verificación y un aviso explicativo (véase [Seguridad contra manipulaciones y normas](/es/mail/tamper-proof/)) |
@@ -99,7 +99,7 @@ El resaltado de las coincidencias se basa en la CSS Highlights API; la búsqueda
 
 ![Detalle de un correo de EpoCanvas Mail: el código de verificación de 6 dígitos de un correo de Cloudflare se presenta en tamaño grande; la lista y el detalle llevan ambos la insignia verde del código de verificación](/images/mail/ui/ui-detail-verification.png)
 
-*Figura: extracción de códigos de verificación (captura en chino simplificado). Es el único tratamiento de IA no desencadenado manualmente; solo se envían a Workers AI el asunto y los primeros 6,000 caracteres del cuerpo. El alcance del tratamiento y la forma de desactivarlo figuran en la sección 6 de la [Política de Privacidad](/es/mail/privacy-policy/).*
+*Figura: solo al cumplirse todas las condiciones globales, de aviso de la instancia y de elección del usuario indicadas abajo puede la extracción automática enviar a Workers AI el asunto completo y hasta 6.000 caracteres JavaScript del cuerpo. El asunto no cuenta para ese límite. La base jurídica figura en la sección 6 de la [Política de Privacidad](/es/mail/privacy-policy/).*
 
 <details>
 <summary>Guía visual: La extracción del código de verificación en el panel de lectura</summary>
@@ -108,43 +108,43 @@ El efecto de la extracción de códigos de verificación en el detalle del corre
 
 - **Zona del código en tamaño grande**: El código que Workers AI extrae del asunto y de los primeros 6,000 caracteres del cuerpo se presenta directamente en tamaño grande, para copiarlo con facilidad.
 - **Insignia verde**: La marca verde que aparece de forma sincronizada en la fila de la lista y en la página de detalle: significa que este correo lleva un código de verificación ya extraído, de modo que se reconoce directamente desde la lista sin abrir cada mensaje. La insignia solo aparece cuando la extracción tiene éxito; su ausencia no significa que el correo sea seguro, solo que no hay ningún código que copiar.
-- **Límites**: Es el único tratamiento de IA que no se desencadena manualmente y puede desactivarse en la configuración general; el alcance del tratamiento y la forma de retirarlo figuran en la sección 6 de la política de privacidad.
+- **Límites**: La extracción automática exige conjuntamente `aiCode` global, `contentProcessing.verificationCodeEnabled` de la instancia, un `noticeUrl` válido y `privacyPreferences.aiVerificationCode === true` del usuario. Esta preferencia vale `false` por defecto y se puede desactivar en los ajustes de datos para detener solicitudes posteriores. La elección no sustituye la información completa, la base jurídica ni los contratos con proveedores; véase la sección 6 de la Política de Privacidad.
 
 </details>
 
 ## 6. Gestión del correo no deseado
 
-- Cuarentena y conservación: el correo no deseado permanece en cuarentena 7 días y pasa automáticamente a la papelera; las denuncias de correo no deseado／legítimo, una vez confirmadas por el usuario, mantienen automáticamente su lista de confianza personal;
+- Cuarentena y conservación: la tarea diaria calcula la antigüedad del correo no deseado desde la creación del mensaje y, por defecto, lo traslada a la papelera al superar 7 días. La papelera también aplica un umbral fijo de 7 días desde la creación, de modo que la supresión física puede producirse en la misma ejecución; no se garantizan otros 7 días de conservación. Las denuncias de correo no deseado／legítimo actualizan la lista de confianza personal según el flujo correspondiente;
 - Restricciones de envío: la cuota de envío diaria se fija por rol (usuarios base: 5 correos; LV.0: 8; LV.1: 10; administradores: 100; la cuenta Webmaster no tiene límite), con contadores que se restablecen a diario; el tratamiento del abuso de cuota figura en la sección 6 de la [Política de Uso Aceptable](/es/mail/acceptable-use/);
 - La responsabilidad de la transmisión de contenidos de pago y de marketing corresponde al remitente; el envío masivo de correo comercial no solicitado es una conducta prohibida (véase la sección 3 de la [Política de Uso Aceptable](/es/mail/acceptable-use/)).
 
 ## 7. Reenvío y notificaciones
 
-- **Reenvío personal**: reenvío automático del correo del buzón a otras direcciones, con compatibilidad de copia (CC);
+- **Reenvío personal**: permite reenviar automáticamente a otras direcciones con copia (CC). `rules` no está disponible y no reenvía; una lista `alias` vacía tampoco envía. `keepCopy` queda fijado en `true` para conservar el original y no puede desactivarse en la interfaz. Se rechaza guardar `rules` habilitado o reenvío habilitado con `keepCopy: false`; cliente y servidor deben actualizarse conjuntamente;
 - **Reenvío global**: el administrador puede configurar reglas de reenvío a nivel del sistema, sujetas al modo de correo (desactivado en modo «Cifrado»);
-- **Notificaciones de Telegram**: tras vincular el bot, envío según la configuración del asunto, el remitente, el cuerpo y el código de verificación, con un enlace de lectura interna válido durante 7 días; los campos de la notificación pueden ocultarse uno por uno.
+- **Notificaciones de Telegram**: El modo personal `all` incluye todo el correo; `important` exige la etiqueta exacta `重要` o `important`, una estrella realmente guardada o un código existente. `notifyCodeOnly` es una aceptación separada para copiar un código existente, por defecto `false`, no un filtro ni una nueva extracción. `includePreview`, también `false`, controla el extracto y el botón de lectura. El modo compatible `privacy` envía solo un aviso genérico sin asunto, remitente, destinatario, código, extracto ni enlace; los demás modos personales tampoco añaden remitente ni destinatario. Las notificaciones del sistema usan campos propios. Cada envío comprueba estados actuales de usuario, buzón y mensaje y la versión D1, incluso sin vista previa; lectura y adjuntos también. Cambiar las notificaciones personales o usar los ajustes de datos revoca enlaces antiguos sin cambiar notificaciones futuras. Los tokens antiguos sin ámbito y OSS v1 requieren enlaces renovados; las copias del chat no se recuperan. Se requiere actualizar cliente y servidor, sin acreditar producción; véase la [Guía de notificaciones y reenvío](/es/mail/notify/);
 
 ## 8. Funciones de IA
 
 | Capacidad | Activación | Descripción |
 | --- | --- | --- |
-| Extracción de códigos de verificación | automática al llegar correo nuevo (desactivable) | inferencia en el borde con Workers AI, véase la sección 5 |
-| Traducción completa | clic manual | traducción multilingüe que conserva el diseño del correo original, fragmentos tratados en paralelo; los puntos de conexión de los modelos y el canal de respaldo figuran en la sección 6 de la [Política de Privacidad](/es/mail/privacy-policy/) |
-| Reconocimiento de texto en imágenes | carga manual | subtítulos generados por OCR; las imágenes puramente decorativas se omiten automáticamente |
+| Extracción de códigos de verificación | Automática con correo nuevo solo si se cumplen todas las condiciones de la sección 5; desactivada por defecto para el usuario | Inferencia de Workers AI; los ajustes de datos permiten detener solicitudes posteriores |
+| Traducción completa | Abrir la barra o cambiar de idioma no envía contenido; cada traducción externa requiere confirmación explícita | Deben estar habilitados la IA global, `contentProcessing.translationEnabled` y una URL de aviso válida. Cada solicitud lleva `confirmed: true` y un `noticeUrl` idéntico al actual; sin estas condiciones se desactiva. Las traducciones oficiales incluidas que coincidan permanecen locales. Las llamadas públicas a MyMemory/Google, también para fragmentos faltantes, se han eliminado de `ai-service`. `contentProcessing.publicTranslationFallbackEnabled` siempre es `false`, guardar `true` se rechaza y la opción de administración indica que no está disponible. Destinatarios actuales en la [Lista de destinatarios externos](/es/mail/sub-processors/) |
+| Reconocimiento de texto en imágenes | Traducción confirmada con `contentProcessing.ocrEnabled === true` del servidor y `enableOcr: true` explícito para esta solicitud | De lo contrario es `false`; se puede traducir solo texto y no se reutilizan preferencias antiguas de OCR. Puede tratar imágenes incrustadas o URL remotas; el filtrado decorativo sigue siendo heurístico |
 | AI Hub | configuración del administrador | conexión a puntos de conexión multmodelo compatibles con OpenAI, pruebas de velocidad a cero tokens, autorización de modelos por rol |
 
-El Operador no entrena ningún modelo con el contenido del correo; el tratamiento de IA consentido puede retirarse en cualquier momento (véase la sección 6 de la [Política de Privacidad](/es/mail/privacy-policy/)).
+El operador no utiliza por cuenta propia los correos como conjunto de datos de entrenamiento; la conservación, el entrenamiento y la reutilización por terceros deben verificarse en los contratos y ajustes efectivos. Los tratamientos que requieren consentimiento deben permitir retirarlo libremente y con la misma facilidad con que se otorga. Si no existen opciones que puedan aplicarse efectivamente, debe desactivarse el tratamiento correspondiente; un botón de la interfaz no basta para garantizar el cumplimiento. Véanse las secciones 6 y 9 de la [Política de Privacidad](/es/mail/privacy-policy/).
 
 ## 9. Plataforma abierta y autonomía de los datos
 
-- **Centro de autenticación OAuth 2.0 / OIDC**: el administrador puede registrar aplicaciones de terceros, con ámbitos de autorización limitados a openid / profile / email y tokens de acceso válidos durante 2 horas; la persona interesada puede consultar en tiempo real las autorizaciones en la página «Aplicaciones de terceros» y revocarlas en cualquier momento;
+- **Centro de autenticación OAuth 2.0 / OIDC**: Permite autorizar aplicaciones y revocar sus autorizaciones. La respuesta efectiva puede incluir correo electrónico, nombre, avatar y campos de rol, sin ajustarse necesariamente a los scopes solicitados. La revocación no recupera datos ya entregados ni revoca ID tokens ya emitidos o sesiones de terceros; véase la lista de destinatarios externos y encargados del tratamiento;
 - **Guía de integración**: el registro de aplicaciones en la administración, los puntos de enlace y el código de integración están en [Plataforma abierta y acceso a la API](/es/mail/api/);
-- **Exportar datos**: exportación con un clic, desde la página de configuración, de una copia completa en formato JSON (perfil y texto íntegro del correo no eliminado); cada correo puede descargarse como .eml;
+- **Exportar datos**: Los ajustes exportan campos personales, campos de correos no marcados como eliminados y `customLabels`, sin archivos adjuntos, contactos completos, reglas, ajustes de seguridad ni auditorías; el servidor no aplica el rango de fechas. La exportación no incluye el MIME original temporal y los .eml siguen reconstruyéndose. El plazo de aplicación de 7 días puede renovarse al reintentar; el éxito no borra el objeto inmediatamente y la limpieza programada por lotes puede fallar y dejar restos, por lo que no es un TTL garantizado. Los «claims» de recepción en D1 contienen metadatos, no el cuerpo original. Las tres opciones para ocultar estadísticas del perfil público también limitan la API; usuarios eliminados o desactivados devuelven 404, sin borrar físicamente los avatares estáticos. El nuevo cierre de cuenta la desactiva, revoca accesos y registra `manual_review`, no una supresión completa. Véase [Exportación de datos y almacenamiento](/es/mail/data/);
 
 ## 10. Interfaz y móvil
 
 - Seis idiomas de interfaz (chino simplificado, chino tradicional, English, Français, Español, Nederlands), con diccionarios totalmente simétricos en las seis lenguas tanto en el front-end como en el back-end;
-- Temas claro y oscuro, 300+ iconos vectoriales sin conexión (cero solicitudes externas), diseño adaptable e instalación como PWA; también se ofrece una aplicación móvil Android (epomail).
+- Temas claro y oscuro, más de 300 iconos vectoriales sin conexión, diseño adaptable, PWA y aplicación Android (epomail). Vue ha retirado los enlaces externos de Google Fonts y utiliza fuentes del sistema; React aloja sus propias fuentes. Los avatares, Turnstile y otros recursos externos aún pueden generar solicitudes; no significa que no haya ninguna solicitud externa.
 
 ![Bandeja de entrada de la interfaz en inglés de EpoCanvas Mail: soporte multilingüe completo; la barra lateral muestra Compose, Main, Starred, Snoozed, Sent, Drafts, All Mail, Spam, Trash y las etiquetas Social, Subscriptions, Promotions, Work](/images/mail/ui/ui-inbox-en.png)
 

@@ -48,6 +48,6 @@
   <text class="b" x="294" y="134">answer within 30 days</text>
   <rect class="base" x="26" y="184" width="364" height="42" rx="10"/>
   <text class="bt" x="44" y="202">Where your data lives:</text>
-  <text class="b" x="44" y="216">the operator's Cloudflare resources (D1 / KV / objects) · applicable law follows the operator's jurisdiction</text>
+  <text class="b" x="44" y="216">the operator&apos;s Cloudflare resources (D1 / KV / objects) · applicable law follows the operator&apos;s jurisdiction</text>
   <text class="b" x="26" y="248">Self-hosting? You become the data controller — publish your own notice and channels.</text>
 </svg>

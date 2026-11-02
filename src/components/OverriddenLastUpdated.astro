@@ -1,0 +1,26 @@
+---
+const { lang, lastUpdated } = Astro.locals.starlightRoute;
+// Starlight reads Git history here. Do not present an older commit as the
+// publication/update date of content currently generated from the working tree.
+const labels = {
+  'zh-CN': '文档上次 Git 提交：',
+  'zh-TW': '文件上次 Git 提交：',
+  en: 'Last documentation Git commit:',
+  fr: 'Dernier commit Git du document :',
+  es: 'Último commit Git del documento:',
+  nl: 'Laatste Git-commit van het document:',
+  de: 'Letzter Git-Commit des Dokuments:',
+};
+const label = labels[lang] || labels[lang.split('-')[0]] || labels['zh-CN'];
+---
+
+{
+  lastUpdated && (
+    <p>
+      {label}{' '}
+      <time datetime={lastUpdated.toISOString()}>
+        {lastUpdated.toLocaleDateString(lang, { dateStyle: 'medium', timeZone: 'UTC' })}
+      </time>
+    </p>
+  )
+}

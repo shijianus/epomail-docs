@@ -4,8 +4,11 @@
    ========================================================================== */
 
 :root {
-  --sl-content-width: 60rem;
-  --sl-line-height: 1.68;
+  --sl-content-width: 52rem;
+  --sl-line-height: 1.75;
+  --sl-line-height-headings: 1.35;
+  --sl-text-h1: clamp(1.85rem, 1.35rem + 2vw, 2.5rem);
+  --doc-prose-width: 72ch;
 
   /* Primary Tech Accent (Dignified Modern Indigo-Blue) */
   --sl-color-accent-low: rgba(37, 99, 235, 0.08);
@@ -48,6 +51,7 @@
 
 /* 侧栏激活项：accent 文字 + 浅底 + 左侧指示条（对齐 EpoCanvasDocs 视觉） */
 .sidebar-content a[aria-current='page'] {
+  position: relative;
   color: var(--sl-color-accent) !important;
   background-color: var(--sl-color-accent-low) !important;
   font-weight: 600 !important;
@@ -57,7 +61,7 @@
 .sidebar-content a[aria-current='page']::before {
   content: '';
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 18%;
   bottom: 18%;
   width: 3px;
@@ -65,73 +69,147 @@
   background-color: var(--sl-color-accent);
 }
 
-/* 长文阅读排版：更大的标题层级间距与更舒适的字间距 */
-.sl-markdown-content :is(h1, h2, h3) {
+/* 长文行宽按文字量约束，表格与插图仍可使用完整正文栏。 */
+:root:lang(zh) {
+  --doc-prose-width: 42em;
+}
+
+.sl-markdown-content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.sl-markdown-content > :is(p, ul, ol, blockquote) {
+  max-inline-size: var(--doc-prose-width);
+}
+
+.sl-markdown-content :is(h1, h2, h3, h4) {
   letter-spacing: -0.015em;
   font-weight: 700;
   color: var(--sl-color-white);
+  text-wrap: balance;
+  /* Starlight already offsets the fixed header/mobile TOC via scroll-padding. */
+  scroll-margin-block-start: 0.75rem;
 }
 
 .sl-markdown-content p {
-  line-height: 1.76;
+  line-height: 1.8;
   color: var(--sl-color-gray-2);
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.1rem;
 }
 
-.sl-markdown-content h2 {
-  margin-top: 3rem;
-  margin-bottom: 1.15rem;
+.sl-markdown-content > :is(h2, h3):target {
+  border-inline-start: 3px solid var(--sl-color-accent-high);
+  padding-inline-start: 0.65rem;
+}
+
+.sl-markdown-content h2[id] {
+  margin-top: 2.75rem;
+  margin-bottom: 1.05rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--sl-color-hairline);
-  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 1.1rem + 0.65vw, 1.55rem);
 }
 
-.sl-markdown-content h3 {
+.sl-markdown-content h3[id] {
   margin-top: 1.85rem;
   margin-bottom: 0.75rem;
   font-size: 1.18rem;
-  color: var(--sl-color-white);
 }
 
-.sl-markdown-content ul {
-  padding-left: 1.4rem;
+.sl-markdown-content :is(ul, ol) {
+  padding-inline-start: 1.4rem;
   margin-bottom: 1.25rem;
 }
 
 .sl-markdown-content li {
   margin-bottom: 0.5rem;
-  line-height: 1.72;
+  line-height: 1.78;
   color: var(--sl-color-gray-2);
 }
 
-/* 隐私/条款中的数据表格：行距与留白微调，圆角与细边框 */
+.sl-markdown-content a {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.075em;
+}
+
+/* 保留原生行列关系；窄屏滑动表格而非挤窄单元格或裁掉文字。 */
+.sl-markdown-content .table-frame {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  margin-block: 1.65rem;
+}
+
+.sl-markdown-content .table-scroll-hint {
+  margin: 0 0 0.45rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--sl-color-gray-2);
+}
+
+.sl-markdown-content .table-scroll {
+  margin-top: 0;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 0.5rem;
+  scrollbar-color: var(--sl-color-gray-3) var(--sl-color-gray-6);
+}
+
 .sl-markdown-content table {
   width: 100%;
-  /* 表格受 Starlight 之 fit-content 上限而窄于正文栏时水平居中，避免贴左 */
-  margin: 1.75rem auto;
+  margin: 1.65rem auto;
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid var(--sl-color-hairline);
-  font-size: 0.92rem;
+  /* Safe fallback for authored tables without a generated scroll wrapper. */
+  overflow-x: auto;
+  font-size: 0.95rem;
+  line-height: 1.7;
   background-color: var(--sl-color-bg);
+}
+
+.sl-markdown-content .table-scroll > table {
+  display: table;
+  margin: 0;
+  overflow: visible;
+}
+
+.sl-markdown-content :is(th, td) {
+  min-inline-size: 11rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--sl-color-hairline);
+  text-align: start;
+  vertical-align: top;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* Privacy §1's two-column, five-row table keeps both columns readable on phones. */
+.sl-markdown-content table[data-columns='2'] {
+  min-inline-size: 34rem;
+}
+
+.sl-markdown-content table[data-columns='2'] :is(th, td):first-child {
+  width: 42%;
 }
 
 .sl-markdown-content th {
   background-color: var(--sl-color-gray-6);
   color: var(--sl-color-white);
   font-weight: 600;
-  padding: 0.85rem 1rem;
-  border-bottom: 1px solid var(--sl-color-hairline);
-  text-align: left;
 }
 
 .sl-markdown-content td {
-  padding: 0.85rem 1rem;
-  border-bottom: 1px solid var(--sl-color-hairline);
   color: var(--sl-color-gray-2);
-  vertical-align: top;
+}
+
+.sl-markdown-content :is(th, td):first-child {
+  padding-inline-start: 1rem;
+}
+
+.sl-markdown-content :is(th, td):last-child {
+  padding-inline-end: 1rem;
 }
 
 .sl-markdown-content tr:last-child td {
@@ -140,7 +218,6 @@
 
 .sl-markdown-content td:first-child {
   font-weight: 600;
-  white-space: normal;
   color: var(--sl-color-white);
 }
 
@@ -379,226 +456,248 @@
 }
 
 /* ==========================================================================
-   Official Tamper-Proof & Integrity Verification Panel
+   Source-file integrity comparison (not a certification badge)
    ========================================================================== */
-.tamper-top-badge {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 8px;
-  background-color: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.22);
-  font-size: 0.82rem;
-  margin: 0.75rem 0 1.5rem 0;
-}
-
-.tamper-top-badge .badge-icon {
-  font-size: 1rem;
-}
-
-.tamper-top-badge .badge-status {
-  font-weight: 600;
-  color: #2563eb;
-}
-
-:root[data-theme='dark'] .tamper-top-badge .badge-status {
-  color: #60a5fa;
-}
-
-.tamper-top-badge .badge-hash {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.76rem;
-  color: var(--sl-color-gray-2);
-}
-
-.tamper-top-badge .badge-jump-link {
-  font-size: 0.76rem;
-  font-weight: 500;
-  color: var(--sl-color-accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-}
-
 .tamper-proof-panel {
-  margin-top: 2rem;
-  margin-bottom: 2.5rem;
-  padding: 1.5rem;
-  border-radius: 12px;
+  margin-block: 2rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border-radius: 0.5rem;
   background-color: var(--sl-color-gray-6);
   border: 1px solid var(--sl-color-hairline);
-  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
 }
 
 .tamper-title-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.35rem;
+  gap: 0.65rem;
+  margin-bottom: 0.6rem;
 }
 
-.tamper-title {
-  font-size: 1.05rem;
+.tamper-title-row svg {
+  flex-shrink: 0;
+  color: var(--sl-color-accent-high);
+}
+
+.sl-markdown-content .tamper-proof-panel .tamper-title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1.12rem;
   font-weight: 700;
   color: var(--sl-color-white);
-  letter-spacing: -0.01em;
 }
 
-.tamper-pill {
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 9999px;
-  background-color: rgba(34, 197, 94, 0.12);
-  color: #16a34a;
-  border: 1px solid rgba(34, 197, 94, 0.25);
-  letter-spacing: 0.05em;
+.tamper-proof-panel .tamper-desc,
+.tamper-proof-panel .tamper-boundary {
+  font-size: 0.9rem;
+  color: var(--sl-color-gray-2);
+  margin: 0 0 1rem;
+  line-height: 1.7;
 }
 
-.tamper-desc {
-  font-size: 0.85rem !important;
-  color: var(--sl-color-gray-3) !important;
-  margin: 0 0 1rem 0 !important;
-  line-height: 1.5;
+.tamper-proof-panel .tamper-boundary {
+  border-inline-start: 2px solid var(--sl-color-accent-high);
+  padding-inline-start: 0.85rem;
 }
 
 .tamper-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 0.85rem;
-  margin-bottom: 1.25rem;
-  background: var(--sl-color-bg);
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--sl-color-hairline);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  margin-block: 1.25rem;
 }
 
 .tamper-grid-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  min-width: 0;
 }
 
 .tamper-k {
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--sl-color-gray-4);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  color: var(--sl-color-gray-2);
 }
 
 .tamper-v {
-  font-size: 0.82rem;
+  margin: 0.3rem 0 0;
+  padding: 0;
+  font-size: 0.85rem;
   color: var(--sl-color-gray-1);
-  word-break: break-all;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  overflow-wrap: anywhere;
 }
 
 .tamper-v.mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
 }
 
 .tamper-copy-btn {
-  background: transparent;
-  border: 1px solid var(--sl-color-hairline);
-  border-radius: 4px;
+  display: inline-block;
+  margin-top: 0.5rem;
+  min-height: 2.75rem;
+  background: var(--sl-color-bg);
+  color: var(--sl-color-gray-1);
+  border: 1px solid var(--sl-color-gray-3);
+  border-radius: 0.35rem;
   cursor: pointer;
-  padding: 2px 6px;
-  font-size: 0.75rem;
-  transition: all 0.2s ease;
+  padding: 0.45rem 0.7rem;
+  font: inherit;
+  font-size: 0.8rem;
 }
 
 .tamper-copy-btn:hover {
   background: var(--sl-color-gray-5);
 }
 
-.tamper-verified-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.8rem;
+.tamper-file-label {
+  display: block;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #2563eb;
+  color: var(--sl-color-white);
+}
+
+.tamper-file-input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-block: 0.5rem 1rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--sl-color-gray-1);
+}
+
+.tamper-file-input::file-selector-button {
+  margin-inline-end: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  min-height: 2.75rem;
+  color: var(--sl-color-gray-1);
+  background: var(--sl-color-bg);
+  border: 1px solid var(--sl-color-gray-3);
+  border-radius: 0.35rem;
+  cursor: pointer;
+  font: inherit;
 }
 
 .tamper-action-row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
 .tamper-action-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background-color: var(--sl-color-accent);
+  min-height: 2.75rem;
+  background-color: #1d4ed8;
   color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.85rem;
+  border: 1px solid transparent;
+  border-radius: 0.35rem;
+  font: inherit;
+  font-size: 0.9rem;
   font-weight: 600;
-  padding: 0.45rem 1rem;
+  padding: 0.6rem 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
 .tamper-action-btn:hover {
-  background-color: var(--sl-color-accent-high);
+  background-color: #1e40af;
 }
 
-.tamper-action-btn:disabled {
+:is(.tamper-action-btn, .tamper-copy-btn):disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
 .tamper-status {
-  font-size: 0.84rem;
+  font-size: 0.85rem;
   font-weight: 500;
+  overflow-wrap: anywhere;
 }
 
 .tamper-loading {
-  color: var(--sl-color-gray-3);
+  color: var(--sl-color-gray-2);
 }
 
 .tamper-success {
-  color: #16a34a;
+  color: #15803d;
   font-weight: 600;
 }
 
 .tamper-fail {
-  color: #dc2626;
+  color: #b91c1c;
   font-weight: 600;
 }
 
+:root[data-theme='dark'] .tamper-success {
+  color: #86efac;
+}
+
+:root[data-theme='dark'] .tamper-fail {
+  color: #fca5a5;
+}
+
 .tamper-terminal-fold {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   border-top: 1px solid var(--sl-color-hairline);
   padding-top: 0.75rem;
-  color: var(--sl-color-gray-3);
+  color: var(--sl-color-gray-2);
 }
 
 .tamper-terminal-fold summary {
   cursor: pointer;
   font-weight: 600;
-  color: var(--sl-color-gray-2);
+  min-height: 2rem;
 }
 
 .tamper-code {
+  overflow-x: auto;
   margin-top: 0.5rem;
-  background: var(--sl-color-bg) !important;
-  border: 1px solid var(--sl-color-hairline) !important;
-  border-radius: 6px;
+  background: var(--sl-color-bg);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 0.35rem;
   padding: 0.75rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.78rem;
   color: var(--sl-color-gray-1);
+}
+
+/* 明显的键盘焦点沿用主题靛蓝，包含可滑动表格与文件选择器。 */
+:where(a, button, input, select, summary, [tabindex='0']):focus-visible {
+  outline: 3px solid var(--sl-color-accent-high);
+  outline-offset: 3px;
+}
+
+@media (max-width: 40rem) {
+  .sl-markdown-content .privacy-figure img {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    width: 100%;
+    max-width: 26rem;
+    margin-inline: auto;
+  }
+
+  .sl-markdown-content :is(th, td) {
+    padding-block: 0.75rem;
+  }
+
+  .sl-markdown-content h2[id] {
+    margin-top: 2.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .google-card:hover {
+    transform: none;
+  }
 }
 
 /* 宽视口下正文栏在主面板内水平居中（Starlight 的 margin-inline 回退在此环境解析为
@@ -609,19 +708,34 @@
   }
 }
 
-/* 行内代码 token（如 #inbox、from:<值>、$user）不在词中折行：表格自动布局会为最长
-   token 加宽该列，避免出现 #inbo|x 一类的断裂；超长 token 仍由整体滚动兜底 */
-.sl-markdown-content td code,
-.sl-markdown-content th code,
-.sl-markdown-content li code,
-.sl-markdown-content p code {
+/* 完整 token 在表格内由滚动承载；正文的超长路径允许折行。 */
+.sl-markdown-content :is(td, th) code {
+  white-space: nowrap;
   overflow-wrap: normal;
-  word-break: keep-all;
+  word-break: normal;
 }
 
-/* 内容图片统一精修：圆角 + 细描边 + 浅投影，观感与界面质感一致 */
-.sl-markdown-content img {
-  border-radius: 12px;
-  border: 1px solid var(--sl-color-hairline);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+.sl-markdown-content :is(li, p) code {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+@media print {
+  .sl-markdown-content .table-scroll {
+    overflow: visible;
+  }
+
+  .sl-markdown-content .table-scroll > table {
+    min-inline-size: 0;
+    table-layout: auto;
+  }
+
+  .sl-markdown-content :is(th, td) {
+    min-inline-size: 0;
+  }
+
+  .table-scroll-hint,
+  .tamper-proof-panel {
+    display: none;
+  }
 }

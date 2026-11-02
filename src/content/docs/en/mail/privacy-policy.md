@@ -1,177 +1,202 @@
 ---
 title: Privacy Policy
-description: The EpoCanvas Mail Privacy Policy — how personal data is collected, processed, and transferred; the nature of processing; your rights; and the security-maintenance standards the operator follows.
+description: Data sources, purposes and legal bases, AI and third-party transfers, retention limits, and rights where the GDPR applies to the non-profit test mailbox service.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
-This policy explains how the EpoCanvas Mail service (the "Service") collects, processes, and transfers your personal data, and the standards the operator follows to protect it. Please read this policy before registering for or using the Service; if you disagree with any part of it, please do not use the Service.
+This policy explains how an EpoCanvas Mail instance processes personal data, including the data of unregistered senders and recipients who communicate with users. It is a notice about data processing, not a contract asking you to give blanket consent to all processing. Reading it, continuing to use the service, or accepting the terms of service does not replace any consent that must be obtained separately under the law. You can make enquiries, object, or exercise your rights as described in Section 9.
 
-The technical facts in this document follow the actual implementation of the Service's open-source code. The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow that implementation and aim to establish transparent, rigorous, non-commercial community communication norms. The law applicable to the instance you use is determined by its operator's location (see Section 12).
+The Traditional Chinese (Taiwan) version is this site's authoritative version; other languages are translations for reference. This arrangement cannot exclude understandable notice required by applicable law or the mandatory rights of consumers and data subjects. This document includes protections implemented in the current code changes. Actual instances must be upgraded and configured; this document does not establish completed live deployment, provider agreements or compliance certification.
 
-![EpoCanvas Mail five pillars of the privacy policy: collection, use, transfer, security, and data-subject rights — grounded in contract and consent, purpose limitation, transfer safeguards, security maintenance, and remedies, all resting on supervisory oversight](/images/mail/en/privacy-pillars.svg)
+![The privacy policy's five topics: data collection, use, transfer, security, and rights](/images/mail/en/privacy-pillars.svg)
 
-*Figure: the five axes of this policy. Collection and use are limited to what specific purposes require; international transfers follow applicable law and standard safeguard mechanisms; security maintenance is continuously improved; data-subject rights are exercised under Section 9; all of it rests on supervisory oversight.*
+*Figure: processing should have a specific purpose and a valid basis, transfers to third parties should have appropriate safeguards, and data subjects may exercise their rights and complain to a competent authority.*
 
-## 1. Scope
+## 1. Scope and Test Nature of the Service
 
-This policy applies to personal data arising from any use of the Service, including:
+This policy applies to the website, connected clients, API, accounts, and mail processing of the hosted instance at `mail.epocanvas.com`. This is an individually maintained, non-profit project for learning and testing. It does not sell data or provide advertising services. We use the principles reflected in the GDPR, including transparency, purpose limitation, data minimisation, storage limitation, security, and data-subject rights, as a reference. Taking into account the scope of processing, data sensitivity, the state of the art, and reasonable implementation costs, we make reasonable efforts to take appropriate measures and continuously improve.
 
-1. visiting the Service's website (`mail.epocanvas.com` or a self-hosted instance's domain);
-2. using the mobile app (epomail);
-3. connecting to the Service through its open API.
+This describes our maintenance practices and direction of improvement; it is not a guarantee of full compliance, certification, enterprise-level service, or absolute security. Requirements that apply under the law must still be met. The notices below help you understand the conditions of use; they do not replace a valid processing basis, necessary consent, or rights that cannot be waived.
 
-Mailbox addresses issued by the hosted instance belong to the `epomail.bond` and `epomail.cyou` domains; official system mail (welcome mail, global announcements) is sent from `announcement@epocanvas.com`.
+Please pay particular attention to these known risks before using the service; detailed mechanisms and handling are described in the following sections of this policy.
 
-This policy does not apply to third-party websites and services linked or embedded in the Service; those third parties have their own privacy policies and are responsible for them.
-
-An operator who self-hosts EpoCanvas Mail becomes the data controller for its users from the moment of deployment and must independently fulfil the notice obligations required by the law applicable at its location; this policy may serve as the basis text for such notice.
-
-## 2. Data Controller and Entrusted Processors
-
-| Instance you use | Data controller | Notes |
-| --- | --- | --- |
-| Hosted instance `mail.epocanvas.com` | the EpoCanvas operations team | the team is the data controller for account data, authentication records, and security-audit logs; for the content of mail you send and receive, it processes that content to the extent necessary to provide the communication service |
-| Self-hosted instance | the instance's deployer | the open-source code contains no telemetry; apart from external services the operator configures itself, no instance data is sent back to the upstream authors or any third party |
-
-Entrusted processors process data on the controller's instructions; the complete list is in the [Sub-processor List](/en/mail/sub-processors/).
-
-## 3. Notice at Collection
-
-When collecting personal data, the Service informs you of the following:
-
-| Notice item | What the Service tells you |
+| Known risk or limitation | Steps you can take and further information |
 | --- | --- |
-| 1. Identity of the collector | the operator (see Section 2; for a self-hosted instance, its deployer) |
-| 2. Purposes of collection | providing the e-mail communication service; account and information-security management; abuse and fraud prevention; delivery of system announcements; fulfilling legal obligations (see the processing table in Section 5) |
-| 3. Categories of personal data | identification (e-mail address, username); account security (password hash, two-step verification credentials); interface preferences (language, light/dark mode); network activity (mail records, labels, stars, read status); anything else directly or indirectly identifying (login IP, operating system, browser, and device type parsed from the User-Agent) — see Section 4 |
-| 4. Period, region, recipients, and manner of use | period: while the account exists, with fixed retention for some items (see the processing matrix in [Data Processing & Security Maintenance](/en/mail/data-security/)); region: the Service is built on Cloudflare's global edge network, so data may be processed at any edge node worldwide (see Section 7); recipients: the operator and its entrusted processors, third-party apps you authorise, and competent authorities acting under legal requirements (see Section 7); manner: automated storage, transmission, retrieval, push, and edge inference; no manual review except as required by law or judicial process |
-| 5. Your rights and how to exercise them | query and view; obtain a copy; supplement and correct; stop processing; and delete — see Section 9 |
-| 6. Consequences of not providing | e-mail address and password are required for registration and login; without them an account cannot be created. All other fields (nickname, avatar, bio) are optional and do not affect use of the Service |
+| The test service may be interrupted; mail may be delayed, lost, or irrecoverable after cleanup | Keep separate copies of important content. Do not use the service for emergency communications, as your only account-recovery mailbox, or as your only backup; see Section 2 of the Terms of Service |
+| Server-side encryption is not end-to-end encryption, and certain modes and administrative paths can access content | Prefer synthetic data for testing and avoid submitting highly sensitive content or content that must remain confidential from the operator; see Sections 4.2, 4.4, and 4.5 |
+| AI, notifications, forwarding, and explicitly allowed remote images may transmit content or request data to other recipients; protections require an upgraded and configured instance | Check the instance version, actual data and recipients; keep the relevant features off until confirmed. See Sections 4.3, 6, and 7 |
+| Ordinary logout retains drafts and other accounts; revoking links does not delete chat messages or downloaded copies | Use device clearing in data settings on shared devices; separately revoke all reading links where needed and check the result. See Sections 4.3 and 8 |
+| Self-service exports do not cover all data and attachments, and retention and deletion involve multiple systems | Before deletion, check and separately save content you need. Use the channels in Sections 9 and 14 for supplementary access, deletion, or portability requests |
 
-When you sign in with a Linux DO account, the Service obtains your user identifier, nickname, and avatar from that identity source — personal data not provided directly by you. Its source is the Linux DO account you sign in with; the period, region, recipients, and manner of use, and the rights you can exercise, are as stated in items 2 to 5 of the table above. The Service collects no other personal data that you do not provide directly.
+You may use this information to decide whether to use the service, submit less data, or stop using optional features. Knowing about risks does not waive statutory rights or exempt the operator or developers from conduct for which they are legally responsible. The rights of other people whose data appears in mail are not lost because of your choice.
 
-## 4. Personal Data Collected
+Self-hosted operators should adapt and publish their notices to reflect their own identity, settings, recipients, and retention practices, and must not treat this page as proof of their compliance. Merely obtaining or modifying the source code does not give the upstream authors the data from their deployments.
 
-### 4.1 What you provide
+## 2. Who Is Responsible for Your Data
 
-- **E-mail address and password**: required for registration. The password is stored only as a PBKDF2-HMAC-SHA256 hash (100,000 iterations, unique random salt per user); the original password cannot be recovered from the hash.
-- **Two-step verification credentials (optional)**: the TOTP secret is stored encrypted with AES-256-GCM; backup recovery codes are stored only as SHA-256 hashes; for passkeys only the public key is stored — the private key stays on your device.
-- **Profile (optional)**: nickname, avatar, bio; avatar images are stored in the instance's own object storage (KV) by default, and the operator may configure an external image host through environment variables (see the [Sub-processor List](/en/mail/sub-processors/)).
-
-### 4.2 Your communication content
-
-The e-mail you send and receive (sender and recipients, subject, body, timestamps, and other metadata) and its attachments, plus the labels, stars, read status, and snooze reminders you apply, are stored in the instance's database (Cloudflare D1) and object storage (resolved in order for each instance: your own S3-compatible storage, an operator-configured S3-compatible store, a Cloudflare R2 binding; if none is configured, Cloudflare KV). You own your mail content and are responsible for it; the operator does not sell mail content, does not use it for advertising, and connects to no third-party analytics or tracking.
-
-### 4.3 Technical data recorded automatically
-
-- **Login and security logs**: the IP address, browser User-Agent, and the operating system, browser, and device type parsed from it at registration and login, used for security auditing and unusual-login detection.
-- **Session tokens**: after login a JWT (valid 30 days) is stored in your browser's localStorage to maintain your signed-in state and interface preferences. The Service does not use cookies to identify you or track behaviour, and performs no cross-site tracking.
-- **Cookies and human verification**: Turnstile verification is provided by Cloudflare; technical storage strictly necessary to complete the challenge may appear in your browser during verification. The Service does not read it and does not use it for identification or advertising. The Service embeds no advertising, analytics, or social-platform scripts.
-- **Edge network logs**: Cloudflare processes request metadata under its own policies.
-
-### 4.4 What the Service does not collect
-
-The Service has no advertising SDKs, no behavioural profiling, no cross-site cookies, and no Google Analytics or any third-party analytics; it also does not read your device's contacts, photo library, location, or other apps' data.
-
-### 4.5 Highly sensitive personal data
-
-Medical records, healthcare, genetics, sex life, health checks, and criminal records are highly sensitive categories whose processing is strictly restricted in most jurisdictions. The Service's account and system fields do not collect such data; content you transmit yourself by e-mail may contain it, and the operator only passively stores and transmits it to the extent necessary to provide the communication service, never analysing or profiling content. Decide carefully whether to transmit highly sensitive data by e-mail.
-
-## 5. Nature of Processing Activities
-
-The nature of each processing activity of the Service:
-
-| Processing activity | Specific purpose | Nature of processing |
+| Usage context | Responsible party | Role and contact |
 | --- | --- | --- |
-| Account registration, login, mailbox management | providing the e-mail service | necessary for the contract, with appropriate security measures |
-| Login logs, failure lockout, two-step verification | information-security maintenance | necessary for the contract, subject to proportionality |
-| Automatic code extraction (operator-optional) | service convenience | with your consent; you may ask for it to be turned off, or use an instance where it is off |
-| Mail translation, image text recognition (you trigger) | content assistance | with your consent; nothing is transmitted unless you trigger it |
-| Public profile page (off by default) | social display | data you make public yourself |
-| System announcements, official welcome mail | contract performance and user communication | necessary for the contract |
+| Hosted test instance | The actual natural person or organisation operating `mail.epocanvas.com` under the EpoCanvas name | The party determining the purposes and means of account, communication service, and security management is the data controller; `privacy@epocanvas.com` |
+| Self-hosted instance | The actual operator of that instance | The role depends on who actually determines the purposes and means of processing; contact the channel published by that site |
+| Authors and contributors who only publish source code | Those not involved in operating the particular instance | Authorship or contribution alone does not make them that instance's controller or processor |
 
-Your personal data is used only for the purposes of collection and the scope closely related to them. The Service does not use your personal data for automated decision-making, profiling, or any commercial purpose unrelated to providing the service. Where the operator markets with personal data, marketing stops as soon as you decline; the first marketing message must offer a way to decline.
+EpoCanvas is a project name; this page does not establish that the operator is a company, foundation, or registered organisation. Before collecting personal data from the public, an instance should publish accessible operator information stating an identifiable personal or legal name, the actual country of location, and an appropriate contact address. Any physical address or contact details for an EU representative or data protection officer required by applicable law should also be provided. This page has not verified that full identity and address, nor confirmed that any EU representative or data protection officer has been appointed. An email contact does not replace identity information that must be made public under the law. The code closes new registration if the operator name, country, contact email, terms version, or terms/privacy-notice URLs are missing; existing accounts can still log in. Passing these configuration checks does not verify identity or legally required disclosures.
 
-## 6. Specific Notice on AI Processing
+If the operator processes data on an organisational customer's instructions, the roles must be separately established and a data processing agreement compliant with applicable law must be concluded. A user's possession of mail content does not automatically make every user a controller and the operator a processor.
 
-The Service involves three kinds of AI processing; their triggers and data scope:
+## 3. Data Sources, Necessity, and Uses
 
-1. **Automatic code extraction** (operator-optional): when a new mail arrives, the system sends the subject and the first 6,000 characters of the body to Cloudflare Workers AI for inference at the edge to extract verification codes. This is the only AI processing not triggered manually; if you do not want it, ask the operator to turn it off or use an instance where it is off.
-2. **Mail translation** (you trigger): after you click "Translate", the mail text is sent in chunks to the model endpoint the instance is configured with (OpenAI-compatible by default), with MyMemory and Google Translate's public interfaces as fallbacks. If you never trigger translation, mail content is not sent to any AI service. For official system mail (welcome mail, global announcements) that the administrator has not modified, translation uses the preset official template in the target language rendered locally, sending nothing to any AI service; modified mail goes through AI translation as described.
-3. **Image text recognition** (you trigger): images containing text are sent to the AI services only when you upload them; purely decorative images, logos, and icons are skipped automatically.
+| Category and source | Data and uses | Consequences of not providing it |
+| --- | --- | --- |
+| Registration, login, or identity sources | Account identifiers, login credentials and identity-source attributes such as Linux DO; terms-acceptance version, time, locale and URLs, without collecting an additional IP address as acceptance evidence | The selected method cannot be completed; registration requires actively selecting an unchecked terms checkbox. The privacy policy is separate notice, not blanket consent |
+| You, your correspondents, and sending and receiving systems | Senders, recipients, CC recipients, subjects, bodies, attachments, times, and delivery and classification status | The relevant mail cannot be sent, received, stored, or organised |
+| Automatically generated network and security records | IP addresses, User-Agent, device and login information, operations, and security events | Necessary authentication and security records cannot be disabled individually; you may choose to stop using the service and exercise your rights |
+| Optional fields and features | Profile page fields, avatars, notification settings, external storage settings, and content for translation or recognition | The corresponding feature is unavailable; unrelated basic features should not be lost as a result |
+| Responses from external services | Delivery reports, identity or level-linkage results, requests from applications you authorise, and notification responses | Processed only when the relevant configuration or operation is involved |
 
-The operator does not train any model on mail content and sends AI services no identity information beyond the text needed for translation or recognition. You may withdraw consent for the consent-based processing above at any time in the manner listed in Section 9; withdrawal does not affect processing already carried out.
+Personal data in mail may be supplied by other senders, recipients, administrators, or services you choose; its sources are not limited to your direct input or Linux DO. Unregistered correspondents can also use the contact channels in Section 14. Where the GDPR applies, the required information should be provided at the time of direct collection. For indirectly obtained data, it should be provided within a reasonable period and no later than one month; if the data is used earlier for the first communication with the data subject or first disclosed to another recipient, notice should be provided no later than that time.
 
-## 7. Sharing with Third Parties and International Transfers
+Exceptions such as the data subject already having the information, genuine impossibility, or disproportionate effort apply only where their respective statutory conditions are met. A large volume of mail, lack of registration, a public-benefit aim, or lack of budget does not create a blanket exemption. The operator must document its assessment and take the necessary safeguards; where relying on impossibility, disproportionate effort, or similar exceptions, appropriate measures must include making the relevant information publicly available. A public link to this page does not automatically replace notice that must legally be provided directly.
 
-The Service shares personal data with third parties on a minimal-necessary basis in exactly the following cases (the complete list and safeguards are in the [Sub-processor List](/en/mail/sub-processors/)):
+## 4. Actual Scope of Storage and Access
 
-1. **Entrusted processing**: Cloudflare (compute, storage, mail routing, human verification, edge AI), Resend or Mailjet (outbound delivery — full mail content only for mail leaving the Service);
-2. **Authorised by you**: Telegram notifications (only the fields you configure), OAuth third-party apps (scope limited to openid / profile / email, revocable at any time), Linux DO sign-in, and the blog level linkage (blog.epocanvas.com — your e-mail address is sent with the query);
-3. **Triggered by you**: AI translation and image text recognition services (see Section 6);
-4. **Legal requirements**: provided only when a competent authority requires it through due legal process, and notified to you to the extent the law allows.
+### 4.1 Account and security data
 
-Principles for handling law-enforcement and judicial requests: the operator discloses data only where a request rests on a specific legal basis, verifies the legality and scope of the request, does not voluntarily provide content beyond what the request covers, and notifies affected users in advance where the law allows (unless notice is prohibited by law); the Service does not submit to arbitrary access without a legal basis.
+Newly written password-verification records use salted PBKDF2-HMAC-SHA256 with a configurable default of 210,000 iterations. Legacy SHA-256 records or records with lower parameters may be upgraded during verification; there is no guarantee that all existing records have been migrated. TOTP secrets are stored encrypted. Recovery codes have verification hashes, and copies of the original codes are also stored encrypted with a key and can be displayed after reauthentication. Public credential data is stored for passkeys. Disabling TOTP leaves multi-factor authentication enabled when an active passkey remains. These measures reduce risk; they do not guarantee that passwords can never be guessed. The TOTP setup flow writes the encrypted setup secret to D1's `auth_security_operation` table with a 300-second lifetime. The pending multi-factor login flow is also stored in that D1 table; its payload contains no entered password, and completing the second step only updates the payload—it does not renew the original deadline. Expiry prevents further use but is not physical deletion; scheduled cleanup may process the record later. Profile fields, login sources, operation records, and permission settings may also be stored in the instance's database or KV.
 
-The Service is built on Cloudflare's global edge network, so your personal data may be processed at nodes outside your operator's country. The operator follows applicable law's requirements for international transfers and the restrictions lawfully imposed by the competent authority, and relies on Cloudflare's data-protection measures (SOC 2 Type II and ISO/IEC 27001 certification, and the EU Standard Contractual Clauses mechanism) to safeguard transfers. Self-hosted operators must assess and ensure on their own that their international transfers meet their location's legal requirements.
+### 4.2 Mail and attachments
 
-## 8. Retention and Deletion
+Mail data uses Cloudflare D1 and configured object storage; attachments use S3-compatible storage, R2 or KV according to user/operator settings. The current code also stores complete raw MIME in the owning user's selected object storage, encrypted with a server key using AES-256-GCM. D1 claims record the hash, recipient, Message-ID, user, raw object key and expiry. Application expiry is set to 7 days and retries can renew it; COMPLETE does not delete immediately. Each scheduled run handles batches of up to 100, deleting the object before its claim and retaining failures for retry. This is not a storage TTL, the attachment-deletion queue, or guaranteed erasure within 7 days. Server-key encryption is not end-to-end encryption; actual instances still require upgrade and configuration. Raw MIME is excluded from self-service export, and an individual .eml is not the original file. External backups and actual storage locations require separate checks.
 
-| Data category | Retention policy |
+The service does not provide end-to-end encryption. Depending on the code and settings, the "Encrypted" and "Private" modes apply server-side encryption at rest to some body and subject content. Attachments and routing metadata are not automatically covered by that protection, and a party with control of the server and keys may technically be able to decrypt the data. In Private mode, moving previously protected mail to Trash decrypts and stores its subject, body, and extracted verification code, and may bring it within administrative visibility; restoration encrypts it again according to the mode. Moving mail to Trash is not a way to make it more confidential from the operator, and Encrypted mode does not automatically prevent individually configured notifications or forwarding.
+
+### 4.3 Browsers, logs, and external requests
+
+The browser may store the multi-account session-token registry (`epo_sessions`), language, interface preferences, and the complete object for the currently opened message in localStorage; each tab's current-identity or signed-out marker is stored in sessionStorage. Recent recipient history used when composing mail is stored separately in localStorage under `epomail_recipient_records:*`, keyed by user ID or email, and is not removed by ordinary logout. Local drafts and their attachment objects are stored separately in an IndexedDB database named after the primary mailbox; no application-layer encryption was found. Server exports do not include this local data.
+
+Ordinary logout revokes the current session and clears the current message, the current account's in-memory recipient cache, and current account session, but does not remove `epomail_recipient_records:*` entries stored in localStorage by user ID or email; local drafts and other accounts are retained. Data settings separately offer device clearing with explicit confirmation, covering all local accounts on this site, drafts, attachments, recipient history, trusted state and caches. Blocking or failure is reported and must not be treated as complete clearing. Deleting a draft removes its record and attachments in one IndexedDB transaction. These mechanisms require an upgraded instance; device clearing is not complete server-side deletion, and ordinary logout does not revoke all reading links.
+
+Login security mechanisms also process IP-derived country and city information, network ASN, and device information. The known-environment list retains at most the 15 most recent entries with a sliding 180-day TTL; continued use may extend that period. IP-based associations across multiple accounts use a 7,200-second TTL. Trusted-device credentials may be retained for 60 days and may exempt users from some multi-factor authentication during the first 30 days. These periods are separate from retention of account fields or audit logs.
+
+Cookie rules may also apply to terminal storage such as localStorage. Maintaining the login you request, necessary authentication, and security mechanisms is exempt from prior consent only where the strictly necessary exception under local law is satisfied. Any non-essential tracking or terminal access must be assessed separately; saying "we do not use cookies" does not remove those requirements.
+
+After upgrade, HTML reading blocks remote images, remote CSS and active content by default. Ordinary reading can allow images for the current message only after a warning; the sender may still receive IP, User-Agent, time and opening information, and this choice is not an image proxy. Printing retains default blocking, and Telegram shared reading does not allow remote resources. Google Fonts links have been removed from the code; configured resources such as Turnstile and external avatars may still make third-party requests. Actual behaviour requires checking the instance upgrade and configuration. See the [Sub-processor List](/en/mail/sub-processors/) for the data flows.
+
+### 4.4 Administrative and debugging access
+
+The administrative interface limits visibility according to mail mode, roles, and permissions; this is not a guarantee that the operator is technically incapable of accessing data. Human access is limited to specific support matters, security incidents, abuse reports, lawful requests, or other necessary matters with a valid basis, using least privilege and keeping appropriate records. Arbitrarily reading real mail for learning, testing, or curiosity is prohibited, as is posting it in public issues or debugging services.
+
+Public profiles are off by default. When enabled, they may expose the primary mailbox, profile fields, role, join time and permitted statistics. The upgraded backend separately enforces the statistics, trend and source visibility options; public endpoints return 404 for inactive or deleted users or mailbox accounts. Soft deletion does not physically remove the file at an existing static avatar URL; that address and other copies require separate handling. Operators must check actual anonymous responses rather than relying on interface hiding.
+
+### 4.5 Sensitive data and other people's data
+
+Mail may contain special categories of data concerning health, race, religion, political opinions, trade unions, genetics, biometric data used to uniquely identify a person, sex life, or sexual orientation; data relating to criminal convictions and offences is subject to separate restrictions. Merely describing processing as "passive storage" or obtaining the account user's general consent does not automatically satisfy the additional legal conditions, nor can it replace valid consent from other people whose data appears in the mail. Handling regulated sensitive data is not currently a purpose of the service; real data of this kind should not be uploaded before a lawful basis and safeguards have been established. If such data is received unexpectedly, the operator must still restrict access and assess lawful processing and deletion; prohibiting that use alone does not remove responsibility.
+
+Learning and testing should prioritise synthetic data or anonymous data assessed as not allowing individuals to be re-identified by means reasonably likely to be used. Merely replacing names, masking addresses, hashing account identifiers, or keeping a correspondence table separately may still leave linkable, pseudonymised personal data. Mail context, attachments, and information about third parties must also be assessed. Synthetic mail content does not automatically anonymise real test accounts, IP addresses, login records, or third-party request records.
+
+## 5. Processing Purposes and Legal Bases
+
+Where the GDPR applies, the operator must identify an appropriate basis for each purpose; additional conditions under other applicable laws must still be met.
+
+| Processing activity | Purpose | Basis and limits where the GDPR applies |
+| --- | --- | --- |
+| Accounts, delivery, storage, and necessary service notices | Providing the mailbox service you request | Necessary to perform the contract with you; data of correspondents who are not parties to that contract is processed separately on the basis of legitimate interests assessed through a balancing test or another appropriate basis |
+| Login security, rate limiting, and prevention of specific abuse | Protecting users, communications, and infrastructure | Where necessary, legitimate interests assessed for necessity and through a balancing test; a legal obligation is used as the basis only where that obligation actually applies |
+| Translation, OCR, optional notifications, or public fields | Providing additional features you actively choose | Clear, separate notice according to the feature and recipient; where consent is required, it must be freely given, specific, informed, unambiguous, and capable of being withdrawn |
+| Automatic verification-code extraction | Helping identify verification codes | Convenience or an operator's feature switch does not automatically make it necessary for a contract; a valid basis, necessary safeguards, and any required individual choice must be established before enabling it |
+| Responding to rights requests or competent authorities as required by law | Fulfilling legal requirements that actually apply | A clear legal obligation; foreign orders still require assessment of applicability, confidentiality of communications, and international transfer rules |
+| Minimum necessary records for a specific dispute | Establishing, exercising, or defending legal claims | Legitimate interests assessed through a balancing test and applicable statutory retention, with limits on scope and duration |
+
+Where legitimate interests are relied on, those interests are providing the requested communications, maintaining security, or defending specific claims. The operator should retain records of the necessity assessment and balancing test and allow objections as described in Section 9. All features must not be bundled together as "necessary to perform a contract". Selling data, serving advertisements, or training commercial models is not a processing purpose of the service.
+
+The GDPR legal-obligation basis in the table must derive from EU or Member State law applicable to the operator. Taiwanese or other foreign orders do not automatically establish that basis or independently authorise disclosure or international transfers. A public-benefit aim is not a legally entrusted public task, and personal learning does not automatically qualify for special scientific-research rules. For processing requiring consent, the operator should record the notice version, purpose, choice, and withdrawal. Users can consent only in relation to their own data, not give blanket consent on behalf of other people involved in their communications.
+
+Automated classification, rate limiting, or risk signals may affect mail processing and account features. This policy does not authorise decisions based solely on automated processing that have legal or similarly significant effects on you. If an actual deployment involves such decisions, the lawful conditions must first be established, the logic and effects explained, and appropriate human intervention and an appeal route provided.
+
+## 6. AI and Optional Content Processing
+
+The code that has been checked includes verification-code extraction on receipt of mail, as well as translation and image text recognition following your actions. The actual data may include subjects, body excerpts, images, and identifying or sensitive content within them; there is no guarantee that the text contains no personal data. An OpenAI-compatible protocol describes only the interface and does not mean that the recipient is necessarily OpenAI.
+
+The server permission gates for automatic code extraction, translation and OCR default to false; the current code does not provide public translation fallback. Automatic extraction also requires site-wide `aiCode`, the user's `aiVerificationCode` explicitly set to true, and the required notice confirmation; it does not run if a condition is missing. When allowed, new mail may send its complete subject and up to 6,000 JavaScript characters of body text to Workers AI, excluding the subject from that limit. Users can turn off their choice, but extraction is not triggered separately for each message. Instances must be upgraded and configured; switches or confirmations alone do not establish a GDPR legal basis or all consent requirements.
+
+Opening the translation panel or changing language sends no content. Processing requires active confirmation with the current notice URL and the server permission gate. Translation can use a configured model or Workers AI. MyMemory/Google public translation fallback has been removed from all paths and is unavailable. The backend rejects saving true to enable it, and the UI option is disabled. Older instances must upgrade rather than rely on the former switch. Omitted OCR parameters mean false; images are processed only with an explicit choice for this request and server permission. Embedded image bytes or remote image URLs may then go to the configured recipient, and recognised text enters translation.
+
+Actual recipient entities, agreements, retention and cross-border safeguards must still be disclosed and verified for the instance. Confirming the current notice does not establish those facts or authorise undisclosed recipients or model training. Disable transfers without the required basis or safeguards. After upgrade, personal Telegram notifications use `all` or `important`, with importance based on an actual “重要/important” label, star or existing code. `notifyCodeOnly` defaults to `false` and only adds a copy button when an extracted code already exists, is no more than 256 characters, and the mode is not `privacy`; it is not a code-only filter. `includePreview` defaults to `false`. In `all` and `important`, the notification title still uses the subject (or a generic title when absent), truncated to 200 characters, even with preview off; explicit `true` adds a preview of up to 400 characters and a reading link when configured. `privacy` sends only a generic title and no subject, sender, recipient, code or link. Reading and attachment requests check state and versions each time, including with previews off. Unavailable forwarding rules stop forwarding rather than fall back to all mail; saved `keepCopy` is normalized to `true`, `keepCopy=false` is rejected when forwarding is enabled, and a disabled configuration is also stored as `true`, retaining the original. See the [Notifications & Forwarding Guide](/en/mail/notify/) for details; instances still require upgrade and verification.
+
+The operator does not use mail as a dataset for training its own models. Restrictions on third-party retention, training, and reuse must be confirmed against the actual contracts and configuration; this policy does not guarantee them on the third parties' behalf. AI results may be wrong, and you should check verification codes, translations, and recognition outputs. The service does not use these features to provide professional judgments with legal effect. Where applicable, AI features and outputs should be clearly labelled, with necessary transparency notices provided according to the actual role and use. Ordinary translation or recognition does not automatically qualify as a high-risk system merely because it uses AI, nor does it thereby obtain compliance certification.
+
+## 7. Recipients and International Transfers
+
+Depending on the actual configuration, recipients include Cloudflare, outbound delivery services, storage and databases designated by you or the operator, identity sources, AI and translation services, notification platforms, authorised applications, and recipients' mail providers. Whether each party is a processor or an independent controller depends on its actual purposes and contracts; they cannot all be classified as processing only on instructions.
+
+Use of Cloudflare's global network or non-EU providers does not guarantee that data is processed only within the European Economic Area. For cross-border transfers restricted by the GDPR, the actual locations and lawful mechanisms must first be established, such as an adequacy decision covering the relevant scope, or validly concluded Standard Contractual Clauses, a transfer impact assessment, and necessary supplementary measures. SOC 2 or ISO certification, TLS, or a provider's statement that it offers SCCs does not by itself establish that a particular transfer is lawful. Derogations or explicit consent should not serve as the usual substitute for repeated, structural transfers.
+
+You may request a summary of the recipients, locations, and safeguards relevant to your data through the contact channels in Section 14, and obtain safeguard documents where they may lawfully be provided, subject to necessary redactions. For requests from competent authorities, the operator verifies the authority and legal basis, limits the scope of disclosure, and notifies affected people where the law allows and doing so does not prejudice a lawful purpose.
+
+## 8. Retention, Deactivation, and Deletion
+
+| Data category | Actual mechanisms and retention criteria |
 | --- | --- |
-| Inbox mail | kept until you delete it, or quota cleanup is triggered |
-| Spam | quarantined 7 days, then moved to trash |
-| Trash mail | hard-deleted by a scheduled task 7 days after receipt (attachments and indexes included) |
-| Official system mail (welcome mail, global announcements) | by default auto-deleted 7 days after delivery; the operator may configure the number of days |
-| Mailbox usage over 90% | mail you have marked deleted is hard-deleted immediately to free space |
-| Account deactivation | sessions end immediately; mail enters a soft-deleted state and, unless retention is required by law, an administrator performs the hard deletion within 90 days |
-| Hard deletion | account data, mailbox, mail, attachments, OAuth authorisations, and sessions are removed together, irreversibly |
-| Enforcement | after an account is banned for violations, the operator may forcibly empty its mail and attachments to free space (see the [Acceptable Use Policy](/en/mail/acceptable-use/) enforcement ladder) |
-| Instance shutdown | the operator should give advance notice and a data-export window; after shutdown data is destroyed with the Cloudflare resources |
+| Accounts, personal settings, and ordinary mail | Retained to provide the service until deletion, account cleanup, or the end of a lawful need; deactivation does not mean physical erasure |
+| Local drafts, current message, and recipient history | Ordinary logout revokes the current session and clears the current message and in-memory recipient cache, but does not remove `epomail_recipient_records:*` or other accounts; drafts and attachments remain and are deleted together when a draft is deleted; see Section 4.3 for device clearing and recipient-record/draft-attachment deletion. Server exports do not include this local data |
+| Spam and trash | Daily processing counts from the mail's `create_time`; spam moves to trash after the configured retention period, which defaults to 7 days, and the trash threshold is fixed at 7 days, so mail may qualify for physical deletion in the same run; there is no guaranteed additional 7-day buffer after moving it to trash |
+| Expired system mail and quota cleanup | Some official mail is marked deleted when the list is read, based on its expiry period, which defaults to 7 days, and is then handled by scheduled tasks; mail may be physically deleted directly if usage already exceeds 90% of quota when deletion is performed |
+| Account closure or deactivation | Upgraded closure first disables all linked mailboxes in D1, then revokes sessions, PATs, trusted devices, pending verification and OAuth grants; inbound mail is blocked before AI processing. Raw MIME cleanup runs before deletion of the user record, retaining locators on failure for retry; `manual_review` still requires review of raw data, claims and other residuals and is not complete erasure; `cleanup_failed` records a queryable failure. No complete erasure within 90 days is promised |
+| Security, login, audit, and rights-request records | Retained only for as long as necessary for the specific purpose; for items without a general automatic expiry mechanism, the operator must separately set and implement the shortest necessary retention period and regular reviews |
+| Attachments, raw mail, backups, and external copies | Attachment BYO storage locators remain until their pending/failed deletion jobs are resolved; missing original configuration fails without deleting from a default bucket. Raw MIME uses the separate expiry cleanup in Section 4.2, not the attachment queue. Telegram reading and attachment requests check user/mailbox/message status and versions each time. Data settings can revoke all reading links; stopping or changing personal notifications revokes old links, but not chat messages or downloaded copies |
+| Statutory retention or specific disputes | Where there is an actual legal basis, retain only the data needed, restrict other uses, record the reasons and time limits, and erase it when the period ends |
+| Planned shutdown | Where reasonably practicable, give advance notice and a period for retrieving data before terminating resources and handling residual copies; unexpected interruptions may limit retrieval |
 
-After hard deletion, data cannot be recovered. Before deletion, you can obtain a complete copy in JSON format (profile and full text of undeleted mail) through "Settings → Data Export". The full technical description is in [Data Processing & Security Maintenance](/en/mail/data-security/).
+No fixed 90-day grace period can override a statutory requirement to delete data when it is no longer necessary or the request deadlines in Section 9. If backups can only be overwritten on a cycle, the data should be isolated from further use, the cycle disclosed, and deletions reapplied on restoration. An unverified backup cycle cannot be described as immediate or completely irreversible. Copies already held by senders, recipients, or independent providers generally cannot be deleted unilaterally by this service; any legal duty to notify recipients of rectification, erasure, or restriction must still be fulfilled.
 
-## 9. Your Rights and How to Exercise Them
+## 9. Data Subject Rights and Response Deadlines
 
-You have the following rights over your personal data:
+Subject to applicable law and its conditions, you may request information, access and copies, rectification, erasure, restriction of processing, objection to processing based on legitimate interests, withdrawal of consent, and, where the conditions are met, machine-readable data or portability. Withdrawal does not affect lawful processing before withdrawal; use for direct marketing should stop when you object to it. You may also request the applicable safeguards and human intervention for automated decisions with significant effects.
 
-1. to query or request access;
-2. to request a copy (implemented by the Service's "Data Export" feature);
-3. to request supplementation or correction;
-4. to request that collection, processing, or use be stopped;
-5. to request deletion.
+Withdrawing consent should be as easy as giving it. You may use the feature's actual opt-out channel or contact `privacy@epocanvas.com`. If that channel cannot promptly stop subsequent processing, or is significantly harder to use than enabling the feature, the operator should first improve the mechanism or disable the processing that relies on that consent. Withdrawing consent for an optional feature should not force you to close unrelated basic services. GDPR portability is limited to data you have provided that is processed by automated means on the basis of consent or a contract. Where technically feasible, you may request direct transmission to another controller. Portability's scope depends on the data's source and the basis and means of processing. Data concerning others within your correspondence is not excluded across the board, but provision or transfer must not adversely affect other people's rights and freedoms and does not grant access to their accounts or unrelated mail. Following an objection to processing based on legitimate interests, the relevant processing should stop unless overriding compelling legitimate grounds can be demonstrated or the processing is necessary for legal claims.
 
-How to exercise them: self-service interface functions (export, deactivation, revoking OAuth authorisations, logout) take effect immediately; requests needing human handling are answered and processed within 30 days of receipt. Contact: `privacy@epocanvas.com`.
+Self-service export is one route, but an export file is not a complete copy of all data: profile fields are a selected subset, and the export does not include attachment files, trash mail, complete routing fields, raw MIME, all aliases, or security and administrative audit records. Contact `privacy@epocanvas.com` for omitted data that you are legally entitled to request. The operator must also protect the rights of correspondents and others, using redaction where necessary rather than refusing all access.
 
-If you believe the processing has harmed your rights, you may seek redress from the operator, which is responsible for explaining and substantiating the lawfulness of its processing. You may also complain to the competent authority at the operator's location or seek judicial remedies (applicable law in Section 12).
+Where the GDPR applies, requests should be handled without undue delay, and you should be informed of the action taken no later than one month after receipt; an acknowledgment alone is not completion. Where necessary because of the complexity or number of requests, this may be extended by up to two additional months in accordance with the law, but the extension and its reasons must be explained within the first month. If no action is taken, the reasons and the routes for complaints and judicial remedies should also be provided within the deadline. Any shorter deadline under another applicable law applies.
 
-## 10. Security-Maintenance Measures
+Ordinary requests are free of charge. A reasonable fee or refusal with an explanation is permitted only where applicable law allows it and the request can be shown to be manifestly unfounded or excessive. Where there are reasonable doubts about identity, only necessary additional verification is requested; identity documents are not required in every case, and being unregistered or unable to log in does not exclude rights.
 
-The operator establishes and continuously improves the following security-maintenance measures to prevent personal data from being stolen, altered, damaged, lost, or leaked: site-wide HTTPS/TLS transport encryption; PBKDF2 salted password hashing; AES-256-GCM encryption of TOTP secrets at rest; login-failure lockout (12 hours after 5 consecutive failures); at most 10 sessions per account, revocable immediately; HMAC-hash-based mail routing (against unauthorised access and resource enumeration); defensive headers and a MIME allow-list for attachment downloads. The complete list is in [Data Processing & Security Maintenance](/en/mail/data-security/).
+You may complain directly to a competent data protection authority and seek judicial remedies. Where the GDPR applies, this includes the authority in the place of your habitual residence, workplace, or the alleged infringement. You do not need the operator's prior consent or to exhaust internal complaints first. EU authority contact details are available in the [EDPB member list](https://www.edpb.europa.eu/about-edpb/about-edpb/members_en).
 
-:::caution[Scope and Limits of Encryption]
-The encryption of the Service's "All / Private / Encrypted" mail modes is server-side encryption at rest: keys are derived from the instance server's environment variables and user identification. This mechanism protects against stolen database files or leaked snapshots; it is not end-to-end encryption, and an operator who holds the server and keys is technically able to decrypt. What administrators can reach depends on the mode: in "All-mail" mode the administrator can read all mail; in "Private" mode only spam, deleted, and unassigned mail; in "Encrypted" mode the admin interface does not return user mail. For confidentiality from the operator as well, encrypt the body yourself with GPG or a similar end-to-end tool before sending.
-:::
+## 10. Security and Incident Response
 
-## 11. Protection of Children and Juveniles
+The operator should take appropriate measures for access control, credential protection, encryption, updates, and incident handling, taking into account the nature of the data, the risks, the state of the art, and reasonable implementation costs. The presence of security features does not guarantee zero risk or a particular certification. Individual maintenance does not require 24-hour support beyond this policy, but it does not extend statutory notification deadlines.
 
-The Service is not directed at children under 14 and does not knowingly collect children's personal data. A guardian who believes a child has provided personal data may contact the operator for deletion, which is handled immediately after verification. No one may use the Service to distribute content harmful to the physical or mental health of children and juveniles; see the [Acceptable Use Policy](/en/mail/acceptable-use/) for restrictions. Self-hosted operators must set the age threshold according to their own jurisdiction's law.
+Incidents must be assessed and contained immediately, and records kept. Where the GDPR applies, unless a breach is unlikely to result in a risk to individuals' rights and freedoms, the controller should notify the competent supervisory authority without undue delay and, where feasible, within 72 hours of becoming aware of it. Delays must be explained, and information may be provided in phases as permitted by law. Where a breach is likely to result in a high risk to data subjects, they should be informed directly without undue delay unless a statutory exception applies; public disclosure of incident details is not a substitute for notification in every case. A processor should notify the controller without undue delay. Where other applicable communications laws specify different notification recipients or thresholds, or shorter deadlines, those requirements apply.
 
-## 12. Applicable Law and Supervision
+## 11. Age and Children's Data
 
-The open-source code project provides no service and is not responsible for any instance's compliance; the legal obligations rest with the entity operating the service. The law applicable to each instance is that of its operator's location: the hosted instance `mail.epocanvas.com` is operated from Taiwan by the operations team, whose personal-data processing is subject to Taiwan's current law (including the Personal Data Protection Act), and the operator accepts inspection and supervision by that law's competent authority, with this policy and [Data Processing & Security Maintenance](/en/mail/data-security/) serving as the base documents for such inspection. For self-hosted instances, the applicable law is that of the deployer's location, and the deployer independently fulfils the notice, security-maintenance, and supervision obligations.
+The hosted test service is for people aged 16 or older who have legal capacity to enter into a contract. Where local law requires a higher age or a guardian's permission, those requirements apply. This service threshold does not establish that age verification has been completed and does not replace an assessment under the GDPR's rules on children's consent or other child and youth protection rules. Upon learning that someone who does not meet the threshold has registered, unnecessary processing should be restricted and verification, response, and deletion handled in accordance with the law. Self-hosted operators must separately assess their intended users, ages, and feasible safeguards.
 
-## 13. Changes to This Policy
+## 12. Applicable Law and Proportionality
 
-This policy may be revised as the service or the law evolves. Material changes (new sub-processors, changed retention or encryption modes, and the like) will be announced in advance through an on-site notice or system mail, with the effective date and version number at the top of this page updated. Continuing to use the Service after a change takes effect means you accept the revised policy; if you disagree, stop using the Service and export or delete your data. Past material revisions are archived with the open-source repository's version history.
+This site's existing documents use Taiwan as the hosted service's legal background, but this review has not confirmed the actual country of location or address through verifiable operator information. Choosing Taiwan law or using Traditional Chinese does not establish location. Before processing real personal data from the public, the identity information in Section 2 must be completed and the data protection and communications laws that actually apply identified. Obligations under Taiwan law should be determined according to provisions in force and commencement notes in official databases; publication of a legislative amendment does not mean that it has entered into force.
+
+The place of operation is not the only criterion. The GDPR may also apply where data is processed in the context of the activities of an establishment in the EU, or where a party outside the EU offers services to people in the EU or monitors their behaviour there and the statutory conditions are met. Mere accessibility of a website from the EU does not by itself constitute offering services there. Being free, serving a public-interest purpose, having an individual author, or being "in testing" does not automatically exclude applicability; a mailbox service open to the public also cannot generally rely on the purely personal or household activity exemption.
+
+Whether an EU representative or data protection officer must be appointed, or an impact assessment conducted, must be considered separately:
+
+- Where an operator outside the EU is subject to the GDPR because it offers services to people in the EU or monitors their behaviour, the representative exception requires all of the following: processing is occasional, does not include large-scale processing of special categories of data or criminal data, and is unlikely to result in a risk in light of its nature, context, scope, and purposes. An ongoing mailbox service generally cannot rely on this exception merely because it has few users.
+- A data protection officer must be designated in statutory circumstances such as core activities involving large-scale, regular and systematic monitoring, or large-scale processing of special categories of data or criminal data. A general privacy contact does not automatically hold that role.
+- Proposed processing likely to result in a high risk to individuals' rights and freedoms requires a prior data protection impact assessment. It cannot be skipped merely because the activity is called "testing", nor does every synthetic-mail experiment require an assessment of the same scale.
+- The processing-records exception for organisations with fewer than 250 people is limited by conditions involving non-occasional processing, risk, and special categories of data or criminal data. Ongoing mail processing still requires assessment of record-keeping obligations; a concise register may cover the statutory fields for the actual role without requiring a dedicated system.
+
+Measures may reflect scale and risk. Publishing source code does not automatically require incorporation, ISO certification, insurance, or enterprise-level support. Whether the activity constitutes a regulated communications service must be assessed separately according to its actual functions, the provision of services to the EU, and the relevant Member State rules. Being free or "in testing" does not automatically exclude confidentiality-of-communications obligations.
+
+## 13. Updates and New Purposes
+
+Material changes should be clearly notified by appropriate means before new processing begins, specifying the changes and the arrangements that apply. For new purposes or recipients requiring consent, valid consent should be obtained first; refusal must not be interpreted as consent. Before existing data is used for a new purpose, compatibility and the legal basis must be assessed. Continued use does not constitute new privacy consent, and an update date does not mean all instances have implemented the changes.
 
 ## 14. Contact Channels
 
-- **Privacy matters, rights, and complaints**: `privacy@epocanvas.com`
-- **In-product contact**: in-site message or `admin@epocanvas.com`
-- **Self-hosted sites**: contact the operator published by that site
+- Privacy, exercise of rights, and complaints: `privacy@epocanvas.com`.
+- Account and service issues: `admin@epocanvas.com` or in-site contact.
+- Self-hosted instances: the actual operator's contact channel published by that site.
 
----
-
-*This document is a compliance document prepared by the EpoCanvas Mail operations team and does not constitute legal advice; the law applicable to each instance is determined by its operator's location.*
+Do not submit complete emails, identity documents, API keys, or login credentials in public issues. See Section 2 for the disclosure status of the operator's identity and legally required address, and the [Sub-processor List](/en/mail/sub-processors/) and [Data Processing & Security Maintenance](/en/mail/data-security/) for data flows and matters still requiring confirmation at deployment.

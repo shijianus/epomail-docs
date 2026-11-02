@@ -3,9 +3,9 @@ title: Guide des fonctionnalités d'EpoCanvas Mail
 description: Guide des fonctionnalités d'EpoCanvas Mail — organisation de la boîte de réception, rédaction et envoi, syntaxe de recherche, moteur de règles d'étiquettes, extraction des codes de vérification, gestion des pourriels, réexpédition et notifications, capacités d'IA et plateforme ouverte.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.25**
 
-La présente page décrit une à une les fonctionnalités réelles d'EpoCanvas Mail ; chaque point a été vérifié à partir du code open source, et les captures d'écran de l'interface proviennent de l'exécution réelle de l'instance hébergée officielle. Le positionnement du projet, son historique de développement et son déploiement sont présentés dans [Présentation du projet](/fr/mail/project/) ; le traitement des données et les durées de conservation propres à chaque fonctionnalité figurent dans [Traitement des données et sécurité](/fr/mail/data-security/).
+Cette page décrit l'implémentation d'EpoCanvas Mail après cette série de modifications. Les captures existantes indiquent l'emplacement des commandes ; elles ne prouvent ni le déploiement des changements en production ni l'activation de toutes les fonctions. Le positionnement, l'historique et le déploiement sont présentés dans [Présentation du projet](/fr/mail/project/) ; le traitement et la conservation des données figurent dans [Traitement des données et sécurité](/fr/mail/data-security/).
 
 Les versions en chinois traditionnel (Taïwan) des documents juridiques du présent site constituent les versions faisant autorité ; les traductions dans les autres langues sont fournies à titre de référence uniquement et, en cas de divergence, la version en chinois traditionnel prévaut.
 
@@ -30,7 +30,7 @@ Quatre régions annotées de la boîte de réception, correspondant aux quatre e
 | Capacité | Description |
 | --- | --- |
 | Vues du courrier | Huit vues : Principale, Étoilés, Reportés, Envoyés, Brouillons, Tous les courriels, Pourriels, Corbeille ; compteurs actualisés en temps réel |
-| Mise en page de lecture | Vue fractionnée à trois colonnes, fil de conversation, réponse en ligne et réactions par émoji ; le détail du courriel permet de consulter les en-têtes bruts |
+| Mise en page de lecture | Trois colonnes, conversations, réponses intégrées et réactions. Les en-têtes affichés restent reconstruits et ne prouvent pas le chiffrement en transit ou au stockage. La reprise de réception conserve séparément les octets complets du MIME original dans un stockage d'objets, chiffrés côté serveur en AES-256-GCM, et non de bout en bout ; les limites de conservation figurent à la section 9. Images et CSS distants sont bloqués par défaut ; après information sur les risques, la lecture ordinaire peut charger les images de ce seul message. L'impression reste bloquée par défaut et le partage Telegram ne propose aucun bouton de chargement externe |
 | Actions de tri | Ajouter une étoile, reporter (à l'heure de votre choix), signaler comme pourriel／non-pourriel, déplacer vers la corbeille, suppression définitive |
 | Badge de code de vérification | Les codes de vérification extraits par Workers AI s'affichent directement dans la liste et le détail (voir la section 5) |
 | Identification des courriels officiels | Les courriels d'expéditeurs officiels tels que announcement@epocanvas.com portent la marque de certification et un bandeau explicatif (voir [Anti-falsification et normes officielles](/fr/mail/tamper-proof/)) |
@@ -99,7 +99,7 @@ Le surlignage des correspondances repose sur la CSS Highlights API ; la recherch
 
 ![Détail d'un courriel EpoCanvas Mail : le code de vérification à 6 chiffres d'un courriel Cloudflare est présenté en grands caractères ; la liste et le détail portent tous deux le badge vert du code de vérification](/images/mail/ui/ui-detail-verification.png)
 
-*Figure : extraction des codes de vérification (capture en chinois simplifié). Il s'agit du seul traitement par IA non déclenché manuellement ; seuls l'objet et les 6,000 premiers caractères du corps sont transmis à Workers AI. Le périmètre de traitement et le moyen de le désactiver figurent à la section 6 de la [Politique de confidentialité](/fr/mail/privacy-policy/).*
+*Figure : l'extraction automatique ne peut envoyer à Workers AI l'objet complet et jusqu'à 6 000 caractères JavaScript du corps que si toutes les conditions globales, d'information de l'instance et de choix individuel ci-dessous sont remplies. L'objet ne compte pas dans cette limite. La base juridique figure à la section 6 de la [Politique de confidentialité](/fr/mail/privacy-policy/).*
 
 <details>
 <summary>Guide visuel : L'extraction du code de vérification dans le volet de lecture</summary>
@@ -108,43 +108,43 @@ L'extraction des codes de vérification dans le détail d'un courriel : le code 
 
 - **Zone du code en grands caractères** : Le code extrait par Workers AI depuis l'objet et les 6,000 premiers caractères du corps, affiché en grands caractères pour le recopier facilement.
 - **Badge vert** : Le marqueur vert qui apparaît à la fois sur la ligne de liste et sur la page de détail signifie « ce courriel contient un code de vérification extrait » : vous le repérez dès la liste, sans ouvrir chaque message. Le badge ne paraît qu'en cas d'extraction réussie ; sans correspondance ou extraction désactivée, il reste absent — son absence ne prouve pas que le courriel est sûr, seulement qu'il n'y a pas de code à recopier.
-- **Limites** : C'est le seul traitement par IA qui n'est pas déclenché manuellement ; il se désactive dans les paramètres généraux. Étendue du traitement et modalités de retrait : section 6 de la politique de confidentialité.
+- **Limites** : L'extraction automatique exige conjointement `aiCode` global, `contentProcessing.verificationCodeEnabled` de l'instance, un `noticeUrl` valide et `privacyPreferences.aiVerificationCode === true` pour l'utilisateur. Cette préférence vaut `false` par défaut et peut être désactivée dans les paramètres de données pour arrêter les requêtes suivantes. Ce choix ne remplace ni l'information complète, ni la base juridique, ni les contrats fournisseurs ; voir la section 6 de la Politique de confidentialité.
 
 </details>
 
 ## 6. Gestion des pourriels
 
-- Mise en quarantaine et conservation : les pourriels sont conservés en quarantaine 7 jours puis déplacés automatiquement vers la corbeille ; le signalement de pourriels／de non-pourriels, une fois confirmé par l'utilisateur, met automatiquement à jour sa liste de confiance personnelle ;
+- Mise en quarantaine et conservation : la tâche quotidienne calcule la durée de conservation des indésirables depuis la création du courriel et les déplace par défaut vers la corbeille après 7 jours. La corbeille applique elle aussi un seuil fixe de 7 jours depuis la création ; l'effacement physique peut donc avoir lieu lors du même passage, sans conservation supplémentaire de 7 jours. Les signalements de pourriel ou de non-pourriel mettent à jour la liste de confiance personnelle selon le parcours concerné ;
 - Contraintes à l'envoi : le quota d'envoi quotidien est fixé selon le rôle (utilisateurs de base : 5 courriels ; LV.0 : 8 ; LV.1 : 10 ; administrateurs : 100 ; le compte Webmestre est sans limite), avec remise à zéro quotidienne des compteurs ; le traitement des abus de quota figure à la section 6 de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/) ;
 - La responsabilité de la transmission des contenus payants et marketing incombe à l'expéditeur ; l'envoi de courriels commerciaux massifs non sollicités est un comportement interdit (voir la section 3 de la [Politique d'utilisation acceptable](/fr/mail/acceptable-use/)).
 
 ## 7. Réexpédition et notifications
 
-- **Réexpédition personnelle** : réacheminement automatique du courrier de la boîte vers d'autres adresses, avec prise en charge de la copie (cc) ;
+- **Réexpédition personnelle** : transfert automatique vers d'autres adresses avec copie (cc). `rules` est indisponible et n'envoie rien ; une liste `alias` vide non plus. `keepCopy` est fixé à `true` pour conserver l'original et ne peut être désactivé dans l'interface. L'enregistrement de `rules` activé ou d'un transfert activé avec `keepCopy: false` est refusé ; client et serveur doivent être mis à jour ensemble ;
 - **Réexpédition globale** : l'administrateur peut configurer des règles de réexpédition au niveau du système, dans la limite du mode de messagerie (désactivée en mode « Chiffré ») ;
-- **Notifications Telegram** : après liaison du bot, envoi selon la configuration de l'objet, de l'expéditeur, du corps et du code de vérification, avec un lien de lecture interne valable 7 jours ; chaque champ de notification peut être masqué individuellement.
+- **Notifications Telegram** : Le mode personnel `all` couvre tous les courriels ; `important` exige l'étiquette exacte `重要` ou `important`, une étoile réellement enregistrée ou un code existant. `notifyCodeOnly` est un choix séparé pour copier un code existant, par défaut `false`, pas un filtre ni une nouvelle extraction. `includePreview`, également `false`, contrôle l'extrait et le bouton de lecture. Le mode compatible `privacy` n'envoie qu'un avis générique, sans objet, expéditeur, destinataire, code, extrait ou lien ; les autres modes personnels omettent aussi expéditeur et destinataire. Les notifications système utilisent leurs champs propres. Chaque envoi vérifie les états actuels de l'utilisateur, de la boîte, du courriel et la version D1, même sans aperçu ; lecture et pièces jointes aussi. Modifier les notifications personnelles ou utiliser les paramètres de données révoque les anciens liens indépendamment des notifications futures. Les anciens jetons sans portée et OSS v1 exigent de nouveaux liens ; les copies dans les conversations ne sont pas récupérables. Client et serveur doivent être mis à jour ensemble, sans preuve de déploiement en production ; voir le [Guide des notifications et du transfert](/fr/mail/notify/) ;
 
 ## 8. Capacités d'IA
 
 | Capacité | Déclenchement | Description |
 | --- | --- | --- |
-| Extraction des codes de vérification | automatique à l'arrivée d'un nouveau courriel (désactivable) | inférence en périphérie par Workers AI, voir la section 5 |
-| Traduction intégrale | clic manuel | traduction multilingue qui conserve la mise en page du courriel d'origine, segments traités en parallèle ; les points de terminaison des modèles et le canal de secours figurent à la section 6 de la [Politique de confidentialité](/fr/mail/privacy-policy/) |
-| Reconnaissance du texte des images | téléversement manuel | sous-titres générés par OCR ; les images purement décoratives sont automatiquement ignorées |
+| Extraction des codes de vérification | Automatique à l'arrivée d'un courriel uniquement si toutes les conditions de la section 5 sont remplies ; désactivée par défaut pour l'utilisateur | Inférence Workers AI ; les paramètres de données permettent d'arrêter les requêtes suivantes |
+| Traduction intégrale | Ouvrir la barre ou changer de langue n'envoie rien ; chaque traduction externe exige une confirmation explicite | L'IA globale, `contentProcessing.translationEnabled` et une URL d'information valide doivent être activés. Chaque requête contient `confirmed: true` et un `noticeUrl` identique à la configuration actuelle ; sinon elle est désactivée. Les traductions officielles intégrées correspondantes restent locales. Les appels publics MyMemory/Google, y compris pour les segments manquants, ont été retirés de `ai-service`. `contentProcessing.publicTranslationFallbackEnabled` reste à `false`, l'enregistrement de `true` est refusé et l'option d'administration est indiquée indisponible. Destinataires actuels dans la [Liste des destinataires tiers](/fr/mail/sub-processors/) |
+| Reconnaissance du texte des images | Traduction confirmée avec `contentProcessing.ocrEnabled === true` côté serveur et `enableOcr: true` explicitement pour cette requête | Sinon `false` ; la traduction du texte seul est possible, sans reprendre d'anciennes préférences OCR. Images intégrées ou URL distantes peuvent être traitées ; le filtrage décoratif reste heuristique |
 | AI Hub | configuration par l'administrateur | connexion à des points de terminaison multi-modèles compatibles OpenAI, test de vitesse à zéro jeton, autorisation des modèles par rôle |
 
-L'Opérateur n'entraîne aucun modèle sur le contenu des courriels ; le traitement par IA consenti peut être retiré à tout moment (voir la section 6 de la [Politique de confidentialité](/fr/mail/privacy-policy/)).
+L'Opérateur ne constitue pas lui-même de jeu de données d'entraînement à partir des courriels ; la conservation, l'entraînement et la réutilisation par des tiers doivent être vérifiés au regard des contrats et paramètres effectifs. Pour un traitement nécessitant un consentement, le retrait doit être libre et aussi simple que l'octroi. En l'absence d'un choix effectivement réalisable, le traitement concerné doit être désactivé ; la présence d'un bouton dans l'interface ne suffit pas à garantir le respect de ces exigences (voir les sections 6 et 9 de la [Politique de confidentialité](/fr/mail/privacy-policy/)).
 
 ## 9. Plateforme ouverte et autonomie des données
 
-- **Centre d'authentification OAuth 2.0 / OIDC** : l'administrateur peut enregistrer des applications tierces, avec des portées d'autorisation limitées à openid / profile / email et des jetons d'accès valables 2 heures ; la personne concernée peut suivre en temps réel les autorisations sur la page « Applications tierces » et les révoquer à tout moment ;
+- **Centre d'authentification OAuth 2.0 / OIDC** : Permet d'autoriser des applications et de révoquer leurs autorisations ; les données réellement renvoyées peuvent comprendre l'adresse électronique, le nom, l'avatar et les champs de rôle, sans nécessairement être limitées aux scopes demandés. La révocation ne récupère pas les données déjà transmises et ne retire pas les ID tokens déjà émis ni les sessions des tiers ; voir la liste des destinataires tiers et sous-traitants ;
 - **Guide d'intégration** : l'enregistrement des applications côté administration, les points de terminaison et le code d'intégration figurent dans [Plateforme ouverte et accès API](/fr/mail/api/);
-- **Export des données** : export en un clic, depuis la page des paramètres, d'une copie complète au format JSON (profil et texte intégral des courriels non supprimés) ; chaque courriel peut être téléchargé au format .eml ;
+- **Export des données** : Les paramètres exportent certains champs personnels, des courriels non marqués supprimés et `customLabels`, sans fichiers joints, contacts complets, règles, paramètres de sécurité ni audit ; le serveur n'applique pas la période choisie. L'export exclut le MIME original temporaire et les .eml restent reconstruits. L'échéance applicative de 7 jours peut être renouvelée lors des reprises ; un succès ne supprime pas immédiatement l'objet et le nettoyage planifié par lots peut échouer en laissant des objets : ce n'est pas un TTL garanti. Les « claims » de réception D1 contiennent des métadonnées, pas le corps brut. Les trois options de masquage des statistiques du profil public limitent aussi l'API ; les utilisateurs supprimés ou désactivés renvoient 404, sans effacement physique automatique des avatars statiques. La nouvelle fermeture de compte le désactive, révoque les accès et enregistre `manual_review`, non un effacement complet. Voir [Export des données et stockage](/fr/mail/data/) ;
 
 ## 10. Interface et mobile
 
 - Six langues d'interface (chinois simplifié, chinois traditionnel, English, Français, Español, Nederlands), avec des dictionnaires parfaitement symétriques dans les six langues, côté client comme côté serveur ;
-- Thèmes clair et sombre, 300+ icônes vectorielles hors ligne (zéro requête externe), mise en page réactive et installation PWA ; une application mobile Android (epomail) est également proposée.
+- Thèmes clair et sombre, plus de 300 icônes vectorielles hors ligne, affichage adaptatif, PWA et application Android (epomail). Vue a retiré les liens Google Fonts et utilise les polices système ; React auto-héberge ses polices. Avatars, Turnstile et autres ressources externes peuvent encore émettre des requêtes ; il ne s'agit pas d'une promesse d'absence de requêtes externes.
 
 ![Boîte de réception de l'interface anglaise d'EpoCanvas Mail : prise en charge multilingue complète ; la barre latérale affiche Compose, Main, Starred, Snoozed, Sent, Drafts, All Mail, Spam, Trash ainsi que les étiquettes Social, Subscriptions, Promotions, Work](/images/mail/ui/ui-inbox-en.png)
 

@@ -3,7 +3,7 @@ title: Guía de despliegue
 description: Guía de despliegue de EpoCanvas Mail — requisitos previos, despliegue en tres pasos, inicialización y cadena de arranque, inyección de secretos, configuración del correo, opciones de almacenamiento, la instancia de demostración y las actualizaciones.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 Esta página va dirigida a usuarios y administradores que preparen desplegar EpoCanvas Mail por sí mismos; cubre el camino completo desde cero hasta una instancia operativa. Una vez desplegada, todos los datos de la instancia residen en los recursos de Cloudflare del propio desplegador, y el desplegador pasa a ser el responsable del tratamiento ante sus usuarios — la posición legal se expone en [Marco legal del código abierto y el autoalojamiento](/es/mail/open-source/). Usar la instancia alojada ([mail.epocanvas.com](https://mail.epocanvas.com)) no requiere ninguno de estos pasos.
 

@@ -1,67 +1,88 @@
 ---
 title: Sub-processor List
-description: The complete list of EpoCanvas Mail's entrusted processors, shared objects, data involved, trigger conditions, and international-transfer safeguards.
+description: Known configurable outbound data paths, recipient data and roles, and locations, contracts, retention, and cross-border safeguards that each instance must confirm.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
-Following Section 7 of the [Privacy Policy](/en/mail/privacy-policy/), this list sets out in full the third parties involved in the Service's personal data, the sharing conditions, and the safeguard mechanisms. The Service's sharing principle is minimal necessity: data that need not leave the instance do not leave; what must leave states clearly who receives it and what it carries. The Service has no data-sale or advertising-revenue relationship with any party below.
+Following the [Privacy Policy](/en/mail/privacy-policy/), this page describes third-party data flows in the open-source implementation after this round of changes; it does not establish that the changes have been deployed to production. The list includes infrastructure processors, independent services, correspondents, and integrations you choose. It does not mean that all the services below are enabled on the hosted instance and cannot replace actual provider agreements and configuration records.
 
-International transfers follow applicable law's requirements and the restrictions lawfully imposed by the competent authority, with transfers safeguarded by mechanisms such as standard contractual clauses. Entrusted processors process data on the controller's instructions and within the scope of the engagement.
+The Traditional Chinese (Taiwan) version is authoritative; translations do not limit applicable law or data subject rights. The operator should enable only paths with a valid processing basis, necessary notice, and appropriate safeguards. Being free or intended for learning and testing is not general permission to transmit real data externally.
 
-The Traditional Chinese (Taiwan) versions of this site's legal documents are the authoritative versions; translations into other languages are provided for reference only, and in case of any discrepancy the Traditional Chinese version prevails. The legal and technical documents on this site follow the open-source implementation of the service and aim to establish transparent, rigorous, non-commercial community communication norms.
+![Data flows between an instance and infrastructure, optional integrations, content processing, and recipients under legal requirements](/images/mail/en/subprocessor-map.svg)
 
-![EpoCanvas Mail sharing map: centred on the instance, four routes — entrusted processors, user-authorised, user-triggered AI processing, and legal request — marked with the minimal-necessity principle and the no-sale, no-ads, no-tracking commitments](/images/mail/en/subprocessor-map.svg)
+*Figure: recipient roles and safeguards must be confirmed for each path; a provider's certification or contract template does not mean that every transfer meets applicable requirements.*
 
-*Figure: the four third-party sharing routes of the Service. Each route's trigger, data involved, and safeguards are in the tables below.*
+## 1. Infrastructure and Mail Delivery
 
-## 1. Entrusted Processors (Full-Time Infrastructure)
-
-| Processor | Function | Data involved | Region and safeguards |
+| Recipient or configuration | Trigger | Data that may be accessed | Role and matters to confirm |
 | --- | --- | --- | --- |
-| Cloudflare, Inc. (USA) | edge compute (Workers), structured storage (D1), sessions and cache (KV), object storage (R2, optional; when not enabled, attachments are stored in KV), mail routing (Email Routing), human verification (Turnstile), edge AI (Workers AI), edge logs | request metadata, all stored content, verification requests | global edge network; SOC 2 Type II and ISO/IEC 27001 certified; EU Standard Contractual Clauses (SCC) mechanism offered; transfers TLS-encrypted throughout |
-| Resend, Inc. / Mailjet (Sinch) (USA / France) | outbound mail delivery (MTA) | full outbound mail (recipients, subject, body, attachments) | triggered only for mail addressed off-site when the operator has configured a delivery channel; delivery credentials kept as an isolated API token, never written to diagnostic logs |
+| Cloudflare | Workers, D1, KV, R2, Email Routing, Turnstile, Workers AI, and platform logs, enabled according to bindings | Request and verification data, stored accounts and mail, routing, attachments, feature content, encrypted staging of complete original MIME bytes, and D1 inbound-claim metadata | Check the contracting entity, each service's data processing terms, log purposes, storage and processing locations, and subprocessors; processing only in Europe is not guaranteed |
+| Resend, Mailjet, or configured outbound channels | Sending off-site mail or specific system notices | Addresses, subjects, bodies, attachments, and data needed for delivery reports | Confirm processing arrangements, record retention, and cross-border safeguards for the actual channel; locations cannot be inferred from product names alone |
+| Recipients and their mail providers | Sending or forwarding by you or lawfully configured rules | Sent content, routing fields, and attachments | The receiving side usually determines subsequent processing independently; it is not always a processor for this instance, and sent mail may not be retractable |
 
-## 2. Processors Authorised by the Data Subject
+## 2. Identity, Notifications, and Public Features
 
-| Processor | Function | Data involved | Trigger |
+| Recipient or configuration | Trigger | Data that may be transmitted or made public | Limits on use and revocation |
 | --- | --- | --- | --- |
-| Telegram | instant notification push | configurable: mail subject, sender (hidable), body (hidable), verification codes, 7-day read link | only when a Telegram bot is bound and push is enabled |
-| OAuth third-party apps | third-party sign-in or delegated access | scope limited to openid / profile / email (identifier, e-mail address, name, avatar); access tokens valid 2 hours | only on the data subject's active authorisation; revocable any time on the "Third-party apps" page, effective immediately |
-| Linux DO | third-party sign-in identity source | the user identifier, nickname, avatar, and trust level returned by OAuth | only when signing in with a Linux DO account |
-| Operations blog (blog.epocanvas.com) | blog activity level linkage and quota upgrade | your e-mail address (sent with the query) | only when you view the blog level linkage, queried at that moment |
-| Avatar image host (default: the instance's own object storage; the operator may configure an external host via environment variables) | avatar and image storage | the uploaded image file itself | only when uploading an avatar or similar image; with an external host configured, image files transfer to that host |
+| Linux DO, GitHub, Google, Microsoft, Apple, or custom SSO identity sources | Using the corresponding SSO login; site-wide external login is off by default in the checked version | OAuth or OIDC exchanges, identifiers, names, avatars, email addresses, trust levels, and attributes actually returned | The source and this instance each process according to their actual roles; login authorisation is not consent to arbitrary subsequent uses |
+| Authorised OAuth or OIDC applications | The instance provides authorisation and login to applications | The implementation may return sub, email, verification status, name, username, avatar, and role fields such as is_admin and role, without necessarily minimising each item according to the requested scope | Sharing must not be described as limited to openid, profile, and email; actual fields must be disclosed and releases beyond what is necessary corrected. Revocation does not recall ID tokens already issued or data already obtained by the recipient |
+| Telegram and bot services | Linking and enabling notifications. Personal `all` includes all mail; `important` requires an exact `重要` or `important` label, an actual stored star, or an existing verification code. System notifications independently use system settings and are off site-wide by default | Chat identifiers; non-private personal notices include the subject, not sender or recipient. `notifyCodeOnly` defaults to `false`: a separate opt-in attaches a copy button for an existing code, not a codes-only filter or a new extraction. `includePreview` defaults to `false` and controls the excerpt and reading button. Compatibility `privacy` mode sends only a generic notice, without subject, sender, recipient, code, excerpt, or link; system fields still follow system settings | Every sending path checks live user, mailbox, and message states and the revocation version, even with preview off. Reading links last at most 7 days and grant bearer access. Disabling or changing personal notifications revokes old reading and attachment links, not chat copies. These behaviours require coordinated frontend/backend upgrades; production deployment is not established |
+| Destination mailboxes for individual mail forwarding and their providers | Forwarding is enabled and the inbound flow reaches the branch; `rules` is unavailable and fails closed, and an empty `alias` list sends nothing | The original mail, or its subject and body sent through the system channel after native forwarding fails; the fallback call does not include ordinary attachments | Alias prefixes remain literal matches. `keepCopy` is fixed at `true`, retaining the local original, and cannot be switched off in the UI. Saving enabled `rules` or enabled forwarding with `keepCopy: false` is rejected. Legacy configurations no longer fall back to forwarding all mail; coordinated frontend/backend upgrades are required |
+| A blog or configured level-linkage endpoint | Login, quota synchronisation, or related query flows run according to configuration | Email identifiers and level or linkage information | Transmission should not be described as occurring only when a level page is opened manually; the endpoint, necessity, legal basis, and update frequency must be confirmed |
+| Image hosts, avatar sources, and public profile page visitors | Uploading or displaying external images, or enabling a public page | Images and request data; public pages may include the primary mailbox, role, profile fields, and activity or source statistics permitted by the visibility settings | All three statistics-hiding settings now also constrain the public API; deleted or disabled users return 404. This does not automatically physically delete static avatar objects; default storage and external image hosting still depend on configuration |
 
-## 3. AI Processing Chain (User-Triggered by Principle)
+Telegram reading links last at most 7 days and still grant bearer access, not login authentication or end-to-end confidentiality. In the updated implementation, reading and attachment links are state-bound: every request checks the user, mailbox, and message status and the revocation version in D1. Disabling or changing personal notifications revokes old links. Data Settings can also revoke all old Telegram reading and attachment links independently of whether future notifications remain enabled. Legacy unscoped tokens and old OSS v1 attachment tokens are no longer accepted; refresh to obtain new links. Revocation cannot retrieve text, images, or downloads already copied into chats, and does not establish revocation of other sharing paths.
 
-| Service | Function | Data involved | Trigger |
+## 3. AI, Translation, and Image Recognition
+
+| Recipient or configuration | Trigger | Data that may be transmitted | Verified scope and limits |
 | --- | --- | --- | --- |
-| The instance's configured model endpoint (OpenAI-compatible protocol by default) | mail translation | the text chunks being translated (whole paragraphs preferred; long texts chunked) | only when you click "Translate" |
-| Cloudflare Workers AI | code extraction (edge inference), translation fallback, image text recognition | subject and first 6,000 characters of the body (code extraction); text and images for translation / recognition | code extraction is the only AI processing not manually triggered (operator-optional); the rest are user-triggered |
-| MyMemory / Google Translate public interfaces | translation fallback | the text snippets involved | only as fallback when the model endpoint is unavailable |
+| Cloudflare Workers AI verification-code model | On new mail, global `aiCode`, `contentProcessing.verificationCodeEnabled`, a valid `noticeUrl`, and the user's `privacyPreferences.aiVerificationCode === true` must all permit processing; the user preference defaults to `false` | The complete subject and up to 6,000 JavaScript characters of body text | The subject does not count towards the body limit. Users can switch this off in Data Settings to stop subsequent automatic extraction requests; a global switch is not individual consent |
+| Configured OpenAI-compatible text models and Workers AI | Opening the translation bar or changing language sends nothing. With global AI, `contentProcessing.translationEnabled`, and a valid notice URL enabled, each request requires `confirmed: true` and a `noticeUrl` exactly matching the current configuration | Translation text, prompts, and any personal or sensitive data within them | Matching official bundled translations are displayed locally without calling a translation service. Other requests remain disabled when enablement or notice conditions are missing, without automatic external submission. Protocol compatibility does not identify OpenAI as the recipient; the actual entity, endpoint, and retention terms must be confirmed |
+| MyMemory and Google Translate public interfaces (historical paths, currently unavailable) | Public fallback and missing-segment completion calls have been removed from `ai-service` | These paths previously sent text and prompt excerpts, partly in URL query parameters; the updated implementation no longer transmits through them | `contentProcessing.publicTranslationFallbackEnabled` is normalised to `false`; saving `true` is rejected. The admin control is disabled and marked unavailable. Neither endpoint failures nor missing segments activate public fallback |
+| Workers AI or a configured external vision model | Confirmed translation requires both server-side `contentProcessing.ocrEnabled === true` and an explicit `enableOcr: true` for this request; otherwise OCR is `false`, regardless of an earlier UI preference | Embedded image bytes, or remote image URLs including the full path and query parameters; recognised text then enters the translation chain | Text-only translation is available. OCR is not limited to separately uploaded images; icon and tracking-pixel filtering is heuristic and does not guarantee that all are skipped |
 
-The operator does not train any model on mail content and sends AI services no user identity information beyond the text needed for translation or recognition.
+The operator does not itself use mail as a model-training dataset. Whether recipients retain data, train on it, review it manually, or use subprocessors must be checked against the actual service and contract; this cannot be inferred from the words "AI", "edge", or statements on this page. Where a valid basis, choice, withdrawal, and cross-border conditions are not in place, the relevant external transfers should be disabled.
 
-## 4. External Services Brought by the User or Operator
+## 4. Self-Supplied Storage and External Databases
 
-| Service | Function | Data involved |
+| Recipient or configuration | Data that may be processed | Responsibilities and deletion limits |
 | --- | --- | --- |
-| S3-compatible storage (AWS S3, Backblaze B2, MinIO, and others) | external storage of attachments and raw mail blobs (BYOS) | attachment binary content and its access credentials |
-| Turso / LibSQL and similar external databases | external data redundancy | data copies as configured |
+| S3-compatible storage, R2, or other object backends selected by a user or the operator | Attachments, object identifiers, access and configuration credentials, and complete original MIME bytes staged for inbound recovery with server-side AES-256-GCM encryption | The 7-day application deadline may be renewed by retries. Success does not delete the object immediately; scheduled batch cleanup can fail and leave it behind, so this is not a guaranteed TTL. D1 inbound claims hold metadata, not the raw body; encryption is not end-to-end. Locations, control, and contracts depend on configuration; the backend may obtain credentials |
+| Turso or LibSQL and HTTP SQL connection-test endpoints | Authentication and test queries are sent during connection tests, potentially including endpoint log data | This review found only configuration and connection probes; D1 is still selected for application data. External replication or routing of application data is not implemented and must not be described as established redundant copies |
 
-These self-provided services are chosen by whoever configures them; that party must ensure the choice meets its location's legal requirements for international transfers.
+A user's choice of provider does not automatically exempt the operator from responsibility for transfers, credential retention, and deletion that it performs itself. The updated account-closure flow disables the account, revokes access, and records `manual_review`; it does not establish complete erasure. Physical deletion of backups and external objects still requires checks for each backend; see [Data Processing & Security Maintenance](/en/mail/data-security/).
 
-## 5. Third-Party Requests at the Interface Layer
+## 5. Browser and Remote Content Requests
 
-| Service | Function | Notes |
+| Recipient or resource | When it occurs | Data that may be received and limits |
 | --- | --- | --- |
-| Google Fonts | interface font loading | the browser requests fonts from Google when loading pages; the data subject's IP appears in its request logs |
-| Cloudflare Turnstile | human verification | run at registration and when adding a mailbox; assesses browser trustworthiness without advertising cookies or cross-site tracking |
+| Fonts, static resources, and their hosts | Vue no longer links to Google Fonts; React fonts are self-hosted | These two font paths no longer request Google Fonts. Other configured external resources may still receive IP addresses, User-Agent, times, and referrer information; this does not mean the entire site makes no external requests |
+| Cloudflare Turnstile | Loading and challenges on relevant registration, verification, or security pages | Device, network, and request data needed for verification; terminal storage and the legal basis must be confirmed against the actual configuration |
+| Remote mail images, sender-domain icons, external avatars, or image hosts | Choosing to load images for one message during ordinary reading, or interface requests for avatars and other external resources | Remote mail images and remote CSS are blocked by default. Ordinary reading offers message-only image loading after a risk notice; printing remains blocked by default, and Telegram sharing has no button to load external resources. Permitted requests and external avatars may still disclose IP addresses, times, complete URLs, and identifying parameters |
+| Hosts of documentation sites, project websites, and external links | You open the site or link | Request and log data for the corresponding site; independent uses by external websites follow their notices, while this instance remains legally responsible for the parts it embeds or actively requests |
 
-## 6. Disclosure on Legal Request
+The absence of advertising SDKs or third-party analytics tools does not establish that these requests do not occur. See Section 4 of the privacy policy for the conditions concerning browser localStorage, necessary verification, and any non-essential terminal access.
 
-The operator discloses personal data to outside parties only when legally compelled or when a judicial authority requests it through due legal process. The operator verifies the request's lawfulness, discloses only the minimum scope the law requires, and notifies the affected data subjects to the extent the law allows (unless the law forbids it). Self-hosted operators should supplement the corresponding commitments for their own jurisdiction.
+## 6. Legal Requirements, Data Processing Agreements, and Cross-Border Safeguards
 
-## 7. Notice of Processor Changes
+Necessary data is provided to competent authorities only on a valid basis, with the request and scope verified and affected people notified where the law allows. Foreign requests do not automatically exclude assessment under the GDPR and confidentiality of communications rules.
 
-Adding or replacing an entrusted processor is a material change under Section 13 of the [Privacy Policy](/en/mail/privacy-policy/); the operator will announce it in advance under that section's procedure and update this list.
+Where a recipient is a processor, the operator must, as required by applicable law, put written arrangements in place covering instructions, confidentiality, security, subprocessors, assistance with data subject rights and incidents, return or deletion at the end of processing, and necessary audits. General terms of use or this list do not automatically constitute data processing agreements signed by every provider.
+
+For cross-border transfers restricted by the GDPR, an adequacy decision or other valid safeguards should be confirmed against the actual receiving entity, destination, and service scope. Taiwan was not on the European Commission's adequacy list checked in this review; operating from Taiwan does not automatically provide adequacy safeguards. If relying on the EU-US Data Privacy Framework, the mechanism must be in force and each US receiving entity's current certification and covered services must be checked, rather than relying on a parent company's name or brand.
+
+If SCCs are used, appropriate clauses must actually be incorporated, transfer impacts assessed, and necessary supplementary measures evaluated; overseas remote administration with data access and subsequent subprocessors must also be included. SOC or ISO certification, HTTPS, a global edge network, or an SCC template does not by itself establish that the transfer is lawful. Summaries and copies of safeguards that may lawfully be provided can be requested from `privacy@epocanvas.com`; the status of adequacy decisions and frameworks is governed by the decisions in force at the time of the actual transfer.
+
+## 7. Instance Records and List Updates
+
+| Matters an instance should publish or be able to provide as required by law | Status of this document review |
+| --- | --- |
+| Enabled providers, contracting entities, features, and data scope | Source code can establish available paths; the hosted instance's actual enabled-provider list has not been checked |
+| Locations of data storage, inference, logs, and subprocessors | Not verified against deployment and provider records; no promise of restriction to particular regions |
+| Specific retention periods for data categories, provider logs, and backups | The instance still needs to supply and verify them; "according to provider policy" must not obscure periods that can already be determined |
+| Processing agreements, cross-border mechanisms, and impact assessments | Signing or completion has not been confirmed; this document does not establish that they are in effect |
+| Notice, valid consent, and withdrawal for optional features | Source code switches and buttons are not complete proof; actual flows and records must be checked |
+
+The operator must complete the necessary checks before enabling the relevant data flows and provide appropriate notice before adding recipients or purposes or making material changes to safeguards. Where the law requires fresh consent, it must be obtained separately. The update date records only a textual revision; it does not mean all users have been notified or accepted new processing. See also Section 13 of the [Privacy Policy](/en/mail/privacy-policy/) for the basis of the list and how matters not yet implemented are handled.

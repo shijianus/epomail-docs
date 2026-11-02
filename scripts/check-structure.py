@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent / "src" / "content" / "docs"
-SYMMETRIC_LANGS = ["mail", "zh-tw", "en", "es", "fr", "nl"]
+SYMMETRIC_LANGS = ["mail", "zh-tw", "en", "es", "fr", "nl", "de"]
 DOCS = ["introduction", "project", "quickstart", "features", "modes", "settings", "interface", "search", "deployment", "development",
         "architecture", "overview", "privacy-policy", "terms-of-service",
         "acceptable-use", "data-security", "sub-processors", "key-terms", "tamper-proof",
@@ -22,7 +22,7 @@ H = re.compile(r"^(#{2,3})\s+(.*)$", re.M)
 ROW = re.compile(r"^\|.*\|\s*$", re.M)
 FIG = re.compile(r"!\[[^\]]*\]\((/images/[^)]+)\)")
 # figures are localized per language (/images/mail/<lang>/x.svg); compare identity, not prefix
-FIG_NORM = re.compile(r"^/images/mail/(?:zh-tw|en|fr|es|nl)/")
+FIG_NORM = re.compile(r"^/images/mail/(?:zh-tw|en|fr|es|nl|de)/")
 NOTE = re.compile(r"^:::\w*", re.M)
 
 

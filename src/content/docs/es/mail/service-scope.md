@@ -1,81 +1,89 @@
 ---
 title: Alcance del servicio y soporte
-description: Alcance del servicio y soporte de EpoCanvas Mail — qué proporciona la instancia alojada, los límites de ese servicio, los enlaces oficiales, los canales de soporte y las vías de apelación y recuperación.
+description: Funciones, límites, soporte, reclamaciones y recuperación de datos de un servicio personal de pruebas sin ánimo de lucro.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
-Esta página describe qué proporciona la instancia alojada ([mail.epocanvas.com](https://mail.epocanvas.com)), dónde termina ese servicio y cuáles son los canales de soporte. Las instancias autoalojadas quedan fuera del «servicio» aquí descrito: el software se proporciona bajo la licencia MIT y el proyecto ascendente no responde del funcionamiento de ninguna instancia — la posición legal figura en [Marco legal del código abierto y el autoalojamiento](/es/mail/open-source/); la división del responsable del tratamiento entre las dos formas está en la sección 2 de la [Descripción general de privacidad y condiciones](/es/mail/overview/).
+Esta página explica servicio y soporte de [mail.epocanvas.com](https://mail.epocanvas.com), un proyecto personal secundario sin ánimo de lucro para aprendizaje y pruebas. Las condiciones del autoalojamiento corresponden al operador real; véanse [Marco legal del autoalojamiento](/es/mail/open-source/) y [Visión general](/es/mail/overview/) para roles y deberes. Lea los Términos antes de registrarse; no cree una cuenta si no los acepta.
 
-![Arquitectura legal de EpoCanvas Mail: los términos del servicio y la política de privacidad descansan sobre la ley aplicable y las obligaciones de seguridad](/images/mail/es/legal-architecture.svg)
+La versión en chino tradicional (Taiwán) es la oficial; los demás idiomas son traducciones de referencia. Esta disposición no limita la información clara exigida por la ley aplicable, la interpretación favorable al consumidor ni los derechos irrenunciables. La fecha indica una revisión del texto, sin entrada en vigor automática de nuevas condiciones.
 
-*Figura: la arquitectura de compromisos de este servicio. Esta página describe el servicio en sí; el contrato y los estándares de información los portan los documentos legales situados por encima.*
+![Relación entre alcance del servicio y documentos legales](/images/mail/es/legal-architecture.svg)
+
+*Figura: esta página describe funciones y soporte; los documentos contractuales y de privacidad explican sus condiciones. Prevalecen normas imperativas y derechos irrenunciables.*
 
 ## 1. Qué proporciona el servicio
 
 | Elemento | Descripción |
 | --- | --- |
-| Cuentas y registro | Cuentas obtenidas mediante códigos de registro o registro abierto, según la configuración; seis grupos de identidad deciden cuotas y permisos |
-| Envío y recepción | Entrante a través de Cloudflare Email Routing, analizado al llegar; entrega directa dentro del sitio; fuera del sitio, por el canal de entrega del operador |
-| Almacenamiento | Cuota de almacenamiento por grupo de identidad; puede conectarse un almacenamiento de objetos personal para que los adjuntos aterricen directamente en él |
-| Organización y automatización | Buzón de ocho vistas, etiquetas y motor de reglas de clasificación, búsqueda avanzada, extracción de códigos de verificación |
-| Capacidades de IA | Traducción integral y OCR de imágenes (según la configuración del motor de IA de la instancia y la autorización de modelos) |
-| Notificaciones y reenvío | Push de Telegram y reenvío por reglas (según los controles de datos de usuario del administrador) |
-| Clientes | Web (instalable como PWA) y la aplicación Android (epomail) |
-| Idiomas | Seis idiomas de interfaz; el correo del sistema y el de bienvenida se entregan en el idioma del destinatario |
+| Cuentas y registro | Según apertura y cuotas, para personas de al menos 16 años con capacidad contractual necesaria |
+| Envío y recepción | Rutas entrantes, entrega interna y canales externos configurados; recibir también depende del servicio destinatario |
+| Almacenamiento | Cuotas por cuenta; conectar almacenamiento personal transmite datos correspondientes según configuración |
+| Organización y automatización | Vistas de correo, etiquetas, reglas, búsqueda y extracción configurable de códigos |
+| Capacidades de IA | Alcance y activadores de traducción, reconocimiento y otras funciones habilitadas en la Política de Privacidad |
+| Notificaciones y reenvío | Telegram y reenvío configurables implican destinatarios externos y transmisión de datos |
+| Clientes | Web, PWA instalable y aplicación Android según versiones publicadas |
+| Idiomas | Seis idiomas de interfaz y avisos localizados, con cobertura según versión |
 
-Los detalles a nivel de función figuran en la [Guía de funciones](/es/mail/features/); el recorrido por cada interfaz y ruta está en el [Mapa de interfaz y rutas](/es/mail/interface/).
+El uso se describe en la [Guía de funciones](/es/mail/features/) y el [Mapa de interfaz y rutas](/es/mail/interface/); lea el tratamiento de datos junto con la [Política de Privacidad](/es/mail/privacy-policy/).
 
 ## 2. Límites del servicio
 
 | Asunto | Límite |
 | --- | --- |
-| Disponibilidad | No se ofrece ningún acuerdo de nivel de servicio; la disponibilidad descansa en la plataforma de Cloudflare |
-| Conservación | La papelera se elimina físicamente siete días después de la recepción; el spam permanece en cuarentena siete días y luego pasa a la papelera |
-| Cuotas | El envío, los buzones y el almacenamiento siguen los valores de fábrica del grupo de identidad, ajustables por el Maestro en la página de permisos |
-| Coste | La instancia alojada no ofrece actualmente funciones de pago |
-| Cambio de funciones | Las funciones evolucionan con las versiones; los cambios significativos se anuncian en el aviso dentro del sitio y por correo de anuncios |
-| Límite de adjuntos | El tope por adjunto sigue la configuración de la instancia y solo vincula a los usuarios del almacenamiento compartido del operador |
+| Disponibilidad | Sin SLA, disponibilidad fija, plazo de entrega ni personal continuo; la responsabilidad por interrupciones de proveedores depende de hechos y ley |
+| Conservación | Papelera, tareas, copias y conservación legal tienen ámbitos distintos; eliminar no borra todas las copias inmediatamente. Véanse documentos de privacidad y seguridad |
+| Cuotas | Envíos, número de buzones y almacenamiento según ajustes publicados y procedimientos razonables de cambio |
+| Coste | La instancia es actualmente gratuita; la ausencia de lucro no desplaza deberes de datos o consumo |
+| Cambios de funciones | No se garantiza alojamiento permanente ni continuidad de funciones; cambios perjudiciales importantes y cierres previsibles requieren aviso cuando sea razonablemente posible y plazo razonable de recuperación |
+| Límites de adjuntos | Límites de instancia, almacenamiento y proveedor de entrega; BYOS no elimina otros límites técnicos o legales |
 
-La semántica completa de la conservación figura en [Tratamiento de datos y seguridad](/es/mail/data-security/); los límites de comportamiento, en la [Política de Uso Aceptable](/es/mail/acceptable-use/).
+El proyecto toma los principios de protección de datos de la Unión Europea como referencia y realiza esfuerzos razonables de mantenimiento y mejora según los riesgos reales. La sección 1 de la [Política de Privacidad](/es/mail/privacy-policy/) presenta los riesgos conocidos y las medidas que puede adoptar. Esta orientación no incluye una certificación de cumplimiento integral, disponibilidad empresarial ni garantía de ausencia de incidentes; la información sobre los riesgos no altera los derechos legales ni las responsabilidades que no pueden excluirse.
+
+El servicio es adecuado para el aprendizaje y las pruebas de comunicación ordinaria que puedan tolerar interrupciones, pérdida de contenido y cambios en las funciones. No es adecuado para emergencias, conservación legal, decisiones médicas, único correo de recuperación de cuentas o única copia de seguridad de datos importantes. Priorice el contenido sintético, conserve aparte las copias necesarias y elija las funciones según sus necesidades reales. Los límites de conservación, exportación y cifrado figuran en la Política de Privacidad y [Tratamiento de datos y seguridad](/es/mail/data-security/), y las reglas de conducta en la [Política de Uso Aceptable](/es/mail/acceptable-use/).
 
 ## 3. Enlaces oficiales dentro de la aplicación
 
-Los destinos por defecto de los enlaces oficiales en toda la aplicación se enumeran a continuación; el operador de una instancia puede sobrescribirlos en la configuración del sistema:
+Los enlaces predeterminados pueden ser cambiados por el operador. Enlazar este sitio no demuestra gestión ni certificación oficial del despliegue.
 
 | Enlace | Destino por defecto | Dónde |
 | --- | --- | --- |
-| Presentación del proyecto | La página Presentación del proyecto de este sitio | Pie del menú de la cuenta |
-| Política de privacidad / Términos del servicio | Los documentos legales correspondientes de este sitio | Pie del menú de la cuenta |
-| Documentación | Este sitio (se entra mediante la negociación del idioma del navegador) | Configuración del sistema, tarjeta «Acerca de» |
-| Soporte | La página Alcance del servicio y soporte de este sitio | Configuración del sistema, tarjeta «Acerca de» |
-| Releases | GitHub Releases | Configuración del sistema, tarjeta «Acerca de» |
-| Telegram | `t.me/epomail` | Configuración del sistema, tarjeta «Acerca de» |
+| Presentación del proyecto | Presentación del proyecto en este sitio | Pie del menú de cuenta |
+| Política de Privacidad / Términos del Servicio | Documentos legales correspondientes | Pie del menú de cuenta |
+| Documentación | Páginas del idioma correspondiente | Configuración del sistema, tarjeta Acerca de |
+| Soporte | Página Alcance del servicio y soporte | Configuración del sistema, tarjeta Acerca de |
+| Versiones | GitHub Releases | Configuración del sistema, tarjeta Acerca de |
+| Telegram | `t.me/epomail` | Configuración del sistema, tarjeta Acerca de |
 
 ## 4. Canales de soporte
 
 | Canal | Para |
 | --- | --- |
-| Contacto dentro del producto | Mensaje dentro del sitio o `admin@epocanvas.com` |
-| Privacidad y protección de datos | `privacy@epocanvas.com` (ejercicio de los derechos de los interesados, apelaciones de protección de datos) |
-| GitHub Issues | Informes de errores y propuestas de funciones (`github.com/shijianus/epomail`) |
-| Telegram | Chat de la comunidad en `t.me/epomail` |
+| Contacto dentro del producto | Mensajes internos o `admin@epocanvas.com` para soporte general y reclamaciones |
+| Privacidad y protección de datos | `privacy@epocanvas.com` para derechos y reclamaciones de datos |
+| GitHub Issues | Errores y propuestas en el [repositorio fuente](https://github.com/shijianus/epomail/issues) |
+| Telegram | Comunidad en `t.me/epomail`, sin datos privados ni credenciales |
+
+El soporte general es asíncrono, sin plazos prometidos de respuesta o reparación. Cuando se aplica el RGPD, las solicitudes de protección de datos deben responderse sin dilación indebida y en un mes desde su recepción; si concurren requisitos legales de complejidad o número, puede ampliarse hasta dos meses adicionales, informando de los motivos dentro del primer mes. Prevalecen plazos menores exigidos por otra ley aplicable. Véase la Política de Privacidad; la programación del soporte no retrasa plazos legales.
 
 ## 5. Apelaciones y recuperación
 
-- Olvido de contraseña: el cuadro de diálogo de «olvido de contraseña» de la página de inicio de sesión salta al portal de apelaciones (llevando el tipo de apelación, el idioma de la interfaz y la dirección de correo); el acceso se restablece tras la verificación;
-- Apelaciones de suspensiones y alertas: una apelación contra una decisión de tratamiento entra en el Informe de auditoría como un aviso, que un administrador adjudica liberándolo o rechazándolo; la escala de aplicación figura en la sección 6 de la [Política de Uso Aceptable](/es/mail/acceptable-use/);
-- Datos de autoservicio: la exportación JSON completa, los archivos del historial de correo y las descargas .eml de mensajes sueltos están disponibles en cualquier momento en «Configuración → Datos»; véase la sección 5 de la [Guía de configuración](/es/mail/settings/).
+- Si no puede iniciar sesión, use la entrada de recuperación o reclamación del acceso, o `admin@epocanvas.com`. Solo se pide verificación proporcional; recuperar depende de la verificación real y viabilidad técnica.
+- Advertencias, suspensiones y terminaciones pueden reclamarse. El aislamiento urgente no elimina revisión posterior ni recursos externos; véanse secciones 6 y 7 de la [Política de Uso Aceptable](/es/mail/acceptable-use/).
+- Use exportaciones y descargas de mensajes actualmente disponibles. El autoservicio no implica incluir todos los datos personales, adjuntos o copias externas. Solicite acceso adicional, portabilidad o supresión según la [Política de Privacidad](/es/mail/privacy-policy/) y [Tratamiento de datos y seguridad](/es/mail/data-security/).
 
 ## 6. Límite de soporte para las instancias autoalojadas
 
-El proyecto de código abierto ascendente no proporciona ningún servicio, soporte ni compromiso de disponibilidad para ningún despliegue de su código; el desplegador asume ante sus propios usuarios los deberes de soporte, de información y de cumplimiento. Los documentos de este sitio (incluido el conjunto legal) pueden servir de base para los materiales de un desplegador orientados a sus usuarios, y quien los adopte se hace responsable de ellos.
+Publicar código por sí solo no crea compromisos de alojamiento, soporte o disponibilidad para todos los despliegues. El operador real debe informar y ofrecer recursos conforme a su relación de servicio y ley; los autores que también operan asumen esos deberes.
+
+Los documentos son referencia de redacción, no sustituyen evaluar roles, configuración y ley reales ni certifican cumplimiento. El tratamiento para organizaciones requiere aceptación previa y acuerdo de encargo separado cuando proceda.
 
 ## 7. Documentos relacionados
 
 | Recurso | Enlace |
 | --- | --- |
-| El contrato y la limitación de responsabilidad del servicio | [Términos del Servicio](/es/mail/terms-of-service/) |
-| Aviso de privacidad y derechos de los interesados | [Política de Privacidad](/es/mail/privacy-policy/) |
-| La licencia de código abierto y el derecho aplicable al autoalojamiento | [Marco legal del código abierto y el autoalojamiento](/es/mail/open-source/) |
-| Pasos completos para desplegar su propia instancia | [Guía de despliegue](/es/mail/deployment/) |
+| Condiciones contractuales y límites de responsabilidad | [Términos del Servicio](/es/mail/terms-of-service/) |
+| Información de privacidad y derechos | [Política de Privacidad](/es/mail/privacy-policy/) |
+| Licencia y deberes de autoalojamiento | [Marco legal del autoalojamiento](/es/mail/open-source/) |
+| Pasos de configuración del autoalojamiento | [Guía de despliegue](/es/mail/deployment/) |

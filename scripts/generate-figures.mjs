@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Generate localized SVG figures for all 6 site languages.
+// Generate localized SVG figures for all 7 site languages.
 // Root paths (public/images/mail/*.svg) carry Simplified Chinese (zh, the root locale);
 // each other language gets public/images/mail/<lang>/<name>.svg.
 // Run: node scripts/generate-figures.mjs
@@ -17,7 +17,12 @@ const OUT = path.join(ROOT, 'public', 'images', 'mail');
 
 const builders = { ...builders1, ...builders2 };
 const strings = { ...STR1, ...STR2 };
-const LANGS = ['zh', 'zh-tw', 'en', 'fr', 'es', 'nl'];
+const LANGS = ['zh', 'zh-tw', 'en', 'fr', 'es', 'nl', 'de'];
+
+function escapeXml(value) {
+  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+}
 
 let count = 0;
 for (const [name, build] of Object.entries(builders)) {
@@ -28,7 +33,7 @@ for (const [name, build] of Object.entries(builders)) {
     if (!t) { console.error(`No ${lang} strings for figure: ${name}`); process.exit(1); }
     const missing = Object.keys(dict.en).filter((k) => !(k in t));
     if (missing.length) { console.error(`${name}/${lang} missing keys: ${missing.join(', ')}`); process.exit(1); }
-    const svg = build(t);
+    const svg = build(Object.fromEntries(Object.entries(t).map(([key, value]) => [key, escapeXml(value)])));
     const dir = lang === 'zh' ? OUT : path.join(OUT, lang);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, `${name}.svg`), svg + '\n', 'utf8');

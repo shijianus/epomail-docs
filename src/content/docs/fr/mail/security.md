@@ -3,7 +3,7 @@ title: Guide de sécurité du compte
 description: Guide de sécurité du compte d'EpoCanvas Mail — activer la vérification en deux étapes en trois étapes, gérer les codes de récupération, enregistrer des clés d'accès, comportement de la vérification à la connexion et suppression du compte.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.25**
 
 La présente page parcourt une à une les actions de la page « Paramètres → Sécurité ». Le comportement général de la vérification en deux étapes (appareils de confiance, politiques forcées) est décrit à la section 4 de [Modes de fonctionnement](/fr/mail/modes/) ; la présente page ne couvre que la configuration. Entrée : barre latérale « Paramètres → Sécurité » (`#settings/security`).
 
@@ -60,7 +60,9 @@ La visibilité du centre suit le mode courriel de l'instance : les modes privé 
 
 ## 6. Suppression du compte
 
-Une entrée de suppression figure au bas de la page. Après suppression, les données du compte suivent les clauses d'effacement de la [Politique de confidentialité](/fr/mail/privacy-policy/) ; exportez d'abord vos données via « Paramètres → Données » (voir le [Guide des notifications et du transfert](/fr/mail/notify/)).
+L’entrée au bas de la page permet de demander la suppression du compte courant. L’implémentation locale de cette révision désactive d’abord dans D1 le compte et toutes ses boîtes, puis révoque les sessions, jetons d’accès personnels (PAT), la confiance des appareils, les justificatifs OAuth en attente et les autorisations. Les courriels entrants des comptes désactivés sont bloqués avant le traitement par IA. Les choix d’affichage du profil public sont appliqués par le serveur ; les profils des comptes inactifs renvoient 404. Chaque accès partagé à un message ou à une pièce jointe vérifie de nouveau l’état courant du compte et du message ainsi que la version de révocation. Une déconnexion ordinaire n’est ni cette révocation à l’échelle du compte ni une suppression du compte. Ces mécanismes locaux n’attestent pas la mise à jour de toutes les instances en ligne.
+
+Le résultat `manual_review` signifie que l’accès est désactivé mais que la suppression attend un examen humain, sans confirmer un effacement physique complet. `cleanup_failed` signifie que le compte reste désactivé et qu’une partie du nettoyage requiert un traitement ; contactez l’opérateur et suivez la demande. Les administrateurs peuvent consulter la file de nettoyage des objets, mais ne peuvent pas annuler une demande de suppression par une restauration en un clic. Les localisations BYO d’origine sont conservées jusqu’à confirmation par la file. Les copies dans les discussions, avatars statiques du serveur, journaux d’audit, sauvegardes et brouillons locaux ne disparaissent pas tous automatiquement à la réception de cette réponse. Vérifiez la portée de l’[exportation des données](/fr/mail/data/) et confirmez séparément le nettoyage des brouillons sur cette page ; suivez les sections 8 et 9 de la [Politique de confidentialité](/fr/mail/privacy-policy/) pour la suppression complète.
 
 ## 7. Documents connexes
 

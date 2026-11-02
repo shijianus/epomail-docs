@@ -1,147 +1,107 @@
 ---
 title: Gegevensverwerking en Beveiligingsonderhoud
-description: Gegevensbeveiliging en bescherming van persoonsgegevens van EpoCanvas Mail — beveiligingsmaatregelen, verantwoordelijkheidsgrenzen van de dubbele exploitatiesporen, uitoefening van uw rechten en reactie op beveiligingsincidenten.
+description: De gecontroleerde gegevenslevenscyclus, beveiligingsmaatregelen en beperkingen, en vereisten voor rechtenverzoeken, verwijdering en incidentafhandeling bij kleine instanties zonder winstoogmerk.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.25**
 
-Dit document beschrijft de maatregelen waarmee de officiële gehoste instantie (mail.epocanvas.com) gegevens beschermt, de verantwoordelijkheidsgrenzen tussen de gehoste dienst en het open-sourceproject, en hoe u uw eigen gegevens kunt inzien, exporteren en verwijderen. Het is opgesteld krachtens het [Privacybeleid](/nl/mail/privacy-policy/) en de [Servicevoorwaarden](/nl/mail/terms-of-service/); de technische feiten volgen de werkelijke implementatie in de open-sourcecode.
+Deze pagina vult het [Privacybeleid](/nl/mail/privacy-policy/) aan en maakt onderscheid tussen mechanismen die in de opensourcecode zijn geïmplementeerd en maatregelen die de exploitant in de feitelijke implementatie moet uitvoeren. De technische beschrijving omvat de huidige codewijzigingen van `shijianus/epomail`. Feitelijke instanties moeten worden bijgewerkt en geconfigureerd; broncode bewijst geen voltooide online uitrol, leveranciersovereenkomsten of individuele verwijderingen.
 
-De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend. De juridische en technische documenten op deze site volgen de open-sourceimplementatie van de dienst en beogen transparante, strenge, niet-commerciële normen voor gemeenschapscommunicatie.
+De versie in het traditioneel Chinees (Taiwan) is de officiële versie; vertalingen mogen dwingend recht of de rechten van betrokkenen niet beperken. De dienst is een door een particulier onderhouden project voor leren en testen zonder winstoogmerk, met maatregelen die in verhouding staan tot de risico's. Deze pagina bevat geen toezegging van ISO-certificering, verzekering, permanente personele bezetting of een dienstverleningsniveau voor bedrijven.
 
-<div class="privacy-checkup-row">
-  <div class="privacy-checkup-icon">
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="40" height="40" rx="10" fill="#E8F0FE"/>
-      <path d="M20 9L29 13V19C29 24.5 25.2 29.6 20 31C14.8 29.6 11 24.5 11 19V13L20 9Z" fill="#1967D2"/>
-      <path d="M17 20L19.2 22.2L23.8 17.6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
-  <div class="privacy-checkup-content">
-    <div class="privacy-checkup-title">Snelle gids voor beveiliging en privacy</div>
-    <div class="privacy-checkup-desc">Wilt u weten hoe gegevens worden verzameld en beschermd, hoe u uw rechten uitoefent of hoe u deze documenten verifieert?</div>
-    <a href="/nl/mail/overview/" class="privacy-checkup-link">Naar het documentenoverzicht ↗</a>
-  </div>
-</div>
+![Beveiligingslagen voor overdracht, verwerking, opslag en authenticatiegegevens](/images/mail/nl/security-trust-shield.svg)
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+*Figuur: controles op elke laag verminderen verschillende risico's; het bestaan van een mechanisme, een juiste configuratie en feitelijke verificatie zijn verschillende zaken.*
 
-## 1. In de dienst ingebouwde beveiliging
+## 1. Beveiligingsfuncties en bekende beperkingen
 
-De bescherming van gegevens op de officiële gehoste instantie is georganiseerd in vier lagen: transport, verwerking aan de rand, opslag in rust en referentiegegevens. Elke maatregel is in de open-sourcecode geïmplementeerd en onafhankelijk te controleren.
+### 1.1 Overdracht en vertrouwelijkheid van communicatie
 
-<div class="google-illustration-container">
-  <img src="/images/mail/nl/security-trust-shield.svg" alt="Defensie in diepte van EpoCanvas Mail: versleuteld transport, staatloze randverwerking, versleuteling in rust en bescherming van referentiegegevens, rustend op de controle door de gebruiker" width="416" height="276" />
-</div>
+De website en API moeten correct geconfigureerde HTTPS/TLS gebruiken. Dat de browserverbinding TLS gebruikt, garandeert niet dat de volledige route via uitgaande aflevering, de systemen van ontvangers, externe objectopslag en het doorsturen door gebruikers end-to-end versleuteld is. Bijgewerkte HTML-weergave blokkeert standaard externe afbeeldingen, externe CSS en actieve inhoud. Gewone weergave kan na een waarschuwing afbeeldingen voor alleen het huidige bericht toestaan, met resterend IP- en openingsrisico. Afdrukken behoudt de standaardblokkering; Telegram staat geen externe bronnen toe. Google Fonts-links zijn verwijderd; Turnstile en externe avatars kunnen nog derden benaderen. Zie de [Lijst van verwerkers](/nl/mail/sub-processors/).
 
-*Figuur: vier beschermingslagen — transport, rand, opslag in rust en referentiegegevens; de basis is uw eigen controle (zelfservice-export, verwijdering en tweestapsverificatie).*
+### 1.2 Verwerking aan de rand en foutopsporing
 
-### 1.1 Versleuteling van het transport
+De bedrijfslogica gebruikt Cloudflare Workers; blijvende gegevens worden in databases en opslagdiensten bewaard. Tijdens het ontleden, vertalen en afleveren van e-mails en het maken van reservekopieën kan onversleutelde inhoud in het geheugen worden verwerkt; sandboxes kunnen opnieuw worden gebruikt en er is geen garantie dat het fysieke geheugen na elk verzoek wordt vernietigd. Het ontbreken van eigen servers betekent evenmin dat het platform geen logboeken of momentopnamen heeft.
 
-Wanneer u de dienst via een browser of de mobiele app benadert, worden alle verbindingen versleuteld met HTTPS/TLS, zodat de inhoud van de communicatie voor tussenliggende knooppunten op openbare netwerken onleesbaar blijft. Statische sitebestanden worden geleverd via een inhoudsnetwerk, met cache- en beveiligingskoppen.
-
-### 1.2 Staatloze verwerking aan de rand
-
-De bedrijfslogica draait op Cloudflare Workers (V8 Isolate-sandboxes): de tijdens de verwerking ontsleutelde platte tekst van een e-mail bestaat alleen in het geheugen van dat verzoek; als het verzoek eindigt, wordt de sandbox vrijgegeven en blijft er geen platte tekst achter op de fysieke schijven van de hostmachine. De dienst draait geen eigen permanente servers en geen altijd-doorlopende achtergrondprocessen.
+In logboeken moeten authenticatiegegevens, berichtteksten en onnodige identificerende gegevens worden afgeschermd. Gebruik voor tests bij voorkeur synthetische inhoud en geïsoleerde resources; upload geen echte e-mails, sleutels of databasekopieën naar openbare repositories of niet-goedgekeurde AI- of diagnosediensten om fouten te reproduceren.
 
 ### 1.3 Versleuteling in rust
 
-Of onderwerpen en bodies van e-mails worden versleuteld, hangt af van de e-mailmodus van de instantie: in de modus «Versleuteld» worden onderwerp en body van elke e-mail opgeslagen met AES-256-GCM (met authenticatietags); in de modus «Privé» wordt alles versleuteld behalve spam en prullenbak; in de modus «Alles» wordt niet versleuteld. Elke record gebruikt een willekeurige initialisatievector. De versleutelingssleutels worden met HKDF-SHA256 afgeleid van een instantiebrede omgevingsvariabele met hoofdgeheim (`jwt_secret` / `totp_enc_key`) met een zout per gebruiker; het hoofdgeheim wordt nooit in de database geschreven noch in de repository vastgelegd. Als een instantie de omgevingsvariabelen met het hoofdgeheim niet configureert, degradeert de versleuteling naar een in de code ingebouwde standaardsleutel; de implementator moet de configuratie via de initialisatiepoort voltooien om dit te voorkomen. Bijlagen vallen buiten de versleutelingsomvang.
+E-mailmodi kunnen serverzijdige AES-256-GCM-versleuteling in rust toepassen op onderwerpen en berichtteksten; de reikwijdte hangt af van de modus en de status van de registratie. Volledige oorspronkelijke MIME wordt afzonderlijk met AES-256-GCM en een serversleutel versleuteld volgens paragraaf 1.5; bijlagen en metadata krijgen niet automatisch dezelfde bescherming. De exploitant beschikt over sleutels en serverrechten en kan technisch ontsleutelen; modusbeperkingen in de beheerinterface staan niet gelijk aan end-to-end-vertrouwelijkheid. In de privémodus kunnen het onderwerp, de berichttekst en de verificatiecode bij verplaatsing naar de prullenbak ontsleuteld worden opgeslagen en zichtbaar worden voor beheerders; na herstel wordt het bericht opnieuw volgens de modus versleuteld. Het uitschakelen van meldingen en doorsturen op systeemniveau in de versleutelde modus omvat niet alle persoonlijk ingestelde doorgiften.
 
-:::caution[Omvang en grenzen van de versleuteling]
-Bovenstaande versleuteling is serverside-versleuteling in rust: zij beschermt tegen infrastructuurrisico's zoals gestolen databasebestanden of gelekte momentopnamen; het is geen end-to-end-versleuteling. Een exploitant die de server van de instantie en het hoofdgeheim beheerst, kan inhoud technisch ontsleutelen. Wat beheerders kunnen zien, hangt af van de e-mailmodus: in de modus «Alles» kan de beheerder elke e-mail lezen; in de modus «Privé» alleen spam, verwijderde en niet-toegewezen e-mail; in de modus «Versleuteld» geeft de beheerinterface de inhoud van gebruikersmail niet terug. Wilt u vertrouwelijkheid tegenover elke derde, inclusief de exploitant, versleutel dan zelf de body met GPG/OpenPGP of een vergelijkbaar clienthulpmiddel vóór het verzenden.
-:::
+De instantie moet afzonderlijke, zorgvuldig beheerde sleutels gebruiken, de initialisatie voltooien, de feitelijke versleutelingsstatus verifiëren en sleutelrotatie en toegangsrechten plannen. De aanwezigheid van versleutelingsfuncties in de broncode bewijst niet dat alle historische gegevens, back-ups of kopieën bij derden zijn versleuteld.
 
-### 1.4 Bescherming van referentiegegevens
+### 1.4 Authenticatiegegevens en sessies
 
-- **Wachtwoorden**: gehasht met PBKDF2-HMAC-SHA256 bij 100.000 iteraties met een uniek willekeurig zout per gebruiker; nooit in platte tekst of omkeerbare vorm opgeslagen;
-- **Tweestapsverificatie**: het TOTP-geheim wordt versleuteld met AES-256-GCM opgeslagen; herstelcodes worden alleen als SHA-256-hash bewaard;
-- **Toegangssleutels (Passkey/WebAuthn)**: de server slaat alleen de publieke sleutel en de referentie-id op; de privésleutel blijft in de authenticator op uw apparaat en reist nooit over het netwerk.
+In de bij deze controle onderzochte versie gebruiken nieuw opgeslagen wachtwoordgegevens PBKDF2-HMAC-SHA256 met een willekeurige salt per gebruiker en standaard 210.000 iteraties; de parameters zijn configureerbaar en oudere SHA-256-registraties of registraties met lagere parameters worden nog geaccepteerd en bij verificatie bijgewerkt. TOTP-sleutels gebruiken AES-256-GCM; herstelcodes hebben een hash en een versleutelde kopie van de oorspronkelijke codes die na hernieuwde verificatie kan worden getoond, en voor passkeys worden publieke authenticatiegegevens opgeslagen. Hashing garandeert niet dat wachtwoorden niet door raden kunnen worden achterhaald; parameters moeten ook later op basis van risico's en de stand van de techniek worden beoordeeld.
 
-### 1.5 Matrix van gegevensverwerking
+De TOTP-instelling schrijft de versleutelde instelsleutel naar de D1-tabel `auth_security_operation`, met een geldigheid van 300 seconden. De nog niet afgeronde multifactoraanmeldprocedure staat ook in die D1-tabel; de payload bevat het ingevoerde wachtwoord niet. Het voltooien van de tweede stap werkt alleen de payload bij en verlengt de oorspronkelijke termijn niet. Verval blokkeert verder gebruik maar is geen fysieke verwijdering; geplande opschoning kan de rij later verwerken. Als TOTP wordt uitgeschakeld terwijl er een actieve passkey overblijft, blijft `totpEnabled` ingeschakeld. De lijst van bekende aanmeldomgevingen bewaart maximaal 15 vermeldingen met een verschuivende TTL van 180 dagen; registraties die meerdere accounts aan een IP-adres koppelen, hebben een TTL van 7.200 seconden. Authenticatiegegevens voor vertrouwde apparaten kunnen 60 dagen worden bewaard en gedurende de eerste 30 dagen worden gebruikt om delen van de multifactorauthenticatie over te slaan.
 
-De gegevenscategorieën, verzamelde velden, doelen, opslagmedia en bewaartermijnen van de dienst zijn als volgt:
+Beperkingen na mislukte aanmeldingen en intrekking van sessies zijn geïmplementeerd; JWT's zijn standaard 30 dagen geldig. De capaciteitscontroles van de sessielijst verschillen aan de grenswaarden, zodat niet kan worden gesteld dat de code strikt maximaal 10 gelijktijdige sessies garandeert. Wanneer authenticatiegegevens in localStorage van de browser worden bewaard, moeten de risico's van gedeelde apparaten en toegang door scripts nog steeds worden beperkt.
 
-| Gegevenscategorie | Verzamelde velden | Doel | Opslag en bescherming | Bewaring |
-| --- | --- | --- | --- | --- |
-| Accountreferenties | e-mailadres, gebruikersnaam, wachtwoordhash en zout, TOTP-geheim (versleuteld), hashes van herstelcodes, publieke sleutels van toegangssleutels | registratie, aanmelding, tweestapsverificatie | Cloudflare D1; PBKDF2 (100.000 iteraties), TOTP versleuteld in rust | zolang het account bestaat; sessies ingetrokken bij deactivering, onherstelbaar na fysieke verwijdering |
-| Communicatiegegevens | afzender en ontvangers, CC/BCC, onderwerp, tijdstempels, leesstatus, labels, e-mailbody | verzenden, ontvangen, gesprekken organiseren, trefwoordzoekopdrachten | Cloudflare D1 (metadata); onderwerp en body versleuteld volgens de e-mailmodus | onder uw controle; prullenbak 7 dagen bewaard en daarna fysiek verwijderd |
-| Netwerk- en apparaatgegevens | registratie-IP, IP van de laatste aanmelding, besturingssysteem, browser- en apparaattype | beveiligingsaudit, opsporing van ongebruikelijke aanmeldingen | Cloudflare D1; alleen in te zien door beheerdersaudits, nooit voor commercieel profileren | tot de fysieke verwijdering van het account |
-| Randomgeving-gegevens | land/regiocode van het verzoek (`cf-ipcountry`) | interface-preselectie (zoals de standaard telefoonlandcode) | niet persistent; wordt alleen met het antwoord naar de browser teruggegeven | niet opgeslagen; vernietigd zodra het antwoord eindigt |
-| Sessies en autorisaties | JWT-sessietokens, rolmachtigingen | rand-API-authenticatie | toestaanlijst in Cloudflare KV; hooguit 10 actieve sessies per account | 30 dagen geldig; direct verwijderd bij uitloggen |
-| Bijlagen | originele bestandsnaam, MIME-type, bestandsgrootte, binaire inhoud | overdracht, voorbeeld en download van bijlagen | objectopslag van de instantie (opgelost in deze volgorde: eigen S3-compatibele opslag, R2-koppeling, standaard KV); defensieve koppen bij download | samen met de bijbehorende e-mail verwijderd |
+### 1.5 Gegevensverwerkingsmatrix
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+| Categorie | Opslaglocatie en inhoud | Bestaand opschoningsmechanisme | Beperkingen die de exploitant moet uitvoeren |
+| --- | --- | --- | --- |
+| Accounts en verificatie | Account-, profiel-, verificatie- en instellingsgegevens in D1; sessies in KV | Opzegging deactiveert eerst alle gekoppelde mailboxen, trekt sessies, PAT’s, vertrouwde apparaten, lopende verificatie en OAuth-machtigingen in en blokkeert inkomende mail vóór AI | `manual_review` is geen volledig wissen; fouten blijven opvraagbaar als `cleanup_failed`. Controleer statische avatars en resterende kopieën afzonderlijk |
+| Gewone e-mail | Onderwerpen, berichtteksten, metadata en labels in D1 | Handelingen van gebruikers, quotumopschoning en beheeropschoning | Gewone gegevens niet zonder doel voor onbepaalde tijd bewaren; back-ups en historische kopieën afzonderlijk afhandelen |
+| Spam en prullenbak | E-mailgegevens en gekoppelde objecten | De dagelijkse verwerkingsroute vergelijkt vanaf `create_time` met de drempel van 7 dagen; na verplaatsing van spam naar de prullenbak kan in dezelfde ronde aan de verwijderingsvoorwaarden zijn voldaan | Geen vaste buffer van 7 dagen na verplaatsing naar de prullenbak; succesvolle uitvoering van geplande taken en nieuwe pogingen na fouten moeten worden gecontroleerd |
+| Systeemberichten | Welkomst- en aankondigingsinhoud en vervalvelden | Sommige officiële e-mails worden bij het ophalen van de lijst op basis van de vervaltermijn, standaard 7 dagen, als verwijderd gemarkeerd en daarna via de dagelijkse route opgeschoond | Geen afzonderlijke onmiddellijke verwijdering zodra de termijn verstrijkt; de instantie moet de feitelijke termijn meedelen en de uitvoering controleren |
+| Bijlagen en oorspronkelijke e-mails | Bijlagen op S3, R2 of KV; volledige oorspronkelijke MIME met AES-256-GCM en serversleutel versleuteld in de door de eigenaar gekozen objectopslag. D1-claims: hash, ontvanger, Message-ID, gebruiker, oorspronkelijke sleutel en vervaltijd | Toepassingsverval na 7 dagen, verlengbaar bij nieuwe pogingen. COMPLETE wist niet direct; elke geplande uitvoering behandelt maximaal 100, wist objecten vóór claims en bewaart fouten voor nieuwe pogingen | Los van de bijlagewachtrij; geen opslag-TTL of wisgarantie binnen 7 dagen. Serversleutel is niet end-to-end. Bijwerken/configuratie vereist; MIME-opruiming bij opzegging nog te controleren |
+| Aanmeldingen en beveiligingsgebeurtenissen | IP-adres, User-Agent, apparaat, uitvoerende persoon, gebeurtenis en noodzakelijke gegevens over maatregelen | Accountvelden en afzonderlijke logboekmechanismen verschillen; er is geen algemene automatische vervaldatum aangetroffen | Minimalisering van velden, toegangsrechten en uitvoerbare bewaartermijnen vaststellen |
+| Audits, klachten en beslissingen | Auditgebeurtenissen, risico- en ticketstatus, klachten, kennisgevingen en auditgegevens over autorisaties | Voorwaardelijke handmatige opschoning van gewone oude gebeurtenissen; geen standaard-TTL voor alle categorieën | Zie de bewaarvoorwaarden in de alinea hieronder; per categorie termijnen en verwijderingsprocedures instellen |
+| Export en lokale kopieën | Gedownloade JSON en .eml; het `epo_sessions`-sessietokenregister, huidige e-mail en `epomail_recipient_records:*`-ontvangerrecords in localStorage; de identiteitsmarkering van het tabblad in sessionStorage; concepten en bijlagen in IndexedDB | Gewoon uitloggen trekt de huidige sessie in en wist de huidige e-mail en ontvangerscache in het geheugen, maar verwijdert `epomail_recipient_records:*` of andere accounts niet; concepten en bijlagen blijven behouden en worden bij het verwijderen van een concept samen verwijderd | Apparaatwissen in de gegevensinstellingen vereist uitdrukkelijke bevestiging voor alle lokale accounts, concepten, bijlagen, ontvangerrecords, vertrouwensstatus en caches; blokkering of mislukking wordt gemeld. Dit is geen volledige serververwijdering |
 
-## 2. Verantwoordelijkheidsgrenzen van het dubbele exploitatiespoor
+De lokale conceptendatabase is genoemd naar de primaire mailbox en bevat ontvangers, onderwerp, berichttekst, verzendinstellingen en bijlageobjecten in een afzonderlijke tabel; er is geen versleuteling op applicatieniveau aangetroffen. Het `epo_sessions`-sessietokenregister, de huidige e-mail en `epomail_recipient_records:*`-ontvangerrecords gebruiken blijvende opslag binnen dezelfde origin; de identiteitsmarkering per tabblad gebruikt sessionStorage, en accountpaden in de interface betekenen geen scheiding van browseropslag of apparaattoegang. De PWA heeft een automatisch geregistreerde Service Worker, maar bij deze controle was geen offlinecache voor e-mails geconfigureerd en is geen implementatie van browserabonnementen voor Web Push aangetroffen; deze feiten nemen het belang van lokale blijvende opslag niet weg.
 
-EpoCanvas Mail is tegelijk een officiële gehoste dienst en een open-sourceproject. De definitie van de verwerkingsverantwoordelijke en de verdeling van verantwoordelijkheid tussen de drie partijen staan in paragraaf 2 van het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/); dit hoofdstuk vult aan met de positionering van de gehoste instantie en de regels voor het verspreiden van de open-sourcecode.
+De dagelijkse opschoningsroute is ingesteld op 16:00 UTC, de volgende dag om 00:00 in Taiwan; daarnaast is er een geplande taak om de vijf minuten. Een ingestelde planning betekent niet dat elk type opschoning elke vijf minuten wordt uitgevoerd. Als een gebruiker een verwijdering uitvoert terwijl het gebruik al meer dan 90% van het quotum bedraagt, kunnen de geselecteerde e-mails direct fysiek worden verwijderd; het gaat dus niet uitsluitend om achtergrondtaken die bestaande prullenbake-mails wissen.
 
-<div class="google-illustration-container">
-  <img src="/images/mail/nl/dual-nature-scale.svg" alt="Dubbele bestuursstructuur van EpoCanvas Mail: één open-sourcecodebase, met de verwerkingsverantwoordelijke en verantwoordelijkheidsgrenzen van gehoste en zelfgehoste instanties" width="416" height="276" />
-</div>
+Het eindpunt voor auditopschoning accepteert alleen een specifiek bereik: gewone auditgebeurtenissen ouder dan 180 dagen, met normaal risico en een status van afgesloten, verlopen of afgewezen, met uitsluiting van verwijzingen door geldige blokkeringen. Dit zijn technische verwijderingsvoorwaarden, geen wettelijke minimale bewaartermijn; andere gebeurtenissen, klachten, beslissingen, kennisgevingen en autorisatieregistraties verlopen daardoor niet automatisch. De exploitant moet rechtmatige bewaarregels en uitvoerbare opschoning aanvullen en mag de aanwezigheid van een «wisknop» niet beschrijven alsof alle logboeken volgens een vastgestelde termijn worden verwijderd.
 
-*Figuur: twee exploitatiesporen op één open-sourcecodebase. Het exploitatieteam is de verwerkingsverantwoordelijke van de gehoste instantie; de deployer is de enige verwerkingsverantwoordelijke van een zelfgehoste instantie; de oorspronkelijke auteurs exploiteren geen dienst en houden geen gegevens bij.*
+## 2. Verantwoordelijkheden voor exploitatie en opensourcecode
 
-### 2.1 Positionering van de officiële gehoste instantie
+### 2.1 Gehoste testinstantie
 
-De gehoste instantie mail.epocanvas.com wordt door het exploitatieteam niet-commercieel geëxploiteerd: geen advertenties, geen verkoop of verhuur van gebruikersgegevens, en geen enterpriseniveau-serviceovereenkomst (SLA). De beschikbaarheid hangt af van upstreamdiensten zoals Cloudflare en de bezorgkanalen; exporteer zelf regelmatig back-ups van belangrijke correspondentie (zie paragraaf 3).
+Het onderhoud van de persoonlijk onderhouden testinstantie berust op redelijke inspanningen om risico's te verminderen. Rekening houdend met de gevoeligheid van de gegevens, de omvang van de verwerking, de stand van de techniek en redelijke uitvoeringskosten krijgen gebreken die grotere schade kunnen veroorzaken voorrang, en worden de huidige maatregelen en beperkingen duidelijk beschreven. Noodzakelijke procedures kunnen handmatige controles, vastlegging en opschoning omvatten die in verhouding staan tot het risico; er is geen onvoorwaardelijke toezegging van back-upvoorzieningen op bedrijfsniveau, een speciaal toegewezen wachtdienst of specifieke hersteltermijnen. Bij risico's die nog niet afdoende kunnen worden beheerst, moet de hoeveelheid gegevens worden verminderd, moeten functies worden beperkt of moet de betreffende verwerking worden opgeschort. Bekende beperkingen en maatregelen die gebruikers kunnen nemen staan in paragraaf 1 van het [Privacybeleid](/nl/mail/privacy-policy/). Wettelijke beveiligingsvereisten, rechtenverzoeken en meldingstermijnen blijven onder het toepasselijke recht vallen.
 
-### 2.2 Gedragsgrenzen
+### 2.2 Broncodeauteurs en beheerders van implementaties
 
-Gebruik van de gehoste instantie is onderworpen aan het volledige [beleid voor acceptabel gebruik](/nl/mail/acceptable-use/), waaronder het verbod op massale ongevraagde e-mail, phishing en het verspreiden van malware, bulkaanmeldingen en misbruik van bronnen. Overtredingen worden volgens de uitvoeringsladder van dat beleid afgehandeld, tot aan fysieke verwijdering.
+Wie alleen broncode levert en niet de doeleinden of middelen van verwerking van een specifieke instantie bepaalt, draagt daardoor niet de exploitatieverplichtingen van die instantie. Als dezelfde auteur daarnaast een gehoste instantie exploiteert, is die verantwoordelijk voor die exploitatie; ook rollen waarin daadwerkelijk gezamenlijk wordt beslist of in opdracht wordt verwerkt, moeten op basis van de feiten worden vastgesteld en kunnen niet vooraf door een document worden uitgesloten.
 
-### 2.3 Verspreiden en bewerken van de open-sourcecode
+### 2.3 Beheer in verhouding tot de omvang
 
-De broncode is gepubliceerd onder de MIT-licentie; iedereen mag haar inzien, auditen, wijzigen en zelf hosten. Bij verspreiding of bewerking van de code:
+Een kleine instantie kan één beknopt elektronisch register gebruiken met doeleinden en grondslagen, categorieën gegevens en betrokkenen, ontvangers, regio's en doorgiftewaarborgen, bewaring en verwijdering en beveiligingsmaatregelen. Als een verwerkingsregister wettelijk verplicht is, moet dit de vereiste velden bevatten en aan de bevoegde autoriteit kunnen worden verstrekt; minder dan 250 personen geeft op zichzelf geen vrijstelling. Rechtenverzoeken kunnen in afgeschermde tickets worden gevolgd, met ontvangstdatum, termijn, verificatie, reikwijdte van de afhandeling en voltooiing. Periodieke handmatige controles en opschoning kunnen passend zijn, maar moeten daadwerkelijk worden uitgevoerd en waar nodig worden vastgelegd.
 
-1. laat de oorspronkelijke auteursrechtvermelding en de volledige MIT-licentietekst onaangetast;
-2. suggereer niet in domeinen, interfaces of promotiemateriaal dat een instantie door het officiële team wordt geëxploiteerd of goedgekeurd;
-3. wie publieke e-mailregistratie aanbiedt, publiceert een eigen exploitant, servicevoorwaarden en privacybeleid. De documenten op deze site kunnen als voorbeeld dienen; dat is geen goedkeuring.
+De vereisten voor een EU-vertegenwoordiger, functionaris voor gegevensbescherming en effectbeoordeling moeten elk aan hun eigen wettelijke voorwaarden worden getoetst; zie paragraaf 12 van het privacybeleid. Een privacymailbox vervult die wettelijke functies niet automatisch. Alleen het opensourcekarakter of testen zonder winstoogmerk verplicht niet tot het oprichten van een bedrijf, het aannemen van een speciaal team, het afsluiten van een verzekering of het verkrijgen van ISO-certificering; een gebrek aan budget verlengt wettelijke termijnen evenmin. Ook als testresources alleen synthetische e-mails bevatten, moet de verwerking van echte accounts, toegangslogboeken en externe verzoeken worden gecontroleerd.
 
-### 2.4 Onafhankelijke verantwoordelijkheid van zelfgehoste instanties
+### 2.4 Controles vóór openstelling voor anderen
 
-Een derde die de open-sourcecode deployt, wordt vanaf het moment van deployen de enige en exclusieve verwerkingsverantwoordelijke voor de gebruikers van die instantie, en moet zelf de informatie-, beveiligings- en toezichtsverplichtingen nakomen die het recht op haar locatie vereist. De oorspronkelijke auteurs en bijdragers exploiteren geen enkele instantie, hebben geen toegang tot gegevens van zelfgehoste instanties en dragen geen deelverantwoordelijkheid voor de exploitatie, beveiligingsincidenten of geschillen van een instantie.
+Identiteit en adres van de exploitant, werkelijke derden en locaties, rechtsgronden, log-/back-upbewaring, volledig wissen en verzoekregistratie moeten nog worden uitgevoerd. De code sluit nieuwe registraties als naam, land, contact-e-mail, voorwaardenversie of voorwaarden-/privacy-URL’s ontbreken; bestaande accounts kunnen blijven inloggen. Het voorwaardenvak is niet vooraf aangevinkt; aanvaarding legt versie, tijd, taal en URL’s vast zonder extra IP als bewijs. Het privacybeleid is afzonderlijke informatie, geen algemene toestemming. Ingevulde velden of een vinkje verifiëren geen identiteit, overeenkomsten of naleving. Schakel stromen zonder grondslag of waarborgen uit; zie paragrafen 2 en 8 van het [Privacybeleid](/nl/mail/privacy-policy/) en paragraaf 7 van de [Lijst van verwerkers](/nl/mail/sub-processors/).
 
-<div class="google-divider"><span class="google-divider-icon">✦</span></div>
+## 3. Rechten, verwijdering en incidenten
 
-## 3. De controle over uw gegevens
+### 3.1 Export en aanvullende verzoeken
 
-U heeft met betrekking tot uw eigen gegevens recht op inzage, kopie, verbetering, het stopzetten van verwerking en verwijdering. Dit hoofdstuk legt uit via welke functie elk recht wordt gerealiseerd; de volledige definities staan in paragraaf 9 van het [Privacybeleid](/nl/mail/privacy-policy/).
+De JSON-export via zelfbediening bevat een deel van de persoonsgegevens, een mapping van e-mails die niet als verwijderd zijn gemarkeerd en aangepaste labels; deze bevat niet alle ontvangstvelden, de binaire inhoud van bijlagen, oorspronkelijke e-mails, alle mailboxaliassen of beheerauditgegevens. Een afzonderlijke .eml is niet de opgeslagen volledige oorspronkelijke MIME en bevat niet alle persoonsgegevens uit de database. Machineleesbare export vervult op zichzelf niet alle verplichtingen inzake inzage en overdraagbaarheid.
 
-<div class="google-illustration-container">
-  <img src="/images/mail/nl/data-sovereignty-export.svg" alt="Gegevenscontrole van EpoCanvas Mail: zelfservice-export, verwijderen met prullenbakbuffer en afdwingbare rechten" width="416" height="276" />
-</div>
+Niet-opgenomen gegevens die volgens de wet kunnen worden opgevraagd, moeten via een handmatig kanaal worden geverifieerd en aangevuld; het ontbreken van een functie is geen grond om het verzoek te weigeren. Antwoordtermijnen, verificatie, kosten en klachten volgen paragraaf 9 van het [Privacybeleid](/nl/mail/privacy-policy/).
 
-*Figuur: drie controlevanen: zelfservice-export (JSON), verwijdering (prullenbakbuffer, daarna fysieke verwijdering) en rechtenuitoefening (antwoord binnen 30 dagen).*
+### 3.2 Verwijderingsprocedure
 
-### 3.1 Inzage, export en verbetering
+Na bijwerken deactiveert opzegging eerst alle gekoppelde mailboxen van de gebruiker in D1 en trekt daarna sessies, PAT’s, vertrouwde apparaten, lopende verificatie en OAuth-machtigingen in; inkomende mail wordt vóór AI geweigerd. Openbare eindpunten geven 404 voor inactieve of verwijderde gebruikers/mailboxen. Elke Telegram-lees- of bijlageaanvraag controleert status en versies van gebruiker, mailbox en bericht. Persoonlijke meldingen stoppen of wijzigen trekt oude links in; de gegevensinstellingen bieden ook expliciete intrekking van alle links. Dit wist geen chats of gedownloade kopieën. Oorspronkelijke MIME wordt opgeruimd vóór verwijdering van het gebruikersrecord; bij fouten blijven verwijzingen bewaard voor nieuwe pogingen. `manual_review` vereist nog menselijke controle van oorspronkelijke gegevens, claims en overige restanten en is geen volledig wissen; fouten blijven opvraagbaar als `cleanup_failed`. Volledig wissen binnen 90 dagen wordt niet beloofd; het oorspronkelijke statische avatarbestand wordt niet fysiek gewist door logische verwijdering.
 
-- **Zelfservice in de interface**: u kunt op elk moment uw profiel, uw aanmeldgeschiedenis en al uw e-mail in de mailboxinterface inzien;
-- **Gegevensexport**: «Instellingen → Gegevensexport» levert een complete kopie in JSON-opmaak (profiel en volledige tekst van niet-verwijderde e-mail); een enkele e-mail kan ook als .eml-bestand worden gedownload;
-- **Handmatige verzoeken**: verzoeken die menselijke afhandeling vragen, zoals verbetering of het stopzetten van verwerking, worden binnen 30 dagen na ontvangst beantwoord en verwerkt, via `privacy@epocanvas.com`.
+Gewoon uitloggen trekt alleen de huidige sessie in en wist de huidige e-mail, ontvangerscache en sessie van het huidige account; concepten, andere accounts en overige inloggegevens blijven behouden. Dit trekt niet alle sessies of leeslinks in. Op gedeelde apparaten bieden de gegevensinstellingen uitdrukkelijke bevestiging om alle lokale siteaccounts, concepten/bijlagen, vertrouwensstatus en caches te wissen. Blokkering en fouten worden gemeld en mogen niet worden genegeerd. Apparaatwissen, serveropzegging en volledig wissen vereisen afzonderlijke controles.
 
-### 3.2 Verwijdering
+Bijlageverwijdering uit eigen externe opslag bewaart de oorspronkelijke backendverwijzing en noodzakelijke configuratie totdat de bijbehorende pending/failed-taken zijn afgehandeld, en verwijdert daarna veilig de instellingen. Oorspronkelijke MIME volgt de afzonderlijke vervalopschoning in paragraaf 1.5, buiten de bijlagewachtrij. Ontbrekende oorspronkelijke configuratie is een fout, geen reden om uit de standaardbucket te wissen. De exploitant moet nieuwe pogingen en elk objectresultaat controleren; in de wachtrij is niet hetzelfde als verwijderd.
 
-- **E-mail verwijderen**: verwijderde e-mail gaat eerst naar de prullenbak en wordt 7 dagen later door een geplande taak fysiek verwijderd (bijlagen en indexen inbegrepen); verwijdering is onomkeerbaar. Bij mailboxgebruik boven 90 % van de quota wordt wat u verwijdert onmiddellijk fysiek verwijderd om ruimte vrij te maken;
-- **Account deactiveren**: dat kunt u zelf in de instellingen doen. Sessies vervallen onmiddellijk en e-mail en gegevens komen in een zacht-verwijderde staat; tenzij de wet bewaring vereist, voert een beheerder de fysieke verwijdering binnen 90 dagen na deactivering uit. Daarna zijn accountgegevens, e-mail, bijlagen en machtigingen uit de database en objectopslag verwijderd en niet herstelbaar;
-- **Overeenkomende wettelijke rechten**: de rechten op inzage, kopie en verwijdering die het AVG gebruikers in de Europese Economische Ruimte geeft, en de rechten op informatie, verwijdering en non-discriminatie die de CCPA/CPRA inwoners van Californië geeft, worden via bovengenoemde zelfservicefuncties en het handmatige verzoekkanaal gerealiseerd; gebruikers elders oefenen gelijkwaardige rechten uit krachtens het recht op hun locatie.
+Verwijderingsverzoeken moeten een volgbaar dossier krijgen waarin accounts, aliassen, e-mails, objecten, verificatie en autorisaties, audit- en back-upsystemen afzonderlijk worden gecontroleerd; voor wettelijk te bewaren gegevens moet de grondslag worden vastgelegd, het gebruik worden afgezonderd en moeten de redenen en termijnen worden meegedeeld voor zover deze kunnen worden verstrekt. Stuur geen antwoord dat «alles volledig is verwijderd» voordat de voltooiing is bevestigd. Het ontbreken van interne automatisering mag niet leiden tot overschrijding van de wettelijke termijnen voor verzoeken.
 
-### 3.3 Uitsluiting van verkoop en tracking
+### 3.3 Minimalisering en gebruikerskeuze
 
-- De exploitant verkoopt, verhuurt of verhandelt uw persoonsgegevens en communicatie-inhoud niet;
-- Gegevens worden niet gebruikt voor cross-contextuele gedragsreclame, gebruikersprofilering of het trainen van commerciële modellen;
-- Het uitoefenen van uw privacyrechten leidt niet tot minder functionaliteit, kwaliteit of beschikbaarheid van de dienst.
+Servertoestemmingen voor automatische extractie, vertaling en OCR staan standaard op false; openbare vertaalfallback wordt momenteel niet aangeboden. Extractie vereist ook `aiCode`, de gebruikerskeuze `aiVerificationCode` expliciet true en informatiebevestiging. Vertaling openen of de taal wijzigen verzendt niets; de actuele informatie-URL moet worden bevestigd. OCR staat standaard op false en vereist een keuze voor dit verzoek plus servertoestemming. MyMemory/Google is uit alle openbare fallbackroutes verwijderd; de backend weigert true voor activering en de interfaceoptie is uitgeschakeld. Oudere instanties moeten worden bijgewerkt, niet alleen op de vroegere schakelaar vertrouwen. Werkelijke ontvangers, overeenkomsten, bewaring en doorgiftewaarborgen moeten nog bekendgemaakt worden; bevestiging bewijst geen volledige AVG-naleving. De backend handhaaft afzonderlijk statistieken/trends/bronnen en geeft 404 voor inactieve of verwijderde gebruikers/mailboxen; statische avatars blijven na logische verwijdering. Na bijwerken handhaaft persoonlijk Telegram meldingsbereik, voorbeeld en kopieerkeuze: in `all` en `important` gebruikt de titel ook zonder voorbeeld het onderwerp (of een algemene titel als het ontbreekt), maximaal 200 tekens; `notifyCodeOnly` voegt alleen buiten `privacy` een kopieerknop toe voor een bestaande geëxtraheerde code van maximaal 256 tekens; expliciet `includePreview=true` voegt een voorbeeld van maximaal 400 tekens en een leeslink toe wanneer de configuratie dit toelaat; `privacy` stuurt alleen een algemene melding. Elke lees- en bijlageaanvraag controleert status en versies, ook zonder voorbeeld. Onbeschikbare doorstuurregels stoppen het doorsturen zonder terugval op alle mail; de opgeslagen `keepCopy` wordt genormaliseerd naar `true`, `false` wordt geweigerd wanneer doorsturen is ingeschakeld en een uitgeschakelde configuratie wordt ook als `true` opgeslagen, zodat originelen behouden blijven. Zie de [Handleiding meldingen en doorsturen](/nl/mail/notify/). Deze codemechanismen bewijzen geen voltooide productiecontrole.
 
-### 3.4 Reactie op beveiligingsincidenten
+### 3.4 Incidentafhandeling
 
-Als persoonsgegevens worden gestolen, gelekt, gewijzigd of verloren, gaat de exploitant als volgt te werk:
+Na ontdekking van een incident moeten de gevolgen worden beperkt, noodzakelijke bewijzen worden veiliggesteld, de betrokken gegevens en risico's worden vastgesteld en beslissingen worden vastgelegd. Melding aan de toezichthouder onder de AVG is afhankelijk van de risicovoorwaarden en moet, indien mogelijk, binnen 72 uur na kennisneming plaatsvinden; bij een hoog risico moeten betrokkenen volgens de wet zonder onredelijke vertraging worden geïnformeerd. De volledige regels staan in paragraaf 10 van het [Privacybeleid](/nl/mail/privacy-policy/); een openbare aankondiging van een kwetsbaarheid mag niet standaard individuele kennisgevingen vervangen.
 
-1. **Onmiddellijke insluiting**: betrokken sessies gedwongen afmelden en getroffen inhoud in quarantaine, met zo nodig gedeeltelijke stillegging van de dienst om ergere schade te voorkomen;
-2. **Wettelijke melding**: melding bij de toezichthouder binnen 72 uur nadat het incident bekend is geworden (voor zover het toepasselijke recht een andere termijn stelt, geldt die termijn en wordt zo snel mogelijk gemeld), en informering van getroffenen via een aankondiging op de site of systeemmail;
-3. **Gepubliceerde herstelmaatregelen**: nadat de oorzaak duidelijk is, publicatie van fixes en een beveiligingsbericht in de open-sourcebron, zodat zelfhosters gelijktijdig kunnen patchen.
-
-Om een beveiligingsprobleem of kwetsbaarheid te melden, gebruikt u:
-
-- **Beveiliging en officiële communicatie**: `announcement@epocanvas.com`
-- **Privacy en gegevensbescherming**: `privacy@epocanvas.com`
+Beveiligingsproblemen kunnen privé worden gemeld via `announcement@epocanvas.com`; privacy- en rechtenverzoeken via `privacy@epocanvas.com`. Openbare toelichtingen op correcties mogen geen incidentdetails bevatten waarmee gebruikers kunnen worden geïdentificeerd of authenticatiegegevens die nog kunnen worden misbruikt.

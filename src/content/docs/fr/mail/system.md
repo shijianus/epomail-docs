@@ -3,7 +3,7 @@ title: Les cartes des paramètres système en détail
 description: Les cartes des paramètres système d'EpoCanvas Mail — onze cartes passées en revue une à une, des paramètres du site à l'entrée À propos, en passant par la personnalisation, le stockage, le push des courriels et le moteur IA.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.25**
 
 La page des paramètres système (`#manage/admin/system`, clés de permission `setting:query`／`setting:set`) organise toute la configuration au niveau de l'instance en cartes de configuration. La présente page les décrit carte par carte ; les noms de cartes correspondent à l'interface de l'application.
 

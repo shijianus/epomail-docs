@@ -42,9 +42,9 @@
   <text class="mono" x="78" y="112">announcement@epocanvas.com</text>
   <rect class="box" x="355" y="70" width="270" height="60" rx="10"/>
   <text class="t" x="373" y="93" font-size="13">Official flag (isOfficial)</text>
-  <text class="b" x="373" y="112">official addresses & the official label</text>
+  <text class="b" x="373" y="112">official addresses &amp; the official label</text>
   <rect class="box-green" x="650" y="70" width="290" height="60" rx="10"/>
-  <text class="t" x="668" y="93" font-size="13">Reader badge & banner</text>
+  <text class="t" x="668" y="93" font-size="13">Reader badge &amp; banner</text>
   <text class="b" x="668" y="112">official mail visually marked in the client</text>
   <path class="arrow" d="M195,145 L195,185"/>
   <path class="arrow" d="M490,145 L490,185"/>
@@ -58,13 +58,13 @@
   <text class="t" x="373" y="249" font-size="13">Preset translation fallback</text>
   <text class="b" x="373" y="268">unmodified mail renders locally; edits go to AI</text>
   <rect class="box" x="650" y="225" width="290" height="64" rx="10"/>
-  <text class="t" x="668" y="249" font-size="13">Lifecycle & encryption</text>
+  <text class="t" x="668" y="249" font-size="13">Lifecycle &amp; encryption</text>
   <text class="b" x="668" y="268">expires after configured days (default 7)</text>
   <path class="arrow" d="M195,305 L195,345"/>
   <path class="arrow" d="M490,305 L490,345"/>
   <path class="arrow" d="M795,305 L795,345"/>
   <rect class="band" x="40" y="350" width="920" height="105" rx="14"/>
-  <text class="lbl-green" x="60" y="373">TIER 3 · CLIENT SANDBOX & DOCUMENT INTEGRITY (VERIFICATION)</text>
+  <text class="lbl-green" x="60" y="373">TIER 3 · CLIENT SANDBOX &amp; DOCUMENT INTEGRITY (VERIFICATION)</text>
   <rect class="box-green" x="60" y="383" width="270" height="58" rx="10"/>
   <text class="t" x="78" y="405" font-size="13">Shadow DOM isolation</text>
   <text class="b" x="78" y="423">page styles and scripts cannot cross in or out</text>

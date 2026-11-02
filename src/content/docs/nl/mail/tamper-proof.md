@@ -3,7 +3,7 @@ title: Officiële e-mailspecificaties en verificatie tegen manipulatie
 description: Hoe de officiële systeemmail van EpoCanvas Mail wordt uitgegeven en herkend — de officiële vlag, onveranderlijke aflevering, isolatie van rendering in de client en verificatie tegen manipulatie van documenten.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.25**
 
 Dit document legt uit hoe officiële systeemmail wordt uitgegeven en hoe u haar herkent, en beschrijft het verificatiemechanisme tegen manipulatie van de juridische documenten op deze site, zodat u de echtheid van officiële communicatie en documenten kunt bevestigen. Het is opgesteld krachtens het [Privacy- en voorwaardenoverzicht](/nl/mail/overview/) en [Gegevensverwerking en Beveiligingsonderhoud](/nl/mail/data-security/).
 
@@ -46,17 +46,19 @@ Mailinhoud (zowel officiële als inkomende mail) wordt in de browser onder de vo
 
 ## 5. Verificatie tegen manipulatie van documenten
 
-De juridische documenten op deze site worden bij publicatie cryptografisch verzegeld, zodat iedereen kan verifiëren dat wat hij leert overeenkomt met de gepubliceerde versie in de open-sourcebron:
+Deze site biedt SHA-256-vergelijking tussen Markdown-bronbestanden en een integriteitsmanifest. Het manifest en de pagina komen van dezelfde site en vormen geen onafhankelijke digitale handtekening; beide kunnen samen worden gewijzigd. Een gelijke hash betekent alleen dat het gekozen bestand overeenkomt met het geladen manifest. Dit bevestigt niet de inhoud van de webpagina, de identiteit van de uitgever, de echtheid van het document of juridische naleving.
 
 | Verificatieroute | Mechanisme | Beschrijving |
 | --- | --- | --- |
-| Integriteitsmanifest | `tamper-proof.json` | gegenereerd door de buildpijplijn uit de git-bron; legt per document de SHA-256-hash, de grootte in bytes en de vastgepinde commit vast |
-| Ingebed paginapaneel | «Officiële verzegeling en integriteitsverificatie» onder aan elke pagina | toont de officiële hash en vastgepinde commit van dit document; klikken op «Deze pagina nu verifiëren» haalt het manifest opnieuw op en vergelijkt het met de hash in de pagina |
-| Offline verificatie | `sha256sum` / OpenSSL | hash de Markdown-bronnen in de open-sourcebron en vergelijk ze item voor item met het manifest |
-| Autoritatieve oorsprong | `docs.epocanvas.com/epomail` | geleverd via HTTPS; inhoud van een ander domein of een spiegel moet met de manifesthashes worden gecontroleerd |
+| Manifest voor bestandsintegriteit | `tamper-proof.json` | Leest bij het genereren de documentbestanden uit de werkboom en registreert SHA-256, het aantal bytes, de generatietijd, een Git HEAD-referentie en de lokale documentstatus |
+| Paneel op deze pagina | «Integriteit van bronbestand vergelijken», alleen op deze specificatiepagina | Berekent SHA-256 van een gekozen lokaal bronbestand en vergelijkt die met het geladen manifest; er wordt niets geüpload en de gerenderde webpagina wordt niet gehasht |
+| Vergelijken via de opdrachtregel | Node.js-opdracht in het paneel | Zet alleen CRLF om naar LF vóór de UTF-8-SHA-256-berekening; `sha256sum` of OpenSSL rechtstreeks op CRLF-bytes uitvoeren gebruikt andere invoer |
+| Manifestbron | `docs.epocanvas.com/epomail/tamper-proof.json` | HTTPS beschermt de verbinding; een manifest van dezelfde site is op zichzelf geen handtekening of publicatiecertificering die via een onafhankelijk vertrouwd kanaal is gecontroleerd |
 
-:::tip[Hoe online te verifiëren]
-Klik onder aan een willekeurige documentpagina op «Deze pagina nu verifiëren»: het paneel haalt het officiële manifest opnieuw op en vergelijkt het met de hash in de pagina. U kunt ook `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json` in een terminal uitvoeren om het manifest op te halen, en `sha256sum` op de Markdown-bestanden van de bron voor een item-voor-item controle.
+Het manifest gebruikt de werkboombestanden op het moment van genereren en leest niet automatisch de gecommitte bestanden in HEAD. Als de documenten niet-gecommitte of niet-gevolgde inhoud bevatten, kunnen hun hashes niet aan die gecommitte HEAD-versie worden toegeschreven; een niet-vastgelegde status bevestigt evenmin overeenstemming. De HEAD-datum is een commitdatum van de repository, niet de publicatiedatum van deze pagina.
+
+:::tip[Een bestand vergelijken]
+Kies in het paneel «Integriteit van bronbestand vergelijken» op deze pagina het lokale Markdown-bronbestand op het weergegeven pad en klik op «Bestand berekenen en vergelijken». Vergelijkingen via de opdrachtregel moeten dezelfde normalisatie van regeleinden gebruiken. Een afwijking kan door de versie, inhoud of het manifest komen. Een onbeschikbaar manifest of een lees- of berekeningsfout geldt niet als een geslaagde vergelijking.
 :::
 
 ## 6. Verantwoordelijkheidsgrenzen en meldkanalen

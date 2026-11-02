@@ -3,9 +3,9 @@ title: EpoCanvas Mail Feature Guide
 description: EpoCanvas Mail feature guide — inbox organisation, composing and sending, search syntax, the labelling rule engine, verification-code extraction, spam governance, forwarding and push, AI capabilities, and the open platform.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
-This page documents the actual features of EpoCanvas Mail, each verified against the open-source code; the interface screenshots come from the hosted instance in real operation. For the project positioning, development history, and deployment, see the [Project Overview](/en/mail/project/); the data handling and retention implications of each feature are covered in [Data Processing & Security Maintenance](/en/mail/data-security/).
+This page describes the EpoCanvas Mail implementation after this round of changes. Existing interface screenshots illustrate where controls are located; they do not establish that these changes have been deployed to production or that every feature is enabled. For project positioning, development history, and deployment, see the [Project Overview](/en/mail/project/); data handling and retention are covered in [Data Processing & Security Maintenance](/en/mail/data-security/).
 
 The Traditional Chinese (Taiwan) version of the legal documents on this site is the authoritative version; other languages are reference translations. Where meanings diverge, the authoritative version prevails.
 
@@ -29,7 +29,7 @@ The inbox in English: structurally identical to the Chinese UI; dictionary symme
 | Capability | Description |
 | --- | --- |
 | Mail views | eight views — Main, Starred, Snoozed, Sent, Drafts, All Mail, Spam, Trash — with live counters |
-| Reading layout | three-pane split, conversation threads, inline replies and emoji reactions; raw headers viewable in the detail view |
+| Reading layout | Three-pane split, conversation threads, inline replies and emoji reactions. Displayed headers are still reconstructed and cannot establish encryption in transit or at rest. Inbound recovery separately stages complete original MIME bytes in object storage using server-side AES-256-GCM, not end-to-end encryption; retention limits are in Section 9. Remote images and CSS are blocked by default; ordinary reading offers image loading for this message only after a risk notice. Printing remains blocked by default, and Telegram sharing has no external-resource loading button |
 | Organising actions | star, snooze (to a chosen time), report spam / not spam, move to trash, hard delete |
 | Verification-code badge | codes extracted by Workers AI surface directly in the list and detail view (see Section 5) |
 | Official-mail marker | mail from official senders such as announcement@epocanvas.com carries a verified marker and an explanatory banner (see [Anti-Tampering & Official Specs](/en/mail/tamper-proof/)) |
@@ -98,7 +98,7 @@ Hits are highlighted through the CSS Highlights API; site-wide search and in-pag
 
 ![EpoCanvas Mail message detail: the six-digit code in a Cloudflare verification mail is displayed in large type, with green verification-code badges in both list and detail](/images/mail/ui/ui-detail-verification.png)
 
-*Caption: code extraction. This is the only AI processing not triggered manually: only the subject and the first 6,000 characters of the body go to Workers AI. Scope and opt-out are described in [Privacy Policy](/en/mail/privacy-policy/), Section 6.*
+*Caption: only when the global, instance-notice, and user-choice conditions below are all met may automatic extraction send the complete subject and up to 6,000 JavaScript characters of body text to Workers AI. The subject does not count towards the body limit. See Section 6 of the [Privacy Policy](/en/mail/privacy-policy/) for processing bases.*
 
 <details>
 <summary>Walkthrough: Verification-code extraction in the reading pane</summary>
@@ -107,43 +107,43 @@ Verification-code extraction in the reading pane: the 6-digit code in large type
 
 - **Large-code region**: The code extracted by Workers AI from the subject and the first 6,000 characters of the body, displayed large for easy copying.
 - **Green badge**: The green mark that appears on both the list row and the detail: it means this message carries an extracted verification code, so you can spot such mail straight from the list without opening each one. It appears only on a successful extraction — absence does not mean the mail is safe, merely that there is no code to copy.
-- **Boundary**: The only AI processing not triggered manually; it can be turned off in general settings. Scope and opt-out in Section 6 of the privacy policy.
+- **Boundary**: Automatic extraction requires global `aiCode`, instance `contentProcessing.verificationCodeEnabled`, a valid `noticeUrl`, and the user's `privacyPreferences.aiVerificationCode === true` together. The user preference defaults to `false` and can be turned off in Data Settings to stop subsequent requests. This choice does not replace complete notice, a processing basis, or provider agreements; see Section 6 of the privacy policy.
 
 </details>
 
 ## 6. Spam Governance
 
-- Quarantine and retention: spam is quarantined for 7 days and then moves to trash automatically; report-spam / not-spam actions maintain your personal trust lists once confirmed;
+- Quarantine and retention: the daily task measures spam retention from mail creation time and, by default, moves mail to Trash after 7 days. Trash also uses creation time against a fixed 7-day threshold, so physical deletion may occur in the same run, without an additional 7-day retention period. Spam / not-spam reports update personal trust lists according to the particular flow;
 - Outbound constraints: daily sending quotas are set per role (base users 5 messages, LV.0 8, LV.1 10, administrators 100; the master account is unlimited) with counters reset daily; quota abuse is handled under [Acceptable Use Policy](/en/mail/acceptable-use/), Section 6;
 - Responsibility for the content of outgoing mail rests with the sender; unsolicited bulk commercial mail is a prohibited act (see [Acceptable Use Policy](/en/mail/acceptable-use/), Section 3).
 
 ## 7. Forwarding and Push
 
-- **Personal forwarding**: mailbox mail can auto-forward to other addresses, with cc support;
+- **Personal forwarding**: mail can auto-forward to other addresses with cc support. `rules` is unavailable and sends nothing; an empty `alias` list also sends nothing. `keepCopy` is fixed at `true` to retain the original and cannot be turned off in the UI. Saving enabled `rules` or enabled forwarding with `keepCopy: false` is rejected; coordinated frontend/backend upgrades are required;
 - **Global forwarding**: administrators can configure system-level forwarding rules, constrained by the mail mode (disabled in encrypted mode);
-- **Telegram push**: after binding a bot, subject, sender, body, and codes are pushed per configuration with a 7-day in-site reading link; each pushed field can be hidden.
+- **Telegram push**: Personal `all` covers all mail; `important` requires an exact `重要` or `important` label, an actual stored star, or an existing code. `notifyCodeOnly` is a separate opt-in for an existing-code copy button, default `false`, not a mail filter or new extraction. `includePreview`, also default `false`, controls the excerpt and reading button. Compatibility `privacy` sends only a generic notice with no subject, sender, recipient, code, excerpt, or link; other personal modes also omit sender and recipient. System notifications independently use system fields. Every sending path checks live user, mailbox, and message states and the D1 revocation version, even with preview off; reading and attachment access also check them. Changing personal notifications or using Data Settings revokes old links independently of future notifications. Legacy unscoped and OSS v1 tokens require refreshed links; chat copies cannot be recalled. Coordinated frontend/backend upgrades are required, not proof of production deployment; see the [Notifications & Forwarding Guide](/en/mail/notify/);
 
 ## 8. AI Capabilities
 
 | Capability | Trigger | Description |
 | --- | --- | --- |
-| Code extraction | automatic on new mail (optional) | Workers AI edge inference, see Section 5 |
-| Full-text translation | manual click | multilingual translation preserving the original layout, shards in parallel; model endpoints and fallbacks in [Privacy Policy](/en/mail/privacy-policy/), Section 6 |
-| Image text recognition | manual upload | OCR-generated captions; purely decorative images are skipped |
+| Code extraction | Automatic on new mail only when all Section 5 conditions are met; off by default for users | Workers AI inference; Data Settings can stop subsequent extraction |
+| Full-text translation | Opening the bar or changing language sends nothing; each external translation requires explicit confirmation | Global AI, `contentProcessing.translationEnabled`, and a valid notice URL must be enabled. Each request carries `confirmed: true` and a `noticeUrl` exactly matching the current configuration; missing conditions disable it. Matching official bundled translations stay local. MyMemory/Google public fallback and missing-segment calls have been removed from `ai-service`. `contentProcessing.publicTranslationFallbackEnabled` is always `false`, saving `true` is rejected, and the admin option is marked unavailable. Current recipients are listed in the [Sub-processor List](/en/mail/sub-processors/) |
+| Image text recognition | Confirmed translation with server-side `contentProcessing.ocrEnabled === true` and explicit `enableOcr: true` for this request | Otherwise `false`; text-only translation is available and old OCR preferences are not reused. Embedded images or remote image URLs may be processed; decorative-image filtering remains heuristic |
 | AI Hub | administrator-configured | multi-model endpoints on OpenAI-compatible protocols, 0-token latency probing, models authorised per role |
 
-The operator never trains models on mail content; consented AI processing can be withdrawn at any time (see [Privacy Policy](/en/mail/privacy-policy/), Section 6).
+The operator does not itself use mail as a model-training dataset; third-party retention, training and reuse must be confirmed against actual contracts and settings. Where processing requires consent, withdrawal should be freely available and as easy as giving consent. Processing must be disabled where a workable choice is missing; interface buttons alone cannot establish compliance. See Sections 6 and 9 of the [Privacy Policy](/en/mail/privacy-policy/).
 
 ## 9. Open Platform and Data Autonomy
 
-- **OAuth 2.0 / OIDC centre**: administrators register third-party apps; scope is limited to openid / profile / email, access tokens last 2 hours, and data subjects can review and revoke grants at any time on the third-party apps page;
+- **OAuth 2.0 / OIDC centre**: Applications can be authorised and grants revoked; returned data may include email addresses, names, avatars and role fields, without necessarily being minimised according to the requested scope. Revocation does not recall data already provided, ID tokens already issued or third-party sessions; see the Sub-processor List;
 - **Integration guide**: registering apps on the admin side, endpoints and integration code appear in [Open Platform & API Access](/en/mail/api/);
-- **Data export**: one click in Settings produces a complete JSON copy (profile plus all undeleted mail in full text); single messages download as .eml;
+- **Data export**: Settings exports selected profile fields, fields of mail not marked deleted, and `customLabels`, excluding attachment files, complete contacts, rules, security settings, and audit records; the backend does not apply the selected time range. Exports exclude staged original MIME, and individual .eml files remain reconstructed. Raw-mail staging has a 7-day application deadline that retries may renew; success does not delete it immediately, and scheduled batch cleanup may fail and leave objects behind, so this is not a guaranteed TTL. D1 inbound claims contain metadata, not the raw body. All three public-profile statistics-hiding settings also constrain the API; deleted or disabled users return 404, without automatic physical deletion of static avatars. The new account-closure flow disables the account, revokes access, and records `manual_review`, not completed erasure. See [Data Export & Storage](/en/mail/data/);
 
 ## 10. Interface and Mobile
 
 - Six interface languages (Simplified Chinese, Traditional Chinese, English, Français, Español, Nederlands) with fully symmetric front-end and back-end dictionaries;
-- Light and dark themes, 300+ offline vector icons (zero external requests), responsive layout, and PWA installation; an Android app (epomail) is also available.
+- Light and dark themes, 300+ offline vector icons, responsive layout, PWA installation, and an Android app (epomail). Vue has removed external Google Fonts links and uses system fonts; React fonts are self-hosted. Avatars, Turnstile, and other external resources may still make requests, so this is not a claim of zero external requests.
 
 ![EpoCanvas Mail inbox overview in the Simplified Chinese interface: the left pane holds the compose button, the folder tree (Main, Starred, Snoozed, Sent, Drafts, All Mail, Spam, Trash) and colour-coded labels (Social, Subscriptions, Promotions, Work); the message list on the right shows senders, subjects, snippets, verification-code badges, and the official-mail verified marker](/images/mail/en/ui/views-guide.png)
 

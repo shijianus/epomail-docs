@@ -3,9 +3,9 @@ title: E-mailcontrole over de hele opslag
 description: De e-mailcontrole over de hele opslag van EpoCanvas Mail — zoeken in de beheerdimensie, de detail-lade en fysieke verwijdering, met de invloed van de e-mailmodus op de ingang.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.25**
 
-De e-mailcontrole over de hele opslag is de e-mailinterface van de beheerzone (`#manage/admin/mail`, rechten-sleutel `all-email:query`). Naam en zichtbaar bereik van de sectie volgen de e-mailmodus: de Alle e-mail-modus (Level 1) toont «Alle e-mail», de privémodus (Level 2) toont «Spam», en de versleutelde modus (Level 3) verbergt de hele sectie (zie [Werkingsmodi](/nl/mail/modes/), sectie 2).
+De e-mailcontrole over de hele opslag is de e-mailinterface van de beheerzone (`#manage/admin/mail`, rechtensleutel `all-email:query`). Naam en zichtbaar bereik van de sectie volgen de e-mailmodus: de Alle e-mail-modus (Level 1) toont «Alle e-mail»; de privémodus (Level 2) toont «Spam», maar het feitelijke beheerbereik omvat ook de prullenbak van gebruikers en e-mails zonder eigenaar; de versleutelde modus (Level 3) verbergt de ingang en beperkt wat de beheerlijst teruggeeft. Deze beperkingen gelden voor de applicatie-interface en bewijzen niet dat de exploitant op de server niet kan ontsleutelen; zie [Werkingsmodi](/nl/mail/modes/), paragraaf 2.
 
 ![Figuur: de e-mailcontrole over de hele opslag](/images/mail/nl/ui/review-guide.png)
 
@@ -18,7 +18,7 @@ Zo ziet de e-mailcontrole over de hele opslag eruit in de privémodus (Level 2):
 
 1. **Zoekvak**: Accepteert de `$`-syntax over de hele opslag: `$sender`/`$user`/`$to`/`$subject` plus statustokens. Met een rechtermuisklik op een treffer start je rechtstreeks een nieuwe zoekronde op diens afzender, het ontvangende account of de bezittende gebruiker.
 2. **Naam van het gebied in de zijbalk**: Naam en zichtbaar bereik volgen de e-mailmodus: Level 1 toont «Alle e-mail», Level 2 toont «Spam», en Level 3 verbergt de ingang volledig.
-3. **Lege staat**: De plaatsvervangende tekst wanneer er geen mail in quarantaine staat. Met geïsoleerde mail wordt dit gebied een lijst; een rij openen schuift de detail-lade in, waarin fysieke verwijdering mogelijk is (anders dan de prullenbak aan gebruikerskant laat dit sporen na).
+3. **Lege staat**: Een melding wanneer er geen resultaten zijn; in de privémodus kunnen resultaten spam, de prullenbak van gebruikers of e-mails zonder eigenaar omvatten. Het openen van details vereist een rechtmatige en noodzakelijke reden; de reikwijdte van fysieke verwijdering wordt hieronder toegelicht.
 
 </details>
 
@@ -31,9 +31,11 @@ Zo ziet de e-mailcontrole over de hele opslag eruit in de privémodus (Level 2):
 
 | Mogelijkheid | Beschrijving |
 | --- | --- |
-| Detail-lade | Opent één e-mail met volledige inhoud en omgevingsgegevens, zonder de lijst te verlaten |
-| Fysieke verwijdering | Voert fysieke verwijdering uit op e-mail die de regels overtreedt (anders dan de prullenbak aan gebruikerskant); de handeling laat sporen na |
+| Detail-lade | Toont e-mailinhoud en registraties binnen de huidige modus en machtigingen; verifieert niet de volledige oorspronkelijke e-mail, omgevingsgegevens of feitelijke transportbeveiliging |
+| Fysieke verwijdering | Verwijdert gegevens uit de betrokken operationele opslag; nieuwe pogingen na objectfouten, back-ups, externe kopieën en de reikwijdte van registraties moeten afzonderlijk worden gecontroleerd. Dit is niet hetzelfde als onmiddellijke verwijdering van alle kopieën |
 | Sortering | Sorteren op tijd om recente gebeurtenissen te vinden |
+
+Modusbeperkingen van de beheerlijst zijn geen end-to-end-versleuteling en bieden geen absolute technische afscherming tegenover de exploitant. In de privémodus kunnen bij verplaatsing van een eerder beschermd bericht naar de prullenbak het onderwerp, de berichttekst en de verificatiecode ontsleuteld worden opgeslagen en zichtbaar worden voor beheerders. Controle vereist nog steeds een concrete, noodzakelijke en rechtmatige reden; het feit dat een bericht kan worden geopend, geeft geen toestemming om het voor leren te gebruiken. Zie paragraaf 4 van het [Privacybeleid](/nl/mail/privacy-policy/).
 
 Verdachte accounts die de controle aan het licht brengt, kunnen meteen in de [Gebruikerslijst](/nl/mail/users/) worden afgehandeld; risicogebeurtenissen komen per klasse in het [Auditrapport](/nl/mail/audit/).
 

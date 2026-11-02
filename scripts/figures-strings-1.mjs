@@ -1,5 +1,5 @@
 // Per-language strings for figure builders part 1.
-// Language order everywhere: zh (simplified, root), zh-tw, en, fr, es, nl.
+// Language order everywhere: zh (simplified, root), zh-tw, en, fr, es, nl, de.
 
 export const STR1 = {
 'legal-architecture': {
@@ -84,6 +84,20 @@ nl: {
   lawB1: 'Manifest onredelijke standaardbedingen binden niet onder toepasselijk recht',
   lawB2: 'Aansprakelijkheid die het recht niet laat uitsluiten, valt niet onder plafonds',
   sideNote: 'VOLGORDE: het document over het eigen onderwerp prevaleert · de traditioneel Chinese (Taiwan) versie is leidend',
+},
+de: {
+  aria: 'Rechtsarchitektur: die Nutzungsbedingungen als Vertragsebene, die Datenschutzerklärung und die Richtlinie zur akzeptablen Nutzung als Richtlinienebene, Datenverarbeitung und Auftragsverarbeiter als unterstützende Dokumente, auf dem Fundament aus anwendbarem Recht und Sicherheitspflichten',
+  tagContract: 'VERTRAGSEBENE', tosTitle: 'Nutzungsbedingungen',
+  tosB1: 'Elektronische Zustimmung — wirkt wie eine schriftliche Unterschrift',
+  tosB2: 'Volltext zur Einsicht veröffentlicht · Änderungen im Open-Source-Repo archiviert',
+  ppTitle: 'Datenschutzerklärung', ppBody: 'Was wir erheben und warum · Verarbeitungsgrundsätze',
+  aupTitle: 'Nutzungsrichtlinie', aupBody: 'Verhaltensgrenzen und Durchsetzung',
+  dsTitle: 'Datensicherheit · Auftragsverarbeiter', dsBody: 'Sicherheitsmaßnahmen · Verarbeiterliste',
+  tagFrame: 'RECHTSRAHMEN',
+  lawTitle: 'Recht am Sitz des Betreibers — gehostete Instanz: taiwanisches Recht, Bezirksgericht Taipeh',
+  lawB1: 'Unbillige Standardklauseln binden nach anwendbarem Recht nicht',
+  lawB2: 'Haftung, die anwendbares Recht nicht ausschließen lässt, bleibt von Haftungsgrenzen unberührt',
+  sideNote: 'RANGFOLGE: das themenspezifische Dokument geht vor · die traditionell chinesische (Taiwan) Fassung ist maßgeblich',
 },
 },
 
@@ -190,6 +204,22 @@ nl: {
   m2: '• Zelfgehoste instantie: de deployer wordt vanaf het deployen de enige verwerkingsverantwoordelijke.',
   m3: '• De juridische documenten op deze site gelden per instantie; de overeenkomst komt tot stand met de exploitant van uw instantie.',
 },
+de: {
+  aria: 'Verantwortungsgrenzen: das Upstream-Open-Source-Projekt, der Instanzbetreiber als Verantwortlicher und Sie als betroffene Person',
+  tagUp: 'UPSTREAM · MIT-LIZENZ', upTitle: 'Open-Source-Projekt',
+  upB1: 'Veröffentlicht nur Quellcode.', upB2: 'Betreibt keinen Maildienst,', upB3: 'keine Nutzerdaten, keine Telemetrie.',
+  tagInst: 'INSTANZ · VERANTWORTLICHER', instTitle: 'Instanzbetreiber',
+  instB1: 'Setzt auf ein eigenes Cloudflare-Konto', instB2: '(Workers · D1 · KV · R2) und trägt die',
+  instB3: 'Datenschutzpflichten: Information, Sicherheit, Aufsicht.',
+  tagYou: 'BETROFFENE PERSON', youTitle: 'Sie',
+  youB1: 'Erstellen Sie ein Konto und', youB2: 'übergeben Ihre Postfächer und', youB3: 'Nachrichten an die Instanz.',
+  arrowCode: 'Code', arrowTrust: 'Vertrauen',
+  tagMeans: 'WAS DAS BEDEUTET',
+  meansTitle: 'Der Betreiber, bei dem Sie sich registrieren, ist Ihr Verantwortlicher — nicht die Upstream-Autoren.',
+  m1: '• Gehostete Instanz mail.epocanvas.com: das EpoCanvas-Betriebsteam ist Verantwortlicher für Kontodaten und Sicherheitsprotokolle.',
+  m2: '• Selbst gehostete Instanz: der Betreiber wird mit der Bereitstellung alleiniger und ausschließlicher Verantwortlicher.',
+  m3: '• Alle Rechtstexte dieser Website gelten je Instanz; der Vertrag kommt mit dem Betreiber Ihrer Instanz zustande.',
+},
 },
 
 'privacy-pillars': {
@@ -264,6 +294,18 @@ nl: {
   p5t: 'Uw rechten', p5a: 'inzien, kopiëren,', p5b: 'verbeteren, stoppen,', p5c: 'wissen — § 9', p5l: 'RECHTEN & REMEDIES',
   baseTitle: 'Basis: toezicht door de bevoegde autoriteit op de vestigingsplaats van de exploitant',
   baseSub: 'TOEPASSELIJK RECHT VAN DE JURISDICTIE VAN ELKE EXPLOITANT',
+},
+de: {
+  aria: 'Fünf Säulen der Datenschutzerklärung auf dem Fundament der Aufsicht: Erhebung, Nutzung, Übertragung, Sicherheit und Ihre Rechte — unter dem anwendbaren Datenschutzrecht',
+  roofTitle: 'Anwendbares Datenschutzrecht — Informationspflicht: was wir erheben, warum, wie lange und was Sie tun können',
+  roofSub: 'GILT FÜR ALLE IN DIESER RICHTLINIE BESCHRIEBENEN VERARBEITUNGSAKTIVITÄTEN',
+  p1t: 'Erhebung', p1a: 'Vertragserfordernis;', p1b: 'Einwilligung nur für', p1c: 'optionale KI', p1l: 'VERTRAG · EINWILLIGUNG',
+  p2t: 'Nutzung', p2a: 'Im Zweck festgelegt;', p2b: 'Widerspruch gegen', p2c: 'Marketing jederzeit', p2l: 'ZWECKBEGRENZUNG',
+  p3t: 'Übertragung', p3a: 'Grenzüberschreitend', p3b: 'über Cloudflare; hält', p3c: 'gesetzliche Grenzen ein', p3l: 'ÜBERTRAGUNGSGARANTIEN',
+  p4t: 'Sicherheit', p4a: 'Verschlüsselung, Sperre,', p4b: 'Audits — Maßnahmen', p4c: 'laufend verbessert', p4l: 'SICHERHEITSMASSNAHMEN',
+  p5t: 'Ihre Rechte', p5a: 'Auskunft, Kopie,', p5b: 'Berichtigung, Stopp,', p5c: 'Löschung — § 9', p5l: 'RECHTE & ABHILFE',
+  baseTitle: 'Basis: Aufsicht — Prüfung durch die zuständige Behörde am Sitz des jeweiligen Betreibers',
+  baseSub: 'ANWENDBARES RECHT DER JURISDIKTION DES JEWEILIGEN BETREIBERS',
 },
 },
 
@@ -358,6 +400,21 @@ nl: {
   c2t: 'Beleid voor acceptabel gebruik', c2b: 'gedragsgrenzen en handhaving',
   c3t: 'Volgorde', c3b: 'eigen document prevaleert · overzicht',
 },
+de: {
+  aria: 'Vertragslebenszyklus der Nutzungsbedingungen: elektronische Zustimmung, Erfüllung, Änderung und Ende — maßgeblich ist der Sitz des Betreibers',
+  headerTag: 'VERTRAGSLEBENSZYKLUS — NUTZUNGSBEDINGUNGEN',
+  chipTitle: 'Elektronische Zustimmung', chipBody: 'wie eine schriftliche Unterschrift',
+  s1t: '1 · Zustimmung', s1a: 'Registrierung, Anmeldung', s1b: 'oder Nutzung bindet Sie', s1c: 'Volltext öffentlich einsehbar',
+  s2t: '2 · Erfüllung', s2a: 'Konto- & Sicherheitspflichten', s2b: 'Ihre Inhalte bleiben Ihre', s2c: 'Haftungsbeschränkung (§3/§5/§10)',
+  s3t: '3 · Änderung', s3a: 'Änderungen werden vor', s3b: 'Inkrafttreten angekündigt (§12)', s3c: 'Historie im offenen Repo',
+  s4t: '4 · Ende', s4a: 'Selbstservice-Kündigung', s4b: 'erst Export, dann Löschung', s4c: '(§8)',
+  lawTitle: 'Anwendbares Recht — Sitz des Betreibers (§11):',
+  lawBody: 'gehostete Instanz mail.epocanvas.com: taiwanisches Recht, Bezirksgericht Taipeh · selbst gehostet: die Jurisdiktion des Betreibers',
+  alsoTag: 'EBENFALLS VERTRAGSBESTANDTEIL',
+  c1t: 'Datenschutzerklärung', c1b: 'Hinweise zu Daten & Ihre Rechte',
+  c2t: 'Nutzungsrichtlinie', c2b: 'Verhaltensgrenzen & Durchsetzung',
+  c3t: 'Rangfolge', c3b: 'spezifisches Dokument geht vor · Übersicht',
+},
 },
 
 'aup-ladder': {
@@ -438,6 +495,19 @@ nl: {
   appeal1: 'Beroep en melding — beantwoord binnen redelijke termijn ;',
   appeal2: 'kennisgeving vóór grote maatregelen, behalve bij urgentie',
   footerTag: 'UITVOERINGS-LADDER — PROPORTIONEEL NAAR ZWAARTE',
+},
+de: {
+  aria: 'Durchsetzungsleiter: Verwarnung, Drosselung, Quarantäne, Sperrung und Löschung — mit Beschwerdeweg und Nulltoleranz-Kurzweg für sexuelle Ausbeutung von Kindern',
+  bandTitle: 'Nulltoleranz — Inhalte zur sexuellen Ausbeutung von Kindern:',
+  bandBody: 'unverzügliche Löschung und Beendigung des Kontos, Beweissicherung, Meldung an die zuständige Behörde oder Strafverfolgung — ohne Einspruchsfrist',
+  l1t: '1 · Verwarnung', l1b: 'erstmalig, geringfügig',
+  l2t: '2 · Drosselung', l2b: 'Versand & API gedrosselt',
+  l3t: '3 · Quarantäne', l3b: 'in Spam-Ordner umgeleitet',
+  l4t: '4 · Sperrung', l4b: 'Kontozugriff pausiert',
+  l5t: '5 · Löschung', l5b: 'endgültig, irreversibel',
+  appeal1: 'Einspruch & Meldung — Prüfung und Antwort innerhalb angemessener Frist;',
+  appeal2: 'Anhörung vor schweren Maßnahmen, außer bei Eilfällen',
+  footerTag: 'DURCHSETZUNG — VERHÄLTNISMÄSSIG NACH SCHWERE',
 },
 },
 
@@ -543,6 +613,23 @@ nl: {
   g4tag: 'BIJ WETTELIJK VERZOEK', g4t: 'Bevoegde autoriteiten',
   g4a: 'alleen wettelijk gedwongen proces ; minimale', g4b: 'openbaarmaking ; legaliteit gecontroleerd ;',
   g4c: 'u wordt ingelicht waar de wet het toelaat.',
+},
+de: {
+  aria: 'Karte der Auftragsverarbeiter: eine Instanz, vier Kategorien von Weitergabe — Auftragsverarbeiter, von Ihnen autorisierte Dienste, von Ihnen ausgelöste KI und Weitergabe auf rechtlicher Anforderung',
+  hub1: 'EpoCanvas Mail', hub2: 'Instanz',
+  hubA: 'Weitergabe im Mindestmaß · kein Verkauf,', hubB: 'keine Werbung, keine Tracker',
+  g1tag: 'AUFTRAGSVERARBEITER', g1t: 'Cloudflare · Resend / Mailjet',
+  g1a: 'Infrastruktur und ausgehende Zustellung.', g1b: 'SOC 2 Type II · ISO/IEC 27001 · EU-SCC.',
+  g1c: 'Voller Mailinhalt nur für ausgehende Zustellung.',
+  g2tag: 'VON IHNEN AUTORISIERT', g2t: 'Telegram · OAuth-Apps · Linux DO',
+  g2a: 'Nur mit Ihrer Einwilligung; OAuth-Umfang', g2b: 'begrenzt auf openid / profile / email; jederzeit',
+  g2c: 'widerrufbar und sofort wirksam.',
+  g3tag: 'VON IHNEN AUSGELÖSTE KI', g3t: 'Modellendpunkt · Workers AI · MyMemory',
+  g3a: 'Übersetzung und OCR nur bei Ihrer Aktion.', g3b: 'Code-Extraktion ist der einzige automatische',
+  g3c: 'KI-Schritt (optional; erste 6.000 Zeichen).',
+  g4tag: 'RECHTLICHE ANFORDERUNG', g4t: 'Zuständige Behörden',
+  g4a: 'Nur gesetzlich angeordnete Verfahren; minimale', g4b: 'Offenlegung; Legalität geprüft; Benachrichtigung,',
+  g4c: 'wo das Gesetz es erlaubt.',
 },
 },
 };

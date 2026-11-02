@@ -3,7 +3,7 @@ title: Claves de registro
 description: Claves de registro de EpoCanvas Mail — emisión de códigos de invitación, gestión de los usos disponibles y de la vigencia, y comprobación del registro de uso, a cargo del administrador.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 Las claves de registro son la interfaz de códigos de invitación de la zona de administración (`#manage/admin/reg-keys`, clave de permiso `reg-key:query`); deciden quién puede registrarse en la instancia. Los tres modos del código de registro a escala de todo el sitio (obligatorio, desactivado u opcional) los decide la tarjeta de configuración del sitio de la [Configuración del sistema](/es/mail/system/).
 

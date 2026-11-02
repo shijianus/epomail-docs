@@ -1,94 +1,87 @@
 ---
 title: Beleid voor acceptabel gebruik
-description: Beleid voor acceptabel gebruik van EpoCanvas Mail — de lijst van verboden gedragingen, de maatregelen van de Exploitant en de bezwaarprocedure.
+description: Misbruikpreventie, toegestane tests, bewijsbewaring, evenredige handhaving en bezwaar voor EpoCanvas Mail.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.25**
 
-Dit beleid concretiseert paragraaf 7 («Aanvaardbaar gebruik») van de [Servicevoorwaarden](/nl/mail/terms-of-service/) en stelt de grenzen aan uw gedrag bij gebruik van de dienst EpoCanvas Mail (hierna «de Dienst»). Bij overtreding van dit beleid kan de Exploitant optreden volgens de paragraaf «Handhavingsmaatregelen»; bestaat er een vermoeden van een strafbaar feit, dan wordt dat tevens volgens de wet afgehandeld.
+Dit beleid werkt paragraaf 7 van de [Servicevoorwaarden](/nl/mail/terms-of-service/) uit voor deze persoonlijke leer- en testdienst zonder winstoogmerk. Registreer u niet als u de voorwaarden niet aanvaardt; rechtmatige geïsoleerde tests volgen paragraaf 4. Gratis gebruik, geen winstoogmerk of onderzoek zetten toepasselijk recht niet opzij.
 
-De in dit beleid genoemde gedragingen kunnen, naast inbreuk op dit beleid, tevens onrechtmatig zijn onder het recht van uw vestigingsplaats of dat van de Exploitant; de concrete kwalificatie daarvan is voorbehouden aan het bevoegd gezag, en dit document vormt geen juridisch advies.
-
-De juridische documenten op deze site zijn vastgesteld in het traditioneel Chinees (Taiwan) als officiële versies; versies in andere talen worden uitsluitend ter referentie verstrekt, en bij discrepantie is de versie in het traditioneel Chinees leidend. De juridische en technische documenten op deze site volgen de open-sourceimplementatie van de dienst en beogen transparante, strenge, niet-commerciële normen voor gemeenschapscommunicatie.
+De versie in traditioneel Chinees (Taiwan) is de officiële versie; andere talen zijn vertalingen ter vergelijking. Dit beperkt geen wettelijk vereiste duidelijke informatie, uitleg ten gunste van consumenten of rechten waarvan geen afstand kan worden gedaan. De bijwerkdatum vermeldt een tekstherziening; kennisgeving en toepassing volgen de Servicevoorwaarden.
 
 ## 1. Onrechtmatige en schadelijke inhoud
 
-U mag de Dienst niet gebruiken om de volgende inhoud door te geven, op te slaan of te verspreiden:
+Gebruik de dienst niet voor de volgende gedragingen. Besluiten moeten rekening houden met betrouwbare informatie, feitelijke schade en mogelijk rechtmatig gebruik; spoedisolatie en wettelijke meldingen volgen paragrafen 6 en 7.
 
-| Verboden gedraging | Optreden van de Exploitant |
+| Verboden gedraging | Optreden van de exploitant |
 | --- | --- |
-| Inhoud met betrekking tot seksuele uitbuiting van kinderen en jongeren, waaronder het fotograferen, vervaardigen, verveelvoudigen, in bezit hebben, verspreiden, uitzenden, overdragen, openlijk tentoonstellen of verkopen van seksuele beelden van kinderen of jongeren, of seksueel getinte afbeeldingen, geluidsopnames of voorwerpen die met hen verband houden | Nultolerantie: zodra dit wordt vastgesteld, wordt de inhoud verwijderd en het account beëindigd, wordt het bewijs bewaard en wordt de zaak overgedragen aan het bevoegd gezag; de bezwaarbufferprocedure is niet van toepassing |
-| Het verspreiden of uitzenden naar kinderen en jongeren van gewelddadige, bloederige, pornografische, obscene of over gokken handelende inhoud die schadelijk is voor hun lichamelijke en geestelijke gezondheid | Nultolerantieprocedure: beperking van de toegang of voorafgaande verwijdering |
-| Het opnemen of verveelvoudigen van seksuele beelden zonder toestemming, het verspreiden ervan, of het vervaardigen van valse seksuele beelden door middel van computersynthese of vergelijkbare methoden (zie paragraaf 2) | Voorafgaande beperking van de toegang of verwijdering, bewaring van het bewijs gedurende ten minste 180 dagen, en medewerking aan het onderzoek |
-| Het verspreiden, uitzenden, verkopen of openlijk tentoonstellen van obscene teksten, afbeeldingen, geluiden, beelden of andere voorwerpen | Onderzoek en afhandeling naar aanleiding van meldingen; bij onrechtmatige inhoud wordt die verwijderd en wordt naar de ernst gehandeld |
-| E-mail en inhoud met fraude, phishing of identiteitsmisbruik (waaronder een vervalste afzenderidentiteit of het zich uitgeven voor overheidsorganen en overheidsfunctionarissen) | Quarantaine of verwijdering van inhoud met fraude-elementen; bij een vermoeden van een strafbaar feit wordt de zaak overgedragen aan het bevoegd gezag |
-| Het verspreiden van malware, virussen of ransomware, e-mail gericht op het stelen van referenties, ongegrond binnendringen, het verkrijgen, verwijderen of wijzigen van elektromagnetische gegevens, of het verstoren van computersystemen | Onmiddellijke quarantaine en beëindiging van het account; bij een vermoeden van een strafbaar feit wordt de zaak overgedragen aan het bevoegd gezag |
-| Inhoud die het auteursrecht, het merkenrecht, de privacy of de goede naam van een ander schaadt | Verwijdering na een geldige melding van de rechthebbende, met afhandeling overeenkomstig het relevante recht |
+| Maken, bezitten of verspreiden van materiaal van seksueel kindermisbruik of uitbuiting, of kinderen benaderen voor misbruik | Toegang onmiddellijk beperken en verspreiding stoppen; noodzakelijk bewijs bewaren en melden volgens de wet, en accountbeëindiging beoordelen |
+| Aan kinderen aanbieden van gewelds-, seksuele of gokinhoud waarvan verstrekking aan hen wettelijk verboden is | Schadelijke blootstelling eerst beperken; inhoud verwijderen of accounts beperken volgens wet en ernst |
+| Intieme beelden zonder toestemming maken of verspreiden, inclusief schadelijke synthetische seksuele beelden | Toegang snel beperken of verwijderen; bewaring en bezwaar volgen paragraaf 2 |
+| Obscene inhoud waarvan verspreiding, verkoop of openbare vertoning onrechtmatig is | Melding en toepasselijk recht verifiëren en noodzakelijke maatregelen nemen |
+| Fraude, phishing, identiteitsmisbruik of afzendervervalsing om anderen te misleiden | Inhoud isoleren, betrokken functies beperken en wettelijk handelen |
+| Malware verspreiden, inloggegevens stelen, onbevoegd binnendringen of systemen beschadigen | Schade onmiddellijk isoleren en beoordelen; rechtmatige geïsoleerde tests van paragraaf 4 worden binnen hun toestemming beoordeeld |
+| Inbreuk op auteursrecht, merken of privacy, of onrechtmatige openbaarmaking van andermans gegevens | Rechten en rechtmatige gebruiksgronden beoordelen volgens paragraaf 8 of de toepasselijke procedure |
 
 ## 2. Seksuele beelden zonder toestemming
 
-Wie via de Dienst seksuele beelden zonder toestemming uploadt, doorgeeft of opslaat, krijgt bij ontdekking onmiddellijk de toegang beperkt of de inhoud verwijderd, en het wordt als volgt afgehandeld:
+De dienst gebruiken om intieme beelden zonder toestemming te maken, door te geven of te verspreiden is verboden. Bij een geloofwaardige melding waarmee het materiaal kan worden gevonden, moet de exploitant snel toegang beperken of verwijderen om verdere verspreiding te verminderen.
 
-1. **Strafrechtelijk verbod**: het zonder toestemming opnemen, verveelvoudigen of verspreiden van seksuele beelden van een ander, of het vervaardigen en verspreiden van valse seksuele beelden door middel van computersynthese of andere technologische methoden, vormt in de meeste rechtsgebieden een strafbaar feit.
-2. **Verwijderingsverplichting van het platform**: zodra de Exploitant kennis heeft van feiten die op een seksueel geweldmisdrijf duiden, beperkt hij eerst de toegang tot de met het misdrijf verband houdende gegevens of verwijdert die; die gegevens, samen met de persoonsgegevens van de verdachte en de netwerkgebruikslogs, worden ten minste 180 dagen bewaard ten behoeve van onderzoek door de gerechtelijke en politieke instanties.
-3. **Wijze van afhandeling**: na ontvangst van een kennisgeving of melding beperkt de Exploitant eerst de toegang tot deze inhoud of verwijdert die, bewaart het bewijs en werkt mee aan onderzoek door de gerechtelijke politie. De afhandeling in deze paragraaf valt niet onder de bezwaarbufferprocedure van paragraaf 7.
+1. Beoordeel verwijdering, bewijsbewaring en meldplichten volgens daadwerkelijk toepasselijk recht; regels van één rechtsgebied gelden niet vanzelf wereldwijd.
+2. Bewaar bewijs alleen minstens 180 dagen wanneer toepasselijk recht dit uitdrukkelijk eist, volgens het bereik, de betrokken personen en het aanvangstijdstip van die wet. Gebruik anders de kortste rechtmatige en noodzakelijke termijn. Isoleer bewijs, beperk toegang tot bevoegde personen die het nodig hebben en wis het na afloop tenzij een andere wettelijke bewaargrond bestaat.
+3. Verstrekking aan toezichthouders of opsporingsdiensten vereist een rechtsgrond, verificatie van de ontvanger en een noodzakelijke omvang. Spoedverwijdering neemt later bezwaar niet weg; redenen mogen wettelijk worden beperkt of uitgesteld als bekendmaking verboden is of onderzoek schaadt.
 
 ## 3. Spam en misbruik
 
-Het is u niet toegestaan:
+Verboden zijn:
 
-1. ongevraagde commerciële bulkmail te verzenden (UBE/UCE), marketing te richten op ontvangers die niet hebben ingestemd, of de Dienst te gebruiken voor het opwarmen van mailboxen (warm-up) of het bombarderen met adresverificaties. Bovengenoemd gedrag kan in strijd zijn met het recht op de plaats van ontvangst (zoals de Amerikaanse CAN-SPAM Act, de ePrivacy-richtlijn van de EU en de Canadese CASL); voor grensoverschrijdende verzending geldt het recht van de plaats van ontvangst. Worden persoonsgegevens voor marketing gebruikt, dan wordt dat gebruik onmiddellijk gestaakt zodra de betrokkene kenbaar maakt geen marketing te willen ontvangen.
-2. op programmatische wijze accounts in batch te registreren, mensverificatie (Turnstile) te omzeilen, of registratiesleutels of quotabeperkingen te omzeilen.
-3. de Dienst te gebruiken als anonieme doorstuurknoop of als kortstondige pool voor bulkverzending, of herhaaldelijk te registreren met als doel handhaving te omzeilen.
+1. Ongevraagde bulkmail versturen, marketing aan ontvangers zonder toestemming, mailboxopwarming of bombardementen met adresverificaties. Naast dit beleid gelden toepasselijke antispamregels van verzend- en ontvangstlocatie en andere plaatsen; stop marketing na afwijzing.
+2. Zonder toestemming massaal accounts registreren of Turnstile, registratiesleutels of quota omzeilen.
+3. Misbruikrelays of tijdelijke accountpools maken, of herregistratie om handhaving te ontwijken.
 
 ## 4. Aanvallen en hinder
 
-Het is u niet toegestaan:
+Leren, fouten opsporen en beveiligingstests zijn toegestaan op een implementatie die u beheert en die van echte diensten is geïsoleerd, met synthetische gegevens of anonieme gegevens waarvan is beoordeeld dat personen niet redelijkerwijs opnieuw kunnen worden geïdentificeerd, en zonder derden te raken. Alleen namen vervangen, adressen afschermen of identificatoren hashen voldoet niet automatisch aan de maatstaf voor anonimiteit; zie paragraaf 4.5 van het [Privacybeleid](/nl/mail/privacy-policy/) voor de reikwijdte van de beoordeling. Testen geeft geen toestemming om echte e-mails, persoonsgegevens of andermans inloggegevens te verkrijgen.
 
-1. de Dienst of systemen van derden te scannen, te peilen of met geweld te kraken; te proberen ongeautoriseerde toegang te verkrijgen tot de mailbox van anderen, de beheerinterface of de gegevens van andere gebruikers. Bovengenoemd gedrag kan een strafbaar feit vormen; de Exploitant kan tevens civiel- en bestuursrechtelijk verhaal zoeken en optreden.
-2. gedeelde bronnen zoals AI-vertaling, bijlagen of de API zonder redelijke grond zodanig te belasten dat het normale gebruik door andere gebruikers wordt gehinderd.
-3. Cloudflare, de upstream open source-gemeenschap of de Exploitant te lastigvallen, te belasteren of rechtsmisbruik te plegen.
-4. de gebruiksvoorwaarden van diensten van derden (Cloudflare, Resend, Mailjet, Telegram en andere) te schenden.
+1. Verkrijg vóór scans, belastingtests, social engineering, brute-forcetests of toegangstests op publieke instanties, systemen met echte gebruikers of systemen van derden uitdrukkelijke toestemming van de systeemverantwoordelijke. Volg bereik, tijd en stopvoorwaarden; publieke bereikbaarheid is geen toestemming.
+2. Put gedeelde AI-, bijlage- of API-middelen niet bewust uit en hinder anderen niet; toegestane capaciteitstests blijven binnen afgesproken grenzen.
+3. Kritiek te goeder trouw, kwetsbaarheidsmeldingen, privacyklachten, meldingen aan autoriteiten en rechtmatige rechtsuitoefening zijn geen misbruik. Bedreigingen, gerichte intimidatie en schadelijke openbaarmaking van privégegevens zijn verboden.
+4. Voorwaarden van derden gelden alleen binnen werkelijk gebruikte diensten en relevante contractuele relaties; zij schuiven de eigen plichten van de exploitant niet af op gebruikers.
 
 ## 5. Algemene verplichtingen bij het gebruik van bronnen
 
-1. U gebruikt de bronnen binnen de opslagquota van uw account; quota's worden door de Exploitant per rol vastgesteld.
-2. Accounts en API-tokens mogen niet aan derden worden uitgeleend, verhuurd of overgedragen.
-3. Wie eigen externe opslag (BYOS) of externe databases gebruikt, draagt er zelf zorg voor dat die diensten voldoen aan de eisen die het recht op zijn vestigingsplaats stelt aan internationale doorgifte.
+1. Volg gepubliceerde opslag- en verzendquota; wijzigingen worden volgens de Servicevoorwaarden aangekondigd.
+2. Verhuur of verkoop accounts niet door en deel inloggegevens niet met onbevoegden. Rechtmatige integraties gebruiken beperkte autorisatie en beschermen sleutels.
+3. Controleer voor BYOS of externe databases toegangsrechten en verwerkingsvoorwaarden. Gebruiker en exploitant vervullen hun feitelijke rollen; de gebruikerskeuze stelt de exploitant niet vrij van gegevensbeschermings- en doorgifteplichten.
 
 ## 6. Handhavingsmaatregelen
 
-De Exploitant neemt maatregelen die evenredig zijn aan de aard en de ernst van de overtreding; voor inhoud met seksuele uitbuiting van kinderen en jongeren geldt de geleidelijke ladder niet en wordt rechtstreeks de nultolerantieprocedure gevolgd.
+Maatregelen moeten evenredig zijn aan aard, betrouwbaarheid van aanwijzingen, schade en herhaling. Kindermisbruik, beelden zonder toestemming of lopende aanvallen mogen direct worden geïsoleerd of uitgeschakeld zonder alle stappen af te wachten; beoordeling achteraf blijft nodig.
 
-![Handhavingsladder van het Beleid voor acceptabel gebruik van EpoCanvas Mail: vijf niveaus van waarschuwing, frequentiebeperking, quarantaine naar spam, opschorting van het account en fysieke verwijdering, met een bezwaarroute, en een nultolerantiekortpad voor seksuele uitbuiting van kinderen en jongeren dat rechtstreeks naar verwijdering leidt](/images/mail/nl/aup-ladder.svg)
+![Waarschuwing, beperking, isolatie, opschorting en beëindiging met bezwaarroute](/images/mail/nl/aup-ladder.svg)
 
-*Figuur: de handhavingsladder. Maatregelen escaleren niveau voor niveau op grond van het evenredigheidsbeginsel; fysieke verwijdering is de onomkeerbare eindmaatregel. Het stippellijn-nultolerantiepad geldt voor seksuele uitbuiting van kinderen en jongeren en seksuele beelden zonder toestemming, die onmiddellijk worden verwijderd met bewaring van het bewijs.*
+*Figuur: het niveau volgt de omstandigheden; spoedbescherming en later bezwaar bestaan naast elkaar, terwijl verwijdering en bewijsbewaring wet en technische beperkingen volgen.*
 
 | Niveau | Maatregel | Toepasselijke omstandigheden |
 | --- | --- | --- |
-| 1 | Waarschuwing | lichte of eerste overtreding |
-| 2 | Frequentiebeperking van functionaliteit | beperking van het verzendvolume en de API-frequentie |
-| 3 | Quarantaine | e-mail naar buiten de site wordt in de spammap geplaatst |
-| 4 | Opschorting van het account | de toegang tot het account wordt gestaakt, gegevens blijven bewaard voor heroverweging |
-| 5 | Fysieke verwijdering | het account en alle gegevens worden verwijderd, onherstelbaar |
+| 1 | Waarschuwing | Lichte eerste overtreding die kan worden hersteld |
+| 2 | Frequentiebeperking | Verzendvolume, API-frequentie of betrokken functies beperken |
+| 3 | Isolatie | Toegang of bezorging beperken om verdere schade te stoppen |
+| 4 | Accountopschorting | Toegang pauzeren en noodzakelijke gegevens rechtmatig bewaren voor beoordeling |
+| 5 | Beëindiging en verwijdering | Ernstige of herhaalde overtredingen; verwijdering, teruggave en wettelijke bewaring volgens het Privacybeleid |
 
-Technische basis van de handhavingsladder: het uitgaande volume is begrensd door de verzendquota van de accountrol (gewone gebruikers 5 berichten/dag, LV.0 8/dag, LV.1 10/dag, beheerders 100/dag; het masteraccount is onbeperkt), met dagelijkse tellers die elke dag worden gereset; spam blijft 7 dagen in quarantaine en gaat daarna naar de prullenbak; bij mailboxgebruik boven 90 % van de quota wordt e-mail die al als verwijderd is gemarkeerd onmiddellijk fysiek verwijderd. Deze parameters verschillen per rol en instantieconfiguratie; de werkelijke configuratie van de instantie is leidend.
+Quota, geplande opruiming en back-upbeperkingen staan in [Gegevensverwerking en beveiliging](/nl/mail/data-security/) en het [Privacybeleid](/nl/mail/privacy-policy/). Opschorting wist niet onmiddellijk alle kopieën; verwijdering garandeert niet dat gegevens in elk systeem onherstelbaar zijn.
 
-Is sprake van onrechtmatig gedrag, dan kan de Exploitant het noodzakelijke bewijs bewaren (voor de gevallen in paragraaf 2 ten minste 180 dagen) en meewerken aan onderzoek door het bevoegd gezag. Brengt uw gedrag mee dat de Exploitant door Cloudflare of een upstream-leverancier wordt beboet, dan kan de Exploitant dat op u verhalen op grond van paragraaf 10 van de [Servicevoorwaarden](/nl/mail/terms-of-service/).
+Wettelijke inhoudsmeldingen volgen toepasselijk recht en verstrekken alleen noodzakelijke gegevens aan bevoegde ontvangers. Inhoud gaat niet automatisch naar alle derden, upstreamaanbieders of melders. Gebruikers zijn alleen verantwoordelijk voor hun juridisch toerekenbare gedrag, zonder algemene vergoeding van alle kosten, boetes of derdenclaims van exploitanten of ontwikkelaars.
 
 ## 7. Bezwaar en meldingen
 
-1. **Bezwaar**: oordeelt u dat een maatregel ten onrechte is genomen, dan kunt u bezwaar maken via de kanalen die in paragraaf 13 van de [Servicevoorwaarden](/nl/mail/terms-of-service/) staan; de Exploitant heroverweegt en antwoordt binnen een redelijke termijn. Behoudens urgente omstandigheden krijgt u vóór zware maatregelen van niveau 4 en hoger de gelegenheid zich uit te laten.
-2. **Melding**: iedereen die gedrag in strijd met dit beleid of een veiligheidsrisico constateert (spambronnen, phishingmail, pogingen tot ongeautoriseerde toegang en dergelijke), kan dat via de voornoemde kanalen melden; meldingen te goeder trouw worden in elk geval geverifieerd en afgehandeld.
-3. **Uitzondering**: voor inhoud inzake seksuele uitbuiting van kinderen en jongeren, of voor de seksuele beelden zonder toestemming uit paragraaf 2, past de Exploitant de bezwaarbufferprocedure niet toe: de inhoud wordt rechtstreeks verwijderd, het account wordt beëindigd, het bewijs wordt bewaard en de zaak wordt overgedragen aan het bevoegd gezag.
-
+1. Maak bij een mogelijk onjuist besluit bezwaar via `admin@epocanvas.com` of paragraaf 13 van de Voorwaarden, ook zonder accounttoegang. Normaal gaan redenen en een reactiemogelijkheid aan zware maatregelen vooraf; beoordeling en antwoord volgen binnen redelijke termijn.
+2. Geef noodzakelijke locatiegegevens, tijd en redenen, zonder beelden van slachtoffers, wachtwoorden of niet-relevante persoonsgegevens opnieuw te verspreiden. De exploitant prioriteert naar geloofwaardigheid en schade; wettelijke privacytermijnen volgen afzonderlijk het Privacybeleid.
+3. Spoedmaatregelen mogen vóór kennisgeving worden uitgevoerd, maar nemen later bezwaar of toegang tot rechter en toezichthouder niet weg. Vastgestelde fouten worden hersteld voor zover wettelijk en technisch mogelijk; herstel van verwijderde gegevens kan niet worden beloofd.
 
 ## 8. Melding en tegenmelding inzake auteursrecht en intellectuele eigendom
 
-Een rechtenhouder die van mening is dat inhoud op de Dienst inbreuk maakt op zijn auteursrecht, merk of andere rechten kan een melding sturen aan de Exploitant. De melding vermeldt: een omschrijving van het geschonden recht en bewijs van rechtheidschap, voldoende informatie om de inhoud te lokaliseren (zoals het adres van de ontvanger en het onderwerp van de e-mail), contactgegevens en een naar behoren ondertekende verklaring in goed vertrouwen dat het gebruik niet is toegestaan. Na verificatie verwijdert de Exploitant de inhoud of beperkt hij de toegang ertoe en stelt hij de melder van de uitkomst in kennis.
+Rechthebbenden kunnen het recht en de gestelde inbreuk specificeren, voldoende locatiegegevens, contact en wettelijk vereiste verklaringen geven. De exploitant moet melding, toestemming en toepasselijke uitzonderingen of beperkingen beoordelen voordat toegang wordt beperkt, inhoud verwijderd of aanvulling gevraagd. Een eenzijdige beschuldiging stelt op zichzelf geen inbreuk vast.
 
-Een gebruiker wiens inhoud is verwijderd en die van mening is dat dit ten onrechte gebeurde, kan een tegenmelding indienen met zijn redenen en een verklaring in goed vertrouwen; de Exploitant stuurt de tegenmelding door aan de oorspronkelijke melder. Herhaalde inbreuken op de rechten van anderen leiden tot escalatie volgens de handhavingsladder van paragraaf 6, tot fysieke verwijdering aan toe. Meldingen en tegenmeldingen die te kwader trouw worden gedaan en anderen schaden, kunnen tot aansprakelijkheid leiden.
-
----
-
-*Dit document vormt geen juridisch advies; de juridische kwalificatie van de genoemde gedragingen is voorbehouden aan het bevoegd gezag.*
+De getroffen gebruiker mag een tegenmelding en gronden voor rechtmatig gebruik geven. Meldingen, tegenmeldingen en identiteitsgegevens worden alleen noodzakelijk binnen een toepasselijke procedure en rechtsgrond doorgestuurd, met wettelijke kennisgeving; niet automatisch volledig naar de melder. Herhaalde inbreuken en bewust onjuiste meldingen volgen feiten, evenredigheid en wet; de interne procedure vervangt wettelijke rechtsmiddelen niet.

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Cycle de vie contractuel des Conditions d'utilisation : consentement, exécution, révision, fin — soumis au droit du lieu de l'exploitant">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" width="100%" role="img" aria-label="Cycle de vie contractuel des Conditions d&apos;utilisation : consentement, exécution, révision, fin — soumis au droit du lieu de l&apos;exploitant">
   <style>
     .bg { fill: #f8fafc; }
     .step { fill: #ffffff; stroke: #e2e8f0; stroke-width: 1.5; }
@@ -38,7 +38,7 @@
     </marker>
   </defs>
   <rect class="bg" width="1000" height="400" rx="16"/>
-  <text class="tag" x="60" y="46">CYCLE CONTRACTUEL — CONDITIONS D'UTILISATION</text>
+  <text class="tag" x="60" y="46">CYCLE CONTRACTUEL — CONDITIONS D&apos;UTILISATION</text>
   <rect class="chip" x="672" y="24" width="268" height="40" rx="10"/>
   <text class="bb" x="688" y="42">Consentement électronique</text>
   <text class="b" x="688" y="57">même valeur qu’une signature écrite</text>
@@ -73,7 +73,7 @@
   <text class="t" x="78" y="352">Politique de confidentialité</text>
   <text class="b" x="78" y="368">informations et droits</text>
   <rect class="step" x="352" y="334" width="272" height="44" rx="10"/>
-  <text class="t" x="370" y="352">Politique d'utilisation</text>
+  <text class="t" x="370" y="352">Politique d&apos;utilisation</text>
   <text class="b" x="370" y="368">limites de conduite · exécution</text>
   <rect class="step" x="644" y="334" width="296" height="44" rx="10"/>
   <text class="t" x="662" y="352">Ordre de préséance</text>

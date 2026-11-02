@@ -3,7 +3,7 @@ title: Modos de funcionamiento
 description: Modos de funcionamiento de EpoCanvas Mail — formas de despliegue, los tres niveles de privacidad del modo de correo, grupos de identidad y cuotas, inicio de sesión y verificación en dos pasos, multicuenta y modos de visualización de la interfaz.
 ---
 
-**Fecha de entrada en vigor: 11 de octubre de 2026 | Versión: 5.19**
+**Fecha de actualización: 2 de noviembre de 2026 | Versión: 5.25**
 
 El mismo código de EpoCanvas Mail adopta formas de funcionamiento distintas según la configuración: una instancia puede estar alojada o autodesplegada; el administrador elige el equilibrio entre privacidad y revisabilidad entre tres modos de correo; las cuentas reciben cuotas y permisos según su grupo de identidad; y el inicio de sesión, la multicuenta y la visualización ofrecen cada uno varias opciones. Esta página describe el comportamiento y las diferencias de cada modo. El tratamiento de datos asociado figura en [Tratamiento de datos y seguridad](/es/mail/data-security/); el funcionamiento de las funciones, en la [Guía de funciones](/es/mail/features/); las entradas de configuración, en la [Guía de configuración](/es/mail/settings/).
 
@@ -14,7 +14,7 @@ El servicio se ofrece en las dos formas siguientes; la calificación del respons
 | Forma | Operador | Caso de uso |
 | --- | --- | --- |
 | Instancia alojada | El equipo de operación de EpoCanvas ([mail.epocanvas.com](https://mail.epocanvas.com)) | Registro y uso inmediatos, sin necesidad de dominio ni cuenta de Cloudflare propios |
-| Instancia autodesplegada | La persona u organización que la despliega | Todos los datos permanecen en los recursos de Cloudflare del propio desplegador, con código fuente auditable |
+| Instancia autodesplegada | La persona u organización que la despliega | El desplegador configura los recursos principales; la entrega saliente, los proveedores de identidad, el almacenamiento de objetos, la IA y las notificaciones pueden implicar a otros proveedores; véase la lista de destinatarios externos y encargados del tratamiento |
 
 ## 2. Modo de correo: tres niveles de privacidad
 
@@ -22,16 +22,16 @@ El administrador selecciona el modo de correo de la instancia en la tarjeta de c
 
 ![Configuración del sistema de EpoCanvas Mail, tarjeta de configuración del sitio: el desplegable del modo de correo está abierto y muestra Modo de todo el correo (Level 1), Modo de correo privado (Level 2 [Recomendado]) y Modo de correo cifrado (Level 3 [E2EE]); el valor actual es el modo de correo privado con una insignia de privacidad reforzada Level 2 (interfaz en chino simplificado)](/images/mail/es/ui/mode-guide.png)
 
-*Figura: selección del modo de correo. La instancia mostrada funciona en modo de correo privado; la tarjeta de personalización a la derecha y las tarjetas de almacenamiento y de push más abajo están en la misma página.*
+*Figura: ejemplo de la interfaz de selección del modo de correo; el valor y las insignias de la captura no acreditan la configuración actual de la instancia en línea ni representan cifrado de extremo a extremo.*
 
 <details>
 <summary>Guía visual: El modo de correo —  cómo un desplegable decide la privacidad de toda la instancia</summary>
 
-La región del modo de correo dentro de la tarjeta de configuración del sitio, en la configuración del sistema: un solo desplegable decide el cifrado con que se almacena el correo de toda la instancia y cuánto alcanza a ver el lado administrativo, con efecto inmediato.
+La región del modo de correo dentro de la tarjeta de configuración del sitio, en la configuración del sistema: el desplegable afecta al cifrado posterior de los campos y a la visibilidad administrativa, sin acreditar una migración masiva de los datos históricos.
 
-1. **Desplegable del modo de correo**: El administrador elige el equilibrio entre tres niveles: Level 1 todo en texto claro (el lado administrativo ve todo el correo), Level 2 modo privado (valor de fábrica; la correspondencia de los usuarios se cifra en reposo con AES-256-GCM) y Level 3 E2EE integral (la interfaz administrativa no devuelve ninguna lista de correo de usuarios).
-2. **Insignia de privacidad reforzada Level 2**: La instancia funciona en modo de correo privado: el lado administrativo solo ve correo no deseado, papelera y correo sin propietario, y el interruptor general de la verificación en dos pasos queda bloqueado en encendido.
-3. **Las tres opciones al desplegar**: De un vistazo se aprecian las diferencias entre L1 modo de todo el correo, L2 modo de correo privado (recomendado) y L3 modo de correo cifrado (E2EE). En el modo cifrado desaparece la entrada de revisión de todo el almacén, los informes de operaciones pierden sus marcas de tiempo y el reenvío global queda bloqueado en apagado.
+1. **Desplegable del modo de correo**: Level 1 guarda los correos en texto claro; Level 2, el modo privado de fábrica, aplica cifrado en reposo del lado del servidor a parte del cuerpo y del asunto de los usuarios; Level 3, el modo cifrado, amplía ese alcance e impide que las listas administrativas devuelvan correos de usuarios. Ninguno ofrece cifrado de extremo a extremo; el servidor conserva la capacidad de descifrar.
+2. **Insignia de privacidad reforzada Level 2**: En el modo privado, las listas administrativas muestran correo no deseado, papelera y correo sin propietario, y el interruptor general de la verificación en dos pasos queda bloqueado en encendido. La insignia no acredita que el administrador sea técnicamente incapaz de acceder a otros datos.
+3. **Las tres opciones al desplegar**: La etiqueta E2EE de la interfaz o la captura no cambia el diseño real de cifrado del lado del servidor. El modo cifrado oculta la entrada de revisión de todo el almacén, elimina las marcas de tiempo de los informes de operaciones y desactiva el reenvío y las notificaciones de bots del sistema; no desactiva automáticamente las transmisiones configuradas por cada usuario.
 
 </details>
 
@@ -39,9 +39,9 @@ La región del modo de correo dentro de la tarjeta de configuración del sitio, 
 | --- | --- | --- | --- | --- |
 | Modo de todo el correo (Level 1) | Todo en texto claro | Todo el correo | Se puede apagar | Se puede encender |
 | Modo de correo privado (Level 2, valor de fábrica) | Correspondencia de los usuarios cifrada en reposo con AES-256-GCM; la papelera se conserva en texto claro para permitir la recuperación | Solo correo no deseado, papelera y correo sin propietario | Bloqueado en encendido | Se puede encender |
-| Modo de correo cifrado (Level 3 [E2EE]) | Todo el correo (papelera incluida) totalmente cifrado | No devuelve lista alguna de correo de usuarios | Bloqueado en encendido | Bloqueado en apagado |
+| Modo de correo cifrado (Level 3, etiquetado E2EE en la interfaz) | Amplía el cifrado en reposo del lado del servidor del asunto y el cuerpo; no incluye automáticamente adjuntos ni metadatos de enrutamiento | No devuelve lista alguna de correo de usuarios | Bloqueado en encendido | Bloqueado en apagado para el sistema; los ajustes individuales deben comprobarse por separado |
 
-El cambio de modo surte efecto de inmediato. En el modo cifrado, la lista administrativa de correo permanece vacía de forma permanente, los informes de auditoría pierden sus marcas de tiempo y la entrada de revisión de correo desaparece de la barra lateral administrativa. El reenvío individual y el push de Telegram que cada usuario configura no siguen el modo global del sitio: se rigen por los interruptores de control de datos de usuario fijados por el operador y por los ajustes propios de cada usuario. En el modo privado, restaurar un mensaje desde la papelera lo descifra antes de devolverlo al buzón y lo vuelve a cifrar después.
+El cambio de modo afecta al tratamiento posterior y a las listas administrativas, pero no acredita la migración de todos los registros históricos, copias o adjuntos. En el modo cifrado, las listas administrativas de correo quedan vacías, los informes de operaciones omiten algunas marcas de tiempo y se oculta la entrada de revisión de la barra lateral administrativa. El reenvío individual y las notificaciones de Telegram no se desactivan automáticamente con el modo global; dependen de los controles correspondientes y los ajustes individuales. En el modo privado, trasladar un correo a la papelera hace que su asunto, cuerpo y código de verificación se guarden descifrados y entren en el alcance visible para la administración; al restaurarlo, se vuelve a cifrar conforme al modo.
 
 ## 3. Grupos de identidad y cuotas
 
@@ -87,7 +87,7 @@ Los registros nuevos entran en el grupo por defecto de fábrica, el Visitante; e
 Las tres regiones principales de la página de inicio de sesión: el recorrido completo de introducción y envío del acceso con contraseña; los botones de acceso rápido de terceros quedan debajo de la tarjeta.
 
 1. **Campo de correo**: La cuenta es la propia dirección de correo. En el modo de código de registro, esta página también admite el parámetro de código de invitación `?code=`, que prellena directamente el formulario de registro.
-2. **Campo de contraseña**: La frase secreta se almacena como resumen con sal y el servidor nunca entra en contacto con el texto claro. «He olvidado mi contraseña» abre en una ventana emergente el portal externo de apelaciones, con el tipo de apelación, el idioma de la interfaz y el correo como parámetros.
+2. **Campo de contraseña**: La contraseña se envía mediante TLS al servidor para su verificación, por lo que el servidor recibe el valor introducido. El registro persistente de verificación utiliza un hash con sal; algunos flujos MFA pendientes también conservan temporalmente texto claro, como se explica en el documento de seguridad de los datos. El enlace de recuperación de contraseña puede transmitir al portal de reclamaciones configurado el tipo de solicitud, el idioma y la dirección de correo como parámetros.
 3. **Botón de inicio de sesión**: Al enviarlo, las cuentas con verificación en dos pasos pasan a la segunda verificación; los fallos consecutivos activan el bloqueo antifuerza bruta. Si se marca «mantener la conexión orbital», este dispositivo queda exento de volver a verificarse durante 30 días.
 
 </details>
@@ -115,7 +115,7 @@ Cuatro regiones anotadas de la página de seguridad: arriba, el acceso para modi
 
 ## 5. Modo multicuenta
 
-El administrador puede activar el «cambio rápido multicuenta» (desactivado por defecto). Una vez activado, el menú del avatar enumera las cuentas conectadas con una entrada de cambio, y «gestionar sus cuentas de Epomail» abre el flujo de alta; cada cuenta conserva una sesión independiente, y las rutas de la interfaz quedan aisladas con el prefijo `/mail/u/índice/`: cambiar de cuenta nunca sobrescribe el inicio de sesión de otra. El cambio entre alias de buzón de una misma cuenta no crea una sesión nueva.
+El administrador puede activar el cambio rápido multicuenta, desactivado por defecto. El menú del avatar muestra entonces las cuentas conectadas y permite cambiarlas o añadir otras; `/mail/u/índice/` selecciona la cuenta. Las cuentas pueden tener sesiones distintas y las bases de borradores locales se seleccionan por dirección de buzón, pero el almacenamiento del mismo origen no constituye un perfil de navegador independiente. En la implementación local de esta revisión, cerrar sesión de forma ordinaria termina solo la sesión actual y elimina la caché del mensaje abierto y el historial de destinatarios, conservando las sesiones de otras cuentas y los borradores. No revoca todos los tokens ni enlaces compartidos. Cambiar de alias dentro de la misma cuenta no crea una sesión nueva. Estos comportamientos no acreditan su despliegue en todas las instancias en línea; véase la sección 4.3 de la Política de Privacidad para los dispositivos compartidos.
 
 ![Menú del avatar de EpoCanvas Mail abierto en la parte superior derecha de la bandeja de entrada: la cuenta actual admin (Maestro) con su flecha desplegable, el botón de «gestionar sus cuentas de Epomail» y la barra de uso de almacenamiento (interfaz en chino simplificado)](/images/mail/ui/ui-account-menu.png)
 
@@ -126,8 +126,8 @@ El administrador puede activar el «cambio rápido multicuenta» (desactivado po
 
 El menú del avatar desplegado en la esquina superior derecha de la bandeja de entrada: el punto de encuentro del cambio de cuenta y del detalle de la cuenta.
 
-- **Línea de cuenta**: La cuenta actual (admin · Maestro) con su flecha desplegable; en el modo multicuenta se enumeran todas las sesiones ya iniciadas, aisladas con el prefijo de ruta `/mail/u/N/`.
-- **Botón «gestionar sus cuentas de Epomail»**: La entrada para añadir una cuenta: al pulsarla se completa el inicio de sesión de la nueva cuenta por el enlace profundo dedicado de la página de inicio de sesión, y al volver aparece una sesión más. La clave es que no sobrescribe nada: la nueva cuenta no desplaza a la sesión actual, y el espacio de trabajo de cada cuenta queda aislado tras un prefijo de ruta /mail/u/N/, de modo que cambiar de cuenta solo cambia el prefijo, sin volver a iniciar sesión.
+- **Línea de cuenta**: La cuenta actual (admin · Maestro) con su flecha desplegable; el modo multicuenta enumera las sesiones iniciadas y `/mail/u/N/` selecciona la cuenta. La ruta por sí sola no aísla el almacenamiento ni el acceso al dispositivo.
+- **Botón «gestionar sus cuentas de Epomail»**: Añade una cuenta desde la página de inicio de sesión y vuelve a la lista; la ruta no separa el almacenamiento. Para eliminar de este navegador los datos de todas las cuentas del sitio, confirme aparte la limpieza del dispositivo en Ajustes → Datos. Cerrar sesión de forma ordinaria no elimina sin aviso los borradores de otras cuentas.
 - **Barra de uso de almacenamiento**: La barra de progreso del almacenamiento de adjuntos de la cuenta actual: el numerador es el espacio ya ocupado y el denominador, la cuota de su grupo de identidad (los valores de fábrica por grupo están en la página de control de permisos). Una vez conectado un almacenamiento de objetos personal, los adjuntos nuevos dejan de computar aquí, así que una barra que deja de crecer no significa que los adjuntos hayan dejado de llegar.
 
 </details>
@@ -146,4 +146,4 @@ La interfaz existe en seis idiomas — 简体中文, 繁體中文, English, Fran
 | Recorrido por la configuración personal y la consola de administración | [Guía de configuración](/es/mail/settings/) |
 | Funciones detalladas con capturas de pantalla | [Guía de funciones](/es/mail/features/) |
 | Semántica de privacidad y conservación de los modos de correo | [Tratamiento de datos y seguridad](/es/mail/data-security/) |
-| Visibilidad administrativa del contenido del correo | [Política de privacidad](/es/mail/privacy-policy/), sección 10 |
+| Visibilidad administrativa del contenido del correo | [Política de privacidad](/es/mail/privacy-policy/), sección 4 |

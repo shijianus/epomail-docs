@@ -3,7 +3,7 @@ title: Werkingsmodi
 description: Werkingsmodi van EpoCanvas Mail — implementatievormen, de drie privacy niveaus van de e-mailmodus, identiteitsgroepen en quota's, aanmelding en tweestapsverificatie, meerdere accounts en weergavemodi van de interface.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.25**
 
 Dezelfde codebasis van EpoCanvas Mail neemt bij verschillende configuraties verschillende werkingsvormen aan: een instantie kan gehost of zelf uitgerold worden; de beheerder kiest tussen privacy en controleerbaarheid in drie e-mailmodi; accounts krijgen quota's en rechten naar gelang hun identiteitsgroep; en aanmelding, meerdere accounts en de weergave bieden elk verschillende opties. Deze pagina beschrijft het gedrag van en de verschillen tussen elke modus. Voor de gegevensverwerking die erbij hoort, zie [Gegevensverwerking en beveiliging](/nl/mail/data-security/); voor het gebruik van de functies, zie de [Functiegids](/nl/mail/features/); voor de instellingen zelf, zie de [Instellingengids](/nl/mail/settings/).
 
@@ -14,7 +14,7 @@ De dienst bestaat in de volgende twee vormen; de aanwijzing van de gegevensbehee
 | Vorm | Exploitant | Geschikt voor |
 | --- | --- | --- |
 | Gehoste instantie | Het EpoCanvas-exploitatieteam ([mail.epocanvas.com](https://mail.epocanvas.com)) | Registreren en gebruiken, zonder eigen domein of Cloudflare-account |
-| Zelf uitgerolde instantie | De persoon of organisatie die uitrolt | Alle gegevens blijven binnen de eigen Cloudflare-bronnen van de uitrolder, met controleerbare broncode |
+| Zelf uitgerolde instantie | De persoon of organisatie die uitrolt | De belangrijkste resources worden door de uitrolder geconfigureerd; uitgaande e-mail, identiteitsbronnen, objectopslag, AI en meldingen kunnen nog steeds andere dienstverleners betrekken. Zie de lijst van verwerkers |
 
 ## 2. E-mailmodus: drie privacy niveaus
 
@@ -22,16 +22,16 @@ De beheerder kiest de e-mailmodus van de instantie op de website-instellingenkaa
 
 ![Systeeminstellingen van EpoCanvas Mail, kaart website-instellingen: het keuzemenu van de e-mailmodus is open en toont Alle e-mail-modus (Level 1), Privé-e-mailmodus (Level 2 [Aanbevolen]) en Versleutelde e-mailmodus (Level 3 [E2EE]); de huidige waarde is de privée-mail-modus met een Level 2-badge voor versterkte privacy (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/mode-guide.png)
 
-*Figuur: keuze van de e-mailmodus. De getoonde instantie draait in de privée-mail-modus; de personalisatiekaart rechts en de opslag- en pushkaarten eronder staan op dezelfde pagina.*
+*Figuur: een interfacevoorbeeld van de keuze van de e-mailmodus; de moduswaarde en badges op de schermafbeelding bewijzen niet hoe de online instantie momenteel is geconfigureerd en staan niet voor end-to-end-versleuteling.*
 
 <details>
 <summary>Visuele handleiding: De mailmodus —  hoe één dropdown de privacy van de hele instantie bepaalt</summary>
 
-Het gebied e-mailmodus op de kaart Website-instellingen in de systeeminstellingen: één keuzemenu bepaalt hoe mail versleuteld wordt opgeslagen en hoeveel de beheerkant kan zien; de wijziging werkt onmiddellijk door.
+Het gebied e-mailmodus op de kaart Website-instellingen in de systeeminstellingen: het keuzemenu beïnvloedt de versleuteling van velden bij latere verwerking en de zichtbaarheid in de beheerinterface; het bewijst niet dat historische gegevens volledig zijn gemigreerd.
 
-1. **Keuzemenu voor de e-mailmodus**: De beheerder kiest de balans uit drie niveaus: Level 1 alles in platte tekst (de beheerder ziet alle mail), Level 2 privémodus (fabrieksstandaard; correspondentie van gebruikers versleuteld in rust met AES-256-GCM), Level 3 volledige E2EE (de beheerkant krijgt helemaal geen emaillijsten van gebruikers).
-2. **Badge voor versterkte privacy op Level 2**: Deze instantie draait in de privé-e-mailmodus: de beheerder ziet alleen spam, de prullenbak en mail zonder eigenaar, en de hoofdschakelaar van tweestapsverificatie staat vergrendeld op aan.
-3. **De drie uitgeklapte opties**: L1 alles-modus, L2 privé-e-mailmodus (aanbevolen) en L3 versleutelde e-mailmodus (E2EE) in één oogopslag. In de versleutelde modus verdwijnt de ingang voor e-mailcontrole over de hele opslag, worden tijdstempels uit operatierapporten gehaald en staat globaal doorsturen vergrendeld op uit.
+1. **Keuzemenu voor de e-mailmodus**: Level 1 slaat e-mails onversleuteld op; Level 2, de privémodus en fabrieksstandaard, past serverzijdige versleuteling in rust toe op een deel van de berichtteksten en onderwerpen van gebruikers; Level 3, de versleutelde modus, breidt die versleuteling uit en zorgt ervoor dat de beheerlijst geen e-mails van gebruikers teruggeeft. Geen van deze modi biedt end-to-end-versleuteling; de server kan ontsleutelen.
+2. **Badge voor versterkte privacy op Level 2**: In de privémodus kan de beheerlijst spam, de prullenbak en e-mails zonder eigenaar tonen; de hoofdschakelaar voor tweestapsverificatie is vergrendeld op aan. De badge bewijst niet dat beheerders technisch geen toegang tot andere gegevens kunnen krijgen.
+3. **De drie uitgeklapte opties**: Een E2EE-label in de interface of op een schermafbeelding verandert het feitelijke ontwerp met serverzijdige versleuteling niet. De versleutelde modus verbergt de ingang voor controle over de hele opslag, verwijdert tijdstempels uit handelingenrapporten en schakelt doorsturen en botmeldingen op systeemniveau uit; persoonlijk ingestelde doorgiften worden daardoor niet automatisch uitgeschakeld.
 
 </details>
 
@@ -39,9 +39,9 @@ Het gebied e-mailmodus op de kaart Website-instellingen in de systeeminstellinge
 | --- | --- | --- | --- | --- |
 | Alle e-mail-modus (Level 1) | Alles in platte tekst | Alle e-mail | Kan uit | Kan aan |
 | Privé-e-mailmodus (Level 2, fabrieksinstelling) | Correspondentie van gebruikers versleuteld in rust met AES-256-GCM; prullenbak blijft in platte tekst voor herstel | Alleen spam, prullenbak en email zonder eigenaar | Vergrendeld op aan | Kan aan |
-| Versleutelde e-mailmodus (Level 3 [E2EE]) | Alle e-mail (prullenbak meegerekend) volledig versleuteld | Levert helemaal geen emaillijsten van gebruikers | Vergrendeld op aan | Vergrendeld op uit |
+| Versleutelde e-mailmodus (Level 3, in de interface aangeduid als E2EE) | Breidt de serverzijdige versleuteling in rust van onderwerpen en berichtteksten uit; bijlagen en routeringsmetadata zijn niet automatisch inbegrepen | Levert helemaal geen emaillijsten van gebruikers | Vergrendeld op aan | Op systeemniveau vergrendeld op uit; persoonlijke instellingen afzonderlijk controleren |
 
-Een moduswijziging werkt onmiddellijk door. In de versleutelde modus blijft de beheerlijst van e-mail permanent leeg, worden tijdstempels uit de auditrapporten gehaald en verdwijnt de e-mailcontrole-ingang uit de beheerzijbalk. Individueel doorsturen en Telegram-push die gebruikers zelf instellen volgen de sitewijde modus niet; die vallen onder de schakelaars voor gebruikersgegevensbeheer van de exploitant en de eigen instellingen van de gebruiker. In de privémodus wordt een bericht dat uit de prullenbak teruggehaald wordt eerst ontsleuteld voordat het terug in de mailbox belandt, en daarna opnieuw versleuteld.
+Een moduswijziging beïnvloedt de latere verwerking en beheerlijsten, maar bewijst niet dat alle historische registraties, kopieën of bijlagen zijn gemigreerd. In de versleutelde modus blijft de beheerlijst van e-mail leeg, worden sommige tijdstempels uit handelingenrapporten verwijderd en verdwijnt de controle-ingang uit de beheerzijbalk. Persoonlijk doorsturen en Telegram-push worden niet automatisch door de sitebrede modus uitgeschakeld; daarvoor gelden de betreffende controles en persoonlijke instellingen. In de privémodus worden het onderwerp, de berichttekst en de verificatiecode bij verplaatsing naar de prullenbak eerst ontsleuteld opgeslagen en zichtbaar voor beheerders; na herstel wordt het bericht opnieuw volgens de modus versleuteld.
 
 ## 3. Identiteitsgroepen en quota's
 
@@ -87,7 +87,7 @@ Nieuwe registraties belanden in de fabrieksstandaardgroep, de Bezoeker; de explo
 De drie kerngebieden van het aanmeldscherm: één volledig traject voor aanmelden met wachtwoord; de knoppen voor snelle aanmelding via derden staan onder de kaart.
 
 1. **Veld voor het e-mailadres**: Het account is het e-mailadres zelf. In de registratiesleutelmodus accepteert deze pagina ook een uitnodigingsparameter `?code=` die het registratieformulier alvast invult.
-2. **Veld voor het wachtwoord**: Wachtwoorden worden als gezouten hash opgeslagen — de server ziet nooit platte tekst. «Wachtwoord vergeten» springt naar het externe beroepsportaal en draagt het beroepstype, de interfacetaal en het e-mailadres mee.
+2. **Veld voor het wachtwoord**: Het wachtwoord wordt via TLS aan de server doorgegeven voor verificatie; de server ontvangt dus de ingevoerde waarde. Blijvende verificatieregistraties gebruiken een gezouten hash, maar sommige nog niet afgeronde MFA-processen bewaren het wachtwoord kortstondig onversleuteld; zie het document over gegevensbeveiliging. «Wachtwoord vergeten» kan het type bezwaar, de taal en het e-mailadres doorgeven aan het geconfigureerde beroepsportaal.
 3. **Aanmeldknop**: Na verzending gaan accounts met tweestapsverificatie door naar de tweede factor; herhaalde mislukkingen lokken een anti-bruteforce-blokkade uit. Vink «Niet opnieuw vragen op dit apparaat» aan om 30 dagen van herverificatie vrijgesteld te zijn.
 
 </details>
@@ -115,7 +115,7 @@ Vier gebieden van de beveiligingspagina: bovenaan de ingangen om de accountgegev
 
 ## 5. Multi-accountmodus
 
-De beheerder kan «snel wisselen tussen meerdere accounts» aanzetten (standaard uit). Eenmaal aan, toont het avatarmenu de aangemelde accounts met een wisselinvul, en «uw Epomail-accounts beheren» opent het toevoegtraject; elk account houdt een onafhankelijke sessie, en de interfacepaden zijn geïsoleerd met het voorvoegsel `/mail/u/index/`: wisselen van account overschrijft nooit de aanmeldstatus van een ander. Wisselen tussen mailboxaliassen binnen één account maakt geen nieuwe sessie aan.
+De beheerder kan snel wisselen tussen meerdere accounts inschakelen; dit staat standaard uit. Het avatarmenu toont dan de aangemelde accounts en opties om te wisselen of accounts toe te voegen; `/mail/u/index/` selecteert het account. Accounts kunnen afzonderlijke sessies hebben en lokale conceptdatabases worden op mailboxadres gekozen, maar opslag binnen dezelfde origin vormt geen afzonderlijk browserprofiel. In de lokale implementatie van deze ronde beëindigt gewoon uitloggen alleen de huidige sessie en wist het de cache van het geopende bericht en de ontvangersgeschiedenis; sessies van andere accounts en concepten blijven behouden. Het trekt niet alle tokens of deellinks in. Wisselen tussen mailboxaliassen van hetzelfde account maakt geen nieuwe sessie. Dit bevestigt geen uitrol naar alle online instanties; zie paragraaf 4.3 van het privacybeleid voor gedeelde apparaten.
 
 ![Avatarmenu van EpoCanvas Mail geopend rechtsboven in de postvak IN: het huidige account admin (Meester) met pijl, de knop «uw Epomail-accounts beheren» en de opslagverbruikbalk (interface in vereenvoudigd Chinees)](/images/mail/ui/ui-account-menu.png)
 
@@ -126,8 +126,8 @@ De beheerder kan «snel wisselen tussen meerdere accounts» aanzetten (standaard
 
 Het avatarmenu dat rechtsboven in het postvak IN wordt uitgeklapt: het verzamelpunt voor het wisselen tussen meerdere accounts en de accountgegevens.
 
-- **Accountrij**: Het huidige account (admin · Meester) met een wisselpijl; in de multi-accountmodus worden alle aangemelde sessies opgesomd, geïsoleerd achter het voorvoegsel `/mail/u/N/`.
-- **Knop «uw Epomail-accounts beheren»**: De ingang om een account toe te voegen: de klik meldt het nieuwe account aan via de speciale diepe koppeling van de aanmeldpagina en je komt terug met één sessie meer. Het punt is het "niet-overschrijven" — het nieuwe account verdringt de huidige sessie niet; elke werkruimte zit achter een /mail/u/N/-padprefix geïsoleerd, dus wisselen is alleen het prefix veranderen, opnieuw inloggen is niet nodig.
+- **Accountrij**: Het huidige account (admin · Meester) met een wisselpijl; in de multi-accountmodus worden aangemelde sessies getoond. `/mail/u/N/` selecteert het account, maar het pad zelf vormt geen scheiding van opslag of apparaattoegang.
+- **Knop «uw Epomail-accounts beheren»**: Voegt via de aanmeldpagina een account toe en keert terug naar de wissellijst; de route scheidt de opslag niet. Bevestig apparaatopruiming afzonderlijk onder Instellingen → Gegevens om gegevens van alle accounts van deze site uit deze browser te verwijderen. Gewoon uitloggen wist niet stilzwijgend concepten van andere accounts.
 - **Opslagverbruikbalk**: De voortgangsbalk voor de bijlagenopslag van dit account: de teller is de gebruikte ruimte, de noemer het quotum van de rol (per-rol fabriekswaarden op de rollenpagina). Nadat persoonlijke objectopslag is gekoppeld, tellen nieuwe bijlagen hier niet meer mee — een balk die stopt met groeien betekent dus niet dat er geen bijlagen meer aankomen.
 
 </details>
@@ -146,4 +146,4 @@ De interface bestaat in zes talen — 简体中文, 繁體中文, English, Fran�
 | Rondleiding langs persoonlijke instellingen en de beheerconsole | [Instellingengids](/nl/mail/settings/) |
 | Functies in detail met schermafbeeldingen | [Functiegids](/nl/mail/features/) |
 | Privacybetekenis en bewaartermijnen van de e-mailmodi | [Gegevensverwerking en beveiliging](/nl/mail/data-security/) |
-| Zichtbaarheid van het beheer op e-mailinhoud | [Privacybeleid](/nl/mail/privacy-policy/), sectie 10 |
+| Zichtbaarheid van het beheer op e-mailinhoud | [Privacybeleid](/nl/mail/privacy-policy/), sectie 4 |

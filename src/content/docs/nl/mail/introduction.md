@@ -3,9 +3,9 @@ title: Inleiding EpoCanvas Mail documentatiesite
 description: Inleiding EpoCanvas Mail documentatiesite — positionering van de site, documentatiearchitectuur, leesroutes, meertalige structuur en volledige navigatie.
 ---
 
-**Site-lancering: 28 september 2026 | Huidige versie: v5.19 | Site-URL: docs.epocanvas.com/epomail**
+**Site-lancering: 28 september 2026 | Huidige versie: v5.25 | Site-URL: docs.epocanvas.com/epomail**
 
-**Datum van kracht: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.25**
 
 De EpoCanvas Mail documentatiesite (hierna "deze site") is het officiële documentatiecentrum voor de open-source e-maildienst EpoCanvas Mail, met juridische voorwaarden, technische specificaties, gebruikershandleidingen en ontwikkelingsdocumentatie. Gebouwd met Astro 5 + Starlight, behoudt de site volledige structurele symmetrie over zes talen (vereenvoudigd Chinees, traditioneel Chinees, English, Français, Español, Nederlands), waarbij elk document woord voor woord is geverifieerd tegen de code-implementatie, wat gebruikers van gehoste instanties, zelf-hosters en auditdeelnemers een enkele bron van waarheid biedt. Deze pagina legt de positionering van de site, documentatiearchitectuur, leesroutes en navigatie-ingangspunten uit.
 

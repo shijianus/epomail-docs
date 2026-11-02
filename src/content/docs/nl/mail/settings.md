@@ -3,7 +3,7 @@ title: Instellingengids
 description: Instellingengids van EpoCanvas Mail — de vijf secties van de persoonlijke instellingen (profiel, algemeen, beveiliging, gegevens, labels) en een volledige rondleiding langs de negen secties van de beheerconsole en de kaarten van de systeeminstellingen.
 ---
 
-**Datum van inwerkingtreding: 11 oktober 2026 | Versie: 5.19**
+**Bijgewerkt op: 2 november 2026 | Versie: 5.25**
 
 EpoCanvas Mail verdeelt zijn instellingen over twee zones: de zone «instellingen» van de zijbalk bevat de persoonlijke instellingen die elk account zelf kan aanpassen, in vijf secties — profiel, algemeen, beveiliging, gegevens en labels; de zone «beheer» verschijnt alleen voor identiteitsgroepen met beheerrechten en draagt de configuratie op instantieniveau. Deze pagina loopt elke zone langs en laat zien hoe de instellingen samenhangen. Voor het gedrag op werkingsniveau — multi-account, e-mailmodi, aanmelding — zie [Werkingsmodi](/nl/mail/modes/).
 
@@ -61,11 +61,11 @@ De drie kaarten van de pagina Algemeen — persoonlijke bio, persoonlijke aankle
 
 ## 4. Beveiliging: wachtwoord en tweestapsverificatie
 
-De beveiligingspagina wijzigt de gebruikersnaam en het wachtwoord (met de datum van de laatste wijziging). Het tweestapscentrum bevat de hoofdschakelaar en de onafhankelijke configuratie van de drie tweede factoren: authenticator-app (TOTP), back-upherstelcodes (10 eenmalige codes) en toegangssleutels (Passkey). Voor het aanmeldgedrag en de regels voor vertrouwde apparaten, zie sectie 4 van [Werkingsmodi](/nl/mail/modes/). Onderaan de pagina staat de ingang om het account te verwijderen; na verwijdering worden de accountgegevens verwerkt volgens de verwijderbepalingen van het [Privacybeleid](/nl/mail/privacy-policy/).
+De beveiligingspagina wijzigt de gebruikersnaam en het wachtwoord (met de datum van de laatste wijziging). Het tweestapscentrum bevat de hoofdschakelaar en de onafhankelijke configuratie van de drie tweede factoren: authenticator-app (TOTP), back-upherstelcodes (10 eenmalige codes) en toegangssleutels (Passkey). TOTP uitschakelen verwijdert het TOTP-geheim; als er een actieve passkey overblijft, blijft tweestapsverificatie ingeschakeld en wordt de passkey niet verwijderd. Voor het aanmeldgedrag en de regels voor vertrouwde apparaten, zie sectie 4 van [Werkingsmodi](/nl/mail/modes/). Onderaan de pagina staat de ingang om het account te verwijderen; na verwijdering worden de accountgegevens verwerkt volgens de verwijderbepalingen van het [Privacybeleid](/nl/mail/privacy-policy/).
 
 ## 5. Gegevens: export, meldingen en opslag
 
-![Gegevenspagina van EpoCanvas Mail: de exportkaart biedt de volledige JSON-export, het e-mailarchief (MBOX, JSON of CSV met periode) en de export van contacten en configuratie; de opslagkaart eronder toont de verbruiksmeter voor bijlagen en de ingang van persoonlijke objectopslag (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/data-guide.png)
+![Gegevenspagina van EpoCanvas Mail: ingangen voor de export van profielgegevens, e-mailarchieven en configuratie; alle exporten zijn beperkt tot bepaalde velden en de periodekeuze bewijst niet dat de backend die toepast; daaronder bijlagegebruik en de ingang voor objectopslag (interface in vereenvoudigd Chinees)](/images/mail/nl/ui/data-guide.png)
 
 *Figuur: de gegevenspagina. Export en opslagbeheer staan op één pagina; het bijlagenverbruik telt mee voor de quota van de identiteitsgroep.*
 
@@ -74,20 +74,20 @@ De beveiligingspagina wijzigt de gebruikersnaam en het wachtwoord (met de datum 
 
 De vier kaarten van de pagina Gegevens: drie exportformaten, een doorstuurgebied, een opslaggebied en een gebied voor autorisaties van derden — persoonlijke data-autonomie op één scherm.
 
-1. **Kaart gebruikersgegevens en data-export**: Drie exporten naast elkaar: de volledige back-up in JSON, het archief van de e-mailgeschiedenis (MBOX/JSON/CSV met periode) en contacten en configuratie; een los bericht is daarnaast in het leesvenster als .eml te downloaden.
-2. **Kaart E-mail en berichten doorsturen**: De instellingen van Telegram-push en automatisch doorsturen, punt voor punt; of een account ze mag gebruiken, bepaalt de schakelaar «Gebruikersgegevensbeheer» van de beheerder.
-3. **Kaart opslagruimte**: De verbruiksmeter voor bijlagen naast de quota, realtime. Je kunt je eigen Backblaze B2-/S3-bucket koppelen: nieuwe bijlagen gaan dan rechtstreeks naar je eigen cloud, buiten de quota van de instantie, en bij ontkoppelen valt het terug.
-4. **Kaart apps en diensten van derden**: Alle OAuth-autorisaties op het account: per app de toegang intrekken, of met één klik alles via het detailvenster. Intrekking werkt onmiddellijk — de bestaande tokens van de app vervallen ter plekke.
+1. **Kaart gebruikersgegevens en data-export**: JSON-, e-mailarchief- en configuratie-export gebruiken hetzelfde backendantwoord en bevatten alleen geselecteerde velden. De periodekeuze wordt niet toegepast en dit is geen volledige back-up. Ook afzonderlijke .eml-bestanden worden uit bestaande velden opgebouwd.
+2. **Kaart E-mail en berichten doorsturen**: Telegram- en doorstuurinstellingen; de beheerder bepaalt de beschikbaarheid. Persoonlijk doorsturen via regels (`rules`) is momenteel niet beschikbaar, stuurt tijdens uitvoering niets door en valt niet terug op alle mail; de Telegram-keuzes voor bereik, voorbeeld en codekopiëren worden volgens hun instellingen uitgevoerd. Zie de gids voor meldingen en doorsturen.
+3. **Kaart opslagruimte**: Bijlagegebruik en quota; persoonlijke Backblaze B2-/S3-opslag kan nieuwe bijlagen ontvangen, maar andere beperkingen blijven gelden. Ontkoppelen migreert of verwijdert oude objecten niet en garandeert niet dat oude bijlagen leesbaar blijven.
+4. **Kaart apps en diensten van derden**: OAuth-autorisaties bekijken en intrekken; de server kan latere gerelateerde verzoeken weigeren, maar haalt reeds verstrekte gegevens, uitgegeven ID-tokens of sessies bij derden niet terug.
 
 </details>
 
 | Export | Formaat | Bereik |
 | --- | --- | --- |
-| Volledige data-export | JSON | Volledige back-up: accountgegevens, e-mailgeschiedenis, contacten, classificatie- en labelregels, en beveiligingsinstellingen |
-| Archief van de e-mailgeschiedenis | MBOX (universeel), JSON of CSV | Alleen verzonden en ontvangen e-mail, met optionele periode |
-| Contacten en configuratie | JSON | Contactenlijst, eigen aliasregels en personalisatievoorkeuren |
+| Volledige data-export (naam in de interface) | JSON | Een deel van de profielgegevens, geselecteerde velden van e-mails die niet als verwijderd zijn gemarkeerd en `customLabels`; zonder bijlagebestanden, volledige contacten en regels, beveiligingsinstellingen of auditgegevens |
+| Archief van de e-mailgeschiedenis | MBOX, JSON of CSV | De browser converteert de e-mailvelden uit hetzelfde antwoord; de backend past de periodekeuze niet toe. Zonder prullenbake-mails of volledige oorspronkelijke MIME |
+| Contacten en configuratie | JSON | De teruggegeven deelverzameling van profielvelden, `customLabels` en de exporttijd; geen volledige back-up van contacten, aliassen of alle voorkeuren |
 
-Een los bericht wordt rechtstreeks in het leesvenster als .eml gedownload. Het gedeelte «E-mail en berichten doorsturen» biedt Telegram-push en automatisch doorsturen: het koppelen van een eigen bot, pushvoorkeuren en triggertypes worden stap voor stap uitgelegd in de [Handleiding meldingen en doorsturen](/nl/mail/notify/); of deze twee aan gebruikers worden aangeboden, beslist de schakelaar «Gebruikersgegevensbeheer» van de exploitant. Het opslaggedeelte toont de verbruiksmeter voor bijlagen en maakt het mogelijk een eigen objectopslag te koppelen (een eigen Backblaze B2- of S3-bucket); eenmaal gekoppeld gaan bijlagen rechtstreeks naar de persoonlijke cloud, buiten de quota van de instantie.
+Afzonderlijke .eml-bestanden worden uit bestaande velden opgebouwd; zie [Gegevensexport en opslag](/nl/mail/data/) voor de volledige afbakening van de export. De beperkingen bij het koppelen, filteren en intrekken van links in het gedeelte «E-mail en berichten doorsturen» staan in de [Gids voor meldingen en doorsturen](/nl/mail/notify/). Persoonlijke Backblaze B2-/S3-opslag kan nieuwe bijlagen naar de persoonlijke opslag leiden en de systeemquotumcontroles binnen het opslagpad voor bijlagen omzeilen, maar andere beperkingen voor e-mail en verzending en beperkingen van dienstverleners blijven gelden; ontkoppelen migreert of verwijdert oude objecten niet.
 
 ## 6. Labelbeheer
 
@@ -108,6 +108,14 @@ De beheerzone wordt onderdeel voor onderdeel getoond naar gelang de rechten van 
 | Appbeheer | Uitgeven en beheren van de toegangsreferenties van OAuth 2.0 / OIDC-applicaties van derden |
 | Classificatie | Schakelaars voor ontvangen en verzenden, configuratie van AI-herkenning, blacklists en whitelists en harde blokkeerregels |
 | Auditrapport | Beoordeling, afhandeling en arbitrage van de vier waarschuwingsklassen |
+
+<span id="operator-notice"></span>
+
+De kaart Beheerder en privacy vereist een identificeerbare beheerdersnaam, het werkelijke land of de regio, een contactadres voor e-mail, de voorwaardenversie en geldige links naar de servicevoorwaarden en privacyinformatie. Vul waar van toepassing een contactadres en informatie over ontvangers en bewaartermijnen aan. Ontbrekende verplichte gegevens blokkeren nieuwe registraties; bestaande aanmeldingen en initialisatie blijven beschikbaar. Nieuwe gebruikers vinken zelf een aanvankelijk leeg vakje voor aanvaarding van de voorwaarden aan. De server registreert account, versie, tijd, taal en voorwaarden-URL; de privacyinformatie is geen algemene toestemming.
+
+<span id="optional-processing"></span>
+
+Optionele codeherkenning, vertaling en OCR staan standaard uit en vereisen vóór activering informatie over de gegevensbestemming. Automatische codeherkenning vereist ook de expliciete keuze van de gebruiker in de gegevensinstellingen; elke vertaling vraagt bevestiging van de actuele informatie en OCR een afzonderlijke keuze voor die aanvraag. Terugval op openbare vertaaldiensten is niet beschikbaar. De gegevensinstellingen bieden ook intrekking van bestaande Telegram-leeslinks en het expliciet bevestigde wissen van apparaatgegevens. Accountsluiting meldt geblokkeerde toegang en nog te verifiëren verwijdering, niet het wissen van alle kopieën. Werk frontend en backend samen bij; configuratie bewijst geen werkelijke identiteit, contracten, ontvangers of uitgevoerde bewaarbeleidsregels.
 
 De pagina systeeminstellingen ordent de configuratie op instantieniveau in kaarten:
 

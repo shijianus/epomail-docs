@@ -3,7 +3,7 @@ title: Spécifications des courriels officiels et vérification anti-falsificati
 description: Comment les courriels système officiels d'EpoCanvas Mail sont émis et identifiés — marque officielle, livraison immuable, isolation du rendu côté client et vérification anti-falsification des documents.
 ---
 
-**Date d'entrée en vigueur : 11 octobre 2026 | Version : 5.19**
+**Date de mise à jour : 2 novembre 2026 | Version : 5.25**
 
 Le présent document explique comment les courriels système officiels sont émis et comment les identifier, et décrit le mécanisme de vérification anti-falsification des documents juridiques de ce site, afin que vous puissiez confirmer l'authenticité des communications et des documents officiels. Il est établi en vertu de la [Vue d'ensemble Confidentialité et conditions](/fr/mail/overview/) et du document [Traitement des Données et Maintien de la Sécurité](/fr/mail/data-security/).
 
@@ -46,17 +46,19 @@ Le contenu des courriels (officiels comme entrants) est rendu dans le navigateur
 
 ## 5. Vérification anti-falsification des documents
 
-Les documents juridiques de ce site sont scellés cryptographiquement lors de leur publication, afin que chacun puisse vérifier que ce qu'il lit correspond à la version publiée dans le dépôt open source :
+Ce site propose une comparaison SHA-256 entre les fichiers sources Markdown et un manifeste d’intégrité. Le manifeste et la page proviennent du même site et ne constituent pas une signature numérique indépendante ; tous deux pourraient être modifiés ensemble. Une empreinte identique signifie seulement que le fichier choisi correspond au manifeste chargé. Elle ne prouve ni le contenu de la page web, ni l’identité de l’éditeur, ni l’authenticité du document, ni la conformité juridique.
 
 | Voie de vérification | Mécanisme | Description |
 | --- | --- | --- |
-| Manifeste d'intégrité | `tamper-proof.json` | généré par la chaîne de build à partir du dépôt git ; enregistre pour chaque document le haché SHA-256, la taille en octets et le commit figé |
-| Panneau intégré à la page | « Sceau officielle et vérification d'intégrité » au bas de chaque page | affiche le haché officiel et le commit figé du présent document ; cliquer sur « Vérifier cette page » récupère à nouveau le manifeste et le compare au haché intégré dans la page |
-| Vérification hors ligne | `sha256sum` / OpenSSL | hacher les sources Markdown du dépôt open source et les comparer au manifeste élément par élément |
-| Origine faisant autorité | `docs.epocanvas.com/epomail` | servi en HTTPS ; le contenu lu depuis un autre domaine ou un miroir doit être vérifié à l'aune des hachés du manifeste |
+| Manifeste d’intégrité des fichiers | `tamper-proof.json` | Lit les fichiers de l’arbre de travail documentaire lors de la génération et enregistre SHA-256, le nombre d’octets, l’heure de génération, une référence Git HEAD et l’état local des documents |
+| Panneau de cette page | « Comparaison de l’intégrité du fichier source », uniquement sur cette page de spécification | Calcule le SHA-256 d’un fichier source local choisi et le compare au manifeste chargé ; aucun fichier n’est envoyé et la page web rendue n’est pas hachée |
+| Comparaison en ligne de commande | Commande Node.js du panneau | Convertit seulement CRLF en LF avant le calcul SHA-256 en UTF-8 ; exécuter `sha256sum` ou OpenSSL directement sur les octets CRLF utilise une entrée différente |
+| Source du manifeste | `docs.epocanvas.com/epomail/tamper-proof.json` | HTTPS protège la connexion ; un manifeste du même site n’est pas en soi une signature ou une certification de publication vérifiée par un canal de confiance indépendant |
 
-:::tip[Comment vérifier en ligne]
-Cliquez sur « Vérifier cette page » au bas de n'importe quelle page de document : le panneau récupère à nouveau le manifeste officiel et le compare au haché intégré dans la page. Vous pouvez aussi exécuter `curl -sSL https://docs.epocanvas.com/epomail/tamper-proof.json` dans un terminal pour obtenir le manifeste, puis `sha256sum` sur les fichiers Markdown du dépôt pour une vérification élément par élément.
+Le manifeste utilise les fichiers de l’arbre de travail lors de sa génération, sans lire automatiquement les fichiers validés dans HEAD. Si les documents comprennent des contenus non validés ou non suivis, leurs empreintes ne peuvent pas être attribuées à la version validée de HEAD ; un état non enregistré ne permet pas non plus de conclure à une correspondance. La date de HEAD est celle d’un commit du dépôt, pas la date de publication de cette page.
+
+:::tip[Comparer un fichier]
+Dans le panneau « Comparaison de l’intégrité du fichier source » de cette page, choisissez le fichier Markdown local au chemin indiqué, puis cliquez sur « Calculer et comparer le fichier ». Les comparaisons en ligne de commande doivent appliquer la même normalisation des fins de ligne. Une différence peut résulter de la version, du contenu ou du manifeste. Un manifeste indisponible ou un échec de lecture ou de calcul ne constitue pas une comparaison réussie.
 :::
 
 ## 6. Frontières de responsabilité et canaux de signalement

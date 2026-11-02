@@ -3,7 +3,7 @@ title: Operating Modes
 description: EpoCanvas Mail operating modes — deployment forms, the three mail-mode privacy levels, identity groups and quotas, sign-in and two-step verification, multi-account, and interface display modes.
 ---
 
-**Effective Date: October 11, 2026 | Version: 5.19**
+**Updated: November 2, 2026 | Version: 5.25**
 
 The same code base presents different operating forms depending on configuration: an instance can be hosted or self-deployed; the administrator chooses the balance between privacy and reviewability across three mail modes; accounts receive quotas and permissions according to their identity group; and sign-in, multi-account use, and the interface each offer several options. This page documents the behaviour of and differences between each mode. For the data handling involved, see [Data Processing & Security Maintenance](/en/mail/data-security/); for feature operation, see the [Feature Guide](/en/mail/features/); for the item-by-item settings entrances, see the [Settings Guide](/en/mail/settings/).
 
@@ -14,7 +14,7 @@ The service is available in the following two forms; the definition of the data 
 | Form | Operator | Suited to |
 | --- | --- | --- |
 | Hosted instance | The EpoCanvas operations team ([mail.epocanvas.com](https://mail.epocanvas.com)) | Sign up and use, with no need to bring your own domain or Cloudflare account |
-| Self-deployed instance | The deploying person or organisation | All data stays within the deployer's own Cloudflare resources, with auditable source code |
+| Self-deployed instance | The deploying person or organisation | The deployer configures the main resources; outbound delivery, identity sources, object storage, AI, and notifications may still involve other providers. See the Sub-processor List |
 
 ## 2. Mail mode: three privacy levels
 
@@ -22,16 +22,16 @@ The administrator selects the instance's mail mode on the website-settings card 
 
 ![EpoCanvas Mail system settings, website settings card: the mail-mode dropdown is open showing All-Mail Mode (Level 1), Privacy Mail Mode (Level 2 [Recommended]) and Encrypted Mail Mode (Level 3 [E2EE]); the current value is Privacy Mail Mode with a Level 2 enhanced-privacy badge (interface in Simplified Chinese)](/images/mail/en/ui/mode-guide.png)
 
-*Figure: mail-mode selection. The instance shown runs in Privacy Mail Mode; the personalisation card on the right and the storage and push cards below are on the same page.*
+*Figure: an example of the mail-mode selection interface. The mode value and badge in the screenshot do not establish the live instance's current configuration or indicate end-to-end encryption.*
 
 <details>
 <summary>Walkthrough: Mail mode —  how one dropdown decides instance-wide privacy</summary>
 
-The mail-mode region of the Site Settings card in system settings: one dropdown decides how mail is stored encrypted and how much the admin can see, effective immediately.
+The mail-mode region of the Site Settings card in system settings: the dropdown affects subsequent field encryption and administrative visibility; it does not establish that historical data has completed a bulk migration.
 
-1. **Mail-mode dropdown**: The admin picks the balance among three tiers: Level 1 all plaintext (admin sees everything), Level 2 private mode (factory default; user mail AES-256-GCM encrypted at rest), Level 3 full E2EE (the admin API returns no user mail at all).
-2. **Level 2 privacy badge**: This instance runs in private mode: the admin can only see spam, trash and ownerless mail, and the two-step-verification master switch is locked on.
-3. **The three expanded options**: L1 all-mail mode, L2 private mode (recommended) and L3 encrypted mode (E2EE) at a glance. In encrypted mode the mail-review entry disappears, timestamps are stripped from audit tickets and global forwarding is locked off.
+1. **Mail-mode dropdown**: Level 1 stores mail in plaintext. Level 2 Private mode is the factory default and applies server-side encryption at rest to some user body and subject content. Level 3 Encrypted mode extends encryption at rest and makes the administrative mail list return no user mail. None of these modes provides end-to-end encryption; the server retains the ability to decrypt.
+2. **Level 2 privacy badge**: The Private-mode administrative list can show spam, trash, and ownerless mail, and the two-step-verification master switch is locked on. The badge does not establish that administrators are technically unable to access other data.
+3. **The three expanded options**: An E2EE label in the interface or screenshot does not change the actual server-side encryption design. Encrypted mode hides the full-store review entry, strips timestamps from operation reports, and disables system-level forwarding and bot notifications; individually configured outbound transfers are not automatically disabled.
 
 </details>
 
@@ -39,9 +39,9 @@ The mail-mode region of the Site Settings card in system settings: one dropdown 
 | --- | --- | --- | --- | --- |
 | All-Mail Mode (Level 1) | Everything in plaintext | All mail | Can be turned off | Can be turned on |
 | Privacy Mail Mode (Level 2, factory default) | User correspondence encrypted at rest with AES-256-GCM; trash kept in plaintext for recovery | Spam, trash and ownerless mail only | Locked on | Can be turned on |
-| Encrypted Mail Mode (Level 3 [E2EE]) | All mail (trash included) fully encrypted | Returns no user mail list whatsoever | Locked on | Locked off |
+| Encrypted Mail Mode (Level 3, labelled E2EE in the interface) | Broader server-side encryption at rest of subjects and bodies; attachments and routing metadata are not automatically included | Returns no user mail list whatsoever | Locked on | Locked off at system level; individual configurations need separate checks |
 
-Mode changes take effect immediately. In encrypted mode the admin mail list is permanently empty, audit records have their timestamps stripped, and the mail-review entry in the admin sidebar is hidden as well. Per-user forwarding and Telegram push configured by individual users do not follow the site-wide mode; they are governed by the operator's user-data-control switches and the users' own settings. In privacy mode, restoring a message from the trash decrypts it before it lands back in the mailbox, and re-encrypts it afterwards.
+Mode changes affect subsequent processing and administrative lists, but do not establish that all historical records, copies, or attachments have been migrated. In Encrypted mode, the administrative mail list is empty, timestamps are stripped from some operation-report records, and the review entry in the administrative sidebar is hidden. Individual mail forwarding and Telegram notifications do not automatically turn off with the site-wide mode; they remain subject to the corresponding controls and individual settings. In Private mode, moving mail to Trash first decrypts and stores its subject, body, and verification code, bringing it within administrative visibility; restoration encrypts it again according to the mode.
 
 ## 3. Identity groups and quotas
 
@@ -87,7 +87,7 @@ New registrations land in the factory-default group, the Visitor; the operator c
 The three core regions of the sign-in page: one complete password login path; third-party quick sign-in buttons sit below the card.
 
 1. **Email field**: The account is the email address itself. In reg-key mode this page also accepts an `?code=` invite parameter that pre-fills the registration form.
-2. **Password field**: Passwords are stored as salted hashes — the server never sees plaintext. "Forgot password" hops to the external appeal portal carrying the appeal type, UI language and email.
+2. **Password field**: The password is sent over TLS to the server for verification, so the server does handle the entered value. Persistent verification records use salted hashes, while some pending MFA flows also store plaintext temporarily; see the data-security document. The forgot-password entry may send the appeal type, language, and email address to the configured appeal portal.
 3. **Sign-in button**: On submit, accounts with two-step verification continue to the second factor; repeated failures trigger brute-force lockout. Tick "keep this device trusted" to skip re-verification for 30 days.
 
 </details>
@@ -115,7 +115,7 @@ Four regions of the security page: the credential change entry on top, and the t
 
 ## 5. Multi-account mode
 
-The administrator can turn on "multi-account quick switching" (off by default). Once on, the avatar menu lists the signed-in accounts with a switching entry, and "manage your Epomail accounts" leads to the add-account flow; each account keeps an independent session, and interface paths are isolated by the `/mail/u/index/` prefix, so switching accounts never overwrites another account's sign-in state. Switching between mailbox aliases within one account does not create a new session.
+The administrator can enable multi-account quick switching (off by default). The avatar menu then lists signed-in accounts and controls for switching or adding accounts; `/mail/u/index/` selects an account. Accounts may have separate sessions, and local draft databases are selected by mailbox address, but same-origin storage is not a separate browser profile. In this round's local implementation, ordinary logout ends only the current session and clears the current-message cache and recipient history, preserving other account sessions and drafts. It does not revoke all tokens or sharing links. Switching mailbox aliases within one account does not create a new session. These behaviours do not establish deployment to every live instance; see Section 4.3 of the privacy policy for shared devices.
 
 ![EpoCanvas Mail avatar menu opened at the top right of the inbox: the current account admin (Master) with a dropdown arrow, a "manage your Epomail accounts" button and the storage-usage bar (interface in Simplified Chinese)](/images/mail/ui/ui-account-menu.png)
 
@@ -126,8 +126,8 @@ The administrator can turn on "multi-account quick switching" (off by default). 
 
 The avatar menu opened from the top-right corner: the hub for multi-account switching and account details.
 
-- **Account row**: The current account (admin · Owner) with a switching chevron; in multi-account mode every signed-in session is listed, isolated under `/mail/u/N/` prefixes.
-- **"Manage your Epomail account" button**: The add-account entry: it completes a new sign-in through the login page's dedicated deep link and returns with one more session. The point is that nothing is overwritten — the new account does not evict the current session, and each workspace is isolated behind a /mail/u/N/ path prefix, so switching merely changes the prefix rather than signing in again.
+- **Account row**: The current account (admin · Owner) and switching chevron; multi-account mode lists signed-in sessions, with `/mail/u/N/` selecting the account. The path itself does not establish storage or device isolation.
+- **"Manage your Epomail account" button**: Adds an account through the login page and returns to the switching list; routing is not a separate storage boundary. To remove all this site's account data from this browser, separately confirm device cleanup under Settings → Data. Ordinary logout does not silently delete other accounts' drafts.
 - **Storage bar**: The progress bar for this account's attachment storage: the numerator is the space used, the denominator the quota attached to its role (per-role factory values on the roles page). Once personal object storage is connected, new attachments stop counting here — so a bar that stops growing does not mean attachments stopped arriving.
 
 </details>
@@ -146,4 +146,4 @@ The interface ships in six languages — 简体中文, 繁體中文, English, Fr
 | Item-by-item tour of personal settings and the admin console | [Settings Guide](/en/mail/settings/) |
 | Feature details with interface screenshots | [Feature Guide](/en/mail/features/) |
 | Privacy semantics and retention of the mail modes | [Data Processing & Security Maintenance](/en/mail/data-security/) |
-| Admin visibility over mail content | [Privacy Policy](/en/mail/privacy-policy/), section 10 |
+| Admin visibility over mail content | [Privacy Policy](/en/mail/privacy-policy/), section 4 |
