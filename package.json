@@ -9,8 +9,8 @@
     "deploy": "pnpm run build && npx wrangler pages deploy dist --project-name epomail-docs --branch main",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "python3 scripts/check-structure.py",
-    "validate": "pnpm run build && node --test scripts/docs-ui.test.mjs && node scripts/validate-anchors.cjs && python3 scripts/check-structure.py && python3 scripts/check-delivery.py --version 5.25"
+    "check": "node scripts/py.mjs scripts/check-structure.py",
+    "validate": "pnpm run build && node --test scripts/docs-ui.test.mjs && node scripts/validate-anchors.cjs && node scripts/py.mjs scripts/check-structure.py && node scripts/py.mjs scripts/check-delivery.py --version 5.25"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.32.0",
