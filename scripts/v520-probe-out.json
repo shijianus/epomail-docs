@@ -1,0 +1,111 @@
+{
+ "kpiCards": [
+  {
+   "cls": "kpi-threat -active",
+   "title": "濫用威脅",
+   "sub": "零容忍處置與不可自動過期封禁台賬",
+   "value": "待審 4 / 已封禁 2",
+   "rect": {
+    "top": 102,
+    "left": 320,
+    "width": 255,
+    "height": 128
+   }
+  },
+  {
+   "cls": "kpi-appeal",
+   "title": "申訴審計",
+   "sub": "判決申訴 · 表單復核",
+   "value": "2",
+   "rect": {
+    "top": 104,
+    "left": 589,
+    "width": 255,
+    "height": 128
+   }
+  },
+  {
+   "cls": "kpi-audit",
+   "title": "風險管理",
+   "sub": "垃圾郵件 · 異地跳IP",
+   "value": "4",
+   "rect": {
+    "top": 104,
+    "left": 857,
+    "width": 255,
+    "height": 128
+   }
+  },
+  {
+   "cls": "kpi-record",
+   "title": "操作記錄",
+   "sub": "封禁解禁 · 歸檔更新",
+   "value": "3",
+   "rect": {
+    "top": 104,
+    "left": 1126,
+    "width": 255,
+    "height": 128
+   }
+  }
+ ],
+ "filters": [
+  "15項/頁",
+  "請選擇"
+ ],
+ "tableHeads": [],
+ "rows": 0,
+ "buttons": [
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "查看詳情",
+  "關閉"
+ ],
+ "tabs": [
+  "編號對象狀態分類處理操作#10029unbanned_user@​epocanvas.​comusr_29已解除賬戶倒手",
+  "編號對象狀態分類處理操作#10029unbanned_user@​epocanvas.​comusr_29已解除賬戶倒手",
+  "編號對象狀態分類處理操作#10029unbanned_user@​epocanvas.​comusr_29已解除賬戶倒手",
+  "#10029unbanned_user@​epocanvas.​comusr_29已解除賬戶倒手改密后环境突变申訴通過1",
+  "#10028compromised_bot@​malicious.​xyzusr_28已封禁外發濫用投诉率 0.4% 1",
+  "#10027spammer_appealed@​malicious.​xyzusr_27待審外發濫用用户举报 3 人建議",
+  "#10026pilot-recovery@​epocanvas.​comusr_26待審外發濫用系统规则命中建議封禁-查",
+  "#10025zhangsan@​epocanvas.​comusr_25待審外發濫用用户举报 1 人建議封禁-查看詳情",
+  "#100242 個賬號 syndicate_cluster@​farm.​netusr_24待審一人多號Jaccard ",
+  "#10023internal_spammer@​epocanvas.​comusr_23待審外發濫用用户举报 5 人建議",
+  "#10022phishing_scam@​external-fake.​xyzusr_22待審外發濫用用户举报 12 人",
+  "#10021roaming_user@​epocanvas.​comusr_21待審外發濫用系统规则命中建議封禁-查看詳",
+  "#10020health_sample@​monitor.​epocanvas.​comusr_20已解除外發濫用系统规",
+  "#10019guest_expired@​visitor.​orgusr_19待審外發濫用系统规则命中建議封禁-查看詳情",
+  "#10018tester_audited@​epocanvas.​comusr_18待審外發濫用系统规则命中建議封禁-查"
+ ],
+ "bodyClasses": "",
+ "texts": [
+  null,
+  {
+   "text": "待審 4 / 已封禁 2",
+   "sel": "stat-number stat-danger",
+   "rect": {
+    "top": 139,
+    "left": 395,
+    "w": 153
+   }
+  },
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null
+ ]
+}
